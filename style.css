@@ -121,3 +121,54 @@ main{width:100%;margin:0;padding:0}
 @media(min-width:761px){
   .catalog{padding-left:clamp(28px,4.1vw,64px);padding-right:clamp(28px,4.1vw,64px)}
 }
+
+/* === VIEWPORT-PAGE SECTIONS: FIRST SCREEN = HERO, SECOND SCREEN = CATALOG === */
+html,body{min-height:100%;scroll-snap-type:y proximity}
+.header{height:84px;min-height:84px;flex-shrink:0}
+.hero{
+  height:calc(100svh - 84px);
+  min-height:620px;
+  max-height:none;
+}
+.hero-copy{
+  padding-top:clamp(55px,7vh,105px);
+}
+.hero-visual{height:100%}
+.hero-bg{height:100%;background-size:cover}
+.hero-globe{
+  width:min(38vw,430px);
+  height:min(38vw,430px);
+  top:50%;
+  transform:translateY(-50%);
+}
+.hero-product-placeholder{
+  height:52%;
+  bottom:0;
+}
+.catalog{
+  min-height:100svh;
+  align-items:start;
+  scroll-snap-align:start;
+}
+.why{min-height:90px}
+footer{min-height:104px}
+
+@media(min-width:761px){
+  .hero{scroll-snap-align:start}
+  .catalog{padding-top:clamp(24px,3vh,38px)}
+}
+@media(max-width:1100px) and (min-width:761px){
+  .hero{min-height:620px}
+}
+@media(max-width:760px){
+  html,body{scroll-snap-type:none}
+  .header{height:72px;min-height:72px}
+  .hero{
+    height:auto;
+    min-height:calc(100svh - 72px);
+    max-height:none;
+  }
+  .hero-copy{padding-top:40px}
+  .hero-visual{height:42svh;min-height:285px}
+  .catalog{min-height:auto}
+}
