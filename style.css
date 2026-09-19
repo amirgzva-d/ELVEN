@@ -110,3 +110,55 @@ footer{min-height:110px;background:linear-gradient(180deg,#075446,#043e34);color
 @media(max-width:760px){
   .export-strip--wide{margin:0 18px 22px}
 }
+
+/* ===== Final reference proportions ===== */
+.hero-content h1{font-size:clamp(58px,6.1vw,94px);line-height:.94;max-width:760px}
+.hero-content .hero-lead{max-width:590px;font-size:14px}
+.hero-signature{display:none}
+
+.category-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:row}
+.category-card--featured{grid-column:span 2;grid-row:span 1}
+.category-card--featured .category-image{height:230px}
+.category-card{cursor:pointer}
+.category-card:focus-visible{outline:2px solid #0d4e4a;outline-offset:3px}
+
+.export-banner.export-strip--wide{
+  margin:26px clamp(30px,4.2vw,72px) 36px;
+  min-height:82px;
+  border-radius:15px;
+  background:#114b3b;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:18px 28px;
+  position:relative;
+  overflow:hidden;
+}
+.export-banner.export-strip--wide::before{
+  content:"";
+  position:absolute;inset:0;
+  background:url("https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2070&auto=format&fit=crop") center/cover;
+  opacity:.22;
+}
+.export-content,.export-btn{position:relative;z-index:1}
+.export-content{display:flex;align-items:center;gap:18px}
+.export-content small{font-size:8px;letter-spacing:.16em;text-transform:uppercase;opacity:.78}
+.export-content strong{font-size:23px;font-weight:700}
+.export-flags{display:flex;gap:8px;font-size:15px}
+.export-btn{background:#fff;color:#114b3b;text-decoration:none;border-radius:22px;padding:10px 16px;font-size:9px;font-weight:700;white-space:nowrap}
+@media(max-width:900px){
+  .hero-content h1{font-size:clamp(52px,8vw,72px)}
+}
+@media(max-width:760px){
+  .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .category-card--featured{grid-column:1/-1}
+  .export-banner.export-strip--wide{margin:20px 18px 28px;flex-direction:column;align-items:flex-start}
+  .export-content{flex-wrap:wrap}
+}
+@media(max-width:480px){
+  .category-grid{grid-template-columns:1fr}
+  .category-card--featured{grid-column:auto}
+  .hero-content h1{font-size:48px}
+}
