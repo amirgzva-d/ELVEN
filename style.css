@@ -57,37 +57,37 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
 .product-detail-category{position:absolute;top:22px;left:22px;background:rgba(255,255,255,.82);border:1px solid rgba(20,79,61,.08);padding:10px 15px;border-radius:30px;color:#155743;font-size:11px;font-weight:800;z-index:3}.detail-heart{position:absolute;right:22px;top:22px;width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.84);color:#155743;font-size:25px;z-index:3;cursor:pointer}.product-detail-media img{position:relative;z-index:2;width:78%;max-height:76%;object-fit:contain;filter:drop-shadow(0 24px 22px rgba(25,65,45,.16))}.detail-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}.detail-dots i{width:9px;height:9px;border-radius:50%;background:#d4ded8}.detail-dots i.active{background:#17664f}
 .product-detail-info{position:relative;padding:74px 72px 55px 28px;display:flex;flex-direction:column;justify-content:center}.detail-kicker{font-size:9px;letter-spacing:.2em;color:#568274;font-weight:800}.detail-heading h2{font-family:var(--serif);color:#155743;font-size:clamp(42px,4vw,68px);line-height:1.02;margin:13px 0 18px}.detail-heading p{font-size:14px;line-height:1.9;color:#73827d;max-width:650px}.detail-offer{display:flex;align-items:center;gap:20px;margin:25px 0}.detail-offer strong{font-size:27px;color:#155743}.detail-offer button{border:1px solid #d7e4dd;background:#fff;border-radius:28px;padding:10px 16px;color:#155743;font-weight:800;cursor:pointer}.detail-tabs{display:flex;border:1px solid #d9e4de;border-radius:40px;padding:5px;margin:4px 0 24px;max-width:640px}.detail-tabs button{flex:1;border:0;background:transparent;border-radius:32px;padding:12px;color:#53736a;font-weight:700;cursor:pointer}.detail-tabs button.active{background:#177052;color:#fff}.detail-content{max-width:650px}.detail-feature{display:grid;grid-template-columns:62px 1fr auto;align-items:center;gap:17px;padding:14px 0;border-bottom:1px solid #dde7e1}.detail-feature>span{width:62px;height:62px;border-radius:50%;background:#edf6ef;display:grid;place-items:center;color:#177052;font-size:25px}.detail-feature div{display:flex;flex-direction:column;gap:5px}.detail-feature b{font-size:13px;color:#255b4b}.detail-feature small{font-size:11px;color:#82918c;line-height:1.6}.detail-feature>strong{font-size:12px;color:#177052}.detail-side-actions{display:grid;grid-template-columns:1fr 1fr 2fr;gap:12px;margin-top:22px;max-width:650px}.detail-side-actions button,.detail-side-actions a{border:1px solid #dbe6e0;background:#fff;border-radius:14px;padding:13px;text-align:center;text-decoration:none;color:#35665a;font-weight:700}.detail-side-actions a{background:#177052;color:#fff;border-color:#177052}.detail-corner-art{position:absolute;right:-25px;bottom:-25px;width:280px;height:200px;background:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790848/file_00000000597c81f589a9c22488b94062_im7vpl.webp") right bottom/contain no-repeat;opacity:.42;pointer-events:none}.product-detail-close{position:absolute;right:20px;top:18px;z-index:10;width:42px;height:42px;border:0;border-radius:50%;background:#fff;color:#155743;font-size:27px;line-height:1;cursor:pointer;box-shadow:0 8px 25px rgba(20,70,50,.1)}
 
-/* FOOTER — based on the supplied reference, adapted to Mohajer */
-.site-footer{background:#091b12;color:#fff;padding:54px 20px 20px;font-size:13px}
-.footer-container{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.5fr;gap:34px;padding-bottom:42px}
-.footer-logo{display:flex;align-items:center;gap:11px;margin-bottom:16px}
-.footer-logo-mark{width:39px;height:35px;position:relative;display:block}
-.footer-logo-mark i,.footer-logo-mark b{position:absolute;display:block;background:#6bbf3a;transform:skew(-30deg)}
-.footer-logo-mark i:nth-child(1){width:7px;height:31px;left:3px;top:2px}
-.footer-logo-mark i:nth-child(2){width:7px;height:35px;left:14px;top:0}
-.footer-logo-mark i:nth-child(3){width:7px;height:28px;left:25px;top:4px}
-.footer-logo-mark b{width:22px;height:5px;left:7px;top:16px;transform:rotate(-39deg)}
-.footer-logo strong{display:block;font-size:17px;letter-spacing:1.2px}
-.footer-logo small{display:block;margin-top:4px;font-size:7px;letter-spacing:3px;color:#8c9e95}
-.footer-brand p{color:#8c9e95;line-height:1.7;max-width:290px;margin:0}
-.footer-column h4,.footer-social-apps h4{color:#fff;font-size:14px;font-weight:600;margin:0 0 19px}
+/* FOOTER — compact layout matching the supplied reference */
+.site-footer{background:#031f17;color:#fff;padding:18px 22px 7px;font-size:9px}
+.footer-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1.15fr 1.05fr 1.5fr;gap:28px;align-items:start;padding-bottom:13px}
+.footer-logo{display:flex;align-items:center;gap:8px;margin-bottom:7px;height:25px}
+.footer-logo-mark{width:28px;height:24px;position:relative;display:block;flex:none}
+.footer-logo-mark i,.footer-logo-mark b{position:absolute;display:block;background:#75c83e;transform:skew(-30deg)}
+.footer-logo-mark i:nth-child(1){width:5px;height:21px;left:2px;top:2px}
+.footer-logo-mark i:nth-child(2){width:5px;height:24px;left:10px;top:0}
+.footer-logo-mark i:nth-child(3){width:5px;height:19px;left:18px;top:3px}
+.footer-logo-mark b{width:16px;height:3px;left:5px;top:11px;transform:rotate(-39deg)}
+.footer-logo strong{display:block;font-size:11px;line-height:1;letter-spacing:.7px}
+.footer-logo small{display:block;margin-top:3px;font-size:4.5px;letter-spacing:1.8px;color:#78958a}
+.footer-brand p{color:#78958a;line-height:1.45;max-width:185px;font-size:7px;margin:0}
+.footer-column h4,.footer-social-apps h4{color:#fff;font-size:8px;font-weight:600;margin:0 0 6px}
 .footer-column ul{list-style:none;margin:0;padding:0}
-.footer-column li{margin-bottom:12px}
-.footer-column a{color:#8c9e95;transition:.25s}
-.footer-column a:hover{color:#6bbf3a}
-.social-icons{display:flex;gap:10px;margin-bottom:25px}
-.social-icons a{width:36px;height:36px;border-radius:50%;background:transparent;border:1px solid #1c2e24;color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:.25s}
-.social-icons a:hover{background:#6bbf3a;border-color:#6bbf3a;color:#fff}
-.footer-app-buttons{display:flex;gap:10px}
-.footer-app-btn{display:flex;align-items:center;gap:8px;background:transparent;border:1px solid #1c2e24;border-radius:8px;padding:8px 11px;color:#fff;text-decoration:none;transition:.25s;min-width:128px}
-.footer-app-btn:hover{background:rgba(255,255,255,.05);border-color:#284136}
-.footer-app-icon{font-size:20px;line-height:1;color:#fff}
-.footer-app-text{display:flex;flex-direction:column;line-height:1.2}
-.footer-app-text small{font-size:8px;color:#8c9e95;text-transform:uppercase}
-.footer-app-text strong{font-size:11px;font-weight:600;color:#fff;margin-top:2px}
-.footer-bottom{max-width:1240px;margin:0 auto;padding-top:20px;border-top:1px solid #1c2e24;display:flex;justify-content:space-between;align-items:center;color:#8c9e95;font-size:11px}
-.footer-bottom-links{display:flex;gap:20px}
-.footer-bottom-links a{color:#8c9e95;transition:.25s}
+.footer-column li{margin-bottom:4px;line-height:1}
+.footer-column a{color:#78958a;font-size:7px;transition:.2s}
+.footer-column a:hover{color:#75c83e}
+.social-icons{display:flex;gap:6px;margin-bottom:10px}
+.social-icons a{width:19px;height:19px;border-radius:50%;background:transparent;border:1px solid #244239;color:#fff;font-size:8px;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:.2s}
+.social-icons a:hover{background:#75c83e;border-color:#75c83e}
+.footer-app-buttons{display:flex;gap:5px}
+.footer-app-btn{display:flex;align-items:center;gap:5px;background:transparent;border:1px solid #244239;border-radius:4px;padding:4px 6px;color:#fff;text-decoration:none;transition:.2s;min-width:78px;height:27px}
+.footer-app-btn:hover{background:rgba(255,255,255,.05)}
+.footer-app-icon{font-size:10px;line-height:1}
+.footer-app-text{display:flex;flex-direction:column;line-height:1.05}
+.footer-app-text small{font-size:4px;color:#78958a;text-transform:uppercase}
+.footer-app-text strong{font-size:6.5px;font-weight:600;color:#fff;margin-top:2px}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:7px;border-top:1px solid #15372d;display:flex;justify-content:space-between;align-items:center;color:#78958a;font-size:6.5px;line-height:1}
+.footer-bottom-links{display:flex;gap:18px}
+.footer-bottom-links a{color:#78958a;font-size:6.5px;transition:.2s}
 .footer-bottom-links a:hover{color:#fff}
 
 /* RESPONSIVE */
