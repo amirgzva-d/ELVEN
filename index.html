@@ -98,70 +98,70 @@
     </div>
 
     <div class="category-grid" id="categories">
-      <article class="category-card category-card--featured" data-product="Food &amp; Beverages" tabindex="0" role="button">
+      <article class="category-card category-card--featured" data-product="Food &amp; Beverages" tabindex="0" role="button" data-product-link="product.html?product=Food%20%26%20Beverages">
         <div class="featured-copy">
           <div class="featured-icon">✦</div>
           <small class="pill">Food &amp; Beverages</small>
           <h3>Food &amp; Beverages</h3>
           <p>From trusted Iranian producers to international markets.</p>
-          <span class="featured-link">Explore Products <b>→</b></span>
+          <a class="featured-link product-details-link" href="product.html">Explore Products <b>→</b></a>
         </div>
         <div class="category-image image-featured"></div>
       </article>
 
-      <article class="category-card" data-product="Dairy Products" tabindex="0" role="button">
+      <article class="category-card" data-product="Dairy Products" tabindex="0" role="button" data-product-link="product.html?product=Dairy%20Products">
         <div class="category-image image-2"></div><div class="card-content">
           <div class="card-title"><span>◌</span><h3>Dairy Products</h3></div>
           <p>Pure and premium dairy for global buyers.</p>
-          <a href="#contact">Explore <span>→</span></a>
+          <a class="product-details-link" href="product.html">Product Details <span>→</span></a>
         </div>
       </article>
 
-      <article class="category-card" data-product="Baking &amp; Bakery" tabindex="0" role="button">
+      <article class="category-card" data-product="Baking &amp; Bakery" tabindex="0" role="button" data-product-link="product.html?product=Baking%20%26%20Bakery">
         <div class="category-image image-3"></div><div class="card-content">
           <div class="card-title"><span>◌</span><h3>Baking &amp; Bakery</h3></div>
           <p>Essential ingredients for consistent results.</p>
-          <a href="#contact">Explore <span>→</span></a>
+          <a class="product-details-link" href="product.html">Product Details <span>→</span></a>
         </div>
       </article>
 
-      <article class="category-card" data-product="Ingredients" tabindex="0" role="button">
+      <article class="category-card" data-product="Ingredients" tabindex="0" role="button" data-product-link="product.html?product=Ingredients">
         <div class="category-image image-4"></div><div class="card-content">
           <div class="card-title"><span>◌</span><h3>Ingredients</h3></div>
           <p>High-quality ingredients for production.</p>
-          <a href="#contact">Explore <span>→</span></a>
+          <a class="product-details-link" href="product.html">Product Details <span>→</span></a>
         </div>
       </article>
 
-      <article class="category-card" data-product="Tomato Products" tabindex="0" role="button">
+      <article class="category-card" data-product="Tomato Products" tabindex="0" role="button" data-product-link="product.html?product=Tomato%20Products">
         <div class="category-image image-5"></div><div class="card-content">
           <div class="card-title"><span>◌</span><h3>Tomato Products</h3></div>
           <p>Rich tomato products selected for export.</p>
-          <a href="#contact">Explore <span>→</span></a>
+          <a class="product-details-link" href="product.html">Product Details <span>→</span></a>
         </div>
       </article>
 
-      <article class="category-card" data-product="Sweeteners" tabindex="0" role="button">
+      <article class="category-card" data-product="Sweeteners" tabindex="0" role="button" data-product-link="product.html?product=Sweeteners">
         <div class="category-image image-6"></div><div class="card-content">
           <div class="card-title"><span>◌</span><h3>Sweeteners</h3></div>
           <p>Refined and natural sweeteners for industry.</p>
-          <a href="#contact">Explore <span>→</span></a>
+          <a class="product-details-link" href="product.html">Product Details <span>→</span></a>
         </div>
       </article>
 
-      <article class="category-card" data-product="Oils &amp; Fats" tabindex="0" role="button">
+      <article class="category-card" data-product="Oils &amp; Fats" tabindex="0" role="button" data-product-link="product.html?product=Oils%20%26%20Fats">
         <div class="category-image image-7"></div><div class="card-content">
           <div class="card-title"><span>◌</span><h3>Oils &amp; Fats</h3></div>
           <p>Selected oils and fats for manufacturers.</p>
-          <a href="#contact">Explore <span>→</span></a>
+          <a class="product-details-link" href="product.html">Product Details <span>→</span></a>
         </div>
       </article>
 
-      <article class="category-card" data-product="Personal Care" tabindex="0" role="button">
+      <article class="category-card" data-product="Personal Care" tabindex="0" role="button" data-product-link="product.html?product=Personal%20Care">
         <div class="category-image image-8"></div><div class="card-content">
           <div class="card-title"><span>◌</span><h3>Personal Care</h3></div>
           <p>Trusted everyday care products for buyers.</p>
-          <a href="#contact">Explore <span>→</span></a>
+          <a class="product-details-link" href="product.html">Product Details <span>→</span></a>
         </div>
       </article>
     </div>
@@ -184,49 +184,6 @@
   <div class="story"><strong>Our Export Story</strong><small>From Iran to the world</small><button>▶</button></div>
 </section>
 </main>
-
-<div class="product-modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
-  <div class="product-modal-backdrop" data-close-product></div>
-  <div class="product-detail-shell">
-    <button class="product-detail-close" type="button" data-close-product aria-label="Close product details">×</button>
-
-    <div class="product-detail-media">
-      <div class="product-detail-category">✦ <span id="detailCategory">Food Products</span></div>
-      <button class="detail-heart" type="button" aria-label="Save product">♡</button>
-      <img id="detailProductImage" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790848/file_00000000597c81f589a9c22488b94062_im7vpl.webp" alt="Product">
-      <div class="detail-dots"><i class="active"></i><i></i><i></i></div>
-    </div>
-
-    <div class="product-detail-info">
-      <div class="detail-heading">
-        <span class="detail-kicker">MOHAJER TRADING GROUP</span>
-        <h2 id="productModalTitle">Food &amp; Beverages</h2>
-        <p id="detailDescription">Carefully selected products prepared for international markets and export supply.</p>
-      </div>
-
-      <div class="detail-offer"><strong>Price on request</strong><button type="button" data-add-quote>Add to quote <span>+</span></button></div>
-
-      <div class="detail-tabs">
-        <button class="active" data-detail-tab="details">Details</button>
-        <button data-detail-tab="ingredients">Ingredients</button>
-        <button data-detail-tab="notes">Notes</button>
-      </div>
-
-      <div class="detail-content" id="detailTabContent">
-        <div class="detail-feature"><span>♧</span><div><b>Natural sourcing</b><small>Selected from trusted suppliers with export-focused quality control.</small></div><strong>100%</strong></div>
-        <div class="detail-feature"><span>❄</span><div><b>Export ready</b><small>Suitable for international handling, packaging and distribution.</small></div><strong>Ready</strong></div>
-      </div>
-
-      <div class="detail-side-actions">
-        <button type="button">♡ <span>Save</span></button>
-        <button type="button">⌯ <span>Share</span></button>
-        <a href="#contact">Request a quote <span>→</span></a>
-      </div>
-    </div>
-
-    <div class="detail-corner-art"></div>
-  </div>
-</div>
 
 <footer id="contact" class="site-footer">
   <div class="footer-container">
