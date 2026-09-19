@@ -1,1 +1,14 @@
-document.addEventListener("DOMContentLoaded",()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.08});document.querySelectorAll(".reveal").forEach((e,i)=>{e.style.transitionDelay=Math.min(i*35,260)+"ms";io.observe(e)});document.querySelectorAll("[data-clear]").forEach(b=>b.addEventListener("click",()=>{b.closest(".filter-card").querySelectorAll('input[type="checkbox"]').forEach(x=>x.checked=false);b.closest(".filter-card").querySelectorAll('input[type="range"]').forEach(x=>x.value=x.min)}));document.querySelectorAll("[data-apply]").forEach(b=>b.addEventListener("click",()=>{b.textContent="Filters Applied ✓";setTimeout(()=>b.innerHTML='Apply Filter <span>→</span>',1400)}));const hero=document.querySelector(".hero-art");if(hero){window.addEventListener("mousemove",e=>{const x=(e.clientX/window.innerWidth-.5)*7,y=(e.clientY/window.innerHeight-.5)*5;hero.querySelectorAll(".leaf,.scribble,.hero-products").forEach((el,i)=>el.style.transform=`translate(${x*(i+1)/3}px,${y*(i+1)/3}px) rotate(${i===0?0:-5}deg)`)})}});
+document.addEventListener("DOMContentLoaded",()=>{
+  const clear=document.querySelector("[data-clear]");
+  clear?.addEventListener("click",()=>{
+    document.querySelectorAll(".filters input[type=checkbox]").forEach(i=>i.checked=false);
+    const range=document.querySelector(".range"); if(range){range.value=range.min; document.querySelector("[data-price]").textContent="$0";}
+  });
+  const range=document.querySelector(".range");
+  range?.addEventListener("input",()=>document.querySelector("[data-price]").textContent="$"+Number(range.value).toLocaleString());
+  document.querySelector("[data-apply]")?.addEventListener("click",e=>{
+    const b=e.currentTarget; const old=b.innerHTML; b.innerHTML="Filters Applied ✓"; setTimeout(()=>b.innerHTML=old,1300);
+  });
+  document.querySelector("[data-search]")?.addEventListener("click",()=>document.querySelector("#products")?.scrollIntoView({behavior:"smooth"}));
+  document.querySelector("[data-menu]")?.addEventListener("click",()=>document.querySelector(".nav")?.classList.toggle("mobile-open"));
+});
