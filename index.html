@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,7 +12,8 @@
 </head>
 <body>
 <div class="page">
-<header class="header">
+
+<header class="header" id="siteHeader">
   <a class="brand" href="#home" aria-label="Mohajer Trading Group">
     <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><b></b></span>
     <span class="brand-text"><strong>MOHAJER</strong><small>TRADING GROUP</small></span>
@@ -25,7 +26,7 @@
   </nav>
   <div class="header-actions">
     <button class="icon-button" aria-label="Search" data-search><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.7"/><path d="m16 16 5 5"/></svg></button>
-    <button class="icon-button cart-button" aria-label="Quote list"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 11.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span>1</span></button>
+    <button class="icon-button cart-button" aria-label="Quote list"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 11.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span>0</span></button>
     <a class="order-button" href="#contact">Request Quote <b>→</b></a>
   </div>
   <button class="mobile-toggle" aria-label="Open menu" data-menu>☰</button>
@@ -54,6 +55,7 @@
 <section class="catalog" id="products">
   <aside class="filters">
     <div class="filter-title"><strong>Filter Products</strong><button type="button" data-clear>Clear All</button></div>
+
     <div class="filter-section">
       <h3>Product Category <span>⌃</span></h3>
       <label><input type="checkbox" checked>Food &amp; Beverages</label>
@@ -63,6 +65,7 @@
       <label><input type="checkbox">Consumer Goods</label>
       <label><input type="checkbox">Others</label>
     </div>
+
     <div class="filter-section">
       <h3>Sub Category <span>⌃</span></h3>
       <label><input type="checkbox">Drinks &amp; Beverages</label>
@@ -73,13 +76,14 @@
       <label><input type="checkbox">Personal Care</label>
       <label><input type="checkbox">Household</label>
     </div>
+
     <div class="filter-section">
       <h3>Origin <span>⌃</span></h3>
       <label><input type="checkbox" checked>Iran</label>
       <label><input type="checkbox">Other</label>
     </div>
+
     <button class="apply-button" type="button" data-apply>Apply Filters <span>→</span></button>
-    <div class="filter-promo"><span>Quality Products<br><i>for a Better<br>Tomorrow</i></span><b>→</b></div>
   </aside>
 
   <div class="catalog-content">
@@ -87,7 +91,6 @@
       <div>
         <span class="section-kicker">EXPLORE OUR RANGE</span>
         <h2>Product Categories</h2>
-        <p>Selected food products and ingredients for international trade.</p>
       </div>
       <label class="sort">Sort by:
         <select aria-label="Sort products"><option>Popular</option><option>Newest</option><option>Category</option></select>
@@ -95,23 +98,82 @@
     </div>
 
     <div class="category-grid" id="categories">
-      <article class="category-card category-card--featured" data-product="Food & Beverages" tabindex="0" role="button"><div class="category-image image-featured"></div><div class="card-content"><small class="pill">Food &amp; Beverages</small><h3>Food &amp; Beverages</h3><p>A broad range of carefully selected Iranian food products for international buyers.</p><div><a href="#contact">Request Quote <span>→</span></a><em>12 Categories</em></div></div></article>
-      <article class="category-card" data-product tabindex="0" role="button"><div class="category-image image-2"></div><div class="card-content"><small class="pill">Dairy</small><h3>Dairy Products</h3><p>Pure and premium dairy products for global markets.</p><div><a href="#contact">Request Quote <span>→</span></a><em>8 Products</em></div></div></article>
-      <article class="category-card" data-product tabindex="0" role="button"><div class="category-image image-3"></div><div class="card-content"><small class="pill">Baking</small><h3>Baking &amp; Bakery</h3><p>Professional ingredients for modern bakeries.</p><div><a href="#contact">Request Quote <span>→</span></a><em>10 Products</em></div></div></article>
-      <article class="category-card" data-product tabindex="0" role="button"><div class="category-image image-4"></div><div class="card-content"><small class="pill">Ingredients</small><h3>Food Ingredients</h3><p>Reliable ingredients for food production.</p><div><a href="#contact">Request Quote <span>→</span></a><em>9 Products</em></div></div></article>
-      <article class="category-card" data-product tabindex="0" role="button"><div class="category-image image-5"></div><div class="card-content"><small class="pill">Tomato</small><h3>Tomato Products</h3><p>Rich tomato products selected for export.</p><div><a href="#contact">Request Quote <span>→</span></a><em>7 Products</em></div></div></article>
-      <article class="category-card" data-product tabindex="0" role="button"><div class="category-image image-6"></div><div class="card-content"><small class="pill">Sweeteners</small><h3>Sweeteners</h3><p>Natural and refined sweeteners for industry.</p><div><a href="#contact">Request Quote <span>→</span></a><em>6 Products</em></div></div></article>
-      <article class="category-card" data-product tabindex="0" role="button"><div class="category-image image-7"></div><div class="card-content"><small class="pill">Oils &amp; Fats</small><h3>Oils &amp; Fats</h3><p>Selected oils and fats for food manufacturers.</p><div><a href="#contact">Request Quote <span>→</span></a><em>5 Products</em></div></div></article>
-      <article class="category-card" data-product tabindex="0" role="button"><div class="category-image image-8"></div><div class="card-content"><small class="pill">Personal Care</small><h3>Personal Care</h3><p>Trusted everyday care products for global buyers.</p><div><a href="#contact">Request Quote <span>→</span></a><em>4 Products</em></div></div></article>
-    </div>
+      <article class="category-card category-card--featured" data-product="Food &amp; Beverages" tabindex="0" role="button">
+        <div class="featured-copy">
+          <div class="featured-icon">✦</div>
+          <small class="pill">Food &amp; Beverages</small>
+          <h3>Food &amp; Beverages</h3>
+          <p>From trusted Iranian producers to international markets.</p>
+          <span class="featured-link">Explore Products <b>→</b></span>
+        </div>
+        <div class="category-image image-featured"></div>
+      </article>
 
+      <article class="category-card" data-product="Dairy Products" tabindex="0" role="button">
+        <div class="category-image image-2"></div><div class="card-content">
+          <div class="card-title"><span>◌</span><h3>Dairy Products</h3></div>
+          <p>Pure and premium dairy for global buyers.</p>
+          <a href="#contact">Explore <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Baking &amp; Bakery" tabindex="0" role="button">
+        <div class="category-image image-3"></div><div class="card-content">
+          <div class="card-title"><span>◌</span><h3>Baking &amp; Bakery</h3></div>
+          <p>Essential ingredients for consistent results.</p>
+          <a href="#contact">Explore <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Ingredients" tabindex="0" role="button">
+        <div class="category-image image-4"></div><div class="card-content">
+          <div class="card-title"><span>◌</span><h3>Ingredients</h3></div>
+          <p>High-quality ingredients for production.</p>
+          <a href="#contact">Explore <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Tomato Products" tabindex="0" role="button">
+        <div class="category-image image-5"></div><div class="card-content">
+          <div class="card-title"><span>◌</span><h3>Tomato Products</h3></div>
+          <p>Rich tomato products selected for export.</p>
+          <a href="#contact">Explore <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Sweeteners" tabindex="0" role="button">
+        <div class="category-image image-6"></div><div class="card-content">
+          <div class="card-title"><span>◌</span><h3>Sweeteners</h3></div>
+          <p>Refined and natural sweeteners for industry.</p>
+          <a href="#contact">Explore <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Oils &amp; Fats" tabindex="0" role="button">
+        <div class="category-image image-7"></div><div class="card-content">
+          <div class="card-title"><span>◌</span><h3>Oils &amp; Fats</h3></div>
+          <p>Selected oils and fats for manufacturers.</p>
+          <a href="#contact">Explore <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Personal Care" tabindex="0" role="button">
+        <div class="category-image image-8"></div><div class="card-content">
+          <div class="card-title"><span>◌</span><h3>Personal Care</h3></div>
+          <p>Trusted everyday care products for buyers.</p>
+          <a href="#contact">Explore <span>→</span></a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
-<div class="export-strip export-strip--wide">
-  <div><small>WIDE RANGE OF FOOD PRODUCTS</small><strong>Export to 60+ Countries</strong></div>
-  <div class="country-dots">●　●　●　●　●　●　●</div>
-  <a href="#contact">Talk to Sales <span>→</span></a>
+<div class="export-banner export-banner--wide">
+  <div class="export-content">
+    <div><small>WIDE RANGE OF FOOD PRODUCTS</small><strong>Export to 60+ Countries</strong></div>
+    <div class="export-flags">🇩🇪　🇫🇷　🇮🇹　🇷🇺　🇨🇳　🇮🇳</div>
+  </div>
+  <a href="#contact" class="export-btn">View All Products <span>→</span></a>
 </div>
 
 <section class="why" id="about">
@@ -123,45 +185,88 @@
 </section>
 </main>
 
-<!-- Product Details -->
 <div class="product-modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
   <div class="product-modal-backdrop" data-close-product></div>
   <div class="product-detail-shell">
     <button class="product-detail-close" type="button" data-close-product aria-label="Close product details">×</button>
+
     <div class="product-detail-media">
       <div class="product-detail-category">✦ <span id="detailCategory">Food Products</span></div>
-      <button class="detail-heart" aria-label="Save product">♡</button>
-      <img id="detailProductImage" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1789819345/file_000000003c008210b6f0385a258ace8a_xsa007.png" alt="Product">
+      <button class="detail-heart" type="button" aria-label="Save product">♡</button>
+      <img id="detailProductImage" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790848/file_00000000597c81f589a9c22488b94062_im7vpl.webp" alt="Product">
       <div class="detail-dots"><i class="active"></i><i></i><i></i></div>
     </div>
+
     <div class="product-detail-info">
       <div class="detail-heading">
         <span class="detail-kicker">MOHAJER TRADING GROUP</span>
-        <h2 id="productModalTitle">Cream Product</h2>
-        <p id="detailDescription">A carefully selected food product prepared for international markets and export supply.</p>
+        <h2 id="productModalTitle">Food &amp; Beverages</h2>
+        <p id="detailDescription">Carefully selected products prepared for international markets and export supply.</p>
       </div>
-      <div class="detail-offer">
-        <strong>Price on request</strong>
-        <button type="button">Add to quote <span>+</span></button>
-      </div>
+
+      <div class="detail-offer"><strong>Price on request</strong><button type="button" data-add-quote>Add to quote <span>+</span></button></div>
+
       <div class="detail-tabs">
         <button class="active" data-detail-tab="details">Details</button>
         <button data-detail-tab="ingredients">Ingredients</button>
         <button data-detail-tab="notes">Notes</button>
       </div>
+
       <div class="detail-content" id="detailTabContent">
         <div class="detail-feature"><span>♧</span><div><b>Natural sourcing</b><small>Selected from trusted suppliers with export-focused quality control.</small></div><strong>100%</strong></div>
         <div class="detail-feature"><span>❄</span><div><b>Export ready</b><small>Suitable for international handling, packaging and distribution.</small></div><strong>Ready</strong></div>
       </div>
+
       <div class="detail-side-actions">
-        <button>♡ <span>Save</span></button><button>⌯ <span>Share</span></button><a href="#contact">Request a quote <span>→</span></a>
+        <button type="button">♡ <span>Save</span></button>
+        <button type="button">⌯ <span>Share</span></button>
+        <a href="#contact">Request a quote <span>→</span></a>
       </div>
     </div>
+
     <div class="detail-corner-art"></div>
   </div>
 </div>
 
-<footer id="contact"><div>MOHAJER TRADING GROUP &nbsp; | &nbsp; Food Export Division</div><div class="social">✈　◎　◉　in</div><em>Quality Products<br>for a Better Tomorrow</em></footer>
+<footer id="contact" class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="footer-logo-mark"><i></i><i></i><i></i><b></b></span>
+        <span><strong>MOHAJER</strong><small>TRADING GROUP</small></span>
+      </div>
+      <p>Premium Iranian food products, prepared for reliable international trade.</p>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul><li><a href="#about">About Us</a></li><li><a href="#products">Our Products</a></li><li><a href="#about">Our Story</a></li><li><a href="#contact">Contact</a></li></ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Products</h4>
+      <ul><li><a href="#products">Food &amp; Beverages</a></li><li><a href="#products">Dairy Products</a></li><li><a href="#products">Ingredients</a></li><li><a href="#products">Tomato Products</a></li></ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Customer Service</h4>
+      <ul><li><a href="#contact">Request a Quote</a></li><li><a href="#contact">Export Support</a></li><li><a href="#contact">Shipping &amp; Delivery</a></li><li><a href="#contact">FAQs</a></li></ul>
+    </div>
+
+    <div class="footer-social-apps">
+      <h4>Follow Us</h4>
+      <div class="social-icons"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Telegram">✈</a><a href="#" aria-label="YouTube">▶</a></div>
+      <h4>Export Inquiries</h4>
+      <a class="footer-quote" href="#contact">Talk to our sales team <span>→</span></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 Mohajer Trading Group. All rights reserved.</div>
+    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+  </div>
+</footer>
+
 </div>
 <script src="script.js"></script>
 </body>
