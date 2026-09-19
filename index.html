@@ -122,6 +122,45 @@
   <div class="story"><strong>Our Export Story</strong><small>From Iran to the world</small><button>▶</button></div>
 </section>
 </main>
+
+<!-- Product Details -->
+<div class="product-modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
+  <div class="product-modal-backdrop" data-close-product></div>
+  <div class="product-detail-shell">
+    <button class="product-detail-close" type="button" data-close-product aria-label="Close product details">×</button>
+    <div class="product-detail-media">
+      <div class="product-detail-category">✦ <span id="detailCategory">Food Products</span></div>
+      <button class="detail-heart" aria-label="Save product">♡</button>
+      <img id="detailProductImage" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1789819345/file_000000003c008210b6f0385a258ace8a_xsa007.png" alt="Product">
+      <div class="detail-dots"><i class="active"></i><i></i><i></i></div>
+    </div>
+    <div class="product-detail-info">
+      <div class="detail-heading">
+        <span class="detail-kicker">MOHAJER TRADING GROUP</span>
+        <h2 id="productModalTitle">Cream Product</h2>
+        <p id="detailDescription">A carefully selected food product prepared for international markets and export supply.</p>
+      </div>
+      <div class="detail-offer">
+        <strong>Price on request</strong>
+        <button type="button">Add to quote <span>+</span></button>
+      </div>
+      <div class="detail-tabs">
+        <button class="active" data-detail-tab="details">Details</button>
+        <button data-detail-tab="ingredients">Ingredients</button>
+        <button data-detail-tab="notes">Notes</button>
+      </div>
+      <div class="detail-content" id="detailTabContent">
+        <div class="detail-feature"><span>♧</span><div><b>Natural sourcing</b><small>Selected from trusted suppliers with export-focused quality control.</small></div><strong>100%</strong></div>
+        <div class="detail-feature"><span>❄</span><div><b>Export ready</b><small>Suitable for international handling, packaging and distribution.</small></div><strong>Ready</strong></div>
+      </div>
+      <div class="detail-side-actions">
+        <button>♡ <span>Save</span></button><button>⌯ <span>Share</span></button><a href="#contact">Request a quote <span>→</span></a>
+      </div>
+    </div>
+    <div class="detail-corner-art"></div>
+  </div>
+</div>
+
 <footer id="contact"><div>MOHAJER TRADING GROUP &nbsp; | &nbsp; Food Export Division</div><div class="social">✈　◎　◉　in</div><em>Quality Products<br>for a Better Tomorrow</em></footer>
 </div>
 <script src="script.js"></script>
