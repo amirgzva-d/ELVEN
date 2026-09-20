@@ -1113,3 +1113,143 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
     grid-template-columns:1fr 1fr !important;
   }
 }
+
+
+/* =========================================================
+   DESKTOP PRODUCT CARDS — restore the previous comfortable size
+   Keep the 5-column arrangement:
+   Row 1 = featured (2 columns) + 3 cards
+   Row 2 = 5 cards
+   ========================================================= */
+@media (min-width:1201px){
+  .category-grid{
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    grid-auto-rows:280px !important;
+    gap:20px !important;
+    align-items:stretch;
+  }
+
+  .category-card{
+    grid-column:auto !important;
+    grid-row:auto !important;
+    width:100%;
+    height:280px !important;
+    min-height:280px !important;
+    border-radius:16px !important;
+  }
+
+  .category-card--featured{
+    grid-column:span 2 !important;
+    grid-row:span 1 !important;
+    display:grid !important;
+    grid-template-columns:45% 55% !important;
+    padding:0 !important;
+    height:280px !important;
+    min-height:280px !important;
+    background:var(--green);
+  }
+
+  .category-card--featured .featured-copy{
+    grid-column:1;
+    grid-row:1;
+    order:1 !important;
+    height:280px !important;
+    min-height:280px !important;
+    padding:30px !important;
+    display:flex !important;
+    flex-direction:column;
+    justify-content:center;
+    overflow:hidden;
+    z-index:3;
+  }
+
+  .category-card--featured .category-image{
+    grid-column:2;
+    grid-row:1;
+    order:2 !important;
+    width:100% !important;
+    height:280px !important;
+    min-height:280px !important;
+  }
+
+  .category-card--featured .featured-icon{
+    position:static !important;
+    width:40px !important;
+    height:40px !important;
+    margin:0 0 14px !important;
+    font-size:16px !important;
+  }
+
+  .category-card--featured .pill{
+    margin:0 0 10px !important;
+    padding:5px 9px !important;
+    font-size:8px !important;
+  }
+
+  .category-card--featured h3{
+    font-size:20px !important;
+    line-height:1.15 !important;
+    margin:0 0 8px !important;
+  }
+
+  .category-card--featured p{
+    font-size:9px !important;
+    line-height:1.5 !important;
+    margin:0 0 16px !important;
+    max-width:200px !important;
+  }
+
+  .category-card--featured .featured-link{
+    margin-top:0 !important;
+    padding:8px 12px !important;
+    border-radius:18px !important;
+    font-size:8px !important;
+  }
+
+  .category-card .category-image{
+    width:100%;
+    height:140px !important;
+    min-height:140px !important;
+  }
+
+  .category-card .card-content{
+    height:140px !important;
+    min-height:140px !important;
+    padding:24px 20px 20px !important;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .category-card .card-title{
+    gap:8px !important;
+    margin-bottom:8px !important;
+  }
+
+  .category-card .card-title>span{
+    font-size:16px !important;
+  }
+
+  .category-card .card-content h3{
+    font-size:16px !important;
+    line-height:1.25 !important;
+    margin:0 !important;
+  }
+
+  .category-card .card-content p{
+    font-size:12px !important;
+    line-height:1.55 !important;
+    margin:0 0 15px !important;
+    min-height:0 !important;
+  }
+
+  .category-card .product-details-link{
+    font-size:13px !important;
+    margin-top:auto !important;
+    line-height:1 !important;
+  }
+
+  .image-10{
+    background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790848/file_00000000597c81f589a9c22488b94062_im7vpl.webp");
+    background-position:50% center;
+  }
+}
