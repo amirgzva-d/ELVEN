@@ -650,3 +650,64 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   .category-image{height:140px}
   .card-content{padding:24px 18px 20px}
 }
+
+
+/* Final readable desktop footer scale */
+@media (min-width: 761px){
+  .site-footer{
+    padding:48px 40px 18px;
+    font-size:13px;
+  }
+  .footer-container{
+    width:min(1400px,100%);
+    max-width:1400px;
+    margin:0 auto;
+    grid-template-columns:2.1fr 1fr 1.2fr 1.05fr 1.35fr;
+    gap:42px;
+    padding-bottom:32px;
+  }
+  .footer-logo{
+    gap:11px;
+    margin-bottom:14px;
+    height:38px;
+  }
+  .footer-logo-mark{width:40px;height:34px}
+  .footer-logo-mark i:nth-child(1){width:7px;height:30px;left:2px;top:2px}
+  .footer-logo-mark i:nth-child(2){width:7px;height:34px;left:13px;top:0}
+  .footer-logo-mark i:nth-child(3){width:7px;height:27px;left:24px;top:3px}
+  .footer-logo-mark b{width:22px;height:4px;left:6px;top:15px}
+  .footer-logo strong{font-size:16px;letter-spacing:1px}
+  .footer-logo small{font-size:6px;letter-spacing:2.3px;margin-top:4px}
+  .footer-brand p{
+    max-width:290px;
+    font-size:11px;
+    line-height:1.7;
+  }
+  .footer-column h4,.footer-social-apps h4{
+    font-size:13px;
+    margin:0 0 14px;
+  }
+  .footer-column li{margin-bottom:10px;line-height:1.2}
+  .footer-column a{font-size:11px}
+  .social-icons{gap:8px;margin-bottom:24px}
+  .social-icons a{width:32px;height:32px;font-size:12px}
+  .footer-app-buttons{gap:8px}
+  .footer-app-btn{
+    min-width:116px;
+    height:42px;
+    padding:7px 9px;
+    gap:7px;
+    border-radius:6px;
+  }
+  .footer-app-icon{font-size:15px}
+  .footer-app-text small{font-size:6px}
+  .footer-app-text strong{font-size:10px;margin-top:3px}
+  .footer-bottom{
+    width:min(1400px,100%);
+    max-width:1400px;
+    padding-top:16px;
+    font-size:10px;
+  }
+  .footer-bottom-links{gap:24px}
+  .footer-bottom-links a{font-size:10px}
+}
