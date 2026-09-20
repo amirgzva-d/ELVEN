@@ -711,3 +711,48 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   .footer-bottom-links{gap:24px}
   .footer-bottom-links a{font-size:10px}
 }
+
+
+/* =========================================================
+   FULL-WIDTH DESKTOP — remove artificial 1400px page cap
+   The catalog and lower sections now use the complete viewport.
+   ========================================================= */
+@media (min-width: 1201px){
+  .catalog{
+    width:100%;
+    max-width:none;
+    margin:40px 0 0;
+    padding:0 40px;
+    grid-template-columns:280px minmax(0,1fr);
+  }
+
+  .catalog-content{
+    width:100%;
+  }
+
+  .export-banner--wide{
+    width:100%;
+    max-width:none;
+    margin:40px 0;
+    padding-left:40px;
+    padding-right:40px;
+  }
+
+  .why{
+    width:100%;
+    max-width:none;
+    margin:0 0 40px;
+  }
+
+  .footer-container,
+  .footer-bottom{
+    width:100%;
+    max-width:none;
+  }
+}
+
+/* Extra-large screens: keep only a small, intentional page gutter. */
+@media (min-width: 1800px){
+  .catalog{padding-left:48px;padding-right:48px}
+  .export-banner--wide{padding-left:48px;padding-right:48px}
+}
