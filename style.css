@@ -1253,3 +1253,12 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
     background-position:50% center;
   }
 }
+
+
+/* Catalog hero — requested background image */
+.catalog-hero-image{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790985/file_00000000069081f59dd1062c306b79d6_xswabn.webp") !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
