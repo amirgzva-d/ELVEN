@@ -257,3 +257,113 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
 @media (min-width: 1201px) and (max-width: 1450px){
   .catalog{margin-left:24px;margin-right:24px;}
 }
+
+
+/* Actual product-section banner — same desktop proportions as the supplied code */
+@media (min-width:1201px){
+  .catalog-content:before{display:none}
+  .catalog-hero-banner{
+    min-height:220px;
+    background:#fff;
+    border-radius:16px;
+    padding:40px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.03);
+    position:relative;
+    overflow:hidden;
+    order:1;
+  }
+  .catalog-hero-copy{
+    max-width:50%;
+    position:relative;
+    z-index:2;
+  }
+  .catalog-hero-subtitle{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    font-weight:700;
+    color:#6b7280;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .catalog-hero-subtitle span{
+    width:25px;
+    height:2px;
+    background:#d1a054;
+    display:block;
+  }
+  .catalog-hero-copy h2{
+    font-size:36px;
+    line-height:1.1;
+    font-weight:800;
+    color:var(--green);
+    margin:0 0 10px;
+  }
+  .catalog-hero-copy p{
+    font-size:14px;
+    color:#6b7280;
+    line-height:1.6;
+    margin:0 0 25px;
+    max-width:350px;
+  }
+  .catalog-hero-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    width:max-content;
+    background:transparent;
+    border:1px solid var(--green);
+    color:var(--green);
+    padding:10px 24px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:600;
+  }
+  .catalog-hero-image{
+    position:absolute;
+    right:0;
+    top:0;
+    width:50%;
+    height:100%;
+    background:
+      linear-gradient(to left,rgba(255,255,255,0) 0%,rgba(255,255,255,.12) 50%,rgba(255,255,255,1) 100%),
+      url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790848/file_00000000597c81f589a9c22488b94062_im7vpl.webp") center/cover no-repeat;
+  }
+  .catalog-head{order:2}
+  .category-grid{order:3}
+  .image-9{
+    background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790985/file_00000000069081f59dd1062c306b79d6_xswabn.webp");
+    background-position:60% center;
+  }
+}
+@media (max-width:1200px){
+  .catalog-hero-banner{
+    min-height:220px;
+    background:#fff;
+    border-radius:16px;
+    padding:30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.03);
+  }
+  .catalog-hero-copy{max-width:50%;position:relative;z-index:2}
+  .catalog-hero-copy h2{font:800 30px/1.1 var(--sans);color:var(--green);margin:8px 0}
+  .catalog-hero-copy p{font-size:12px;line-height:1.6;color:#6b7280;max-width:350px}
+  .catalog-hero-subtitle{font-size:10px;color:#6b7280;font-weight:700}
+  .catalog-hero-btn{display:inline-flex;margin-top:6px;padding:9px 18px;border:1px solid var(--green);border-radius:50px;color:var(--green);font-size:11px;font-weight:700}
+  .catalog-hero-image{position:absolute;right:0;top:0;width:50%;height:100%;background:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790848/file_00000000597c81f589a9c22488b94062_im7vpl.webp") center/cover no-repeat;opacity:.9}
+}
+@media (max-width:760px){
+  .catalog-hero-banner{min-height:330px;flex-direction:column;align-items:center;text-align:center;padding:25px 20px}
+  .catalog-hero-copy{max-width:100%;display:flex;flex-direction:column;align-items:center}
+  .catalog-hero-subtitle span{display:none}
+  .catalog-hero-image{position:relative;width:100%;height:170px;margin-top:20px;opacity:1;border-radius:12px}
+}
