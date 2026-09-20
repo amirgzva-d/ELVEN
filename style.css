@@ -97,3 +97,163 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
 @media(max-width:480px){.brand-text strong{font-size:19px}.brand-text small{font-size:6px}.hero-content h1{font-size:48px}.hero-lead{font-size:11px}.hero-proof{gap:8px}.hero-proof div{padding:0 10px}.hero-proof b{font-size:21px}.category-grid{grid-template-columns:1fr}.category-card--featured{grid-column:auto;display:flex}.category-card--featured .category-image{min-height:190px}.footer-container{grid-template-columns:1fr}.footer-brand,.footer-social-apps{grid-column:span 1}.footer-bottom-links{flex-wrap:wrap;justify-content:center}.detail-side-actions{grid-template-columns:1fr}.detail-side-actions a{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 @keyframes reveal{to{opacity:1;transform:none}}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+
+/* ===== DESKTOP PRODUCT CATALOG — DIMENSIONS MATCHED TO THE PROVIDED DASHBOARD REFERENCE ===== */
+@media (min-width: 1201px){
+  .catalog{
+    max-width:1400px;
+    margin:40px auto;
+    padding:0;
+    grid-template-columns:280px minmax(0,1fr);
+    gap:30px;
+    background:#f4f6f8;
+    align-items:start;
+  }
+  .catalog .filters{
+    margin-top:0;
+    position:sticky;
+    top:40px;
+    border-radius:16px;
+    background:#fff;
+    box-shadow:0 4px 15px rgba(0,0,0,.03);
+  }
+  .catalog-content{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+  }
+  .catalog-head{
+    order:2;
+    margin:0;
+    align-items:center;
+  }
+  .catalog-content .category-grid{
+    order:3;
+  }
+  .catalog-content:before{
+    content:"";
+    display:block;
+    order:1;
+    min-height:220px;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 4px 15px rgba(0,0,0,.03);
+    background-image:
+      linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.9) 42%,rgba(255,255,255,.08) 72%),
+      url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790848/file_00000000597c81f589a9c22488b94062_im7vpl.webp");
+    background-size:100% 100%,50% 100%;
+    background-position:center,right center;
+    background-repeat:no-repeat;
+  }
+  .catalog-content:after{
+    content:"";
+    display:none;
+  }
+  .category-grid{
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:20px;
+  }
+  .category-card{
+    border-radius:16px;
+    box-shadow:0 4px 15px rgba(0,0,0,.03);
+  }
+  .category-card--featured{
+    grid-column:span 2;
+    min-height:280px;
+    border-radius:16px;
+  }
+  .category-card--featured .category-image{
+    min-height:280px;
+  }
+  .category-image{
+    height:140px;
+  }
+  .featured-copy{
+    padding:30px;
+  }
+  .category-card--featured h3{
+    font-size:24px;
+  }
+  .category-card--featured p{
+    font-size:13px;
+  }
+  .featured-link{
+    padding:10px 20px;
+    font-size:13px;
+  }
+  .featured-icon{
+    width:40px;height:40px;font-size:18px;margin-bottom:15px;
+  }
+  .card-content{
+    padding:30px 20px 20px;
+  }
+  .card-content h3{
+    font-size:16px;
+  }
+  .card-content p{
+    font-size:12px;
+    line-height:1.5;
+    min-height:0;
+    margin-bottom:15px;
+  }
+  .card-content a{
+    font-size:13px;
+  }
+  .card-title{
+    gap:8px;
+    margin-bottom:8px;
+  }
+  .card-title>span{
+    font-size:16px;
+  }
+  .catalog-head h2{
+    font-size:22px;
+    font-family:var(--sans);
+    font-weight:700;
+  }
+  .section-kicker{
+    font-size:12px;
+    letter-spacing:1px;
+  }
+  .sort{
+    font-size:13px;
+    padding:8px 15px;
+  }
+  .sort select{
+    font-size:13px;
+  }
+  .filter-title{
+    height:auto;
+    min-height:60px;
+    padding:0 25px;
+    font-size:18px;
+  }
+  .filter-title button{
+    font-size:12px;
+  }
+  .filter-section{
+    padding:25px;
+  }
+  .filter-section h3{
+    font-size:14px;
+    margin-bottom:15px;
+  }
+  .filter-section label{
+    gap:10px;
+    margin:0 0 12px;
+    font-size:13px;
+  }
+  .filter-section input[type=checkbox]{
+    width:18px;height:18px;
+  }
+  .apply-button{
+    width:calc(100% - 50px);
+    margin:10px 25px 25px;
+    height:48px;
+    font-size:14px;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1450px){
+  .catalog{margin-left:24px;margin-right:24px;}
+}
