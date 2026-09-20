@@ -834,3 +834,77 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
     margin-right:0;
   }
 }
+
+
+/* =========================================================
+   TRUE VIEWPORT CATALOG — FINAL
+   This section is intentionally tied to the viewport, not to
+   any centered/max-width wrapper.
+   ========================================================= */
+@media (min-width: 1201px){
+  .catalog{
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    width:100vw;
+    max-width:none;
+    margin:0;
+    padding:40px clamp(24px,3.75vw,64px) 40px;
+    display:grid;
+    grid-template-columns:280px minmax(0,1fr);
+    gap:30px;
+    background:#f4f6f8;
+  }
+
+  .catalog-content{
+    width:100%;
+    max-width:none;
+    min-width:0;
+  }
+
+  .catalog-hero-banner,
+  .catalog-head,
+  .category-grid{
+    width:100%;
+    max-width:none;
+  }
+
+  .export-banner--wide{
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    width:100vw;
+    max-width:none;
+    margin:0;
+    border-radius:0;
+    padding-left:clamp(24px,3.75vw,64px);
+    padding-right:clamp(24px,3.75vw,64px);
+  }
+
+  .why{
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    width:100vw;
+    max-width:none;
+    margin:0;
+    border-radius:0;
+  }
+
+  .site-footer{
+    width:100vw;
+    max-width:none;
+    margin-left:0;
+    margin-right:0;
+  }
+}
+
+/* Do not allow an older responsive rule to reintroduce a centered shell. */
+@media (min-width:1201px){
+  .catalog,
+  .export-banner--wide,
+  .why,
+  .site-footer{
+    max-width:none !important;
+  }
+}
