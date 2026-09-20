@@ -952,3 +952,164 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
     grid-column:span 2 !important;
   }
 }
+
+
+/* =========================================================
+   REFERENCE PRODUCT GRID — FINAL
+   5 columns. Featured card occupies 2 columns horizontally.
+   Row 1 = featured + 3 standard cards.
+   Row 2 = 5 standard cards.
+   ========================================================= */
+@media (min-width:1201px){
+  .category-grid{
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    grid-auto-rows:160px;
+    gap:10px !important;
+    align-items:stretch;
+  }
+
+  .category-card{
+    grid-column:auto !important;
+    grid-row:auto !important;
+    width:100%;
+    height:160px !important;
+    min-height:160px !important;
+    border-radius:10px !important;
+  }
+
+  .category-card--featured{
+    grid-column:span 2 !important;
+    grid-row:span 1 !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    padding:0 !important;
+    min-height:160px !important;
+    height:160px !important;
+    background:var(--green);
+  }
+
+  .category-card--featured .featured-copy{
+    order:1 !important;
+    grid-column:1;
+    grid-row:1;
+    position:relative;
+    min-height:160px !important;
+    height:160px !important;
+    padding:14px 14px 12px !important;
+    display:flex !important;
+    flex-direction:column;
+    justify-content:flex-start;
+    overflow:hidden;
+    z-index:3;
+  }
+
+  .category-card--featured .category-image{
+    order:2 !important;
+    grid-column:2;
+    grid-row:1;
+    width:100% !important;
+    height:160px !important;
+    min-height:160px !important;
+    position:relative !important;
+  }
+
+  .category-card--featured .featured-icon{
+    position:static !important;
+    width:30px !important;
+    height:30px !important;
+    margin:0 0 8px !important;
+    border:1px solid rgba(255,255,255,.3) !important;
+    background:rgba(255,255,255,.08) !important;
+    color:#fff !important;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:12px !important;
+    flex:none;
+  }
+
+  .category-card--featured .pill{
+    width:max-content;
+    margin:0 0 5px !important;
+    padding:3px 7px !important;
+    font-size:7px !important;
+    line-height:1 !important;
+  }
+
+  .category-card--featured h3{
+    font-size:15px !important;
+    line-height:1.12 !important;
+    margin:0 0 4px !important;
+  }
+
+  .category-card--featured p{
+    font-size:8px !important;
+    line-height:1.35 !important;
+    margin:0 0 7px !important;
+    max-width:145px !important;
+  }
+
+  .category-card--featured .featured-link{
+    width:max-content;
+    margin-top:auto !important;
+    padding:6px 10px !important;
+    border-radius:14px !important;
+    font-size:8px !important;
+    line-height:1 !important;
+  }
+
+  .category-card .category-image{
+    height:92px !important;
+    min-height:92px !important;
+  }
+
+  .category-card .card-content{
+    height:68px !important;
+    min-height:68px !important;
+    padding:9px 12px 8px !important;
+  }
+
+  .category-card .card-title{
+    gap:5px !important;
+    margin-bottom:3px !important;
+  }
+
+  .category-card .card-title>span{
+    font-size:10px !important;
+  }
+
+  .category-card .card-content h3{
+    font-size:11px !important;
+    line-height:1.15 !important;
+    margin:0 !important;
+  }
+
+  .category-card .card-content p{
+    font-size:7px !important;
+    line-height:1.3 !important;
+    margin:3px 0 3px !important;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+
+  .category-card .product-details-link{
+    font-size:7px !important;
+    margin-top:auto !important;
+    line-height:1 !important;
+  }
+}
+
+@media (min-width:761px) and (max-width:1200px){
+  .category-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:14px !important;
+  }
+
+  .category-card--featured{
+    grid-column:span 2 !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+  }
+}
