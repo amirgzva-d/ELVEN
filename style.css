@@ -367,3 +367,286 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   .catalog-hero-subtitle span{display:none}
   .catalog-hero-image{position:relative;width:100%;height:170px;margin-top:20px;opacity:1;border-radius:12px}
 }
+
+
+/* =========================================================
+   FINAL DESKTOP CATALOG SCALE — based on the supplied dashboard
+   Keep the existing Mohajer visual language; only correct scale/layout.
+   ========================================================= */
+@media (min-width: 1201px){
+  body{
+    background:#f4f6f8;
+  }
+
+  .catalog{
+    width:min(1400px,calc(100% - 80px));
+    max-width:1400px;
+    margin:40px auto 0;
+    padding:0;
+    display:grid;
+    grid-template-columns:280px minmax(0,1fr);
+    gap:30px;
+    background:transparent;
+    align-items:start;
+  }
+
+  .filters{
+    width:280px;
+    margin:0;
+    position:sticky;
+    top:40px;
+    align-self:start;
+    border-radius:16px;
+    background:#fff;
+    box-shadow:0 4px 15px rgba(0,0,0,.03);
+  }
+
+  .filter-title{
+    min-height:60px;
+    padding:0 25px;
+    font-size:18px;
+  }
+  .filter-title button{font-size:12px}
+  .filter-section{padding:25px}
+  .filter-section h3{font-size:14px;margin-bottom:15px}
+  .filter-section label{
+    gap:10px;
+    margin:0 0 12px;
+    font-size:13px;
+    line-height:1.35;
+  }
+  .filter-section input[type=checkbox]{width:18px;height:18px}
+  .apply-button{
+    width:calc(100% - 50px);
+    height:48px;
+    margin:10px 25px 25px;
+    font-size:14px;
+  }
+
+  .catalog-content{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+  }
+
+  .catalog-hero-banner{
+    order:1;
+    width:100%;
+    min-height:220px;
+    height:220px;
+    padding:40px 50px;
+    border-radius:16px;
+  }
+  .catalog-hero-copy{max-width:50%}
+  .catalog-hero-subtitle{font-size:12px;margin-bottom:10px}
+  .catalog-hero-copy h2{font-size:36px;margin:0 0 10px}
+  .catalog-hero-copy p{
+    font-size:14px;
+    line-height:1.6;
+    max-width:350px;
+    margin:0 0 25px;
+  }
+  .catalog-hero-btn{padding:10px 24px;font-size:13px}
+
+  .catalog-head{
+    order:2;
+    width:100%;
+    margin:0;
+    min-height:48px;
+  }
+  .section-kicker{font-size:12px;letter-spacing:1px}
+  .catalog-head h2{
+    margin:4px 0 0;
+    font-size:22px;
+    line-height:1.25;
+  }
+  .sort{
+    font-size:13px;
+    padding:8px 15px;
+  }
+  .sort select{font-size:13px}
+
+  /* Four real cards per desktop row. No oversized featured card. */
+  .category-grid{
+    order:3;
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:20px;
+    align-items:stretch;
+  }
+
+  .category-card,
+  .category-card--featured{
+    grid-column:auto !important;
+    width:100%;
+    min-width:0;
+    min-height:280px;
+    height:100%;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.03);
+  }
+
+  .category-card--featured{
+    display:flex;
+    flex-direction:column;
+    background:var(--green);
+    color:#fff;
+  }
+
+  .category-card .category-image{
+    width:100%;
+    height:140px;
+    min-height:140px;
+    flex:none;
+  }
+
+  .category-card--featured .category-image{
+    width:100%;
+    height:140px;
+    min-height:140px;
+    flex:none;
+    order:1;
+    position:relative;
+  }
+
+  .category-card--featured .featured-copy{
+    position:relative;
+    order:2;
+    padding:22px 20px 20px;
+    min-height:140px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+  }
+
+  .category-card--featured .featured-icon{
+    position:absolute;
+    left:18px;
+    top:-22px;
+    width:44px;
+    height:44px;
+    margin:0;
+    border:3px solid var(--green);
+    background:#fff;
+    color:var(--green);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:16px;
+  }
+
+  .category-card--featured .pill{
+    align-self:flex-start;
+    margin:0 0 8px;
+    font-size:9px;
+  }
+
+  .category-card--featured h3{
+    margin:0 0 7px;
+    font-size:17px;
+    line-height:1.2;
+  }
+
+  .category-card--featured p{
+    margin:0 0 12px;
+    font-size:11px;
+    line-height:1.5;
+    max-width:none;
+  }
+
+  .category-card--featured .featured-link{
+    align-self:flex-start;
+    margin-top:auto;
+    padding:8px 14px;
+    font-size:11px;
+  }
+
+  .card-content{
+    min-height:140px;
+    padding:24px 20px 20px;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .card-title{
+    gap:8px;
+    margin-bottom:8px;
+  }
+  .card-title>span{font-size:16px}
+  .card-content h3{
+    font-size:16px;
+    line-height:1.25;
+  }
+  .card-content p{
+    font-size:12px;
+    line-height:1.55;
+    margin:0 0 15px;
+    min-height:0;
+  }
+  .card-content a{
+    margin-top:auto;
+    font-size:13px;
+  }
+
+  /* Keep the rest of the desktop page on the same 1400px visual axis. */
+  .export-banner--wide{
+    width:min(1400px,calc(100% - 80px));
+    max-width:1400px;
+    min-height:90px;
+    margin:40px auto;
+    padding:22px 30px;
+    border-radius:16px;
+  }
+  .export-content{gap:28px}
+  .export-content small{font-size:9px}
+  .export-content strong{font-size:24px}
+  .export-flags{font-size:15px}
+  .export-btn{
+    padding:10px 18px;
+    font-size:11px;
+  }
+
+  .why{
+    width:min(1400px,calc(100% - 80px));
+    max-width:1400px;
+    min-height:230px;
+    margin:0 auto 40px;
+    border-radius:16px;
+  }
+  .why-intro{padding:32px}
+  .why-intro h2{font-size:34px;line-height:1.05;margin:8px 0}
+  .why-intro p{font-size:11px;line-height:1.6;max-width:260px}
+  .why-item{gap:7px}
+  .why-item b{font-size:30px}
+  .why-item strong{font-size:12px}
+  .why-item small{font-size:10px}
+  .story{padding:30px}
+  .story strong{font-size:13px}
+  .story small{font-size:10px}
+  .story button{width:46px;height:46px}
+}
+
+/* Large desktop: preserve comfortable 4-column cards. */
+@media (min-width: 1500px){
+  .catalog,
+  .export-banner--wide,
+  .why{width:min(1400px,calc(100% - 80px))}
+}
+
+/* Tablet keeps the same visual hierarchy without squeezing desktop cards. */
+@media (min-width:761px) and (max-width:1200px){
+  body{background:#f4f6f8}
+  .catalog{
+    width:calc(100% - 80px);
+    max-width:1400px;
+    margin:40px auto 0;
+    padding:0;
+  }
+  .category-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+  .category-card--featured{grid-column:auto !important}
+  .category-image{height:140px}
+  .card-content{padding:24px 18px 20px}
+}
