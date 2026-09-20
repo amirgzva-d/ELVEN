@@ -908,3 +908,47 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
     max-width:none !important;
   }
 }
+
+
+/* =========================================================
+   FINAL PRODUCT GRID ARRANGEMENT
+   Desktop: 5-column grid, with the first featured card
+   spanning two columns. This produces 4 card elements on
+   row one (featured = 2 columns + 3 standard cards) and
+   5 standard cards on row two, for 10 cards total.
+   ========================================================= */
+@media (min-width:1201px){
+  .category-grid{
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    gap:20px;
+    align-items:stretch;
+  }
+
+  .category-card{
+    grid-column:auto !important;
+    min-width:0;
+  }
+
+  .category-card--featured{
+    grid-column:span 2 !important;
+    min-width:0;
+  }
+
+  .category-card--featured .category-image{
+    height:100%;
+    min-height:280px;
+  }
+
+  .category-card--featured .featured-copy{
+    padding:30px;
+  }
+}
+
+@media (min-width:761px) and (max-width:1200px){
+  .category-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+  .category-card--featured{
+    grid-column:span 2 !important;
+  }
+}
