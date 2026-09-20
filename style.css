@@ -756,3 +756,81 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   .catalog{padding-left:48px;padding-right:48px}
   .export-banner--wide{padding-left:48px;padding-right:48px}
 }
+
+
+/* =========================================================
+   DEFINITIVE DESKTOP WIDTH FIX
+   Match the full-viewport first-screen template.
+   No centered 1400px shell and no artificial side whitespace.
+   ========================================================= */
+@media (min-width: 1201px){
+  .catalog{
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:42px clamp(24px,4vw,64px) 32px;
+    background:#f4f6f8;
+    grid-template-columns:280px minmax(0,1fr);
+    gap:30px;
+  }
+
+  .catalog-content{
+    width:100%;
+    min-width:0;
+  }
+
+  .catalog-hero-banner,
+  .catalog-head,
+  .category-grid{
+    width:100%;
+  }
+
+  .export-banner--wide{
+    width:100%;
+    max-width:none;
+    margin:0;
+    border-radius:0;
+    min-height:100px;
+    padding:22px clamp(24px,4vw,64px);
+  }
+
+  .why{
+    width:100%;
+    max-width:none;
+    margin:0;
+    border-radius:0;
+  }
+
+  .site-footer{
+    width:100%;
+  }
+
+  .footer-container,
+  .footer-bottom{
+    width:100%;
+    max-width:none;
+  }
+}
+
+/* At very wide desktop sizes, use the same edge relationship as the header. */
+@media (min-width: 1800px){
+  .catalog{
+    padding-left:64px;
+    padding-right:64px;
+  }
+  .export-banner--wide{
+    padding-left:64px;
+    padding-right:64px;
+  }
+}
+
+/* Never let the desktop page create horizontal whitespace from a wrapper. */
+@media (min-width: 1201px){
+  .page,
+  main{
+    width:100%;
+    max-width:none;
+    margin-left:0;
+    margin-right:0;
+  }
+}
