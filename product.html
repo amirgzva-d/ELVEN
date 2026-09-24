@@ -23,5 +23,26 @@
 <div class="product-layout"><div class="product-image-area"><button class="heart-btn"><i class="far fa-heart"></i></button><div class="pedestal"></div><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790223610/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87_lniam0.png" alt="Yeast Products" class="product-image" id="productImage"><div class="slider-dots" id="sliderDots"><div class="dot active" data-slide="0"></div><div class="dot" data-slide="1"></div></div></div>
 <div class="product-info-area"><div class="vertical-actions"><button class="action-btn"><i class="far fa-bookmark"></i><span>ذخیره</span></button><button class="action-btn"><i class="fas fa-share-alt"></i><span>اشتراک</span></button><button class="action-btn primary"><i class="fas fa-file-invoice-dollar"></i><span>استعلام<br>قیمت</span></button></div><div class="info-content"><div class="category-badge" id="detailCategory"><i class="fas fa-leaf"></i> محصولات غذایی</div><h1 class="product-title" id="productTitle">خامه گیاهی سبک فردا</h1><p class="product-desc" id="productDescription">خامه گیاهی با بافت نرم و سبک، مناسب برای انواع دسرها، نوشیدنی‌ها و تزئینات قنادی.</p><div class="tabs"><button class="tab active">جزئیات</button><button class="tab">آنالیز آنلاین</button></div><div class="features"><div class="feature-item"><div class="feature-icon"><i class="fas fa-seedling"></i></div><div class="feature-text"><h4>استخراج طبیعی <span>100%</span></h4><div class="progress-bar"><div class="progress-fill"></div></div><p>تهیه شده از بهترین مواد اولیه گیاهی با حفظ طعم و کیفیت طبیعی</p></div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-temperature-low"></i></div><div class="feature-text"><h4>ماندگاری بالا</h4><p>قابل نگهداری در یخچال</p></div></div></div></div></div></div>
 <div class="download-section"><h3><i class="fas fa-download"></i> دانلود آنلاین</h3><a href="#" class="download-btn"><i class="fas fa-file-pdf"></i> دانلود کاتالوگ محصولات (PDF)</a></div></div>
-<script>function toggleSidebar(){document.getElementById('savedPanel').classList.toggle('open')}</script><script src="product.js"></script>
+<script>
+function toggleSidebar(){document.getElementById('savedPanel').classList.toggle('open')}
+document.addEventListener('DOMContentLoaded',()=>{
+  const img=document.getElementById('productImage');
+  const dots=[...document.querySelectorAll('#sliderDots .dot')];
+  if(!img||!dots.length)return;
+  const images=[
+    'https://res.cloudinary.com/dqhbyqftq/image/upload/v1790223610/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87_lniam0.png',
+    'https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png'
+  ];
+  let current=0,timer;
+  function show(i){
+    current=(i+images.length)%images.length;
+    img.style.opacity='0';
+    setTimeout(()=>{img.src=images[current];img.style.opacity='1'},140);
+    dots.forEach((d,n)=>d.classList.toggle('active',n===current));
+  }
+  dots.forEach((d,i)=>d.addEventListener('click',e=>{e.stopPropagation();clearInterval(timer);show(i);start()}));
+  function start(){timer=setInterval(()=>show(current+1),4000)}
+  start();
+});
+</script><script src="product.js"></script>
 </body></html>
