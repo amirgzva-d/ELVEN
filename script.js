@@ -91,3 +91,5 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   });
 });
+
+/* Featured card action — pin it to the far left-bottom corner */
