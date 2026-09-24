@@ -1487,12 +1487,31 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   background-repeat:no-repeat !important;
 }
 
-/* Cards not included in the requested list: do not use their old product images. */
-.image-5,
-.image-6,
-.image-8,
+/* Keep the existing images for the other named cards.
+   Only the cards explicitly requested earlier use the new supplied images. */
+.image-5{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073975/%D8%B3%D8%B3_lrwzle.png") !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+.image-6{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790075680/file_00000000c27c81f4804ac29f3db4fbd3_1_zukkab.png") !important;
+  background-position:75% center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+.image-8{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png") !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
 .image-9{
-  background-image:none !important;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790076755/bae57101-5f4b-4f20-83b2-1e60c09cb636_2_c42gsb.png") !important;
+  background-position:60% center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
 }
 
 /* FINAL Yeast two-image slider: images slide in/out inside the image half only. */
