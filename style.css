@@ -1549,47 +1549,127 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   z-index:1;
 }
 
-/* ===== FINAL: PREMIUM YEAST CARD IMAGE ANIMATION =====
-   Scoped only to the large featured product card. */
-.category-card--featured .category-image.featured-slider{
-  position:relative !important;
-  overflow:hidden !important;
-  width:100% !important;
-  height:100% !important;
-  min-height:0 !important;
-  background:none !important;
-  isolation:isolate;
+/* ===== FINAL: PREMIUM YEAST CARD — FULL CARD ANIMATION =====
+   The two supplied images animate across the entire large featured card,
+   not inside a smaller image panel. */
+@media (min-width:761px){
+  .category-card--featured{
+    position:relative !important;
+    overflow:hidden !important;
+    isolation:isolate !important;
+  }
+
+  .category-card--featured .featured-copy{
+    position:relative !important;
+    z-index:4 !important;
+    grid-column:1 / -1 !important;
+    grid-row:1 !important;
+    width:100% !important;
+    height:100% !important;
+    min-height:100% !important;
+    pointer-events:none !important;
+  }
+
+  .category-card--featured .featured-link{
+    pointer-events:auto !important;
+  }
+
+  .category-card--featured .category-image.featured-slider{
+    position:absolute !important;
+    inset:0 !important;
+    z-index:1 !important;
+    width:100% !important;
+    height:100% !important;
+    min-height:100% !important;
+    overflow:hidden !important;
+    background:none !important;
+    grid-column:1 / -1 !important;
+    grid-row:1 !important;
+  }
+
+  .category-card--featured .featured-slider .featured-slide{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    display:block !important;
+    background-position:center !important;
+    background-size:cover !important;
+    background-repeat:no-repeat !important;
+    opacity:1 !important;
+    transform:translate3d(100%,0,0) scale(1.045);
+    transition:
+      transform 1.25s cubic-bezier(.16,1,.3,1),
+      filter 1.25s ease !important;
+    filter:saturate(.98);
+    z-index:1;
+    will-change:transform;
+    backface-visibility:hidden;
+  }
+
+  .category-card--featured .featured-slider .featured-slide.is-active{
+    transform:translate3d(0,0,0) scale(1);
+    filter:saturate(1);
+    z-index:2;
+  }
+
+  .category-card--featured .featured-slider .featured-slide:not(.is-active){
+    transform:translate3d(-100%,0,0) scale(1.045);
+    z-index:1;
+  }
 }
 
-.category-card--featured .featured-slider .featured-slide{
-  position:absolute !important;
-  inset:0 !important;
-  width:100% !important;
-  height:100% !important;
-  display:block !important;
-  background-position:center !important;
-  background-size:cover !important;
-  background-repeat:no-repeat !important;
-  opacity:1 !important;
-  transform:translate3d(100%,0,0) scale(1.035);
-  transition:
-    transform 1.15s cubic-bezier(.16,1,.3,1),
-    filter 1.15s ease !important;
-  filter:saturate(.98);
-  z-index:1;
-  will-change:transform;
-  backface-visibility:hidden;
-}
+@media (max-width:760px){
+  .category-card--featured{
+    position:relative !important;
+    overflow:hidden !important;
+    isolation:isolate !important;
+  }
 
-.category-card--featured .featured-slider .featured-slide.is-active{
-  transform:translate3d(0,0,0) scale(1);
-  filter:saturate(1);
-  z-index:2;
-}
+  .category-card--featured .category-image.featured-slider{
+    position:absolute !important;
+    inset:0 !important;
+    z-index:1 !important;
+    width:100% !important;
+    height:100% !important;
+    min-height:100% !important;
+    background:none !important;
+  }
 
-.category-card--featured .featured-slider .featured-slide:not(.is-active){
-  transform:translate3d(-100%,0,0) scale(1.035);
-  z-index:1;
+  .category-card--featured .featured-copy{
+    position:relative !important;
+    z-index:4 !important;
+    width:100% !important;
+    height:100% !important;
+    pointer-events:none !important;
+  }
+
+  .category-card--featured .featured-link{
+    pointer-events:auto !important;
+  }
+
+  .category-card--featured .featured-slider .featured-slide{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    background-position:center !important;
+    background-size:cover !important;
+    background-repeat:no-repeat !important;
+    opacity:1 !important;
+    transform:translate3d(100%,0,0) scale(1.04);
+    transition:transform 1.15s cubic-bezier(.16,1,.3,1) !important;
+    z-index:1;
+  }
+
+  .category-card--featured .featured-slider .featured-slide.is-active{
+    transform:translate3d(0,0,0) scale(1);
+    z-index:2;
+  }
+
+  .category-card--featured .featured-slider .featured-slide:not(.is-active){
+    transform:translate3d(-100%,0,0) scale(1.04);
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
