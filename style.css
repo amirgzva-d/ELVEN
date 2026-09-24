@@ -1302,3 +1302,13 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
 @media (prefers-reduced-motion:reduce){
   .image-featured::after{animation:none;opacity:0}
 }
+
+
+/* Remove featured-card image overlay */
+@media (min-width: 761px){
+  .category-card--featured::after{
+    display:none !important;
+    content:none !important;
+    background:none !important;
+  }
+}
