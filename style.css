@@ -1408,3 +1408,27 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   .category-card:not(.category-card--featured) .card-footer .product-details-link{margin:0 !important;display:inline-flex !important;border:1px solid #c9d7d0 !important;border-radius:18px !important;padding:7px 10px !important;font-size:9px !important}
   .card-footer small{font-size:8px !important}
 }
+
+/* FINAL: featured card CTA pinned to the far left-bottom corner */
+@media (min-width:761px){
+  .category-card--featured .featured-copy{position:relative !important;}
+  .category-card--featured .featured-link{
+    position:absolute !important;
+    left:12px !important;
+    right:auto !important;
+    bottom:12px !important;
+    margin:0 !important;
+    z-index:5 !important;
+  }
+}
+@media (max-width:760px){
+  .category-card--featured .featured-copy{position:relative !important;}
+  .category-card--featured .featured-link{
+    position:absolute !important;
+    left:10px !important;
+    right:auto !important;
+    bottom:10px !important;
+    margin:0 !important;
+    z-index:5 !important;
+  }
+}
