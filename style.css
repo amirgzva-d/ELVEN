@@ -1454,3 +1454,78 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
 .category-card--featured .featured-slide.is-active{
   opacity:1;
 }
+
+/* FINAL IMAGE ASSIGNMENTS — only the requested named cards use supplied images */
+.image-2{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png") !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+.image-3{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073980/file_00000000eb30822fa80fa6eb84f11f5b_hs6kc3.png") !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+.image-4{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790050802/file_000000001158820ab3c028240b6bdbde_huvnss.png") !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+.image-7{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997372/a2091a7b-5311-4c0d-b5f4-3759ed4faa91_1_rjgv0w.png") !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+.image-10{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997379/file_00000000d19c8243981a90919160d1ea_bdunvz.png") !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+
+/* Cards not included in the requested list: do not use their old product images. */
+.image-5,
+.image-6,
+.image-8,
+.image-9{
+  background-image:none !important;
+}
+
+/* FINAL Yeast two-image slider: images slide in/out inside the image half only. */
+.category-card--featured .category-image.featured-slider{
+  position:relative !important;
+  inset:auto !important;
+  overflow:hidden !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  background:none !important;
+  isolation:isolate;
+}
+.category-card--featured .featured-slide{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  opacity:1 !important;
+  transform:translateX(100%);
+  transition:transform .9s cubic-bezier(.65,0,.25,1) !important;
+  z-index:1;
+  will-change:transform;
+}
+.category-card--featured .featured-slide.is-active{
+  transform:translateX(0);
+  z-index:2;
+}
+.category-card--featured .featured-slide:not(.is-active){
+  transform:translateX(-100%);
+  z-index:1;
+}
