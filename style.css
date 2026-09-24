@@ -1309,3 +1309,75 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
     background:none !important;
   }
 }
+
+
+/* =========================================================
+   PRODUCT CARDS — IMAGE FIRST
+   Keep product cards clean: no HTML text over/inside the
+   product image. Product action buttons may remain.
+   ========================================================= */
+@media (min-width: 761px){
+  .category-card .card-title,
+  .category-card .card-content p{
+    display:none !important;
+  }
+
+  .category-card .card-content{
+    padding:10px 12px !important;
+    min-height:42px !important;
+    height:auto !important;
+  }
+
+  .category-card .product-details-link{
+    margin:0 auto !important;
+    display:flex !important;
+  }
+
+  .category-card--featured .featured-icon,
+  .category-card--featured .pill,
+  .category-card--featured h3,
+  .category-card--featured p{
+    display:none !important;
+  }
+
+  .category-card--featured .featured-copy{
+    padding:12px !important;
+    justify-content:flex-end !important;
+  }
+
+  .category-card--featured .featured-link{
+    margin:0 auto !important;
+  }
+}
+
+@media (max-width: 760px){
+  .category-card .card-title,
+  .category-card .card-content p{
+    display:none !important;
+  }
+
+  .category-card .card-content{
+    padding:9px 10px !important;
+    min-height:40px !important;
+  }
+
+  .category-card .product-details-link{
+    margin:0 auto !important;
+  }
+
+  .category-card--featured .featured-icon,
+  .category-card--featured .pill,
+  .category-card--featured h3,
+  .category-card--featured p{
+    display:none !important;
+  }
+
+  .category-card--featured .featured-copy{
+    padding:10px !important;
+    justify-content:flex-end !important;
+  }
+
+  .category-card--featured .featured-link{
+    margin:0 auto !important;
+  }
+}
