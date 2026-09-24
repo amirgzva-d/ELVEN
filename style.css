@@ -1432,3 +1432,25 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
     z-index:5 !important;
   }
 }
+
+
+/* Featured card two-image crossfade */
+.category-card--featured .category-image.featured-slider{
+  background-image:none !important;
+  position:absolute !important;
+  inset:0 !important;
+}
+.category-card--featured .featured-slide{
+  position:absolute;
+  inset:0;
+  display:block;
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  opacity:0;
+  transition:opacity 1.1s ease-in-out;
+  z-index:0;
+}
+.category-card--featured .featured-slide.is-active{
+  opacity:1;
+}
