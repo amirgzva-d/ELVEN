@@ -1285,22 +1285,19 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   background-repeat:no-repeat;
   isolation:isolate;
 }
+/* No color/visual overlay on the Yeast Products image.
+   Keep the supplied product artwork completely clean and unchanged. */
+.image-featured{
+  filter:none !important;
+  mix-blend-mode:normal !important;
+  isolation:auto !important;
+}
 .image-featured::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790223607/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_ktiwap.png") center/cover no-repeat;
-  opacity:0;
-  animation:yeastProductSwap 5s ease-in-out infinite;
-  z-index:1;
-}
-@keyframes yeastProductSwap{
-  0%,38%{opacity:0;transform:scale(1)}
-  45%,88%{opacity:1;transform:scale(1.015)}
-  95%,100%{opacity:0;transform:scale(1)}
-}
-@media (prefers-reduced-motion:reduce){
-  .image-featured::after{animation:none;opacity:0}
+  display:none !important;
+  content:none !important;
+  background:none !important;
+  opacity:0 !important;
+  animation:none !important;
 }
 
 
