@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     nav?.classList.toggle("mobile-open");
   });
 
-  /* Featured card: two-image crossfade slider */
+  /* Featured card: reliable two-image sliding carousel */
   const featured=document.querySelector(".category-card--featured");
   if(featured){
     const imageArea=featured.querySelector(".category-image");
@@ -28,16 +28,19 @@ document.addEventListener("DOMContentLoaded",()=>{
         "https://res.cloudinary.com/dqhbyqftq/image/upload/v1790223610/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87_lniam0.png",
         "https://res.cloudinary.com/dqhbyqftq/image/upload/v1790223607/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_ktiwap.png"
       ];
-      imageArea.innerHTML=featuredImages.map((src,i)=>`<span class="featured-slide${i===0?" is-active":""}" style="background-image:url("${src}")"></span>`).join("");
+      imageArea.innerHTML=featuredImages.map((src,i)=>
+        `<span class="featured-slide${i===0?" is-active":""}" style="background-image:url("${src}")"></span>`
+      ).join("");
       imageArea.classList.add("featured-slider");
+
       let current=0;
       setInterval(()=>{
         const slides=imageArea.querySelectorAll(".featured-slide");
-        if(slides.length<2)return;
+        if(slides.length!==2)return;
         slides[current].classList.remove("is-active");
-        current=(current+1)%slides.length;
+        current=current===0?1:0;
         slides[current].classList.add("is-active");
-      },3500);
+      },3200);
     }
   }
 
