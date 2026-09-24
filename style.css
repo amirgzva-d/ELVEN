@@ -1549,8 +1549,55 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   z-index:1;
 }
 
-/* ===== FEATURED CARD: TWO-IMAGE SLIDE ===== */
-.category-card--featured .category-image.featured-slider{position:relative;overflow:hidden;background:none}
-.category-card--featured .featured-slider .featured-slide{position:absolute;inset:0;display:block;background-position:center;background-size:cover;background-repeat:no-repeat;transform:translateX(100%);transition:transform .85s cubic-bezier(.22,.61,.36,1);will-change:transform}
-.category-card--featured .featured-slider .featured-slide.is-active{transform:translateX(0)}
-@media(prefers-reduced-motion:reduce){.category-card--featured .featured-slider .featured-slide{transition:none}}
+/* ===== FINAL: PREMIUM YEAST CARD IMAGE ANIMATION =====
+   Scoped only to the large featured product card. */
+.category-card--featured .category-image.featured-slider{
+  position:relative !important;
+  overflow:hidden !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  background:none !important;
+  isolation:isolate;
+}
+
+.category-card--featured .featured-slider .featured-slide{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  opacity:1 !important;
+  transform:translate3d(100%,0,0) scale(1.035);
+  transition:
+    transform 1.15s cubic-bezier(.16,1,.3,1),
+    filter 1.15s ease !important;
+  filter:saturate(.98);
+  z-index:1;
+  will-change:transform;
+  backface-visibility:hidden;
+}
+
+.category-card--featured .featured-slider .featured-slide.is-active{
+  transform:translate3d(0,0,0) scale(1);
+  filter:saturate(1);
+  z-index:2;
+}
+
+.category-card--featured .featured-slider .featured-slide:not(.is-active){
+  transform:translate3d(-100%,0,0) scale(1.035);
+  z-index:1;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .category-card--featured .featured-slider .featured-slide{
+    transition:none !important;
+    transform:translate3d(100%,0,0) scale(1) !important;
+  }
+  .category-card--featured .featured-slider .featured-slide.is-active{
+    transform:translate3d(0,0,0) scale(1) !important;
+  }
+}
