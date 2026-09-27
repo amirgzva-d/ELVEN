@@ -2163,3 +2163,12 @@ body,
   background-position:right center !important;
   background-repeat:no-repeat !important;
 }
+
+
+/* Restore the original Dairy & Milk Powders card image and sizing. */
+.category-card[data-product="Dairy & Milk Powders"] .category-image.image-8{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png") !important;
+  background-position:center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
