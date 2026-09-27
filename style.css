@@ -2061,3 +2061,56 @@ body,
     justify-content:flex-end !important;
   }
 }
+
+
+/* FINAL: homepage hero content positioned in the left corner */
+.hero-content{
+  left:clamp(40px,7vw,105px) !important;
+  right:auto !important;
+  top:52% !important;
+  transform:translateY(-50%) !important;
+  width:min(500px,38vw) !important;
+  max-width:500px !important;
+  text-align:left !important;
+}
+.hero-content .eyebrow{
+  justify-content:flex-start !important;
+  text-align:left !important;
+}
+.hero-content h1,
+.hero-content .hero-lead{
+  text-align:left !important;
+}
+.hero-actions{
+  justify-content:flex-start !important;
+}
+@media(max-width:1100px){
+  .hero-content{
+    left:7vw !important;
+    right:auto !important;
+    width:min(470px,43vw) !important;
+  }
+}
+@media(max-width:760px){
+  .hero-content{
+    left:22px !important;
+    right:22px !important;
+    top:auto !important;
+    bottom:105px !important;
+    transform:none !important;
+    width:auto !important;
+    max-width:none !important;
+    text-align:left !important;
+  }
+  .hero-content .eyebrow{
+    justify-content:flex-start !important;
+    text-align:left !important;
+  }
+  .hero-content h1,
+  .hero-content .hero-lead{
+    text-align:left !important;
+  }
+  .hero-actions{
+    justify-content:flex-start !important;
+  }
+}
