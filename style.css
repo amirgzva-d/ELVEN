@@ -2130,3 +2130,12 @@ body,
   box-shadow:0 8px 28px rgba(16,43,42,.08) !important;
   backdrop-filter:blur(10px) !important;
 }
+
+
+/* Dairy & Milk Powders — supplied artwork, enlarged and aligned to the card's right edge */
+.category-card[data-product="Dairy & Milk Powders"] .category-image.image-8{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789819964/%D8%B2%D8%B8%D8%B7%D8%B2%D8%B8_acokwz.png") !important;
+  background-size:200% auto !important;
+  background-position:right center !important;
+  background-repeat:no-repeat !important;
+}
