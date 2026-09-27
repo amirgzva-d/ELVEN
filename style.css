@@ -2139,3 +2139,27 @@ body,
   background-position:right center !important;
   background-repeat:no-repeat !important;
 }
+
+
+/* Product filters: use the supplied artwork as the sidebar background while keeping controls legible. */
+.filters{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789790436/file_00000000a02c81f592a0694cdd0fa0f7_ksfqoc.png") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+}
+.filters:before{
+  background:rgba(255,255,255,.58) !important;
+}
+.filters .filter-section{
+  background:rgba(255,255,255,.78) !important;
+  backdrop-filter:blur(2px);
+}
+
+/* Dairy & Milk Powders artwork: keep it 2x and anchored to the far-right edge. */
+.category-card[data-product="Dairy & Milk Powders"] .category-image.image-8{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789819964/%D8%B2%D8%B8%D8%B7%D8%B2%D8%B8_acokwz.png") !important;
+  background-size:200% auto !important;
+  background-position:right center !important;
+  background-repeat:no-repeat !important;
+}
