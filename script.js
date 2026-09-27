@@ -52,6 +52,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     setActiveNav(active);
   };
 
+  const header=document.querySelector(".header");
+  const updateHeaderOnScroll=()=>{
+    header?.classList.toggle("is-scrolled",window.scrollY>24);
+  };
+  window.addEventListener("scroll",updateHeaderOnScroll,{passive:true});
+  updateHeaderOnScroll();
+
   window.addEventListener("scroll",updateActiveOnScroll,{passive:true});
   updateActiveOnScroll();
   document.querySelector("[data-menu]")?.addEventListener("click",()=>{
