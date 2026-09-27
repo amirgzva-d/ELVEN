@@ -2029,3 +2029,35 @@ body,
   .nav a{font-size:14px !important}
   .nav a:nth-child(3){padding:10px 20px !important}
 }
+
+
+/* FINAL: homepage hero text alignment */
+.hero-content{
+  text-align:right !important;
+}
+.hero-content .eyebrow{
+  justify-content:flex-end !important;
+  text-align:right !important;
+}
+.hero-content h1,
+.hero-content .hero-lead{
+  text-align:right !important;
+}
+.hero-actions{
+  justify-content:flex-end !important;
+}
+@media(max-width:760px){
+  .hero-content{
+    text-align:right !important;
+  }
+  .hero-content .eyebrow{
+    justify-content:flex-end !important;
+  }
+  .hero-content h1,
+  .hero-content .hero-lead{
+    text-align:right !important;
+  }
+  .hero-actions{
+    justify-content:flex-end !important;
+  }
+}
