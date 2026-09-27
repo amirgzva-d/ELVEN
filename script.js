@@ -15,6 +15,46 @@ document.addEventListener("DOMContentLoaded",()=>{
   });
 
   const nav=document.querySelector(".nav");
+  const navLinks=document.querySelectorAll(".nav a[data-nav-target]");
+
+  /* Reference-style active navigation: click = active underline + smooth scroll. */
+  const setActiveNav=(target)=>{
+    navLinks.forEach(link=>{
+      link.classList.toggle("active",link.dataset.navTarget===target);
+    });
+  };
+
+  navLinks.forEach(link=>{
+    link.addEventListener("click",e=>{
+      const target=link.dataset.navTarget;
+      const section=document.getElementById(target);
+      if(!section) return;
+      e.preventDefault();
+      setActiveNav(target);
+      section.scrollIntoView({behavior:"smooth",block:"start"});
+      nav?.classList.remove("mobile-open");
+    });
+  });
+
+  const sections=[
+    {id:"home",el:document.getElementById("home")},
+    {id:"products",el:document.getElementById("products")},
+    {id:"about",el:document.getElementById("about")},
+    {id:"contact",el:document.getElementById("contact")}
+  ].filter(item=>item.el);
+
+  const updateActiveOnScroll=()=>{
+    if(!sections.length)return;
+    const markerY=window.scrollY+window.innerHeight*0.35;
+    let active=sections[0].id;
+    sections.forEach(item=>{
+      if(item.el.offsetTop<=markerY) active=item.id;
+    });
+    setActiveNav(active);
+  };
+
+  window.addEventListener("scroll",updateActiveOnScroll,{passive:true});
+  updateActiveOnScroll();
   document.querySelector("[data-menu]")?.addEventListener("click",()=>{
     nav?.classList.toggle("mobile-open");
   });
