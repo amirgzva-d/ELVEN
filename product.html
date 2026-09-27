@@ -40,10 +40,77 @@ body.dairy-theme .product-image{position:absolute;inset:0;width:100%;height:100%
 }
 
 @media(max-width:992px){.product-layout{grid-template-columns:1fr}.product-image-area{min-height:400px;order:-1}.product-info-area{flex-direction:column-reverse}.vertical-actions{flex-direction:row;justify-content:center;width:100%;margin-top:20px}.action-btn.primary{height:55px;width:150px;flex-direction:row}.action-btn.primary span{margin-top:0;margin-right:5px}}@media(max-width:768px){.main-card{padding:20px}header{flex-direction:column;gap:15px}nav{flex-wrap:wrap;justify-content:center;gap:15px}nav a.active:after{display:none}.product-title{font-size:26px}.download-section{flex-direction:column;gap:15px;text-align:center}.floating-sidebar{top:auto;bottom:20px;transform:none}.saved-items-panel{width:280px;left:-300px;top:auto;bottom:0;transform:none;border-radius:20px 20px 0 0}.saved-items-panel.open{left:50px}}
+
+/* Dairy & Milk Powders — viewport-fit */
+body.dairy-theme{
+  min-height:100vh;
+  height:100vh;
+  padding:18px 20px;
+  align-items:center;
+  overflow:hidden;
+}
+body.dairy-theme .main-card{
+  max-height:calc(100vh - 36px);
+  padding:22px 34px 24px;
+  overflow:hidden;
+}
+body.dairy-theme header{
+  padding-bottom:14px;
+  margin-bottom:18px;
+}
+body.dairy-theme .product-layout{
+  gap:28px;
+  align-items:center;
+}
+body.dairy-theme .product-image-area{
+  min-height:0;
+  height:calc(100vh - 235px);
+  max-height:500px;
+}
+body.dairy-theme .product-image{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  padding:18px;
+}
+body.dairy-theme .product-title{
+  font-size:32px;
+  margin-bottom:10px;
+}
+body.dairy-theme .product-desc{
+  margin-bottom:18px;
+  line-height:1.6;
+}
+body.dairy-theme .tabs{
+  margin-bottom:18px;
+}
+body.dairy-theme .features{
+  gap:14px;
+}
+body.dairy-theme .download-section{
+  margin-top:20px;
+  padding-top:16px;
+}
+@media(max-width:992px){
+  body.dairy-theme{
+    height:auto;
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+  body.dairy-theme .main-card{
+    max-height:none;
+  }
+  body.dairy-theme .product-image-area{
+    height:400px;
+    max-height:none;
+  }
+}
 </style>
 </head>
 <body>
-<div class="bg-blur top-right"></div><div class="bg-blur bottom-left"></div><img class="dairy-decoration" id="dairyDecoration" alt="" aria-hidden="true" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1789819964/%D8%B2%D8%B8%D8%B7%D8%B2%D8%B8_acokwz.png">
+<div class="bg-blur top-right"></div><div class="bg-blur bottom-left"></div>
 <div class="floating-sidebar"><button class="folder-toggle-btn" onclick="toggleSidebar()"><i class="fas fa-folder"></i></button><div class="saved-items-panel" id="savedPanel"><h3><i class="fas fa-bookmark"></i> محصولات ذخیره شده</h3><div class="saved-grid"><div class="saved-item"><img src="https://placehold.co/100x120/0B5D3B/FFFFFF?text=Product+1"><p>خامه گیاهی</p></div><div class="saved-item"><img src="https://placehold.co/100x120/E8F3EC/0B5D3B?text=Product+2"><p>شیر جو دوسر</p></div><div class="saved-item"><img src="https://placehold.co/100x120/0B5D3B/FFFFFF?text=Product+3"><p>پنیر گیاهی</p></div><div class="saved-item"><img src="https://placehold.co/100x120/E8F3EC/0B5D3B?text=Product+4"><p>ماست سویا</p></div></div></div></div>
 <div class="main-card"><header><div class="logo"><i class="fas fa-leaf"></i> MOHAJER STEEL</div><nav><a href="index.html">خانه</a><a href="index.html#products" class="active">محصولات</a><a href="index.html#products">پیشنهاد ویژه</a><a href="index.html#about">درباره ما</a><a href="index.html#contact">تماس با ما</a></nav></header>
 <div class="product-layout"><div class="product-image-area"><button class="heart-btn"><i class="far fa-heart"></i></button><div class="pedestal"></div><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1789819345/file_000000003c008210b6f0385a258ace8a_xsa007.png" alt="Dairy & Milk Powders" class="product-image" id="productImage"><div class="slider-dots" id="sliderDots"><div class="dot active" data-slide="0"></div><div class="dot" data-slide="1"></div></div></div>
