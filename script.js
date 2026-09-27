@@ -28,10 +28,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     link.addEventListener("click",e=>{
       const target=link.dataset.navTarget;
       const section=document.getElementById(target);
-      if(!section) return;
       e.preventDefault();
       setActiveNav(target);
-      section.scrollIntoView({behavior:"smooth",block:"start"});
+      if(section) section.scrollIntoView({behavior:"smooth",block:"start"});
       nav?.classList.remove("mobile-open");
     });
   });
