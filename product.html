@@ -41,71 +41,94 @@ body.dairy-theme .product-image{position:absolute;inset:0;width:100%;height:100%
 
 @media(max-width:992px){.product-layout{grid-template-columns:1fr}.product-image-area{min-height:400px;order:-1}.product-info-area{flex-direction:column-reverse}.vertical-actions{flex-direction:row;justify-content:center;width:100%;margin-top:20px}.action-btn.primary{height:55px;width:150px;flex-direction:row}.action-btn.primary span{margin-top:0;margin-right:5px}}@media(max-width:768px){.main-card{padding:20px}header{flex-direction:column;gap:15px}nav{flex-wrap:wrap;justify-content:center;gap:15px}nav a.active:after{display:none}.product-title{font-size:26px}.download-section{flex-direction:column;gap:15px;text-align:center}.floating-sidebar{top:auto;bottom:20px;transform:none}.saved-items-panel{width:280px;left:-300px;top:auto;bottom:0;transform:none;border-radius:20px 20px 0 0}.saved-items-panel.open{left:50px}}
 
-/* Dairy & Milk Powders — viewport-fit */
+/* Dairy & Milk Powders — large detail page */
 body.dairy-theme{
   min-height:100vh;
-  height:100vh;
-  padding:18px 20px;
-  align-items:center;
-  overflow:hidden;
+  height:auto;
+  padding:30px 28px 50px;
+  align-items:flex-start;
+  overflow-x:hidden;
+  overflow-y:auto;
 }
 body.dairy-theme .main-card{
-  max-height:calc(100vh - 36px);
-  padding:22px 34px 24px;
-  overflow:hidden;
+  width:100%;
+  max-width:1600px;
+  max-height:none;
+  min-height:calc(100vh - 60px);
+  padding:34px 46px 46px;
+  overflow:visible;
 }
 body.dairy-theme header{
-  padding-bottom:14px;
-  margin-bottom:18px;
+  padding-bottom:20px;
+  margin-bottom:28px;
 }
 body.dairy-theme .product-layout{
-  gap:28px;
-  align-items:center;
+  gap:48px;
+  align-items:stretch;
+  min-height:700px;
 }
 body.dairy-theme .product-image-area{
-  min-height:0;
-  height:calc(100vh - 235px);
-  max-height:500px;
+  min-height:700px;
+  height:700px;
+  max-height:none;
 }
 body.dairy-theme .product-image{
   width:100%;
   height:100%;
   object-fit:contain;
   object-position:center;
-  padding:18px;
+  padding:28px;
+}
+body.dairy-theme .product-info-area{
+  min-height:700px;
+  gap:30px;
 }
 body.dairy-theme .product-title{
-  font-size:32px;
-  margin-bottom:10px;
+  font-size:48px;
+  margin-bottom:16px;
 }
 body.dairy-theme .product-desc{
-  margin-bottom:18px;
-  line-height:1.6;
+  font-size:17px;
+  margin-bottom:28px;
+  line-height:1.8;
 }
 body.dairy-theme .tabs{
-  margin-bottom:18px;
+  margin-bottom:26px;
 }
 body.dairy-theme .features{
-  gap:14px;
+  gap:20px;
 }
 body.dairy-theme .download-section{
-  margin-top:20px;
-  padding-top:16px;
+  margin-top:32px;
+  padding-top:24px;
 }
 @media(max-width:992px){
   body.dairy-theme{
     height:auto;
     min-height:100vh;
-    overflow-x:hidden;
-    overflow-y:auto;
+    padding:18px;
   }
   body.dairy-theme .main-card{
     max-height:none;
+    min-height:auto;
+    padding:26px;
+  }
+  body.dairy-theme .product-layout{
+    min-height:0;
   }
   body.dairy-theme .product-image-area{
-    height:400px;
+    height:520px;
+    min-height:520px;
     max-height:none;
   }
+  body.dairy-theme .product-info-area{
+    min-height:0;
+  }
+}
+@media(max-width:768px){
+  body.dairy-theme .main-card{padding:18px}
+  body.dairy-theme .product-image-area{height:420px;min-height:420px}
+  body.dairy-theme .product-title{font-size:34px}
 }
 </style>
 </head>
