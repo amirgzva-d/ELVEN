@@ -8,4 +8,8 @@ document.addEventListener("DOMContentLoaded",()=>{const params=new URLSearchPara
 "Tomato Paste":{category:"Tomato Paste",description:"Rich Flavor and Quality for Global Markets"},
 "Baking Soda":{category:"Baking Soda",description:"Premium Baking Ingredients for Food Industries"},
 "Yeast":{category:"Yeast",description:"Quality Yeast Products for Better Baking"},
-"Yeast Products":{category:"Yeast Products",description:"Premium Yeast for Quality Baking Worldwide"}};const product=products[key]||products["Yeast Products"];const title=document.querySelector("#productTitle");const category=document.querySelector("#detailCategory");const description=document.querySelector("#productDescription");if(title)title.textContent=key;if(category)category.innerHTML='<i class="fas fa-leaf"></i> '+product.category;if(description)description.textContent=product.description;document.title=key+" | Mohajer Trading Group";});
+"Yeast Products":{category:"Yeast Products",description:"Premium Yeast for Quality Baking Worldwide"}};const product=products[key]||products["Yeast Products"];
+
+if(key==="Dairy & Milk Powders"){
+  document.body.classList.add("dairy-theme");
+}const title=document.querySelector("#productTitle");const category=document.querySelector("#detailCategory");const description=document.querySelector("#productDescription");if(title)title.textContent=key;if(category)category.innerHTML='<i class="fas fa-leaf"></i> '+product.category;if(description)description.textContent=product.description;document.title=key+" | Mohajer Trading Group";});
