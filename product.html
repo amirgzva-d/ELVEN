@@ -66,10 +66,19 @@ document.addEventListener('DOMContentLoaded',()=>{
       'https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png'
     ];
   let current=0,timer;
+  // A single-image product should remain static: don't fade/reassign the same URL on a timer.
+  if(images.length<=1){
+    if(images[0] && img.getAttribute('src')!==images[0]) img.src=images[0];
+    dots.forEach((d,n)=>d.classList.toggle('active',n===0));
+    return;
+  }
   function show(i){
     current=(i+images.length)%images.length;
     img.style.opacity='0';
-    setTimeout(()=>{img.src=images[current];img.style.opacity='1'},140);
+    setTimeout(()=>{
+      img.src=images[current];
+      img.style.opacity='1';
+    },140);
     dots.forEach((d,n)=>d.classList.toggle('active',n===current));
   }
   dots.forEach((d,i)=>d.addEventListener('click',e=>{e.stopPropagation();clearInterval(timer);show(i);start()}));
