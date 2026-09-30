@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yeast Products | Mohajer Trading Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Vazirmatn,Tahoma,sans-serif;direction:rtl;background:#f8f9fa}
+.hero{position:relative;display:flex;flex-direction:column;min-height:100vh;background-image:url('https://res.cloudinary.com/dqhbyqftq/image/upload/v1790766972/%D8%B3%D8%B3%D8%B3_xcpzv4.png');background-size:cover;background-position:center top;background-repeat:no-repeat}
+.navbar{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 4rem;background:transparent}
+.logo{display:flex;align-items:center;gap:.75rem}.logo-icon{font-size:2.5rem;color:#1a6a45}.logo-text h1{font-size:1.25rem;font-weight:800;color:#111;letter-spacing:.5px;line-height:1.2}.logo-text span{font-size:.75rem;color:#555;font-weight:600}
+.nav-links{display:flex;gap:2.5rem}.nav-links a{text-decoration:none;color:#1a6a45;font-weight:700;font-size:1rem;padding-bottom:.5rem;position:relative;transition:all .3s}.nav-links a:hover,.nav-links a.active{color:#0d3b24}.nav-links a.active:after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:#1a6a45;border-radius:2px}
+.nav-icons{display:flex;gap:1.5rem;align-items:center}.icon-btn{background:none;border:0;font-size:1.35rem;color:#1a6a45;cursor:pointer;position:relative;transition:transform .2s}.icon-btn:hover{transform:scale(1.1)}.cart-btn .badge{position:absolute;top:-8px;right:-10px;background:#1a6a45;color:#fff;font-size:.7rem;font-weight:bold;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.brand-slider-container{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:0 4rem;margin-top:1rem}.brand-slider{display:flex;gap:1.25rem;overflow-x:auto;scroll-behavior:smooth;padding:1rem 0;scrollbar-width:none;-ms-overflow-style:none}.brand-slider::-webkit-scrollbar{display:none}
+.brand-card{background:#fff;border-radius:16px;padding:1.5rem 2rem;min-width:200px;height:110px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px #0000000f;border:1px solid #00000008;transition:transform .3s,box-shadow .3s;flex-shrink:0}.brand-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px #0000001a}.brand-card img{max-width:100%;max-height:70px;object-fit:contain}
+.slider-arrow{background:#fff;border:0;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px #00000014;color:#1a6a45;font-size:1.1rem;transition:all .3s;flex-shrink:0}.slider-arrow:hover{background:#1a6a45;color:#fff;box-shadow:0 6px 16px #1a6a454d}
+.hero__content{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;text-align:left;margin-right:auto;margin-left:4rem;padding:2rem 0;max-width:55%;margin-top:-50px}
+.hero__title{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:#1a6a45;margin-bottom:1.5rem;line-height:1.4}.hero__subtitle{font-size:clamp(1rem,1.8vw,1.3rem);color:#222;line-height:2;margin-bottom:3rem;font-weight:600}
+.action-cards{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;justify-content:flex-start}.action-card{display:flex;align-items:center;gap:.75rem;background:#fff;padding:.75rem 1.25rem;border-radius:12px;text-decoration:none;color:#333;font-weight:600;font-size:.9rem;box-shadow:0 4px 15px #0000001a;border:1px solid #0000000d;transition:all .3s}.action-card i{color:#1a6a45;font-size:1.1rem}.action-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px #1a6a4526;border-color:#1a6a4533}
+.btn{display:inline-flex;align-items:center;gap:.75rem;padding:1rem 2.5rem;border-radius:50px;font-size:1.05rem;font-weight:700;text-decoration:none;transition:all .3s;cursor:pointer;border:2px solid transparent}.btn--primary{background:#1a6a45;color:#fff;box-shadow:0 8px 24px #1a6a4533}.btn--primary:hover{background:#0d3b24;transform:translateY(-2px);box-shadow:0 12px 32px #1a6a4566}.btn-inquiry i{font-size:1rem;transition:transform .3s}.btn-inquiry:hover i{transform:translateX(-4px)}
+@media(max-width:992px){.navbar{padding:1.5rem 2rem}.nav-links{gap:1.5rem}.brand-slider-container{padding:0 2rem}.brand-card{min-width:160px;height:90px;padding:1rem}.hero__content{max-width:100%;padding:2rem;align-items:center;text-align:center;margin:0}.action-cards{justify-content:center}}
+@media(max-width:768px){.navbar{flex-wrap:wrap;gap:1rem;padding:1rem}.nav-links{order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:1rem;margin-top:.5rem}.brand-slider-container{padding:0 1rem;gap:.5rem}.slider-arrow{width:35px;height:35px;font-size:.9rem}.brand-card{min-width:140px;height:80px;padding:.75rem}.hero__content{padding:1rem}.action-cards{justify-content:center}.btn-inquiry{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+<section class="hero">
+<header class="navbar">
+<a class="logo" href="index.html" style="text-decoration:none"><i class="fa-solid fa-leaf logo-icon"></i><div class="logo-text"><h1>MOHAJER STEEL</h1><span>Food Export Specialist</span></div></a>
+<nav class="nav-links"><a href="index.html">خانه</a><a href="index.html#products" class="active">محصولات</a><a href="index.html#products">پیشنهاد ویژه</a><a href="index.html#about">درباره ما</a><a href="index.html#contact">تماس با ما</a></nav>
+<div class="nav-icons"><button class="icon-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button><button class="icon-btn cart-btn" aria-label="Quote list"><i class="fa-solid fa-cart-shopping"></i><span class="badge">0</span></button></div>
+</header>
+<div class="brand-slider-container"><button class="slider-arrow left" aria-label="Scroll brands right"><i class="fa-solid fa-chevron-right"></i></button>
+<div class="brand-slider">
+<div class="brand-card"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753865/1_we2fqr.png" alt="IXPOWER"></div>
+<div class="brand-card"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/5_jixmoc.png" alt="SHETAB"></div>
+<div class="brand-card"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/4_ay3jsy.png" alt="DEZ MAYE GOLD"></div>
+<div class="brand-card"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/3_mnje6n.png" alt="Razavi Yeast CO"></div>
+<div class="brand-card"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/2_reoods.png" alt="نان مایه"></div>
+</div><button class="slider-arrow right" aria-label="Scroll brands left"><i class="fa-solid fa-chevron-left"></i></button></div>
+<div class="hero__content"><h1 class="hero__title">کیفیت جهانی، اعتماد بین‌المللی</h1><p class="hero__subtitle">مخمر فوری ایگس یاور. انتخاب حرفه‌ای نانوها و تولیدکنندگان نان. شیرینی و محصولات آردی در سراسر جهان.</p>
+<div class="action-cards"><a href="#catalog" class="action-card"><i class="fa-solid fa-download"></i><span>دانلود کاتالوگ</span></a><a href="#analysis" class="action-card"><i class="fa-solid fa-flask"></i><span>آنالیز محصول</span></a><a href="#" class="action-card" id="shareLink"><i class="fa-solid fa-share-nodes"></i><span>اشتراک گذاری</span></a></div>
+<a href="index.html#contact" class="btn btn--primary btn-inquiry"><span>استعلام محصول</span><i class="fa-solid fa-arrow-left"></i></a></div>
+</section>
+<script>
+const slider=document.querySelector('.brand-slider');
+document.querySelector('.slider-arrow.left').addEventListener('click',()=>slider.scrollBy({left:slider.scrollWidth,behavior:'smooth'}));
+document.querySelector('.slider-arrow.right').addEventListener('click',()=>slider.scrollBy({left:-slider.scrollWidth,behavior:'smooth'}));
+document.getElementById('shareLink').addEventListener('click',async e=>{e.preventDefault();try{await navigator.clipboard.writeText(location.href);e.currentTarget.querySelector('span').textContent='لینک کپی شد';}catch{e.currentTarget.querySelector('span').textContent='اشتراک گذاری';}});
+</script>
+</body></html>
