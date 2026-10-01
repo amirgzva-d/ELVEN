@@ -35,32 +35,41 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   });
 
+  /* Track the visible page section without measuring every section on every scroll frame. */
   const sections=[
     {id:"home",el:document.getElementById("home")},
     {id:"products",el:document.getElementById("products")},
-    {id:"about",el:document.getElementById("about")},
     {id:"contact",el:document.getElementById("contact")}
   ].filter(item=>item.el);
 
-  const updateActiveOnScroll=()=>{
-    if(!sections.length)return;
-    const markerY=window.scrollY+window.innerHeight*0.35;
-    let active=sections[0].id;
-    sections.forEach(item=>{
-      if(item.el.offsetTop<=markerY) active=item.id;
-    });
-    setActiveNav(active);
-  };
-
   const header=document.querySelector(".header");
+  let headerScrolled=false;
   const updateHeaderOnScroll=()=>{
-    header?.classList.toggle("is-scrolled",window.scrollY>24);
+    const next=window.scrollY>24;
+    if(next===headerScrolled)return;
+    headerScrolled=next;
+    header?.classList.toggle("is-scrolled",next);
   };
   window.addEventListener("scroll",updateHeaderOnScroll,{passive:true});
   updateHeaderOnScroll();
 
-  window.addEventListener("scroll",updateActiveOnScroll,{passive:true});
-  updateActiveOnScroll();
+  if("IntersectionObserver" in window){
+    const sectionObserver=new IntersectionObserver(entries=>{
+      const visible=entries
+        .filter(entry=>entry.isIntersecting)
+        .sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top);
+      if(visible.length){
+        const section=sections.find(item=>item.el===visible[0].target);
+        if(section)setActiveNav(section.id);
+      }
+    },{
+      root:null,
+      rootMargin:"-96px 0px -62% 0px",
+      threshold:0
+    });
+    sections.forEach(item=>sectionObserver.observe(item.el));
+  }
+
   document.querySelector("[data-menu]")?.addEventListener("click",()=>{
     nav?.classList.toggle("mobile-open");
   });
