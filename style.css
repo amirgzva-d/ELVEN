@@ -2172,3 +2172,33 @@ body,
   background-size:cover !important;
   background-repeat:no-repeat !important;
 }
+
+
+/* Navigation polish: remove the decorative dot and animate the underline smoothly. */
+.nav a.active::before{
+  content:none !important;
+  display:none !important;
+}
+.nav a::after{
+  width:100% !important;
+  transform:scaleX(0) !important;
+  transform-origin:left center !important;
+  transition:transform .42s cubic-bezier(.22,1,.36,1), background-color .25s ease !important;
+}
+.nav a:hover::after,
+.nav a.active::after{
+  transform:scaleX(1) !important;
+}
+.nav a:nth-child(3)::after{
+  display:none !important;
+}
+.nav a:focus-visible{
+  outline:2px solid rgba(30,62,43,.55) !important;
+  outline-offset:6px !important;
+}
+#products,#contact{
+  scroll-margin-top:96px;
+}
+@media(prefers-reduced-motion:reduce){
+  .nav a,.nav a::after{transition:none !important}
+}
