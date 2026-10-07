@@ -2056,6 +2056,11 @@
         document.querySelectorAll('#topBrandSlider .brand-card').forEach(c => c.classList.remove('active'));
         card.classList.add('active');
         updatePageForBrand(brandKey);
+
+        // After selecting a brand, smoothly return to the first (hero) section.
+        requestAnimationFrame(() => {
+          heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
       });
     }
     topBrandCards.forEach(bindBrandCardClick);
