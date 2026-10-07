@@ -1749,6 +1749,10 @@
       const brand = catalog[brandKey];
       if (!brand) return;
       if (brand.heroBg) heroSection.style.backgroundImage = `url('${brand.heroBg}')`;
+      // فقط برای رضوی و نان مایه، تصویر هیرو کمی پایین‌تر قرار بگیرد تا زیر منوی بالا نرود.
+      heroSection.style.backgroundPosition = (brandKey === 'razavi' || brandKey === 'nanmaye')
+        ? 'center 70px'
+        : 'center top';
       heroTitleEl.textContent = brand.heroTitle;
       heroSubtitleEl.textContent = brand.heroSubtitle;
       detailsTitleEl.textContent = brand.detailsTitle;
