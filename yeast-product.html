@@ -966,8 +966,34 @@
     @media (min-width: 1200px) {
       .pd-card { overflow: visible; }
       .pd-contacts-panel {
-        width: 300px;
-        left: clamp(-310px, calc((1250px - 100vw) / 2 + 18px), 1rem);
+        /* Keep the original inquiry-card appearance; only move the whole panel left. */
+        width: 340px;
+        left: clamp(-350px, calc((1250px - 100vw) / 2 - 10px), 1rem);
+      }
+      .pd-contacts-panel .contact-card {
+        min-height: 72px;
+        padding: 0.75rem 0.9rem;
+        gap: 1rem;
+      }
+      .pd-contacts-panel .contact-avatar {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        flex: 0 0 46px;
+      }
+      .pd-contacts-panel .contact-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        flex: 0 0 38px;
+      }
+      .pd-contacts-panel .contact-info {
+        min-width: 0;
+        flex: 1;
+      }
+      .pd-contacts-panel .contact-actions {
+        flex: 0 0 auto;
+        gap: 6px;
       }
     }
 
