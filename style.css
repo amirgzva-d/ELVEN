@@ -2202,3 +2202,144 @@ body,
 @media(prefers-reduced-motion:reduce){
   .nav a,.nav a::after{transition:none !important}
 }
+
+
+/* ===== FINAL MOBILE HOMEPAGE HERO LAYOUT =====
+   Keep hero copy below the fixed header and preserve the supplied artwork. */
+@media (max-width:760px){
+  .header{
+    height:78px !important;
+    min-height:78px !important;
+    padding:14px 18px !important;
+  }
+
+  .brand{
+    gap:9px !important;
+    max-width:230px;
+  }
+  .brand-mark{
+    transform:scale(.72) !important;
+    transform-origin:left center !important;
+    flex:0 0 40px;
+  }
+  .brand-text strong{
+    font-size:16px !important;
+    letter-spacing:1px !important;
+    line-height:1 !important;
+  }
+  .brand-text small{
+    margin-top:4px !important;
+    font-size:5px !important;
+    letter-spacing:2px !important;
+  }
+  .mobile-toggle{
+    display:block !important;
+    margin-left:auto !important;
+    font-size:24px !important;
+    line-height:1 !important;
+  }
+
+  .hero{
+    height:100svh !important;
+    min-height:720px !important;
+  }
+  .hero-image{
+    background-position:center center !important;
+  }
+
+  .hero-content{
+    position:absolute !important;
+    left:40px !important;
+    right:24px !important;
+    top:96px !important;
+    bottom:auto !important;
+    transform:none !important;
+    width:auto !important;
+    max-width:455px !important;
+    padding:0 !important;
+    text-align:left !important;
+    z-index:4 !important;
+  }
+
+  .hero-content .eyebrow{
+    display:none !important;
+  }
+
+  .hero-content h1{
+    margin:0 0 18px !important;
+    max-width:430px !important;
+    font-size:clamp(40px,11vw,54px) !important;
+    line-height:1.02 !important;
+    letter-spacing:-1.8px !important;
+    text-align:left !important;
+  }
+
+  .hero-lead{
+    margin:0 !important;
+    max-width:420px !important;
+    font-size:11.5px !important;
+    line-height:1.75 !important;
+    text-align:left !important;
+  }
+
+  .hero-actions{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    flex-wrap:wrap !important;
+    gap:12px 14px !important;
+    margin-top:20px !important;
+  }
+
+  .primary-cta,
+  .secondary-cta{
+    font-size:10.5px !important;
+    white-space:nowrap !important;
+  }
+  .primary-cta{
+    padding:12px 18px !important;
+  }
+  .secondary-cta{
+    padding:10px 0 8px !important;
+  }
+
+  .hero::after,
+  .hero::before{
+    display:none !important;
+  }
+}
+
+@media (max-width:480px){
+  .header{
+    padding:12px 14px !important;
+  }
+  .brand{
+    max-width:205px;
+    gap:7px !important;
+  }
+  .brand-mark{
+    transform:scale(.66) !important;
+    flex-basis:36px;
+  }
+  .brand-text strong{
+    font-size:14px !important;
+  }
+
+  .hero-content{
+    left:28px !important;
+    right:20px !important;
+    top:92px !important;
+  }
+  .hero-content h1{
+    font-size:clamp(37px,10.8vw,48px) !important;
+    margin-bottom:16px !important;
+  }
+  .hero-lead{
+    font-size:10.8px !important;
+    line-height:1.7 !important;
+  }
+  .hero-actions{
+    margin-top:18px !important;
+    gap:10px 12px !important;
+  }
+}
