@@ -1768,6 +1768,8 @@
       'وکیوم آلومینیومی': 'Aluminum vacuum pack',
       'وکیوم آلومینیومی قدرت بالا': 'High-strength aluminum vacuum pack',
       'وکیوم آلومینیومی مقاوم': 'Reinforced aluminum vacuum pack',
+      'وکیوم مقاوم آلومینیومی': 'Reinforced aluminum vacuum pack',
+      'ساشه مقاوم آلومینیومی': 'Reinforced aluminum sachet',
       'وکیوم آلومینیومی چندلایه ضد رطوبت': 'Multi-layer moisture-resistant aluminum vacuum pack',
       'وکیوم صنعتی': 'Industrial vacuum pack',
       'ساشه سه لایه': 'Three-layer sachet',
@@ -1807,6 +1809,8 @@
 
       let text = faDigitsToEn(original);
       text = text
+        .replace(/^(\d+)\s*گرم وزن خالص بسته$/u, '$1 g net package weight')
+        .replace(/^(\d+)\s*کیلوگرم وزن خالص بسته$/u, '$1 kg net package weight')
         .replace(/^خمیر مایه خشک فوری ایکس پاور\s+(.+)$/u, 'X-Power Instant Dry Yeast $1')
         .replace(/^خمیرمایه تخصصی ایکس پاور\s+(.+?)\s+گرمی\.$/u, 'X-Power specialized instant dry yeast, $1 g.')
         .replace(/^خمیر مایه خشک فوری شتاب مایه\s+(.+)$/u, 'Shetab Instant Dry Yeast $1')
