@@ -1429,7 +1429,1085 @@
       }
     }
 
-  </style>
+  
+
+    /* ============================================================
+       MERGED FROM USER SUPPLIED VERSION — MIDDLE SECTIONS ONLY
+       Desktop navbar, hero, product-detail modal, inquiry and export footer are intentionally preserved.
+       ============================================================ */
+    .menu-toggle {
+      display: none; width: 44px; height: 44px; border-radius: 14px;
+      background: linear-gradient(135deg, #0d3b24 0%, #1a6a45 100%);
+      border: none; cursor: pointer;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 4.5px; padding: 0;
+      box-shadow:
+        0 8px 20px -8px rgba(13, 59, 36, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease; flex-shrink: 0;
+    }
+    .menu-toggle:active { transform: scale(0.94); }
+    .menu-toggle span {
+      width: 18px; height: 2px; background: #fff; border-radius: 2px;
+      transition: all 0.4s cubic-bezier(.22,1,.36,1); transform-origin: center;
+    }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ============================================================
+       3. MOBILE SLIDE-IN MENU
+       ============================================================ */
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(13, 59, 36, 0.45);
+      backdrop-filter: blur(10px) saturate(150%);
+      -webkit-backdrop-filter: blur(10px) saturate(150%);
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+
+    .mobile-menu-panel {
+      position: absolute; top: 0; right: 0; height: 100%;
+      width: min(380px, 88%);
+      background: linear-gradient(170deg, #ffffff 0%, #f4faf6 60%, #eaf6ee 100%);
+      padding: calc(5.5rem + env(safe-area-inset-top)) 1.5rem calc(2rem + env(safe-area-inset-bottom));
+      display: flex; flex-direction: column; gap: 0.35rem;
+      transform: translateX(100%);
+      transition: transform 0.55s cubic-bezier(.22,1,.36,1);
+      overflow-y: auto;
+      box-shadow: -20px 0 60px -20px rgba(13, 59, 36, 0.45);
+      -webkit-overflow-scrolling: touch;
+    }
+    .mobile-menu.open .mobile-menu-panel { transform: translateX(0); }
+
+    .mobile-menu-panel::before {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 100%; height: 6px;
+      background: linear-gradient(90deg, #0d3b24, #2ea36b, #0d3b24);
+    }
+
+    .mobile-menu-label {
+      font-size: 0.68rem; font-weight: 800; color: #94a3b8;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin: 0.5rem 0 0.75rem 0;
+      padding-right: 0.85rem; position: relative;
+    }
+    .mobile-menu-label::before {
+      content: ''; position: absolute; right: 0; top: 50%;
+      transform: translateY(-50%); width: 3px; height: 14px;
+      background: linear-gradient(180deg, #1a6a45, #2ea36b); border-radius: 3px;
+    }
+
+    .mobile-menu a.mm-link {
+      position: relative; display: flex; align-items: center; gap: 0.85rem;
+      padding: 0.95rem 1.1rem; border-radius: 16px;
+      text-decoration: none; color: #334155;
+      font-family: 'Vazirmatn', sans-serif; font-weight: 700; font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(26, 106, 69, 0.06);
+      transition: all 0.3s cubic-bezier(.22,1,.36,1);
+      transform: translateX(20px); opacity: 0;
+    }
+    .mobile-menu.open a.mm-link { transform: translateX(0); opacity: 1; }
+    .mobile-menu.open a.mm-link:nth-child(1) { transition-delay: 0.08s; }
+    .mobile-menu.open a.mm-link:nth-child(2) { transition-delay: 0.13s; }
+    .mobile-menu.open a.mm-link:nth-child(3) { transition-delay: 0.18s; }
+    .mobile-menu.open a.mm-link:nth-child(4) { transition-delay: 0.23s; }
+    .mobile-menu.open a.mm-link:nth-child(5) { transition-delay: 0.28s; }
+
+    .mobile-menu a.mm-link:hover,
+    .mobile-menu a.mm-link.active {
+      background: linear-gradient(135deg, #0d3b24 0%, #1a6a45 100%);
+      color: #fff; border-color: transparent;
+      box-shadow: 0 12px 26px -12px rgba(13, 59, 36, 0.6);
+      transform: translateX(-4px);
+    }
+    .mobile-menu a.mm-link i.mm-icon {
+      width: 36px; height: 36px; border-radius: 11px;
+      display: grid; place-items: center;
+      background: #eaf6ee; color: #1a6a45; font-size: 0.85rem;
+      flex-shrink: 0; transition: all 0.3s ease;
+    }
+    .mobile-menu a.mm-link:hover i.mm-icon,
+    .mobile-menu a.mm-link.active i.mm-icon {
+      background: rgba(255, 255, 255, 0.18); color: #fff;
+    }
+    .mobile-menu a.mm-link .mm-arrow {
+      margin-inline-start: auto; font-size: 0.7rem; opacity: 0.5;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .mobile-menu a.mm-link:hover .mm-arrow,
+    .mobile-menu a.mm-link.active .mm-arrow { opacity: 1; transform: translateX(-4px); }
+
+    .mobile-menu-cta {
+      margin-top: auto; padding-top: 1.25rem;
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .mm-cta-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.55rem; padding: 0.95rem 1.25rem; border-radius: 16px;
+      font-family: inherit; font-size: 0.88rem; font-weight: 800;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    }
+    .mm-cta-btn.primary {
+      background: linear-gradient(135deg, #1a6a45 0%, #2ea36b 100%);
+      color: #fff; box-shadow: 0 12px 26px -10px rgba(26, 106, 69, 0.6);
+    }
+    .mm-cta-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -12px rgba(26, 106, 69, 0.7); }
+    .mm-cta-btn.ghost {
+      background: #fff; color: #0d3b24; border: 1.5px solid #dfeee5;
+    }
+    .mm-cta-btn.ghost:hover { border-color: #1a6a45; background: #f4faf6; }
+
+       5. PRODUCT SHOWCASE
+       ============================================================ */
+    .product-showcase {
+      direction: ltr;
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: linear-gradient(135deg, #f8faf9 0%, #eef6f1 50%, #f5f8f6 100%);
+      padding: 2.5rem 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-strip-section { max-width: 1100px; margin: 0 auto 2.5rem; text-align: center; }
+    .brand-strip-title {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.78rem; font-weight: 800; color: #64748b;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      margin-bottom: 1.25rem; padding: 0.4rem 1rem;
+      background: #ffffff; border-radius: 50px;
+      box-shadow: 0 4px 14px rgba(26, 106, 69, 0.06);
+    }
+    .brand-strip-title .dot { width: 6px; height: 6px; border-radius: 50%; background: #1a6a45; }
+    .brand-strip-title .line { width: 30px; height: 1px; background: #d4e4d9; }
+
+    .brand-strip-wrapper { display: flex; align-items: center; gap: 0.75rem; justify-content: center; }
+    .brand-slider {
+      display: flex; gap: 0.9rem;
+      overflow-x: auto; scroll-behavior: smooth;
+      padding: 0.75rem 0.5rem;
+      scrollbar-width: none; -ms-overflow-style: none;
+      max-width: 100%;
+    }
+    .brand-slider::-webkit-scrollbar { display: none; }
+
+    .brand-card {
+      background: #ffffff; border-radius: 16px;
+      padding: 0.75rem 1rem; min-width: 130px; height: 70px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(26, 106, 69, 0.06);
+      border: 1.5px solid transparent;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, opacity 0.2s ease, border-color 0.25s ease;
+      flex-shrink: 0; cursor: grab; position: relative;
+      user-select: none;
+    }
+    .brand-card:active { cursor: grabbing; }
+    .brand-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(26, 106, 69, 0.14);
+      border-color: #d4e4d9;
+    }
+    .brand-card.active {
+      background: linear-gradient(135deg, #eaf6ee 0%, #f4faf6 100%);
+      box-shadow: 0 12px 28px -6px rgba(26, 106, 69, 0.3);
+      border-color: #1a6a45;
+      transform: translateY(-4px);
+    }
+    .brand-card.active::after {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      top: -7px; left: -7px;
+      width: 22px; height: 22px;
+      background: #1a6a45; color: #fff; border-radius: 50%;
+      display: grid; place-items: center;
+      font-size: 0.6rem;
+      box-shadow: 0 3px 8px -2px rgba(26, 106, 69, 0.5);
+      animation: checkIn 0.3s ease;
+    }
+    @keyframes checkIn { from { transform: scale(0); } to { transform: scale(1); } }
+
+    .brand-card.dragging { opacity: 0.35; cursor: grabbing; transform: scale(0.95); }
+    .brand-card.drag-over {
+      background: #eef6f1; border-color: #1a6a45;
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    .drag-handle {
+      position: absolute; top: 5px; right: 7px;
+      color: #cbd5e1; font-size: 0.6rem;
+      pointer-events: none; transition: color 0.25s ease;
+    }
+    .brand-card:hover .drag-handle { color: #1a6a45; }
+
+    .brand-card img { max-width: 100%; max-height: 48px; object-fit: contain; pointer-events: none; }
+
+    .strip-arrow {
+      background: #ffffff; border: none;
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(26, 106, 69, 0.08);
+      color: #1a6a45; font-size: 0.85rem;
+      transition: all 0.25s ease; flex-shrink: 0;
+    }
+    .strip-arrow:hover {
+      background: #1a6a45; color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px -4px rgba(26, 106, 69, 0.4);
+    }
+
+    /* ============================================================
+       ★ DUAL TABS BAR
+       ============================================================ */
+    .tabs-bar {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #e6ede8;
+      border-radius: 50px;
+      box-shadow: 0 8px 24px -12px rgba(26, 106, 69, 0.15);
+      max-width: fit-content;
+      margin: 0 auto 2.5rem;
+      direction: rtl;
+      isolation: isolate;
+    }
+
+    .tabs-indicator {
+      position: absolute;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #0d3b24 0%, #1a6a45 100%);
+      box-shadow:
+        0 10px 24px -8px rgba(13, 59, 36, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition:
+        right 0.55s cubic-bezier(.22,1,.36,1),
+        width 0.55s cubic-bezier(.22,1,.36,1),
+        opacity 0.3s ease;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .tab-btn {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.75rem 1.85rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #64748b;
+      background: transparent;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Vazirmatn', sans-serif;
+      transition: color 0.35s ease, transform 0.35s ease;
+      white-space: nowrap;
+      letter-spacing: 0.1px;
+    }
+
+    .tab-btn i {
+      font-size: 0.82rem;
+      opacity: 0.7;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+    }
+    .tab-btn.active i { opacity: 1; }
+
+    .tab-btn:hover:not(.active) { color: #1a6a45; }
+    .tab-btn:hover:not(.active) i {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .tab-btn:active { transform: scale(0.96); }
+
+    /* ============================================================
+       ★ TAB PANELS
+       ============================================================ */
+    .tab-panels {
+      position: relative;
+      max-width: 1300px;
+      margin: 0 auto 3rem;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+      animation: panelFadeIn 0.55s cubic-bezier(.22,1,.36,1);
+    }
+
+    @keyframes panelFadeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       DETAILS GRID (inside tab 1)
+       ============================================================ */
+    .details-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr 1.1fr;
+      gap: 1.25rem; align-items: stretch;
+    }
+    .details-main, .key-features, .details-image {
+      border-radius: 20px; padding: 2rem; min-height: 280px;
+    }
+    .details-main {
+      background: #ffffff; border: 1px solid #e6ede8;
+      box-shadow: 0 10px 30px -20px rgba(26, 106, 69, 0.2);
+      display: flex; flex-direction: column;
+    }
+    .details-main h2 { font-size: 1.4rem; font-weight: 800; color: #0d3b24; margin-bottom: 1rem; }
+    .details-main p { font-size: 0.9rem; line-height: 1.85; color: #4b5563; margin-bottom: 2rem; flex: 1; }
+
+    .details-badges { display: flex; gap: 1.75rem; flex-wrap: wrap; padding-top: 1.25rem; border-top: 1px solid #eef2ef; }
+    .detail-badge { display: flex; align-items: center; gap: 0.6rem; }
+    .detail-badge-icon {
+      width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%;
+      border: 1.5px solid #d4e4d9; color: #0d3b24; font-size: 0.85rem; flex-shrink: 0;
+    }
+    .detail-badge-text { display: flex; flex-direction: column; font-size: 0.72rem; line-height: 1.4; color: #6b7280; font-weight: 500; }
+    .detail-badge-text strong { color: #1f2937; font-weight: 700; font-size: 0.75rem; }
+
+    .key-features {
+      background: linear-gradient(135deg, #f4faf6 0%, #eaf4ee 100%);
+      border: 1px solid #dfeee5;
+    }
+    .key-features h3 { font-size: 1.05rem; font-weight: 800; color: #0d3b24; margin-bottom: 1.25rem; }
+    .key-features ul { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .key-features li {
+      display: flex; align-items: flex-start; gap: 0.65rem;
+      font-size: 0.83rem; line-height: 1.5; color: #374151; font-weight: 500;
+    }
+    .key-features li::before {
+      content: '✓'; color: #1a6a45; font-weight: 800; font-size: 0.95rem; flex-shrink: 0;
+    }
+
+    .details-image {
+      padding: 0; overflow: hidden; position: relative;
+      box-shadow: 0 10px 30px -20px rgba(26, 106, 69, 0.3);
+    }
+    .details-image img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 280px; transition: transform 0.6s ease; }
+    .details-image:hover img { transform: scale(1.04); }
+
+    /* ============================================================
+       ★ USAGE PANEL (طریقه مصرف)
+       ============================================================ */
+    .usage-wrap {
+      background: #ffffff;
+      border: 1px solid #e6ede8;
+      border-radius: 24px;
+      padding: 2rem 2.25rem;
+      box-shadow: 0 10px 30px -20px rgba(26, 106, 69, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .usage-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #1a6a45, #2ea36b, #1a6a45);
+      opacity: 0.85;
+    }
+
+    .usage-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eef2ef;
+    }
+
+    .usage-header-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #0d3b24 0%, #1a6a45 60%, #2ea36b 100%);
+      color: #fff;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      box-shadow:
+        0 10px 24px -10px rgba(13, 59, 36, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .usage-header-text h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #0d3b24;
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+    .usage-header-text p {
+      font-size: 0.85rem;
+      color: #6b7280;
+      font-weight: 500;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .usage-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .usage-step {
+      position: relative;
+      background: linear-gradient(160deg, #f9fbfa 0%, #f4faf6 100%);
+      border: 1px solid #e8f0ea;
+      border-radius: 18px;
+      padding: 1.25rem 1.1rem 1.15rem;
+      transition: all 0.4s cubic-bezier(.22,1,.36,1);
+      overflow: hidden;
+    }
+    .usage-step:hover {
+      background: linear-gradient(160deg, #f4faf6 0%, #eaf6ee 100%);
+      border-color: #c9dfd2;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -18px rgba(26, 106, 69, 0.35);
+    }
+
+    .usage-step-num {
+      position: absolute;
+      top: 0.9rem;
+      left: 0.9rem;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: #ffffff;
+      border: 1.5px solid #d4e4d9;
+      color: #0d3b24;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      box-shadow: 0 4px 10px -4px rgba(26, 106, 69, 0.2);
+      transition: all 0.35s ease;
+    }
+    .usage-step:hover .usage-step-num {
+      background: linear-gradient(135deg, #0d3b24 0%, #1a6a45 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 8px 18px -6px rgba(13, 59, 36, 0.55);
+      transform: scale(1.08);
+    }
+
+    .usage-step-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #ffffff;
+      color: #1a6a45;
+      font-size: 1.1rem;
+      margin-bottom: 0.85rem;
+      margin-top: 0.5rem;
+      box-shadow:
+        0 6px 14px -6px rgba(26, 106, 69, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      transition: all 0.4s cubic-bezier(.22,1,.36,1);
+    }
+    .usage-step:hover .usage-step-icon {
+      background: linear-gradient(135deg, #1a6a45 0%, #2ea36b 100%);
+      color: #fff;
+      transform: scale(1.05) rotate(-3deg);
+    }
+
+    .usage-step h4 {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #0d3b24;
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .usage-step p {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.72rem;
+      color: #6b7280;
+      line-height: 1.65;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .usage-notes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed #e2ede7;
+    }
+
+    .usage-note {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.75rem 0.9rem;
+      background: #f8fbf9;
+      border: 1px solid #e8f0ea;
+      border-radius: 14px;
+      transition: all 0.3s ease;
+    }
+    .usage-note:hover {
+      border-color: #c9dfd2;
+      background: #f4faf6;
+    }
+
+    .usage-note-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: #eaf6ee;
+      color: #1a6a45;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .usage-note:hover .usage-note-icon {
+      background: #1a6a45;
+      color: #fff;
+    }
+
+    .usage-note-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .usage-note-text strong {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #0d3b24;
+      line-height: 1.3;
+    }
+    .usage-note-text span {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.68rem;
+      color: #6b7280;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       BRANDS SECTION
+       ============================================================ */
+    .brands-section { max-width: 1300px; margin: 0 auto 3rem; direction: rtl; }
+    .brands-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.5rem; gap: 1rem;
+    }
+    .brands-header-text {
+      display: flex; flex-direction: column; gap: 0.5rem;
+      position: relative; padding-right: 1.1rem;
+    }
+    .brands-header-text::before {
+      content: ''; position: absolute; right: 0; top: 6px;
+      width: 4px; height: 24px;
+      background: linear-gradient(180deg, #1a6a45 0%, #2ea36b 100%);
+      border-radius: 4px;
+    }
+    .brands-header-text h2 {
+      font-size: 1.4rem; font-weight: 800; color: #0d3b24;
+      display: flex; align-items: center; gap: 0.55rem;
+      line-height: 1.3; margin: 0; direction: rtl;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+    .brands-header-text h2 .brand-name {
+      font-family: 'Inter', sans-serif; font-weight: 800;
+      letter-spacing: 0.3px; direction: ltr; unicode-bidi: isolate;
+    }
+    .brands-header-text p {
+      font-size: 0.85rem; color: #6b7280; font-weight: 500;
+      line-height: 1.5; margin: 0; font-family: 'Vazirmatn', sans-serif;
+    }
+    .brands-header-text p .brand-name {
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      direction: ltr; unicode-bidi: isolate; color: #4b5563;
+    }
+
+    /* ========== Premium Arrow Buttons ========== */
+    .brands-arrows {
+      display: flex;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .brands-arrows button {
+      position: relative;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(26, 106, 69, 0.15);
+      background: #ffffff;
+      color: #0d3b24;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 0.9rem;
+      padding: 0;
+      transition: all 0.4s cubic-bezier(.22, 1, .36, 1);
+      box-shadow:
+        0 6px 16px -8px rgba(26, 106, 69, 0.2),
+        0 2px 4px -2px rgba(26, 106, 69, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .brands-arrows button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0d3b24 0%, #1a6a45 55%, #2ea36b 100%);
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.35s ease, transform 0.5s cubic-bezier(.22, 1, .36, 1);
+      z-index: 0;
+    }
+
+    .brands-arrows button::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(46, 163, 107, 0);
+      transition: border-color 0.4s ease, inset 0.4s ease;
+      pointer-events: none;
+    }
+
+    .brands-arrows button i {
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s ease, transform 0.4s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .brands-arrows button:hover:not(.is-disabled) {
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow:
+        0 16px 32px -12px rgba(13, 59, 36, 0.55),
+        0 6px 14px -6px rgba(13, 59, 36, 0.2);
+    }
+    .brands-arrows button:hover:not(.is-disabled)::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .brands-arrows button:hover:not(.is-disabled)::after {
+      border-color: rgba(46, 163, 107, 0.4);
+      inset: -7px;
+    }
+    .brands-arrows button:hover:not(.is-disabled) i {
+      color: #ffffff;
+    }
+
+    .brands-arrows button[aria-label="قبلی"]:hover:not(.is-disabled) i {
+      transform: translateX(-2px) scale(1.12);
+    }
+    .brands-arrows button[aria-label="بعدی"]:hover:not(.is-disabled) i {
+      transform: translateX(2px) scale(1.12);
+    }
+
+    .brands-arrows button:active:not(.is-disabled) {
+      transform: translateY(-1px) scale(0.94);
+      transition-duration: 0.1s;
+    }
+
+    .brands-arrows button.is-disabled {
+      cursor: not-allowed;
+      background: #f4f7f5;
+      border-color: rgba(26, 106, 69, 0.06);
+      color: #cbd5e1;
+      box-shadow: none;
+      transform: none;
+      opacity: 0.7;
+    }
+    .brands-arrows button.is-disabled i { color: #cbd5e1; }
+    .brands-arrows button.is-disabled::before { display: none; }
+    .brands-arrows button.is-disabled::after { border-color: transparent; }
+
+    .brands-track {
+      display: flex; gap: 1rem; overflow-x: auto; scroll-behavior: smooth;
+      padding: 0.5rem 0 1rem; scrollbar-width: none;
+    }
+    .brands-track::-webkit-scrollbar { display: none; }
+
+    /* ============================================================
+       ★ PRODUCT CARDS — PREMIUM
+       ============================================================ */
+    .brand-product-card {
+      flex: 0 0 252px;
+      background: #ffffff;
+      border: 1px solid #e6ede8;
+      border-radius: 22px;
+      padding: 0;
+      box-shadow: 0 8px 24px -18px rgba(26, 106, 69, 0.2);
+      transition: transform 0.4s cubic-bezier(.22,1,.36,1),
+                  box-shadow 0.4s ease,
+                  border-color 0.4s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      animation: cardIn 0.45s cubic-bezier(.22,1,.36,1) backwards;
+      isolation: isolate;
+    }
+
+    .brand-product-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1a6a45, #2ea36b, #1a6a45);
+      transform: scaleX(0);
+      transform-origin: right center;
+      transition: transform 0.55s cubic-bezier(.22,1,.36,1);
+      z-index: 4;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .brand-product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 44px -22px rgba(26, 106, 69, 0.45),
+                  0 4px 12px -6px rgba(26, 106, 69, 0.12);
+      border-color: #c9dfd2;
+    }
+    .brand-product-card:hover::before {
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+
+    .brand-product-image {
+      width: 100%;
+      aspect-ratio: 1 / 0.92;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 40%, #f4faf6 0%, #eaf3ee 100%);
+      display: grid;
+      place-items: center;
+      position: relative;
+      padding: 0.85rem;
+      box-sizing: border-box;
+      border-bottom: 1px solid #f1f5f2;
+    }
+    .brand-product-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 100%, rgba(26, 106, 69, 0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .brand-product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.55s cubic-bezier(.22,1,.36,1);
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 8px 16px rgba(13, 59, 36, 0.1));
+    }
+    .brand-product-card:hover .brand-product-image img {
+      transform: scale(1.08) rotate(-1deg);
+    }
+
+    .product-weight-badge {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      background: linear-gradient(135deg, #0d3b24 0%, #1a6a45 100%);
+      color: #fff;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 0.32rem 0.68rem;
+      border-radius: 50px;
+      letter-spacing: 0.2px;
+      box-shadow:
+        0 6px 14px -4px rgba(13, 59, 36, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      z-index: 2;
+      white-space: nowrap;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .product-weight-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #7dd3a8;
+      box-shadow: 0 0 6px #7dd3a8;
+    }
+
+    .brand-product-body {
+      padding: 0.9rem 1rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .product-category {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: #1a6a45;
+      background: #eaf6ee;
+      padding: 0.28rem 0.65rem;
+      border-radius: 50px;
+      width: fit-content;
+      letter-spacing: 0.2px;
+      line-height: 1.2;
+      border: 1px solid rgba(26, 106, 69, 0.08);
+      transition: all 0.3s ease;
+    }
+    .brand-product-card:hover .product-category {
+      background: #dfeee5;
+      border-color: rgba(26, 106, 69, 0.16);
+    }
+
+    .product-title {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #0d3b24;
+      line-height: 1.65;
+      margin: 0;
+      letter-spacing: -0.1px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-height: 2.83em;
+      transition: color 0.3s ease;
+    }
+    .brand-product-card:hover .product-title { color: #1a6a45; }
+
+    .brand-product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.7rem 1rem;
+      border-top: 1px solid #f1f5f2;
+      margin-top: auto;
+      background: linear-gradient(180deg, #fbfdfc 0%, #f7fbf9 100%);
+      transition: background 0.35s ease;
+    }
+    .brand-product-card:hover .brand-product-footer {
+      background: linear-gradient(180deg, #f4faf6 0%, #eaf6ee 100%);
+      border-top-color: #e2ede7;
+    }
+
+    .brand-product-footer .view-details {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #1a6a45;
+      letter-spacing: 0.1px;
+      transition: color 0.3s ease;
+    }
+    .brand-product-footer .view-details::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2ea36b;
+      box-shadow: 0 0 0 2px rgba(46, 163, 107, 0.22);
+      transition: all 0.35s cubic-bezier(.22,1,.36,1);
+      flex-shrink: 0;
+    }
+    .brand-product-card:hover .view-details::before {
+      box-shadow: 0 0 0 4px rgba(46, 163, 107, 0.28);
+      transform: scale(1.1);
+    }
+
+    .view-arrow-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #eaf6ee;
+      color: #0d3b24;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      transition: all 0.4s cubic-bezier(.22,1,.36,1);
+      flex-shrink: 0;
+      border: 1px solid rgba(26, 106, 69, 0.06);
+    }
+    .brand-product-card:hover .view-arrow-btn {
+      background: linear-gradient(135deg, #0d3b24 0%, #1a6a45 100%);
+      color: #fff;
+      transform: rotate(-45deg) scale(1.1);
+      box-shadow: 0 8px 18px -6px rgba(13, 59, 36, 0.55);
+      border-color: transparent;
+    }
+
+    .img-placeholder {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.5rem; width: 100%; height: 100%; color: #7aa88f;
+    }
+    .img-placeholder i { font-size: 2.2rem; opacity: 0.6; }
+    .img-placeholder span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; }
+
+    .no-products { text-align: center; padding: 3rem 1rem; color: #94a3b8; font-size: 0.9rem; display: none; }
+    .no-products.show { display: block; }
+
+
+    /* ===== MOBILE PRODUCT / USAGE LAYOUT FROM SUPPLIED VERSION ===== */
+    @media (max-width: 1200px) {
+      .details-grid { grid-template-columns: 1fr 1fr; }
+      .details-image { grid-column: span 2; min-height: 220px; }
+      .usage-steps { grid-template-columns: repeat(2, 1fr); }
+      .usage-notes { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 992px) {
+      .nav-links { display: none !important; }
+      .menu-toggle { display: flex; }
+      .logo-text span { display: none; }
+      .product-showcase { padding: 2.5rem 1.5rem 0; }
+    }
+    @media (max-width: 768px) {
+      #products { scroll-margin-top: 90px; }
+      .product-showcase { padding: 2rem 1rem 0; }
+      .brand-strip-title { font-size: 0.68rem; letter-spacing: 1px; padding: 0.35rem 0.85rem; margin-bottom: 1rem; }
+      .brand-strip-title .line { width: 18px; }
+      .strip-arrow { width: 34px; height: 34px; font-size: 0.75rem; }
+      .brand-card { min-width: 104px; height: 62px; padding: 0.6rem 0.75rem; border-radius: 14px; }
+      .brand-card img { max-height: 40px; }
+      .drag-handle { display: none; }
+
+      .tabs-bar { padding: 0.4rem; margin-bottom: 1.75rem; }
+      .tab-btn { padding: 0.6rem 1.2rem; font-size: 0.8rem; gap: 0.4rem; }
+      .tab-btn i { font-size: 0.72rem; }
+
+      .details-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .details-image { grid-column: span 1; min-height: 210px; }
+      .details-main, .key-features, .details-image { border-radius: 18px; padding: 1.4rem 1.25rem; min-height: auto; }
+      .details-main h2 { font-size: 1.15rem; }
+      .details-main p { font-size: 0.84rem; }
+      .details-badges { gap: 1rem 1.25rem; }
+      .key-features h3 { font-size: 0.98rem; }
+      .key-features li { font-size: 0.8rem; }
+      .details-image { padding: 0; }
+      .details-image img { min-height: 210px; }
+
+      .usage-wrap { padding: 1.5rem 1.25rem; border-radius: 20px; }
+      .usage-header { gap: 0.8rem; margin-bottom: 1.25rem; padding-bottom: 1.1rem; }
+      .usage-header-icon { width: 46px; height: 46px; font-size: 1.1rem; border-radius: 14px; }
+      .usage-header-text h3 { font-size: 1.05rem; }
+      .usage-header-text p { font-size: 0.76rem; }
+      .usage-steps { grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem; }
+      .usage-step { padding: 1rem 0.9rem 0.9rem; border-radius: 16px; }
+      .usage-step-icon { width: 40px; height: 40px; font-size: 0.95rem; border-radius: 12px; }
+      .usage-step h4 { font-size: 0.78rem; }
+      .usage-step p { font-size: 0.68rem; }
+      .usage-notes { grid-template-columns: 1fr 1fr; gap: 0.6rem; padding-top: 1.25rem; }
+      .usage-note { padding: 0.6rem 0.7rem; gap: 0.55rem; }
+      .usage-note-icon { width: 30px; height: 30px; font-size: 0.75rem; }
+      .usage-note-text strong { font-size: 0.68rem; }
+      .usage-note-text span { font-size: 0.62rem; }
+
+      .brands-header { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+      .brands-header-text h2 { font-size: 1.1rem; }
+      .brands-header-text p { font-size: 0.76rem; }
+      .brands-arrows { align-self: flex-end; }
+      .brands-arrows button { width: 40px; height: 40px; font-size: 0.78rem; }
+
+      .brand-product-card { flex: 0 0 190px; border-radius: 18px; }
+      .brand-product-image { padding: 0.65rem; aspect-ratio: 1 / 0.95; }
+      .product-weight-badge { top: 0.55rem; right: 0.55rem; font-size: 0.62rem; padding: 0.28rem 0.55rem; }
+      .brand-product-body { padding: 0.75rem 0.85rem 0.7rem; gap: 0.4rem; }
+      .product-category { font-size: 0.6rem; padding: 0.22rem 0.55rem; }
+      .product-title { font-size: 0.78rem; line-height: 1.6; min-height: 2.55em; }
+      .brand-product-footer { padding: 0.6rem 0.85rem; }
+      .brand-product-footer .view-details { font-size: 0.66rem; gap: 0.35rem; }
+      .view-arrow-btn { width: 28px; height: 28px; font-size: 0.62rem; }
+    }
+    @media (max-width: 560px) {
+      .product-showcase { padding: 1.75rem 0.85rem 0; }
+      .brand-card { min-width: 92px; height: 56px; padding: 0.5rem 0.6rem; }
+      .brand-card img { max-height: 34px; }
+      .strip-arrow { width: 30px; height: 30px; font-size: 0.68rem; }
+      .details-main, .key-features { padding: 1.2rem 1rem; }
+      .usage-wrap { padding: 1.25rem 1rem; border-radius: 18px; }
+      .usage-header { flex-direction: column; align-items: flex-start; text-align: right; gap: 0.75rem; }
+      .usage-header-icon { width: 42px; height: 42px; font-size: 1rem; border-radius: 12px; }
+      .usage-header-text h3 { font-size: 1rem; }
+      .usage-header-text p { font-size: 0.72rem; }
+      .usage-steps { grid-template-columns: 1fr; gap: 0.65rem; }
+      .usage-step { padding: 0.9rem 0.85rem 0.85rem; }
+      .usage-step-num { top: 0.75rem; left: 0.75rem; width: 26px; height: 26px; font-size: 0.72rem; }
+      .usage-step-icon { width: 38px; height: 38px; font-size: 0.9rem; border-radius: 11px; margin-bottom: 0.7rem; }
+      .usage-step h4 { font-size: 0.78rem; }
+      .usage-step p { font-size: 0.68rem; }
+      .usage-notes { grid-template-columns: 1fr; gap: 0.5rem; }
+
+      .brand-product-card { flex: 0 0 174px; border-radius: 16px; }
+      .brand-product-image { padding: 0.55rem; }
+      .product-weight-badge { font-size: 0.58rem; padding: 0.24rem 0.5rem; top: 0.5rem; right: 0.5rem; }
+      .brand-product-body { padding: 0.65rem 0.75rem 0.6rem; }
+      .product-category { font-size: 0.56rem; padding: 0.2rem 0.5rem; }
+      .product-title { font-size: 0.74rem; line-height: 1.55; min-height: 2.5em; }
+      .brand-product-footer { padding: 0.55rem 0.75rem; }
+      .brand-product-footer .view-details { font-size: 0.62rem; }
+      .brand-product-footer .view-details::before { width: 5px; height: 5px; }
+      .view-arrow-btn { width: 26px; height: 26px; font-size: 0.58rem; }
+    }
+    @media (max-width: 480px) {
+      .usage-steps { grid-template-columns: 1fr; }
+      .usage-notes { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 390px) {
+      .brand-product-card { flex: 0 0 162px; }
+      .tab-btn { padding: 0.55rem 1rem; font-size: 0.74rem; }
+    }
+
+</style>
 </head>
 <body>
 
@@ -1583,79 +2661,176 @@
       </div>
 
       <div class="brand-strip-wrapper">
-        <button class="strip-arrow" id="stripScrollLeft"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="strip-arrow" id="stripScrollLeft" aria-label="قبلی"><i class="fa-solid fa-chevron-right"></i></button>
         <div class="brand-slider" id="topBrandSlider">
           <div class="brand-card" data-brand="ixpower" draggable="true">
             <span class="drag-handle"><i class="fa-solid fa-grip-vertical"></i></span>
-            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/4_ay3jsy.png" alt="IXPOWER">
+            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/4_ay3jsy.png" alt="IXPOWER" loading="lazy" decoding="async">
           </div>
           <div class="brand-card" data-brand="shetab" draggable="true">
             <span class="drag-handle"><i class="fa-solid fa-grip-vertical"></i></span>
-            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/3_mnje6n.png" alt="SHETAB">
+            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/3_mnje6n.png" alt="SHETAB" loading="lazy" decoding="async">
           </div>
           <div class="brand-card" data-brand="dezmaye" draggable="true">
             <span class="drag-handle"><i class="fa-solid fa-grip-vertical"></i></span>
-            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/2_reoods.png" alt="DEZ MAYE GOLD">
+            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/2_reoods.png" alt="DEZ MAYE GOLD" loading="lazy" decoding="async">
           </div>
           <div class="brand-card" data-brand="razavi" draggable="true">
             <span class="drag-handle"><i class="fa-solid fa-grip-vertical"></i></span>
-            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753865/1_we2fqr.png" alt="Razavi Yeast Co.">
+            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753865/1_we2fqr.png" alt="Razavi Yeast Co." loading="lazy" decoding="async">
           </div>
           <div class="brand-card" data-brand="nanmaye" draggable="true">
             <span class="drag-handle"><i class="fa-solid fa-grip-vertical"></i></span>
-            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/5_jixmoc.png" alt="نان مایه">
+            <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/5_jixmoc.png" alt="نان مایه" loading="lazy" decoding="async">
           </div>
         </div>
-        <button class="strip-arrow" id="stripScrollRight"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="strip-arrow" id="stripScrollRight" aria-label="بعدی"><i class="fa-solid fa-chevron-left"></i></button>
       </div>
     </div>
 
-    <div class="tabs-bar">
-      <button class="tab-btn active" data-i18n="tabProductDetails">جزئیات محصول</button>
-      <button class="tab-btn" data-i18n="tabSpecifications">مشخصات</button>
-      <button class="tab-btn" data-i18n="tabPackaging">بسته‌بندی</button>
-      <button class="tab-btn" data-i18n="tabApplications">کاربردها</button>
-      <button class="tab-btn" data-i18n="tabRelated">محصولات مرتبط</button>
+    <!-- ★ DUAL TABS BAR -->
+    <div class="tabs-bar" id="productTabs">
+      <span class="tabs-indicator" id="tabsIndicator"></span>
+      <button class="tab-btn active" data-tab="details">
+        <i class="fa-solid fa-circle-info"></i>
+        <span data-i18n="tabDetails">جزئیات</span>
+      </button>
+      <button class="tab-btn" data-tab="usage">
+        <i class="fa-solid fa-mortar-pestle"></i>
+        <span data-i18n="tabUsage">طریقه مصرف</span>
+      </button>
     </div>
 
-    <div class="details-grid">
-      <div class="details-main">
-        <h2 id="detailsTitle">Product Details</h2>
-        <p id="detailsText">
-          خمیرمایه تخصصی ایکس پاور (X-Power) با قدرت تخمیر مضاعف و فعالیت آنزیمی بالا جهت پخت انواع نان‌های حجیم، نیمه‌حجیم و شیرینی‌جات.
-        </p>
-        <div class="details-badges" id="detailsBadges">
-          <div class="detail-badge">
-            <div class="detail-badge-icon"><i class="fa-solid fa-leaf"></i></div>
-            <div class="detail-badge-text"><strong>100%</strong><span>Natural Yeast</span></div>
+    <!-- ★ TAB PANELS -->
+    <div class="tab-panels">
+
+      <!-- ===== PANEL 1: جزئیات ===== -->
+      <div class="tab-panel active" data-panel="details">
+        <div class="details-grid">
+          <div class="details-main">
+            <h2 id="detailsTitle">Product Details</h2>
+            <p id="detailsText">
+              خمیرمایه تخصصی ایکس پاور (X-Power) با قدرت تخمیر مضاعف و فعالیت آنزیمی بالا جهت پخت انواع نان‌های حجیم، نیمه‌حجیم و شیرینی‌جات.
+            </p>
+            <div class="details-badges" id="detailsBadges">
+              <div class="detail-badge">
+                <div class="detail-badge-icon"><i class="fa-solid fa-leaf"></i></div>
+                <div class="detail-badge-text"><strong>100%</strong><span>Natural Yeast</span></div>
+              </div>
+              <div class="detail-badge">
+                <div class="detail-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="detail-badge-text"><strong>No</strong><span>Preservatives</span></div>
+              </div>
+              <div class="detail-badge">
+                <div class="detail-badge-icon"><i class="fa-solid fa-certificate"></i></div>
+                <div class="detail-badge-text"><strong>Halal</strong><span>Certified</span></div>
+              </div>
+            </div>
           </div>
-          <div class="detail-badge">
-            <div class="detail-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <div class="detail-badge-text"><strong>No</strong><span>Preservatives</span></div>
+
+          <div class="key-features">
+            <h3 id="featuresTitle">Key Features</h3>
+            <ul id="featuresList">
+              <li>قدرت تخمیر مضاعف</li>
+              <li>فعالیت آنزیمی بالا</li>
+              <li>مناسب نان‌های حجیم و نیمه‌حجیم</li>
+              <li>مناسب شیرینی‌جات و محصولات آردی</li>
+              <li>ماندگاری ۲۴ ماه</li>
+            </ul>
           </div>
-          <div class="detail-badge">
-            <div class="detail-badge-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="detail-badge-text"><strong>Halal</strong><span>Certified</span></div>
+
+          <div class="details-image">
+            <img id="detailsImage" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80" alt="Product" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
 
-      <div class="key-features">
-        <h3 id="featuresTitle" data-i18n="keyFeaturesTitle">ویژگی‌های کلیدی</h3>
-        <ul id="featuresList">
-          <li>قدرت تخمیر مضاعف</li>
-          <li>فعالیت آنزیمی بالا</li>
-          <li>مناسب نان‌های حجیم و نیمه‌حجیم</li>
-          <li>مناسب شیرینی‌جات و محصولات آردی</li>
-          <li>ماندگاری ۲۴ ماه</li>
-        </ul>
+      <!-- ===== PANEL 2: طریقه مصرف ===== -->
+      <div class="tab-panel" data-panel="usage">
+        <div class="usage-wrap">
+
+          <div class="usage-header">
+            <div class="usage-header-icon"><i class="fa-solid fa-mortar-pestle"></i></div>
+            <div class="usage-header-text">
+              <h3 data-i18n="usageGuideTitle">راهنمای مصرف خمیرمایه</h3>
+              <p data-i18n="usageGuideSubtitle">برای دستیابی به بهترین نتیجه در پخت نان، مراحل زیر را به‌ترتیب دنبال کنید.</p>
+            </div>
+          </div>
+
+          <div class="usage-steps">
+
+            <div class="usage-step">
+              <span class="usage-step-num">۱</span>
+              <div class="usage-step-icon"><i class="fa-solid fa-temperature-half"></i></div>
+              <h4 data-i18n="usageStep1Title">آماده‌سازی آب ولرم</h4>
+              <p data-i18n="usageStep1Text">آب را تا دمای ۳۵ تا ۴۰ درجه سانتی‌گراد گرم کنید (ولرم، نه داغ).</p>
+            </div>
+
+            <div class="usage-step">
+              <span class="usage-step-num">۲</span>
+              <div class="usage-step-icon"><i class="fa-solid fa-blender"></i></div>
+              <h4 data-i18n="usageStep2Title">مخلوط با آرد</h4>
+              <p data-i18n="usageStep2Text">خمیرمایه را به آرد اضافه کرده و حدود ۱ دقیقه با هم مخلوط کنید.</p>
+            </div>
+
+            <div class="usage-step">
+              <span class="usage-step-num">۳</span>
+              <div class="usage-step-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+              <h4 data-i18n="usageStep3Title">افزودن آب و ورز دادن</h4>
+              <p data-i18n="usageStep3Text">آب ولرم را اضافه کرده و ۸ تا ۱۰ دقیقه ورز دهید تا خمیر یکدست شود.</p>
+            </div>
+
+            <div class="usage-step">
+              <span class="usage-step-num">۴</span>
+              <div class="usage-step-icon"><i class="fa-solid fa-clock"></i></div>
+              <h4 data-i18n="usageStep4Title">استراحت و تخمیر</h4>
+              <p data-i18n="usageStep4Text">خمیر را در محیط گرم ۱۵ تا ۳۰ دقیقه استراحت دهید تا حجمش دو برابر شود.</p>
+            </div>
+
+          </div>
+
+          <div class="usage-notes">
+
+            <div class="usage-note">
+              <div class="usage-note-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <div class="usage-note-text">
+                <strong data-i18n="usageAmountLabel">مقدار مصرف</strong>
+                <span data-i18n="usageAmountValue">۱ تا ۲٪ وزن آرد</span>
+              </div>
+            </div>
+
+            <div class="usage-note">
+              <div class="usage-note-icon"><i class="fa-solid fa-droplet"></i></div>
+              <div class="usage-note-text">
+                <strong data-i18n="usageTempLabel">دمای آب</strong>
+                <span data-i18n="usageTempValue">۳۵ تا ۴۰ درجه سانتی‌گراد</span>
+              </div>
+            </div>
+
+            <div class="usage-note">
+              <div class="usage-note-icon"><i class="fa-solid fa-box"></i></div>
+              <div class="usage-note-text">
+                <strong data-i18n="usageStorageLabel">نگهداری</strong>
+                <span data-i18n="usageStorageValue">جای خشک و خنک، دور از رطوبت</span>
+              </div>
+            </div>
+
+            <div class="usage-note">
+              <div class="usage-note-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <div class="usage-note-text">
+                <strong data-i18n="usageWarningLabel">هشدار</strong>
+                <span data-i18n="usageWarningValue">از آب بالای ۵۰ درجه استفاده نکنید</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
       </div>
 
-      <div class="details-image">
-        <img id="detailsImage" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80" alt="Product">
-      </div>
     </div>
 
+    <!-- Brands Section -->
     <div class="brands-section">
       <div class="brands-header">
         <div class="brands-header-text">
@@ -1663,8 +2838,8 @@
           <p id="brandsSubtitle">نمایش تمام محصولات برند IXPOWER</p>
         </div>
         <div class="brands-arrows">
-          <button id="scrollLeftBtn"><i class="fa-solid fa-chevron-left"></i></button>
-          <button id="scrollRightBtn"><i class="fa-solid fa-chevron-right"></i></button>
+          <button id="scrollLeftBtn" aria-label="قبلی"><i class="fa-solid fa-chevron-left"></i></button>
+          <button id="scrollRightBtn" aria-label="بعدی"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
       </div>
 
@@ -1672,7 +2847,7 @@
       <div class="no-products" id="noProducts" data-i18n="noProducts">محصولی برای نمایش وجود ندارد.</div>
     </div>
 
-    <div class="export-footer">
+        <div class="export-footer">
       <div class="export-footer-text">
         <div class="globe-icon"><i class="fa-solid fa-globe"></i></div>
         <span data-i18n="exportFooter">صادرات محصولات غذایی باکیفیت به بیش از ۶۰ کشور</span>
@@ -1847,6 +3022,26 @@
         allProductsOf: 'نمایش تمام محصولات برند',
         copiedLink: 'لینک سایت کپی شد ✓',
         closeTitle: 'بستن',
+        tabDetails: 'جزئیات',
+        tabUsage: 'طریقه مصرف',
+        usageGuideTitle: 'راهنمای مصرف خمیرمایه',
+        usageGuideSubtitle: 'برای دستیابی به بهترین نتیجه در پخت نان، مراحل زیر را به‌ترتیب دنبال کنید.',
+        usageStep1Title: 'آماده‌سازی آب ولرم',
+        usageStep1Text: 'آب را تا دمای ۳۵ تا ۴۰ درجه سانتی‌گراد گرم کنید (ولرم، نه داغ).',
+        usageStep2Title: 'مخلوط با آرد',
+        usageStep2Text: 'خمیرمایه را به آرد اضافه کرده و حدود ۱ دقیقه با هم مخلوط کنید.',
+        usageStep3Title: 'افزودن آب و ورز دادن',
+        usageStep3Text: 'آب ولرم را اضافه کرده و ۸ تا ۱۰ دقیقه ورز دهید تا خمیر یکدست شود.',
+        usageStep4Title: 'استراحت و تخمیر',
+        usageStep4Text: 'خمیر را در محیط گرم ۱۵ تا ۳۰ دقیقه استراحت دهید تا حجمش دو برابر شود.',
+        usageAmountLabel: 'مقدار مصرف',
+        usageAmountValue: '۱ تا ۲٪ وزن آرد',
+        usageTempLabel: 'دمای آب',
+        usageTempValue: '۳۵ تا ۴۰ درجه سانتی‌گراد',
+        usageStorageLabel: 'نگهداری',
+        usageStorageValue: 'جای خشک و خنک، دور از رطوبت',
+        usageWarningLabel: 'هشدار',
+        usageWarningValue: 'از آب بالای ۵۰ درجه استفاده نکنید',
       },
       en: {
         logoTagline: 'Food Export Specialist',
@@ -1885,6 +3080,26 @@
         allProductsOf: 'View all products by',
         copiedLink: 'Website link copied ✓',
         closeTitle: 'Close',
+        tabDetails: 'Details',
+        tabUsage: 'How to Use',
+        usageGuideTitle: 'Yeast Usage Guide',
+        usageGuideSubtitle: 'For the best baking result, follow these steps in order.',
+        usageStep1Title: 'Prepare Lukewarm Water',
+        usageStep1Text: 'Warm the water to 35–40°C. It should be lukewarm, not hot.',
+        usageStep2Title: 'Mix with Flour',
+        usageStep2Text: 'Add the yeast to the flour and mix them together for about one minute.',
+        usageStep3Title: 'Add Water and Knead',
+        usageStep3Text: 'Add lukewarm water and knead for 8–10 minutes until the dough is smooth.',
+        usageStep4Title: 'Rest and Ferment',
+        usageStep4Text: 'Rest the dough in a warm place for 15–30 minutes until it doubles in volume.',
+        usageAmountLabel: 'Dosage',
+        usageAmountValue: '1–2% of flour weight',
+        usageTempLabel: 'Water Temperature',
+        usageTempValue: '35–40°C',
+        usageStorageLabel: 'Storage',
+        usageStorageValue: 'Keep in a cool, dry place away from moisture',
+        usageWarningLabel: 'Warning',
+        usageWarningValue: 'Do not use water above 50°C',
       }
     };
 
@@ -2442,6 +3657,25 @@
 
     let topBrandCards = document.querySelectorAll('#topBrandSlider .brand-card');
 
+    function extractWeight(product) {
+      const weightFeature = product.features?.find(f =>
+        f.title && (f.title.includes('وزن') || f.title.toLowerCase().includes('weight'))
+      );
+      if (weightFeature && weightFeature.value) {
+        return String(weightFeature.value).replace(/\s*\(.*?\)\s*/g, '').trim();
+      }
+      const match = String(product.name || '').match(/([۰-۹0-9]+(?:\.[۰-۹0-9]+)?\s*(?:گرم|کیلوگرم|کیلو گرم|کیلو|g|kg)?)\s*$/i);
+      return match ? match[1].trim() : '';
+    }
+
+    function extractCleanTitle(product) {
+      return String(product.name || '')
+        .replace(/\s*\(.*?\)\s*/g, ' ')
+        .replace(/\s+[۰-۹0-9]+(?:\.[۰-۹0-9]+)?\s*(?:گرم|کیلوگرم|کیلو گرم|کیلو|g|kg)?\s*$/gi, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
     function renderProducts(brandKey) {
       brandsTrack.innerHTML = '';
       const brand = catalog[brandKey];
@@ -2458,12 +3692,24 @@
           const card = document.createElement('div');
           card.className = 'brand-product-card';
           card.style.animationDelay = `${index * 0.05}s`;
+
+          const weight = extractWeight(shownProduct);
+          const cleanTitle = extractCleanTitle(shownProduct);
+          const category = shownProduct.category || '';
+
           const imageHtml = product.image
-            ? `<img src="${product.image}" alt="${shownProduct.name}">`
+            ? `<img src="${product.image}" alt="${cleanTitle}" loading="lazy" decoding="async">`
             : `<div class="img-placeholder"><i class="fa-regular fa-image"></i><span>${translations[currentLang].noImage}</span></div>`;
+
           card.innerHTML = `
-            <div class="brand-product-image">${imageHtml}</div>
-            <h3>${shownProduct.name}</h3>
+            <div class="brand-product-image">
+              ${imageHtml}
+              ${weight ? `<span class="product-weight-badge">${weight}</span>` : ''}
+            </div>
+            <div class="brand-product-body">
+              ${category ? `<span class="product-category">${category}</span>` : ''}
+              <h3 class="product-title">${cleanTitle}</h3>
+            </div>
             <div class="brand-product-footer">
               <span class="view-details">${translations[currentLang].viewDetails}</span>
               <span class="view-arrow-btn"><i class="fa-solid fa-arrow-left"></i></span>
@@ -2477,7 +3723,8 @@
       brandsTitle.innerHTML = `${translations[currentLang].productsOf} <span class="brand-name">${displayBrand.brandName}</span>`;
       brandsSubtitle.innerHTML = `${translations[currentLang].allProductsOf} <span class="brand-name">${displayBrand.brandName}</span>`;
       brandsTrack.scrollLeft = 0;
-      requestAnimationFrame(updateBrandsArrows);
+      requestAnimationFrame(() => { updateBrandsArrows(); moveTabsIndicator(); });
+    setTimeout(moveTabsIndicator, 250);
     }
 
     function updatePageForBrand(brandKey) {
@@ -2715,12 +3962,37 @@
       }
     });
 
-    document.querySelectorAll('.tab-btn').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-      });
+    /* Dual tab switcher + sliding indicator from the supplied version. */
+    const productTabs = document.getElementById('productTabs');
+    const tabsIndicator = document.getElementById('tabsIndicator');
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    function moveTabsIndicator() {
+      if (!productTabs || !tabsIndicator) return;
+      const activeBtn = productTabs.querySelector('.tab-btn.active');
+      if (!activeBtn) { tabsIndicator.style.opacity = '0'; return; }
+
+      const barRect = productTabs.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      if (btnRect.width === 0) { tabsIndicator.style.opacity = '0'; return; }
+
+      tabsIndicator.style.opacity = '1';
+      tabsIndicator.style.width = btnRect.width + 'px';
+      tabsIndicator.style.right = (barRect.right - btnRect.right) + 'px';
+      tabsIndicator.style.left = 'auto';
+    }
+
+    function switchTab(tabKey) {
+      tabButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabKey));
+      tabPanels.forEach(panel => panel.classList.toggle('active', panel.dataset.panel === tabKey));
+      moveTabsIndicator();
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
     });
+
     document.querySelectorAll('.pd-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.pd-tab').forEach(t => t.classList.remove('active'));
@@ -2758,6 +4030,7 @@
     });
 
     window.addEventListener('resize', updateBrandsArrows);
+    window.addEventListener('resize', moveTabsIndicator);
 
     document.querySelector('.pd-fav-btn')?.addEventListener('click', function() {
       const icon = this.querySelector('i');
