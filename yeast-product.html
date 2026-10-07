@@ -1016,7 +1016,7 @@
 
     <header class="navbar" id="mainNavbar">
       <div class="navbar-inner">
-        <a href="#" class="logo" onclick="event.preventDefault()">
+        <a href="index.html" class="logo">
           <i class="fa-solid fa-leaf logo-icon"></i>
           <div class="logo-text">
             <h1>MOHAJER STEEL</h1>
@@ -1025,11 +1025,11 @@
         </a>
 
         <nav class="nav-links">
-          <a href="#" class="active" data-i18n="navHome">خانه</a>
-          <a href="#products" data-i18n="navProducts">محصولات</a>
-          <a href="#" data-i18n="navSpecial">پیشنهاد ویژه</a>
-          <a href="#" data-i18n="navAbout">درباره ما</a>
-          <a href="#" data-i18n="navContact">تماس با ما</a>
+          <a href="index.html" data-i18n="navHome">خانه</a>
+          <a href="index.html#products" class="active" data-i18n="navProducts">محصولات</a>
+          <a href="index.html#products" data-i18n="navSpecial">پیشنهاد ویژه</a>
+          <a href="index.html#about" data-i18n="navAbout">درباره ما</a>
+          <a href="index.html#contact" data-i18n="navContact">تماس با ما</a>
         </nav>
 
         <div class="nav-icons">
@@ -1143,11 +1143,11 @@
     </div>
 
     <div class="tabs-bar">
-      <button class="tab-btn active">Product Details</button>
-      <button class="tab-btn">Specifications</button>
-      <button class="tab-btn">Packaging</button>
-      <button class="tab-btn">Applications</button>
-      <button class="tab-btn">Related Products</button>
+      <button class="tab-btn active" data-i18n="tabProductDetails">جزئیات محصول</button>
+      <button class="tab-btn" data-i18n="tabSpecifications">مشخصات</button>
+      <button class="tab-btn" data-i18n="tabPackaging">بسته‌بندی</button>
+      <button class="tab-btn" data-i18n="tabApplications">کاربردها</button>
+      <button class="tab-btn" data-i18n="tabRelated">محصولات مرتبط</button>
     </div>
 
     <div class="details-grid">
@@ -1173,7 +1173,7 @@
       </div>
 
       <div class="key-features">
-        <h3 id="featuresTitle">Key Features</h3>
+        <h3 id="featuresTitle" data-i18n="keyFeaturesTitle">ویژگی‌های کلیدی</h3>
         <ul id="featuresList">
           <li>قدرت تخمیر مضاعف</li>
           <li>فعالیت آنزیمی بالا</li>
@@ -1201,7 +1201,7 @@
       </div>
 
       <div class="brands-track" id="brandsTrack"></div>
-      <div class="no-products" id="noProducts">محصولی برای نمایش وجود ندارد.</div>
+      <div class="no-products" id="noProducts" data-i18n="noProducts">محصولی برای نمایش وجود ندارد.</div>
     </div>
 
     <div class="export-footer">
@@ -1243,11 +1243,11 @@
           <i class="fa-solid fa-leaf"></i>
         </div>
         <nav class="pd-nav-links">
-          <a href="#" class="active">محصولات</a>
-          <a href="#">خانه</a>
-          <a href="#">پیشنهاد ویژه</a>
-          <a href="#">درباره ما</a>
-          <a href="#">تماس با ما</a>
+          <a href="index.html#products" class="active" data-i18n="navProducts">محصولات</a>
+          <a href="index.html" data-i18n="navHome">خانه</a>
+          <a href="index.html#products" data-i18n="navSpecial">پیشنهاد ویژه</a>
+          <a href="index.html#about" data-i18n="navAbout">درباره ما</a>
+          <a href="index.html#contact" data-i18n="navContact">تماس با ما</a>
         </nav>
       </header>
 
@@ -1262,8 +1262,8 @@
           <p class="pd-subtitle" id="pdSubtitle">X-Power Premium Instant Yeast</p>
 
           <div class="pd-tabs">
-            <button class="pd-tab active">جزئیات</button>
-            <button class="pd-tab">آنالیز آنلاین</button>
+            <button class="pd-tab active" data-i18n="pdDetails">جزئیات</button>
+            <button class="pd-tab" data-i18n="pdAnalysis">آنالیز آنلاین</button>
           </div>
 
           <div class="pd-feature-list" id="pdFeatures"></div>
@@ -1271,11 +1271,11 @@
           <div class="pd-bottom-actions">
             <button class="pd-btn-pdf">
               <i class="fa-solid fa-file-pdf"></i>
-              دانلود کاتالوگ محصولات (PDF)
+              <span data-i18n="pdDownloadCatalog">دانلود کاتالوگ محصولات (PDF)</span>
             </button>
             <a href="#" class="pd-btn-online">
               <i class="fa-solid fa-cloud-arrow-down"></i>
-              دانلود آنلاین
+              <span data-i18n="pdDownloadOnline">دانلود آنلاین</span>
             </a>
           </div>
         </div>
@@ -1285,7 +1285,7 @@
             <img id="pdImage" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1791090758/file_00000000649481f5808e64f2ed5b3faa_tmmoid.png" alt="Product">
             <div class="pd-no-img">
               <i class="fa-regular fa-image"></i>
-              <span>تصویری برای این محصول ثبت نشده است</span>
+              <span data-i18n="noImage">تصویری برای این محصول ثبت نشده است</span>
             </div>
             <button class="pd-fav-btn"><i class="fa-regular fa-heart"></i></button>
           </div>
@@ -1293,21 +1293,21 @@
           <div class="pd-float-actions">
             <button class="pd-float-btn">
               <i class="fa-regular fa-bookmark"></i>
-              <span>ذخیره</span>
+              <span data-i18n="save">ذخیره</span>
             </button>
             <button class="pd-float-btn" id="pdShareBtn">
               <i class="fa-solid fa-share-nodes"></i>
-              <span>اشتراک</span>
+              <span data-i18n="share">اشتراک</span>
             </button>
             <button class="pd-float-btn primary" id="pdInquiryBtn">
               <i class="fa-solid fa-file-invoice"></i>
-              <span>استعلام</span>
+              <span data-i18n="shortInquiry">استعلام</span>
             </button>
 
             <div class="pd-share-menu" id="pdShareMenu">
-              <a href="#" data-share="whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساپ</a>
-              <a href="#" data-share="telegram"><i class="fa-brands fa-telegram"></i> تلگرام</a>
-              <a href="#" data-share="instagram"><i class="fa-brands fa-instagram"></i> اینستاگرام</a>
+              <a href="#" data-share="whatsapp"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="whatsapp">واتساپ</span></a>
+              <a href="#" data-share="telegram"><i class="fa-brands fa-telegram"></i> <span data-i18n="telegram">تلگرام</span></a>
+              <a href="#" data-share="instagram"><i class="fa-brands fa-instagram"></i> <span data-i18n="instagram">اینستاگرام</span></a>
             </div>
           </div>
         </div>
@@ -1317,8 +1317,8 @@
         <div class="contact-card">
           <div class="contact-avatar" style="--c1:#6366f1;--c2:#8b5cf6">م</div>
           <div class="contact-info">
-            <span class="name">محمد مهاجری</span>
-            <span class="role">مدیر فروش صادراتی · ۰۹۱۵۳۰۲۸۳۶۷</span>
+            <span class="name" data-i18n="contact1Name">محمد مهاجری</span>
+            <span class="role" data-i18n="contact1Role">مدیر فروش صادراتی · ۰۹۱۵۳۰۲۸۳۶۷</span>
           </div>
           <div class="contact-actions">
             <a class="contact-btn wa" href="https://wa.me/989153028367" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
@@ -1328,8 +1328,8 @@
         <div class="contact-card">
           <div class="contact-avatar" style="--c1:#0ea5e9;--c2:#2563eb">ع</div>
           <div class="contact-info">
-            <span class="name">علیرضا تهرانی</span>
-            <span class="role">کارشناس صادرات · ۰۹۱۵۵۵۱۹۶۵</span>
+            <span class="name" data-i18n="contact2Name">علیرضا تهرانی</span>
+            <span class="role" data-i18n="contact2Role">کارشناس صادرات · ۰۹۱۵۵۵۱۹۶۵</span>
           </div>
           <div class="contact-actions">
             <a class="contact-btn wa" href="https://wa.me/98915551965" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
@@ -1356,6 +1356,29 @@
         contact2Name: 'علیرضا تهرانی',
         contact2Role: 'کارشناس صادرات · ۰۹۱۵۵۵۱۹۶۵',
         exportFooter: 'صادرات محصولات غذایی باکیفیت به بیش از ۶۰ کشور',
+        tabProductDetails: 'جزئیات محصول',
+        tabSpecifications: 'مشخصات',
+        tabPackaging: 'بسته‌بندی',
+        tabApplications: 'کاربردها',
+        tabRelated: 'محصولات مرتبط',
+        keyFeaturesTitle: 'ویژگی‌های کلیدی',
+        noProducts: 'محصولی برای نمایش وجود ندارد.',
+        pdDetails: 'جزئیات',
+        pdAnalysis: 'آنالیز آنلاین',
+        pdDownloadCatalog: 'دانلود کاتالوگ محصولات (PDF)',
+        pdDownloadOnline: 'دانلود آنلاین',
+        noImage: 'تصویری برای این محصول ثبت نشده است',
+        save: 'ذخیره',
+        share: 'اشتراک',
+        shortInquiry: 'استعلام',
+        whatsapp: 'واتساپ',
+        telegram: 'تلگرام',
+        instagram: 'اینستاگرام',
+        viewDetails: 'مشاهده جزئیات',
+        productsOf: 'محصولات',
+        allProductsOf: 'نمایش تمام محصولات برند',
+        copiedLink: 'لینک سایت کپی شد ✓',
+        closeTitle: 'بستن',
       },
       en: {
         logoTagline: 'Food Export Specialist',
@@ -1371,10 +1394,35 @@
         contact2Name: 'Alireza Tehrani',
         contact2Role: 'Export Specialist · +98 915 551 965',
         exportFooter: 'Exporting Quality Food Products to 60+ Countries',
+        tabProductDetails: 'Product Details',
+        tabSpecifications: 'Specifications',
+        tabPackaging: 'Packaging',
+        tabApplications: 'Applications',
+        tabRelated: 'Related Products',
+        keyFeaturesTitle: 'Key Features',
+        noProducts: 'No products available.',
+        pdDetails: 'Details',
+        pdAnalysis: 'Online Analysis',
+        pdDownloadCatalog: 'Download Product Catalog (PDF)',
+        pdDownloadOnline: 'Download Online',
+        noImage: 'No image has been registered for this product',
+        save: 'Save',
+        share: 'Share',
+        shortInquiry: 'Inquiry',
+        whatsapp: 'WhatsApp',
+        telegram: 'Telegram',
+        instagram: 'Instagram',
+        viewDetails: 'View Details',
+        productsOf: 'Products',
+        allProductsOf: 'View all products by',
+        copiedLink: 'Website link copied ✓',
+        closeTitle: 'Close',
       }
     };
 
     let currentLang = 'fa';
+    let currentBrandKey = 'ixpower';
+    let currentProductId = null;
 
     function setLanguage(lang) {
       currentLang = lang;
@@ -1397,20 +1445,29 @@
           else textSpan.textContent = 'EN';
         }
       });
+
+      const closeBtn = document.getElementById('pdClose');
+      if (closeBtn) closeBtn.title = dict.closeTitle;
+
+      // Keep the Products item active on this product page.
+      document.querySelectorAll('.nav-links a, .pd-nav-links a').forEach(link => {
+        link.classList.toggle('active', link.dataset.i18n === 'navProducts');
+      });
+
+      // Re-render every dynamic section in the selected language.
+      updatePageForBrand(currentBrandKey);
+      if (currentProductId && pdOverlay.classList.contains('open')) {
+        const baseProduct = catalog[currentBrandKey]?.products.find(p => p.id === currentProductId);
+        if (baseProduct) openProductDetail(baseProduct);
+      }
     }
 
     document.querySelectorAll('.lang-btn').forEach(b => {
       b.addEventListener('click', () => setLanguage(b.dataset.lang));
     });
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (link.getAttribute('href') === '#') e.preventDefault();
-        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
-    });
-
+    // Navigation links use real destinations. This page belongs to Products,
+    // so Products stays active until the user navigates to another page.
     const catalog = {
       ixpower: {
         brandName: 'IXPOWER',
@@ -1649,6 +1706,171 @@
       }
     };
 
+    const catalogEn = {
+      ixpower: {
+        brandName: 'IXPOWER',
+        heroTitle: 'Global Quality, International Trust',
+        heroSubtitle: 'Specialized X-Power instant dry yeast with double fermentation power and high enzymatic activity, suitable for a wide range of breads and pastries.',
+        detailsTitle: 'X-Power Instant Dry Yeast',
+        detailsText: 'X-Power specialized instant dry yeast offers double fermentation power and high enzymatic activity for bulky, semi-bulky and pastry products. Produced to ISO 9001:2015 standards and Halal certified.',
+        keyFeatures: ['Double fermentation power','High enzymatic activity','Suitable for Barbari, Sangak and Taftoon breads','Suitable for bulky and fancy breads','24-month shelf life']
+      },
+      shetab: {
+        brandName: 'SHETAB',
+        heroTitle: 'Shetab Yeast, Speed with Quality',
+        heroSubtitle: 'Shetab instant dry yeast uses modern technology for professional bread and pastry producers in export markets.',
+        detailsTitle: 'Shetab Instant Dry Yeast',
+        detailsText: 'Shetab instant dry yeast is specially formulated for fast baking of industrial and fancy breads.',
+        keyFeatures: ['Fast activation in different doughs','Stable performance in varying conditions','Suitable for industrial bakeries','Multiple export packaging options','24-month shelf life']
+      },
+      dezmaye: {
+        brandName: 'DEZ MAYE GOLD',
+        heroTitle: 'Dez Maye Gold, the White Gold of Baking',
+        heroSubtitle: 'Dez Maye Gold instant dry yeast is produced with advanced Frings technology from Austria.',
+        detailsTitle: 'Dez Maye Gold Instant Dry Yeast',
+        detailsText: 'Dez Maye Gold instant dry yeast uses advanced Frings technology from Austria and delivers exceptionally high fermentation activity.',
+        keyFeatures: ['Advanced Frings technology from Austria','Exceptionally high fermentation activity','No pre-fermentation required','Direct mixing with flour','European quality standards']
+      },
+      razavi: {
+        brandName: 'Razavi Yeast Co.',
+        heroTitle: 'Razavi, a Heritage of Quality in Baking',
+        heroSubtitle: 'Razavi yeast is backed by years of experience in producing high-quality yeast.',
+        detailsTitle: 'Razavi Instant Yeast',
+        detailsText: 'Razavi instant yeast is produced with extensive experience and consistent quality control.',
+        keyFeatures: ['Guaranteed quality','Strict quality control','Suitable for industrial bakeries','24-month shelf life','ISO 22000 standards']
+      },
+      nanmaye: {
+        brandName: 'Nan Maye',
+        heroTitle: 'Nan Maye, Freshness in Every Dough',
+        heroSubtitle: 'Nan Maye yeast is designed for industrial and large bakeries and export to neighboring countries, with economical pricing, consistent quality and a two-year shelf life.',
+        detailsTitle: 'Nan Maye Yeast',
+        detailsText: 'Nan Maye yeast is designed for industrial and large bakeries and export to neighboring countries, offering economical pricing, consistent quality and a two-year shelf life.',
+        keyFeatures: ['Designed for industrial and large bakeries','Suitable for export to neighboring countries','Economical with consistent quality','Two-year shelf life','German ISO 9001:2015 standard']
+      }
+    };
+
+    const exactEnglish = {
+      'خمیر مایه خشک فوری': 'Instant Dry Yeast',
+      'خمیر مایه نان مایه': 'Nan Maye Yeast',
+      'وزن خالص / ساشه': 'Net weight / sachet',
+      'نوع بسته‌بندی': 'Packaging type',
+      'تعداد در کارتن': 'Units per carton',
+      'مدت ماندگاری': 'Shelf life',
+      'استانداردها': 'Standards',
+      'استانداردها و گواهینامه‌ها': 'Standards & certificates',
+      'موارد مصرف': 'Applications',
+      'وکیوم': 'Vacuum pack',
+      'ساشه': 'Sachet',
+      'نان': 'Bread',
+      'صنعتی': 'Industrial',
+      'وکیوم فشرده': 'Compressed vacuum pack',
+      'وکیوم مقاوم': 'Reinforced vacuum pack',
+      'وکیوم آلومینیومی': 'Aluminum vacuum pack',
+      'وکیوم آلومینیومی قدرت بالا': 'High-strength aluminum vacuum pack',
+      'وکیوم آلومینیومی مقاوم': 'Reinforced aluminum vacuum pack',
+      'وکیوم آلومینیومی چندلایه ضد رطوبت': 'Multi-layer moisture-resistant aluminum vacuum pack',
+      'وکیوم صنعتی': 'Industrial vacuum pack',
+      'ساشه سه لایه': 'Three-layer sachet',
+      'ساشه آلومینیومی مقاوم': 'Reinforced aluminum sachet',
+      'وکیوم مقاوم سه لایه': 'Reinforced three-layer vacuum pack',
+      'وکیوم سه لایه': 'Three-layer vacuum pack',
+      'کیسه فله': 'Bulk bag',
+      'در هر کارتن صادراتی': 'Per export carton',
+      'در هر جعبه صادراتی': 'Per export box',
+      'از تاریخ تولید در جای خشک و خنک': 'From production date; store in a cool, dry place',
+      'در جای خشک و خنک': 'Store in a cool, dry place',
+      '(۲ سال) از تاریخ تولید': 'Two years from production date',
+      '(۲ سال) از تاریخ تولید در جای خشک و خنک': 'Two years from production date; store in a cool, dry place',
+      'انواع نان': 'All types of bread',
+      'کارخانجات نان': 'Bread factories',
+      'ISO 9001:2015، حلال': 'ISO 9001:2015, Halal',
+      'ISO 9001:2015 آلمان، حلال': 'German ISO 9001:2015, Halal',
+      'ISO 9001:2015 آلمان، گواهی حلال': 'German ISO 9001:2015, Halal certified',
+      'ISO 9001:2015 آلمان، گواهی حلال، استاندارد ملی ایران، عضویت VH برلین': 'German ISO 9001:2015, Halal certification, Iranian national standard, VH Berlin membership',
+      'ISO 9001:2015، حلال، استاندارد سازمان غذا و دارو، ISO 14001:2015، ISO 45001:2018': 'ISO 9001:2015, Halal, Food and Drug Administration standard, ISO 14001:2015, ISO 45001:2018',
+      'نان‌های بربری، سنگک، تافتون، لواش، باگت، تست، نان‌های حجیم و فانتزی': 'Barbari, Sangak, Taftoon, Lavash, baguette, toast, bulky and fancy breads',
+      'خمیرمایه تخصصی ایکس پاور (X-Power) با قدرت تخمیر مضاعف و فعالیت آنزیمی بالا جهت پخت انواع نان‌های حجیم، نیمه‌حجیم و شیرینی‌جات.': 'Specialized X-Power instant dry yeast with double fermentation power and high enzymatic activity for bulky, semi-bulky breads and pastries.',
+      'خمیرمایه تخصصی ایکس پاور بسته صنعتی.': 'X-Power specialized yeast in industrial packaging.',
+      'خمیرمایه خشک فوری شتاب مایه با تکنولوژی مدرن.': 'Shetab instant dry yeast produced with modern technology.',
+      'دزمایه گلد با تکنولوژی فرینگز اتریش.': 'Dez Maye Gold with Austrian Frings technology.',
+      'خمیرمایه نان مایه مخصوص واحدهای نانوایی صنعتی، نانوایی‌های بزرگ و صادرات به کشورهای همسایه. اقتصادی، با کیفیت یکنواخت و ماندگاری ۲ ساله.': 'Nan Maye yeast for industrial and large bakeries and export to neighboring countries, with economical pricing, consistent quality and a two-year shelf life.'
+    };
+
+    function faDigitsToEn(value) {
+      return String(value).replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+    }
+
+    function toEnglishText(value) {
+      if (value == null) return value;
+      const original = String(value).trim();
+      if (exactEnglish[original]) return exactEnglish[original];
+
+      let text = faDigitsToEn(original);
+      text = text
+        .replace(/^خمیر مایه خشک فوری ایکس پاور\s+(.+)$/u, 'X-Power Instant Dry Yeast $1')
+        .replace(/^خمیرمایه تخصصی ایکس پاور\s+(.+?)\s+گرمی\.$/u, 'X-Power specialized instant dry yeast, $1 g.')
+        .replace(/^خمیر مایه خشک فوری شتاب مایه\s+(.+)$/u, 'Shetab Instant Dry Yeast $1')
+        .replace(/^خمیر مایه خشک فوری دزمایه گلد\s+(.+)$/u, 'Dez Maye Gold Instant Dry Yeast $1')
+        .replace(/^خمیر مایه خشک فوری رضوی\s+(.+)$/u, 'Razavi Instant Dry Yeast $1')
+        .replace(/^خمیرمایه خشک فوری رضوی\s+(.+?)\s+گرمی\.$/u, 'Razavi instant dry yeast, $1 g.')
+        .replace(/^خمیر مایه نان مایه\s+(.+)$/u, 'Nan Maye Yeast $1')
+        .replace(/\s*\(بسته بندی وکیوم\)/gu, ' (vacuum pack)')
+        .replace(/\s*\(بسته بندی ساشه\)/gu, ' (sachet)')
+        .replace(/کیلوگرم/gu, 'kg')
+        .replace(/گرم/gu, 'g')
+        .replace(/ماه/gu, 'months')
+        .replace(/عدد/gu, 'pcs')
+        .replace(/ساشه/gu, 'sachets')
+        .replace(/بسته/gu, 'packs');
+
+      const normalizedExact = exactEnglish[original] || exactEnglish[text];
+      return normalizedExact || text;
+    }
+
+    function localizeProduct(product) {
+      if (currentLang === 'fa') return product;
+      return {
+        ...product,
+        name: toEnglishText(product.name),
+        category: toEnglishText(product.category),
+        description: toEnglishText(product.description),
+        features: (product.features || []).map(feature => ({
+          ...feature,
+          title: toEnglishText(feature.title),
+          value: toEnglishText(feature.value),
+          desc: toEnglishText(feature.desc)
+        }))
+      };
+    }
+
+    function getLocalizedBrand(brandKey) {
+      const base = catalog[brandKey];
+      if (!base || currentLang === 'fa') return base;
+      const translated = catalogEn[brandKey] || {};
+      return {
+        ...base,
+        ...translated,
+        products: base.products
+      };
+    }
+
+    function localizeBadgeLabel(label) {
+      const labels = {
+        fa: {
+          'Fermentation Power': 'قدرت تخمیر',
+          'Certified': 'دارای گواهی',
+          'Activation': 'فعال‌سازی',
+          'Austria Tech': 'فناوری اتریش',
+          'Guaranteed': 'تضمین‌شده',
+          'Grade': 'رده صنعتی',
+          'Natural': 'طبیعی',
+          'Months': 'ماه'
+        },
+        en: {}
+      };
+      return currentLang === 'fa' ? (labels.fa[label] || label) : label;
+    }
+
     function mkShetab(id, fa, weight, packType, packDesc, packDescLong, qty, img) {
       return {
         id, name: `خمیر مایه خشک فوری شتاب مایه ${weight}`, category: 'خمیر مایه خشک فوری',
@@ -1713,7 +1935,8 @@
     function renderProducts(brandKey) {
       brandsTrack.innerHTML = '';
       const brand = catalog[brandKey];
-      if (!brand) return;
+      const displayBrand = getLocalizedBrand(brandKey);
+      if (!brand || !displayBrand) return;
       const products = brand.products;
 
       if (products.length === 0) {
@@ -1721,56 +1944,59 @@
       } else {
         noProducts.classList.remove('show');
         products.forEach((product, index) => {
+          const shownProduct = localizeProduct(product);
           const card = document.createElement('div');
           card.className = 'brand-product-card';
           card.style.animationDelay = `${index * 0.05}s`;
           const imageHtml = product.image
-            ? `<img src="${product.image}" alt="${product.name}">`
-            : `<div class="img-placeholder"><i class="fa-regular fa-image"></i><span>بدون تصویر</span></div>`;
+            ? `<img src="${product.image}" alt="${shownProduct.name}">`
+            : `<div class="img-placeholder"><i class="fa-regular fa-image"></i><span>${translations[currentLang].noImage}</span></div>`;
           card.innerHTML = `
             <div class="brand-product-image">${imageHtml}</div>
-            <h3>${product.name}</h3>
+            <h3>${shownProduct.name}</h3>
             <div class="brand-product-footer">
-              <span class="view-details">مشاهده جزئیات</span>
+              <span class="view-details">${translations[currentLang].viewDetails}</span>
               <span class="view-arrow-btn"><i class="fa-solid fa-arrow-left"></i></span>
             </div>
           `;
-          card.addEventListener('click', () => openProductDetail(product, brand.brandName));
+          card.addEventListener('click', () => openProductDetail(product));
           brandsTrack.appendChild(card);
         });
       }
 
-      brandsTitle.innerHTML = `محصولات <span class="brand-name">${brand.brandName}</span>`;
-      brandsSubtitle.innerHTML = `نمایش تمام محصولات برند <span class="brand-name">${brand.brandName}</span>`;
+      brandsTitle.innerHTML = `${translations[currentLang].productsOf} <span class="brand-name">${displayBrand.brandName}</span>`;
+      brandsSubtitle.innerHTML = `${translations[currentLang].allProductsOf} <span class="brand-name">${displayBrand.brandName}</span>`;
       brandsTrack.scrollLeft = 0;
     }
 
     function updatePageForBrand(brandKey) {
       const brand = catalog[brandKey];
-      if (!brand) return;
+      const displayBrand = getLocalizedBrand(brandKey);
+      if (!brand || !displayBrand) return;
+      currentBrandKey = brandKey;
       if (brand.heroBg) heroSection.style.backgroundImage = `url('${brand.heroBg}')`;
       // فقط برای رضوی و نان مایه، تصویر هیرو کمی پایین‌تر قرار بگیرد تا زیر منوی بالا نرود.
       heroSection.style.backgroundPosition = (brandKey === 'razavi' || brandKey === 'nanmaye')
         ? 'center 70px'
         : 'center top';
-      heroTitleEl.textContent = brand.heroTitle;
-      heroSubtitleEl.textContent = brand.heroSubtitle;
-      detailsTitleEl.textContent = brand.detailsTitle;
-      detailsTextEl.textContent = brand.detailsText;
+      heroTitleEl.textContent = displayBrand.heroTitle;
+      heroSubtitleEl.textContent = displayBrand.heroSubtitle;
+      detailsTitleEl.textContent = displayBrand.detailsTitle;
+      detailsTextEl.textContent = displayBrand.detailsText;
       detailsImageEl.src = brand.detailsImage;
-      detailsImageEl.alt = brand.detailsTitle;
+      detailsImageEl.alt = displayBrand.detailsTitle;
       detailsBadgesEl.innerHTML = '';
       brand.detailsBadges.forEach(badge => {
         const el = document.createElement('div');
         el.className = 'detail-badge';
         el.innerHTML = `
           <div class="detail-badge-icon"><i class="${badge.icon}"></i></div>
-          <div class="detail-badge-text"><strong>${badge.value}</strong><span>${badge.label}</span></div>
+          <div class="detail-badge-text"><strong>${badge.value}</strong><span>${localizeBadgeLabel(badge.label)}</span></div>
         `;
         detailsBadgesEl.appendChild(el);
       });
       featuresListEl.innerHTML = '';
-      brand.keyFeatures.forEach(f => {
+      displayBrand.keyFeatures.forEach(f => {
         const li = document.createElement('li');
         li.textContent = f;
         featuresListEl.appendChild(li);
@@ -1872,19 +2098,21 @@
     const pdContactsPanel = document.getElementById('pdContactsPanel');
 
     function openProductDetail(product) {
-      pdCategory.innerHTML = `<span>${product.category}</span> <i class="fa-solid fa-leaf"></i>`;
-      pdTitle.textContent = product.name;
-      pdSubtitle.textContent = product.description;
+      currentProductId = product.id;
+      const shownProduct = localizeProduct(product);
+      pdCategory.innerHTML = `<span>${shownProduct.category}</span> <i class="fa-solid fa-leaf"></i>`;
+      pdTitle.textContent = shownProduct.name;
+      pdSubtitle.textContent = shownProduct.description;
       if (product.image) {
         pdImageContainer.classList.remove('no-img');
         pdImage.src = product.image;
-        pdImage.alt = product.name;
+        pdImage.alt = shownProduct.name;
       } else {
         pdImageContainer.classList.add('no-img');
         pdImage.removeAttribute('src');
       }
       pdFeatures.innerHTML = '';
-      const features = product.features || [];
+      const features = shownProduct.features || [];
       const icons = ['fa-solid fa-weight-hanging','fa-solid fa-box-open','fa-solid fa-cubes','fa-solid fa-clock-rotate-left','fa-solid fa-certificate','fa-solid fa-bread-slice'];
       features.forEach((feature, idx) => {
         const featureEl = document.createElement('div');
@@ -1935,7 +2163,7 @@
         else if (type === 'instagram') {
           if (navigator.clipboard) {
             navigator.clipboard.writeText(shareMessage).then(() => {
-              alert('لینک سایت کپی شد ✓');
+              alert(translations[currentLang].copiedLink);
               window.open('https://www.instagram.com/', '_blank');
             }).catch(() => window.open('https://www.instagram.com/', '_blank'));
           } else window.open('https://www.instagram.com/', '_blank');
@@ -2002,6 +2230,7 @@
       defaultBrandCard.classList.add('active');
       updatePageForBrand('ixpower');
     }
+    setLanguage('fa');
   </script>
 
 </body>
