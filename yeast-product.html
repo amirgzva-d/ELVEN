@@ -961,6 +961,16 @@
     .pd-contacts-panel .contact-card:nth-child(1),
     .pd-contacts-panel .contact-card:nth-child(2) { transition-delay: 0s; }
 
+    /* Desktop: move the inquiry contacts panel into the unused space on the left,
+       so it no longer covers the product image. */
+    @media (min-width: 1200px) {
+      .pd-card { overflow: visible; }
+      .pd-contacts-panel {
+        width: 300px;
+        left: clamp(-310px, calc((1250px - 100vw) / 2 + 18px), 1rem);
+      }
+    }
+
     @media (max-width: 1200px) {
       .details-grid { grid-template-columns: 1fr 1fr; }
       .details-image { grid-column: span 2; min-height: 220px; }
