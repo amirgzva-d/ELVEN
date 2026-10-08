@@ -517,6 +517,135 @@ img{max-width:100%;display:block}
   *,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
   [data-reveal],[data-stagger]>*{opacity:1!important;transform:none!important}
 }
+
+
+/* ===== RESTORED YEAST FEATURED CARD — previous two-panel live slider ===== */
+.category-card--featured{
+  grid-column:span 2 !important;
+  display:grid !important;
+  grid-template-columns:45% 55% !important;
+  min-height:300px !important;
+  height:300px !important;
+  position:relative !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+  border:0 !important;
+  border-radius:18px !important;
+  background:#0a5c46 !important;
+  color:#fff !important;
+}
+.category-card--featured::after{
+  display:none !important;
+  content:none !important;
+}
+.category-card--featured .featured-copy{
+  position:relative !important;
+  inset:auto !important;
+  z-index:3 !important;
+  width:auto !important;
+  height:100% !important;
+  padding:28px 24px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:flex-start !important;
+  background:linear-gradient(145deg,#063a2c 0%,#0a5c46 65%,#0c6c52 100%) !important;
+  pointer-events:auto !important;
+}
+.category-card--featured .featured-icon{
+  width:38px !important;
+  height:38px !important;
+  margin-bottom:12px !important;
+}
+.category-card--featured .pill{
+  margin-bottom:10px !important;
+}
+.category-card--featured h3{
+  font-size:22px !important;
+  margin:0 0 8px !important;
+}
+.category-card--featured p{
+  font-size:12px !important;
+  line-height:1.65 !important;
+  margin:0 0 18px !important;
+  max-width:230px !important;
+}
+.category-card--featured .featured-link{
+  position:static !important;
+  margin-top:auto !important;
+  align-self:flex-start !important;
+  display:inline-flex !important;
+  pointer-events:auto !important;
+  color:#fff !important;
+  border:1.5px solid rgba(255,255,255,.55) !important;
+  background:rgba(255,255,255,.08) !important;
+  border-radius:24px !important;
+  padding:9px 16px !important;
+  font-size:11px !important;
+}
+.category-card--featured .category-image.featured-slider{
+  position:relative !important;
+  inset:auto !important;
+  z-index:1 !important;
+  width:100% !important;
+  height:300px !important;
+  min-height:300px !important;
+  overflow:hidden !important;
+  background:none !important;
+  isolation:isolate !important;
+}
+.category-card--featured .featured-slider .featured-slide{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  opacity:0 !important;
+  transform:translate3d(10%,0,0) scale(1.04) !important;
+  transition:opacity .8s ease,transform 1.35s cubic-bezier(.16,1,.3,1) !important;
+  z-index:1 !important;
+  will-change:opacity,transform !important;
+}
+.category-card--featured .featured-slider .featured-slide.is-active{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) scale(1) !important;
+  z-index:2 !important;
+}
+
+@media(max-width:768px){
+  .category-card--featured{
+    grid-column:1/-1 !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto 230px !important;
+    height:auto !important;
+    min-height:0 !important;
+  }
+  .category-card--featured .featured-copy{
+    min-height:210px !important;
+    padding:22px 20px !important;
+  }
+  .category-card--featured .category-image.featured-slider{
+    height:230px !important;
+    min-height:230px !important;
+  }
+  .category-card--featured h3{font-size:19px !important}
+  .category-card--featured p{max-width:100% !important;font-size:11.5px !important}
+}
+@media(max-width:480px){
+  .category-card--featured{
+    grid-template-rows:auto 205px !important;
+  }
+  .category-card--featured .featured-copy{
+    min-height:195px !important;
+    padding:20px 18px !important;
+  }
+  .category-card--featured .category-image.featured-slider{
+    height:205px !important;
+    min-height:205px !important;
+  }
+}
 </style>
 </head>
 <body>
