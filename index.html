@@ -964,6 +964,75 @@ img{max-width:100%;display:block}
 .hero .hero-shapes{
   display:none !important;
 }
+
+
+/* ===== FINAL HOMEPAGE HERO + FOOTER CLEANUP ===== */
+
+/* Show only the original hero background image — no white wash/halo. */
+.hero-overlay{
+  display:none !important;
+  background:none !important;
+}
+
+/* Desktop footer: spread content naturally instead of centering every column. */
+@media(min-width:901px){
+  .site-footer{
+    padding-left:clamp(42px,5vw,92px) !important;
+    padding-right:clamp(42px,5vw,92px) !important;
+  }
+
+  .site-footer .footer-container{
+    width:min(1500px,100%) !important;
+    max-width:1500px !important;
+    grid-template-columns:
+      minmax(320px,1.45fr)
+      minmax(150px,.72fr)
+      minmax(180px,.82fr)
+      minmax(280px,1.15fr) !important;
+    gap:clamp(46px,5vw,96px) !important;
+    align-items:start !important;
+  }
+
+  .site-footer .footer-brand-block,
+  .site-footer .footer-col{
+    text-align:right !important;
+    justify-self:stretch !important;
+  }
+
+  .site-footer .footer-brand-block{
+    max-width:420px !important;
+  }
+
+  .site-footer .footer-logo{
+    justify-content:flex-start !important;
+  }
+
+  .site-footer .footer-col h4{
+    text-align:right !important;
+  }
+
+  .site-footer .footer-col ul{
+    text-align:right !important;
+  }
+
+  .site-footer .footer-contact-item{
+    width:100% !important;
+    justify-content:flex-start !important;
+    text-align:right !important;
+  }
+
+  .site-footer .footer-contact-item div{
+    flex:1 !important;
+    min-width:0 !important;
+  }
+
+  .site-footer .footer-bottom{
+    width:min(1500px,100%) !important;
+    max-width:1500px !important;
+    justify-content:space-between !important;
+    text-align:right !important;
+  }
+}
 </style>
 </head>
 <body>
