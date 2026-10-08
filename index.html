@@ -810,6 +810,79 @@ img{max-width:100%;display:block}
     font-size:9.5px !important;
   }
 }
+
+
+/* ===== YEAST CARD LEFT COPY + TEXT-ONLY CTA ===== */
+.category-card--featured .featured-copy{
+  top:22px !important;
+  left:24px !important;
+  right:auto !important;
+  width:210px !important;
+  align-items:flex-start !important;
+  text-align:left !important;
+  direction:rtl !important;
+}
+.category-card--featured .featured-icon{
+  align-self:flex-start !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+.category-card--featured .pill{
+  align-self:flex-start !important;
+}
+.category-card--featured h3,
+.category-card--featured p{
+  text-align:left !important;
+  width:100% !important;
+}
+.category-card--featured .featured-link{
+  left:24px !important;
+  right:auto !important;
+  bottom:18px !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  color:#fff !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  text-shadow:0 2px 8px rgba(0,0,0,.48) !important;
+  gap:7px !important;
+}
+.category-card--featured .featured-link:hover{
+  background:transparent !important;
+  color:#fff !important;
+  transform:translateX(-3px) !important;
+}
+
+@media(max-width:768px){
+  .category-card--featured .featured-copy{
+    left:18px !important;
+    right:auto !important;
+    top:17px !important;
+    width:185px !important;
+  }
+  .category-card--featured .featured-link{
+    left:18px !important;
+    right:auto !important;
+    bottom:15px !important;
+  }
+}
+@media(max-width:480px){
+  .category-card--featured .featured-copy{
+    left:14px !important;
+    right:auto !important;
+    top:14px !important;
+    width:165px !important;
+  }
+  .category-card--featured .featured-link{
+    left:14px !important;
+    right:auto !important;
+    bottom:12px !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -968,7 +1041,7 @@ img{max-width:100%;display:block}
           <p>مخمر ممتاز برای پخت باکیفیت در سراسر جهان</p>
         </div>
         <a class="featured-link product-details-link" href="yeast-product.html">
-          مشاهده محصولات
+          جزئیات محصول
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <div class="category-image image-featured featured-slider" aria-label="تصاویر محصولات مخمر">
