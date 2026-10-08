@@ -1,0 +1,1207 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="مهاجر استیل — صادرات محصولات غذایی ممتاز ایرانی به بازارهای جهانی">
+<title>مهاجر استیل — صادرات مواد غذایی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0a5c46;--green-dark:#063a2c;--green-deep:#04251b;--green-soft:#eaf3ee;
+  --gold:#c9a35a;--ink:#0f2b22;--muted:#6b7c75;--line:#e2e9e4;
+  --serif:"Playfair Display",Georgia,serif;
+  --fa:"Vazirmatn",system-ui,sans-serif;
+  --en:"Poppins",Arial,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--fa);overflow-x:hidden;font-feature-settings:"ss01","ss02"}
+button,input,select{font:inherit;font-family:var(--fa)}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--green);color:#fff}
+.page{width:100%;min-width:320px}
+
+.scroll-progress{position:fixed;top:0;right:0;height:3px;width:0;background:linear-gradient(270deg,#c9a35a,#0a5c46);z-index:9999;transition:width .1s linear;box-shadow:0 0 14px rgba(10,92,70,.5)}
+.cursor-glow{position:fixed;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(10,92,70,.08),transparent 65%);pointer-events:none;z-index:1;transform:translate(-50%,-50%);transition:opacity .4s;will-change:transform}
+@media(hover:none){.cursor-glow{display:none}}
+
+[data-reveal]{opacity:0;transform:translateY(55px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
+[data-reveal="left"]{transform:translateX(70px)}
+[data-reveal="right"]{transform:translateX(-70px)}
+[data-reveal].is-visible{opacity:1;transform:none}
+[data-stagger]>*{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+[data-stagger].is-visible>*{opacity:1;transform:none}
+[data-stagger].is-visible>*:nth-child(1){transition-delay:.05s}
+[data-stagger].is-visible>*:nth-child(2){transition-delay:.12s}
+[data-stagger].is-visible>*:nth-child(3){transition-delay:.19s}
+[data-stagger].is-visible>*:nth-child(4){transition-delay:.26s}
+[data-stagger].is-visible>*:nth-child(5){transition-delay:.33s}
+[data-stagger].is-visible>*:nth-child(6){transition-delay:.40s}
+[data-stagger].is-visible>*:nth-child(7){transition-delay:.47s}
+[data-stagger].is-visible>*:nth-child(8){transition-delay:.54s}
+[data-stagger].is-visible>*:nth-child(9){transition-delay:.61s}
+[data-stagger].is-visible>*:nth-child(10){transition-delay:.68s}
+[data-stagger].is-visible>*:nth-child(11){transition-delay:.75s}
+
+.header{position:fixed;top:0;left:0;right:0;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,58px);background:transparent;z-index:1000;transition:background .35s ease,box-shadow .35s ease,height .3s ease}
+.header.is-scrolled{background:rgba(252,251,247,.92);backdrop-filter:saturate(140%) blur(14px);box-shadow:0 8px 34px rgba(10,58,44,.09);height:76px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-mark{width:46px;height:46px;border-radius:13px;background:linear-gradient(145deg,#0f7a5c,#0a5c46 60%,#063a2c);display:grid;place-items:center;color:#c9f4c9;box-shadow:0 8px 22px rgba(10,92,70,.28),inset 0 -2px 6px rgba(0,0,0,.15);position:relative;overflow:hidden;animation:brandPulse 4s ease-in-out infinite}
+.brand-mark::after{content:"";position:absolute;inset:-50%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);animation:brandShine 5s ease-in-out infinite}
+@keyframes brandShine{0%,85%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes brandPulse{0%,100%{box-shadow:0 8px 22px rgba(10,92,70,.28),inset 0 -2px 6px rgba(0,0,0,.15)}50%{box-shadow:0 8px 30px rgba(10,92,70,.42),inset 0 -2px 6px rgba(0,0,0,.15)}}
+.brand-mark svg{width:26px;height:26px;position:relative;z-index:1}
+.brand-text strong{display:block;font-size:18px;font-weight:800;line-height:1;color:#0a3a2c;letter-spacing:-.3px}
+.brand-text small{display:block;margin-top:5px;font-family:var(--en);font-size:8px;letter-spacing:2.6px;color:#6b7c75;font-weight:500}
+
+.nav{display:flex;gap:clamp(20px,2.3vw,38px);align-items:center;margin:0 auto 0 0}
+.nav a{position:relative;color:#3b4d47;font-size:14.5px;font-weight:500;padding:8px 2px;transition:color .3s ease;white-space:nowrap}
+.nav a::after{content:'';position:absolute;bottom:0;right:0;left:0;height:2px;border-radius:2px;background:#0a5c46;transform:scaleX(0);transform-origin:right center;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.nav a:hover{color:#0a5c46}
+.nav a:hover::after{transform:scaleX(1)}
+.nav a.active{color:#0a5c46;font-weight:700}
+.nav a.active::after{transform:scaleX(1);background:#0a5c46}
+
+.header-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.icon-button{width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:#3b4d47;display:grid;place-items:center;cursor:pointer;position:relative;transition:background .3s,color .3s,transform .3s}
+.icon-button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.icon-button:hover{background:rgba(10,92,70,.08);color:#0a5c46;transform:translateY(-2px)}
+.icon-button:hover svg{transform:rotate(-8deg) scale(1.06)}
+.cart-button .cart-badge{position:absolute;top:-1px;left:-3px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:#c9a35a;color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center;font-family:var(--en);box-shadow:0 3px 8px rgba(201,163,90,.45)}
+
+.cta-quote{display:inline-flex;align-items:center;gap:9px;background:#0a5c46;color:#fff;border:0;padding:12px 22px;border-radius:40px;font-family:var(--fa);font-size:13px;font-weight:700;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 10px 26px rgba(10,92,70,.28);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,background .3s}
+.cta-quote::before{content:"";position:absolute;top:0;right:-130%;width:90%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.42),transparent);transform:skewX(-20deg);transition:right .75s ease}
+.cta-quote:hover::before{right:130%}
+.cta-quote:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(10,92,70,.38);background:#0c6c52}
+.cta-quote svg{width:15px;height:15px;transition:transform .35s}
+.cta-quote:hover svg{transform:translateX(-4px)}
+
+.mobile-toggle{display:none;border:0;background:transparent;color:#0a5c46;width:42px;height:42px;border-radius:12px;cursor:pointer;align-items:center;justify-content:center;transition:background .25s}
+.mobile-toggle:hover{background:rgba(10,92,70,.08)}
+.mobile-toggle span{display:block;width:20px;height:2px;background:currentColor;position:relative;transition:.3s}
+.mobile-toggle span::before,.mobile-toggle span::after{content:'';position:absolute;left:0;width:100%;height:2px;background:currentColor;transition:.3s}
+.mobile-toggle span::before{top:-6px}
+.mobile-toggle span::after{top:6px}
+
+.hero{height:100svh;min-height:680px;position:relative;overflow:hidden;background:#f3f1e9}
+.hero-image{position:absolute;inset:0;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790490239/9b5c78c9-61a6-4b3f-b0fc-49a88c27ee43_are2w2.png");background-position:center center;background-size:cover;background-repeat:no-repeat;will-change:transform}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(270deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,.05) 45%,rgba(255,255,255,0) 70%);pointer-events:none;z-index:1}
+.hero-shapes{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.hero-shape{position:absolute;border-radius:50%;filter:blur(24px);animation:floatOrb 16s ease-in-out infinite}
+.hero-shape:nth-child(1){width:260px;height:260px;right:6%;top:16%;background:radial-gradient(circle at 30% 30%,rgba(201,163,90,.4),transparent 65%)}
+.hero-shape:nth-child(2){width:200px;height:200px;right:70%;top:60%;animation-delay:-6s;background:radial-gradient(circle at 30% 30%,rgba(10,92,70,.28),transparent 65%)}
+.hero-shape:nth-child(3){width:150px;height:150px;right:45%;top:10%;animation-delay:-10s;background:radial-gradient(circle at 30% 30%,rgba(201,163,90,.3),transparent 65%)}
+@keyframes floatOrb{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-40px,-32px) scale(1.12)}66%{transform:translate(28px,26px) scale(.94)}}
+.hero-content{position:absolute;right:clamp(40px,7vw,110px);top:52%;transform:translateY(-50%);width:min(560px,42vw);max-width:560px;text-align:right;z-index:4}
+.eyebrow{display:inline-flex;gap:10px;align-items:center;color:#8a6a2b;font-size:11px;letter-spacing:2.5px;font-weight:700;background:rgba(255,255,255,.55);backdrop-filter:blur(8px);padding:8px 14px;border-radius:30px;border:1px solid rgba(201,163,90,.25)}
+.hero-content h1{font-family:var(--fa);font-weight:900;font-size:clamp(40px,4.2vw,66px);line-height:1.1;letter-spacing:-1.6px;margin:22px 0 20px;color:#0e3529}
+.hero-content h1 em{font-style:normal;background:linear-gradient(120deg,#0a5c46 0%,#c9a35a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+.hero-lead{max-width:520px;color:#546862;font-size:15px;line-height:2;text-align:right;margin:0 0 0 auto}
+.hero-actions{display:flex;gap:14px;margin-top:28px;justify-content:flex-start}
+.btn-primary{display:inline-flex;align-items:center;gap:9px;background:#0a5c46;color:#fff;padding:14px 26px;border-radius:40px;font-size:13.5px;font-weight:700;position:relative;overflow:hidden;box-shadow:0 14px 34px rgba(10,92,70,.32);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,background .3s}
+.btn-primary::before{content:"";position:absolute;top:0;right:-130%;width:90%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:right .8s ease}
+.btn-primary:hover::before{right:130%}
+.btn-primary:hover{transform:translateY(-3px);background:#0c6c52;box-shadow:0 20px 46px rgba(10,92,70,.42)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.7);backdrop-filter:blur(10px);color:#0a5c46;padding:13px 24px;border-radius:40px;font-size:13.5px;font-weight:700;border:1.5px solid rgba(10,92,70,.28);transition:transform .35s,border-color .3s,background .3s}
+.btn-secondary:hover{transform:translateY(-3px);border-color:#0a5c46;background:rgba(255,255,255,.95)}
+.hero-metrics{display:flex;gap:28px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(10,92,70,.14)}
+.hero-metrics .metric{text-align:right}
+.hero-metrics .metric b{display:block;font-family:var(--fa);font-weight:900;font-size:26px;color:#0a5c46;line-height:1}
+.hero-metrics .metric span{display:block;margin-top:7px;font-size:10.5px;color:#6b7c75;letter-spacing:.5px}
+.hero-scroll{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:6px;color:#4d655d;font-size:9px;letter-spacing:2.5px;font-weight:600}
+.hero-scroll b{font-size:18px;font-weight:400;animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.reveal{opacity:0;transform:translateY(20px);animation:heroReveal .9s cubic-bezier(.16,1,.3,1) forwards}
+.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}.delay-5{animation-delay:.5s}
+@keyframes heroReveal{to{opacity:1;transform:none}}
+
+.catalog{width:100%;padding:110px clamp(24px,4vw,64px) 60px;background:#f4f6f8;display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;align-items:start}
+
+.filters{position:sticky;top:110px;border-radius:20px;background:#fff;border:1px solid rgba(224,231,225,.9);overflow:hidden;box-shadow:0 10px 34px rgba(28,61,53,.08);transition:box-shadow .35s}
+.filters:hover{box-shadow:0 18px 48px rgba(28,61,53,.14)}
+.filter-title{height:auto;min-height:64px;padding:0 24px;background:linear-gradient(135deg,#0a5c46,#0c6c52);color:#fff;display:flex;align-items:center;justify-content:space-between;font-size:16px;font-weight:700;position:relative;overflow:hidden}
+.filter-title::after{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 60%);animation:filterSheen 8s linear infinite;pointer-events:none}
+@keyframes filterSheen{0%{transform:translate(-30%,-30%)}50%{transform:translate(30%,30%)}100%{transform:translate(-30%,-30%)}}
+.filter-title strong{position:relative;z-index:1}
+.filter-title button{border:0;background:rgba(255,255,255,.12);color:#fff;font-size:11px;font-weight:600;padding:6px 12px;border-radius:16px;cursor:pointer;transition:background .25s,transform .25s;position:relative;z-index:1}
+.filter-title button:hover{background:rgba(255,255,255,.25);transform:scale(1.04)}
+
+.filter-section{padding:22px 24px;border-bottom:1px solid #edf1ed;background:#fff;transition:background .3s}
+.filter-section:last-of-type{border-bottom:0}
+.filter-section h3{font-size:13px;margin:0 0 14px;color:#0e3529;font-weight:700;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;transition:color .25s}
+.filter-section h3:hover{color:#0a5c46}
+.filter-section h3 .collapse-icon{color:#aab8b2;font-size:11px;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.filter-section.is-collapsed h3 .collapse-icon{transform:rotate(180deg)}
+.filter-section .filter-options{max-height:500px;overflow:hidden;transition:max-height .45s cubic-bezier(.16,1,.3,1),opacity .3s,margin .35s}
+.filter-section.is-collapsed .filter-options{max-height:0;opacity:0;margin-top:-8px}
+
+.filter-section label{display:flex;align-items:center;gap:10px;margin:10px 0;color:#546862;font-size:13px;cursor:pointer;transition:color .25s,transform .25s;user-select:none;position:relative}
+.filter-section label:hover{color:#0a5c46;transform:translateX(-3px)}
+.filter-section label .count{margin-right:auto;font-size:10.5px;color:#aab8b2;background:#f4f6f8;padding:2px 7px;border-radius:10px;font-weight:600;transition:background .25s,color .25s}
+.filter-section label:hover .count{background:#eaf3ee;color:#0a5c46}
+.filter-section input[type=checkbox]{appearance:none;width:18px;height:18px;border:1.5px solid #c4d0ca;border-radius:5px;margin:0;background:#fff;position:relative;cursor:pointer;transition:background .2s,border-color .2s,transform .2s;flex:none}
+.filter-section input[type=checkbox]:hover{border-color:#0a5c46;transform:scale(1.08)}
+.filter-section input[type=checkbox]:checked{background:#0a5c46;border-color:#0a5c46;animation:checkPop .35s cubic-bezier(.16,1,.3,1)}
+@keyframes checkPop{0%{transform:scale(1)}50%{transform:scale(1.22)}100%{transform:scale(1)}}
+.filter-section input[type=checkbox]:checked::after{content:"✓";position:absolute;right:3px;top:-2px;color:#fff;font-size:12px;font-weight:700}
+
+.apply-button{width:calc(100% - 48px);margin:18px 24px 24px;height:46px;border:0;background:#0a5c46;color:#fff;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer;transition:background .25s,transform .25s,box-shadow .25s;position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(10,92,70,.18)}
+.apply-button::before{content:"";position:absolute;top:0;right:-130%;width:90%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:right .7s ease}
+.apply-button:hover::before{right:130%}
+.apply-button:hover{background:#0c6c52;transform:translateY(-2px);box-shadow:0 14px 30px rgba(10,92,70,.28)}
+
+.catalog-content{min-width:0;display:flex;flex-direction:column;gap:28px}
+.catalog-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.section-kicker{display:block;color:#a98240;font-size:11px;letter-spacing:3px;font-weight:700;margin-bottom:6px}
+.catalog-head h2{font-family:var(--fa);font-weight:800;font-size:clamp(24px,2.2vw,32px);line-height:1.2;margin:0;color:#0e3529}
+.catalog-head-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.results-count{font-size:12px;color:#6b7c75;font-weight:600;display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #e2e9e4;padding:7px 14px;border-radius:20px}
+.results-count b{color:#0a5c46;font-size:14px}
+.results-count .dot{width:6px;height:6px;border-radius:50%;background:#0a5c46;animation:countDot 1.6s ease-in-out infinite}
+@keyframes countDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.sort{padding:10px 16px;border:1px solid #dfe5df;border-radius:24px;color:#6a7773;font-size:12px;background:#fff;cursor:pointer}
+.sort select{border:0;outline:0;background:transparent;font-size:12px;color:#263d37;cursor:pointer}
+
+.active-filters{display:flex;flex-wrap:wrap;gap:8px;min-height:0;transition:min-height .3s}
+.active-filters:empty{display:none}
+.filter-chip{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#0a5c46,#0c6c52);color:#fff;padding:7px 12px;border-radius:20px;font-size:11.5px;font-weight:600;box-shadow:0 4px 12px rgba(10,92,70,.18);animation:chipIn .4s cubic-bezier(.16,1,.3,1);cursor:pointer;transition:transform .25s,box-shadow .25s}
+.filter-chip:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(10,92,70,.28)}
+.filter-chip button{border:0;background:rgba(255,255,255,.2);color:#fff;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font-size:10px;cursor:pointer;transition:background .25s}
+.filter-chip button:hover{background:rgba(255,255,255,.4)}
+@keyframes chipIn{from{opacity:0;transform:scale(.85) translateY(-6px)}to{opacity:1;transform:none}}
+
+.category-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:300px;gap:20px;align-items:stretch}
+.category-card{position:relative;min-width:0;background:#fff;border:1px solid #e2e9e4;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;height:300px;transition:transform .55s cubic-bezier(.16,1,.3,1),box-shadow .45s,border-color .3s,opacity .45s;box-shadow:0 2px 10px rgba(18,49,42,.03)}
+.category-card.is-hidden{opacity:0;transform:scale(.9) translateY(12px);pointer-events:none;position:absolute;visibility:hidden}
+.category-card.is-showing{animation:cardIn .55s cubic-bezier(.16,1,.3,1) both}
+@keyframes cardIn{0%{opacity:0;transform:scale(.92) translateY(20px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.category-card::before{content:"";position:absolute;inset:0;border-radius:18px;padding:1.5px;pointer-events:none;background:linear-gradient(135deg,rgba(10,92,70,.6),rgba(201,163,90,.6));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;z-index:3}
+.category-card:hover::before{opacity:1}
+.category-card:hover{transform:translateY(-8px);box-shadow:0 26px 50px rgba(18,49,42,.14);border-color:transparent}
+.category-card:focus-visible{outline:2px solid #0a5c46;outline-offset:4px}
+.category-card .category-image{height:150px;min-height:150px;flex:none;background-size:cover;background-position:center;transition:transform 1s cubic-bezier(.16,1,.3,1)}
+.category-card:hover .category-image{transform:scale(1.08)}
+.card-content{padding:16px 18px 16px;display:flex;flex-direction:column;flex:1;background:#fff;position:relative;z-index:2}
+.card-content h3{font-size:15.5px;color:#0f4234;margin:0 0 6px;font-weight:700;line-height:1.3}
+.card-content p{font-size:12px;line-height:1.6;color:#6b7c75;margin:0 0 12px;flex:1}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px;border-top:1px solid #f0f3f0}
+.product-details-link{display:inline-flex;align-items:center;gap:6px;color:#0a5c46;font-size:11.5px;font-weight:700;transition:gap .3s}
+.product-details-link:hover{gap:10px}
+.product-details-link span{display:inline-block;transition:transform .35s}
+.product-details-link:hover span{transform:translateX(-3px)}
+
+.empty-state{grid-column:1/-1;padding:70px 30px;text-align:center;background:#fff;border:1.5px dashed #d5dfd8;border-radius:20px;animation:cardIn .55s cubic-bezier(.16,1,.3,1)}
+.empty-state-icon{width:80px;height:80px;margin:0 auto 20px;border-radius:50%;background:#eaf3ee;display:grid;place-items:center;color:#0a5c46;font-size:34px;animation:floatBadge 3s ease-in-out infinite}
+.empty-state h3{font-size:20px;color:#0e3529;margin:0 0 8px;font-weight:800}
+.empty-state p{font-size:13px;color:#6b7c75;margin:0 0 22px;line-height:1.7}
+.empty-state button{border:0;background:#0a5c46;color:#fff;padding:12px 26px;border-radius:30px;font-size:13px;font-weight:700;cursor:pointer;transition:background .25s,transform .25s}
+.empty-state button:hover{background:#0c6c52;transform:translateY(-2px)}
+
+.category-card--featured{grid-column:span 2;display:block;position:relative;overflow:hidden;isolation:isolate;background:#0a5c46;color:#fff;border:0}
+.category-card--featured .featured-copy{position:absolute;inset:0;z-index:5;width:100%;height:100%;padding:32px 30px;display:flex;flex-direction:column;justify-content:center;pointer-events:none}
+.category-card--featured .featured-icon{width:38px;height:38px;border:1px solid rgba(255,255,255,.35);border-radius:50%;display:grid;place-items:center;margin-bottom:14px;font-size:15px;background:rgba(255,255,255,.1)}
+.category-card--featured .pill{align-self:flex-start;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);color:#fff;padding:5px 11px;border-radius:20px;font-size:10px;margin-bottom:10px;width:max-content;font-weight:600}
+.category-card--featured h3{font-size:22px;line-height:1.2;margin:0 0 8px;font-weight:800}
+.category-card--featured p{font-size:12px;line-height:1.6;color:rgba(255,255,255,.82);margin:0;max-width:230px}
+.category-card--featured .featured-link{position:absolute;right:30px;bottom:30px;display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.55);border-radius:24px;padding:10px 18px;font-size:11.5px;font-weight:700;color:#fff;pointer-events:auto;transition:background .3s,gap .35s,transform .3s;backdrop-filter:blur(4px)}
+.category-card--featured .featured-link:hover{background:rgba(255,255,255,.2);gap:12px;transform:translateX(-3px)}
+.category-card--featured .featured-slider{position:absolute;inset:0;z-index:1;width:100%;height:100%;overflow:hidden;background:none}
+.featured-slider .featured-slide{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transform:translate3d(-8%,0,0) scale(1.05);transition:opacity .8s ease,transform 1.4s cubic-bezier(.16,1,.3,1);z-index:1}
+.featured-slider .featured-slide.is-active{opacity:1;transform:translate3d(0,0,0) scale(1);z-index:2}
+.category-card--featured::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(270deg,rgba(6,58,44,.92) 0%,rgba(6,58,44,.55) 45%,rgba(6,58,44,.15) 100%)}
+
+.image-featured{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790223610/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87_lniam0.png");background-position:center;background-size:cover}
+.image-2{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png");background-position:center;background-size:cover}
+.image-3{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073980/file_00000000eb30822fa80fa6eb84f11f5b_hs6kc3.png");background-position:center;background-size:cover}
+.image-4{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790050802/file_000000001158820ab3c028240b6bdbde_huvnss.png");background-position:center;background-size:cover}
+.image-5{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073975/%D8%B3%D8%B3_lrwzle.png");background-position:center;background-size:cover}
+.image-6{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790075680/file_00000000c27c81f4804ac29f3db4fbd3_1_zukkab.png");background-position:75% center;background-size:cover}
+.image-7{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997372/a2091a7b-5311-4c0d-b5f4-3759ed4faa91_1_rjgv0w.png");background-position:center;background-size:cover}
+.image-8{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png");background-position:center;background-size:cover}
+.image-9{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790076755/bae57101-5f4b-4f20-83b2-1e60c09cb636_2_c42gsb.png");background-position:60% center;background-size:cover}
+.image-10{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997379/file_00000000d19c8243981a90919160d1ea_bdunvz.png");background-position:center;background-size:cover}
+
+.trust-marquee{overflow:hidden;background:#fff;border-top:1px solid #e3e9e4;border-bottom:1px solid #e3e9e4;padding:30px 0;position:relative}
+.trust-marquee::before,.trust-marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.trust-marquee::before{right:0;background:linear-gradient(to left,#fff,transparent)}
+.trust-marquee::after{left:0;background:linear-gradient(to right,#fff,transparent)}
+.marquee-track{display:flex;gap:70px;width:max-content;animation:marquee 42s linear infinite}
+.marquee-track span{font-family:var(--fa);font-size:20px;color:#3e5550;font-weight:700;white-space:nowrap;display:flex;align-items:center;gap:14px;opacity:.72;transition:opacity .3s,color .3s}
+.marquee-track span:hover{opacity:1;color:#0a5c46}
+.marquee-track span::before{content:"◆";color:#c9a35a;font-size:9px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+.about{position:relative;padding:130px clamp(24px,4vw,80px) 100px;background:linear-gradient(180deg,#fbfbf7 0%,#fff 100%);overflow:hidden}
+.about::before{content:"";position:absolute;top:-160px;left:-160px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(201,163,90,.14),transparent 70%)}
+.about::after{content:"";position:absolute;bottom:-140px;right:-140px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(10,92,70,.1),transparent 70%)}
+.about-inner{position:relative;z-index:1;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
+.about-media{position:relative}
+.about-media-main{width:100%;aspect-ratio:4/5;border-radius:26px;overflow:hidden;background:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790490499/%D8%A7%D8%B5%D9%84%DB%8C_hdmz7x.webp") center/cover;box-shadow:0 34px 74px rgba(10,92,70,.2);transition:transform 1.1s cubic-bezier(.16,1,.3,1);transform:perspective(1400px) rotateY(4deg)}
+.about-media:hover .about-media-main{transform:perspective(1400px) rotateY(0deg) scale(1.01)}
+.about-media-secondary{position:absolute;left:-40px;bottom:-40px;width:58%;aspect-ratio:1;border-radius:22px;overflow:hidden;background:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png") center/cover;border:9px solid #fff;box-shadow:0 24px 56px rgba(10,92,70,.18)}
+.about-badge{position:absolute;right:-26px;top:44px;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:0 22px 50px rgba(10,92,70,.16);display:flex;align-items:center;gap:13px;border:1px solid #eef2ee;animation:floatBadge 6s ease-in-out infinite}
+@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.about-badge b{font-family:var(--fa);font-weight:900;font-size:30px;color:#0a5c46;line-height:1;display:block}
+.about-badge small{font-size:10px;color:#6a7c76;letter-spacing:.8px;display:block;margin-top:4px;font-weight:600}
+.about-badge-icon{width:46px;height:46px;border-radius:50%;background:#eaf3ee;display:grid;place-items:center;color:#0a5c46;font-size:20px;flex:none}
+.about-copy{max-width:620px}
+.about-copy .section-kicker{font-size:11px;letter-spacing:3px;margin-bottom:16px;color:#a98240}
+.about-copy h2{font-family:var(--fa);font-weight:900;font-size:clamp(32px,3.4vw,52px);line-height:1.15;color:#0e3529;margin:0 0 24px;letter-spacing:-1px}
+.about-copy h2 em{font-style:normal;background:linear-gradient(120deg,#0a5c46,#c9a35a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-copy > p{font-size:14.5px;line-height:2;color:#546862;margin:0 0 30px;max-width:560px}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;margin:0 0 38px}
+.about-feature{display:flex;align-items:flex-start;gap:14px}
+.about-feature i{flex:none;width:44px;height:44px;border-radius:12px;background:#eaf3ee;color:#0a5c46;display:grid;place-items:center;font-style:normal;font-size:18px;transition:transform .45s cubic-bezier(.16,1,.3,1),background .3s,color .3s}
+.about-feature:hover i{transform:rotate(-8deg) scale(1.1);background:#0a5c46;color:#fff}
+.about-feature div strong{display:block;font-size:14px;color:#0e3529;margin-bottom:5px;font-weight:700}
+.about-feature div span{font-size:12px;color:#6b7c75;line-height:1.7}
+.about-actions{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.about-cta-primary{display:inline-flex;align-items:center;gap:8px;background:#0a5c46;color:#fff;padding:15px 28px;border-radius:40px;font-size:13px;font-weight:700;box-shadow:0 14px 32px rgba(10,92,70,.25);transition:transform .35s cubic-bezier(.16,1,.3,1),background .3s,box-shadow .35s,gap .3s}
+.about-cta-primary:hover{transform:translateY(-3px);background:#0c6c52;gap:14px;box-shadow:0 20px 44px rgba(10,92,70,.34)}
+.about-cta-secondary{display:inline-flex;align-items:center;gap:8px;color:#0a5c46;padding:14px 4px;font-size:13px;font-weight:700;border-bottom:1.5px solid rgba(10,92,70,.3);transition:.35s}
+.about-cta-secondary:hover{gap:14px;border-color:#0a5c46}
+
+.site-footer{background:linear-gradient(180deg,#04251b 0%,#031c14 100%);color:#fff;padding:60px 40px 22px;position:relative;overflow:hidden}
+.site-footer::before{content:"";position:absolute;top:-60%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(10,92,70,.4),transparent 65%);pointer-events:none}
+.site-footer::after{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,90,.5),transparent)}
+.footer-container{position:relative;z-index:1;width:min(1400px,100%);max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1.1fr 1.3fr;gap:56px;align-items:start;padding-bottom:38px}
+.footer-brand-block{max-width:340px}
+.footer-logo{display:flex;align-items:center;gap:13px;margin-bottom:16px}
+.footer-logo-mark{width:48px;height:48px;border-radius:14px;background:linear-gradient(145deg,#0f7a5c,#0a5c46);display:grid;place-items:center;flex:none;box-shadow:0 10px 26px rgba(10,92,70,.4),inset 0 -2px 8px rgba(0,0,0,.2);color:#c9f4c9}
+.footer-logo-mark svg{width:26px;height:26px}
+.footer-logo-text strong{display:block;font-size:20px;font-weight:900;letter-spacing:-.3px;color:#fff;line-height:1.1}
+.footer-logo-text small{display:block;margin-top:4px;font-family:var(--en);font-size:8.5px;letter-spacing:2.6px;color:#6fa78e;font-weight:500}
+.footer-brand-block p{color:#8fab9d;line-height:2;font-size:12.5px;margin:0}
+.footer-col h4{font-family:var(--fa);font-size:14.5px;font-weight:700;color:#fff;margin:0 0 20px;position:relative;padding-bottom:12px}
+.footer-col h4::after{content:"";position:absolute;bottom:0;right:0;width:32px;height:2px;background:linear-gradient(90deg,#c9a35a,transparent);border-radius:2px}
+.footer-col ul{list-style:none;margin:0;padding:0}
+.footer-col li{margin-bottom:13px}
+.footer-col a{color:#8fab9d;font-size:12.5px;position:relative;display:inline-flex;align-items:center;gap:6px;transition:color .3s,padding .3s}
+.footer-col a::before{content:"";width:0;height:1px;background:#c9a35a;transition:width .35s cubic-bezier(.16,1,.3,1)}
+.footer-col a:hover{color:#c9a35a}
+.footer-col a:hover::before{width:14px}
+.footer-contact-item{display:flex;align-items:flex-start;gap:11px;margin-bottom:16px;color:#8fab9d;font-size:12.5px;line-height:1.7}
+.footer-contact-item i{flex:none;width:34px;height:34px;border-radius:10px;background:rgba(10,92,70,.35);border:1px solid rgba(111,167,142,.2);display:grid;place-items:center;color:#c9a35a;font-style:normal;font-size:14px;transition:background .3s,color .3s,transform .3s}
+.footer-contact-item:hover i{background:#c9a35a;color:#04251b;transform:rotate(-6deg) scale(1.05)}
+.footer-contact-item div strong{display:block;font-family:var(--en);font-size:12.5px;color:#fff;font-weight:600;letter-spacing:.3px;direction:ltr;text-align:right}
+.footer-contact-item div small{display:block;margin-top:3px;color:#6fa78e;font-size:11px}
+.footer-contact-item a{color:#e0f0e6;direction:ltr;display:inline-block;transition:color .3s}
+.footer-contact-item a:hover{color:#c9a35a}
+.footer-bottom{position:relative;z-index:1;width:min(1400px,100%);max-width:1400px;margin:0 auto;padding-top:22px;border-top:1px solid rgba(111,167,142,.14);display:flex;justify-content:space-between;align-items:center;color:#6fa78e;font-size:11.5px;gap:20px;flex-wrap:wrap}
+.footer-bottom a{color:#6fa78e;transition:color .3s}
+.footer-bottom a:hover{color:#c9a35a}
+
+.back-top{position:fixed;left:26px;bottom:26px;width:52px;height:52px;border-radius:50%;background:#0a5c46;color:#fff;border:0;cursor:pointer;display:grid;place-items:center;box-shadow:0 16px 34px rgba(10,92,70,.34);opacity:0;transform:translateY(24px) scale(.9);pointer-events:none;transition:.5s cubic-bezier(.16,1,.3,1);z-index:900}
+.back-top.is-visible{opacity:1;transform:none;pointer-events:auto}
+.back-top:hover{background:#0c6c52;transform:translateY(-5px) scale(1.08);box-shadow:0 22px 44px rgba(10,92,70,.42)}
+.back-top svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+
+/* ===== HERO COPY SAFE DESKTOP POSITION =====
+   Keep text in the empty left area so it never covers the product composition. */
+@media(min-width:1201px){
+  .hero-content{
+    right:auto !important;
+    left:clamp(54px,5.2vw,100px) !important;
+    width:min(520px,30vw) !important;
+    max-width:520px !important;
+    text-align:right !important;
+  }
+  .hero-lead{
+    max-width:500px !important;
+  }
+}
+
+@media(min-width:769px) and (max-width:1200px){
+  .hero-content{
+    right:auto !important;
+    left:clamp(28px,4vw,56px) !important;
+    width:min(460px,38vw) !important;
+    max-width:460px !important;
+  }
+  .hero-content h1{
+    font-size:clamp(32px,4vw,48px) !important;
+  }
+  .hero-lead{
+    font-size:13.5px !important;
+    max-width:430px !important;
+  }
+}
+
+@media(max-width:1200px){
+  .catalog{padding:100px 22px 40px;grid-template-columns:250px minmax(0,1fr);gap:24px}
+  .category-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .category-card--featured{grid-column:span 2}
+  .about-inner{grid-template-columns:1fr;gap:70px}
+  .about-media{max-width:520px;margin:0 auto}
+  .about-media-secondary{left:0;bottom:-30px;width:48%}
+  .about-badge{right:-10px;top:26px}
+  .footer-container{grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px}
+}
+@media(max-width:900px){
+  .nav{margin:0 12px 0 0;gap:22px}
+  .nav a{font-size:13px}
+  .cta-quote{padding:10px 16px;font-size:12px}
+  .footer-container{grid-template-columns:1fr 1fr;gap:38px 32px}
+  .footer-brand-block{grid-column:1/-1;max-width:none}
+}
+
+@media(max-width:768px){
+  .header{height:70px;padding:0 16px;background:rgba(252,251,247,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 2px 12px rgba(10,58,44,.04)}
+  .header.is-scrolled{height:64px;box-shadow:0 6px 22px rgba(10,58,44,.1)}
+  .brand{gap:10px}
+  .brand-mark{width:40px;height:40px;border-radius:11px}
+  .brand-mark svg{width:22px;height:22px}
+  .brand-text strong{font-size:15px}
+  .brand-text small{font-size:6.5px;letter-spacing:1.8px;margin-top:4px}
+  .header-actions{gap:4px}
+  .header-actions .cta-quote{display:none}
+  .icon-button{width:38px;height:38px}
+  .icon-button svg{width:19px;height:19px}
+  .cart-button .cart-badge{min-width:15px;height:15px;font-size:9px}
+  .mobile-toggle{display:flex;width:40px;height:40px;margin-right:2px}
+  .nav{position:fixed;top:70px;right:0;left:0;flex-direction:column;gap:0;background:rgba(252,251,247,.98);backdrop-filter:blur(20px);padding:14px 22px 22px;margin:0;border-radius:0 0 24px 24px;box-shadow:0 20px 44px rgba(10,58,44,.14);transform:translateY(-14px);opacity:0;pointer-events:none;transition:opacity .35s ease,transform .42s cubic-bezier(.16,1,.3,1);z-index:999}
+  .nav.mobile-open{opacity:1;transform:none;pointer-events:auto}
+  .nav a{padding:15px 4px;font-size:15px;border-bottom:1px solid #edf1ed;width:100%;text-align:right;color:#3b4d47}
+  .nav a:last-child{border-bottom:0}
+  .nav a::after{display:none}
+  .nav a.active{color:#0a5c46;font-weight:700}
+
+  .hero{height:auto;min-height:100svh}
+  .hero-image{background-position:center top}
+  .hero-overlay{background:linear-gradient(0deg,rgba(252,251,247,.97) 0%,rgba(252,251,247,.65) 28%,rgba(252,251,247,.15) 55%,rgba(252,251,247,.05) 100%)}
+  .hero-content{position:relative;right:auto;left:auto;top:auto;bottom:auto;transform:none;padding:110px 22px 70px;width:100%;max-width:100%}
+  .eyebrow{font-size:9.5px;letter-spacing:2px;padding:7px 12px;background:rgba(10,92,70,.07);border-color:rgba(10,92,70,.15);color:#0a5c46}
+  .hero-content h1{font-size:clamp(30px,8.5vw,42px);letter-spacing:-1px;line-height:1.15;margin:18px 0 16px}
+  .hero-lead{font-size:13.5px;line-height:1.95}
+  .hero-actions{flex-direction:column;gap:12px;margin-top:26px}
+  .hero-actions a{width:100%;justify-content:center;padding:15px 24px;font-size:13.5px}
+  .hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px;padding-top:24px}
+  .hero-metrics .metric{text-align:center;padding:12px 6px;background:rgba(255,255,255,.7);border-radius:14px;border:1px solid rgba(10,92,70,.08)}
+  .hero-metrics .metric b{font-size:20px;margin-bottom:5px}
+  .hero-metrics .metric span{font-size:9px;margin-top:0;letter-spacing:0}
+  .hero-scroll{display:none}
+
+  .catalog{display:block;padding:50px 16px 40px;background:#f4f6f8}
+  .filters{display:none!important}
+  .catalog-content{display:flex;flex-direction:column;gap:22px}
+  .catalog-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .catalog-head h2{font-size:24px}
+  .catalog-head-right{align-items:flex-start;width:100%}
+  .results-count{font-size:11.5px;padding:6px 12px}
+  .sort{display:none}
+  .active-filters{gap:6px}
+  .filter-chip{font-size:10.5px;padding:6px 10px}
+
+  .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-rows:auto;gap:12px!important}
+  .category-card{height:auto;min-height:0;border-radius:14px}
+  .category-card .category-image{height:130px;min-height:130px}
+  .card-content{padding:12px 13px 13px}
+  .card-content h3{font-size:13px;margin-bottom:5px}
+  .card-content p{font-size:11px;line-height:1.55;margin-bottom:10px}
+  .card-footer{padding-top:8px}
+  .product-details-link{font-size:10.5px;gap:5px}
+  .category-card--featured{grid-column:1/-1!important;height:300px!important;min-height:300px!important;border-radius:14px}
+  .category-card--featured .featured-copy{padding:24px 22px}
+  .category-card--featured h3{font-size:19px}
+  .category-card--featured p{font-size:11.5px;max-width:80%}
+  .category-card--featured .featured-link{right:22px;bottom:22px;padding:9px 16px;font-size:11px}
+
+  .trust-marquee{padding:22px 0}
+  .marquee-track{gap:44px;animation-duration:34s}
+  .marquee-track span{font-size:15px}
+  .trust-marquee::before,.trust-marquee::after{width:70px}
+
+  .about{padding:70px 20px 70px}
+  .about-inner{grid-template-columns:1fr;gap:60px}
+  .about-media{max-width:100%;margin:0 auto;padding:0 8px}
+  .about-media-main{transform:none;aspect-ratio:4/5;border-radius:20px}
+  .about-media-secondary{left:-6px;bottom:-26px;width:52%;border-width:6px;border-radius:18px}
+  .about-badge{right:-6px;top:20px;padding:12px 15px;gap:11px}
+  .about-badge b{font-size:22px}
+  .about-badge-icon{width:38px;height:38px;font-size:16px}
+  .about-copy h2{font-size:clamp(26px,7vw,34px);letter-spacing:-.6px}
+  .about-copy > p{font-size:13.5px;line-height:1.95}
+  .about-features{grid-template-columns:1fr;gap:16px}
+  .about-feature i{width:40px;height:40px;font-size:16px}
+  .about-feature div strong{font-size:13px}
+  .about-feature div span{font-size:11.5px}
+  .about-actions{flex-direction:column;gap:10px;align-items:stretch}
+  .about-cta-primary{width:100%;justify-content:center;padding:14px 24px}
+  .about-cta-secondary{width:100%;justify-content:center;text-align:center;padding:12px 4px}
+
+  .site-footer{padding:50px 22px 20px}
+  .footer-container{display:grid;grid-template-columns:1fr 1fr;gap:36px 22px;padding-bottom:30px}
+  .footer-brand-block{grid-column:1/-1;max-width:none;text-align:center;padding-bottom:6px}
+  .footer-logo{justify-content:center;gap:12px;margin-bottom:16px}
+  .footer-logo-mark{width:46px;height:46px;border-radius:13px}
+  .footer-logo-mark svg{width:24px;height:24px}
+  .footer-logo-text strong{font-size:19px}
+  .footer-logo-text small{font-size:7.5px;letter-spacing:2.2px}
+  .footer-brand-block p{max-width:400px;margin:0 auto;text-align:center;font-size:12px;line-height:1.95}
+  .footer-col h4{font-size:13.5px;margin:0 0 16px;padding-bottom:11px}
+  .footer-col h4::after{width:28px}
+  .footer-col ul li{margin-bottom:12px}
+  .footer-col a{font-size:11.5px}
+  .footer-col:last-child{grid-column:1/-1;margin-top:6px;padding-top:26px;border-top:1px solid rgba(111,167,142,.1)}
+  .footer-contact-item{display:flex;align-items:center;gap:12px;margin:0 0 10px;padding:11px 14px;background:rgba(10,92,70,.18);border:1px solid rgba(111,167,142,.12);border-radius:12px;transition:background .3s,border-color .3s,transform .3s}
+  .footer-contact-item:last-child{margin-bottom:0}
+  .footer-contact-item:hover{background:rgba(10,92,70,.28);border-color:rgba(201,163,90,.28);transform:translateX(-3px)}
+  .footer-contact-item i{width:36px;height:36px;font-size:14px;border-radius:10px;flex:none}
+  .footer-contact-item div{flex:1;min-width:0}
+  .footer-contact-item div strong{font-size:12.5px;direction:ltr;text-align:right;letter-spacing:.5px;line-height:1.2}
+  .footer-contact-item div small{font-size:10.5px;margin-top:3px;line-height:1.2}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center;font-size:10.5px;padding-top:18px}
+  .back-top{left:14px;bottom:14px;width:46px;height:46px}
+  .back-top svg{width:18px;height:18px}
+}
+
+@media(max-width:480px){
+  .header{height:66px}
+  .header.is-scrolled{height:60px}
+  .brand-mark{width:36px;height:36px}
+  .brand-mark svg{width:20px;height:20px}
+  .brand-text strong{font-size:14px}
+  .brand-text small{font-size:6px}
+  .nav{top:66px}
+  .mobile-toggle{width:38px;height:38px}
+  .hero-content{padding:100px 18px 60px}
+  .hero-content h1{font-size:clamp(26px,8vw,34px)}
+  .hero-lead{font-size:12.5px}
+  .hero-actions a{padding:14px 20px;font-size:12.5px}
+  .hero-metrics{grid-template-columns:1fr 1fr;gap:8px}
+  .hero-metrics .metric:nth-child(3){grid-column:1/-1}
+  .hero-metrics .metric b{font-size:19px}
+  .hero-metrics .metric span{font-size:8.5px}
+  .catalog{padding:40px 14px 30px}
+  .category-grid{grid-template-columns:1fr!important;gap:14px!important}
+  .category-card .category-image{height:180px;min-height:180px}
+  .card-content h3{font-size:14px}
+  .card-content p{font-size:11.5px}
+  .category-card--featured{height:270px!important;min-height:270px!important}
+  .category-card--featured h3{font-size:18px}
+  .category-card--featured p{max-width:100%;font-size:11px}
+  .category-card--featured .featured-link{right:18px;bottom:18px;padding:8px 14px;font-size:10.5px}
+  .trust-marquee{padding:18px 0}
+  .marquee-track{gap:34px;animation-duration:30s}
+  .marquee-track span{font-size:13.5px}
+  .trust-marquee::before,.trust-marquee::after{width:50px}
+  .about{padding:60px 18px 60px}
+  .about-badge{display:none}
+  .about-copy h2{font-size:clamp(24px,6.5vw,30px)}
+  .about-media-secondary{left:-4px;bottom:-20px;width:56%;border-width:5px;border-radius:15px}
+  .site-footer{padding:44px 18px 18px}
+  .footer-container{grid-template-columns:1fr 1fr;gap:30px 16px}
+  .footer-brand-block{grid-column:1/-1;text-align:center}
+  .footer-logo{margin-bottom:14px}
+  .footer-logo-mark{width:42px;height:42px}
+  .footer-logo-text strong{font-size:17px}
+  .footer-brand-block p{max-width:340px;font-size:11.5px}
+  .footer-col h4{font-size:12.5px;margin-bottom:14px;padding-bottom:10px}
+  .footer-col a{font-size:11px}
+  .footer-col:last-child{padding-top:22px}
+  .footer-contact-item{padding:10px 12px;gap:10px;margin-bottom:9px;border-radius:11px}
+  .footer-contact-item i{width:32px;height:32px;font-size:13px}
+  .footer-contact-item div strong{font-size:11.5px}
+  .footer-contact-item div small{font-size:10px}
+  .footer-bottom{font-size:10px;gap:8px}
+  .back-top{left:12px;bottom:12px;width:42px;height:42px}
+  .back-top svg{width:16px;height:16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+  [data-reveal],[data-stagger]>*{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<div class="page">
+
+<header class="header" id="siteHeader">
+  <a class="brand" href="#home" aria-label="مهاجر استیل">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+        <path d="M12 21V11"/>
+        <path d="M9 14l3-3 3 3"/>
+      </svg>
+    </span>
+    <span class="brand-text">
+      <strong>مهاجر استیل</strong>
+      <small>MOHAJER TRADING GROUP</small>
+    </span>
+  </a>
+
+  <nav class="nav" id="primaryNav" aria-label="منوی اصلی">
+    <a class="active" href="#home" data-nav-target="home">خانه</a>
+    <a href="#products" data-nav-target="products">محصولات</a>
+    <a href="#products" data-nav-target="products">پیشنهاد ویژه</a>
+    <a href="#about" data-nav-target="about">درباره ما</a>
+    <a href="#contact" data-nav-target="contact">تماس</a>
+  </nav>
+
+  <div class="header-actions">
+    <button class="icon-button" aria-label="جستجو" data-search>
+      <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
+    </button>
+    <button class="icon-button cart-button" aria-label="سبد استعلام">
+      <svg viewBox="0 0 24 24"><path d="M3 4h2l2 11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+      <span class="cart-badge">۲</span>
+    </button>
+    <button class="cta-quote" type="button">
+      استعلام قیمت
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+
+  <button class="mobile-toggle" aria-label="منو" data-menu>
+    <span></span>
+  </button>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="hero-image" id="heroImage"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-shapes" aria-hidden="true">
+    <span class="hero-shape"></span>
+    <span class="hero-shape"></span>
+    <span class="hero-shape"></span>
+  </div>
+
+  <div class="hero-content">
+    <div class="eyebrow reveal"><span>✦</span> صادرات مواد غذایی ایرانی</div>
+    <h1 class="reveal delay-1">از ایران،<br><em>به سراسر جهان.</em></h1>
+    <p class="hero-lead reveal delay-2">محصولات غذایی ممتاز و مواد اولیه، با دقت از تولیدکنندگان معتبر ایرانی انتخاب و برای بازارهای بین‌المللی آماده می‌شوند.</p>
+
+    <div class="hero-actions reveal delay-3">
+      <a class="btn-primary" href="#products">
+        مشاهده محصولات
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn-secondary" href="#contact">
+        درخواست قیمت
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-metrics reveal delay-4">
+      <div class="metric"><b>۵۰+</b><span>کشور مقصد</span></div>
+      <div class="metric"><b>۱۵+</b><span>سال تجربه</span></div>
+      <div class="metric"><b>۹۹٪</b><span>رضایت مشتری</span></div>
+    </div>
+  </div>
+
+  <div class="hero-scroll"><span>SCROLL</span><b>↓</b></div>
+</section>
+
+<section class="catalog" id="products">
+  <aside class="filters" data-reveal="right">
+    <div class="filter-title">
+      <strong>فیلتر محصولات</strong>
+      <button type="button" data-clear>پاک کردن همه</button>
+    </div>
+
+    <div class="filter-section" data-filter-group="category">
+      <h3>دسته‌بندی محصول <span class="collapse-icon">⌃</span></h3>
+      <div class="filter-options">
+        <label><input type="checkbox" value="food-beverages">غذا و نوشیدنی <span class="count">0</span></label>
+        <label><input type="checkbox" value="dairy">لبنیات <span class="count">0</span></label>
+        <label><input type="checkbox" value="baking">پخت و نانوایی <span class="count">0</span></label>
+        <label><input type="checkbox" value="ingredients">مواد اولیه <span class="count">0</span></label>
+        <label><input type="checkbox" value="consumer-goods">کالای مصرفی <span class="count">0</span></label>
+        <label><input type="checkbox" value="others">سایر <span class="count">0</span></label>
+      </div>
+    </div>
+
+    <div class="filter-section" data-filter-group="subcategory">
+      <h3>زیر دسته <span class="collapse-icon">⌃</span></h3>
+      <div class="filter-options">
+        <label><input type="checkbox" value="drinks">نوشیدنی‌ها <span class="count">0</span></label>
+        <label><input type="checkbox" value="dairy-sub">لبنیات <span class="count">0</span></label>
+        <label><input type="checkbox" value="tomato">رب گوجه <span class="count">0</span></label>
+        <label><input type="checkbox" value="sweeteners">شیرین‌کننده‌ها <span class="count">0</span></label>
+        <label><input type="checkbox" value="oils">روغن و چربی <span class="count">0</span></label>
+        <label><input type="checkbox" value="personal-care">مراقبت شخصی <span class="count">0</span></label>
+        <label><input type="checkbox" value="household">خانگی <span class="count">0</span></label>
+      </div>
+    </div>
+
+    <div class="filter-section" data-filter-group="origin">
+      <h3>خاستگاه <span class="collapse-icon">⌃</span></h3>
+      <div class="filter-options">
+        <label><input type="checkbox" value="iran">ایران <span class="count">0</span></label>
+        <label><input type="checkbox" value="other">سایر <span class="count">0</span></label>
+      </div>
+    </div>
+
+    <button class="apply-button" type="button" data-apply>اعمال فیلترها ←</button>
+  </aside>
+
+  <div class="catalog-content">
+    <div class="catalog-head" data-reveal>
+      <div>
+        <span class="section-kicker">محصولات ما را کاوش کنید</span>
+        <h2>دسته‌بندی محصولات</h2>
+      </div>
+      <div class="catalog-head-right">
+        <span class="results-count" id="resultsCount">
+          <span class="dot"></span>
+          <b id="visibleCount">۱۰</b> محصول
+        </span>
+        <label class="sort">مرتب‌سازی:
+          <select aria-label="مرتب‌سازی">
+            <option>محبوب</option>
+            <option>جدیدترین</option>
+            <option>دسته‌بندی</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div class="active-filters" id="activeFilters" aria-live="polite"></div>
+
+    <div class="category-grid" id="categories" data-stagger>
+
+      <article class="category-card category-card--featured" data-product="Yeast Products" data-category="baking ingredients" data-subcategory="ingredients" data-origin="iran" tabindex="0" role="button">
+        <div class="featured-copy">
+          <div class="featured-icon">✦</div>
+          <small class="pill">محصولات مخمر</small>
+          <h3>محصولات مخمر</h3>
+          <p>مخمر ممتاز برای پخت باکیفیت در سراسر جهان</p>
+        </div>
+        <a class="featured-link product-details-link" href="yeast-product.html">
+          مشاهده محصولات
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <div class="category-image image-featured featured-slider" aria-label="تصاویر محصولات مخمر">
+          <img class="featured-slide is-active" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790223607/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_ktiwap.png" alt="X Power" loading="eager">
+          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790223610/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87_lniam0.png" alt="Yeast" loading="eager">
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Beverages & Juices" data-category="food-beverages" data-subcategory="drinks" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image image-3"></div>
+        <div class="card-content">
+          <h3>نوشیدنی‌ها و آبمیوه‌ها</h3>
+          <p>تازگی و کیفیت برای بازارهای جهانی</p>
+          <div class="card-footer">
+            <a class="product-details-link" href="product.html">مشاهده محصولات <span>←</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Canned Foods" data-category="food-beverages" data-subcategory="tomato" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image image-7"></div>
+        <div class="card-content">
+          <h3>کنسروها</h3>
+          <p>محصولات کنسروی باکیفیت برای بازار جهانی</p>
+          <div class="card-footer">
+            <a class="product-details-link" href="product.html">مشاهده محصولات <span>←</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Petroleum Jelly" data-category="consumer-goods" data-subcategory="personal-care" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image image-4"></div>
+        <div class="card-content">
+          <h3>وازلین</h3>
+          <p>محلول‌های مراقبت از پوست برای بازار جهانی</p>
+          <div class="card-footer">
+            <a class="product-details-link" href="product.html">مشاهده محصولات <span>←</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Tomato Paste" data-category="food-beverages" data-subcategory="tomato" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image image-5"></div>
+        <div class="card-content">
+          <h3>رب گوجه‌فرنگی</h3>
+          <p>طعمی غنی و کیفیتی برتر برای بازار جهانی</p>
+          <div class="card-footer">
+            <a class="product-details-link" href="product.html">مشاهده محصولات <span>←</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Baking Soda" data-category="baking ingredients" data-subcategory="ingredients" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image image-6"></div>
+        <div class="card-content">
+          <h3>جوش شیرین</h3>
+          <p>مواد اولیه ممتاز برای صنایع غذایی</p>
+          <div class="card-footer">
+            <a class="product-details-link" href="product.html">مشاهده محصولات <span>←</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Glucose" data-category="ingredients" data-subcategory="sweeteners" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image image-10"></div>
+        <div class="card-content">
+          <h3>گلوکز</h3>
+          <p>گلوکز باکیفیت برای صنایع غذایی</p>
+          <div class="card-footer">
+            <a class="product-details-link" href="product.html">مشاهده محصولات <span>←</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Dairy & Milk Powders" data-category="dairy" data-subcategory="dairy-sub" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image image-8"></div>
+        <div class="card-content">
+          <h3>لبنیات و شیر خشک</h3>
+          <p>مواد اولیه لبنی ممتاز برای بازار جهانی</p>
+          <div class="card-footer">
+            <a class="product-details-link" href="product.html">مشاهده محصولات <span>←</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Pasta & Macaroni" data-category="food-beverages" data-subcategory="ingredients" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image image-9"></div>
+        <div class="card-content">
+          <h3>ماکارونی و پاستا</h3>
+          <p>محصولات پاستا باکیفیت برای بازار جهانی</p>
+          <div class="card-footer">
+            <a class="product-details-link" href="product.html">مشاهده محصولات <span>←</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="category-card" data-product="Corn & Wheat Starch" data-category="ingredients" data-subcategory="ingredients" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image image-2"></div>
+        <div class="card-content">
+          <h3>نشاسته ذرت و گندم</h3>
+          <p>راهکارهای قابل‌اعتماد نشاسته برای بازار جهانی</p>
+          <div class="card-footer">
+            <a class="product-details-link" href="product.html">مشاهده محصولات <span>←</span></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="trust-marquee" aria-label="مقاصد صادراتی">
+  <div class="marquee-track">
+    <span>ایران</span><span>امارات</span><span>ترکیه</span><span>عراق</span><span>افغانستان</span><span>عمان</span><span>قطر</span><span>آلمان</span><span>روسیه</span><span>هند</span><span>چین</span><span>مالزی</span>
+    <span>ایران</span><span>امارات</span><span>ترکیه</span><span>عراق</span><span>افغانستان</span><span>عمان</span><span>قطر</span><span>آلمان</span><span>روسیه</span><span>هند</span><span>چین</span><span>مالزی</span>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-media" data-reveal="right">
+      <div class="about-media-main"></div>
+      <div class="about-media-secondary"></div>
+      <div class="about-badge">
+        <div class="about-badge-icon">✦</div>
+        <div>
+          <b>۱۵+</b>
+          <small>سال اعتماد</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-copy" data-reveal="left">
+      <span class="section-kicker">درباره مهاجر استیل</span>
+      <h2>ریشه در ایران، <em>اعتماد در سراسر جهان.</em></h2>
+      <p>مهاجر استیل تولیدکنندگان ممتاز ایرانی را با خریداران در سراسر جهان پیوند می‌دهد. از تأمین و کنترل کیفیت تا مستندات و لجستیک — ما تمامی زنجیره صادرات را مدیریت می‌کنیم تا شرکای تجاری ما روی رشد کسب‌وکارشان تمرکز کنند.</p>
+
+      <div class="about-features" data-stagger>
+        <div class="about-feature"><i>◈</i><div><strong>تأمین معتبر</strong><span>همکاری مستقیم با تولیدکنندگان مورد اعتماد ایرانی.</span></div></div>
+        <div class="about-feature"><i>◎</i><div><strong>تضمین کیفیت</strong><span>هر محموله پیش از خروج از انبار بازرسی می‌شود.</span></div></div>
+        <div class="about-feature"><i>✈</i><div><strong>لجستیک جهانی</strong><span>ارسال و مستندسازی مطمئن به بیش از ۵۰ کشور.</span></div></div>
+        <div class="about-feature"><i>☎</i><div><strong>پشتیبانی اختصاصی</strong><span>تیم صادرات ۲۴/۷ آماده کمک به شما در هر مرحله.</span></div></div>
+      </div>
+
+      <div class="about-actions">
+        <a class="about-cta-primary" href="#products">
+          مرور محصولات
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="about-cta-secondary" href="#contact">گفتگو با فروش</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand-block">
+      <div class="footer-logo">
+        <span class="footer-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+            <path d="M12 21V11"/>
+            <path d="M9 14l3-3 3 3"/>
+          </svg>
+        </span>
+        <span class="footer-logo-text">
+          <strong>مهاجر استیل</strong>
+          <small>MOHAJER TRADING GROUP</small>
+        </span>
+      </div>
+      <p>محصولات غذایی ممتاز ایرانی، با دقت انتخاب و برای تجارت بین‌المللی مطمئن آماده می‌شوند.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>شرکت</h4>
+      <ul>
+        <li><a href="#about">درباره ما</a></li>
+        <li><a href="#about">داستان ما</a></li>
+        <li><a href="#products">محصولات</a></li>
+        <li><a href="#contact">تماس</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>خدمات مشتریان</h4>
+      <ul>
+        <li><a href="#contact">درخواست قیمت</a></li>
+        <li><a href="#contact">پشتیبانی صادرات</a></li>
+        <li><a href="#contact">ارسال و تحویل</a></li>
+        <li><a href="#contact">سوالات متداول</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>تماس با ما</h4>
+      <div class="footer-contact-item">
+        <i>☎</i>
+        <div>
+          <strong><a href="tel:+989153082367">۰۹۱۵۳۰۸۲۳۶۷</a></strong>
+          <small>محمد مهاجری</small>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <i>☎</i>
+        <div>
+          <strong><a href="tel:+98915551965">۰۹۱۵۵۵۱۹۶۵</a></strong>
+          <small>علیرضا تهرانی</small>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <i>✉</i>
+        <div>
+          <strong><a href="mailto:info@mohajer-steel.com">info@mohajer-steel.com</a></strong>
+          <small>ایمیل رسمی</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div>© ۱۴۰۴ مهاجر استیل — تمامی حقوق محفوظ است.</div>
+    <div class="designer">طراحی و توسعه اختصاصی</div>
+  </div>
+</footer>
+
+</div>
+
+<button class="back-top" id="backTop" aria-label="بازگشت به بالا">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+  const progress=document.getElementById("scrollProgress");
+  const updateProgress=()=>{
+    const h=document.documentElement;
+    const scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    progress.style.width=(scrolled*100)+"%";
+  };
+  window.addEventListener("scroll",updateProgress,{passive:true});
+  updateProgress();
+
+  const glow=document.getElementById("cursorGlow");
+  let glowX=0,glowY=0,targetX=0,targetY=0;
+  if(window.matchMedia("(hover:hover)").matches){
+    window.addEventListener("mousemove",e=>{targetX=e.clientX;targetY=e.clientY;},{passive:true});
+    const animateGlow=()=>{
+      glowX+=(targetX-glowX)*0.12;
+      glowY+=(targetY-glowY)*0.12;
+      glow.style.transform=`translate(${glowX}px,${glowY}px) translate(-50%,-50%)`;
+      requestAnimationFrame(animateGlow);
+    };
+    animateGlow();
+  }
+
+  const revealEls=document.querySelectorAll("[data-reveal],[data-stagger]");
+  if("IntersectionObserver" in window){
+    const revealObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{rootMargin:"0px 0px -12% 0px",threshold:0.05});
+    revealEls.forEach(el=>revealObserver.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add("is-visible"));
+  }
+
+  const heroImage=document.getElementById("heroImage");
+  let parallaxTick=false;
+  const applyParallax=()=>{
+    if(!heroImage) return;
+    const y=window.scrollY;
+    if(y<window.innerHeight){
+      heroImage.style.transform=`translate3d(0,${y*0.3}px,0) scale(1.08)`;
+    }
+    parallaxTick=false;
+  };
+  window.addEventListener("scroll",()=>{
+    if(!parallaxTick){requestAnimationFrame(applyParallax);parallaxTick=true;}
+  },{passive:true});
+
+  const backTop=document.getElementById("backTop");
+  const toggleBackTop=()=>{
+    if(window.scrollY>600) backTop.classList.add("is-visible");
+    else backTop.classList.remove("is-visible");
+  };
+  window.addEventListener("scroll",toggleBackTop,{passive:true});
+  toggleBackTop();
+  backTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+  const toFa=(n)=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+
+  /* ===== FILTERS ===== */
+  const filterSections = document.querySelectorAll(".filter-section[data-filter-group]");
+  const cards = document.querySelectorAll(".category-card[data-product]");
+  const grid = document.getElementById("categories");
+  const visibleCountEl = document.getElementById("visibleCount");
+  const activeFiltersEl = document.getElementById("activeFilters");
+  const applyBtn = document.querySelector("[data-apply]");
+  const clearBtn = document.querySelector("[data-clear]");
+
+  const labelMap = {
+    "food-beverages":"غذا و نوشیدنی","dairy":"لبنیات","baking":"پخت و نانوایی",
+    "ingredients":"مواد اولیه","consumer-goods":"کالای مصرفی","others":"سایر",
+    "drinks":"نوشیدنی‌ها","dairy-sub":"لبنیات","tomato":"رب گوجه",
+    "sweeteners":"شیرین‌کننده‌ها","oils":"روغن و چربی","personal-care":"مراقبت شخصی","household":"خانگی",
+    "iran":"ایران","other":"سایر"
+  };
+
+  const computeCounts=()=>{
+    filterSections.forEach(section=>{
+      const group = section.dataset.filterGroup;
+      section.querySelectorAll("input[type=checkbox]").forEach(input=>{
+        const val = input.value;
+        let count = 0;
+        cards.forEach(card=>{
+          const values = (card.dataset[group]||"").split(" ").filter(Boolean);
+          if(values.includes(val)) count++;
+        });
+        const badge = input.parentElement.querySelector(".count");
+        if(badge) badge.textContent = toFa(count);
+      });
+    });
+  };
+  computeCounts();
+
+  const getCheckedByGroup=()=>{
+    const result = {};
+    filterSections.forEach(section=>{
+      const group = section.dataset.filterGroup;
+      const values = [...section.querySelectorAll("input[type=checkbox]:checked")].map(i=>i.value);
+      if(values.length) result[group] = values;
+    });
+    return result;
+  };
+
+  const matchesFilters=(card, filters)=>{
+    for(const group in filters){
+      const values = (card.dataset[group]||"").split(" ").filter(Boolean);
+      const hasMatch = filters[group].some(v=>values.includes(v));
+      if(!hasMatch) return false;
+    }
+    return true;
+  };
+
+  const renderChips=()=>{
+    activeFiltersEl.innerHTML = "";
+    const checked = [...document.querySelectorAll(".filter-section input[type=checkbox]:checked")];
+    checked.forEach(input=>{
+      const chip = document.createElement("span");
+      chip.className = "filter-chip";
+      chip.innerHTML = `${labelMap[input.value] || input.value}<button type="button" aria-label="حذف">×</button>`;
+      chip.querySelector("button").addEventListener("click",()=>{
+        input.checked = false;
+        runFilter();
+      });
+      activeFiltersEl.appendChild(chip);
+    });
+  };
+
+  const runFilter=(animate=true)=>{
+    const filters = getCheckedByGroup();
+    let visible = 0;
+    cards.forEach(card=>{
+      const ok = matchesFilters(card, filters);
+      if(ok){
+        visible++;
+        if(card.classList.contains("is-hidden") || animate){
+          card.classList.remove("is-hidden");
+          card.classList.remove("is-showing");
+          void card.offsetWidth;
+          card.classList.add("is-showing");
+        }
+      } else {
+        card.classList.add("is-hidden");
+        card.classList.remove("is-showing");
+      }
+    });
+
+    visibleCountEl.textContent = toFa(visible);
+
+    const existingEmpty = grid.querySelector(".empty-state");
+    if(existingEmpty) existingEmpty.remove();
+    if(visible === 0){
+      const empty = document.createElement("div");
+      empty.className = "empty-state";
+      empty.innerHTML = `
+        <div class="empty-state-icon">◌</div>
+        <h3>محصولی یافت نشد</h3>
+        <p>هیچ محصولی با فیلترهای انتخابی شما مطابقت ندارد.<br>لطفاً فیلترها را تغییر دهید یا پاک کنید.</p>
+        <button type="button" onclick="document.querySelector('[data-clear]').click()">پاک کردن فیلترها</button>
+      `;
+      grid.appendChild(empty);
+    }
+
+    renderChips();
+  };
+
+  document.querySelectorAll(".filter-section input[type=checkbox]").forEach(cb=>{
+    cb.addEventListener("change",()=>runFilter());
+  });
+
+  clearBtn?.addEventListener("click",()=>{
+    document.querySelectorAll(".filter-section input[type=checkbox]").forEach(i=>i.checked=false);
+    runFilter();
+  });
+
+  applyBtn?.addEventListener("click",e=>{
+    const b = e.currentTarget;
+    const old = b.innerHTML;
+    runFilter();
+    b.innerHTML = "فیلترها اعمال شد ✓";
+    setTimeout(()=>b.innerHTML = old, 1300);
+    if(window.innerWidth <= 768){
+      grid.scrollIntoView({behavior:"smooth", block:"start"});
+    }
+  });
+
+  document.querySelectorAll(".filter-section h3").forEach(h=>{
+    h.addEventListener("click",()=>{
+      h.parentElement.classList.toggle("is-collapsed");
+    });
+  });
+
+  runFilter(false);
+
+  /* ===== SEARCH / NAV / SLIDER ===== */
+  document.querySelector("[data-search]")?.addEventListener("click",()=>{
+    document.querySelector("#products")?.scrollIntoView({behavior:"smooth"});
+  });
+
+  const nav=document.getElementById("primaryNav");
+  const navLinks=document.querySelectorAll(".nav a[data-nav-target]");
+  const setActiveNav=(target)=>{
+    navLinks.forEach(link=>{
+      link.classList.toggle("active",link.dataset.navTarget===target);
+    });
+  };
+  navLinks.forEach(link=>{
+    link.addEventListener("click",e=>{
+      const target=link.dataset.navTarget;
+      const section=document.getElementById(target);
+      e.preventDefault();
+      setActiveNav(target);
+      if(section) section.scrollIntoView({behavior:"smooth",block:"start"});
+      nav?.classList.remove("mobile-open");
+    });
+  });
+
+  const sections=[
+    {id:"home",el:document.getElementById("home")},
+    {id:"products",el:document.getElementById("products")},
+    {id:"about",el:document.getElementById("about")},
+    {id:"contact",el:document.getElementById("contact")}
+  ].filter(item=>item.el);
+
+  const header=document.getElementById("siteHeader");
+  let headerScrolled=false;
+  const updateHeaderOnScroll=()=>{
+    const next=window.scrollY>24;
+    if(next===headerScrolled)return;
+    headerScrolled=next;
+    header?.classList.toggle("is-scrolled",next);
+  };
+  window.addEventListener("scroll",updateHeaderOnScroll,{passive:true});
+  updateHeaderOnScroll();
+
+  if("IntersectionObserver" in window){
+    const sectionObserver=new IntersectionObserver(entries=>{
+      const visible=entries
+        .filter(entry=>entry.isIntersecting)
+        .sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top);
+      if(visible.length){
+        const section=sections.find(item=>item.el===visible[0].target);
+        if(section)setActiveNav(section.id);
+      }
+    },{rootMargin:"-96px 0px -55% 0px",threshold:0});
+    sections.forEach(item=>sectionObserver.observe(item.el));
+  }
+
+  document.querySelector("[data-menu]")?.addEventListener("click",()=>{
+    nav?.classList.toggle("mobile-open");
+  });
+
+  const featured=document.querySelector(".category-card--featured");
+  if(featured){
+    const slides=featured.querySelectorAll(".featured-slide");
+    let current=0;
+    setInterval(()=>{
+      if(slides.length!==2)return;
+      const next=current===0?1:0;
+      slides[current].classList.remove("is-active");
+      slides[next].classList.add("is-active");
+      current=next;
+    },4500);
+  }
+
+  cards.forEach(card=>{
+    const name=card.dataset.product || "Product Details";
+    const url=name==="Yeast Products" ? "yeast-product.html" : "product.html?product="+encodeURIComponent(name);
+    const detailsLink=card.querySelector(".product-details-link");
+    if(detailsLink) detailsLink.href=url;
+    card.addEventListener("click",e=>{
+      if(e.target.closest("a")) return;
+      window.location.href=url;
+    });
+    card.addEventListener("keydown",e=>{
+      if(e.key==="Enter" || e.key===" "){e.preventDefault();window.location.href=url;}
+    });
+  });
+});
+</script>
+</body>
+</html>
