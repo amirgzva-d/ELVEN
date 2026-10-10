@@ -2634,22 +2634,6 @@
   .main-site-header .nav a.active{color:#0a5c46;font-weight:700}
 }
 
-
-
-    /* ===== SIMPLE BRAND VIDEO IN DETAILS FRAME ===== */
-    .details-image video{
-      width:100%;
-      height:100%;
-      min-height:280px;
-      object-fit:cover;
-      display:block;
-    }
-    @media(max-width:1200px){
-      .details-image video{min-height:220px}
-    }
-    @media(max-width:768px){
-      .details-image video{min-height:210px}
-    }
 </style>
 </head>
 <body>
@@ -2842,7 +2826,9 @@
             </ul>
           </div>
 
-          <div class="details-image" id="detailsMedia"></div>
+          <div class="details-image">
+            <img id="detailsImage" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80" alt="Product" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
 
@@ -3346,7 +3332,6 @@
         detailsTitle: 'خمیر مایه خشک فوری ایکس پاور',
         detailsText: 'خمیرمایه تخصصی ایکس پاور (X-Power) با قدرت تخمیر مضاعف و فعالیت آنزیمی بالا جهت پخت انواع نان‌های حجیم، نیمه‌حجیم و شیرینی‌جات. تولید شده با استانداردهای ISO 9001:2015 آلمان و دارای گواهی حلال.',
         detailsImage: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80',
-        detailsVideo: 'https://res.cloudinary.com/dqhbyqftq/video/upload/v1791636103/vedio-01_vcqbl1.mp4',
         detailsBadges: [
           { icon: 'fa-solid fa-bolt', value: '2X', label: 'Fermentation Power' },
           { icon: 'fa-solid fa-shield-halved', value: 'ISO', label: '9001:2015' },
@@ -3458,7 +3443,6 @@
         detailsTitle: 'خمیر مایه خشک فوری دزمایه گلد',
         detailsText: 'خمیرمایه خشک فوری دزمایه گلد با تکنولوژی پیشرفته فرینگز (Frings) اتریش و فعالیت تخمیری فوق‌العاده بالا.',
         detailsImage: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1790998028/file_0000000011f881f4bf586c5d8d878316_lojn69.png',
-        detailsVideo: 'https://res.cloudinary.com/dqhbyqftq/video/upload/v1791636103/vedio-01_vcqbl1.mp4',
         detailsBadges: [
           { icon: 'fa-solid fa-award', value: 'Frings', label: 'Austria Tech' },
           { icon: 'fa-solid fa-shield-halved', value: 'ISO', label: '9001:2015' },
@@ -3556,7 +3540,6 @@
         detailsTitle: 'خمیر مایه نان مایه',
         detailsText: 'خمیرمایه نان مایه مخصوص واحدهای نانوایی صنعتی، نانوایی‌های بزرگ و صادرات به کشورهای همسایه. اقتصادی، با کیفیت یکنواخت و ماندگاری ۲ ساله.',
         detailsImage: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179979/file_00000000a31482469f5a4e2b06493d3b_xlext3.png',
-        detailsVideo: 'https://res.cloudinary.com/dqhbyqftq/video/upload/v1791635834/792639b4-0562-406c-898d-260139d9503b_jdbo1i.mp4',
         detailsBadges: [
           { icon: 'fa-solid fa-seedling', value: 'Fresh', label: 'Natural' },
           { icon: 'fa-solid fa-snowflake', value: '24', label: 'Months' },
@@ -3807,7 +3790,7 @@
     const detailsTitleEl = document.getElementById('detailsTitle');
     const detailsTextEl = document.getElementById('detailsText');
     const detailsBadgesEl = document.getElementById('detailsBadges');
-    const detailsMediaEl = document.getElementById('detailsMedia');
+    const detailsImageEl = document.getElementById('detailsImage');
     const featuresListEl = document.getElementById('featuresList');
 
     let topBrandCards = document.querySelectorAll('#topBrandSlider .brand-card');
@@ -3896,17 +3879,8 @@
       heroSubtitleEl.textContent = displayBrand.heroSubtitle;
       detailsTitleEl.textContent = displayBrand.detailsTitle;
       detailsTextEl.textContent = displayBrand.detailsText;
-      if (brand.detailsVideo) {
-        detailsMediaEl.innerHTML = `
-          <video autoplay muted loop playsinline preload="metadata" aria-label="${displayBrand.detailsTitle}">
-            <source src="${brand.detailsVideo}" type="video/mp4">
-          </video>
-        `;
-      } else {
-        detailsMediaEl.innerHTML = `
-          <img src="${brand.detailsImage}" alt="${displayBrand.detailsTitle}" loading="lazy" decoding="async">
-        `;
-      }
+      detailsImageEl.src = brand.detailsImage;
+      detailsImageEl.alt = displayBrand.detailsTitle;
       detailsBadgesEl.innerHTML = '';
       brand.detailsBadges.forEach(badge => {
         const el = document.createElement('div');
