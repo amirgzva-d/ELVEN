@@ -2636,24 +2636,19 @@
 
 
 
-    /* ===== BRAND DETAILS VIDEO — SAME FRAME AS DETAILS IMAGE ===== */
-    .details-image #detailsVideo{
+    /* ===== SIMPLE BRAND VIDEO IN DETAILS FRAME ===== */
+    .details-image video{
       width:100%;
       height:100%;
       min-height:280px;
       object-fit:cover;
-      display:none;
-      background:#000;
-      transition:transform .6s ease;
+      display:block;
     }
-    .details-image.is-video #detailsVideo{display:block}
-    .details-image.is-video #detailsImage{display:none}
-    .details-image.is-video:hover #detailsVideo{transform:scale(1.04)}
     @media(max-width:1200px){
-      .details-image #detailsVideo{min-height:220px}
+      .details-image video{min-height:220px}
     }
     @media(max-width:768px){
-      .details-image #detailsVideo{min-height:210px}
+      .details-image video{min-height:210px}
     }
 </style>
 </head>
@@ -2847,10 +2842,7 @@
             </ul>
           </div>
 
-          <div class="details-image">
-            <img id="detailsImage" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80" alt="Product" loading="lazy" decoding="async">
-            <video id="detailsVideo" muted loop playsinline preload="metadata" aria-label="Brand video"></video>
-          </div>
+          <div class="details-image" id="detailsMedia"></div>
         </div>
       </div>
 
@@ -3815,9 +3807,7 @@
     const detailsTitleEl = document.getElementById('detailsTitle');
     const detailsTextEl = document.getElementById('detailsText');
     const detailsBadgesEl = document.getElementById('detailsBadges');
-    const detailsImageEl = document.getElementById('detailsImage');
-    const detailsVideoEl = document.getElementById('detailsVideo');
-    const detailsMediaEl = detailsImageEl?.closest('.details-image');
+    const detailsMediaEl = document.getElementById('detailsMedia');
     const featuresListEl = document.getElementById('featuresList');
 
     let topBrandCards = document.querySelectorAll('#topBrandSlider .brand-card');
@@ -3906,26 +3896,16 @@
       heroSubtitleEl.textContent = displayBrand.heroSubtitle;
       detailsTitleEl.textContent = displayBrand.detailsTitle;
       detailsTextEl.textContent = displayBrand.detailsText;
-      detailsImageEl.src = brand.detailsImage;
-      detailsImageEl.alt = displayBrand.detailsTitle;
-
       if (brand.detailsVideo) {
-        detailsMediaEl?.classList.add('is-video');
-        if (detailsVideoEl.src !== brand.detailsVideo) {
-          detailsVideoEl.pause();
-          detailsVideoEl.src = brand.detailsVideo;
-          detailsVideoEl.load();
-        }
-        detailsVideoEl.setAttribute('aria-label', displayBrand.detailsTitle);
-        const playPromise = detailsVideoEl.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(() => {});
-        }
+        detailsMediaEl.innerHTML = `
+          <video autoplay muted loop playsinline preload="metadata" aria-label="${displayBrand.detailsTitle}">
+            <source src="${brand.detailsVideo}" type="video/mp4">
+          </video>
+        `;
       } else {
-        detailsMediaEl?.classList.remove('is-video');
-        detailsVideoEl.pause();
-        detailsVideoEl.removeAttribute('src');
-        detailsVideoEl.load();
+        detailsMediaEl.innerHTML = `
+          <img src="${brand.detailsImage}" alt="${displayBrand.detailsTitle}" loading="lazy" decoding="async">
+        `;
       }
       detailsBadgesEl.innerHTML = '';
       brand.detailsBadges.forEach(badge => {
@@ -4303,11 +4283,6 @@
     const openHeaderInquiry = () => document.getElementById('inquiryBtn')?.click();
     document.getElementById('headerQuoteBtn')?.addEventListener('click', openHeaderInquiry);
     document.getElementById('headerInquiryIcon')?.addEventListener('click', openHeaderInquiry);
-
-    detailsVideoEl?.addEventListener('error', () => {
-      detailsMediaEl?.classList.remove('is-video');
-    });
-
 </script>
 
 </body>
