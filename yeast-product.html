@@ -2700,7 +2700,7 @@
             <span class="arrow"><i class="fa-solid fa-arrow-left"></i></span>
           </button>
 
-          <button class="cta-secondary">
+          <button class="cta-secondary" id="brandCatalogDownloadBtn" type="button">
             <span data-i18n="downloadCatalog">دانلود کاتالوگ</span>
             <i class="fa-solid fa-download"></i>
           </button>
@@ -3045,11 +3045,11 @@
           <div class="pd-feature-list" id="pdFeatures"></div>
 
           <div class="pd-bottom-actions">
-            <button class="pd-btn-pdf">
-              <i class="fa-solid fa-file-pdf"></i>
+            <button class="pd-btn-pdf" id="pdCatalogDownloadBtn" type="button">
+              <i class="fa-solid fa-file-image"></i>
               <span data-i18n="pdDownloadCatalog">دانلود کاتالوگ محصولات (PDF)</span>
             </button>
-            <a href="#" class="pd-btn-online">
+            <a href="#" class="pd-btn-online" id="pdCatalogOnlineBtn">
               <i class="fa-solid fa-cloud-arrow-down"></i>
               <span data-i18n="pdDownloadOnline">دانلود آنلاین</span>
             </a>
@@ -3141,7 +3141,7 @@
         noProducts: 'محصولی برای نمایش وجود ندارد.',
         pdDetails: 'جزئیات',
         pdAnalysis: 'آنالیز آنلاین',
-        pdDownloadCatalog: 'دانلود کاتالوگ محصولات (PDF)',
+        pdDownloadCatalog: 'دانلود کاتالوگ محصولات',
         pdDownloadOnline: 'دانلود آنلاین',
         noImage: 'تصویری برای این محصول ثبت نشده است',
         save: 'ذخیره',
@@ -3199,7 +3199,7 @@
         noProducts: 'No products available.',
         pdDetails: 'Details',
         pdAnalysis: 'Online Analysis',
-        pdDownloadCatalog: 'Download Product Catalog (PDF)',
+        pdDownloadCatalog: 'Download Product Catalog',
         pdDownloadOnline: 'Download Online',
         noImage: 'No image has been registered for this product',
         save: 'Save',
@@ -3326,6 +3326,7 @@
       ixpower: {
         brandName: 'IXPOWER',
         heroBg: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791551453/file_00000000100881f595a7bdfba2d947a2_qadkpb.png',
+        catalogUrl: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791635604/file_00000000ad6081f49ade66b68f8e07a4_sehaob.png',
         heroTitle: 'کیفیت جهانی، اعتماد بین‌المللی',
         heroSubtitle: 'خمیرمایه تخصصی ایکس پاور با قدرت تخمیر مضاعف و فعالیت آنزیمی بالا، جهت پخت انواع نان‌های حجیم، نیمه‌حجیم و شیرینی‌جات.',
         detailsTitle: 'خمیر مایه خشک فوری ایکس پاور',
@@ -3405,6 +3406,7 @@
       shetab: {
         brandName: 'SHETAB',
         heroBg: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791551467/file_0000000058dc81f5a473ec34311c10f8_hliram.png',
+        catalogUrl: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791635444/file_000000008c1c81f5b461bec256f07849_hd1yeh.png',
         heroTitle: 'خمیرمایه شتاب، سرعت در کیفیت',
         heroSubtitle: 'خمیرمایه خشک فوری شتاب با تکنولوژی مدرن روز، مناسب برای تولیدکنندگان حرفه‌ای نان و شیرینی در بازارهای صادراتی.',
         detailsTitle: 'خمیر مایه خشک فوری شتاب',
@@ -3435,6 +3437,7 @@
       dezmaye: {
         brandName: 'DEZ MAYE GOLD',
         heroBg: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1790998028/file_0000000011f881f4bf586c5d8d878316_lojn69.png',
+        catalogUrl: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791635604/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87_esc9pu.png',
         heroTitle: 'دزمایه گلد، طلای سفید نانوایی',
         heroSubtitle: 'خمیرمایه خشک فوری دزمایه گلد با تکنولوژی پیشرفته فرینگز (Frings) اتریش.',
         detailsTitle: 'خمیر مایه خشک فوری دزمایه گلد',
@@ -3467,6 +3470,7 @@
       razavi: {
         brandName: 'Razavi Yeast Co.',
         heroBg: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791197265/file_00000000261c8246a8bafc4f276cf3d6_baqm2f.png',
+        catalogUrl: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791635552/file_00000000ee1c824697b5d7ea53e3b4de1_vdqbox.png',
         heroTitle: 'رضوی، میراث کیفیت در نان',
         heroSubtitle: 'خمیرمایه رضوی با سال‌ها تجربه در تولید خمیرمایه‌های باکیفیت.',
         detailsTitle: 'خمیر مایه فوری رضوی',
@@ -3530,6 +3534,7 @@
       nanmaye: {
         brandName: 'نان مایه',
         heroBg: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791199698/file_000000004c6c81f591e2f7053ca1c8b4_zrjj2s.png',
+        catalogUrl: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791635436/file_00000000f1ac8246b975db086373bc1a1_kxoq8v.png',
         heroTitle: 'نان مایه، تازگی در هر خمیر',
         heroSubtitle: 'خمیرمایه نان مایه مخصوص واحدهای نانوایی صنعتی، نانوایی‌های بزرگ و صادرات به کشورهای همسایه. اقتصادی، با کیفیت یکنواخت و ماندگاری ۲ ساله.',
         detailsTitle: 'خمیر مایه نان مایه',
@@ -4179,6 +4184,53 @@
     setLanguage('fa');
     requestAnimationFrame(updateBrandsArrows);
   
+
+    /* ===== BRAND-SPECIFIC CATALOG DOWNLOADS ===== */
+    const catalogFileNames = {
+      ixpower: 'IXPOWER-Catalog.png',
+      shetab: 'SHETAB-Catalog.png',
+      dezmaye: 'DEZ-MAYE-Catalog.png',
+      razavi: 'RAZAVI-Catalog.png',
+      nanmaye: 'NAN-MAYE-Catalog.png'
+    };
+
+    async function downloadCurrentBrandCatalog(event) {
+      event?.preventDefault();
+      const brand = catalog[currentBrandKey];
+      const url = brand?.catalogUrl;
+      if (!url) return;
+
+      const filename = catalogFileNames[currentBrandKey] || 'Product-Catalog.png';
+
+      try {
+        const response = await fetch(url, { mode: 'cors' });
+        if (!response.ok) throw new Error('Catalog download failed');
+        const blob = await response.blob();
+        const objectUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = objectUrl;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(objectUrl), 1500);
+      } catch (error) {
+        // Cloudinary/browser fallback: use the download attribute on the original asset.
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+    }
+
+    document.getElementById('brandCatalogDownloadBtn')?.addEventListener('click', downloadCurrentBrandCatalog);
+    document.getElementById('pdCatalogDownloadBtn')?.addEventListener('click', downloadCurrentBrandCatalog);
+    document.getElementById('pdCatalogOnlineBtn')?.addEventListener('click', downloadCurrentBrandCatalog);
+
     /* Homepage header behavior on the yeast page. */
     const syncedHeader = document.getElementById('siteHeader');
     const syncedNav = document.getElementById('primaryNav');
