@@ -2653,6 +2653,67 @@
     @media(max-width:768px){
       .details-image #detailsVideo{min-height:210px}
     }
+
+
+    /* ===== SMART SLIDER NAV + MOUSE GRAB SCROLL ===== */
+    .brand-slider,
+    .brands-track{
+      cursor:grab;
+      user-select:none;
+      -webkit-user-select:none;
+      touch-action:pan-y;
+      scroll-snap-type:x proximity;
+    }
+    .brand-slider.is-grabbing,
+    .brands-track.is-grabbing{
+      cursor:grabbing !important;
+      scroll-behavior:auto !important;
+      scroll-snap-type:none;
+    }
+    .brand-slider .brand-card,
+    .brands-track .brand-product-card{
+      scroll-snap-align:center;
+    }
+    .brand-slider .drag-handle{
+      display:none !important;
+    }
+    .brand-slider img,
+    .brands-track img{
+      -webkit-user-drag:none;
+      user-drag:none;
+      pointer-events:none;
+    }
+
+    .strip-arrow.slider-nav-hidden,
+    .brands-arrows button.slider-nav-hidden{
+      opacity:0 !important;
+      visibility:hidden !important;
+      pointer-events:none !important;
+      transform:scale(.82) !important;
+    }
+
+    .strip-arrow,
+    .brands-arrows button{
+      transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease,
+        box-shadow .25s ease !important;
+    }
+
+    @media (pointer:coarse){
+      .strip-arrow,
+      .brands-arrows{
+        display:none !important;
+      }
+      .brand-slider,
+      .brands-track{
+        cursor:auto;
+        -webkit-overflow-scrolling:touch;
+      }
+    }
 </style>
 </head>
 <body>
@@ -3878,7 +3939,10 @@
               <span class="view-arrow-btn"><i class="fa-solid fa-arrow-left"></i></span>
             </div>
           `;
-          card.addEventListener('click', () => openProductDetail(product));
+          card.addEventListener('click', () => {
+            if (brandsTrack.dataset.justDragged === 'true') return;
+            openProductDetail(product);
+          });
           brandsTrack.appendChild(card);
         });
       }
@@ -3886,8 +3950,14 @@
       brandsTitle.innerHTML = `${translations[currentLang].productsOf} <span class="brand-name">${displayBrand.brandName}</span>`;
       brandsSubtitle.innerHTML = `${translations[currentLang].allProductsOf} <span class="brand-name">${displayBrand.brandName}</span>`;
       brandsTrack.scrollLeft = 0;
-      requestAnimationFrame(() => { updateBrandsArrows(); moveTabsIndicator(); });
-    setTimeout(moveTabsIndicator, 250);
+      requestAnimationFrame(() => {
+        updateBrandsArrows();
+        moveTabsIndicator();
+      });
+      setTimeout(() => {
+        updateBrandsArrows();
+        moveTabsIndicator();
+      }, 250);
     }
 
     function updatePageForBrand(brandKey) {
@@ -3945,89 +4015,146 @@
 
     const pdOverlay = document.getElementById('pdOverlay');
 
+    const topBrandSlider = document.getElementById('topBrandSlider');
+    const stripPrevBtn = document.getElementById('stripScrollLeft');
+    const stripNextBtn = document.getElementById('stripScrollRight');
+
     function bindBrandCardClick(card) {
+      card.setAttribute('draggable', 'false');
+      card.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
+
       card.addEventListener('click', () => {
-        if (card.dataset.justDragged === 'true') {
-          card.dataset.justDragged = 'false';
-          return;
-        }
+        if (topBrandSlider.dataset.justDragged === 'true') return;
+
         const brandKey = card.dataset.brand;
         document.querySelectorAll('#topBrandSlider .brand-card').forEach(c => c.classList.remove('active'));
         card.classList.add('active');
         updatePageForBrand(brandKey);
 
-        // After selecting a brand, smoothly return to the first (hero) section.
         requestAnimationFrame(() => {
           heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
     }
+
     topBrandCards.forEach(bindBrandCardClick);
 
-    let draggedCard = null;
-    function bindDragEvents(card) {
-      card.addEventListener('dragstart', (e) => {
-        draggedCard = card;
-        card.classList.add('dragging');
-        e.dataTransfer.effectAllowed = 'move';
-        e.dataTransfer.setData('text/plain', card.dataset.brand);
+    function getVisibleCardRange(container, selector) {
+      const cards = Array.from(container.querySelectorAll(selector));
+      if (!cards.length) return { cards, first: -1, last: -1 };
+
+      const box = container.getBoundingClientRect();
+      const visible = [];
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const overlap = Math.min(rect.right, box.right) - Math.max(rect.left, box.left);
+        if (overlap > Math.min(24, rect.width * 0.2)) visible.push(index);
       });
-      card.addEventListener('dragend', () => {
-        card.classList.remove('dragging');
-        document.querySelectorAll('#topBrandSlider .brand-card').forEach(c => c.classList.remove('drag-over'));
-        if (draggedCard) {
-          draggedCard.dataset.justDragged = 'true';
-          setTimeout(() => { if (draggedCard) draggedCard.dataset.justDragged = 'false'; }, 100);
+
+      if (!visible.length) return { cards, first: 0, last: 0 };
+      return { cards, first: Math.min(...visible), last: Math.max(...visible) };
+    }
+
+    function setSliderButtonState(container, selector, prevBtn, nextBtn) {
+      if (!container || !prevBtn || !nextBtn) return;
+      const { cards, first, last } = getVisibleCardRange(container, selector);
+      const noOverflow = container.scrollWidth <= container.clientWidth + 3 || cards.length <= 1;
+
+      const hidePrev = noOverflow || first <= 0;
+      const hideNext = noOverflow || last >= cards.length - 1;
+
+      prevBtn.classList.toggle('slider-nav-hidden', hidePrev);
+      nextBtn.classList.toggle('slider-nav-hidden', hideNext);
+      prevBtn.disabled = hidePrev;
+      nextBtn.disabled = hideNext;
+      prevBtn.setAttribute('aria-hidden', hidePrev ? 'true' : 'false');
+      nextBtn.setAttribute('aria-hidden', hideNext ? 'true' : 'false');
+    }
+
+    function scrollSliderByCard(container, selector, direction) {
+      const { cards, first, last } = getVisibleCardRange(container, selector);
+      if (!cards.length) return;
+
+      const targetIndex = direction === 'next'
+        ? Math.min(cards.length - 1, last + 1)
+        : Math.max(0, first - 1);
+
+      cards[targetIndex]?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
+
+    function enableGrabScroll(container, onUpdate) {
+      if (!container || container.dataset.grabReady === 'true') return;
+      container.dataset.grabReady = 'true';
+
+      let pointerId = null;
+      let startX = 0;
+      let startScrollLeft = 0;
+      let moved = false;
+
+      container.addEventListener('dragstart', e => e.preventDefault());
+
+      container.addEventListener('pointerdown', e => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        pointerId = e.pointerId;
+        startX = e.clientX;
+        startScrollLeft = container.scrollLeft;
+        moved = false;
+        container.classList.add('is-grabbing');
+        container.setPointerCapture?.(pointerId);
+      });
+
+      container.addEventListener('pointermove', e => {
+        if (pointerId !== e.pointerId) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 5) moved = true;
+
+        const rtlFactor = getComputedStyle(container).direction === 'rtl' ? -1 : 1;
+        container.scrollLeft = startScrollLeft - (dx * rtlFactor);
+
+        if (moved) e.preventDefault();
+      });
+
+      const finishDrag = e => {
+        if (pointerId === null || (e?.pointerId != null && e.pointerId !== pointerId)) return;
+
+        if (moved) {
+          container.dataset.justDragged = 'true';
+          setTimeout(() => {
+            container.dataset.justDragged = 'false';
+          }, 180);
         }
-        draggedCard = null;
-        saveBrandOrder();
-      });
-      card.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
-        if (draggedCard && draggedCard !== card) card.classList.add('drag-over');
-      });
-      card.addEventListener('dragleave', () => card.classList.remove('drag-over'));
-      card.addEventListener('drop', (e) => {
-        e.preventDefault();
-        card.classList.remove('drag-over');
-        if (!draggedCard || draggedCard === card) return;
-        const cards = Array.from(document.querySelectorAll('#topBrandSlider .brand-card'));
-        const draggedIdx = cards.indexOf(draggedCard);
-        const targetIdx = cards.indexOf(card);
-        if (draggedIdx < targetIdx) card.parentNode.insertBefore(draggedCard, card.nextSibling);
-        else card.parentNode.insertBefore(draggedCard, card);
-      });
-    }
-    topBrandCards.forEach(bindDragEvents);
 
-    function saveBrandOrder() {
-      const order = Array.from(document.querySelectorAll('#topBrandSlider .brand-card')).map(c => c.dataset.brand);
-      try { localStorage.setItem('brandOrder', JSON.stringify(order)); } catch (e) {}
-    }
-    function restoreBrandOrder() {
-      let order = null;
-      try { order = JSON.parse(localStorage.getItem('brandOrder')); } catch (e) {}
-      if (!order || !Array.isArray(order)) return;
-      const slider = document.getElementById('topBrandSlider');
-      const cardsMap = {};
-      slider.querySelectorAll('.brand-card').forEach(c => { cardsMap[c.dataset.brand] = c; });
-      const existingBrands = Object.keys(cardsMap);
-      const validOrder = order.filter(b => existingBrands.includes(b));
-      if (validOrder.length !== existingBrands.length) return;
-      slider.innerHTML = '';
-      validOrder.forEach(brand => { slider.appendChild(cardsMap[brand]); });
-    }
-    restoreBrandOrder();
-    topBrandCards = document.querySelectorAll('#topBrandSlider .brand-card');
-    topBrandCards.forEach(card => { bindBrandCardClick(card); bindDragEvents(card); });
+        try { container.releasePointerCapture?.(pointerId); } catch (_) {}
+        pointerId = null;
+        container.classList.remove('is-grabbing');
+        onUpdate?.();
+      };
 
-    document.getElementById('stripScrollLeft').addEventListener('click', () => {
-      document.getElementById('topBrandSlider').scrollBy({ left: -250, behavior: 'smooth' });
+      container.addEventListener('pointerup', finishDrag);
+      container.addEventListener('pointercancel', finishDrag);
+      container.addEventListener('mouseleave', e => {
+        if (pointerId !== null && e.buttons === 0) finishDrag(e);
+      });
+    }
+
+    function updateBrandStripArrows() {
+      setSliderButtonState(topBrandSlider, '.brand-card', stripPrevBtn, stripNextBtn);
+    }
+
+    stripPrevBtn?.addEventListener('click', () => {
+      scrollSliderByCard(topBrandSlider, '.brand-card', 'prev');
     });
-    document.getElementById('stripScrollRight').addEventListener('click', () => {
-      document.getElementById('topBrandSlider').scrollBy({ left: 250, behavior: 'smooth' });
+    stripNextBtn?.addEventListener('click', () => {
+      scrollSliderByCard(topBrandSlider, '.brand-card', 'next');
     });
+
+    topBrandSlider?.addEventListener('scroll', updateBrandStripArrows, { passive: true });
+    enableGrabScroll(topBrandSlider, updateBrandStripArrows);
+    requestAnimationFrame(updateBrandStripArrows);
 
     const pdClose = document.getElementById('pdClose');
     const pdCategory = document.getElementById('pdCategory');
@@ -4185,33 +4312,25 @@
     const rightArrow = document.getElementById('scrollRightBtn');
 
     function updateBrandsArrows() {
-      if (!brandsTrack || !leftArrow || !rightArrow) return;
-      const maxScroll = brandsTrack.scrollWidth - brandsTrack.clientWidth;
-      const scroll = Math.abs(brandsTrack.scrollLeft);
-
-      if (maxScroll <= 2) {
-        leftArrow.classList.add('is-disabled');
-        rightArrow.classList.add('is-disabled');
-        return;
-      }
-
-      leftArrow.classList.toggle('is-disabled', scroll < 5);
-      rightArrow.classList.toggle('is-disabled', scroll >= maxScroll - 5);
+      setSliderButtonState(brandsTrack, '.brand-product-card', leftArrow, rightArrow);
     }
 
     brandsTrack.addEventListener('scroll', updateBrandsArrows, { passive: true });
 
-    leftArrow.addEventListener('click', () => {
-      if (leftArrow.classList.contains('is-disabled')) return;
-      brandsTrack.scrollBy({ left: -300, behavior: 'smooth' });
+    leftArrow?.addEventListener('click', () => {
+      scrollSliderByCard(brandsTrack, '.brand-product-card', 'prev');
     });
-    rightArrow.addEventListener('click', () => {
-      if (rightArrow.classList.contains('is-disabled')) return;
-      brandsTrack.scrollBy({ left: 300, behavior: 'smooth' });
+    rightArrow?.addEventListener('click', () => {
+      scrollSliderByCard(brandsTrack, '.brand-product-card', 'next');
     });
 
-    window.addEventListener('resize', updateBrandsArrows);
-    window.addEventListener('resize', moveTabsIndicator);
+    enableGrabScroll(brandsTrack, updateBrandsArrows);
+
+    window.addEventListener('resize', () => {
+      updateBrandStripArrows();
+      updateBrandsArrows();
+      moveTabsIndicator();
+    });
 
     document.querySelector('.pd-fav-btn')?.addEventListener('click', function() {
       const icon = this.querySelector('i');
@@ -4225,7 +4344,7 @@
       updatePageForBrand('ixpower');
     }
     setLanguage('fa');
-    requestAnimationFrame(updateBrandsArrows);
+    requestAnimationFrame(() => { updateBrandStripArrows(); updateBrandsArrows(); });
   
 
     /* ===== BRAND-SPECIFIC CATALOG DOWNLOADS ===== */
