@@ -2714,6 +2714,129 @@
         -webkit-overflow-scrolling:touch;
       }
     }
+
+
+    /* ===== COMMON TECHNICAL DETAILS + USAGE FOR ALL YEAST BRANDS ===== */
+    .common-details-grid{
+      grid-template-columns:minmax(0,1.45fr) minmax(280px,.9fr) minmax(260px,.9fr);
+      align-items:stretch;
+    }
+    .analysis-card,
+    .storage-card{
+      background:#fff;
+      border:1px solid #e3ece7;
+      border-radius:20px;
+      padding:1.55rem;
+      box-shadow:0 10px 30px -22px rgba(26,106,69,.24);
+      min-height:280px;
+    }
+    .storage-card{
+      background:linear-gradient(145deg,#f7fbf8 0%,#edf6f0 100%);
+    }
+    .common-section-head{
+      display:flex;
+      align-items:flex-start;
+      gap:.85rem;
+      margin-bottom:1.15rem;
+    }
+    .common-section-icon{
+      width:40px;height:40px;flex:0 0 40px;border-radius:12px;
+      display:grid;place-items:center;
+      background:#e9f5ed;color:#146b47;font-size:1rem;
+    }
+    .common-section-head h2,
+    .common-section-head h3{
+      margin:0 0 .25rem;
+      color:#0d3b24;
+      line-height:1.55;
+      font-size:1.05rem;
+      font-weight:900;
+    }
+    .common-section-head p{
+      margin:0;
+      color:#7a8982;
+      font-size:.72rem;
+      line-height:1.65;
+    }
+    .analysis-table-wrap{
+      overflow-x:auto;
+      border:1px solid #e8efeb;
+      border-radius:14px;
+      background:#fff;
+    }
+    .analysis-table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:540px;
+      font-size:.78rem;
+    }
+    .analysis-table th,
+    .analysis-table td{
+      padding:.78rem .9rem;
+      border-bottom:1px solid #edf2ef;
+      text-align:right;
+      vertical-align:middle;
+      line-height:1.65;
+    }
+    .analysis-table tr:last-child th,
+    .analysis-table tr:last-child td{border-bottom:0}
+    .analysis-table th{
+      width:48%;
+      color:#29483d;
+      font-weight:800;
+      background:#f8fbf9;
+    }
+    .analysis-table th span{
+      display:inline;
+      color:#84918c;
+      font-family:'Inter',sans-serif;
+      font-size:.7rem;
+      font-weight:600;
+    }
+    .analysis-table td{
+      color:#162d25;
+      font-weight:700;
+    }
+    .storage-list{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:.85rem;
+      margin:0;
+      padding:0;
+    }
+    .storage-list li{
+      display:flex;
+      gap:.65rem;
+      align-items:flex-start;
+      color:#354b43;
+      font-size:.79rem;
+      line-height:1.8;
+    }
+    .storage-list li i{
+      width:26px;height:26px;flex:0 0 26px;border-radius:8px;
+      display:grid;place-items:center;
+      color:#176d4a;background:rgba(255,255,255,.85);
+      border:1px solid #dcebe2;
+      font-size:.7rem;margin-top:.05rem;
+    }
+    .common-usage-steps .usage-step p{
+      line-height:1.85;
+    }
+    .common-usage-notes{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+    @media(max-width:1200px){
+      .common-details-grid{grid-template-columns:1fr 1fr}
+      .common-details-grid .details-image{grid-column:span 2}
+    }
+    @media(max-width:768px){
+      .common-details-grid{grid-template-columns:1fr}
+      .common-details-grid .details-image{grid-column:span 1}
+      .analysis-card,.storage-card{padding:1.1rem}
+      .common-usage-notes{grid-template-columns:1fr}
+      .analysis-table{min-width:500px}
+    }
 </style>
 </head>
 <body>
@@ -2873,36 +2996,63 @@
 
       <!-- ===== PANEL 1: جزئیات ===== -->
       <div class="tab-panel active" data-panel="details">
-        <div class="details-grid">
-          <div class="details-main">
-            <h2 id="detailsTitle">Product Details</h2>
-            <p id="detailsText">
-              خمیرمایه تخصصی ایکس پاور (X-Power) با قدرت تخمیر مضاعف و فعالیت آنزیمی بالا جهت پخت انواع نان‌های حجیم، نیمه‌حجیم و شیرینی‌جات.
-            </p>
-            <div class="details-badges" id="detailsBadges">
-              <div class="detail-badge">
-                <div class="detail-badge-icon"><i class="fa-solid fa-leaf"></i></div>
-                <div class="detail-badge-text"><strong>100%</strong><span>Natural Yeast</span></div>
+        <div class="details-grid common-details-grid">
+
+          <div class="analysis-card">
+            <div class="common-section-head">
+              <span class="common-section-icon"><i class="fa-solid fa-flask-vial"></i></span>
+              <div>
+                <h2 id="analysisTitle">جدول آنالیز آزمایشگاهی و ترکیبات IXPOWER</h2>
+                <p>مشخصات فنی و ترکیبات خمیرمایه خشک فوری</p>
               </div>
-              <div class="detail-badge">
-                <div class="detail-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="detail-badge-text"><strong>No</strong><span>Preservatives</span></div>
-              </div>
-              <div class="detail-badge">
-                <div class="detail-badge-icon"><i class="fa-solid fa-certificate"></i></div>
-                <div class="detail-badge-text"><strong>Halal</strong><span>Certified</span></div>
-              </div>
+            </div>
+
+            <div class="analysis-table-wrap">
+              <table class="analysis-table">
+                <tbody>
+                  <tr>
+                    <th>ماده خشک <span>(Dry Matter)</span></th>
+                    <td>حداقل ۹۵٪</td>
+                  </tr>
+                  <tr>
+                    <th>رطوبت <span>(Moisture Content)</span></th>
+                    <td>حداکثر ۵٪</td>
+                  </tr>
+                  <tr>
+                    <th>قدرت تخمیر <span>(Fermentation Activity)</span></th>
+                    <td>بیش از ۶۵۰ میلی‌لیتر CO2 در ۲ ساعت</td>
+                  </tr>
+                  <tr>
+                    <th>ماده معدنی / خاکستر <span>(Ash Content)</span></th>
+                    <td>حداکثر ۶٫۵٪</td>
+                  </tr>
+                  <tr>
+                    <th>پروتئین <span>(Protein Content)</span></th>
+                    <td>حداکثر ۴۸٪ (بر پایه ماده خشک)</td>
+                  </tr>
+                  <tr>
+                    <th>گونه میکروارگانیسم</th>
+                    <td>ساکرومایسس سرویزیه (Saccharomyces Cerevisiae) ۱۰۰٪ خالص</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
-          <div class="key-features">
-            <h3 id="featuresTitle">Key Features</h3>
-            <ul id="featuresList">
-              <li>قدرت تخمیر مضاعف</li>
-              <li>فعالیت آنزیمی بالا</li>
-              <li>مناسب نان‌های حجیم و نیمه‌حجیم</li>
-              <li>مناسب شیرینی‌جات و محصولات آردی</li>
-              <li>ماندگاری ۲۴ ماه</li>
+          <div class="storage-card">
+            <div class="common-section-head">
+              <span class="common-section-icon"><i class="fa-solid fa-box-archive"></i></span>
+              <div>
+                <h3 id="storageTitle">شرایط نگهداری و انبارداری IXPOWER</h3>
+                <p>راهنمای حفظ کیفیت محصول تا زمان مصرف</p>
+              </div>
+            </div>
+
+            <ul class="storage-list">
+              <li><i class="fa-solid fa-check"></i><span>در جای خشک، خنک و دور از تابش مستقیم نور خورشید نگهداری شود.</span></li>
+              <li><i class="fa-solid fa-temperature-low"></i><span>دمای ایده‌آل انبارداری: زیر ۲۵ درجه سانتی‌گراد (۷۷ درجه فارنهایت).</span></li>
+              <li><i class="fa-solid fa-calendar-check"></i><span>ماندگاری در بسته‌بندی وکیوم آلومینیومی اولیه: ۲۴ ماه (۲ سال) از تاریخ تولید.</span></li>
+              <li><i class="fa-solid fa-snowflake"></i><span>پس از باز کردن بسته‌بندی، مابقی خمیرمایه را در ظرف دربسته و در یخچال (۴ درجه سانتی‌گراد) نگهداری کرده و ظرف مدت ۳ الی ۵ روز مصرف نمایید.</span></li>
             </ul>
           </div>
 
@@ -2913,88 +3063,78 @@
         </div>
       </div>
 
-      <!-- ===== PANEL 2: طریقه مصرف ===== -->
       <div class="tab-panel" data-panel="usage">
-        <div class="usage-wrap">
+        <div class="usage-wrap common-usage-wrap">
 
           <div class="usage-header">
             <div class="usage-header-icon"><i class="fa-solid fa-mortar-pestle"></i></div>
             <div class="usage-header-text">
-              <h3 data-i18n="usageGuideTitle">راهنمای مصرف خمیرمایه</h3>
-              <p data-i18n="usageGuideSubtitle">برای دستیابی به بهترین نتیجه در پخت نان، مراحل زیر را به‌ترتیب دنبال کنید.</p>
+              <h3 id="usageDynamicTitle">نحوه مصرف خمیر مایه IXPOWER</h3>
+              <p>روش مصرف پیشنهادی برای خمیرمایه خشک فوری</p>
             </div>
           </div>
 
-          <div class="usage-steps">
+          <div class="usage-steps common-usage-steps">
 
             <div class="usage-step">
               <span class="usage-step-num">۱</span>
-              <div class="usage-step-icon"><i class="fa-solid fa-temperature-half"></i></div>
-              <h4 data-i18n="usageStep1Title">آماده‌سازی آب ولرم</h4>
-              <p data-i18n="usageStep1Text">آب را تا دمای ۳۵ تا ۴۰ درجه سانتی‌گراد گرم کنید (ولرم، نه داغ).</p>
+              <div class="usage-step-icon"><i class="fa-solid fa-droplet-slash"></i></div>
+              <h4>بدون نیاز به حل کردن</h4>
+              <p>خمیر مایه خشک فوری نیاز به حل کردن در آب قبل از مصرف ندارد.</p>
             </div>
 
             <div class="usage-step">
               <span class="usage-step-num">۲</span>
-              <div class="usage-step-icon"><i class="fa-solid fa-blender"></i></div>
-              <h4 data-i18n="usageStep2Title">مخلوط با آرد</h4>
-              <p data-i18n="usageStep2Text">خمیرمایه را به آرد اضافه کرده و حدود ۱ دقیقه با هم مخلوط کنید.</p>
+              <div class="usage-step-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+              <h4>مخلوط مستقیم با آرد</h4>
+              <p>خمیر مایه را مستقیماً با آرد خشک مخلوط کرده و سپس سایر مواد و آب را اضافه نمایید.</p>
             </div>
 
             <div class="usage-step">
               <span class="usage-step-num">۳</span>
-              <div class="usage-step-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
-              <h4 data-i18n="usageStep3Title">افزودن آب و ورز دادن</h4>
-              <p data-i18n="usageStep3Text">آب ولرم را اضافه کرده و ۸ تا ۱۰ دقیقه ورز دهید تا خمیر یکدست شود.</p>
+              <div class="usage-step-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <h4>میزان مصرف پیشنهادی</h4>
+              <p>۰٫۵ الی ۱ درصد وزن آرد (۵۰۰ تا ۱۰۰۰ گرم به ازای هر ۱۰۰ کیلوگرم آرد)، بسته به نوع نان و زمان تخمیر.</p>
             </div>
 
             <div class="usage-step">
               <span class="usage-step-num">۴</span>
-              <div class="usage-step-icon"><i class="fa-solid fa-clock"></i></div>
-              <h4 data-i18n="usageStep4Title">استراحت و تخمیر</h4>
-              <p data-i18n="usageStep4Text">خمیر را در محیط گرم ۱۵ تا ۳۰ دقیقه استراحت دهید تا حجمش دو برابر شود.</p>
+              <div class="usage-step-icon"><i class="fa-solid fa-temperature-half"></i></div>
+              <h4>دمای مناسب آب</h4>
+              <p>دمای مناسب آب جهت اختلاط خمیر: ۲۶ الی ۳۰ درجه سانتی‌گراد.</p>
             </div>
 
           </div>
 
-          <div class="usage-notes">
-
+          <div class="usage-notes common-usage-notes">
             <div class="usage-note">
               <div class="usage-note-icon"><i class="fa-solid fa-scale-balanced"></i></div>
               <div class="usage-note-text">
-                <strong data-i18n="usageAmountLabel">مقدار مصرف</strong>
-                <span data-i18n="usageAmountValue">۱ تا ۲٪ وزن آرد</span>
+                <strong>مقدار مصرف</strong>
+                <span>۰٫۵ الی ۱٪ وزن آرد</span>
               </div>
             </div>
 
             <div class="usage-note">
               <div class="usage-note-icon"><i class="fa-solid fa-droplet"></i></div>
               <div class="usage-note-text">
-                <strong data-i18n="usageTempLabel">دمای آب</strong>
-                <span data-i18n="usageTempValue">۳۵ تا ۴۰ درجه سانتی‌گراد</span>
+                <strong>دمای آب</strong>
+                <span>۲۶ الی ۳۰ درجه سانتی‌گراد</span>
               </div>
             </div>
 
             <div class="usage-note">
-              <div class="usage-note-icon"><i class="fa-solid fa-box"></i></div>
+              <div class="usage-note-icon"><i class="fa-solid fa-weight-scale"></i></div>
               <div class="usage-note-text">
-                <strong data-i18n="usageStorageLabel">نگهداری</strong>
-                <span data-i18n="usageStorageValue">جای خشک و خنک، دور از رطوبت</span>
+                <strong>برای هر ۱۰۰ کیلوگرم آرد</strong>
+                <span>۵۰۰ تا ۱۰۰۰ گرم خمیرمایه</span>
               </div>
             </div>
-
-            <div class="usage-note">
-              <div class="usage-note-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-              <div class="usage-note-text">
-                <strong data-i18n="usageWarningLabel">هشدار</strong>
-                <span data-i18n="usageWarningValue">از آب بالای ۵۰ درجه استفاده نکنید</span>
-              </div>
-            </div>
-
           </div>
 
         </div>
       </div>
+
 
     </div>
 
@@ -3321,6 +3461,95 @@
     let currentBrandKey = 'ixpower';
     let currentProductId = null;
 
+
+    function updateCommonTechnicalLanguage() {
+      const fa = currentLang === 'fa';
+      const usageSubtitle = document.querySelector('.common-usage-wrap .usage-header-text p');
+      if (usageSubtitle) usageSubtitle.textContent = fa
+        ? 'روش مصرف پیشنهادی برای خمیرمایه خشک فوری'
+        : 'Recommended method for using instant dry yeast';
+
+      const usageCards = document.querySelectorAll('.common-usage-steps .usage-step');
+      const usageData = fa ? [
+        ['بدون نیاز به حل کردن','خمیر مایه خشک فوری نیاز به حل کردن در آب قبل از مصرف ندارد.'],
+        ['مخلوط مستقیم با آرد','خمیر مایه را مستقیماً با آرد خشک مخلوط کرده و سپس سایر مواد و آب را اضافه نمایید.'],
+        ['میزان مصرف پیشنهادی','۰٫۵ الی ۱ درصد وزن آرد (۵۰۰ تا ۱۰۰۰ گرم به ازای هر ۱۰۰ کیلوگرم آرد)، بسته به نوع نان و زمان تخمیر.'],
+        ['دمای مناسب آب','دمای مناسب آب جهت اختلاط خمیر: ۲۶ الی ۳۰ درجه سانتی‌گراد.']
+      ] : [
+        ['No pre-dissolving required','Instant dry yeast does not need to be dissolved in water before use.'],
+        ['Mix directly with flour','Mix the yeast directly with dry flour, then add the remaining ingredients and water.'],
+        ['Recommended dosage','0.5–1% of flour weight (500–1000 g per 100 kg of flour), depending on bread type and fermentation time.'],
+        ['Recommended water temperature','Recommended water temperature for dough mixing: 26–30°C.']
+      ];
+      usageCards.forEach((card, i) => {
+        const h = card.querySelector('h4');
+        const p = card.querySelector('p');
+        if (h) h.textContent = usageData[i][0];
+        if (p) p.textContent = usageData[i][1];
+      });
+
+      const notes = document.querySelectorAll('.common-usage-notes .usage-note');
+      const noteData = fa ? [
+        ['مقدار مصرف','۰٫۵ الی ۱٪ وزن آرد'],
+        ['دمای آب','۲۶ الی ۳۰ درجه سانتی‌گراد'],
+        ['برای هر ۱۰۰ کیلوگرم آرد','۵۰۰ تا ۱۰۰۰ گرم خمیرمایه']
+      ] : [
+        ['Dosage','0.5–1% of flour weight'],
+        ['Water temperature','26–30°C'],
+        ['Per 100 kg of flour','500–1000 g yeast']
+      ];
+      notes.forEach((note, i) => {
+        const strong = note.querySelector('strong');
+        const span = note.querySelector('.usage-note-text span');
+        if (strong) strong.textContent = noteData[i][0];
+        if (span) span.textContent = noteData[i][1];
+      });
+
+      const analysisSub = document.querySelector('.analysis-card .common-section-head p');
+      const storageSub = document.querySelector('.storage-card .common-section-head p');
+      if (analysisSub) analysisSub.textContent = fa ? 'مشخصات فنی و ترکیبات خمیرمایه خشک فوری' : 'Technical specifications and composition of instant dry yeast';
+      if (storageSub) storageSub.textContent = fa ? 'راهنمای حفظ کیفیت محصول تا زمان مصرف' : 'Guidance for maintaining product quality until use';
+
+      const rows = document.querySelectorAll('.analysis-table tbody tr');
+      const analysisFa = [
+        ['ماده خشک <span>(Dry Matter)</span>','حداقل ۹۵٪'],
+        ['رطوبت <span>(Moisture Content)</span>','حداکثر ۵٪'],
+        ['قدرت تخمیر <span>(Fermentation Activity)</span>','بیش از ۶۵۰ میلی‌لیتر CO2 در ۲ ساعت'],
+        ['ماده معدنی / خاکستر <span>(Ash Content)</span>','حداکثر ۶٫۵٪'],
+        ['پروتئین <span>(Protein Content)</span>','حداکثر ۴۸٪ (بر پایه ماده خشک)'],
+        ['گونه میکروارگانیسم','ساکرومایسس سرویزیه (Saccharomyces Cerevisiae) ۱۰۰٪ خالص']
+      ];
+      const analysisEn = [
+        ['Dry Matter','Minimum 95%'],
+        ['Moisture Content','Maximum 5%'],
+        ['Fermentation Activity','More than 650 mL CO2 in 2 hours'],
+        ['Ash Content','Maximum 6.5%'],
+        ['Protein Content','Maximum 48% (dry matter basis)'],
+        ['Microorganism Species','100% pure Saccharomyces Cerevisiae']
+      ];
+      const analysisData = fa ? analysisFa : analysisEn;
+      rows.forEach((row, i) => {
+        const th = row.querySelector('th');
+        const td = row.querySelector('td');
+        if (th) th.innerHTML = analysisData[i][0];
+        if (td) td.textContent = analysisData[i][1];
+      });
+
+      const storageItems = document.querySelectorAll('.storage-list li span');
+      const storageData = fa ? [
+        'در جای خشک، خنک و دور از تابش مستقیم نور خورشید نگهداری شود.',
+        'دمای ایده‌آل انبارداری: زیر ۲۵ درجه سانتی‌گراد (۷۷ درجه فارنهایت).',
+        'ماندگاری در بسته‌بندی وکیوم آلومینیومی اولیه: ۲۴ ماه (۲ سال) از تاریخ تولید.',
+        'پس از باز کردن بسته‌بندی، مابقی خمیرمایه را در ظرف دربسته و در یخچال (۴ درجه سانتی‌گراد) نگهداری کرده و ظرف مدت ۳ الی ۵ روز مصرف نمایید.'
+      ] : [
+        'Store in a dry, cool place away from direct sunlight.',
+        'Ideal storage temperature: below 25°C (77°F).',
+        'Shelf life in the original aluminum vacuum packaging: 24 months (2 years) from production date.',
+        'After opening, keep the remaining yeast in a sealed container in the refrigerator at 4°C and use within 3–5 days.'
+      ];
+      storageItems.forEach((item, i) => { item.textContent = storageData[i]; });
+    }
+
     function setLanguage(lang) {
       currentLang = lang;
       const dict = translations[lang];
@@ -3352,6 +3581,7 @@
       });
 
       // Re-render every dynamic section in the selected language.
+      updateCommonTechnicalLanguage();
       updatePageForBrand(currentBrandKey);
       if (currentProductId && pdOverlay.classList.contains('open')) {
         const baseProduct = catalog[currentBrandKey]?.products.find(p => p.id === currentProductId);
@@ -3868,16 +4098,15 @@
     const heroSection = document.getElementById('heroSection');
     const heroTitleEl = document.getElementById('heroTitle');
     const heroSubtitleEl = document.getElementById('heroSubtitle');
-    const detailsTitleEl = document.getElementById('detailsTitle');
-    const detailsTextEl = document.getElementById('detailsText');
-    const detailsBadgesEl = document.getElementById('detailsBadges');
+    const analysisTitleEl = document.getElementById('analysisTitle');
+    const storageTitleEl = document.getElementById('storageTitle');
+    const usageDynamicTitleEl = document.getElementById('usageDynamicTitle');
     const detailsImageEl = document.getElementById('detailsImage');
     const detailsVideoEl = document.getElementById('detailsVideo');
     const detailsMediaEl = detailsImageEl.closest('.details-image');
     const brandDetailVideos = {
       dezmaye: 'https://res.cloudinary.com/dqhbyqftq/video/upload/v1791636103/vedio-01_vcqbl1.mp4'
     };
-    const featuresListEl = document.getElementById('featuresList');
 
     let topBrandCards = document.querySelectorAll('#topBrandSlider .brand-card');
 
@@ -3975,8 +4204,16 @@
         : 'center top';
       heroTitleEl.textContent = displayBrand.heroTitle;
       heroSubtitleEl.textContent = displayBrand.heroSubtitle;
-      detailsTitleEl.textContent = displayBrand.detailsTitle;
-      detailsTextEl.textContent = displayBrand.detailsText;
+      const selectedBrandName = displayBrand.brandName;
+      if (currentLang === 'fa') {
+        analysisTitleEl.textContent = `جدول آنالیز آزمایشگاهی و ترکیبات ${selectedBrandName}`;
+        storageTitleEl.textContent = `شرایط نگهداری و انبارداری ${selectedBrandName}`;
+        usageDynamicTitleEl.textContent = `نحوه مصرف خمیر مایه ${selectedBrandName}`;
+      } else {
+        analysisTitleEl.textContent = `Laboratory Analysis & Composition — ${selectedBrandName}`;
+        storageTitleEl.textContent = `Storage & Warehousing Conditions — ${selectedBrandName}`;
+        usageDynamicTitleEl.textContent = `How to Use ${selectedBrandName} Yeast`;
+      }
       detailsImageEl.src = brand.detailsImage;
       detailsImageEl.alt = displayBrand.detailsTitle;
 
@@ -3997,22 +4234,6 @@
         detailsVideoEl.removeAttribute('poster');
         detailsVideoEl.load();
       }
-      detailsBadgesEl.innerHTML = '';
-      brand.detailsBadges.forEach(badge => {
-        const el = document.createElement('div');
-        el.className = 'detail-badge';
-        el.innerHTML = `
-          <div class="detail-badge-icon"><i class="${badge.icon}"></i></div>
-          <div class="detail-badge-text"><strong>${badge.value}</strong><span>${localizeBadgeLabel(badge.label)}</span></div>
-        `;
-        detailsBadgesEl.appendChild(el);
-      });
-      featuresListEl.innerHTML = '';
-      displayBrand.keyFeatures.forEach(f => {
-        const li = document.createElement('li');
-        li.textContent = f;
-        featuresListEl.appendChild(li);
-      });
       renderProducts(brandKey);
     }
 
