@@ -3940,7 +3940,10 @@
             </div>
           `;
           card.addEventListener('click', () => {
-            if (brandsTrack.dataset.justDragged === 'true') return;
+            if (brandsTrack.dataset.justDragged === 'true') {
+              brandsTrack.dataset.justDragged = 'false';
+              return;
+            }
             openProductDetail(product);
           });
           brandsTrack.appendChild(card);
@@ -4024,7 +4027,10 @@
       card.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
 
       card.addEventListener('click', () => {
-        if (topBrandSlider.dataset.justDragged === 'true') return;
+        if (topBrandSlider.dataset.justDragged === 'true') {
+          topBrandSlider.dataset.justDragged = 'false';
+          return;
+        }
 
         const brandKey = card.dataset.brand;
         document.querySelectorAll('#topBrandSlider .brand-card').forEach(c => c.classList.remove('active'));
@@ -4094,28 +4100,37 @@
       let startX = 0;
       let startScrollLeft = 0;
       let moved = false;
+      const dragThreshold = 14;
 
       container.addEventListener('dragstart', e => e.preventDefault());
 
       container.addEventListener('pointerdown', e => {
         if (e.pointerType === 'mouse' && e.button !== 0) return;
+
         pointerId = e.pointerId;
         startX = e.clientX;
         startScrollLeft = container.scrollLeft;
         moved = false;
-        container.classList.add('is-grabbing');
-        container.setPointerCapture?.(pointerId);
+        container.dataset.justDragged = 'false';
       });
 
       container.addEventListener('pointermove', e => {
         if (pointerId !== e.pointerId) return;
+
         const dx = e.clientX - startX;
-        if (Math.abs(dx) > 5) moved = true;
 
-        const rtlFactor = getComputedStyle(container).direction === 'rtl' ? -1 : 1;
-        container.scrollLeft = startScrollLeft - (dx * rtlFactor);
+        if (!moved && Math.abs(dx) < dragThreshold) return;
 
-        if (moved) e.preventDefault();
+        if (!moved) {
+          moved = true;
+          container.classList.add('is-grabbing');
+          try { container.setPointerCapture?.(pointerId); } catch (_) {}
+        }
+
+        // Physical drag direction: content follows the mouse naturally.
+        // No RTL multiplier is used because browser RTL scrollLeft is already directional.
+        container.scrollLeft = startScrollLeft - dx;
+        e.preventDefault();
       });
 
       const finishDrag = e => {
@@ -4125,7 +4140,7 @@
           container.dataset.justDragged = 'true';
           setTimeout(() => {
             container.dataset.justDragged = 'false';
-          }, 180);
+          }, 120);
         }
 
         try { container.releasePointerCapture?.(pointerId); } catch (_) {}
@@ -4136,8 +4151,9 @@
 
       container.addEventListener('pointerup', finishDrag);
       container.addEventListener('pointercancel', finishDrag);
-      container.addEventListener('mouseleave', e => {
-        if (pointerId !== null && e.buttons === 0) finishDrag(e);
+
+      window.addEventListener('pointerup', e => {
+        if (pointerId !== null && e.pointerId === pointerId) finishDrag(e);
       });
     }
 
