@@ -3643,7 +3643,7 @@
         instagram: 'اینستاگرام',
         viewDetails: 'مشاهده جزئیات',
         productsOf: 'محصولات',
-        allProductsOf: 'نمایش تمام محصولات برند',
+        allProductsOf: 'نمایش تمام محصولات این برند',
         copiedLink: 'لینک سایت کپی شد ✓',
         closeTitle: 'بستن',
         tabDetails: 'جزئیات',
@@ -3701,7 +3701,7 @@
         instagram: 'Instagram',
         viewDetails: 'View Details',
         productsOf: 'Products',
-        allProductsOf: 'View all products by',
+        allProductsOf: 'View all products from this brand',
         copiedLink: 'Website link copied ✓',
         closeTitle: 'Close',
         tabDetails: 'Details',
@@ -4451,7 +4451,7 @@
       }
 
       brandsTitle.innerHTML = `${translations[currentLang].productsOf} <span class="brand-name">${displayBrand.brandName}</span>`;
-      brandsSubtitle.innerHTML = `${translations[currentLang].allProductsOf} <span class="brand-name">${displayBrand.brandName}</span>`;
+      brandsSubtitle.textContent = translations[currentLang].allProductsOf;
       brandsTrack.scrollLeft = 0;
       requestAnimationFrame(() => {
         updateBrandsArrows();
