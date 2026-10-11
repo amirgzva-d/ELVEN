@@ -1032,6 +1032,55 @@ img{max-width:100%;display:block}
     text-align:right !important;
   }
 }
+
+
+/* ===== SITE LANGUAGE SWITCHER ===== */
+.site-language-switcher{
+  height:40px;
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  padding:4px 5px 4px 7px;
+  border:1px solid rgba(10,92,70,.13);
+  border-radius:999px;
+  background:rgba(255,255,255,.76);
+  box-shadow:0 5px 16px rgba(10,58,44,.06);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.site-language-globe{
+  width:26px;height:26px;
+  display:grid;place-items:center;
+  color:#0a5c46;
+}
+.site-language-globe svg{
+  width:16px;height:16px;
+  fill:none;stroke:currentColor;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.site-lang-btn{
+  min-width:34px;height:30px;
+  padding:0 9px;
+  border:0;border-radius:999px;
+  background:transparent;
+  color:#718079;
+  font-family:var(--fa);
+  font-size:11px;font-weight:800;
+  cursor:pointer;
+  transition:background .25s,color .25s,box-shadow .25s,transform .25s;
+}
+.site-lang-btn:hover{color:#0a5c46;background:rgba(10,92,70,.06)}
+.site-lang-btn.active{
+  background:#0a5c46;
+  color:#fff;
+  box-shadow:0 5px 12px rgba(10,92,70,.23);
+}
+.site-lang-btn:active{transform:scale(.94)}
+@media(max-width:768px){
+  .site-language-switcher{height:38px;padding:3px 4px 3px 5px}
+  .site-language-globe{width:24px;height:24px}
+  .site-lang-btn{min-width:31px;height:28px;padding:0 7px;font-size:10.5px}
+}
 </style>
 </head>
 <body>
@@ -1065,9 +1114,13 @@ img{max-width:100%;display:block}
   </nav>
 
   <div class="header-actions">
-    <button class="icon-button" aria-label="جستجو" data-search>
-      <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
-    </button>
+    <div class="site-language-switcher" role="group" aria-label="انتخاب زبان">
+      <span class="site-language-globe" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.2 2.45 3.3 5.45 3.3 9S14.2 18.55 12 21M12 3C9.8 5.45 8.7 8.45 8.7 12S9.8 18.55 12 21"/></svg>
+      </span>
+      <button type="button" class="site-lang-btn active" data-site-lang="fa" aria-pressed="true">فا</button>
+      <button type="button" class="site-lang-btn" data-site-lang="en" aria-pressed="false">EN</button>
+    </div>
     <button class="cta-quote" type="button">
       استعلام قیمت
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1611,11 +1664,156 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   runFilter(false);
 
-  /* ===== SEARCH / NAV / SLIDER ===== */
-  document.querySelector("[data-search]")?.addEventListener("click",()=>{
-    document.querySelector("#products")?.scrollIntoView({behavior:"smooth"});
+  /* ===== SITE LANGUAGE ===== */
+  const siteLanguageStorageKey = "siteLanguage";
+  const homepageTranslations = new Map([
+    ["مهاجر استیل","Mohajer Steel"],
+    ["خانه","Home"],
+    ["محصولات","Products"],
+    ["پیشنهاد ویژه","Special Offers"],
+    ["درباره ما","About Us"],
+    ["تماس","Contact"],
+    ["استعلام قیمت","Request a Quote"],
+    ["از ایران،","From Iran,"],
+    ["به سراسر جهان.","to the world."],
+    ["محصولات غذایی ممتاز و مواد اولیه، با دقت از تولیدکنندگان معتبر ایرانی انتخاب و برای بازارهای بین‌المللی آماده می‌شوند.","Premium food products and ingredients, carefully sourced from trusted Iranian producers and prepared for international markets."],
+    ["مشاهده محصولات","View Products"],
+    ["درخواست قیمت","Request Pricing"],
+    ["فیلتر محصولات","Product Filters"],
+    ["پاک کردن همه","Clear All"],
+    ["دسته‌بندی محصول","Product Category"],
+    ["غذا و نوشیدنی","Food & Beverage"],
+    ["لبنیات","Dairy"],
+    ["پخت و نانوایی","Baking & Bakery"],
+    ["مواد اولیه","Ingredients"],
+    ["کالای مصرفی","Consumer Goods"],
+    ["سایر","Other"],
+    ["زیر دسته","Subcategory"],
+    ["نوشیدنی‌ها","Beverages"],
+    ["رب گوجه","Tomato Paste"],
+    ["شیرین‌کننده‌ها","Sweeteners"],
+    ["روغن و چربی","Oils & Fats"],
+    ["مراقبت شخصی","Personal Care"],
+    ["خانگی","Household"],
+    ["خاستگاه","Origin"],
+    ["ایران","Iran"],
+    ["اعمال فیلترها ←","Apply Filters ←"],
+    ["محصولات ما را کاوش کنید","Explore Our Products"],
+    ["دسته‌بندی محصولات","Product Categories"],
+    ["محصول","Products"],
+    ["مرتب‌سازی:","Sort:"],
+    ["محبوب","Popular"],
+    ["جدیدترین","Newest"],
+    ["دسته‌بندی","Category"],
+    ["جزئیات محصول","Product Details"],
+    ["نوشیدنی‌ها و آبمیوه‌ها","Beverages & Juices"],
+    ["تازگی و کیفیت برای بازارهای جهانی","Freshness and quality for global markets"],
+    ["کنسروها","Canned Foods"],
+    ["محصولات کنسروی باکیفیت برای بازار جهانی","Quality canned products for global markets"],
+    ["وازلین","Petroleum Jelly"],
+    ["محلول‌های مراقبت از پوست برای بازار جهانی","Skin care solutions for global markets"],
+    ["رب گوجه‌فرنگی","Tomato Paste"],
+    ["طعمی غنی و کیفیتی برتر برای بازار جهانی","Rich flavor and premium quality for global markets"],
+    ["جوش شیرین","Baking Soda"],
+    ["مواد اولیه ممتاز برای صنایع غذایی","Premium ingredients for the food industry"],
+    ["گلوکز","Glucose"],
+    ["گلوکز باکیفیت برای صنایع غذایی","High-quality glucose for food industries"],
+    ["لبنیات و شیر خشک","Dairy & Milk Powders"],
+    ["مواد اولیه لبنی ممتاز برای بازار جهانی","Premium dairy ingredients for global markets"],
+    ["ماکارونی و پاستا","Pasta & Macaroni"],
+    ["محصولات پاستا باکیفیت برای بازار جهانی","Quality pasta products for global markets"],
+    ["نشاسته ذرت و گندم","Corn & Wheat Starch"],
+    ["راهکارهای قابل‌اعتماد نشاسته برای بازار جهانی","Reliable starch solutions for global markets"],
+    ["سال اعتماد","Years of Trust"],
+    ["درباره مهاجر استیل","About Mohajer Steel"],
+    ["ریشه در ایران،","Rooted in Iran,"],
+    ["اعتماد در سراسر جهان.","trusted worldwide."],
+    ["مهاجر استیل تولیدکنندگان ممتاز ایرانی را با خریداران در سراسر جهان پیوند می‌دهد. از تأمین و کنترل کیفیت تا مستندات و لجستیک — ما تمامی زنجیره صادرات را مدیریت می‌کنیم تا شرکای تجاری ما روی رشد کسب‌وکارشان تمرکز کنند.","Mohajer Steel connects premium Iranian producers with buyers worldwide. From sourcing and quality control to documentation and logistics, we manage the export chain so our partners can focus on growth."],
+    ["تأمین معتبر","Trusted Sourcing"],
+    ["همکاری مستقیم با تولیدکنندگان مورد اعتماد ایرانی.","Direct partnerships with trusted Iranian producers."],
+    ["تضمین کیفیت","Quality Assurance"],
+    ["هر محموله پیش از خروج از انبار بازرسی می‌شود.","Every shipment is inspected before leaving the warehouse."],
+    ["لجستیک جهانی","Global Logistics"],
+    ["ارسال و مستندسازی مطمئن به بیش از ۵۰ کشور.","Reliable shipping and documentation to more than 50 countries."],
+    ["پشتیبانی اختصاصی","Dedicated Support"],
+    ["تیم صادرات ۲۴/۷ آماده کمک به شما در هر مرحله.","Our export team is ready to assist you at every stage."],
+    ["مرور محصولات","Browse Products"],
+    ["گفتگو با فروش","Talk to Sales"],
+    ["محصولات غذایی ممتاز ایرانی، با دقت انتخاب و برای تجارت بین‌المللی مطمئن آماده می‌شوند.","Premium Iranian food products, carefully selected and prepared for reliable international trade."],
+    ["شرکت","Company"],
+    ["داستان ما","Our Story"],
+    ["خدمات مشتریان","Customer Service"],
+    ["پشتیبانی صادرات","Export Support"],
+    ["ارسال و تحویل","Shipping & Delivery"],
+    ["سوالات متداول","FAQ"],
+    ["تماس با ما","Contact Us"],
+    ["محمد مهاجری","Mohammad Mohajeri"],
+    ["علیرضا تهرانی","Alireza Tehrani"],
+    ["ایمیل رسمی","Official Email"],
+    ["© ۱۴۰۴ مهاجر استیل — تمامی حقوق محفوظ است.","© 2026 Mohajer Steel — All rights reserved."],
+    ["طراحی و توسعه اختصاصی","Custom design & development"],
+    ["محصولی یافت نشد","No products found"],
+    ["هیچ محصولی با فیلترهای انتخابی شما مطابقت ندارد.","No products match your selected filters."],
+    ["لطفاً فیلترها را تغییر دهید یا پاک کنید.","Please change or clear the filters."],
+    ["پاک کردن فیلترها","Clear Filters"]
+  ]);
+
+  const homepageOriginalText = new WeakMap();
+
+  function translateHomepageText(lang){
+    const root = document.body;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(node=>{
+      const parent = node.parentElement;
+      if(!parent || parent.closest("script,style,.site-language-switcher")) return;
+
+      if(!homepageOriginalText.has(node)){
+        homepageOriginalText.set(node,node.nodeValue);
+      }
+
+      const original = homepageOriginalText.get(node);
+      if(lang==="fa"){
+        node.nodeValue = original;
+        return;
+      }
+
+      const trimmed = original.trim();
+      const translated = homepageTranslations.get(trimmed);
+      if(translated){
+        const lead = original.match(/^\s*/)?.[0] || "";
+        const trail = original.match(/\s*$/)?.[0] || "";
+        node.nodeValue = lead + translated + trail;
+      }
+    });
+  }
+
+  function setHomepageLanguage(lang){
+    const safeLang = lang==="en" ? "en" : "fa";
+    document.documentElement.lang = safeLang;
+    document.documentElement.dir = safeLang==="fa" ? "rtl" : "ltr";
+    translateHomepageText(safeLang);
+
+    document.querySelectorAll(".site-lang-btn").forEach(btn=>{
+      const active = btn.dataset.siteLang===safeLang;
+      btn.classList.toggle("active",active);
+      btn.setAttribute("aria-pressed",active ? "true" : "false");
+    });
+
+    try{ localStorage.setItem(siteLanguageStorageKey,safeLang); }catch(_){}
+  }
+
+  document.querySelectorAll(".site-lang-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>setHomepageLanguage(btn.dataset.siteLang));
   });
 
+  let savedSiteLanguage="fa";
+  try{ savedSiteLanguage=localStorage.getItem(siteLanguageStorageKey)||"fa"; }catch(_){}
+  setHomepageLanguage(savedSiteLanguage==="en" ? "en" : "fa");
+
+  /* ===== SEARCH / NAV / SLIDER ===== */
   const nav=document.getElementById("primaryNav");
   const navLinks=document.querySelectorAll(".nav a[data-nav-target]");
   const setActiveNav=(target)=>{
