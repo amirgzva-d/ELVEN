@@ -3105,6 +3105,20 @@
     .yeast-site-footer a{
       text-decoration:none !important;
     }
+
+
+    /* ===== RAZAVI 450G FULL-BLEED PRODUCT IMAGE ===== */
+    .brand-product-card[data-product-id="razavi-450"] .brand-product-image{
+      padding:0 !important;
+      background:#eef5f1;
+    }
+    .brand-product-card[data-product-id="razavi-450"] .brand-product-image img{
+      width:100% !important;
+      height:100% !important;
+      object-fit:cover !important;
+      object-position:center center !important;
+      filter:none !important;
+    }
 </style>
 </head>
 <body>
@@ -4400,6 +4414,7 @@
           const shownProduct = localizeProduct(product);
           const card = document.createElement('div');
           card.className = 'brand-product-card';
+          card.dataset.productId = product.id;
           card.style.animationDelay = `${index * 0.05}s`;
 
           const weight = extractWeight(shownProduct);
