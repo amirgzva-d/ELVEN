@@ -3122,6 +3122,18 @@
       object-position:center center !important;
       filter:none !important;
     }
+
+
+    /* ===== PRODUCT DETAIL: DETAILS TAB ONLY ===== */
+    .pd-tabs.pd-tabs-single{
+      display:block;
+    }
+    .pd-tabs.pd-tabs-single .pd-tab{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
 </style>
 </head>
 <body>
@@ -3536,9 +3548,8 @@
           <h1 class="pd-title" id="pdTitle">خمیر مایه خشک فوری</h1>
           <p class="pd-subtitle" id="pdSubtitle">X-Power Premium Instant Yeast</p>
 
-          <div class="pd-tabs">
+          <div class="pd-tabs pd-tabs-single">
             <button class="pd-tab active" data-i18n="pdDetails">جزئیات</button>
-            <button class="pd-tab" data-i18n="pdAnalysis">آنالیز آنلاین</button>
           </div>
 
           <div class="pd-feature-list" id="pdFeatures"></div>
@@ -3632,7 +3643,6 @@
         keyFeaturesTitle: 'ویژگی‌های کلیدی',
         noProducts: 'محصولی برای نمایش وجود ندارد.',
         pdDetails: 'جزئیات',
-        pdAnalysis: 'آنالیز آنلاین',
         pdDownloadCatalog: 'دانلود کاتالوگ محصولات',
         pdDownloadOnline: 'دانلود آنلاین',
         noImage: 'تصویری برای این محصول ثبت نشده است',
@@ -3690,7 +3700,6 @@
         keyFeaturesTitle: 'Key Features',
         noProducts: 'No products available.',
         pdDetails: 'Details',
-        pdAnalysis: 'Online Analysis',
         pdDownloadCatalog: 'Download Product Catalog',
         pdDownloadOnline: 'Download Online',
         noImage: 'No image has been registered for this product',
