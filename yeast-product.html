@@ -3234,6 +3234,74 @@
         font-size:.73rem;
       }
     }
+
+
+    /* ===== USAGE STEP NUMBER + ICON OVERLAP FIX ===== */
+    .common-usage-steps .usage-step{
+      overflow:visible;
+    }
+    .common-usage-steps .usage-step-head{
+      display:flex;
+      align-items:center;
+      gap:.8rem;
+      margin-bottom:.8rem;
+      min-width:0;
+    }
+    .common-usage-steps .usage-step-title-wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:.15rem;
+      min-width:0;
+      flex:1;
+    }
+    .common-usage-steps .usage-step-num{
+      position:static !important;
+      top:auto !important;
+      left:auto !important;
+      width:auto !important;
+      height:auto !important;
+      min-width:0 !important;
+      padding:.22rem .55rem !important;
+      border-radius:999px !important;
+      display:inline-flex !important;
+      align-items:center;
+      justify-content:center;
+      background:#eef7f1 !important;
+      border:1px solid #d4e4d9 !important;
+      color:#176d4a !important;
+      font-family:'Vazirmatn',Tahoma,sans-serif !important;
+      font-size:.66rem !important;
+      font-weight:800 !important;
+      line-height:1.3 !important;
+      box-shadow:none !important;
+      transform:none !important;
+      white-space:nowrap;
+    }
+    .common-usage-steps .usage-step:hover .usage-step-num{
+      background:#e7f3eb !important;
+      color:#0d3b24 !important;
+      border-color:#c9dfd2 !important;
+      box-shadow:none !important;
+      transform:none !important;
+    }
+    .common-usage-steps .usage-step-icon{
+      margin:0 !important;
+      flex:0 0 auto;
+    }
+    .common-usage-steps .usage-step h4{
+      margin:0 !important;
+    }
+    @media(max-width:560px){
+      .common-usage-steps .usage-step-head{
+        gap:.65rem;
+        margin-bottom:.65rem;
+      }
+      .common-usage-steps .usage-step-num{
+        font-size:.62rem !important;
+        padding:.2rem .48rem !important;
+      }
+    }
 </style>
 </head>
 <body>
@@ -3487,30 +3555,46 @@
           <div class="usage-steps common-usage-steps">
 
             <div class="usage-step">
-              <span class="usage-step-num">۱</span>
-              <div class="usage-step-icon"><i class="fa-solid fa-droplet-slash"></i></div>
-              <h4>بدون نیاز به حل کردن</h4>
+              <div class="usage-step-head">
+                <div class="usage-step-icon"><i class="fa-solid fa-droplet-slash"></i></div>
+                <div class="usage-step-title-wrap">
+                  <span class="usage-step-num">مرحله ۱</span>
+                  <h4>بدون نیاز به حل کردن</h4>
+                </div>
+              </div>
               <p>خمیر مایه خشک فوری نیاز به حل کردن در آب قبل از مصرف ندارد.</p>
             </div>
 
             <div class="usage-step">
-              <span class="usage-step-num">۲</span>
-              <div class="usage-step-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-              <h4>مخلوط مستقیم با آرد</h4>
+              <div class="usage-step-head">
+                <div class="usage-step-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+                <div class="usage-step-title-wrap">
+                  <span class="usage-step-num">مرحله ۲</span>
+                  <h4>مخلوط مستقیم با آرد</h4>
+                </div>
+              </div>
               <p>خمیر مایه را مستقیماً با آرد خشک مخلوط کرده و سپس سایر مواد و آب را اضافه نمایید.</p>
             </div>
 
             <div class="usage-step">
-              <span class="usage-step-num">۳</span>
-              <div class="usage-step-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-              <h4>میزان مصرف پیشنهادی</h4>
+              <div class="usage-step-head">
+                <div class="usage-step-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div class="usage-step-title-wrap">
+                  <span class="usage-step-num">مرحله ۳</span>
+                  <h4>میزان مصرف پیشنهادی</h4>
+                </div>
+              </div>
               <p>۰٫۵ الی ۱ درصد وزن آرد (۵۰۰ تا ۱۰۰۰ گرم به ازای هر ۱۰۰ کیلوگرم آرد)، بسته به نوع نان و زمان تخمیر.</p>
             </div>
 
             <div class="usage-step">
-              <span class="usage-step-num">۴</span>
-              <div class="usage-step-icon"><i class="fa-solid fa-temperature-half"></i></div>
-              <h4>دمای مناسب آب</h4>
+              <div class="usage-step-head">
+                <div class="usage-step-icon"><i class="fa-solid fa-temperature-half"></i></div>
+                <div class="usage-step-title-wrap">
+                  <span class="usage-step-num">مرحله ۴</span>
+                  <h4>دمای مناسب آب</h4>
+                </div>
+              </div>
               <p>دمای مناسب آب جهت اختلاط خمیر: ۲۶ الی ۳۰ درجه سانتی‌گراد.</p>
             </div>
 
@@ -3884,8 +3968,10 @@
       usageCards.forEach((card, i) => {
         const h = card.querySelector('h4');
         const p = card.querySelector('p');
+        const num = card.querySelector('.usage-step-num');
         if (h) h.textContent = usageData[i][0];
         if (p) p.textContent = usageData[i][1];
+        if (num) num.textContent = fa ? `مرحله ${i + 1}` : `Step ${i + 1}`;
       });
 
       const notes = document.querySelectorAll('.common-usage-notes .usage-note');
