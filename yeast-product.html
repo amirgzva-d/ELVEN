@@ -3107,18 +3107,7 @@
     }
 
 
-    /* ===== RAZAVI FULL-BLEED PRODUCT IMAGES ===== */
-    .brand-product-card[data-product-id^="razavi-"] .brand-product-image{
-      padding:0 !important;
-      background:#eef5f1;
-    }
-    .brand-product-card[data-product-id^="razavi-"] .brand-product-image img{
-      width:100% !important;
-      height:100% !important;
-      object-fit:cover !important;
-      object-position:center center !important;
-      filter:none !important;
-    }
+
 
 
 /* ===== SITE LANGUAGE SWITCHER ===== */
@@ -3168,6 +3157,75 @@
   .site-language-globe{width:24px;height:24px}
   .site-lang-btn{min-width:31px;height:28px;padding:0 7px;font-size:10.5px}
 }
+
+
+/* ===== PREMIUM COMPACT LANGUAGE SWITCHER ===== */
+.site-language-switcher{
+  direction:ltr !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  height:38px !important;
+  padding:3px !important;
+  gap:2px !important;
+  border:1px solid rgba(10,92,70,.14) !important;
+  border-radius:999px !important;
+  background:rgba(255,255,255,.88) !important;
+  box-shadow:0 6px 18px rgba(10,58,44,.07) !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+}
+.site-language-globe{display:none !important}
+.site-lang-divider{
+  width:1px !important;
+  height:16px !important;
+  background:rgba(10,92,70,.12) !important;
+  flex:0 0 1px !important;
+}
+.site-lang-btn{
+  min-width:40px !important;
+  height:30px !important;
+  padding:0 10px !important;
+  border:0 !important;
+  border-radius:999px !important;
+  background:transparent !important;
+  color:#718079 !important;
+  font-family:'Inter','Vazirmatn',sans-serif !important;
+  font-size:10.5px !important;
+  font-weight:800 !important;
+  letter-spacing:.45px !important;
+  line-height:1 !important;
+  cursor:pointer !important;
+  box-shadow:none !important;
+  transition:background .25s ease,color .25s ease,box-shadow .25s ease,transform .2s ease !important;
+}
+.site-lang-btn:hover{
+  color:#0a5c46 !important;
+  background:rgba(10,92,70,.055) !important;
+}
+.site-lang-btn.active{
+  color:#fff !important;
+  background:linear-gradient(135deg,#0a5c46,#087354) !important;
+  box-shadow:0 5px 12px rgba(10,92,70,.22) !important;
+}
+.site-lang-btn:active{transform:scale(.95) !important}
+@media(max-width:768px){
+  .site-language-switcher{height:36px !important;padding:3px !important}
+  .site-lang-btn{min-width:36px !important;height:28px !important;padding:0 8px !important;font-size:10px !important}
+}
+
+
+    /* ===== ALL BRAND PRODUCT IMAGES FULL-BLEED ===== */
+    .brand-product-image{
+      padding:0 !important;
+      background:#eef5f1 !important;
+    }
+    .brand-product-image img{
+      width:100% !important;
+      height:100% !important;
+      object-fit:cover !important;
+      object-position:center center !important;
+      filter:none !important;
+    }
 </style>
 </head>
 <body>
@@ -3199,10 +3257,8 @@
 
   <div class="header-actions">
     <div class="site-language-switcher" role="group" aria-label="انتخاب زبان">
-      <span class="site-language-globe" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.2 2.45 3.3 5.45 3.3 9S14.2 18.55 12 21M12 3C9.8 5.45 8.7 8.45 8.7 12S9.8 18.55 12 21"/></svg>
-      </span>
-      <button type="button" class="site-lang-btn lang-btn active" data-site-lang="fa" data-lang="fa" aria-pressed="true"><span>فا</span></button>
+      <button type="button" class="site-lang-btn lang-btn active" data-site-lang="fa" data-lang="fa" aria-pressed="true"><span>FA</span></button>
+      <span class="site-lang-divider" aria-hidden="true"></span>
       <button type="button" class="site-lang-btn lang-btn" data-site-lang="en" data-lang="en" aria-pressed="false"><span>EN</span></button>
     </div>
     <button class="cta-quote" type="button" id="headerQuoteBtn">
@@ -3893,7 +3949,7 @@
         b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         const textSpan = b.querySelector('span:not(.flag-icon)');
         if (textSpan) {
-          if (b.dataset.lang === 'fa') textSpan.textContent = 'فا';
+          if (b.dataset.lang === 'fa') textSpan.textContent = 'FA';
           else textSpan.textContent = 'EN';
         }
       });
