@@ -3119,6 +3119,55 @@
       object-position:center center !important;
       filter:none !important;
     }
+
+
+/* ===== SITE LANGUAGE SWITCHER ===== */
+.site-language-switcher{
+  height:40px;
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  padding:4px 5px 4px 7px;
+  border:1px solid rgba(10,92,70,.13);
+  border-radius:999px;
+  background:rgba(255,255,255,.76);
+  box-shadow:0 5px 16px rgba(10,58,44,.06);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.site-language-globe{
+  width:26px;height:26px;
+  display:grid;place-items:center;
+  color:#0a5c46;
+}
+.site-language-globe svg{
+  width:16px;height:16px;
+  fill:none;stroke:currentColor;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.site-lang-btn{
+  min-width:34px;height:30px;
+  padding:0 9px;
+  border:0;border-radius:999px;
+  background:transparent;
+  color:#718079;
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  font-size:11px;font-weight:800;
+  cursor:pointer;
+  transition:background .25s,color .25s,box-shadow .25s,transform .25s;
+}
+.site-lang-btn:hover{color:#0a5c46;background:rgba(10,92,70,.06)}
+.site-lang-btn.active{
+  background:#0a5c46;
+  color:#fff;
+  box-shadow:0 5px 12px rgba(10,92,70,.23);
+}
+.site-lang-btn:active{transform:scale(.94)}
+@media(max-width:768px){
+  .site-language-switcher{height:38px;padding:3px 4px 3px 5px}
+  .site-language-globe{width:24px;height:24px}
+  .site-lang-btn{min-width:31px;height:28px;padding:0 7px;font-size:10.5px}
+}
 </style>
 </head>
 <body>
@@ -3141,19 +3190,23 @@
   </a>
 
   <nav class="nav" id="primaryNav" aria-label="منوی اصلی">
-    <a href="index.html" data-nav-target="home">خانه</a>
-    <a class="active" href="index.html#products" data-nav-target="products">محصولات</a>
-    <a href="index.html#products" data-nav-target="products">پیشنهاد ویژه</a>
-    <a href="index.html#about" data-nav-target="about">درباره ما</a>
-    <a href="index.html#contact" data-nav-target="contact">تماس</a>
+    <a href="index.html" data-nav-target="home" data-i18n="navHome">خانه</a>
+    <a class="active" href="index.html#products" data-nav-target="products" data-i18n="navProducts">محصولات</a>
+    <a href="index.html#products" data-nav-target="products" data-i18n="navSpecial">پیشنهاد ویژه</a>
+    <a href="index.html#about" data-nav-target="about" data-i18n="navAbout">درباره ما</a>
+    <a href="index.html#contact" data-nav-target="contact" data-i18n="navContact">تماس</a>
   </nav>
 
   <div class="header-actions">
-    <button class="icon-button" aria-label="جستجو" data-search>
-      <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
-    </button>
+    <div class="site-language-switcher" role="group" aria-label="انتخاب زبان">
+      <span class="site-language-globe" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.2 2.45 3.3 5.45 3.3 9S14.2 18.55 12 21M12 3C9.8 5.45 8.7 8.45 8.7 12S9.8 18.55 12 21"/></svg>
+      </span>
+      <button type="button" class="site-lang-btn lang-btn active" data-site-lang="fa" data-lang="fa" aria-pressed="true"><span>فا</span></button>
+      <button type="button" class="site-lang-btn lang-btn" data-site-lang="en" data-lang="en" aria-pressed="false"><span>EN</span></button>
+    </div>
     <button class="cta-quote" type="button" id="headerQuoteBtn">
-      استعلام قیمت
+      <span data-i18n="quoteBtn">استعلام قیمت</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </button>
   </div>
@@ -3615,6 +3668,7 @@
         navAbout: 'درباره ما', navContact: 'تماس با ما',
         responseTime: 'پاسخ در کمتر از ۳۰ دقیقه',
         inquiryBtn: 'استعلام محصول',
+        quoteBtn: 'استعلام قیمت',
         inquiryClose: 'بستن',
         downloadCatalog: 'دانلود کاتالوگ',
         ourBrands: 'برندهای برتر ما',
@@ -3822,6 +3876,7 @@
 
     function setLanguage(lang) {
       currentLang = lang;
+      try { localStorage.setItem('siteLanguage', lang); } catch (_) {}
       const dict = translations[lang];
 
       document.documentElement.lang = lang;
@@ -3835,6 +3890,7 @@
       document.querySelectorAll('.lang-btn').forEach(b => {
         const isActive = b.dataset.lang === lang;
         b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         const textSpan = b.querySelector('span:not(.flag-icon)');
         if (textSpan) {
           if (b.dataset.lang === 'fa') textSpan.textContent = 'فا';
@@ -4851,7 +4907,9 @@
       defaultBrandCard.classList.add('active');
       updatePageForBrand('ixpower');
     }
-    setLanguage('fa');
+    let initialSiteLanguage = 'fa';
+    try { initialSiteLanguage = localStorage.getItem('siteLanguage') || 'fa'; } catch (_) {}
+    setLanguage(initialSiteLanguage === 'en' ? 'en' : 'fa');
     requestAnimationFrame(() => { updateBrandStripArrows(); updateBrandsArrows(); });
   
 
