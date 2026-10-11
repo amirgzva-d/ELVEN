@@ -4136,10 +4136,10 @@
           mkNanmaye('nanmaye-80','۸۰ گرم (بسته بندی ساشه)','ساشه','۵۰ عدد','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179979/file_00000000742481f5a7bdf079b4144253_vr0bpu.png'),
           mkNanmaye('nanmaye-90','۹۰ گرم (بسته بندی وکیوم)','وکیوم','۶۰ عدد','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179979/file_000000000d7081f5a0d8c74d7d0b7333_ediv7g.png'),
           mkNanmaye('nanmaye-100','۱۰۰ گرم (بسته بندی وکیوم)','وکیوم','۶۰ عدد','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179979/file_00000000ce9881f583cf3d3cb708c26c_tcbavl.png'),
-          mkNanmaye('nanmaye-450','۴۵۰ گرم (بسته بندی وکیوم)','وکیوم مقاوم آلومینیومی','۲۰ عدد','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179984/file_00000000373882468a2a58d098f13ad4_bgylge.png'),
-          mkNanmaye('nanmaye-500','۵۰۰ گرم (بسته بندی وکیوم)','وکیوم مقاوم آلومینیومی','۵۰۰ گرم وزن خالص بسته','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179977/file_00000000099c81f580f7cb10ec6f3327_jpeguk.png'),
-          mkNanmaye('nanmaye-5000','۵ کیلوگرم (بسته بندی وکیوم)','وکیوم مقاوم آلومینیومی','۵۰ کیلوگرم وزن خالص بسته','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179980/file_00000000726081f5a050ff7ae677ba6b_hufgtl.png'),
-          mkNanmaye('nanmaye-5000-new','۵ کیلوگرم (بسته بندی وکیوم)','وکیوم مقاوم آلومینیومی','۵۰ کیلوگرم وزن خالص بسته','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791197622/file_000000004ab482468875b3d93df6bfed_ivqfcl.png')
+          mkNanmaye('nanmaye-450','۴۵۰ گرم (بسته بندی وکیوم)','وکیوم','۲۰ عدد','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179984/file_00000000373882468a2a58d098f13ad4_bgylge.png'),
+          mkNanmaye('nanmaye-500','۵۰۰ گرم (بسته بندی وکیوم)','وکیوم','۵۰۰ گرم وزن خالص بسته','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179977/file_00000000099c81f580f7cb10ec6f3327_jpeguk.png'),
+          mkNanmaye('nanmaye-5000','۵ کیلوگرم (بسته بندی وکیوم)','وکیوم','۵۰ کیلوگرم وزن خالص بسته','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791179980/file_00000000726081f5a050ff7ae677ba6b_hufgtl.png'),
+          mkNanmaye('nanmaye-5000-new','۵ کیلوگرم (بسته بندی وکیوم)','وکیوم','۵۰ کیلوگرم وزن خالص بسته','https://res.cloudinary.com/dqhbyqftq/image/upload/v1791197622/file_000000004ab482468875b3d93df6bfed_ivqfcl.png')
         ]
       }
     };
@@ -4350,7 +4350,7 @@
         description: 'خمیرمایه نان مایه مخصوص واحدهای نانوایی صنعتی، نانوایی‌های بزرگ و صادرات به کشورهای همسایه. اقتصادی، با کیفیت یکنواخت و ماندگاری ۲ ساله.',
         features: [
           { title: 'وزن خالص / ساشه', value: weightFull, desc: weightFull.includes('ساشه') ? 'ساشه آلومینیومی مقاوم' : 'وکیوم فشرده' },
-          { title: 'نوع بسته‌بندی', value: packType, desc: packType },
+          { title: 'نوع بسته‌بندی', value: packType, desc: packType === 'ساشه' ? 'ساشه آلومینیومی' : 'وکیوم آلومینیومی' },
           { title: 'تعداد در کارتن', value: qtyBox, desc: 'در هر کارتن صادراتی' },
           { title: 'مدت ماندگاری', value: '۲۴ ماه', desc: '(۲ سال) از تاریخ تولید در جای خشک و خنک' },
           { title: 'استانداردها و گواهینامه‌ها', value: 'ISO 9001', desc: 'ISO 9001:2015 آلمان، گواهی حلال، استاندارد ملی ایران، عضویت VH برلین' },
