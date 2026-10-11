@@ -3134,6 +3134,106 @@
       align-items:center;
       justify-content:center;
     }
+
+
+    /* ===== ANALYSIS ROWS MATCH STORAGE CARD STYLE ===== */
+    .analysis-card{
+      background:
+        radial-gradient(circle at 100% 0%,rgba(42,145,99,.08),transparent 38%),
+        linear-gradient(145deg,#fbfdfb 0%,#f2f8f4 100%) !important;
+    }
+
+    .analysis-list{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:.65rem;
+      margin:0;
+      padding:0;
+    }
+
+    .analysis-list li{
+      display:grid;
+      grid-template-columns:30px minmax(0,1fr) minmax(120px,.9fr);
+      align-items:center;
+      gap:.72rem;
+      min-height:58px;
+      padding:.76rem .82rem;
+      border:1px solid rgba(20,107,71,.08);
+      border-radius:14px;
+      background:rgba(255,255,255,.78);
+      box-shadow:0 5px 16px -15px rgba(13,59,36,.55);
+      transition:transform .22s ease,border-color .22s ease,background .22s ease;
+      direction:rtl;
+      text-align:right;
+    }
+
+    .analysis-list li:hover{
+      transform:translateY(-2px);
+      border-color:rgba(20,107,71,.18);
+      background:#fff;
+    }
+
+    .analysis-row-icon{
+      width:30px;
+      height:30px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      color:#14714b;
+      background:linear-gradient(145deg,#eef8f2,#e3f2e9);
+      border:1px solid rgba(20,107,71,.1);
+      box-shadow:0 5px 12px -10px rgba(13,59,36,.5);
+      font-size:.72rem;
+    }
+
+    .analysis-row-copy{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      gap:.14rem;
+      align-items:flex-start;
+    }
+
+    .analysis-label{
+      color:#365148;
+      font-family:'Vazirmatn',Tahoma,sans-serif;
+      font-size:.77rem;
+      font-weight:800;
+      line-height:1.7;
+    }
+
+    .analysis-en{
+      color:#8a9993;
+      font-family:'Inter',sans-serif;
+      font-size:.62rem;
+      font-weight:600;
+      line-height:1.4;
+      direction:ltr;
+      text-align:left;
+    }
+
+    .analysis-value{
+      color:#173c30;
+      font-family:'Vazirmatn',Tahoma,sans-serif;
+      font-size:.76rem;
+      font-weight:800;
+      line-height:1.75;
+      text-align:right;
+      justify-self:stretch;
+      overflow-wrap:anywhere;
+    }
+
+    @media(max-width:680px){
+      .analysis-list li{
+        grid-template-columns:30px minmax(0,1fr);
+      }
+      .analysis-value{
+        grid-column:2;
+        padding-top:.15rem;
+        font-size:.73rem;
+      }
+    }
 </style>
 </head>
 <body>
@@ -3297,36 +3397,56 @@
               </div>
             </div>
 
-            <div class="analysis-table-wrap">
-              <table class="analysis-table">
-                <tbody>
-                  <tr>
-                    <th>ماده خشک <span>(Dry Matter)</span></th>
-                    <td>حداقل ۹۵٪</td>
-                  </tr>
-                  <tr>
-                    <th>رطوبت <span>(Moisture Content)</span></th>
-                    <td>حداکثر ۵٪</td>
-                  </tr>
-                  <tr>
-                    <th>قدرت تخمیر <span>(Fermentation Activity)</span></th>
-                    <td>بیش از ۶۵۰ میلی‌لیتر CO2 در ۲ ساعت</td>
-                  </tr>
-                  <tr>
-                    <th>ماده معدنی / خاکستر <span>(Ash Content)</span></th>
-                    <td>حداکثر ۶٫۵٪</td>
-                  </tr>
-                  <tr>
-                    <th>پروتئین <span>(Protein Content)</span></th>
-                    <td>حداکثر ۴۸٪ (بر پایه ماده خشک)</td>
-                  </tr>
-                  <tr>
-                    <th>گونه میکروارگانیسم</th>
-                    <td>ساکرومایسس سرویزیه (Saccharomyces Cerevisiae) ۱۰۰٪ خالص</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <ul class="analysis-list">
+              <li>
+                <span class="analysis-row-icon"><i class="fa-solid fa-droplet"></i></span>
+                <div class="analysis-row-copy">
+                  <strong class="analysis-label">ماده خشک</strong>
+                  <small class="analysis-en">(Dry Matter)</small>
+                </div>
+                <span class="analysis-value">حداقل ۹۵٪</span>
+              </li>
+              <li>
+                <span class="analysis-row-icon"><i class="fa-solid fa-water"></i></span>
+                <div class="analysis-row-copy">
+                  <strong class="analysis-label">رطوبت</strong>
+                  <small class="analysis-en">(Moisture Content)</small>
+                </div>
+                <span class="analysis-value">حداکثر ۵٪</span>
+              </li>
+              <li>
+                <span class="analysis-row-icon"><i class="fa-solid fa-chart-line"></i></span>
+                <div class="analysis-row-copy">
+                  <strong class="analysis-label">قدرت تخمیر</strong>
+                  <small class="analysis-en">(Fermentation Activity)</small>
+                </div>
+                <span class="analysis-value">بیش از ۶۵۰ میلی‌لیتر CO2 در ۲ ساعت</span>
+              </li>
+              <li>
+                <span class="analysis-row-icon"><i class="fa-solid fa-flask"></i></span>
+                <div class="analysis-row-copy">
+                  <strong class="analysis-label">ماده معدنی / خاکستر</strong>
+                  <small class="analysis-en">(Ash Content)</small>
+                </div>
+                <span class="analysis-value">حداکثر ۶٫۵٪</span>
+              </li>
+              <li>
+                <span class="analysis-row-icon"><i class="fa-solid fa-dna"></i></span>
+                <div class="analysis-row-copy">
+                  <strong class="analysis-label">پروتئین</strong>
+                  <small class="analysis-en">(Protein Content)</small>
+                </div>
+                <span class="analysis-value">حداکثر ۴۸٪ (بر پایه ماده خشک)</span>
+              </li>
+              <li>
+                <span class="analysis-row-icon"><i class="fa-solid fa-microscope"></i></span>
+                <div class="analysis-row-copy">
+                  <strong class="analysis-label">گونه میکروارگانیسم</strong>
+                  <small class="analysis-en">Saccharomyces Cerevisiae</small>
+                </div>
+                <span class="analysis-value">ساکرومایسس سرویزیه ۱۰۰٪ خالص</span>
+              </li>
+            </ul>
           </div>
 
           <div class="storage-card">
@@ -3790,29 +3910,34 @@
       if (analysisSub) analysisSub.textContent = fa ? 'مشخصات فنی و ترکیبات خمیرمایه خشک فوری' : 'Technical specifications and composition of instant dry yeast';
       if (storageSub) storageSub.textContent = fa ? 'راهنمای حفظ کیفیت محصول تا زمان مصرف' : 'Guidance for maintaining product quality until use';
 
-      const rows = document.querySelectorAll('.analysis-table tbody tr');
+      const rows = document.querySelectorAll('.analysis-list li');
       const analysisFa = [
-        ['ماده خشک <span>(Dry Matter)</span>','حداقل ۹۵٪'],
-        ['رطوبت <span>(Moisture Content)</span>','حداکثر ۵٪'],
-        ['قدرت تخمیر <span>(Fermentation Activity)</span>','بیش از ۶۵۰ میلی‌لیتر CO2 در ۲ ساعت'],
-        ['ماده معدنی / خاکستر <span>(Ash Content)</span>','حداکثر ۶٫۵٪'],
-        ['پروتئین <span>(Protein Content)</span>','حداکثر ۴۸٪ (بر پایه ماده خشک)'],
-        ['گونه میکروارگانیسم','ساکرومایسس سرویزیه (Saccharomyces Cerevisiae) ۱۰۰٪ خالص']
+        ['ماده خشک','(Dry Matter)','حداقل ۹۵٪'],
+        ['رطوبت','(Moisture Content)','حداکثر ۵٪'],
+        ['قدرت تخمیر','(Fermentation Activity)','بیش از ۶۵۰ میلی‌لیتر CO2 در ۲ ساعت'],
+        ['ماده معدنی / خاکستر','(Ash Content)','حداکثر ۶٫۵٪'],
+        ['پروتئین','(Protein Content)','حداکثر ۴۸٪ (بر پایه ماده خشک)'],
+        ['گونه میکروارگانیسم','Saccharomyces Cerevisiae','ساکرومایسس سرویزیه ۱۰۰٪ خالص']
       ];
       const analysisEn = [
-        ['Dry Matter','Minimum 95%'],
-        ['Moisture Content','Maximum 5%'],
-        ['Fermentation Activity','More than 650 mL CO2 in 2 hours'],
-        ['Ash Content','Maximum 6.5%'],
-        ['Protein Content','Maximum 48% (dry matter basis)'],
-        ['Microorganism Species','100% pure Saccharomyces Cerevisiae']
+        ['Dry Matter','','Minimum 95%'],
+        ['Moisture Content','','Maximum 5%'],
+        ['Fermentation Activity','','More than 650 mL CO2 in 2 hours'],
+        ['Ash Content','','Maximum 6.5%'],
+        ['Protein Content','','Maximum 48% (dry matter basis)'],
+        ['Microorganism Species','Saccharomyces Cerevisiae','100% pure Saccharomyces Cerevisiae']
       ];
       const analysisData = fa ? analysisFa : analysisEn;
       rows.forEach((row, i) => {
-        const th = row.querySelector('th');
-        const td = row.querySelector('td');
-        if (th) th.innerHTML = analysisData[i][0];
-        if (td) td.textContent = analysisData[i][1];
+        const label = row.querySelector('.analysis-label');
+        const en = row.querySelector('.analysis-en');
+        const value = row.querySelector('.analysis-value');
+        if (label) label.textContent = analysisData[i][0];
+        if (en) {
+          en.textContent = analysisData[i][1];
+          en.style.display = analysisData[i][1] ? '' : 'none';
+        }
+        if (value) value.textContent = analysisData[i][2];
       });
 
       const storageItems = document.querySelectorAll('.storage-list li span');
