@@ -3304,20 +3304,35 @@
     }
 
 
-    /* ===== NAN MAYE PRODUCT IMAGES: SHOW FULL PACKAGE ===== */
+
+
+    /* ===== MATCH ALL OTHER BRAND CARDS TO DEZ MAYE FULL-BLEED IMAGE STYLE ===== */
+    .brand-product-card[data-product-id^="ixpower-"] .brand-product-image,
+    .brand-product-card[data-product-id^="shetab-"] .brand-product-image,
+    .brand-product-card[data-product-id^="razavi-"] .brand-product-image,
     .brand-product-card[data-product-id^="nanmaye-"] .brand-product-image{
-      padding:.35rem !important;
-      background:linear-gradient(135deg,#f5f9f6,#edf5f0) !important;
+      padding:0 !important;
+      background:#eef5f1 !important;
     }
+
+    .brand-product-card[data-product-id^="ixpower-"] .brand-product-image img,
+    .brand-product-card[data-product-id^="shetab-"] .brand-product-image img,
+    .brand-product-card[data-product-id^="razavi-"] .brand-product-image img,
     .brand-product-card[data-product-id^="nanmaye-"] .brand-product-image img{
       width:100% !important;
       height:100% !important;
-      object-fit:contain !important;
+      object-fit:cover !important;
       object-position:center center !important;
-      transform:none !important;
+      filter:none !important;
+      transition:transform .55s cubic-bezier(.22,1,.36,1),filter .35s ease !important;
     }
+
+    .brand-product-card[data-product-id^="ixpower-"]:hover .brand-product-image img,
+    .brand-product-card[data-product-id^="shetab-"]:hover .brand-product-image img,
+    .brand-product-card[data-product-id^="razavi-"]:hover .brand-product-image img,
     .brand-product-card[data-product-id^="nanmaye-"]:hover .brand-product-image img{
-      transform:none !important;
+      transform:scale(1.08) rotate(-1deg) !important;
+      filter:saturate(1.03) !important;
     }
 </style>
 </head>
