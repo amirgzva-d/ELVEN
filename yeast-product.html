@@ -3110,111 +3110,7 @@
 
 
 
-/* ===== SITE LANGUAGE SWITCHER ===== */
-.site-language-switcher{
-  height:40px;
-  display:inline-flex;
-  align-items:center;
-  gap:3px;
-  padding:4px 5px 4px 7px;
-  border:1px solid rgba(10,92,70,.13);
-  border-radius:999px;
-  background:rgba(255,255,255,.76);
-  box-shadow:0 5px 16px rgba(10,58,44,.06);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-}
-.site-language-globe{
-  width:26px;height:26px;
-  display:grid;place-items:center;
-  color:#0a5c46;
-}
-.site-language-globe svg{
-  width:16px;height:16px;
-  fill:none;stroke:currentColor;stroke-width:1.7;
-  stroke-linecap:round;stroke-linejoin:round;
-}
-.site-lang-btn{
-  min-width:34px;height:30px;
-  padding:0 9px;
-  border:0;border-radius:999px;
-  background:transparent;
-  color:#718079;
-  font-family:'Vazirmatn',Tahoma,sans-serif;
-  font-size:11px;font-weight:800;
-  cursor:pointer;
-  transition:background .25s,color .25s,box-shadow .25s,transform .25s;
-}
-.site-lang-btn:hover{color:#0a5c46;background:rgba(10,92,70,.06)}
-.site-lang-btn.active{
-  background:#0a5c46;
-  color:#fff;
-  box-shadow:0 5px 12px rgba(10,92,70,.23);
-}
-.site-lang-btn:active{transform:scale(.94)}
-@media(max-width:768px){
-  .site-language-switcher{height:38px;padding:3px 4px 3px 5px}
-  .site-language-globe{width:24px;height:24px}
-  .site-lang-btn{min-width:31px;height:28px;padding:0 7px;font-size:10.5px}
-}
-
-
-/* ===== PREMIUM COMPACT LANGUAGE SWITCHER ===== */
-.site-language-switcher{
-  direction:ltr !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  height:38px !important;
-  padding:3px !important;
-  gap:2px !important;
-  border:1px solid rgba(10,92,70,.14) !important;
-  border-radius:999px !important;
-  background:rgba(255,255,255,.88) !important;
-  box-shadow:0 6px 18px rgba(10,58,44,.07) !important;
-  backdrop-filter:blur(12px) !important;
-  -webkit-backdrop-filter:blur(12px) !important;
-}
-.site-language-globe{display:none !important}
-.site-lang-divider{
-  width:1px !important;
-  height:16px !important;
-  background:rgba(10,92,70,.12) !important;
-  flex:0 0 1px !important;
-}
-.site-lang-btn{
-  min-width:40px !important;
-  height:30px !important;
-  padding:0 10px !important;
-  border:0 !important;
-  border-radius:999px !important;
-  background:transparent !important;
-  color:#718079 !important;
-  font-family:'Inter','Vazirmatn',sans-serif !important;
-  font-size:10.5px !important;
-  font-weight:800 !important;
-  letter-spacing:.45px !important;
-  line-height:1 !important;
-  cursor:pointer !important;
-  box-shadow:none !important;
-  transition:background .25s ease,color .25s ease,box-shadow .25s ease,transform .2s ease !important;
-}
-.site-lang-btn:hover{
-  color:#0a5c46 !important;
-  background:rgba(10,92,70,.055) !important;
-}
-.site-lang-btn.active{
-  color:#fff !important;
-  background:linear-gradient(135deg,#0a5c46,#087354) !important;
-  box-shadow:0 5px 12px rgba(10,92,70,.22) !important;
-}
-.site-lang-btn:active{transform:scale(.95) !important}
-@media(max-width:768px){
-  .site-language-switcher{height:36px !important;padding:3px !important}
-  .site-lang-btn{min-width:36px !important;height:28px !important;padding:0 8px !important;font-size:10px !important}
-}
-
-
-    /* ===== ALL BRAND PRODUCT IMAGES FULL-BLEED ===== */
+/* ===== ALL BRAND PRODUCT IMAGES FULL-BLEED ===== */
     .brand-product-image{
       padding:0 !important;
       background:#eef5f1 !important;
@@ -3256,11 +3152,6 @@
   </nav>
 
   <div class="header-actions">
-    <div class="site-language-switcher" role="group" aria-label="انتخاب زبان">
-      <button type="button" class="site-lang-btn lang-btn active" data-site-lang="fa" data-lang="fa" aria-pressed="true"><span>FA</span></button>
-      <span class="site-lang-divider" aria-hidden="true"></span>
-      <button type="button" class="site-lang-btn lang-btn" data-site-lang="en" data-lang="en" aria-pressed="false"><span>EN</span></button>
-    </div>
     <button class="cta-quote" type="button" id="headerQuoteBtn">
       <span data-i18n="quoteBtn">استعلام قیمت</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -3932,7 +3823,6 @@
 
     function setLanguage(lang) {
       currentLang = lang;
-      try { localStorage.setItem('siteLanguage', lang); } catch (_) {}
       const dict = translations[lang];
 
       document.documentElement.lang = lang;
@@ -3970,10 +3860,6 @@
         if (baseProduct) openProductDetail(baseProduct);
       }
     }
-
-    document.querySelectorAll('.lang-btn').forEach(b => {
-      b.addEventListener('click', () => setLanguage(b.dataset.lang));
-    });
 
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -4963,9 +4849,7 @@
       defaultBrandCard.classList.add('active');
       updatePageForBrand('ixpower');
     }
-    let initialSiteLanguage = 'fa';
-    try { initialSiteLanguage = localStorage.getItem('siteLanguage') || 'fa'; } catch (_) {}
-    setLanguage(initialSiteLanguage === 'en' ? 'en' : 'fa');
+    setLanguage('fa');
     requestAnimationFrame(() => { updateBrandStripArrows(); updateBrandsArrows(); });
   
 
