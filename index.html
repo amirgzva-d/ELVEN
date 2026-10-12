@@ -1042,6 +1042,22 @@ img{max-width:100%;display:block}
   will-change:auto !important;
   backface-visibility:hidden;
 }
+
+
+/* ===== DESKTOP HEADER NAV POSITION FIX ===== */
+@media (min-width: 901px){
+  .header{
+    column-gap:clamp(18px,2vw,34px);
+  }
+  .nav{
+    margin:0 0 0 auto !important;
+    gap:clamp(18px,2vw,32px);
+    flex-shrink:0;
+  }
+  .header-actions{
+    margin-right:clamp(16px,1.8vw,30px);
+  }
+}
 </style>
 </head>
 <body>
