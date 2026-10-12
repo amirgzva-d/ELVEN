@@ -3435,6 +3435,210 @@
   #siteHeader .nav a::after{display:none}
   #siteHeader .nav a.active{color:#0a5c46;font-weight:700}
 }
+
+
+    /* ===== PRODUCT VIEW USES THE SAME MAIN MENU — WHITE CARD ===== */
+    .pd-main-header-card{
+      position:relative;
+      z-index:30;
+      min-height:74px;
+      margin:12px 14px 0;
+      padding:0 22px 0 58px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-shrink:0;
+      background:#fff;
+      border:1px solid rgba(10,92,70,.09);
+      border-radius:22px;
+      box-shadow:0 12px 30px -20px rgba(10,58,44,.32);
+      direction:rtl;
+    }
+    .pd-main-header-card a{text-decoration:none}
+    .pd-main-header-card .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink:0;
+    }
+    .pd-main-header-card .brand-mark{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(145deg,#0f7a5c,#0a5c46);
+      color:#fff;
+      box-shadow:0 8px 20px rgba(10,92,70,.2);
+    }
+    .pd-main-header-card .brand-mark svg{width:24px;height:24px}
+    .pd-main-header-card .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+    .pd-main-header-card .brand-text strong{
+      font-family:'Vazirmatn',Tahoma,sans-serif;
+      font-size:16px;
+      font-weight:900;
+      color:#173c30;
+    }
+    .pd-main-header-card .brand-text small{
+      margin-top:5px;
+      font-family:'Inter',sans-serif;
+      font-size:7px;
+      letter-spacing:2.2px;
+      color:#718079;
+      font-weight:500;
+    }
+    .pd-main-header-card .nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:clamp(18px,2vw,32px);
+      margin:0 auto;
+    }
+    .pd-main-header-card .nav a{
+      position:relative;
+      color:#3b4d47;
+      font-size:13.5px;
+      font-weight:500;
+      padding:9px 2px;
+      white-space:nowrap;
+      transition:color .3s ease;
+    }
+    .pd-main-header-card .nav a::after{
+      content:'';
+      position:absolute;
+      right:0;
+      left:0;
+      bottom:0;
+      height:2px;
+      border-radius:2px;
+      background:#0a5c46;
+      transform:scaleX(0);
+      transform-origin:right center;
+      transition:transform .4s cubic-bezier(.22,1,.36,1);
+    }
+    .pd-main-header-card .nav a:hover,
+    .pd-main-header-card .nav a.active{
+      color:#0a5c46;
+    }
+    .pd-main-header-card .nav a.active{
+      font-weight:700;
+    }
+    .pd-main-header-card .nav a:hover::after,
+    .pd-main-header-card .nav a.active::after{
+      transform:scaleX(1);
+    }
+    .pd-main-header-card .header-actions{
+      display:flex;
+      align-items:center;
+      flex-shrink:0;
+    }
+    .pd-main-header-card .cta-quote{
+      padding:10px 18px;
+      font-size:12.5px;
+      box-shadow:0 8px 22px rgba(10,92,70,.22);
+    }
+    .pd-main-header-card .mobile-toggle{
+      display:none;
+    }
+    .pd-main-header-card + .pd-body{
+      padding-top:1.1rem;
+    }
+    .pd-close{
+      z-index:45 !important;
+      top:31px !important;
+      left:27px !important;
+    }
+
+    @media(max-width:900px){
+      .pd-main-header-card{
+        min-height:68px;
+        margin:10px 10px 0;
+        padding:0 16px 0 58px;
+        border-radius:18px;
+      }
+      .pd-main-header-card .brand-mark{
+        width:40px;
+        height:40px;
+        border-radius:11px;
+      }
+      .pd-main-header-card .brand-mark svg{width:22px;height:22px}
+      .pd-main-header-card .brand-text strong{font-size:14px}
+      .pd-main-header-card .brand-text small{font-size:6px;letter-spacing:1.6px}
+      .pd-main-header-card .header-actions .cta-quote{display:none}
+      .pd-main-header-card .mobile-toggle{
+        display:flex;
+        width:40px;
+        height:40px;
+        flex:0 0 40px;
+      }
+      .pd-main-header-card .nav{
+        position:absolute;
+        top:calc(100% + 8px);
+        right:0;
+        left:0;
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        margin:0;
+        padding:10px 16px 14px;
+        background:#fff;
+        border:1px solid rgba(10,92,70,.09);
+        border-radius:18px;
+        box-shadow:0 18px 38px -18px rgba(10,58,44,.35);
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+        transform:translateY(-8px);
+        transition:opacity .28s ease,transform .32s ease,visibility .28s;
+        z-index:50;
+      }
+      .pd-main-header-card .nav.mobile-open{
+        opacity:1;
+        visibility:visible;
+        pointer-events:auto;
+        transform:none;
+      }
+      .pd-main-header-card .nav a{
+        width:100%;
+        padding:12px 4px;
+        text-align:right;
+        border-bottom:1px solid #edf1ed;
+        font-size:14px;
+      }
+      .pd-main-header-card .nav a:last-child{border-bottom:0}
+      .pd-main-header-card .nav a::after{display:none}
+      .pd-close{
+        top:27px !important;
+        left:24px !important;
+      }
+    }
+
+    @media(max-width:560px){
+      .pd-main-header-card{
+        margin:8px 8px 0;
+        min-height:62px;
+        padding:0 12px 0 54px;
+        border-radius:16px;
+      }
+      .pd-main-header-card .brand{gap:9px}
+      .pd-main-header-card .brand-mark{width:36px;height:36px;border-radius:10px}
+      .pd-main-header-card .brand-mark svg{width:20px;height:20px}
+      .pd-main-header-card .brand-text strong{font-size:13px}
+      .pd-main-header-card .brand-text small{display:none}
+      .pd-main-header-card .mobile-toggle{width:36px;height:36px;flex-basis:36px}
+      .pd-close{
+        width:34px !important;
+        height:34px !important;
+        top:22px !important;
+        left:19px !important;
+      }
+    }
 </style>
 </head>
 <body>
@@ -3862,18 +4066,39 @@
     <div class="pd-card">
       <button class="pd-close" id="pdClose" title="بستن"><i class="fa-solid fa-xmark"></i></button>
 
-      <header class="pd-navbar">
-        <div class="pd-logo">
-          MOHAJER STEEL
-          <i class="fa-solid fa-leaf"></i>
-        </div>
-        <nav class="pd-nav-links">
-          <a href="index.html#products" class="active" data-i18n="navProducts">محصولات</a>
-          <a href="index.html" data-i18n="navHome">خانه</a>
-          <a href="index.html#products" data-i18n="navSpecial">پیشنهاد ویژه</a>
-          <a href="index.html#about" data-i18n="navAbout">درباره ما</a>
-          <a href="index.html#contact" data-i18n="navContact">تماس با ما</a>
+      <header class="pd-main-header-card" id="pdMainHeader">
+        <a class="brand" href="index.html" aria-label="مهاجر استیل">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+              <path d="M12 21V11"/>
+              <path d="M9 14l3-3 3 3"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>مهاجر استیل</strong>
+            <small>MOHAJER TRADING GROUP</small>
+          </span>
+        </a>
+
+        <nav class="nav pd-main-nav" id="pdPrimaryNav" aria-label="منوی اصلی">
+          <a href="index.html" data-nav-target="home" data-i18n="navHome">خانه</a>
+          <a class="active" href="index.html#products" data-nav-target="products" data-i18n="navProducts">محصولات</a>
+          <a href="index.html#products" data-nav-target="products" data-i18n="navSpecial">پیشنهاد ویژه</a>
+          <a href="index.html#about" data-nav-target="about" data-i18n="navAbout">درباره ما</a>
+          <a href="index.html#contact" data-nav-target="contact" data-i18n="navContact">تماس</a>
         </nav>
+
+        <div class="header-actions">
+          <button class="cta-quote" type="button" id="pdHeaderQuoteBtn">
+            <span data-i18n="quoteBtn">استعلام قیمت</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <button class="mobile-toggle pd-mobile-toggle" type="button" aria-label="منو" data-pd-menu aria-expanded="false">
+          <span></span>
+        </button>
       </header>
 
       <div class="pd-body">
@@ -4202,7 +4427,7 @@
       if (closeBtn) closeBtn.title = dict.closeTitle;
 
       // Keep the Products item active on this product page.
-      document.querySelectorAll('.nav-links a, .pd-nav-links a, .mobile-menu a.mm-link').forEach(link => {
+      document.querySelectorAll('.nav-links a, .pd-main-header-card .nav a, .mobile-menu a.mm-link').forEach(link => {
         link.classList.toggle('active', link.dataset.i18n === 'navProducts' || link.querySelector?.('[data-i18n="navProducts"]'));
       });
 
@@ -5044,6 +5269,21 @@
     const pdShareBtn = document.getElementById('pdShareBtn');
     const pdShareMenu = document.getElementById('pdShareMenu');
     const pdContactsPanel = document.getElementById('pdContactsPanel');
+    const pdHeaderQuoteBtn = document.getElementById('pdHeaderQuoteBtn');
+    const pdHeaderMenuBtn = document.querySelector('#pdMainHeader [data-pd-menu]');
+    const pdHeaderNav = document.getElementById('pdPrimaryNav');
+
+    pdHeaderQuoteBtn?.addEventListener('click', () => pdInquiryBtn?.click());
+    pdHeaderMenuBtn?.addEventListener('click', () => {
+      const open = pdHeaderNav?.classList.toggle('mobile-open');
+      pdHeaderMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    pdHeaderNav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        pdHeaderNav.classList.remove('mobile-open');
+        pdHeaderMenuBtn?.setAttribute('aria-expanded', 'false');
+      });
+    });
 
     function openProductDetail(product) {
       currentProductId = product.id;
@@ -5086,6 +5326,8 @@
       document.body.style.overflow = '';
       pdContactsPanel.classList.remove('open');
       pdShareMenu.classList.remove('open');
+      pdHeaderNav?.classList.remove('mobile-open');
+      pdHeaderMenuBtn?.setAttribute('aria-expanded', 'false');
     }
 
     pdInquiryBtn.addEventListener('click', () => {
