@@ -3334,11 +3334,43 @@
       transform:scale(1.08) rotate(-1deg) !important;
       filter:saturate(1.03) !important;
     }
+
+
+    /* ===== IXPOWER HERO VIDEO BACKGROUND ===== */
+    .hero-brand-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+      z-index:0;
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transition:opacity .35s ease,visibility .35s ease;
+    }
+    .hero-brand-video.is-active{
+      opacity:1;
+      visibility:visible;
+    }
+    .hero > .main-site-header,
+    .hero > .hero__content,
+    .hero > .product-showcase{
+      position:relative;
+      z-index:10;
+    }
+    @media(max-width:768px){
+      .hero-brand-video{
+        object-position:center top;
+      }
+    }
 </style>
 </head>
 <body>
 
   <section class="hero" id="heroSection">
+    <video id="heroBrandVideo" class="hero-brand-video" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video>
 
     <header class="header main-site-header" id="siteHeader">
   <a class="brand" href="index.html" aria-label="مهاجر استیل">
@@ -4157,6 +4189,7 @@
       ixpower: {
         brandName: 'IXPOWER',
         heroBg: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791726525/file_00000000f9a081f5b79e70c105b76524_mgie53.png',
+        heroVideo: 'https://res.cloudinary.com/dqhbyqftq/video/upload/v1791636103/vedio-01_vcqbl1.mp4',
         catalogUrl: 'https://res.cloudinary.com/dqhbyqftq/image/upload/v1791635604/file_00000000ad6081f49ade66b68f8e07a4_sehaob.png',
         heroTitle: 'کیفیت جهانی، اعتماد بین‌المللی',
         heroSubtitle: 'خمیرمایه تخصصی ایکس پاور با قدرت تخمیر مضاعف و فعالیت آنزیمی بالا، جهت پخت انواع نان‌های حجیم، نیمه‌حجیم و شیرینی‌جات.',
@@ -4616,6 +4649,7 @@
     const brandsTitle = document.getElementById('brandsTitle');
     const brandsSubtitle = document.getElementById('brandsSubtitle');
     const heroSection = document.getElementById('heroSection');
+    const heroBrandVideo = document.getElementById('heroBrandVideo');
     const heroTitleEl = document.getElementById('heroTitle');
     const heroSubtitleEl = document.getElementById('heroSubtitle');
     const analysisTitleEl = document.getElementById('analysisTitle');
@@ -4719,6 +4753,22 @@
       if (!brand || !displayBrand) return;
       currentBrandKey = brandKey;
       if (brand.heroBg) heroSection.style.backgroundImage = `url('${brand.heroBg}')`;
+
+      if (brand.heroVideo) {
+        if (heroBrandVideo.getAttribute('src') !== brand.heroVideo) {
+          heroBrandVideo.src = brand.heroVideo;
+          heroBrandVideo.load();
+        }
+        heroBrandVideo.classList.add('is-active');
+        const heroVideoPlay = heroBrandVideo.play();
+        if (heroVideoPlay && typeof heroVideoPlay.catch === 'function') heroVideoPlay.catch(() => {});
+      } else {
+        heroBrandVideo.classList.remove('is-active');
+        heroBrandVideo.pause();
+        heroBrandVideo.removeAttribute('src');
+        heroBrandVideo.load();
+      }
+
       // فقط برای رضوی و نان مایه، تصویر هیرو کمی پایین‌تر قرار بگیرد تا زیر منوی بالا نرود.
       heroSection.style.backgroundPosition = (brandKey === 'razavi' || brandKey === 'nanmaye')
         ? 'center 70px'
