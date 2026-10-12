@@ -87,7 +87,7 @@ img{max-width:100%;display:block}
 .mobile-toggle span::after{top:6px}
 
 .hero{height:100svh;min-height:680px;position:relative;overflow:hidden;background:#f3f1e9}
-.hero-image{position:absolute;inset:0;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790490239/9b5c78c9-61a6-4b3f-b0fc-49a88c27ee43_are2w2.png");background-position:center center;background-size:cover;background-repeat:no-repeat;will-change:transform}
+.hero-image{position:absolute;inset:0;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790490239/9b5c78c9-61a6-4b3f-b0fc-49a88c27ee43_are2w2.png");background-position:center center;background-size:cover;background-repeat:no-repeat;transform:none;will-change:auto}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(270deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,.05) 45%,rgba(255,255,255,0) 70%);pointer-events:none;z-index:1}
 .hero-shapes{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
 .hero-shape{position:absolute;border-radius:50%;filter:blur(24px);animation:floatOrb 16s ease-in-out infinite}
@@ -1034,6 +1034,14 @@ img{max-width:100%;display:block}
 }
 
 
+
+
+/* ===== STABLE HOMEPAGE HERO SCROLL ===== */
+.hero .hero-image{
+  transform:none !important;
+  will-change:auto !important;
+  backface-visibility:hidden;
+}
 </style>
 </head>
 <body>
@@ -1450,20 +1458,6 @@ document.addEventListener("DOMContentLoaded",()=>{
   } else {
     revealEls.forEach(el=>el.classList.add("is-visible"));
   }
-
-  const heroImage=document.getElementById("heroImage");
-  let parallaxTick=false;
-  const applyParallax=()=>{
-    if(!heroImage) return;
-    const y=window.scrollY;
-    if(y<window.innerHeight){
-      heroImage.style.transform=`translate3d(0,${y*0.3}px,0) scale(1.08)`;
-    }
-    parallaxTick=false;
-  };
-  window.addEventListener("scroll",()=>{
-    if(!parallaxTick){requestAnimationFrame(applyParallax);parallaxTick=true;}
-  },{passive:true});
 
   const backTop=document.getElementById("backTop");
   const toggleBackTop=()=>{
