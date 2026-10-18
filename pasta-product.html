@@ -299,8 +299,8 @@ body>.hero .hero-pills span{border:1px solid rgba(189,166,135,.4);background:rgb
 body>.hero .hero-mini{margin-top:20px;color:#51627d;justify-content:flex-start;direction:ltr;font-weight:650;letter-spacing:.6px}
 /* One animated circular scroll-down icon, rather than text button */
 .hero-scroll-link{
-  position:absolute;left:clamp(28px,6.3vw,110px);bottom:clamp(23px,4.3vh,42px);z-index:5;
-  width:62px;height:62px;padding:0;border-radius:50%;display:grid;place-items:center;
+  position:absolute;left:14px;bottom:14px;z-index:5;
+  width:44px;height:44px;padding:0;border-radius:50%;display:grid;place-items:center;
   color:#f9eedb;background:linear-gradient(145deg,#284a81,#122b56);
   border:1.5px solid rgba(235,208,164,.85);
   box-shadow:0 14px 34px rgba(20,44,87,.28),inset 0 1px 1px rgba(255,255,255,.22);
@@ -309,11 +309,11 @@ body>.hero .hero-mini{margin-top:20px;color:#51627d;justify-content:flex-start;d
   animation:pastaButtonBreathe 2.8s ease-in-out infinite;
 }
 .hero-scroll-link::before{
-  content:"";position:absolute;inset:-10px;z-index:-1;border:1.5px solid rgba(200,164,103,.65);
+  content:"";position:absolute;inset:-5px;z-index:-1;border:1.5px solid rgba(200,164,103,.65);
   border-radius:50%;animation:pastaArrowRipple 2.8s ease-out infinite;pointer-events:none;
 }
 .hero-scroll-link:hover{transform:translateY(-4px);background:linear-gradient(145deg,#385d94,#17335f);box-shadow:0 17px 38px rgba(20,44,87,.35)}
-.hero-scroll-link .down-icon{width:27px;height:27px;animation:pastaArrowDrop 1.75s ease-in-out infinite}
+.hero-scroll-link .down-icon{width:19px;height:19px;animation:pastaArrowDrop 1.75s ease-in-out infinite}
 .hero-scroll-link:focus-visible{outline:3px solid #c8a467;outline-offset:7px}
 @keyframes pastaArrowRipple{
   0%{transform:scale(.82);opacity:.7}
@@ -352,7 +352,7 @@ body>.site-footer .footer-bottom{border-top:1px solid rgba(219,189,142,.22)}
   body>.hero h1{font-size:clamp(27px,3vw,39px)}
   body>.hero p{font-size:12px;line-height:2}
   body>.hero .hero-pills span{font-size:10px;padding:8px 10px}
-  .hero-scroll-link{left:clamp(28px,4.5vw,55px)}
+  .hero-scroll-link{left:14px}
 }
 @media (max-width:768px){
   body>.header,body>.header.is-scrolled{background:rgba(251,246,237,.98)}
@@ -370,8 +370,8 @@ body>.site-footer .footer-bottom{border-top:1px solid rgba(219,189,142,.22)}
   body>.hero .hero-pills{gap:6px;margin-top:12px}
   body>.hero .hero-pills span{padding:7px 9px;font-size:9px}
   body>.hero .hero-mini{margin-top:11px;font-size:8px}
-  .hero-scroll-link{left:22px;bottom:19px;width:52px;height:52px}
-  .hero-scroll-link .down-icon{width:23px;height:23px}
+  .hero-scroll-link{left:12px;bottom:12px;width:42px;height:42px}
+  .hero-scroll-link .down-icon{width:18px;height:18px}
   .brand-area .logo-card[aria-label="اوریناک"] img{max-height:80px}
 }
 @media (prefers-reduced-motion:reduce){
