@@ -18,15 +18,353 @@
 .logo-card:hover{box-shadow:0 12px 26px rgba(21,45,91,.12);transform:translateY(-2px)}
 .links a:focus-visible,.quote:focus-visible,.brand:focus-visible,.tab:focus-visible{outline:3px solid #b89254;outline-offset:4px}
 @media(max-width:600px){.logo-card img{max-width:82%;max-height:62px}.metric.energy{flex-wrap:wrap;gap:6px}.metric.energy .value{font-size:17px}}
+
+/* Original ELVEN site header, navigation and footer styles: synced from index.html */
+:root{--fa:"Vazirmatn",system-ui,sans-serif;--en:"Poppins",Arial,sans-serif}
+.header{position:fixed;top:0;left:0;right:0;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,58px);background:transparent;z-index:1000;transition:background .35s ease,box-shadow .35s ease,height .3s ease}
+.header.is-scrolled{background:rgba(252,251,247,.92);backdrop-filter:saturate(140%) blur(14px);box-shadow:0 8px 34px rgba(10,58,44,.09);height:76px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-mark{width:46px;height:46px;border-radius:13px;background:linear-gradient(145deg,#0f7a5c,#0a5c46 60%,#063a2c);display:grid;place-items:center;color:#c9f4c9;box-shadow:0 8px 22px rgba(10,92,70,.28),inset 0 -2px 6px rgba(0,0,0,.15);position:relative;overflow:hidden;animation:brandPulse 4s ease-in-out infinite}
+.brand-mark::after{content:"";position:absolute;inset:-50%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);animation:brandShine 5s ease-in-out infinite}
+@keyframes brandShine{0%,85%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes brandPulse{0%,100%{box-shadow:0 8px 22px rgba(10,92,70,.28),inset 0 -2px 6px rgba(0,0,0,.15)}50%{box-shadow:0 8px 30px rgba(10,92,70,.42),inset 0 -2px 6px rgba(0,0,0,.15)}}
+.brand-mark svg{width:26px;height:26px;position:relative;z-index:1}
+.brand-text strong{display:block;font-size:18px;font-weight:800;line-height:1;color:#0a3a2c;letter-spacing:-.3px}
+.brand-text small{display:block;margin-top:5px;font-family:var(--en);font-size:8px;letter-spacing:2.6px;color:#6b7c75;font-weight:500}
+.nav{display:flex;gap:clamp(20px,2.3vw,38px);align-items:center;margin:0 auto 0 0}
+.nav a{position:relative;color:#3b4d47;font-size:14.5px;font-weight:500;padding:8px 2px;transition:color .3s ease;white-space:nowrap}
+.nav a::after{content:'';position:absolute;bottom:0;right:0;left:0;height:2px;border-radius:2px;background:#0a5c46;transform:scaleX(0);transform-origin:right center;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.nav a:hover{color:#0a5c46}
+.nav a:hover::after{transform:scaleX(1)}
+.nav a.active{color:#0a5c46;font-weight:700}
+.nav a.active::after{transform:scaleX(1);background:#0a5c46}
+.header-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.cta-quote{display:inline-flex;align-items:center;gap:9px;background:#0a5c46;color:#fff;border:0;padding:12px 22px;border-radius:40px;font-family:var(--fa);font-size:13px;font-weight:700;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 10px 26px rgba(10,92,70,.28);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,background .3s}
+.cta-quote::before{content:"";position:absolute;top:0;right:-130%;width:90%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.42),transparent);transform:skewX(-20deg);transition:right .75s ease}
+.cta-quote:hover::before{right:130%}
+.cta-quote:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(10,92,70,.38);background:#0c6c52}
+.cta-quote svg{width:15px;height:15px;transition:transform .35s}
+.cta-quote:hover svg{transform:translateX(-4px)}
+.mobile-toggle{display:none;border:0;background:transparent;color:#0a5c46;width:42px;height:42px;border-radius:12px;cursor:pointer;align-items:center;justify-content:center;transition:background .25s}
+.mobile-toggle:hover{background:rgba(10,92,70,.08)}
+.mobile-toggle span{display:block;width:20px;height:2px;background:currentColor;position:relative;transition:.3s}
+.mobile-toggle span::before,.mobile-toggle span::after{content:'';position:absolute;left:0;width:100%;height:2px;background:currentColor;transition:.3s}
+.mobile-toggle span::before{top:-6px}
+.mobile-toggle span::after{top:6px}
+.site-footer{background:linear-gradient(180deg,#04251b 0%,#031c14 100%);color:#fff;padding:60px 40px 22px;position:relative;overflow:hidden}
+.site-footer::before{content:"";position:absolute;top:-60%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(10,92,70,.4),transparent 65%);pointer-events:none}
+.site-footer::after{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,163,90,.5),transparent)}
+.footer-container{position:relative;z-index:1;width:min(1400px,100%);max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1.1fr 1.3fr;gap:56px;align-items:start;padding-bottom:38px}
+.footer-brand-block{max-width:340px}
+.footer-logo{display:flex;align-items:center;gap:13px;margin-bottom:16px}
+.footer-logo-mark{width:48px;height:48px;border-radius:14px;background:linear-gradient(145deg,#0f7a5c,#0a5c46);display:grid;place-items:center;flex:none;box-shadow:0 10px 26px rgba(10,92,70,.4),inset 0 -2px 8px rgba(0,0,0,.2);color:#c9f4c9}
+.footer-logo-mark svg{width:26px;height:26px}
+.footer-logo-text strong{display:block;font-size:20px;font-weight:900;letter-spacing:-.3px;color:#fff;line-height:1.1}
+.footer-logo-text small{display:block;margin-top:4px;font-family:var(--en);font-size:8.5px;letter-spacing:2.6px;color:#6fa78e;font-weight:500}
+.footer-brand-block p{color:#8fab9d;line-height:2;font-size:12.5px;margin:0}
+.footer-col h4{font-family:var(--fa);font-size:14.5px;font-weight:700;color:#fff;margin:0 0 20px;position:relative;padding-bottom:12px}
+.footer-col h4::after{content:"";position:absolute;bottom:0;right:0;width:32px;height:2px;background:linear-gradient(90deg,#c9a35a,transparent);border-radius:2px}
+.footer-col ul{list-style:none;margin:0;padding:0}
+.footer-col li{margin-bottom:13px}
+.footer-col a{color:#8fab9d;font-size:12.5px;position:relative;display:inline-flex;align-items:center;gap:6px;transition:color .3s,padding .3s}
+.footer-col a::before{content:"";width:0;height:1px;background:#c9a35a;transition:width .35s cubic-bezier(.16,1,.3,1)}
+.footer-col a:hover{color:#c9a35a}
+.footer-col a:hover::before{width:14px}
+.footer-contact-item{display:flex;align-items:flex-start;gap:11px;margin-bottom:16px;color:#8fab9d;font-size:12.5px;line-height:1.7}
+.footer-contact-item i{flex:none;width:34px;height:34px;border-radius:10px;background:rgba(10,92,70,.35);border:1px solid rgba(111,167,142,.2);display:grid;place-items:center;color:#c9a35a;font-style:normal;font-size:14px;transition:background .3s,color .3s,transform .3s}
+.footer-contact-item:hover i{background:#c9a35a;color:#04251b;transform:rotate(-6deg) scale(1.05)}
+.footer-contact-item div strong{display:block;font-family:var(--en);font-size:12.5px;color:#fff;font-weight:600;letter-spacing:.3px;direction:ltr;text-align:right}
+.footer-contact-item div small{display:block;margin-top:3px;color:#6fa78e;font-size:11px}
+.footer-contact-item a{color:#e0f0e6;direction:ltr;display:inline-block;transition:color .3s}
+.footer-contact-item a:hover{color:#c9a35a}
+.footer-bottom{position:relative;z-index:1;width:min(1400px,100%);max-width:1400px;margin:0 auto;padding-top:22px;border-top:1px solid rgba(111,167,142,.14);display:flex;justify-content:space-between;align-items:center;color:#6fa78e;font-size:11.5px;gap:20px;flex-wrap:wrap}
+.footer-bottom a{color:#6fa78e;transition:color .3s}
+.footer-bottom a:hover{color:#c9a35a}
+@media(max-width:1200px){
+.footer-container{grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px}
+}
+@media(max-width:900px){
+.nav{margin:0 12px 0 0;gap:22px}
+.nav a{font-size:13px}
+.cta-quote{padding:10px 16px;font-size:12px}
+.footer-container{grid-template-columns:1fr 1fr;gap:38px 32px}
+.footer-brand-block{grid-column:1/-1;max-width:none}
+}
+@media(max-width:768px){
+.header{height:70px;padding:0 16px;background:rgba(252,251,247,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 2px 12px rgba(10,58,44,.04)}
+.header.is-scrolled{height:64px;box-shadow:0 6px 22px rgba(10,58,44,.1)}
+.brand{gap:10px}
+.brand-mark{width:40px;height:40px;border-radius:11px}
+.brand-mark svg{width:22px;height:22px}
+.brand-text strong{font-size:15px}
+.brand-text small{font-size:6.5px;letter-spacing:1.8px;margin-top:4px}
+.header-actions{gap:4px}
+.header-actions .cta-quote{display:none}
+.mobile-toggle{display:flex;width:40px;height:40px;margin-right:2px}
+.nav{position:fixed;top:70px;right:0;left:0;flex-direction:column;gap:0;background:rgba(252,251,247,.98);backdrop-filter:blur(20px);padding:14px 22px 22px;margin:0;border-radius:0 0 24px 24px;box-shadow:0 20px 44px rgba(10,58,44,.14);transform:translateY(-14px);opacity:0;pointer-events:none;transition:opacity .35s ease,transform .42s cubic-bezier(.16,1,.3,1);z-index:999}
+.nav.mobile-open{opacity:1;transform:none;pointer-events:auto}
+.nav a{padding:15px 4px;font-size:15px;border-bottom:1px solid #edf1ed;width:100%;text-align:right;color:#3b4d47}
+.nav a:last-child{border-bottom:0}
+.nav a::after{display:none}
+.nav a.active{color:#0a5c46;font-weight:700}
+.site-footer{padding:50px 22px 20px}
+.footer-container{display:grid;grid-template-columns:1fr 1fr;gap:36px 22px;padding-bottom:30px}
+.footer-brand-block{grid-column:1/-1;max-width:none;text-align:center;padding-bottom:6px}
+.footer-logo{justify-content:center;gap:12px;margin-bottom:16px}
+.footer-logo-mark{width:46px;height:46px;border-radius:13px}
+.footer-logo-mark svg{width:24px;height:24px}
+.footer-logo-text strong{font-size:19px}
+.footer-logo-text small{font-size:7.5px;letter-spacing:2.2px}
+.footer-brand-block p{max-width:400px;margin:0 auto;text-align:center;font-size:12px;line-height:1.95}
+.footer-col h4{font-size:13.5px;margin:0 0 16px;padding-bottom:11px}
+.footer-col h4::after{width:28px}
+.footer-col ul li{margin-bottom:12px}
+.footer-col a{font-size:11.5px}
+.footer-col:last-child{grid-column:1/-1;margin-top:6px;padding-top:26px;border-top:1px solid rgba(111,167,142,.1)}
+.footer-contact-item{display:flex;align-items:center;gap:12px;margin:0 0 10px;padding:11px 14px;background:rgba(10,92,70,.18);border:1px solid rgba(111,167,142,.12);border-radius:12px;transition:background .3s,border-color .3s,transform .3s}
+.footer-contact-item:last-child{margin-bottom:0}
+.footer-contact-item:hover{background:rgba(10,92,70,.28);border-color:rgba(201,163,90,.28);transform:translateX(-3px)}
+.footer-contact-item i{width:36px;height:36px;font-size:14px;border-radius:10px;flex:none}
+.footer-contact-item div{flex:1;min-width:0}
+.footer-contact-item div strong{font-size:12.5px;direction:ltr;text-align:right;letter-spacing:.5px;line-height:1.2}
+.footer-contact-item div small{font-size:10.5px;margin-top:3px;line-height:1.2}
+.footer-bottom{flex-direction:column;gap:10px;text-align:center;font-size:10.5px;padding-top:18px}
+}
+@media(max-width:480px){
+.header{height:66px}
+.header.is-scrolled{height:60px}
+.brand-mark{width:36px;height:36px}
+.brand-mark svg{width:20px;height:20px}
+.brand-text strong{font-size:14px}
+.brand-text small{font-size:6px}
+.nav{top:66px}
+.mobile-toggle{width:38px;height:38px}
+.site-footer{padding:44px 18px 18px}
+.footer-container{grid-template-columns:1fr 1fr;gap:30px 16px}
+.footer-brand-block{grid-column:1/-1;text-align:center}
+.footer-logo{margin-bottom:14px}
+.footer-logo-mark{width:42px;height:42px}
+.footer-logo-text strong{font-size:17px}
+.footer-brand-block p{max-width:340px;font-size:11.5px}
+.footer-col h4{font-size:12.5px;margin-bottom:14px;padding-bottom:10px}
+.footer-col a{font-size:11px}
+.footer-col:last-child{padding-top:22px}
+.footer-contact-item{padding:10px 12px;gap:10px;margin-bottom:9px;border-radius:11px}
+.footer-contact-item i{width:32px;height:32px;font-size:13px}
+.footer-contact-item div strong{font-size:11.5px}
+.footer-contact-item div small{font-size:10px}
+.footer-bottom{font-size:10px;gap:8px}
+}
+@media(min-width:901px){
+.site-footer{
+    padding-left:clamp(42px,5vw,92px) !important;
+    padding-right:clamp(42px,5vw,92px) !important;
+  }
+.site-footer .footer-container{
+    width:min(1500px,100%) !important;
+    max-width:1500px !important;
+    grid-template-columns:
+      minmax(320px,1.45fr)
+      minmax(150px,.72fr)
+      minmax(180px,.82fr)
+      minmax(280px,1.15fr) !important;
+    gap:clamp(46px,5vw,96px) !important;
+    align-items:start !important;
+  }
+.site-footer .footer-brand-block,
+  .site-footer .footer-col{
+    text-align:right !important;
+    justify-self:stretch !important;
+  }
+.site-footer .footer-brand-block{
+    max-width:420px !important;
+  }
+.site-footer .footer-logo{
+    justify-content:flex-start !important;
+  }
+.site-footer .footer-col h4{
+    text-align:right !important;
+  }
+.site-footer .footer-col ul{
+    text-align:right !important;
+  }
+.site-footer .footer-contact-item{
+    width:100% !important;
+    justify-content:flex-start !important;
+    text-align:right !important;
+  }
+.site-footer .footer-contact-item div{
+    flex:1 !important;
+    min-width:0 !important;
+  }
+.site-footer .footer-bottom{
+    width:min(1500px,100%) !important;
+    max-width:1500px !important;
+    justify-content:space-between !important;
+    text-align:right !important;
+  }
+}
+@media (min-width: 901px){
+.header{
+    column-gap:clamp(18px,2vw,34px);
+  }
+.nav{
+    margin:0 0 0 auto !important;
+    gap:clamp(18px,2vw,32px);
+    flex-shrink:0;
+  }
+.header-actions{
+    margin-right:clamp(16px,1.8vw,30px);
+  }
+}
+/* Pasta hero occupies the complete first screen. Preserve image composition. */
+body>.header{background:rgba(252,251,247,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+body>.hero{height:100svh;min-height:680px;background-size:cover;background-position:center center;overflow:hidden}
+body>.hero .hero-copy{z-index:2}
+.hero-scroll-link{position:absolute;bottom:24px;left:6.4vw;z-index:4;color:#294566;background:rgba(255,255,255,.8);border:1px solid rgba(41,69,102,.14);box-shadow:0 8px 28px rgba(21,45,80,.08);border-radius:50px;padding:10px 18px;display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;transition:transform .25s ease,background .25s ease;direction:rtl}
+.hero-scroll-link:hover{transform:translateY(-3px);background:#fff}
+.hero-scroll-link .down{font-size:20px;line-height:1}
+#pastaDetails{scroll-margin-top:90px}
+body>.header .cta-quote{text-decoration:none}
+body>.header .mobile-toggle:focus-visible,body>.header .nav a:focus-visible,body>.header .cta-quote:focus-visible{outline:3px solid #c9a35a;outline-offset:4px}
+@media (max-width:900px) and (min-width:601px){
+body>.hero{height:100svh;min-height:680px;background-position:57% center}
+}
+@media (max-width:768px){
+body>.header{background:rgba(252,251,247,.97)}
+}
+@media (max-width:600px){
+body>.hero{height:100svh;min-height:700px;background-size:auto 59%;background-position:93% bottom;background-color:#fcfaf5;display:block}
+body>.hero::after{background:linear-gradient(180deg,rgba(252,250,245,.95) 0%,rgba(252,250,245,.78) 33%,transparent 55%);z-index:1}
+body>.hero .hero-copy{position:absolute;top:75px;left:0;right:0;width:100%;padding:22px 24px 0;transform:none;text-align:right}
+body>.hero .hero-copy h1{font-size:clamp(28px,7.7vw,36px);line-height:1.45;margin:12px 0 8px}
+body>.hero .hero-copy p{font-size:11.5px;line-height:1.9;max-width:360px}
+body>.hero .hero-pills{margin-top:13px}
+body>.hero .hero-mini{margin-top:10px}
+.hero-scroll-link{bottom:12px;left:14px;padding:7px 11px;font-size:9px}
+}
+
 </style></head><body>
-<header class="header"><a class="brand" href="index.html" aria-label="بازگشت به صفحه اصلی مهاجر استیل"><span class="brand-mark">M</span><span class="brand-text"><strong>مهاجر استیل</strong><small>MOHAJER TRADING GROUP</small></span></a><nav class="links" aria-label="منوی اصلی"><a href="index.html">خانه</a><a class="active" href="index.html#products" aria-current="page">محصولات</a><a href="index.html#products">پیشنهاد ویژه</a><a href="index.html#about">درباره ما</a><a href="index.html#contact">تماس</a></nav><a class="quote" href="index.html#contact">استعلام قیمت ←</a></header>
-<section class="hero" aria-label="مجموعه محصولات ماکارونی همرسین"><div class="hero-copy"><span class="pretitle"><i></i> مجموعه محصولات همرسین</span><h1>طعم اصیل، <br><em>کیفیت ماندگار</em></h1><p>مجموعه محصولات ماکارونی همرسین؛ از اسپاگتی و پاستا فرمی تا ماکارونی فله، در یک مجموعه.</p><div class="hero-pills"><span>اسپاگتی</span><span>پاستا فرمی</span><span>ماکارونی فله</span></div><div class="hero-mini"><span>HEMERSIN PASTA COLLECTION</span><span class="line"></span></div></div></section>
+<header class="header" id="siteHeader">
+  <a class="brand" href="index.html#home" aria-label="مهاجر استیل">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+        <path d="M12 21V11"/>
+        <path d="M9 14l3-3 3 3"/>
+      </svg>
+    </span>
+    <span class="brand-text">
+      <strong>مهاجر استیل</strong>
+      <small>MOHAJER TRADING GROUP</small>
+    </span>
+  </a>
+
+  <nav class="nav" id="primaryNav" aria-label="منوی اصلی">
+    <a href="index.html#home" data-nav-target="home">خانه</a>
+    <a class="active" href="index.html#products" data-nav-target="products">محصولات</a>
+    <a href="index.html#products" data-nav-target="products">پیشنهاد ویژه</a>
+    <a href="index.html#about" data-nav-target="about">درباره ما</a>
+    <a href="index.html#contact" data-nav-target="contact">تماس</a>
+  </nav>
+
+  <div class="header-actions">
+    <a class="cta-quote" href="index.html#contact">
+      استعلام قیمت
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+  <button class="mobile-toggle" aria-label="منو" data-menu aria-expanded="false" aria-controls="primaryNav">
+    <span></span>
+  </button>
+</header>
+<section class="hero" aria-label="مجموعه محصولات ماکارونی همرسین"><div class="hero-copy"><span class="pretitle"><i></i> مجموعه محصولات همرسین</span><h1>طعم اصیل، <br><em>کیفیت ماندگار</em></h1><p>مجموعه محصولات ماکارونی همرسین؛ از اسپاگتی و پاستا فرمی تا ماکارونی فله، در یک مجموعه.</p><div class="hero-pills"><span>اسپاگتی</span><span>پاستا فرمی</span><span>ماکارونی فله</span></div><div class="hero-mini"><span>HEMERSIN PASTA COLLECTION</span><span class="line"></span></div></div><a class="hero-scroll-link" href="#pastaDetails">مشاهده اطلاعات محصولات <span class="down" aria-hidden="true">↓</span></a></section>
 <div class="separator"></div>
-<main class="content"><div class="section-heading"><span class="eyebrow">PRODUCT INFORMATION</span><h2>معرفی و مشخصات محصول</h2><p>اطلاعات ترکیبات، ارزش غذایی و روش پخت محصولات ماکارونی</p></div>
+<main class="content" id="pastaDetails"><div class="section-heading"><span class="eyebrow">PRODUCT INFORMATION</span><h2>معرفی و مشخصات محصول</h2><p>اطلاعات ترکیبات، ارزش غذایی و روش پخت محصولات ماکارونی</p></div>
 <div class="tabs" role="tablist"><button class="tab" id="tab-spaghetti" role="tab" aria-selected="false">اسپاگتی</button><button class="tab" id="tab-form" role="tab" aria-selected="true">پاستا فرمی</button><button class="tab" id="tab-bulk" role="tab" aria-selected="false">ماکارونی فله</button></div>
 <div class="detail-grid"><article class="info-panel"><div class="panel-head"><span class="panel-icon">✦</span><div><small>معرفی محصول</small><h3 id="selectedTitle">پاستا فرمی همرسین ماکارون</h3></div></div><p class="intro" id="selectedText">پاستا فرمی با طراحی صدفی‌شکل، با انواع سس‌های غلیظ و رقیق به‌خوبی ترکیب می‌شود. این محصول با سس‌های خامه‌ای و سس‌های پایه گوشت انتخابی مناسب است. بسته‌بندی ۵۰۰ گرمی برای ۴ تا ۶ نفر در نظر گرفته شده و برای سوپ، خوراک و غذاهای دریایی مانند میگو و ماهی نیز کاربرد دارد.</p><div class="ingredients" id="selectedIngredients"><strong>ترکیبات غذایی</strong><span>آرد گندم (آرد ماکارونی)</span><span>آب</span></div><div class="recipe" id="selectedRecipe"><span class="recipe-icon">♨</span><div class="rtext"><strong>طرز پخت پیشنهادی</strong><p>به ازای هر لیتر آب جوشِ دارای مقدار کمی نمک، ۱۰۰ گرم پاستا اضافه کنید؛ سپس آبکش کرده و با سس دلخواه سرو کنید.</p></div><div class="cooktime"><b>۱۲–۱۴</b><small>دقیقه</small></div></div></article>
 <article class="nutrition-panel"><div class="nutrition-head"><div class="panel-head"><span class="panel-icon">▤</span><div><small>ارزش غذایی محصول</small><h3>جدول ارزش غذایی</h3></div></div><span class="serving">در هر ۵۵ گرم</span></div><div class="nutri-grid"><div class="metric energy"><span class="label">انرژی</span><span class="value">۱۸۷٫۶۴ <small>کیلوکالری</small> &nbsp; | &nbsp; ۷۸۵٫۰۸ <small>کیلوژول</small></span></div><div class="metric"><div class="label">پروتئین</div><div class="value">۶٫۴۷ <small>گرم</small></div></div><div class="metric"><div class="label">چربی</div><div class="value">۰٫۲۸ <small>گرم</small></div></div><div class="metric"><div class="label">کربوهیدرات</div><div class="value">۳۹٫۸۳ <small>گرم</small></div></div><div class="metric"><div class="label">فیبر</div><div class="value">۰٫۶۱ <small>گرم</small></div></div><div class="metric"><div class="label">سدیم</div><div class="value">۰٫۰۱ <small>گرم</small></div></div><div class="metric"><div class="label">نمک</div><div class="value">— <small>نامشخص</small></div></div></div><p id="nutritionPending" style="display:none;font-size:13px;color:#6b778a;line-height:2.3;padding:20px 12px;">اطلاعات ارزش غذایی این محصول هنوز ارائه نشده است. پس از دریافت اطلاعات اختصاصی، جدول همین‌جا تکمیل می‌شود.</p><p class="footnote">* اعداد از اطلاعات ارائه‌شده برای پاستا فرمی وارد شده‌اند و پیش از انتشار نیازمند تأیید نهایی برچسب محصول‌اند.</p></article></div></main>
-<section class="brand-area"><div class="brand-container"><div class="section-heading"><span class="eyebrow">OUR PARTNER BRANDS</span><h2>برندهایی که با آن‌ها همکاری می‌کنیم</h2><p>برندهای همکار در مجموعه صادراتی مهاجر استیل</p></div><div class="logos"><div class="logo-card" aria-label="رضوی"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753865/1_we2fqr.png" alt="لوگوی رضوی" loading="lazy" decoding="async"></div><div class="logo-card" aria-label="نان مایه"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/5_jixmoc.png" alt="لوگوی نان مایه" loading="lazy" decoding="async"></div><div class="logo-card" aria-label="DEZ MAYE"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/2_reoods.png" alt="لوگوی DEZ MAYE" loading="lazy" decoding="async"></div><div class="logo-card" aria-label="SHETAB"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/3_mnje6n.png" alt="لوگوی SHETAB" loading="lazy" decoding="async"></div><div class="logo-card" aria-label="X POWER"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/4_ay3jsy.png" alt="لوگوی X POWER" loading="lazy" decoding="async"></div></div></div></section><footer class="footer">مهاجر استیل · صادرات و تأمین محصولات غذایی باکیفیت</footer>
+<section class="brand-area"><div class="brand-container"><div class="section-heading"><span class="eyebrow">OUR PARTNER BRANDS</span><h2>برندهایی که با آن‌ها همکاری می‌کنیم</h2><p>برندهای همکار در مجموعه صادراتی مهاجر استیل</p></div><div class="logos"><div class="logo-card" aria-label="رضوی"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753865/1_we2fqr.png" alt="لوگوی رضوی" loading="lazy" decoding="async"></div><div class="logo-card" aria-label="نان مایه"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/5_jixmoc.png" alt="لوگوی نان مایه" loading="lazy" decoding="async"></div><div class="logo-card" aria-label="DEZ MAYE"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/2_reoods.png" alt="لوگوی DEZ MAYE" loading="lazy" decoding="async"></div><div class="logo-card" aria-label="SHETAB"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/3_mnje6n.png" alt="لوگوی SHETAB" loading="lazy" decoding="async"></div><div class="logo-card" aria-label="X POWER"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1790753866/4_ay3jsy.png" alt="لوگوی X POWER" loading="lazy" decoding="async"></div></div></div></section><footer id="contact" class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand-block">
+      <div class="footer-logo">
+        <span class="footer-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+            <path d="M12 21V11"/>
+            <path d="M9 14l3-3 3 3"/>
+          </svg>
+        </span>
+        <span class="footer-logo-text">
+          <strong>مهاجر استیل</strong>
+          <small>MOHAJER TRADING GROUP</small>
+        </span>
+      </div>
+      <p>محصولات غذایی ممتاز ایرانی، با دقت انتخاب و برای تجارت بین‌المللی مطمئن آماده می‌شوند.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>شرکت</h4>
+      <ul>
+        <li><a href="index.html#about">درباره ما</a></li>
+        <li><a href="index.html#about">داستان ما</a></li>
+        <li><a href="index.html#products">محصولات</a></li>
+        <li><a href="index.html#contact">تماس</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>خدمات مشتریان</h4>
+      <ul>
+        <li><a href="index.html#contact">درخواست قیمت</a></li>
+        <li><a href="index.html#contact">پشتیبانی صادرات</a></li>
+        <li><a href="index.html#contact">ارسال و تحویل</a></li>
+        <li><a href="index.html#contact">سوالات متداول</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>تماس با ما</h4>
+      <div class="footer-contact-item">
+        <i>☎</i>
+        <div>
+          <strong><a href="tel:+989153082367">۰۹۱۵۳۰۸۲۳۶۷</a></strong>
+          <small>محمد مهاجری</small>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <i>☎</i>
+        <div>
+          <strong><a href="tel:+98915551965">۰۹۱۵۵۵۱۹۶۵</a></strong>
+          <small>علیرضا تهرانی</small>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <i>✉</i>
+        <div>
+          <strong><a href="mailto:info@mohajer-steel.com">info@mohajer-steel.com</a></strong>
+          <small>ایمیل رسمی</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div>© ۱۴۰۴ مهاجر استیل — تمامی حقوق محفوظ است.</div>
+    <div class="designer">طراحی و توسعه اختصاصی</div>
+  </div>
+</footer>
 <script>
 const tabs=document.querySelectorAll('.tab');tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(b=>b.setAttribute('aria-selected',String(b===t)));document.getElementById('selectedIngredients').hidden=t.id!=='tab-form';document.getElementById('selectedRecipe').hidden=t.id!=='tab-form';document.querySelector('.nutri-grid').style.display=t.id==='tab-form'?'grid':'none';document.getElementById('nutritionPending').style.display=t.id==='tab-form'?'none':'block';document.querySelector('.footnote').style.display=t.id==='tab-form'?'block':'none';if(t.id==='tab-form'){document.getElementById('selectedTitle').textContent='پاستا فرمی همرسین ماکارون';document.getElementById('selectedText').textContent='پاستا فرمی با طراحی صدفی‌شکل، با انواع سس‌های غلیظ و رقیق به‌خوبی ترکیب می‌شود. این محصول با سس‌های خامه‌ای و سس‌های پایه گوشت انتخابی مناسب است. بسته‌بندی ۵۰۰ گرمی برای ۴ تا ۶ نفر در نظر گرفته شده و برای سوپ، خوراک و غذاهای دریایی مانند میگو و ماهی نیز کاربرد دارد.';}else{document.getElementById('selectedTitle').textContent=t.id==='tab-spaghetti'?'اسپاگتی همرسین':'ماکارونی فله همرسین';document.getElementById('selectedText').textContent='اطلاعات اختصاصی معرفی، ترکیبات، روش پخت و ارزش غذایی این محصول هنوز ارائه نشده است. برای جلوگیری از نمایش اطلاعات نادرست، مشخصات پاستا فرمی به این محصول نسبت داده نشده‌اند.';}}))
+
+const siteHeader=document.getElementById('siteHeader'), siteNav=document.getElementById('primaryNav'), siteMenu=document.querySelector('[data-menu]');
+const closeSiteNav=()=>{siteNav?.classList.remove('mobile-open');siteMenu?.setAttribute('aria-expanded','false')};
+siteMenu?.addEventListener('click',()=>{const open=siteNav.classList.toggle('mobile-open');siteMenu.setAttribute('aria-expanded',String(open))});
+siteNav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeSiteNav));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSiteNav()});
+document.addEventListener('click',e=>{if(!siteHeader?.contains(e.target))closeSiteNav()});
+const updateSiteHeader=()=>siteHeader?.classList.toggle('is-scrolled',window.scrollY>24);
+window.addEventListener('scroll',updateSiteHeader,{passive:true});updateSiteHeader();
 </script></body></html>
