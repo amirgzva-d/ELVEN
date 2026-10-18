@@ -464,6 +464,15 @@ body>.hero .hero-copy h1 em{
 }
 .brand-area .logo-card:hover{transform:translateY(-6px) scale(1.025);border-color:#dbbe90;box-shadow:0 16px 28px rgba(21,45,91,.14)}
 .brand-area .logo-card:hover::after{transform:skewX(-19deg) translateX(470%);opacity:1}
+.brand-area .logo-card img{position:relative;z-index:2}
+.brand-area .logo-card::after{z-index:1}
+@keyframes pastaCardRefresh{
+  from{opacity:.7;transform:translate3d(0,10px,0)}
+  to{opacity:1;transform:translate3d(0,0,0)}
+}
+.content .detail-grid>article.pasta-tab-refreshed{
+  animation:pastaCardRefresh .52s cubic-bezier(.2,.8,.2,1) both;
+}
 body>.site-footer .footer-contact-item{
   border:1px solid transparent;border-radius:14px;padding:10px 12px;
   transition:transform .3s,border-color .3s,background .3s,box-shadow .3s;
@@ -636,6 +645,24 @@ const updateSiteHeader=()=>siteHeader?.classList.toggle('is-scrolled',window.scr
 window.addEventListener('scroll',updateSiteHeader,{passive:true});updateSiteHeader();
 </script>
 <script>
+/* Animate product panel content when switching between pasta formats. */
+(()=>{
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const panels=[...document.querySelectorAll('.content .detail-grid>article')];
+  document.querySelectorAll('.content .tabs .tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      panels.forEach(panel=>{
+        panel.classList.remove('pasta-tab-refreshed');
+        void panel.offsetWidth;
+        panel.classList.add('pasta-tab-refreshed');
+      });
+    });
+  });
+  panels.forEach(panel=>panel.addEventListener('animationend',e=>{
+    if(e.animationName==='pastaCardRefresh')panel.classList.remove('pasta-tab-refreshed');
+  }));
+})();
+
 /* Scroll-triggered appearance: no hidden content if JS / observer is unavailable. */
 (()=>{
   if(!('IntersectionObserver' in window))return;
