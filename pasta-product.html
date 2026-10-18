@@ -251,6 +251,133 @@ body>.hero .hero-mini{margin-top:10px}
 .brand-area .logo-card img{width:auto;height:auto;max-width:94%;max-height:84px;object-fit:contain}
 @media(max-width:900px){.brand-area .logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
 @media(max-width:600px){.brand-area .logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.brand-area .logo-card{height:100px;padding:10px 6px}.brand-area .logo-card img{max-height:72px}}
+
+/* ===== Hemersin-specific refinement: navy + cream brand system ===== */
+:root{--pasta-navy:#152d5b;--pasta-deep:#0e244b;--pasta-gold:#c8a467;--pasta-cream:#fbf6ed}
+/* Original global-site header structure; pasta-only visual palette */
+body>.header{
+  background:rgba(251,246,237,.96);
+  border-bottom:1px solid rgba(200,164,103,.25);
+  box-shadow:0 8px 30px rgba(21,45,91,.07);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+}
+body>.header.is-scrolled{
+  background:rgba(251,246,237,.98);
+  box-shadow:0 10px 30px rgba(21,45,91,.12);
+}
+body>.header .brand-mark{
+  background:linear-gradient(140deg,#274777,var(--pasta-navy) 65%,var(--pasta-deep));
+  color:#f9e1ad;
+  box-shadow:0 8px 22px rgba(21,45,91,.22),inset 0 -2px 8px rgba(0,0,0,.12);
+}
+body>.header .brand-text strong{color:var(--pasta-deep)}
+body>.header .brand-text small{color:#817964}
+body>.header .nav a{color:#42516b}
+body>.header .nav a:hover,body>.header .nav a.active{color:var(--pasta-navy)}
+body>.header .nav a::after,body>.header .nav a.active::after{background:var(--pasta-gold)}
+body>.header .cta-quote{color:#fff;background:linear-gradient(110deg,#233e70,#142b53);box-shadow:0 10px 26px rgba(21,45,91,.20)}
+body>.header .cta-quote:hover{background:#243f71;box-shadow:0 13px 30px rgba(21,45,91,.28)}
+body>.header .mobile-toggle{color:var(--pasta-navy)}
+body>.header .mobile-toggle:hover{background:rgba(21,45,91,.08)}
+/* Left-hand hero copy: physically on the empty left portion, RTL text within column */
+body>.hero{isolation:isolate}
+body>.hero::after{
+  background:linear-gradient(90deg,rgba(255,251,244,.56) 0%,rgba(255,251,244,.23) 30%,transparent 49%);
+}
+body>.hero .hero-copy{
+  position:absolute;left:clamp(28px,6.3vw,110px);right:auto;top:50%;
+  transform:translateY(-44%);width:min(530px,35.5vw);max-width:none;
+  margin:0;padding:0;text-align:right;direction:rtl;align-self:auto;
+  z-index:3;
+}
+body>.hero .pretitle{font-size:clamp(11px,.9vw,13px);padding:8px 14px;background:rgba(255,252,247,.82)}
+body>.hero h1{max-width:none;margin:17px 0 16px;font-size:clamp(30px,3.05vw,54px);line-height:1.52;letter-spacing:-1.1px;color:#152e59}
+body>.hero h1 em{display:inline-block;font-size:.8em;font-weight:850;color:#ac7839}
+body>.hero p{max-width:440px;font-size:clamp(12px,.92vw,15px);line-height:2.16;font-weight:500;color:#34445a}
+body>.hero .hero-pills{justify-content:flex-start;margin-top:23px;gap:9px}
+body>.hero .hero-pills span{border:1px solid rgba(189,166,135,.4);background:rgba(255,253,248,.85);box-shadow:0 3px 14px rgba(24,42,73,.05);font-size:11px}
+body>.hero .hero-mini{margin-top:20px;color:#51627d;justify-content:flex-start;direction:ltr;font-weight:650;letter-spacing:.6px}
+/* One animated circular scroll-down icon, rather than text button */
+.hero-scroll-link{
+  position:absolute;left:clamp(28px,6.3vw,110px);bottom:clamp(23px,4.3vh,42px);z-index:5;
+  width:62px;height:62px;padding:0;border-radius:50%;display:grid;place-items:center;
+  color:#f9eedb;background:linear-gradient(145deg,#284a81,#122b56);
+  border:1.5px solid rgba(235,208,164,.85);
+  box-shadow:0 14px 34px rgba(20,44,87,.28),inset 0 1px 1px rgba(255,255,255,.22);
+  isolation:isolate;transition:transform .3s ease,box-shadow .3s ease,background .3s ease;
+  -webkit-tap-highlight-color:transparent;
+  animation:pastaButtonBreathe 2.8s ease-in-out infinite;
+}
+.hero-scroll-link::before{
+  content:"";position:absolute;inset:-10px;z-index:-1;border:1.5px solid rgba(200,164,103,.65);
+  border-radius:50%;animation:pastaArrowRipple 2.8s ease-out infinite;pointer-events:none;
+}
+.hero-scroll-link:hover{transform:translateY(-4px);background:linear-gradient(145deg,#385d94,#17335f);box-shadow:0 17px 38px rgba(20,44,87,.35)}
+.hero-scroll-link .down-icon{width:27px;height:27px;animation:pastaArrowDrop 1.75s ease-in-out infinite}
+.hero-scroll-link:focus-visible{outline:3px solid #c8a467;outline-offset:7px}
+@keyframes pastaArrowRipple{
+  0%{transform:scale(.82);opacity:.7}
+  70%,100%{transform:scale(1.2);opacity:0}
+}
+@keyframes pastaArrowDrop{
+  0%,100%{transform:translateY(-2px)}
+  50%{transform:translateY(5px)}
+}
+@keyframes pastaButtonBreathe{
+  0%,100%{box-shadow:0 13px 29px rgba(20,44,87,.22),inset 0 1px 1px rgba(255,255,255,.22)}
+  50%{box-shadow:0 17px 39px rgba(20,44,87,.37),0 0 0 5px rgba(200,164,103,.06)}
+}
+/* Slightly enlarge Orinak without affecting neighboring logo images */
+.brand-area .logo-card[aria-label="اوریناک"] img{
+  max-width:100%;max-height:94px;transform:scale(1.16);transform-origin:center center;
+}
+.brand-area{background:linear-gradient(180deg,#fbf9f4,#f4eee4);border-top:1px solid #e8decf}
+.brand-area .logo-card{border-color:rgba(201,176,138,.28);box-shadow:0 8px 22px rgba(21,45,91,.045)}
+/* Original site's complete footer structure, now in pasta navy + cream */
+body>.site-footer{background:linear-gradient(150deg,#142b52 0%,#102346 60%,#0b1b38 100%);color:#f8f2e8}
+body>.site-footer::before{background:radial-gradient(circle,rgba(201,168,108,.12),transparent 64%)}
+body>.site-footer::after{background:linear-gradient(90deg,transparent,rgba(200,164,103,.7),transparent)}
+body>.site-footer .footer-logo-mark{background:linear-gradient(145deg,#365887,#152d5b);color:#f0d29b;box-shadow:0 10px 25px rgba(6,15,35,.26)}
+body>.site-footer .footer-logo-text strong,body>.site-footer .footer-col h4{color:#fff9ee}
+body>.site-footer .footer-logo-text small,body>.site-footer .footer-bottom{color:#c5b18f}
+body>.site-footer .footer-brand-block p,body>.site-footer .footer-col a,body>.site-footer .footer-contact-item{color:#d0d8e4}
+body>.site-footer .footer-col a:hover,body>.site-footer .footer-contact-item a:hover{color:#f0ce95}
+body>.site-footer .footer-col h4::after{background:linear-gradient(90deg,#d3ad73,transparent)}
+body>.site-footer .footer-contact-item i{background:rgba(255,251,241,.08);color:#dfbd81;border:1px solid rgba(222,193,142,.2)}
+body>.site-footer .footer-contact-item:hover i{background:#d3ad73;color:#142b52}
+body>.site-footer .footer-contact-item a{color:#fff2d9}
+body>.site-footer .footer-bottom{border-top:1px solid rgba(219,189,142,.22)}
+@media (max-width:1100px) and (min-width:701px){
+  body>.hero .hero-copy{left:clamp(28px,4.5vw,55px);width:39vw}
+  body>.hero h1{font-size:clamp(27px,3vw,39px)}
+  body>.hero p{font-size:12px;line-height:2}
+  body>.hero .hero-pills span{font-size:10px;padding:8px 10px}
+  .hero-scroll-link{left:clamp(28px,4.5vw,55px)}
+}
+@media (max-width:768px){
+  body>.header,body>.header.is-scrolled{background:rgba(251,246,237,.98)}
+  body>.header .nav{background:rgba(251,246,237,.99);border:1px solid rgba(200,164,103,.24);box-shadow:0 20px 44px rgba(21,45,91,.16)}
+  body>.header .nav a,body>.header .nav a.active{color:#253e67}
+}
+@media (max-width:700px){
+  body>.hero{height:100svh;min-height:710px;background-size:auto 56%;background-position:91% bottom;background-color:#fcf8f0}
+  body>.hero::after{background:linear-gradient(180deg,rgba(252,248,240,.98),rgba(252,248,240,.94) 33%,rgba(252,248,240,0) 62%)}
+  body>.hero .hero-copy{left:18px;right:18px;top:85px;transform:none;width:auto;max-width:none;padding:12px 6px 0}
+  body>.hero .pretitle{font-size:10px;padding:6px 10px}
+  body>.hero h1{font-size:clamp(24px,6.3vw,34px);line-height:1.48;margin:10px 0 10px}
+  body>.hero h1 em{font-size:.83em}
+  body>.hero p{max-width:360px;font-size:11px;line-height:1.85;margin:0}
+  body>.hero .hero-pills{gap:6px;margin-top:12px}
+  body>.hero .hero-pills span{padding:7px 9px;font-size:9px}
+  body>.hero .hero-mini{margin-top:11px;font-size:8px}
+  .hero-scroll-link{left:22px;bottom:19px;width:52px;height:52px}
+  .hero-scroll-link .down-icon{width:23px;height:23px}
+  .brand-area .logo-card[aria-label="اوریناک"] img{max-height:80px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-scroll-link,.hero-scroll-link::before,.hero-scroll-link .down-icon{animation:none!important}
+}
+
 </style></head><body>
 <header class="header" id="siteHeader">
   <a class="brand" href="index.html#home" aria-label="مهاجر استیل">
@@ -285,7 +412,18 @@ body>.hero .hero-mini{margin-top:10px}
     <span></span>
   </button>
 </header>
-<section class="hero" aria-label="مجموعه محصولات ماکارونی همرسین"><div class="hero-copy"><span class="pretitle"><i></i> مجموعه محصولات همرسین</span><h1>طعم اصیل، <br><em>کیفیت ماندگار</em></h1><p>مجموعه محصولات ماکارونی همرسین؛ از اسپاگتی و پاستا فرمی تا ماکارونی فله، در یک مجموعه.</p><div class="hero-pills"><span>اسپاگتی</span><span>پاستا فرمی</span><span>ماکارونی فله</span></div><div class="hero-mini"><span>HEMERSIN PASTA COLLECTION</span><span class="line"></span></div></div><a class="hero-scroll-link" href="#pastaDetails">مشاهده اطلاعات محصولات <span class="down" aria-hidden="true">↓</span></a></section>
+<section class="hero" aria-label="مجموعه محصولات ماکارونی همرسین">
+  <div class="hero-copy">
+    <span class="pretitle"><i aria-hidden="true"></i> مجموعه محصولات همرسین</span>
+    <h1>ماکارونی همرسین <br><em>طعم اصیل، کیفیت ماندگار</em></h1>
+    <p>از اسپاگتی و پاستا فرمی تا ماکارونی فله؛ مجموعه‌ای متنوع برای سلیقه‌ها و نیازهای مختلف.</p>
+    <div class="hero-pills" aria-label="محصولات موجود"><span>اسپاگتی</span><span>پاستا فرمی</span><span>ماکارونی فله</span></div>
+    <div class="hero-mini"><span>HEMERSIN PASTA COLLECTION</span><span class="line" aria-hidden="true"></span></div>
+  </div>
+  <a class="hero-scroll-link" href="#pastaDetails" aria-label="برای مشاهده اطلاعات محصولات به پایین اسکرول کنید" title="مشاهده اطلاعات محصولات">
+    <svg class="down-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15m-6-6 6 6 6-6"/></svg>
+  </a>
+</section>
 <div class="separator"></div>
 <main class="content" id="pastaDetails"><div class="section-heading"><span class="eyebrow">PRODUCT INFORMATION</span><h2>معرفی و مشخصات محصول</h2><p>اطلاعات ترکیبات، ارزش غذایی و روش پخت محصولات ماکارونی</p></div>
 <div class="tabs" role="tablist"><button class="tab" id="tab-spaghetti" role="tab" aria-selected="false">اسپاگتی</button><button class="tab" id="tab-form" role="tab" aria-selected="true">پاستا فرمی</button><button class="tab" id="tab-bulk" role="tab" aria-selected="false">ماکارونی فله</button></div>
