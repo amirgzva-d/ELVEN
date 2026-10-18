@@ -1,4 +1,4 @@
-<!doctype html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ماکارونی و پاستا همرسین | مهاجر استیل</title><meta name="description" content="معرفی سه محصول اسپاگتی، پاستا فرمی و ماکارونی فله همرسین؛ ترکیبات، طرز پخت و ارزش غذایی."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ماکارونی و پاستا همرسین | بازرگانی مهاجر</title><meta name="description" content="معرفی سه محصول اسپاگتی، پاستا فرمی و ماکارونی فله همرسین؛ ترکیبات، طرز پخت و ارزش غذایی."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>
 :root{--navy:#152d5b;--deep:#142851;--gold:#c49b53;--ink:#172944;--muted:#6b778a;--cream:#fbfaf8;--line:#e9ebf0;--red:#cc3049}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:"Vazirmatn", "Noto Sans Arabic",sans-serif;overflow-x:hidden}button{font:inherit;cursor:pointer}a{text-decoration:none;color:inherit}
 .header{height:91px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 max(5.25vw,40px);background:white;border-bottom:1px solid #f0f1f4;box-shadow:0 2px 20px rgba(23,45,80,.035)}.brand{display:flex;align-items:center;gap:14px}.brand-mark{background:#0a5c46;color:white;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:22px;letter-spacing:-3px;box-shadow:0 6px 14px #0a5c4618}.brand-text{display:flex;flex-direction:column;gap:1px}.brand-text strong{font-size:18px;color:#0c4f3c;font-weight:900}.brand-text small{font-size:8px;letter-spacing:1.2px;color:#81908c;direction:ltr}.links{display:flex;gap:38px;font-size:13px;font-weight:700;color:#69788a}.links .active{color:#0a5c46}.quote{color:#0b5c45;border:1px solid #bdd4cc;padding:11px 22px;border-radius:10px;font-size:12px;font-weight:800;white-space:nowrap}
@@ -279,24 +279,48 @@ body>.header .cta-quote{color:#fff;background:linear-gradient(110deg,#233e70,#14
 body>.header .cta-quote:hover{background:#243f71;box-shadow:0 13px 30px rgba(21,45,91,.28)}
 body>.header .mobile-toggle{color:var(--pasta-navy)}
 body>.header .mobile-toggle:hover{background:rgba(21,45,91,.08)}
-/* Left-hand hero copy: physically on the empty left portion, RTL text within column */
+/* Editorial column: all headings, text, pills and captions share the SAME left edge. */
 body>.hero{isolation:isolate}
-body>.hero::after{
-  background:linear-gradient(90deg,rgba(255,251,244,.56) 0%,rgba(255,251,244,.23) 30%,transparent 49%);
-}
+body>.hero::after{background:linear-gradient(90deg,rgba(255,251,244,.66) 0%,rgba(255,251,244,.28) 33%,transparent 52%)}
 body>.hero .hero-copy{
-  position:absolute;left:clamp(28px,6.3vw,110px);right:auto;top:50%;
-  transform:translateY(-44%);width:min(530px,35.5vw);max-width:none;
-  margin:0;padding:0;text-align:right;direction:rtl;align-self:auto;
-  z-index:3;
+  position:absolute;left:clamp(38px,5.6vw,100px);right:auto;top:50%;
+  transform:translateY(-43%);width:min(520px,35.5vw);max-width:none;
+  margin:0;padding:0;z-index:3;align-self:auto;
+  display:flex;flex-direction:column;align-items:flex-start;
+  direction:ltr;text-align:left;
 }
-body>.hero .pretitle{font-size:clamp(11px,.9vw,13px);padding:8px 14px;background:rgba(255,252,247,.82)}
-body>.hero h1{max-width:none;margin:17px 0 16px;font-size:clamp(30px,3.05vw,54px);line-height:1.52;letter-spacing:-1.1px;color:#152e59}
-body>.hero h1 em{display:inline-block;font-size:.8em;font-weight:850;color:#ac7839}
-body>.hero p{max-width:440px;font-size:clamp(12px,.92vw,15px);line-height:2.16;font-weight:500;color:#34445a}
-body>.hero .hero-pills{justify-content:flex-start;margin-top:23px;gap:9px}
-body>.hero .hero-pills span{border:1px solid rgba(189,166,135,.4);background:rgba(255,253,248,.85);box-shadow:0 3px 14px rgba(24,42,73,.05);font-size:11px}
-body>.hero .hero-mini{margin-top:20px;color:#51627d;justify-content:flex-start;direction:ltr;font-weight:650;letter-spacing:.6px}
+body>.hero .hero-copy .pretitle{
+  direction:rtl;text-align:left;align-self:flex-start;
+  padding:8px 14px;font-size:12px;background:rgba(255,252,247,.83);
+}
+body>.hero .hero-copy h1{
+  direction:rtl;text-align:left;width:100%;max-width:none;
+  margin:16px 0 13px;font-size:clamp(31px,2.65vw,47px);
+  line-height:1.48;letter-spacing:-.9px;font-weight:900;color:#152e59;
+}
+body>.hero .hero-copy h1 em{
+  direction:rtl;display:inline-block;white-space:normal;
+  font-size:.8em;line-height:1.5;font-weight:850;letter-spacing:-.3px;color:#ae7c3d;
+}
+body>.hero .hero-copy p{
+  direction:rtl;text-align:left;max-width:480px;width:100%;
+  margin:0;font-size:clamp(12px,.84vw,14px);line-height:2.05;
+  font-weight:550;color:#34445a;
+}
+body>.hero .hero-copy .hero-pills{
+  display:flex;direction:ltr;align-self:flex-start;justify-content:flex-start;
+  flex-wrap:wrap;gap:8px;margin-top:23px;
+}
+body>.hero .hero-copy .hero-pills span{
+  font-size:11px;padding:8px 13px;border:1px solid rgba(189,166,135,.4);
+  background:rgba(255,253,248,.89);
+  box-shadow:0 3px 14px rgba(24,42,73,.045);
+}
+body>.hero .hero-copy .hero-mini{
+  direction:ltr;align-self:flex-start;justify-content:flex-start;
+  margin-top:20px;color:#51627d;font-weight:700;
+  font-size:10px;letter-spacing:.6px;
+}
 /* One animated circular scroll-down icon, rather than text button */
 .hero-scroll-link{
   position:absolute;left:14px;bottom:14px;z-index:5;
@@ -347,8 +371,15 @@ body>.site-footer .footer-contact-item i{background:rgba(255,251,241,.08);color:
 body>.site-footer .footer-contact-item:hover i{background:#d3ad73;color:#142b52}
 body>.site-footer .footer-contact-item a{color:#fff2d9}
 body>.site-footer .footer-bottom{border-top:1px solid rgba(219,189,142,.22)}
+body>.site-footer .footer-contact-item div small{
+  font-family:"Vazirmatn",system-ui,sans-serif;
+  font-weight:800;font-size:12.5px;line-height:1.8;
+  letter-spacing:0;color:#f2dab2;
+}
+body>.site-footer .footer-contact-item div strong{font-weight:700}
+
 @media (max-width:1100px) and (min-width:701px){
-  body>.hero .hero-copy{left:clamp(28px,4.5vw,55px);width:39vw}
+  body>.hero .hero-copy{left:clamp(24px,4vw,56px);width:40vw}
   body>.hero h1{font-size:clamp(27px,3vw,39px)}
   body>.hero p{font-size:12px;line-height:2}
   body>.hero .hero-pills span{font-size:10px;padding:8px 10px}
@@ -362,7 +393,7 @@ body>.site-footer .footer-bottom{border-top:1px solid rgba(219,189,142,.22)}
 @media (max-width:700px){
   body>.hero{height:100svh;min-height:710px;background-size:auto 56%;background-position:91% bottom;background-color:#fcf8f0}
   body>.hero::after{background:linear-gradient(180deg,rgba(252,248,240,.98),rgba(252,248,240,.94) 33%,rgba(252,248,240,0) 62%)}
-  body>.hero .hero-copy{left:18px;right:18px;top:85px;transform:none;width:auto;max-width:none;padding:12px 6px 0}
+  body>.hero .hero-copy{left:18px;right:18px;top:85px;transform:none;width:auto;max-width:none;padding:12px 6px 0;align-items:flex-start;text-align:left}
   body>.hero .pretitle{font-size:10px;padding:6px 10px}
   body>.hero h1{font-size:clamp(24px,6.3vw,34px);line-height:1.48;margin:10px 0 10px}
   body>.hero h1 em{font-size:.83em}
@@ -378,9 +409,93 @@ body>.site-footer .footer-bottom{border-top:1px solid rgba(219,189,142,.22)}
   .hero-scroll-link,.hero-scroll-link::before,.hero-scroll-link .down-icon{animation:none!important}
 }
 
+
+/* ===== Pasta boutique motion: decorative only, content always remains accessible ===== */
+@keyframes pastaIntroRise{from{opacity:0;transform:translate3d(-22px,13px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes pastaGoldGleam{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+body>.hero .hero-copy>.pretitle{animation:pastaIntroRise .67s .07s backwards}
+body>.hero .hero-copy>h1{animation:pastaIntroRise .8s .17s backwards}
+body>.hero .hero-copy>p{animation:pastaIntroRise .8s .31s backwards}
+body>.hero .hero-copy>.hero-pills{animation:pastaIntroRise .75s .45s backwards}
+body>.hero .hero-copy>.hero-mini{animation:pastaIntroRise .75s .58s backwards}
+body>.hero .hero-copy h1 em{
+  background:linear-gradient(110deg,#95652a,#bf9656,#a17130,#d0a566);
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:pastaGoldGleam 8s ease-in-out infinite;
+}
+.content .section-heading h2,.brand-area .section-heading h2{position:relative;display:inline-block}
+.content .section-heading h2::after,.brand-area .section-heading h2::after{
+  content:"";position:absolute;bottom:-9px;left:20%;right:20%;height:2px;
+  border-radius:10px;background:linear-gradient(90deg,transparent,#ccab73,transparent);
+}
+.content .tab{position:relative;overflow:hidden;transition:background .3s,border-color .3s,color .3s,transform .3s,box-shadow .3s}
+.content .tab:hover{transform:translateY(-4px);border-color:#c7ab80;box-shadow:0 12px 24px rgba(21,45,91,.11)}
+.content .tab[aria-selected="true"]{background:linear-gradient(125deg,#244579,#152c56);box-shadow:0 12px 26px rgba(21,45,91,.21)}
+.content .tab[aria-selected="true"]::after{
+  content:"";position:absolute;bottom:0;right:18%;left:18%;height:3px;
+  border-radius:8px;background:#e5be7c;
+}
+.content .info-panel,.content .nutrition-panel{
+  position:relative;overflow:hidden;
+  transition:transform .48s cubic-bezier(.16,1,.3,1),box-shadow .48s,border-color .48s;
+}
+.content .info-panel::before,.content .nutrition-panel::before{
+  content:"";position:absolute;top:0;right:16px;left:16px;height:3px;
+  background:linear-gradient(90deg,transparent,#cba363,transparent);
+  opacity:.6;transform:scaleX(.6);transition:transform .5s,opacity .5s;
+}
+.content .info-panel:hover,.content .nutrition-panel:hover{
+  transform:translateY(-5px);border-color:rgba(195,160,104,.55);
+  box-shadow:0 22px 48px rgba(21,45,91,.13);
+}
+.content .info-panel:hover::before,.content .nutrition-panel:hover::before{transform:scaleX(1);opacity:1}
+.content .metric{transition:transform .28s ease,border-color .28s,box-shadow .28s}
+.content .metric:not(.energy):hover{transform:translateY(-3px);border-color:#cfb38d;box-shadow:0 9px 19px rgba(21,45,91,.1)}
+.content .metric.energy{background:linear-gradient(120deg,#1b3667,#2b538c,#142d5b);background-size:180% 180%;animation:pastaGoldGleam 12s ease-in-out infinite}
+.content .ingredients span{transition:transform .25s,background .25s,border-color .25s}
+.content .ingredients span:hover{transform:translateY(-2px);background:#fbf2df}
+.content .recipe{transition:transform .34s,box-shadow .34s,border-color .34s}
+.content .recipe:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(115,92,49,.11);border-color:#d1b587}
+.brand-area .logo-card{position:relative;isolation:isolate;transition:transform .42s cubic-bezier(.2,1,.3,1),box-shadow .42s,border-color .42s}
+.brand-area .logo-card::after{
+  content:"";position:absolute;inset:-20% auto -20% -45%;width:30%;
+  transform:skewX(-19deg) translateX(-110%);background:linear-gradient(90deg,transparent,rgba(200,164,103,.11),transparent);
+  opacity:0;pointer-events:none;transition:transform .65s,opacity .3s;z-index:-1;
+}
+.brand-area .logo-card:hover{transform:translateY(-6px) scale(1.025);border-color:#dbbe90;box-shadow:0 16px 28px rgba(21,45,91,.14)}
+.brand-area .logo-card:hover::after{transform:skewX(-19deg) translateX(470%);opacity:1}
+body>.site-footer .footer-contact-item{
+  border:1px solid transparent;border-radius:14px;padding:10px 12px;
+  transition:transform .3s,border-color .3s,background .3s,box-shadow .3s;
+}
+body>.site-footer .footer-contact-item:hover{
+  transform:translateX(-3px);background:rgba(255,248,229,.075);
+  border-color:rgba(218,182,122,.26);box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+body>.site-footer .footer-col a{transition:color .28s}
+body.pasta-motion-ready .pasta-reveal{
+  opacity:0;transform:translate3d(0,28px,0);
+  transition:opacity .85s ease,transform .85s cubic-bezier(.19,1,.22,1);
+}
+body.pasta-motion-ready .pasta-reveal.pasta-in-view{opacity:1;transform:none}
+body.pasta-motion-ready .pasta-reveal[data-pasta-delay="1"]{transition-delay:.12s}
+body.pasta-motion-ready .pasta-reveal[data-pasta-delay="2"]{transition-delay:.22s}
+@media(max-width:700px){
+ body>.hero .hero-copy h1{font-size:clamp(24px,6.1vw,33px);line-height:1.47}
+ body>.hero .hero-copy p{font-size:11.5px;line-height:1.85}
+ body>.hero .hero-copy .hero-pills{gap:6px;margin-top:12px}
+ body>.hero .hero-copy .hero-mini{margin-top:12px}
+ .brand-area .logo-card:hover{transform:translateY(-3px)}
+}
+@media(prefers-reduced-motion:reduce){
+ body>.hero .hero-copy>*,body>.hero .hero-copy h1 em,.content .metric.energy{animation:none!important}
+ .content .tab,.content .info-panel,.content .nutrition-panel,.content .metric,.content .recipe,.content .ingredients span,.brand-area .logo-card,body>.site-footer .footer-contact-item{transition:none!important}
+ body.pasta-motion-ready .pasta-reveal{opacity:1!important;transform:none!important}
+}
+
 </style></head><body>
 <header class="header" id="siteHeader">
-  <a class="brand" href="index.html#home" aria-label="مهاجر استیل">
+  <a class="brand" href="index.html#home" aria-label="بازرگانی مهاجر">
     <span class="brand-mark" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
@@ -389,7 +504,7 @@ body>.site-footer .footer-bottom{border-top:1px solid rgba(219,189,142,.22)}
       </svg>
     </span>
     <span class="brand-text">
-      <strong>مهاجر استیل</strong>
+      <strong>بازرگانی مهاجر</strong>
       <small>MOHAJER TRADING GROUP</small>
     </span>
   </a>
@@ -449,7 +564,7 @@ body>.site-footer .footer-bottom{border-top:1px solid rgba(219,189,142,.22)}
           </svg>
         </span>
         <span class="footer-logo-text">
-          <strong>مهاجر استیل</strong>
+          <strong>بازرگانی مهاجر</strong>
           <small>MOHAJER TRADING GROUP</small>
         </span>
       </div>
@@ -504,7 +619,7 @@ body>.site-footer .footer-bottom{border-top:1px solid rgba(219,189,142,.22)}
   </div>
 
   <div class="footer-bottom">
-    <div>© ۱۴۰۴ مهاجر استیل — تمامی حقوق محفوظ است.</div>
+    <div>© ۱۴۰۴ بازرگانی مهاجر — تمامی حقوق محفوظ است.</div>
     <div class="designer">طراحی و توسعه اختصاصی</div>
   </div>
 </footer>
@@ -519,4 +634,28 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSiteNav()});
 document.addEventListener('click',e=>{if(!siteHeader?.contains(e.target))closeSiteNav()});
 const updateSiteHeader=()=>siteHeader?.classList.toggle('is-scrolled',window.scrollY>24);
 window.addEventListener('scroll',updateSiteHeader,{passive:true});updateSiteHeader();
+</script>
+<script>
+/* Scroll-triggered appearance: no hidden content if JS / observer is unavailable. */
+(()=>{
+  if(!('IntersectionObserver' in window))return;
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const nodes=[...document.querySelectorAll(
+    '.content .section-heading,.content .tabs,.content .info-panel,.content .nutrition-panel,.brand-area .section-heading,.brand-area .logos,.site-footer .footer-container,.site-footer .footer-bottom'
+  )];
+  nodes.forEach((node,i)=>{
+    node.classList.add('pasta-reveal');
+    if(i===3||i===5)node.setAttribute('data-pasta-delay','1');
+  });
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('pasta-in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -35px 0px'});
+  document.body.classList.add('pasta-motion-ready');
+  nodes.forEach(node=>observer.observe(node));
+})();
 </script></body></html>
