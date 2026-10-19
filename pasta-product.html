@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0d2b5b;--navy2:#102f64;--gold:#b87b2c;--gold2:#d6ad6e;--cream:#fffbf4;--cream2:#f7efe1;--muted:#617089;--ink:#122d59;--line:#e9ded0;--fa:"Vazirmatn",Tahoma,sans-serif;--en:"Poppins",Arial,sans-serif}
-*{box-sizing:border-box}
+*{box-sizing:border-box}[hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--fa);overflow-x:hidden}
 button,a{font:inherit}a{text-decoration:none;color:inherit}button{cursor:pointer}
@@ -257,8 +257,8 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
  <details class="product-detail"><summary>معرفی، ترکیبات و روش پخت محصول انتخاب‌شده</summary>
   <p><strong id="selectedProduct">پاستا فرمی همرسین</strong></p>
   <p id="productDetails">پاستا فرمی صدفی همرسین با انواع سس‌های غلیظ و رقیق به‌خوبی ترکیب می‌شود. با سس‌های خامه‌ای، سس‌های پایه گوشت، سوپ و غذاهای دریایی مناسب است. بسته‌بندی ۵۰۰ گرمی برای ۴ تا ۶ نفر در نظر گرفته شده است.</p>
-  <p><strong>ترکیبات پاستا فرمی:</strong> آرد گندم (آرد ماکارونی) و آب.</p>
-  <p><strong>طرز پخت پاستا فرمی:</strong> به هر لیتر آب در حال جوش و دارای مقدار کمی نمک، ۱۰۰ گرم پاستا اضافه کنید. پس از ۱۲ تا ۱۴ دقیقه آبکش کرده و با سس دلخواه سرو کنید.</p>
+  <p data-form-only><strong>ترکیبات پاستا فرمی:</strong> آرد گندم (آرد ماکارونی) و آب.</p>
+  <p data-form-only><strong>طرز پخت پاستا فرمی:</strong> به هر لیتر آب در حال جوش و دارای مقدار کمی نمک، ۱۰۰ گرم پاستا اضافه کنید. پس از ۱۲ تا ۱۴ دقیقه آبکش کرده و با سس دلخواه سرو کنید.</p>
  </details>
 </section>
 <section class="partners" aria-label="برندهای ماکارونی">
@@ -357,7 +357,7 @@ bulk:['ماکارونی فله','ماکارونی فله در کیسه شفاف 
 document.querySelectorAll('[data-select]').forEach(btn=>btn.addEventListener('click',()=>{
  const k=btn.dataset.select,entry=descriptions[k];if(!entry)return;
  selectText.textContent=entry[0];detail.textContent=entry[1];
- const isForm=k==='form';nutrition.hidden=!isForm;nutritionNote.textContent=isForm?'* اعداد ارائه‌شده مربوط به ۵۵ گرم پاستا فرمی هستند. مقدار نمک اعلام نشده است؛ اطلاعات قبل از انتشار نهایی باید با برچسب تأیید شوند.':'اطلاعات جدول ارزش غذایی این محصول هنوز ارائه نشده است و ارقام پاستا فرمی به آن نسبت داده نمی‌شوند.';
+ const isForm=k==='form';nutrition.hidden=!isForm;document.querySelectorAll('[data-form-only]').forEach(el=>el.hidden=!isForm);document.querySelector('.product-detail').open=true;nutritionNote.textContent=isForm?'* اعداد ارائه‌شده مربوط به ۵۵ گرم پاستا فرمی هستند. مقدار نمک اعلام نشده است؛ اطلاعات قبل از انتشار نهایی باید با برچسب تأیید شوند.':'اطلاعات جدول ارزش غذایی این محصول هنوز ارائه نشده است و ارقام پاستا فرمی به آن نسبت داده نمی‌شوند.';
  document.querySelectorAll('.product-card').forEach(card=>card.classList.toggle('selected',card.dataset.kind===k));
  spec.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
 }));
