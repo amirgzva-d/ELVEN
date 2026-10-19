@@ -3646,6 +3646,196 @@
   font-size:12.5px;font-weight:800;line-height:1.85;
   letter-spacing:0;color:#d8eadf;
 }
+
+/* ===== Yeast page / yeast product View: match the macaroni navigation arrangement =====
+   Same three visual zones at desktop: brand right / links center / quote left.
+   Scoped to both yeast headers; all catalog, product and language logic stays intact. */
+#siteHeader.header,
+.pd-main-header-card{
+  direction:rtl;
+  display:grid;
+  grid-template-columns:minmax(205px,1fr) max-content minmax(205px,1fr);
+  align-items:center;
+  column-gap:clamp(14px,2vw,32px);
+  background:rgba(252,249,243,.97);
+  border-bottom:1px solid rgba(200,174,134,.24);
+  box-shadow:0 4px 20px rgba(10,58,44,.075);
+}
+#siteHeader.header{
+  height:80px;
+  padding:0 clamp(22px,3.3vw,60px);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+}
+#siteHeader.header.is-scrolled{
+  height:76px;
+  background:rgba(252,249,243,.97);
+  box-shadow:0 7px 24px rgba(10,58,44,.11);
+}
+#siteHeader.header .brand,
+.pd-main-header-card .brand{
+  grid-column:1;
+  justify-self:start;
+  min-width:0;
+  margin:0;
+}
+#siteHeader.header .nav,
+.pd-main-header-card .nav{
+  grid-column:2;
+  justify-self:center;
+  justify-content:center;
+  align-items:center;
+  margin:0!important;
+  gap:clamp(18px,2.05vw,36px);
+  min-width:0;
+}
+#siteHeader.header .nav a,
+.pd-main-header-card .nav a{white-space:nowrap;font-weight:600;font-size:13.5px}
+#siteHeader.header .nav a.active,
+.pd-main-header-card .nav a.active{font-weight:800}
+#siteHeader.header .header-actions,
+.pd-main-header-card .header-actions{
+  grid-column:3;
+  justify-self:end;
+  margin:0;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  min-width:0;
+}
+#siteHeader.header .header-actions .cta-quote,
+.pd-main-header-card .header-actions .cta-quote{
+  white-space:nowrap;
+  border-radius:999px;
+  min-height:42px;
+  padding:11px 21px;
+  font-size:12px;
+  font-weight:800;
+}
+/* View dialog keeps its close control next to, not over, the left-hand CTA. */
+.pd-main-header-card{
+  height:80px;
+  min-height:80px;
+  margin:0;
+  padding:0 clamp(16px,2.4vw,35px) 0 64px;
+  border:0;
+  border-bottom:1px solid rgba(200,174,134,.24);
+  border-radius:0;
+  flex-shrink:0;
+}
+.pd-main-header-card .brand-mark{width:44px;height:44px}
+.pd-main-header-card .brand-text strong{font-size:16px}
+.pd-main-header-card .brand-text small{font-size:7px}
+.pd-card > .pd-close{
+  top:22px!important;left:13px!important;
+  width:36px;height:36px;
+  z-index:70!important;
+}
+@media(max-width:1100px) and (min-width:961px){
+  #siteHeader.header,
+  .pd-main-header-card{grid-template-columns:minmax(160px,1fr) max-content minmax(150px,1fr);column-gap:12px}
+  #siteHeader.header .nav,
+  .pd-main-header-card .nav{gap:clamp(12px,1.45vw,18px)}
+  #siteHeader.header .nav a,
+  .pd-main-header-card .nav a{font-size:12.5px}
+  #siteHeader.header .header-actions .cta-quote,
+  .pd-main-header-card .header-actions .cta-quote{padding:10px 14px;font-size:11.5px}
+}
+@media(max-width:960px){
+  #siteHeader.header,
+  #siteHeader.header.is-scrolled{
+    height:70px;
+    grid-template-columns:minmax(0,1fr) auto;
+    column-gap:12px;
+    padding:0 16px;
+    background:rgba(252,249,243,.98);
+  }
+  #siteHeader.header .header-actions{display:none}
+  #siteHeader.header .mobile-toggle{
+    display:flex;
+    grid-column:2;
+    justify-self:end;
+    width:40px;height:40px;
+    margin:0;
+  }
+  #siteHeader.header .nav{
+    position:fixed;
+    grid-column:auto;
+    top:70px;left:0;right:0;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:0;
+    margin:0!important;
+    padding:12px 22px 20px;
+    background:rgba(252,249,243,.99);
+    border-bottom:1px solid rgba(180,160,131,.25);
+    border-radius:0 0 20px 20px;
+    box-shadow:0 15px 35px rgba(10,58,44,.14);
+    transform:translateY(-12px);
+    opacity:0;visibility:hidden;pointer-events:none;
+    z-index:1001;
+    transition:opacity .3s ease,transform .35s ease,visibility .3s ease;
+  }
+  #siteHeader.header .nav.mobile-open{
+    transform:none;opacity:1;visibility:visible;pointer-events:auto;
+  }
+  #siteHeader.header .nav a{
+    text-align:right;width:100%;padding:12px 5px;font-size:14px;
+    border-bottom:1px solid #eee7df;
+  }
+  #siteHeader.header .nav a:last-child{border-bottom:0}
+  #siteHeader.header .nav a::after{display:none}
+  .pd-main-header-card{
+    height:70px;min-height:70px;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:10px;
+    padding:0 13px 0 59px;
+    background:rgba(252,249,243,.98);
+  }
+  .pd-main-header-card .header-actions{display:none}
+  .pd-main-header-card .mobile-toggle{
+    display:flex;grid-column:2;justify-self:end;
+    width:38px;height:38px;flex:0 0 38px;margin:0;
+  }
+  .pd-main-header-card .nav{
+    position:absolute;grid-column:auto;
+    top:calc(100% + 2px);right:0;left:0;
+    display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;
+    gap:0;margin:0!important;padding:10px 16px 14px;
+    background:rgba(252,249,243,.99);
+    border:1px solid rgba(180,160,131,.22);
+    border-radius:0 0 17px 17px;
+    box-shadow:0 18px 38px -18px rgba(10,58,44,.35);
+    transform:translateY(-8px);opacity:0;visibility:hidden;
+    pointer-events:none;z-index:50;
+    transition:opacity .3s ease,transform .3s ease,visibility .3s ease;
+  }
+  .pd-main-header-card .nav.mobile-open{
+    transform:none;opacity:1;visibility:visible;pointer-events:auto;
+  }
+  .pd-main-header-card .nav a{
+    width:100%;padding:12px 4px;font-size:14px;text-align:right;
+    border-bottom:1px solid #eee7df;
+  }
+  .pd-main-header-card .nav a:last-child{border-bottom:0}
+  .pd-main-header-card .nav a::after{display:none}
+  .pd-card > .pd-close{top:17px!important;left:10px!important;width:35px!important;height:35px!important}
+}
+@media(max-width:560px){
+  #siteHeader.header .brand-mark{width:38px;height:38px}
+  #siteHeader.header .brand-text strong{font-size:14px}
+  #siteHeader.header .brand-text small{font-size:6px}
+  .pd-main-header-card{height:65px;min-height:65px;padding-left:53px}
+  .pd-main-header-card .brand-mark{width:36px;height:36px}
+  .pd-main-header-card .brand-text strong{font-size:13px}
+  .pd-main-header-card .brand-text small{display:none}
+  .pd-card > .pd-close{top:14px!important;left:9px!important;width:34px!important;height:34px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #siteHeader.header .nav,.pd-main-header-card .nav{transition:none}
+}
 </style>
 </head>
 <body>
@@ -3683,7 +3873,7 @@
     </button>
   </div>
 
-  <button class="mobile-toggle" aria-label="منو" data-menu aria-expanded="false">
+  <button class="mobile-toggle" type="button" aria-label="منو" aria-controls="primaryNav" data-menu aria-expanded="false">
     <span></span>
   </button>
 </header>
@@ -4103,7 +4293,7 @@
           </button>
         </div>
 
-        <button class="mobile-toggle pd-mobile-toggle" type="button" aria-label="منو" data-pd-menu aria-expanded="false">
+        <button class="mobile-toggle pd-mobile-toggle" type="button" aria-label="منو" aria-controls="pdPrimaryNav" data-pd-menu aria-expanded="false">
           <span></span>
         </button>
       </header>
