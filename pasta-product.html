@@ -67,8 +67,10 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
 .section-heading h2{font-size:clamp(26px,2.35vw,39px);font-weight:900;color:var(--navy);margin:6px 0 5px}
 .section-heading p{font-size:13px;font-weight:550;color:#627087;margin:0;line-height:1.9}
 .product-grid{max-width:1450px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;position:relative;z-index:1;margin:0 auto}
-.product-card{min-width:0;border:1px solid #f0e7dc;border-radius:19px;background:#fff;overflow:hidden;box-shadow:0 12px 36px rgba(15,41,80,.07);transition:transform .42s cubic-bezier(.18,1,.3,1),box-shadow .42s,border-color .42s}
+.product-card{min-width:0;border:1px solid #f0e7dc;border-radius:19px;background:#fff;overflow:hidden;box-shadow:0 12px 36px rgba(15,41,80,.07);cursor:pointer;transition:transform .42s cubic-bezier(.18,1,.3,1),box-shadow .42s,border-color .42s}
 .product-card:hover{transform:translateY(-9px);box-shadow:0 25px 45px rgba(15,41,80,.14);border-color:#ddc6a2}.product-card.selected{border-color:#c79b60;box-shadow:0 0 0 2px rgba(199,155,96,.16),0 18px 38px rgba(15,41,80,.09)}
+.product-card.selected .card-copy{background:linear-gradient(180deg,#fff,#fffaf2)}
+.product-card:focus-visible{outline:3px solid #c79b60;outline-offset:4px}
 .product-image{height:clamp(200px,17vw,285px);position:relative;overflow:hidden;background-image:url("assets/hemersin-hero.png");background-repeat:no-repeat;background-color:#f7e9d3;transition:filter .3s}
 .product-image::after{content:"";position:absolute;inset:0;box-shadow:inset 0 -30px 30px -25px rgba(12,32,65,.18)}
 .product-card:hover .product-image{filter:saturate(1.1) contrast(1.02)}
@@ -79,12 +81,9 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
 .card-copy{padding:17px 20px 21px;text-align:center;display:flex;align-items:center;flex-direction:column}
 .card-copy h3{font-size:22px;color:var(--navy);margin:0 0 6px;font-weight:900}
 .card-copy>p{font-size:12px;color:#66758d;margin:0;max-width:315px;line-height:2.05;min-height:50px}
-.chips{display:flex;justify-content:center;align-items:center;gap:6px;margin:15px 0 17px;flex-wrap:wrap}
+.chips{display:flex;justify-content:center;align-items:center;gap:6px;margin:15px 0 5px;flex-wrap:wrap}
 .chips span{display:inline-flex;align-items:center;gap:5px;padding:7px 10px;color:#53617a;background:#fbf7f0;border-radius:100px;border:1px solid #f0e8dc;font-size:10px;font-weight:700}
 .chips .ico{width:16px;height:16px;color:#bc8640}
-.card-cta{width:min(240px,100%);display:flex;align-items:center;justify-content:center;gap:10px;border-radius:100px;padding:10px 17px;background:white;color:var(--navy);font-size:12px;font-weight:900;border:1.5px solid #c79b60;transition:background .3s,color .3s,transform .3s}
-.card-cta:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
-.card-cta .ico{width:15px;height:15px;transform:rotate(180deg)}
 .spec-section{padding:0 clamp(18px,4vw,74px) 28px;background:linear-gradient(180deg,#fbf5ec,#fffaf2)}
 .spec-panel{max-width:1450px;min-height:315px;border:1px solid #eee5db;border-radius:24px;background:#fff;display:grid;grid-template-columns:38% 62%;overflow:hidden;margin:0 auto;box-shadow:0 13px 33px rgba(15,41,80,.055);direction:ltr}
 .spec-art{background-color:#f8f5ed;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467418/328ebcd4-84ca-4037-a50e-3fc6f4078f56_u3nqmd.png");background-position:37% center;background-size:cover;background-repeat:no-repeat;min-height:315px;position:relative}
@@ -242,7 +241,7 @@ main>.catalog::after{display:none}
 </section>
 <section class="catalog" id="products">
  <div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات ماکارونی</h2><p>مجموعه‌ای متنوع از محصولات ماکارونی برای مصارف گوناگون و بازارهای صادراتی</p></div>
- <div class="product-grid" data-reveal><article class="product-card" data-kind="spaghetti">
+ <div class="product-grid" data-reveal><article class="product-card" data-kind="spaghetti" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="انتخاب اسپاگتی و مشاهده مشخصات">
   <div class="product-image product-image--spaghetti" role="img" aria-label="بسته اسپاگتی همرسین در چیدمان محصول">
     
   </div>
@@ -250,10 +249,9 @@ main>.catalog::after{display:none}
     <h3>اسپاگتی</h3>
     <p>اسپاگتی با بافتی مناسب برای تهیه انواع غذاهای خانگی و رستورانی.</p>
     <div class="chips"><span><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg> بافت مناسب</span><span><svg class="ico " aria-hidden="true"><use href="#i-clock"></use></svg> زمان پخت روی بسته</span></div>
-    <button class="card-cta" data-select="spaghetti" type="button">مشاهده محصول <svg class="ico " aria-hidden="true"><use href="#i-arrow"></use></svg></button>
   </div>
 </article>
-<article class="product-card" data-kind="form">
+<article class="product-card selected" data-kind="form" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="انتخاب پاستا فرمی و مشاهده مشخصات">
   <div class="product-image product-image--form" role="img" aria-label="بسته پاستا فرمی همرسین در چیدمان محصول">
     
   </div>
@@ -261,10 +259,9 @@ main>.catalog::after{display:none}
     <h3>پاستا فرمی</h3>
     <p>پاستای فرمی برای ترکیب با انواع سس‌ها و خلق غذاهای متنوع.</p>
     <div class="chips"><span><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg> پاستا صدفی</span><span><svg class="ico " aria-hidden="true"><use href="#i-package"></use></svg> بسته ۵۰۰ گرمی</span></div>
-    <button class="card-cta" data-select="form" type="button">مشاهده محصول <svg class="ico " aria-hidden="true"><use href="#i-arrow"></use></svg></button>
   </div>
 </article>
-<article class="product-card" data-kind="bulk">
+<article class="product-card" data-kind="bulk" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="انتخاب ماکارونی فله و مشاهده مشخصات">
   <div class="product-image product-image--bulk" role="img" aria-label="کیسه شفاف ماکارونی فله در چیدمان محصول">
     <span class="highlight-tag">محصول عمده</span>
   </div>
@@ -272,7 +269,6 @@ main>.catalog::after{display:none}
     <h3>ماکارونی فله</h3>
     <p>مناسب برای عرضه در حجم عمده، با بسته‌بندی ساده و بدون برند.</p>
     <div class="chips"><span><svg class="ico " aria-hidden="true"><use href="#i-package"></use></svg> عرضه عمده</span><span><svg class="ico " aria-hidden="true"><use href="#i-leaf"></use></svg> محصول بدون برند</span></div>
-    <button class="card-cta" data-select="bulk" type="button">مشاهده محصول <svg class="ico " aria-hidden="true"><use href="#i-arrow"></use></svg></button>
   </div>
 </article></div>
 </section>
@@ -390,12 +386,16 @@ spaghetti:['اسپاگتی همرسین','اسپاگتی از محصولات م�
 form:['پاستا فرمی همرسین','پاستا فرمی صدفی همرسین با انواع سس‌های غلیظ و رقیق به‌خوبی ترکیب می‌شود. با سس‌های خامه‌ای، سس‌های پایه گوشت، سوپ و غذاهای دریایی مناسب است. بسته‌بندی ۵۰۰ گرمی برای ۴ تا ۶ نفر در نظر گرفته شده است.'],
 bulk:['ماکارونی فله','ماکارونی فله در کیسه شفاف و بدون نام تجاری عرضه می‌شود. اطلاعات اختصاصی بسته‌بندی و ارزش غذایی آن پس از تأیید درج خواهد شد.']
 };
-document.querySelectorAll('[data-select]').forEach(btn=>btn.addEventListener('click',()=>{
- const k=btn.dataset.select,entry=descriptions[k];if(!entry)return;
+document.querySelectorAll('.product-card[data-kind]').forEach(card=>{
+ const activate=()=>{
+ const k=card.dataset.kind,entry=descriptions[k];if(!entry)return;
  selectText.textContent=entry[0];detail.textContent=entry[1];
  const isForm=k==='form';nutrition.hidden=!isForm;document.querySelectorAll('[data-form-only]').forEach(el=>el.hidden=!isForm);document.querySelector('.product-detail').open=true;nutritionNote.textContent=isForm?'* اعداد ارائه‌شده مربوط به ۵۵ گرم پاستا فرمی هستند. مقدار نمک اعلام نشده است؛ اطلاعات قبل از انتشار نهایی باید با برچسب تأیید شوند.':'اطلاعات جدول ارزش غذایی این محصول هنوز ارائه نشده است و ارقام پاستا فرمی به آن نسبت داده نمی‌شوند.';
- document.querySelectorAll('.product-card').forEach(card=>card.classList.toggle('selected',card.dataset.kind===k));
+ document.querySelectorAll('.product-card[data-kind]').forEach(item=>{const selected=item.dataset.kind===k;item.classList.toggle('selected',selected);item.setAttribute('aria-pressed',String(selected))});
  spec.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
-}));
+ };
+ card.addEventListener('click',activate);
+ card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate()}});
+});
 })();</script>
 </body></html>
