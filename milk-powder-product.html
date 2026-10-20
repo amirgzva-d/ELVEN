@@ -235,35 +235,37 @@ main>.catalog::after{display:none}
 @media(max-width:560px){
   .hero{background-size:auto 49%;background-position:center bottom}
 }
-/* The two supplied photos correspond to whole/full-fat and low-fat milk powder.
-   Contain, never stretch or cut the packaging in the product cards. */
+/* Milk photos are ~4:3. Match the image frame to the actual photos so they
+   occupy the full card width without white side gutters or image distortion. */
+.catalog .product-image{
+  width:100%;
+  height:auto;
+  aspect-ratio:4 / 3;
+  background-color:#fbf8f3;
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
 .product-image--spaghetti{
   background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467415/e31cdc18-bb63-417d-bbea-2fe9c13e4b0f_gscpmd.png");
-  background-position:center center;
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-color:#fbf8f3;
 }
 .product-image--bulk{
   background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467415/9a4d4288-0501-432e-b538-15c43e5b5dd3_hy42cl.png");
-  background-position:center center;
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-color:#fbf8f3;
 }
-.product-image--form{
-  background-position:center center;
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-color:#fbf8f3;
-}
+/* Industrial bag photo is wider; centered cover keeps its product prominent
+   while all three cards retain the same image height. */
+.product-image--form{background-position:center center}
+/* The analysis artwork is 2113 x 744 with its own white fade on the right.
+   Fill the panel's height and keep the bowl at the left, never stretch it. */
 .spec-art{
   background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467416/6c9cf805-727f-49bb-9d81-8999d4a25c7a_mubz3u.png");
-  background-position:center center;
-  background-size:contain;
+  background-position:left center;
+  background-size:cover;
   background-repeat:no-repeat;
   background-color:#fffdf9;
 }
+@media(max-width:850px){.spec-panel .spec-art{min-height:245px}}
+@media(max-width:560px){.spec-panel .spec-art{min-height:210px}}
 /* Higher specificity replaces the generic pasta wheat rules on every viewport. */
 main>.partners{
   background-color:#fff9ef;
