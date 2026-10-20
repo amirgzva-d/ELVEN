@@ -238,14 +238,13 @@ main>.catalog::after{display:none}
 }
 @media(max-width:850px){.spec-panel .spec-art{min-height:245px}}
 @media(max-width:560px){.spec-panel .spec-art{min-height:210px}}
-/* Native milk brands artwork, recomposed as one seamless 1920×270 panorama.
-   Keep the image fully in frame: resizing tracks the section width rather than
-   using cover, which cropped its top and bottom decorative illustration. */
+/* Exact 2048×322 PNG supplied by the user for the milk brands section.
+   Fit to available width without distorting its original aspect ratio. */
 main>.partners{
   position:relative;
   isolation:isolate;
   background-color:#fcf8ef;
-  background-image:url("assets/milk-brands-1920x270-seamless.webp");
+  background-image:url("assets/milk-brands-exact-2048x322.png");
   background-repeat:no-repeat;
   background-position:center center;
   background-size:100% auto;
