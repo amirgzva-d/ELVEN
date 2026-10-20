@@ -291,6 +291,50 @@ main>.partners{
     background-color:#fffaf2;
   }
 }
+
+/* This milk-powder category contains exactly two products, not three.
+   Keep both cards balanced and centered on desktop, tablet and mobile. */
+.catalog .product-grid{
+  width:100%;
+  max-width:1080px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(18px,2vw,28px);
+}
+.catalog .product-card:last-child{
+  grid-column:auto;
+  max-width:none;
+  width:100%;
+  justify-self:stretch;
+}
+/* The original panoramic brand artwork is 2172×724 (3:1).
+   Give it a proportionate, spacious canvas so the decorative top and
+   bottom survive, while rendering the image once with no distortion. */
+main>.partners{
+  min-height:clamp(385px,30vw,565px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background-size:100% auto;
+  background-position:center center;
+}
+main>.partners>.partner-grid{width:100%}
+main>.partners .partner-logo--pending{
+  background:rgba(255,255,255,.9);
+}
+@media(max-width:850px){
+  .catalog .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .catalog .product-card:last-child{grid-column:auto;max-width:none;width:100%}
+  main>.partners{
+    min-height:0;
+    padding-block:clamp(34px,5vw,52px);
+    background-size:100% auto;
+    background-position:center top;
+  }
+}
+@media(max-width:560px){
+  .catalog .product-grid{grid-template-columns:1fr;max-width:500px}
+  .catalog .product-card:last-child{grid-column:auto;max-width:none}
+}
 </style>
 </head>
 <body>
@@ -333,7 +377,7 @@ main>.partners{
    <span class="kicker">مجموعه محصولات بازرگانی مهاجر</span>
    <h1>شیر خشک صادراتی</h1>
    <h2>کیفیت ممتاز، تأمین مطمئن</h2>
-   <p>از شیر خشک پرچرب و صنعتی تا شیر خشک کم‌چرب؛ گزینه‌های تأمین متناسب با سفارش و نیاز بازارهای صادراتی.</p>
+   <p>شیر خشک پرچرب و کم‌چرب با گزینه‌های تأمین متناسب با سفارش و نیاز بازارهای صادراتی.</p>
    <div class="hero-features">
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-badge"></use></svg></span><span>توجه به<br>کیفیت محصول</span></div>
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><span>گزینه‌های<br>تأمین</span></div>
@@ -355,14 +399,11 @@ main>.partners{
 <section class="catalog" id="products">
  <div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات شیر خشک</h2><p>انواع شیر خشک برای مصارف و نیازهای مختلف؛ جزئیات سفارش و برند پس از استعلام تأیید می‌شود.</p></div>
  <div class="product-grid" data-reveal>
-  <article class="product-card" data-kind="spaghetti" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک پرچرب">
+  <article class="product-card selected" data-kind="spaghetti" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک پرچرب">
    <div class="product-image product-image--spaghetti" role="img" aria-label="تصویر شیر خشک پرچرب"></div>
    <div class="card-copy"><h3>شیر خشک پرچرب</h3><p>برای دریافت گرید، ترکیبات و شرایط تأمین با ما تماس بگیرید.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> بررسی کیفیت</span></div></div>
   </article>
-  <article class="product-card selected" data-kind="form" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک صنعتی">
-   <div class="product-image product-image--form" role="img" aria-label="تصویر موقت شیر خشک صنعتی"></div>
-   <div class="card-copy"><h3>شیر خشک صنعتی</h3><p>اطلاعات فنی و ویژگی‌های محصول متناسب با سفارش ارائه می‌شوند.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> تأمین سفارشی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> آنالیز پس از تأیید</span></div></div>
-  </article>
+  
   <article class="product-card" data-kind="bulk" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک کم‌چرب">
    <div class="product-image product-image--bulk" role="img" aria-label="تصویر شیر خشک کم‌چرب"><span class="highlight-tag">قابل استعلام</span></div>
    <div class="card-copy"><h3>شیر خشک کم‌چرب</h3><p>برای آگاهی از مشخصات و شرایط تأمین این محصول استعلام بگیرید.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات سفارشی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> کنترل کیفیت</span></div></div>
@@ -384,8 +425,8 @@ main>.partners{
   </div>
  </div>
  <details class="product-detail"><summary>معرفی و اطلاعات محصول انتخاب‌شده</summary>
-  <p><strong id="selectedProduct">شیر خشک صنعتی</strong></p>
-  <p id="productDetails">گرید، ترکیبات، مشخصات فنی و اطلاعات بسته‌بندی پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.</p>
+  <p><strong id="selectedProduct">شیر خشک پرچرب</strong></p>
+  <p id="productDetails">گرید، ترکیبات و مشخصات بسته‌بندی شیر خشک پرچرب پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.</p>
  </details>
 </section>
 <section class="partners" aria-label="برندهای محصولات شیر خشک">
@@ -480,7 +521,6 @@ const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObse
 const selectText=document.getElementById('selectedProduct'),detail=document.getElementById('productDetails'),spec=document.getElementById('specifications'),nutritionNote=document.getElementById('nutritionNote');
 const descriptions={
  spaghetti:['شیر خشک پرچرب','گرید، ترکیبات و مشخصات بسته‌بندی شیر خشک پرچرب پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.'],
- form:['شیر خشک صنعتی','گرید، ترکیبات و مشخصات فنی شیر خشک صنعتی پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.'],
  bulk:['شیر خشک کم‌چرب','گرید و ویژگی‌های شیر خشک کم‌چرب پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.']
 };
 document.querySelectorAll('.product-card[data-kind]').forEach(card=>{
