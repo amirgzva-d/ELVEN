@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0d2b5b">
-<meta name="description" content="معرفی محصولات شیر خشک صادراتی شامل شیر خشک کامل، شیر خشک صنعتی و شیر خشک بدون چربی | بازرگانی مهاجر">
+<meta name="description" content="معرفی محصولات شیر خشک صادراتی و گزینه‌های تأمین | بازرگانی مهاجر">
 <title>شیر خشک صادراتی | بازرگانی مهاجر</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,27 +67,26 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
 .section-heading h2{font-size:clamp(26px,2.35vw,39px);font-weight:900;color:var(--navy);margin:6px 0 5px}
 .section-heading p{font-size:13px;font-weight:550;color:#627087;margin:0;line-height:1.9}
 .product-grid{max-width:1450px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;position:relative;z-index:1;margin:0 auto}
-.product-card{min-width:0;border:1px solid #f0e7dc;border-radius:19px;background:#fff;overflow:hidden;box-shadow:0 12px 36px rgba(15,41,80,.07);transition:transform .42s cubic-bezier(.18,1,.3,1),box-shadow .42s,border-color .42s}
+.product-card{min-width:0;border:1px solid #f0e7dc;border-radius:19px;background:#fff;overflow:hidden;box-shadow:0 12px 36px rgba(15,41,80,.07);cursor:pointer;transition:transform .42s cubic-bezier(.18,1,.3,1),box-shadow .42s,border-color .42s}
 .product-card:hover{transform:translateY(-9px);box-shadow:0 25px 45px rgba(15,41,80,.14);border-color:#ddc6a2}.product-card.selected{border-color:#c79b60;box-shadow:0 0 0 2px rgba(199,155,96,.16),0 18px 38px rgba(15,41,80,.09)}
+.product-card.selected .card-copy{background:linear-gradient(180deg,#fff,#fffaf2)}
+.product-card:focus-visible{outline:3px solid #c79b60;outline-offset:4px}
 .product-image{height:clamp(200px,17vw,285px);position:relative;overflow:hidden;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png");background-repeat:no-repeat;background-color:#f7e9d3;transition:filter .3s}
 .product-image::after{content:"";position:absolute;inset:0;box-shadow:inset 0 -30px 30px -25px rgba(12,32,65,.18)}
 .product-card:hover .product-image{filter:saturate(1.1) contrast(1.02)}
-.product-image--spaghetti{background-size:430% auto;background-position:56% 49%}
-.product-image--form{background-size:400% auto;background-position:75% 52%}
-.product-image--bulk{background-size:410% auto;background-position:100% 36%}
+.product-image--spaghetti{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png");background-size:cover;background-position:50% center}
+.product-image--form{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png");background-size:cover;background-position:50% center}
+.product-image--bulk{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png");background-size:cover;background-position:50% center}
 .highlight-tag{position:absolute;z-index:2;top:12px;right:13px;padding:7px 13px;background:linear-gradient(110deg,#c69640,#a87226);color:white;border-radius:100px;font-size:10px;font-weight:850}
 .card-copy{padding:17px 20px 21px;text-align:center;display:flex;align-items:center;flex-direction:column}
 .card-copy h3{font-size:22px;color:var(--navy);margin:0 0 6px;font-weight:900}
 .card-copy>p{font-size:12px;color:#66758d;margin:0;max-width:315px;line-height:2.05;min-height:50px}
-.chips{display:flex;justify-content:center;align-items:center;gap:6px;margin:15px 0 17px;flex-wrap:wrap}
+.chips{display:flex;justify-content:center;align-items:center;gap:6px;margin:15px 0 5px;flex-wrap:wrap}
 .chips span{display:inline-flex;align-items:center;gap:5px;padding:7px 10px;color:#53617a;background:#fbf7f0;border-radius:100px;border:1px solid #f0e8dc;font-size:10px;font-weight:700}
 .chips .ico{width:16px;height:16px;color:#bc8640}
-.card-cta{width:min(240px,100%);display:flex;align-items:center;justify-content:center;gap:10px;border-radius:100px;padding:10px 17px;background:white;color:var(--navy);font-size:12px;font-weight:900;border:1.5px solid #c79b60;transition:background .3s,color .3s,transform .3s}
-.card-cta:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
-.card-cta .ico{width:15px;height:15px;transform:rotate(180deg)}
 .spec-section{padding:0 clamp(18px,4vw,74px) 28px;background:linear-gradient(180deg,#fbf5ec,#fffaf2)}
 .spec-panel{max-width:1450px;min-height:315px;border:1px solid #eee5db;border-radius:24px;background:#fff;display:grid;grid-template-columns:38% 62%;overflow:hidden;margin:0 auto;box-shadow:0 13px 33px rgba(15,41,80,.055);direction:ltr}
-.spec-art{background:#f1e8dc url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png") 35% 95%/350% auto no-repeat;min-height:315px;position:relative}
+.spec-art{background-color:#f8f5ed;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png");background-position:37% center;background-size:cover;background-repeat:no-repeat;min-height:315px;position:relative}
 .spec-art::after{content:"";position:absolute;top:0;bottom:0;right:0;width:35%;background:linear-gradient(90deg,transparent,white)}
 .spec-content{direction:rtl;padding:26px 25px 23px}
 .spec-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
@@ -143,7 +142,69 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
 @media(max-width:850px){.menu-toggle{display:grid;place-items:center}.site-header{height:69px}.main-nav{position:absolute;top:69px;left:0;right:0;background:#fffbf5;border-bottom:1px solid #e9d7bb;display:none;padding:16px 20px 21px;flex-direction:column;gap:6px;box-shadow:0 20px 22px rgba(13,43,91,.1)}.main-nav.is-open{display:flex}.main-nav a{font-size:14px;padding:10px 0}.header-cta{margin-inline-start:auto;padding:10px 15px}.hero{height:auto;min-height:780px;background-position:65% bottom;background-size:auto 63%;background-color:#faf3e8}.hero::after{background:linear-gradient(180deg,rgba(255,251,242,.99) 0%,rgba(255,251,242,.95) 38%,rgba(255,251,242,.2) 62%,transparent 85%)}.hero-inner{align-items:flex-start;padding:45px 30px 480px}.hero-copy{width:min(100%,500px);transform:none}.hero h1{font-size:40px}.hero h2{font-size:30px}.hero p{font-size:13px}.hero-features{max-width:460px}.trust-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:17px}.trust-item:nth-child(2){border-left:0}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-card:last-child{grid-column:1/-1;max-width:480px;width:100%;justify-self:center}.product-image{height:240px}.spec-panel{grid-template-columns:1fr}.spec-art{min-height:260px;background-position:78% 62%}.spec-art::after{top:auto;right:0;left:0;bottom:0;width:auto;height:35%;background:linear-gradient(180deg,transparent,white)}.footer-container{grid-template-columns:repeat(2,minmax(0,1fr))}.partner-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:560px){.site-header{padding:0 13px;gap:8px}.site-logo-mark,.site-logo-mark .ico{width:32px;height:34px}.site-logo-words strong{font-size:14px}.site-logo-words small{font-size:7px}.header-cta{padding:9px 11px;font-size:10px}.header-cta .ico{display:none}.hero{min-height:720px;background-size:auto 51%;background-position:79% bottom}.hero-inner{padding:36px 20px 360px}.hero h1{font-size:34px}.hero h2{font-size:25px;line-height:1.55;margin-bottom:9px}.hero p{font-size:12px;line-height:1.9}.hero-features{margin:20px 0;gap:4px}.hero-feature{padding:0 5px;font-size:9px}.round-icon{width:37px;height:37px}.round-icon .ico{width:18px;height:18px}.hero-actions{gap:12px}.primary-button{padding:12px 15px;font-size:11px}.secondary-link{font-size:10px}.trust-strip{min-height:0}.trust-item{gap:10px;padding:6px}.trust-item p{font-size:10px}.trust-item .ico{width:27px;height:27px}.catalog{padding:29px 15px}.section-heading h2{font-size:26px}.section-heading p{font-size:11.5px}.product-grid{grid-template-columns:1fr;gap:18px}.product-card:last-child{grid-column:auto;max-width:none}.product-image{height:225px}.card-copy>p{min-height:auto}.spec-section{padding:0 14px 24px}.spec-content{padding:20px 15px}.nutrition-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.nutrition-stat{padding:9px;gap:6px;min-height:80px}.nutrition-stat>.ico{width:22px;height:22px}.nutri-num{font-size:19px}.partners{padding:16px 14px 25px}.partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.partner-logo{height:85px}.partner-logo img{max-height:60px}.footer-container{grid-template-columns:1fr;gap:25px}.site-footer{padding:35px 24px 17px}.footer-bottom{margin-top:16px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js-ready [data-reveal]{opacity:1;transform:none}}
-.hero{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png")!important}.product-image{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997382/file_00000000cae08246a889083efa600b9c_y0xhmf.png")!important;background-size:cover;background-position:center}.spec-section{padding:25px 4vw}.spec-panel p{line-height:2.3;max-width:680px;margin:18px auto}</style>
+
+/* Subtle wheat artwork for the macaroni product area; original document markup
+   and all card, nutrition and brand components are intentionally unchanged. */
+main{
+  background-color:#fbf4e6;
+  background-image:url("assets/hemersin-wheat-desktop.webp");
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-size:100% auto;
+}
+main>.catalog,
+main>.spec-section,
+main>.partners{
+  background-color:transparent;
+  background-image:none;
+}
+main>.catalog::before,
+main>.catalog::after{display:none}
+@media(max-width:850px){
+  main{background-image:none}
+  main>.catalog{
+    background-color:#fbf4e6;
+    background-image:url("assets/hemersin-wheat-mobile.webp");
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:100% auto;
+  }
+  main>.spec-section{background:#fbf4e6}
+  main>.partners{
+    background-color:#fbf4e6;
+    background-image:url("assets/hemersin-wheat-mobile.webp");
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    background-size:100% auto;
+  }
+}
+/* Desktop hero fit: preserve the entire product image and keep the blue benefits
+   strip below it visible at normal desktop viewport heights. No markup changes. */
+@media (min-width:851px){
+  .hero{
+    height:clamp(545px,calc(100svh - 188px),690px);
+    min-height:545px;
+    background-color:#fffaf2;
+    background-size:auto 100%;
+    background-position:right center;
+  }
+  .hero::after{
+    background:linear-gradient(90deg,#fffaf2 0%,#fffaf2 37%,rgba(255,250,242,.86) 45%,rgba(255,250,242,.18) 62%,transparent 72%);
+  }
+  .hero-inner{padding:22px clamp(26px,5.6vw,108px)}
+  .hero-copy{width:min(550px,43vw);transform:none}
+  .hero .kicker{padding:9px 13px}
+  .hero h1{font-size:clamp(38px,3.1vw,55px);line-height:1.25;letter-spacing:-.8px;margin:11px 0 3px}
+  .hero h2{font-size:clamp(25px,2.1vw,38px);line-height:1.42;letter-spacing:-.5px;margin:4px 0 14px}
+  .hero p{font-size:clamp(12px,1vw,15px);line-height:1.9}
+  .hero-features{margin:18px 0 16px}
+  .hero-actions{gap:14px}
+}
+
+/* Category-specific placeholder visuals: same macaroni View layout. */
+.partner-logo--pending{display:flex;flex-direction:column;gap:8px;color:#9c9ba1;font-size:10px;font-weight:750}
+.partner-logo--pending .ico{width:26px;height:26px;color:#bda47c}
+</style>
 </head>
 <body>
 
@@ -181,22 +242,22 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
 <main>
 <section class="hero" aria-label="محصولات شیر خشک صادراتی">
  <div class="hero-inner">
- <div class="hero-copy">
-  <span class="kicker">مجموعه محصولات بازرگانی مهاجر</span>
-  <h1>شیر خشک صادراتی</h1>
-  <h2>کیفیت ممتاز، تأمین مطمئن</h2>
-  <p>از شیر خشک کامل، شیر خشک صنعتی تا شیر خشک بدون چربی؛ مجموعه‌ای متنوع و انتخابی مناسب برای سلیقه‌ها و نیازهای مختلف.</p>
-  <div class="hero-features">
-   <div class="hero-feature"><span class="round-icon"><svg class="ico " aria-hidden="true"><use href="#i-badge"></use></svg></span><span>انتخابی برای<br>بازارهای جهانی</span></div>
-   <div class="hero-feature"><span class="round-icon"><svg class="ico " aria-hidden="true"><use href="#i-leaf"></use></svg></span><span>بر پایه<br>گندم</span></div>
-   <div class="hero-feature"><span class="round-icon"><svg class="ico " aria-hidden="true"><use href="#i-globe"></use></svg></span><span>مناسب عرضه<br>صادراتی</span></div>
-  </div>
-  <div class="hero-actions"><a class="primary-button" href="index.html#contact">استعلام قیمت <svg class="ico " aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-   <a class="secondary-link" href="#products"><span class="circle-play">▶</span><span>معرفی محصولات<br>مشاهده مجموعه</span></a>
+  <div class="hero-copy">
+   <span class="kicker">مجموعه محصولات بازرگانی مهاجر</span>
+   <h1>شیر خشک صادراتی</h1>
+   <h2>کیفیت ممتاز، تأمین مطمئن</h2>
+   <p>از شیر خشک کامل و صنعتی تا شیر خشک بدون چربی؛ گزینه‌های تأمین متناسب با سفارش و نیاز بازارهای صادراتی.</p>
+   <div class="hero-features">
+    <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-badge"></use></svg></span><span>توجه به<br>کیفیت محصول</span></div>
+    <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><span>گزینه‌های<br>تأمین</span></div>
+    <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg></span><span>مناسب بازار<br>صادراتی</span></div>
+   </div>
+   <div class="hero-actions"><a class="primary-button" href="index.html#contact">استعلام قیمت <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+    <a class="secondary-link" href="#products"><span class="circle-play">▶</span><span>معرفی محصولات<br>مشاهده مجموعه</span></a>
+   </div>
   </div>
  </div>
- </div>
- <a class="scroll-down" href="#products" aria-label="رفتن به بخش محصولات"><svg class="ico " aria-hidden="true"><use href="#i-down"></use></svg></a>
+ <a class="scroll-down" href="#products" aria-label="رفتن به بخش محصولات"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
 </section>
 <section class="trust-strip" aria-label="مزیت‌های مجموعه">
  <div class="trust-item"><svg class="ico " aria-hidden="true"><use href="#i-users"></use></svg><p>محصولات متنوع<br>برای نیازهای مختلف</p></div>
@@ -205,43 +266,52 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
  <div class="trust-item"><svg class="ico " aria-hidden="true"><use href="#i-plane"></use></svg><p>راهکارهای عرضه<br>برای بازار صادراتی</p></div>
 </section>
 <section class="catalog" id="products">
- <div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات شیر خشک</h2><p>مجموعه‌ای متنوع از محصولات شیر خشک برای مصارف گوناگون و بازارهای صادراتی</p></div>
- <div class="product-grid" data-reveal><article class="product-card" data-kind="spaghetti">
-  <div class="product-image product-image--spaghetti" role="img" aria-label="بسته شیر خشک کامل بازرگانی مهاجر در چیدمان محصول">
-    
-  </div>
-  <div class="card-copy">
-    <h3>شیر خشک کامل</h3>
-    <p>شیر خشک کامل با بافتی مناسب برای تهیه انواع غذاهای خانگی و رستورانی.</p>
-    <div class="chips"><span><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg> بافت مناسب</span><span><svg class="ico " aria-hidden="true"><use href="#i-clock"></use></svg> زمان پخت روی بسته</span></div>
-    <button class="card-cta" data-select="spaghetti" type="button">مشاهده محصول <svg class="ico " aria-hidden="true"><use href="#i-arrow"></use></svg></button>
-  </div>
-</article>
-<article class="product-card" data-kind="form">
-  <div class="product-image product-image--form" role="img" aria-label="بسته شیر خشک صنعتی بازرگانی مهاجر در چیدمان محصول">
-    
-  </div>
-  <div class="card-copy">
-    <h3>شیر خشک صنعتی</h3>
-    <p>پاستای فرمی برای ترکیب با انواع سس‌ها و خلق غذاهای متنوع.</p>
-    <div class="chips"><span><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg> پاستا صدفی</span><span><svg class="ico " aria-hidden="true"><use href="#i-package"></use></svg> بسته ۵۰۰ گرمی</span></div>
-    <button class="card-cta" data-select="form" type="button">مشاهده محصول <svg class="ico " aria-hidden="true"><use href="#i-arrow"></use></svg></button>
-  </div>
-</article>
-<article class="product-card" data-kind="bulk">
-  <div class="product-image product-image--bulk" role="img" aria-label="کیسه شفاف شیر خشک بدون چربی در چیدمان محصول">
-    <span class="highlight-tag">محصول عمده</span>
-  </div>
-  <div class="card-copy">
-    <h3>شیر خشک بدون چربی</h3>
-    <p>مناسب برای عرضه در حجم عمده، با بسته‌بندی ساده و بدون برند.</p>
-    <div class="chips"><span><svg class="ico " aria-hidden="true"><use href="#i-package"></use></svg> عرضه عمده</span><span><svg class="ico " aria-hidden="true"><use href="#i-leaf"></use></svg> محصول بدون برند</span></div>
-    <button class="card-cta" data-select="bulk" type="button">مشاهده محصول <svg class="ico " aria-hidden="true"><use href="#i-arrow"></use></svg></button>
-  </div>
-</article></div>
+ <div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات شیر خشک</h2><p>انواع شیر خشک برای مصارف و نیازهای مختلف؛ جزئیات سفارش و برند پس از استعلام تأیید می‌شود.</p></div>
+ <div class="product-grid" data-reveal>
+  <article class="product-card" data-kind="spaghetti" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک کامل">
+   <div class="product-image product-image--spaghetti" role="img" aria-label="تصویر موقت شیر خشک کامل"></div>
+   <div class="card-copy"><h3>شیر خشک کامل</h3><p>برای دریافت گرید، ترکیبات و شرایط تأمین با ما تماس بگیرید.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> بررسی کیفیت</span></div></div>
+  </article>
+  <article class="product-card selected" data-kind="form" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک صنعتی">
+   <div class="product-image product-image--form" role="img" aria-label="تصویر موقت شیر خشک صنعتی"></div>
+   <div class="card-copy"><h3>شیر خشک صنعتی</h3><p>اطلاعات فنی و ویژگی‌های محصول متناسب با سفارش ارائه می‌شوند.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> تأمین سفارشی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> آنالیز پس از تأیید</span></div></div>
+  </article>
+  <article class="product-card" data-kind="bulk" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک بدون چربی">
+   <div class="product-image product-image--bulk" role="img" aria-label="تصویر موقت شیر خشک بدون چربی"><span class="highlight-tag">قابل استعلام</span></div>
+   <div class="card-copy"><h3>شیر خشک بدون چربی</h3><p>برای آگاهی از مشخصات و شرایط تأمین این محصول استعلام بگیرید.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات سفارشی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> کنترل کیفیت</span></div></div>
+  </article>
+ </div>
 </section>
-<section class="spec-section" id="specifications"><div class="spec-panel" style="display:block;text-align:center;padding:55px 25px"><h2>مشخصات فنی و آنالیز شیر خشک</h2><p>اطلاعات پروتئین، چربی، رطوبت، حلالیت و استانداردهای محصول با توجه به نوع شیر خشک و برگه آنالیز هر محموله ارائه می‌شود.</p><a class="btn-primary" href="index.html#contact">درخواست آنالیز و استعلام قیمت</a></div></section>
-<section class="partners"><div class="section-heading"><h2>تأمین شیر خشک برای بازارهای جهانی</h2><p>برای دریافت مشخصات برندهای موجود و شرایط صادرات با ما تماس بگیرید.</p></div></section>
+<section class="spec-section" id="specifications">
+ <div class="spec-panel" data-reveal>
+  <div class="spec-art" role="img" aria-label="تصویر موقت محصول شیر خشک"></div>
+  <div class="spec-content">
+   <div class="spec-top"><div><span class="spec-title-kicker">اطلاعات فنی محصول</span><h2>مشخصات و آنالیز شیر خشک</h2></div><span class="spec-head-icon"><svg class="ico " aria-hidden="true"><use href="#i-list"></use></svg></span></div>
+   <div id="nutritionStats" class="nutrition-grid"><div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-fire"></use></svg><div><span class="nutri-label">انرژی</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">پروتئین</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-wheat"></use></svg><div><span class="nutri-label">کربوهیدرات</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-package"></use></svg><div><span class="nutri-label">سدیم</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-leaf"></use></svg><div><span class="nutri-label">فیبر</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-fire"></use></svg><div><span class="nutri-label">چربی</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div></div>
+   <p id="nutritionNote" class="spec-note">مقادیر آنالیز هر نوع شیر خشک پس از دریافت برگه مشخصات و تأیید تولیدکننده درج خواهد شد.</p>
+  </div>
+ </div>
+ <details class="product-detail"><summary>معرفی و اطلاعات محصول انتخاب‌شده</summary>
+  <p><strong id="selectedProduct">شیر خشک صنعتی</strong></p>
+  <p id="productDetails">گرید، ترکیبات، مشخصات فنی و اطلاعات بسته‌بندی پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.</p>
+ </details>
+</section>
+<section class="partners" aria-label="برندهای محصولات شیر خشک">
+ <div class="section-heading" data-reveal><span class="heading-eyebrow">برندهای قابل تأمین</span><h2>تأمین شیر خشک برای بازارهای جهانی</h2><p>فهرست برندها و تولیدکنندگان پس از استعلام اعلام می‌شود.</p></div>
+ <div class="partner-grid" data-reveal>
+ <div class="partner-logo partner-logo--pending" aria-label="برند تأمین‌کننده در انتظار تأیید"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><span>برند قابل استعلام</span></div>
+ <div class="partner-logo partner-logo--pending" aria-label="برند تأمین‌کننده در انتظار تأیید"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><span>برند قابل استعلام</span></div>
+ <div class="partner-logo partner-logo--pending" aria-label="برند تأمین‌کننده در انتظار تأیید"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><span>برند قابل استعلام</span></div>
+ <div class="partner-logo partner-logo--pending" aria-label="برند تأمین‌کننده در انتظار تأیید"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><span>برند قابل استعلام</span></div>
+ <div class="partner-logo partner-logo--pending" aria-label="برند تأمین‌کننده در انتظار تأیید"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><span>برند قابل استعلام</span></div>
+ <div class="partner-logo partner-logo--pending" aria-label="برند تأمین‌کننده در انتظار تأیید"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><span>برند قابل استعلام</span></div>
+ </div>
+</section>
 </main>
 <footer id="contact" class="site-footer">
   <div class="footer-container">
@@ -320,18 +390,25 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open))});
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
-const selectText=document.getElementById('selectedProduct'),detail=document.getElementById('productDetails'),spec=document.getElementById('specifications'),nutrition=document.getElementById('nutritionStats'),nutritionNote=document.getElementById('nutritionNote');
+const selectText=document.getElementById('selectedProduct'),detail=document.getElementById('productDetails'),spec=document.getElementById('specifications'),nutritionNote=document.getElementById('nutritionNote');
 const descriptions={
-spaghetti:['شیر خشک کامل بازرگانی مهاجر','شیر خشک کامل از محصولات مجموعه بازرگانی مهاجر است. اطلاعات اختصاصی ترکیبات، روش پخت و جدول ارزش غذایی آن پس از دریافت مشخصات تأییدشده درج می‌شود.'],
-form:['شیر خشک صنعتی بازرگانی مهاجر','شیر خشک صنعتی صدفی بازرگانی مهاجر با انواع سس‌های غلیظ و رقیق به‌خوبی ترکیب می‌شود. با سس‌های خامه‌ای، سس‌های پایه گوشت، سوپ و غذاهای دریایی مناسب است. بسته‌بندی ۵۰۰ گرمی برای ۴ تا ۶ نفر در نظر گرفته شده است.'],
-bulk:['شیر خشک بدون چربی','شیر خشک بدون چربی در کیسه شفاف و بدون نام تجاری عرضه می‌شود. اطلاعات اختصاصی بسته‌بندی و ارزش غذایی آن پس از تأیید درج خواهد شد.']
+ spaghetti:['شیر خشک کامل','گرید، ترکیبات و مشخصات بسته‌بندی شیر خشک کامل پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.'],
+ form:['شیر خشک صنعتی','گرید، ترکیبات و مشخصات فنی شیر خشک صنعتی پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.'],
+ bulk:['شیر خشک بدون چربی','گرید و ویژگی‌های شیر خشک بدون چربی پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.']
 };
-document.querySelectorAll('[data-select]').forEach(btn=>btn.addEventListener('click',()=>{
- const k=btn.dataset.select,entry=descriptions[k];if(!entry)return;
- selectText.textContent=entry[0];detail.textContent=entry[1];
- const isForm=k==='form';nutrition.hidden=!isForm;document.querySelectorAll('[data-form-only]').forEach(el=>el.hidden=!isForm);document.querySelector('.product-detail').open=true;nutritionNote.textContent=isForm?'* اعداد ارائه‌شده مربوط به ۵۵ گرم شیر خشک صنعتی هستند. مقدار نمک اعلام نشده است؛ اطلاعات قبل از انتشار نهایی باید با برچسب تأیید شوند.':'اطلاعات جدول ارزش غذایی این محصول هنوز ارائه نشده است و ارقام شیر خشک صنعتی به آن نسبت داده نمی‌شوند.';
- document.querySelectorAll('.product-card').forEach(card=>card.classList.toggle('selected',card.dataset.kind===k));
- spec.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
-}));
+document.querySelectorAll('.product-card[data-kind]').forEach(card=>{
+ const activate=()=>{
+  const entry=descriptions[card.dataset.kind];if(!entry)return;
+  selectText.textContent=entry[0];detail.textContent=entry[1];
+  document.querySelector('.product-detail').open=true;
+  nutritionNote.textContent='مقادیر آنالیز '+entry[0]+' پس از دریافت برگه مشخصات تأییدشده درج خواهد شد.';
+  document.querySelectorAll('.product-card[data-kind]').forEach(item=>{
+   const selected=item===card;item.classList.toggle('selected',selected);item.setAttribute('aria-pressed',String(selected));
+  });
+  spec.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+ };
+ card.addEventListener('click',activate);
+ card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
+});
 })();</script>
 </body></html>
