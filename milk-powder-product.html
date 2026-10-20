@@ -306,30 +306,9 @@ main>.partners{
   width:100%;
   justify-self:stretch;
 }
-/* The original panoramic brand artwork is 2172×724 (3:1).
-   Give it a proportionate, spacious canvas so the decorative top and
-   bottom survive, while rendering the image once with no distortion. */
-main>.partners{
-  min-height:clamp(385px,30vw,565px);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  background-size:100% auto;
-  background-position:center center;
-}
-main>.partners>.partner-grid{width:100%}
-main>.partners .partner-logo--pending{
-  background:rgba(255,255,255,.9);
-}
 @media(max-width:850px){
   .catalog .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .catalog .product-card:last-child{grid-column:auto;max-width:none;width:100%}
-  main>.partners{
-    min-height:0;
-    padding-block:clamp(34px,5vw,52px);
-    background-size:100% auto;
-    background-position:center top;
-  }
 }
 @media(max-width:560px){
   .catalog .product-grid{grid-template-columns:1fr;max-width:500px}
