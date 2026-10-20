@@ -143,41 +143,13 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
 @media(max-width:560px){.site-header{padding:0 13px;gap:8px}.site-logo-mark,.site-logo-mark .ico{width:32px;height:34px}.site-logo-words strong{font-size:14px}.site-logo-words small{font-size:7px}.header-cta{padding:9px 11px;font-size:10px}.header-cta .ico{display:none}.hero{min-height:720px;background-size:auto 51%;background-position:79% bottom}.hero-inner{padding:36px 20px 360px}.hero h1{font-size:34px}.hero h2{font-size:25px;line-height:1.55;margin-bottom:9px}.hero p{font-size:12px;line-height:1.9}.hero-features{margin:20px 0;gap:4px}.hero-feature{padding:0 5px;font-size:9px}.round-icon{width:37px;height:37px}.round-icon .ico{width:18px;height:18px}.hero-actions{gap:12px}.primary-button{padding:12px 15px;font-size:11px}.secondary-link{font-size:10px}.trust-strip{min-height:0}.trust-item{gap:10px;padding:6px}.trust-item p{font-size:10px}.trust-item .ico{width:27px;height:27px}.catalog{padding:29px 15px}.section-heading h2{font-size:26px}.section-heading p{font-size:11.5px}.product-grid{grid-template-columns:1fr;gap:18px}.product-card:last-child{grid-column:auto;max-width:none}.product-image{height:225px}.card-copy>p{min-height:auto}.spec-section{padding:0 14px 24px}.spec-content{padding:20px 15px}.nutrition-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.nutrition-stat{padding:9px;gap:6px;min-height:80px}.nutrition-stat>.ico{width:22px;height:22px}.nutri-num{font-size:19px}.partners{padding:16px 14px 25px}.partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.partner-logo{height:85px}.partner-logo img{max-height:60px}.footer-container{grid-template-columns:1fr;gap:25px}.site-footer{padding:35px 24px 17px}.footer-bottom{margin-top:16px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js-ready [data-reveal]{opacity:1;transform:none}}
 
-/* Subtle wheat artwork for the macaroni product area; original document markup
-   and all card, nutrition and brand components are intentionally unchanged. */
-main{
-  background-color:#fbf4e6;
-  background-image:url("assets/hemersin-wheat-desktop.webp");
-  background-repeat:no-repeat;
-  background-position:center bottom;
-  background-size:100% auto;
-}
-main>.catalog,
-main>.spec-section,
-main>.partners{
-  background-color:transparent;
-  background-image:none;
-}
+/* Milk-powder view: remove the macaroni wheat artwork entirely.
+   Keep the clean cream backdrop behind products and nutrition. */
+main{background:#fffaf2;background-image:none}
+main>.catalog{background-color:#fffaf2;background-image:none}
+main>.spec-section{background-color:#fffaf2;background-image:none}
 main>.catalog::before,
 main>.catalog::after{display:none}
-@media(max-width:850px){
-  main{background-image:none}
-  main>.catalog{
-    background-color:#fbf4e6;
-    background-image:url("assets/hemersin-wheat-mobile.webp");
-    background-repeat:no-repeat;
-    background-position:center top;
-    background-size:100% auto;
-  }
-  main>.spec-section{background:#fbf4e6}
-  main>.partners{
-    background-color:#fbf4e6;
-    background-image:url("assets/hemersin-wheat-mobile.webp");
-    background-repeat:no-repeat;
-    background-position:center bottom;
-    background-size:100% auto;
-  }
-}
 /* Desktop hero fit: preserve the entire product image and keep the blue benefits
    strip below it visible at normal desktop viewport heights. No markup changes. */
 @media (min-width:851px){
@@ -266,32 +238,23 @@ main>.catalog::after{display:none}
 }
 @media(max-width:850px){.spec-panel .spec-art{min-height:245px}}
 @media(max-width:560px){.spec-panel .spec-art{min-height:210px}}
-/* One uninterrupted, aspect-ratio-preserving brand background.
-   The image is 2172×724 (3:1); crop only overflow, NEVER stretch,
-   duplicate or slice into top/bottom pseudo-elements. */
+/* Single optimized artwork, composed to match this section's actual
+   wide/short proportions (1920x280). No split layers or stretching. */
 main>.partners{
   position:relative;
   isolation:isolate;
   background-color:#fffaf2;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467416/686f3580-d0cb-41ca-8749-f5c1af289938_fsdqzy.png");
+  background-image:url("assets/milk-brands-wide-1920x280.webp");
   background-repeat:no-repeat;
+  background-position:center center;
   background-size:cover;
-  background-position:center 38%;
 }
 @media(max-width:850px){
   main>.partners{
     background-size:cover;
-    background-position:center 42%;
+    background-position:center center;
   }
 }
-@media(max-width:560px){
-  main>.partners{
-    background-size:100% auto;
-    background-position:center top;
-    background-color:#fffaf2;
-  }
-}
-
 /* This milk-powder category contains exactly two products, not three.
    Keep both cards balanced and centered on desktop, tablet and mobile. */
 .catalog .product-grid{
