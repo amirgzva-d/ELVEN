@@ -143,6 +143,27 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
 @media(max-width:850px){.menu-toggle{display:grid;place-items:center}.site-header{height:69px}.main-nav{position:absolute;top:69px;left:0;right:0;background:#fffbf5;border-bottom:1px solid #e9d7bb;display:none;padding:16px 20px 21px;flex-direction:column;gap:6px;box-shadow:0 20px 22px rgba(13,43,91,.1)}.main-nav.is-open{display:flex}.main-nav a{font-size:14px;padding:10px 0}.header-cta{margin-inline-start:auto;padding:10px 15px}.hero{height:auto;min-height:780px;background-position:65% bottom;background-size:auto 63%;background-color:#faf3e8}.hero::after{background:linear-gradient(180deg,rgba(255,251,242,.99) 0%,rgba(255,251,242,.95) 38%,rgba(255,251,242,.2) 62%,transparent 85%)}.hero-inner{align-items:flex-start;padding:45px 30px 480px}.hero-copy{width:min(100%,500px);transform:none}.hero h1{font-size:40px}.hero h2{font-size:30px}.hero p{font-size:13px}.hero-features{max-width:460px}.trust-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:17px}.trust-item:nth-child(2){border-left:0}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-card:last-child{grid-column:1/-1;max-width:480px;width:100%;justify-self:center}.product-image{height:240px}.spec-panel{grid-template-columns:1fr}.spec-art{min-height:260px;background-position:78% 62%}.spec-art::after{top:auto;right:0;left:0;bottom:0;width:auto;height:35%;background:linear-gradient(180deg,transparent,white)}.footer-container{grid-template-columns:repeat(2,minmax(0,1fr))}.partner-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:560px){.site-header{padding:0 13px;gap:8px}.site-logo-mark,.site-logo-mark .ico{width:32px;height:34px}.site-logo-words strong{font-size:14px}.site-logo-words small{font-size:7px}.header-cta{padding:9px 11px;font-size:10px}.header-cta .ico{display:none}.hero{min-height:720px;background-size:auto 51%;background-position:79% bottom}.hero-inner{padding:36px 20px 360px}.hero h1{font-size:34px}.hero h2{font-size:25px;line-height:1.55;margin-bottom:9px}.hero p{font-size:12px;line-height:1.9}.hero-features{margin:20px 0;gap:4px}.hero-feature{padding:0 5px;font-size:9px}.round-icon{width:37px;height:37px}.round-icon .ico{width:18px;height:18px}.hero-actions{gap:12px}.primary-button{padding:12px 15px;font-size:11px}.secondary-link{font-size:10px}.trust-strip{min-height:0}.trust-item{gap:10px;padding:6px}.trust-item p{font-size:10px}.trust-item .ico{width:27px;height:27px}.catalog{padding:29px 15px}.section-heading h2{font-size:26px}.section-heading p{font-size:11.5px}.product-grid{grid-template-columns:1fr;gap:18px}.product-card:last-child{grid-column:auto;max-width:none}.product-image{height:225px}.card-copy>p{min-height:auto}.spec-section{padding:0 14px 24px}.spec-content{padding:20px 15px}.nutrition-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.nutrition-stat{padding:9px;gap:6px;min-height:80px}.nutrition-stat>.ico{width:22px;height:22px}.nutri-num{font-size:19px}.partners{padding:16px 14px 25px}.partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.partner-logo{height:85px}.partner-logo img{max-height:60px}.footer-container{grid-template-columns:1fr;gap:25px}.site-footer{padding:35px 24px 17px}.footer-bottom{margin-top:16px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js-ready [data-reveal]{opacity:1;transform:none}}
+
+/* Shared wheat background for the entire macaroni catalogue, nutrition and brands.
+   A single image across these three sections avoids visible seams on scroll. */
+.pasta-showcase{
+  position:relative;
+  isolation:isolate;
+  background-color:#fff9ef;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792473939/ba9f57a6-d606-4505-ac84-c98f6b43f1cc_b4quwy.png");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:100% 100%;
+}
+.pasta-showcase>.catalog,
+.pasta-showcase>.spec-section,
+.pasta-showcase>.partners{background:transparent}
+.pasta-showcase>.catalog::before,
+.pasta-showcase>.catalog::after{display:none}
+/* Preserve the cards' solid white surfaces for text legibility over the wheat. */
+@media(max-width:850px){
+  .pasta-showcase{background-position:center center;background-size:100% 100%}
+}
 </style>
 </head>
 <body>
@@ -204,6 +225,7 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
  <div class="trust-item"><svg class="ico " aria-hidden="true"><use href="#i-shield"></use></svg><p>توجه به کیفیت<br>و مشخصات محصول</p></div>
  <div class="trust-item"><svg class="ico " aria-hidden="true"><use href="#i-plane"></use></svg><p>راهکارهای عرضه<br>برای بازار صادراتی</p></div>
 </section>
+<div class="pasta-showcase" aria-label="معرفی و مشخصات محصولات ماکارونی">
 <section class="catalog" id="products">
  <div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات ماکارونی</h2><p>مجموعه‌ای متنوع از محصولات ماکارونی برای مصارف گوناگون و بازارهای صادراتی</p></div>
  <div class="product-grid" data-reveal><article class="product-card" data-kind="spaghetti">
@@ -270,8 +292,9 @@ svg.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;st
 <div class="partner-logo" aria-label="جهلن"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792322745/%D8%AC%D9%87%D9%84%D9%86_kd79kf.png" alt="لوگوی جهلن" loading="lazy" decoding="async"></div>
 <div class="partner-logo" aria-label="تجلیل"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792322745/%D8%AA%D8%AC%D9%84%DB%8C%D9%84_eay64p.png" alt="لوگوی تجلیل" loading="lazy" decoding="async"></div></div>
 </section>
+</div>
 </main>
-<footer id="contact" class="site-footer">
+<footer id="contact" class="site-footer"
   <div class="footer-container">
 
     <div class="footer-brand-block">
