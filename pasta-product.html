@@ -178,6 +178,28 @@ main>.catalog::after{display:none}
     background-size:100% auto;
   }
 }
+/* Desktop hero fit: preserve the entire product image and keep the blue benefits
+   strip below it visible at normal desktop viewport heights. No markup changes. */
+@media (min-width:851px){
+  .hero{
+    height:clamp(545px,calc(100svh - 188px),690px);
+    min-height:545px;
+    background-color:#fffaf2;
+    background-size:auto 100%;
+    background-position:right center;
+  }
+  .hero::after{
+    background:linear-gradient(90deg,#fffaf2 0%,#fffaf2 37%,rgba(255,250,242,.86) 45%,rgba(255,250,242,.18) 62%,transparent 72%);
+  }
+  .hero-inner{padding:22px clamp(26px,5.6vw,108px)}
+  .hero-copy{width:min(550px,43vw);transform:none}
+  .hero .kicker{padding:9px 13px}
+  .hero h1{font-size:clamp(38px,3.1vw,55px);line-height:1.25;letter-spacing:-.8px;margin:11px 0 3px}
+  .hero h2{font-size:clamp(25px,2.1vw,38px);line-height:1.42;letter-spacing:-.5px;margin:4px 0 14px}
+  .hero p{font-size:clamp(12px,1vw,15px);line-height:1.9}
+  .hero-features{margin:18px 0 16px}
+  .hero-actions{gap:14px}
+}
 </style>
 </head>
 <body>
