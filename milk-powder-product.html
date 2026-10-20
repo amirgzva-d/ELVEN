@@ -266,14 +266,34 @@ main>.catalog::after{display:none}
 }
 @media(max-width:850px){.spec-panel .spec-art{min-height:245px}}
 @media(max-width:560px){.spec-panel .spec-art{min-height:210px}}
-/* Higher specificity replaces the generic pasta wheat rules on every viewport. */
+/* Milk brand section: the supplied artwork is 2172×724 (3:1).
+   Show its decorated top and lower edge at native proportions, without
+   scaling it to the short section's height or changing any card dimensions. */
 main>.partners{
-  background-color:#fff9ef;
-  background-image:linear-gradient(180deg,rgba(255,251,246,.24),rgba(255,251,246,.42)),url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467416/686f3580-d0cb-41ca-8749-f5c1af289938_fsdqzy.png");
-  background-position:center center;
-  background-size:cover;
+  --milk-brand-background:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467416/686f3580-d0cb-41ca-8749-f5c1af289938_fsdqzy.png");
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-color:#fffaf2;
+  background-image:none;
+}
+main>.partners::before,
+main>.partners::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:50%;
+  z-index:0;
+  pointer-events:none;
+  background-image:var(--milk-brand-background);
+  background-size:100% auto;
   background-repeat:no-repeat;
 }
+main>.partners::before{top:0;background-position:center top}
+main>.partners::after{bottom:0;background-position:center bottom}
+main>.partners>.section-heading,
+main>.partners>.partner-grid{position:relative;z-index:1}
 </style>
 </head>
 <body>
