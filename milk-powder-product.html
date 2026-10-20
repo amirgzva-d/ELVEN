@@ -204,6 +204,74 @@ main>.catalog::after{display:none}
 /* Category-specific placeholder visuals: same macaroni View layout. */
 .partner-logo--pending{display:flex;flex-direction:column;gap:8px;color:#9c9ba1;font-size:10px;font-weight:750}
 .partner-logo--pending .ico{width:26px;height:26px;color:#bda47c}
+
+/* Milk powder photo framing: each supplied image preserves its aspect ratio.
+   Only this View is changed; no wrappers, card dimensions or shared files change. */
+.hero{
+  background-color:#fff9f0;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792468048/da89a4ab-9021-4ab7-8736-1d161cf2aaf6_yvbx3g.png");
+  background-repeat:no-repeat;
+}
+@media(min-width:851px){
+  .hero{
+    height:clamp(545px,calc(100svh - 188px),690px);
+    min-height:545px;
+    background-size:auto 100%;
+    background-position:right center;
+  }
+  .hero::after{
+    background:linear-gradient(90deg,#fffaf2 0%,#fffaf2 37%,rgba(255,250,242,.84) 45%,rgba(255,250,242,.14) 62%,transparent 73%);
+  }
+  .hero-inner{padding:22px clamp(26px,5.6vw,108px)}
+  .hero-copy{width:min(550px,43vw);transform:none}
+  .hero h1{font-size:clamp(38px,3.1vw,55px);line-height:1.25;letter-spacing:-.8px;margin:11px 0 3px}
+  .hero h2{font-size:clamp(25px,2.1vw,38px);line-height:1.42;letter-spacing:-.5px;margin:4px 0 14px}
+  .hero p{font-size:clamp(12px,1vw,15px);line-height:1.9}
+  .hero-features{margin:18px 0 16px}
+}
+@media(max-width:850px){
+  .hero{background-size:auto 60%;background-position:center bottom}
+}
+@media(max-width:560px){
+  .hero{background-size:auto 49%;background-position:center bottom}
+}
+/* The two supplied photos correspond to whole/full-fat and low-fat milk powder.
+   Contain, never stretch or cut the packaging in the product cards. */
+.product-image--spaghetti{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467415/e31cdc18-bb63-417d-bbea-2fe9c13e4b0f_gscpmd.png");
+  background-position:center center;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-color:#fbf8f3;
+}
+.product-image--bulk{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467415/9a4d4288-0501-432e-b538-15c43e5b5dd3_hy42cl.png");
+  background-position:center center;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-color:#fbf8f3;
+}
+.product-image--form{
+  background-position:center center;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-color:#fbf8f3;
+}
+.spec-art{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467416/6c9cf805-727f-49bb-9d81-8999d4a25c7a_mubz3u.png");
+  background-position:center center;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-color:#fffdf9;
+}
+/* Higher specificity replaces the generic pasta wheat rules on every viewport. */
+main>.partners{
+  background-color:#fff9ef;
+  background-image:linear-gradient(180deg,rgba(255,251,246,.24),rgba(255,251,246,.42)),url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467416/686f3580-d0cb-41ca-8749-f5c1af289938_fsdqzy.png");
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
 </style>
 </head>
 <body>
@@ -246,7 +314,7 @@ main>.catalog::after{display:none}
    <span class="kicker">مجموعه محصولات بازرگانی مهاجر</span>
    <h1>شیر خشک صادراتی</h1>
    <h2>کیفیت ممتاز، تأمین مطمئن</h2>
-   <p>از شیر خشک کامل و صنعتی تا شیر خشک بدون چربی؛ گزینه‌های تأمین متناسب با سفارش و نیاز بازارهای صادراتی.</p>
+   <p>از شیر خشک پرچرب و صنعتی تا شیر خشک کم‌چرب؛ گزینه‌های تأمین متناسب با سفارش و نیاز بازارهای صادراتی.</p>
    <div class="hero-features">
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-badge"></use></svg></span><span>توجه به<br>کیفیت محصول</span></div>
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><span>گزینه‌های<br>تأمین</span></div>
@@ -268,17 +336,17 @@ main>.catalog::after{display:none}
 <section class="catalog" id="products">
  <div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات شیر خشک</h2><p>انواع شیر خشک برای مصارف و نیازهای مختلف؛ جزئیات سفارش و برند پس از استعلام تأیید می‌شود.</p></div>
  <div class="product-grid" data-reveal>
-  <article class="product-card" data-kind="spaghetti" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک کامل">
-   <div class="product-image product-image--spaghetti" role="img" aria-label="تصویر موقت شیر خشک کامل"></div>
-   <div class="card-copy"><h3>شیر خشک کامل</h3><p>برای دریافت گرید، ترکیبات و شرایط تأمین با ما تماس بگیرید.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> بررسی کیفیت</span></div></div>
+  <article class="product-card" data-kind="spaghetti" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک پرچرب">
+   <div class="product-image product-image--spaghetti" role="img" aria-label="تصویر شیر خشک پرچرب"></div>
+   <div class="card-copy"><h3>شیر خشک پرچرب</h3><p>برای دریافت گرید، ترکیبات و شرایط تأمین با ما تماس بگیرید.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> بررسی کیفیت</span></div></div>
   </article>
   <article class="product-card selected" data-kind="form" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک صنعتی">
    <div class="product-image product-image--form" role="img" aria-label="تصویر موقت شیر خشک صنعتی"></div>
    <div class="card-copy"><h3>شیر خشک صنعتی</h3><p>اطلاعات فنی و ویژگی‌های محصول متناسب با سفارش ارائه می‌شوند.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> تأمین سفارشی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> آنالیز پس از تأیید</span></div></div>
   </article>
-  <article class="product-card" data-kind="bulk" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک بدون چربی">
-   <div class="product-image product-image--bulk" role="img" aria-label="تصویر موقت شیر خشک بدون چربی"><span class="highlight-tag">قابل استعلام</span></div>
-   <div class="card-copy"><h3>شیر خشک بدون چربی</h3><p>برای آگاهی از مشخصات و شرایط تأمین این محصول استعلام بگیرید.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات سفارشی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> کنترل کیفیت</span></div></div>
+  <article class="product-card" data-kind="bulk" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات شیر خشک کم‌چرب">
+   <div class="product-image product-image--bulk" role="img" aria-label="تصویر شیر خشک کم‌چرب"><span class="highlight-tag">قابل استعلام</span></div>
+   <div class="card-copy"><h3>شیر خشک کم‌چرب</h3><p>برای آگاهی از مشخصات و شرایط تأمین این محصول استعلام بگیرید.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات سفارشی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> کنترل کیفیت</span></div></div>
   </article>
  </div>
 </section>
@@ -392,9 +460,9 @@ nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classL
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
 const selectText=document.getElementById('selectedProduct'),detail=document.getElementById('productDetails'),spec=document.getElementById('specifications'),nutritionNote=document.getElementById('nutritionNote');
 const descriptions={
- spaghetti:['شیر خشک کامل','گرید، ترکیبات و مشخصات بسته‌بندی شیر خشک کامل پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.'],
+ spaghetti:['شیر خشک پرچرب','گرید، ترکیبات و مشخصات بسته‌بندی شیر خشک پرچرب پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.'],
  form:['شیر خشک صنعتی','گرید، ترکیبات و مشخصات فنی شیر خشک صنعتی پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.'],
- bulk:['شیر خشک بدون چربی','گرید و ویژگی‌های شیر خشک بدون چربی پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.']
+ bulk:['شیر خشک کم‌چرب','گرید و ویژگی‌های شیر خشک کم‌چرب پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.']
 };
 document.querySelectorAll('.product-card[data-kind]').forEach(card=>{
  const activate=()=>{
