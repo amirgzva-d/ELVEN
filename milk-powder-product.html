@@ -343,6 +343,47 @@ main>.partners .partner-logo--brand img{
   main>.partners .partner-logo--brand{height:93px}
   main>.partners .partner-logo--brand img{max-height:73px}
 }
+
+/* Seamless, reversible transition between the milk product photo and
+   the partner-brand artwork. Fade only background layers, not content. */
+main>.milk-section-surface::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:clamp(85px,10vw,155px);
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(to bottom,
+    rgba(252,248,239,0) 0%,
+    rgba(252,248,239,.42) 46%,
+    #fcf8ef 100%);
+}
+main>.milk-section-surface>.catalog,
+main>.milk-section-surface>.spec-section{
+  position:relative;
+  z-index:1;
+}
+main>.partners::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:clamp(75px,9vw,130px);
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(to bottom,
+    #fcf8ef 0%,
+    rgba(252,248,239,.65) 50%,
+    rgba(252,248,239,0) 100%);
+}
+main>.partners>.section-heading,
+main>.partners>.partner-grid{
+  position:relative;
+  z-index:1;
+}
+@media(max-width:560px){
+  main>.milk-section-surface::after{height:82px}
+  main>.partners::before{height:70px}
+}
 </style>
 </head>
 <body>
@@ -396,7 +437,7 @@ main>.partners .partner-logo--brand img{
    </div>
   </div>
  </div>
- <a class="scroll-down" href="#products" aria-label="رفتن به بخش محصولات"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
+ <a class="scroll-down" href="#page-bottom" aria-label="رفتن به انتهای صفحه"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
 </section>
 <section class="trust-strip" aria-label="مزیت‌های مجموعه">
  <div class="trust-item"><svg class="ico " aria-hidden="true"><use href="#i-users"></use></svg><p>محصولات متنوع<br>برای نیازهای مختلف</p></div>
@@ -515,7 +556,7 @@ main>.partners .partner-logo--brand img{
 
   </div>
 
-  <div class="footer-bottom">
+  <div class="footer-bottom" id="page-bottom">
     <div>© ۱۴۰۴ بازرگانی مهاجر — تمامی حقوق محفوظ است.</div>
     <div class="designer">طراحی و توسعه اختصاصی</div>
   </div>
