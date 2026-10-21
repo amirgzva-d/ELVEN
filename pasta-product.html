@@ -299,13 +299,14 @@ main>.catalog::after{display:none}
   <div class="spec-art" role="img" aria-label="پاستا فرمی در چیدمان مواد غذایی"></div>
   <div class="spec-content">
    <div class="spec-top"><div><span class="spec-title-kicker">ارزش غذایی محصول</span><h2>جدول ارزش غذایی ماکارونی همرسین</h2></div><span class="spec-head-icon"><svg class="ico " aria-hidden="true"><use href="#i-list"></use></svg></span></div>
-   <div id="nutritionStats" class="nutrition-grid"><div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-fire"></use></svg><div><span class="nutri-label">انرژی</span><strong class="nutri-num">۱۸۷٫۶۴</strong><small>کیلوکالری</small></div></div>
-<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">پروتئین</span><strong class="nutri-num">۶٫۴۷</strong><small>گرم</small></div></div>
-<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-wheat"></use></svg><div><span class="nutri-label">کربوهیدرات</span><strong class="nutri-num">۳۹٫۸۳</strong><small>گرم</small></div></div>
-<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-package"></use></svg><div><span class="nutri-label">سدیم</span><strong class="nutri-num">۰٫۰۱</strong><small>گرم</small></div></div>
-<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-leaf"></use></svg><div><span class="nutri-label">فیبر</span><strong class="nutri-num">۰٫۶۱</strong><small>گرم</small></div></div>
-<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-fire"></use></svg><div><span class="nutri-label">چربی</span><strong class="nutri-num">۰٫۲۸</strong><small>گرم</small></div></div></div>
-   <p id="nutritionNote" class="spec-note">* اعداد ارائه‌شده مربوط به ۵۵ گرم پاستا فرمی هستند. مقدار نمک اعلام نشده است؛ اطلاعات قبل از انتشار نهایی باید با برچسب تأیید شوند.</p>
+   <div id="nutritionStats" class="nutrition-grid"><div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-fire"></use></svg><div><span class="nutri-label">انرژی</span><strong class="nutri-num">۱۸۷/۶۴</strong><small>کیلو کالری - ۷۸۵/۰۸ کیلوژول</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">پروتئین</span><strong class="nutri-num">۶/۴۷</strong><small>گرم</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-fire"></use></svg><div><span class="nutri-label">چربی</span><strong class="nutri-num">۰/۲۸</strong><small>گرم</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-package"></use></svg><div><span class="nutri-label">سدیم</span><strong class="nutri-num">۰/۰۱</strong><small>گرم</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-wheat"></use></svg><div><span class="nutri-label">کربوهیدرات</span><strong class="nutri-num">۳۹/۸۳</strong><small>گرم</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-leaf"></use></svg><div><span class="nutri-label">فیبر</span><strong class="nutri-num">۰/۶۱</strong><small>گرم</small></div></div>
+<div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-package"></use></svg><div><span class="nutri-label">نمک</span><strong class="nutri-num">۰/۰۴</strong><small>گرم</small></div></div></div>
+   <p id="nutritionNote" class="spec-note">* اعداد ارائه‌شده مربوط به ۵۵ گرم پاستا فرمی هستند؛ اطلاعات قبل از انتشار نهایی باید با برچسب محصول تأیید شوند.</p>
   </div>
  </div>
  <details class="product-detail"><summary>معرفی، ترکیبات و روش پخت محصول انتخاب‌شده</summary>
@@ -412,7 +413,7 @@ document.querySelectorAll('.product-card[data-kind]').forEach(card=>{
  const activate=()=>{
  const k=card.dataset.kind,entry=descriptions[k];if(!entry)return;
  selectText.textContent=entry[0];detail.textContent=entry[1];
- const isForm=k==='form';nutrition.hidden=!isForm;document.querySelectorAll('[data-form-only]').forEach(el=>el.hidden=!isForm);document.querySelector('.product-detail').open=true;nutritionNote.textContent=isForm?'* اعداد ارائه‌شده مربوط به ۵۵ گرم پاستا فرمی هستند. مقدار نمک اعلام نشده است؛ اطلاعات قبل از انتشار نهایی باید با برچسب تأیید شوند.':'اطلاعات جدول ارزش غذایی این محصول هنوز ارائه نشده است و ارقام پاستا فرمی به آن نسبت داده نمی‌شوند.';
+ const isForm=k==='form';nutrition.hidden=!isForm;document.querySelectorAll('[data-form-only]').forEach(el=>el.hidden=!isForm);document.querySelector('.product-detail').open=true;nutritionNote.textContent=isForm?'* اعداد ارائه‌شده مربوط به ۵۵ گرم پاستا فرمی هستند؛ اطلاعات قبل از انتشار نهایی باید با برچسب محصول تأیید شوند.':'اطلاعات جدول ارزش غذایی این محصول هنوز ارائه نشده است و ارقام پاستا فرمی به آن نسبت داده نمی‌شوند.';
  document.querySelectorAll('.product-card[data-kind]').forEach(item=>{const selected=item.dataset.kind===k;item.classList.toggle('selected',selected);item.setAttribute('aria-pressed',String(selected))});
  spec.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
  };
