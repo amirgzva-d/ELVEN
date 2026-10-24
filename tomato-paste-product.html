@@ -233,8 +233,8 @@ main>.catalog::after{display:none}
    the customer-supplied replacement image. */
 .tomato-main>.tomato-specifications{padding:32px clamp(14px,4vw,74px) 32px;background:linear-gradient(180deg,#fffcf7,#fff9f1)}
 .tomato-spec-panel{width:100%;max-width:1450px;grid-template-columns:38% minmax(0,62%);min-height:440px;align-items:stretch}
-.tomato-spec-art{min-height:440px;background-image:none;background-color:#f8eee2;background-position:center;background-size:cover;background-repeat:no-repeat;display:grid;place-items:center;isolation:isolate}
-.tomato-spec-art::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 27% 27%,rgba(255,255,255,.8),transparent 54%),linear-gradient(145deg,#f8f3e9 0%,#f2dfc5 100%);z-index:-1}
+.tomato-spec-art{min-height:440px;background-color:#f8eee2;background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/dc5f79de-3b8e-4ba9-9e7a-cccce4207e87.png");background-position:8% center;background-size:cover;background-repeat:no-repeat;display:block;isolation:isolate}
+.tomato-spec-art::before{display:none}
 .tomato-spec-art::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.8))}
 .tomato-photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:18px 25px;border-radius:20px;border:1px dashed rgba(145,111,72,.4);background:rgba(255,255,255,.55);color:#9e866b;font-size:12px;font-weight:700;text-align:center}
 .tomato-photo-placeholder .ico{height:34px;width:34px;color:#b98d59}
@@ -405,12 +405,7 @@ main>.catalog::after{display:none}
 
 <section class="spec-section tomato-specifications" id="tomato-specifications" aria-labelledby="tomato-spec-title">
   <div class="spec-panel tomato-spec-panel" data-reveal>
-    <div class="spec-art tomato-spec-art" role="img" aria-label="محل تصویر رب گوجه‌فرنگی؛ تصویر محصول بعداً افزوده خواهد شد">
-      <div class="tomato-photo-placeholder" aria-hidden="true">
-        <svg class="ico"><use href="#i-package"></use></svg>
-        <span>جای تصویر محصول</span>
-      </div>
-    </div>
+    <div class="spec-art tomato-spec-art" role="img" aria-label="رب گوجه‌فرنگی غلیظ در کاسه چوبی همراه با گوجه‌فرنگی تازه و ریحان"></div>
     <div class="spec-content tomato-spec-content">
       <div class="spec-top">
         <div><span class="spec-title-kicker">مشخصات فنی و کیفی محصول</span><h2 id="tomato-spec-title">جدول مشخصات فنی رب گوجه‌فرنگی</h2></div>
