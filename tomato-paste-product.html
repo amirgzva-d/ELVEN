@@ -384,6 +384,48 @@ main>.catalog::after{display:none}
 }
 .tomato-main>.tomato-product-surface>.catalog,
 .tomato-main>.tomato-product-surface>.tomato-specifications{position:relative;z-index:1}
+
+/* Quieter edges specifically around the technical specifications.
+   Fade strong tomato/leaf details under warm ivory only in the marked side
+   margins. The specification panel itself and brand art remain unchanged. */
+.tomato-main>.tomato-product-surface>.tomato-specifications{
+  isolation:isolate;
+}
+.tomato-main>.tomato-product-surface>.tomato-specifications::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,
+    rgba(255,250,242,.99) 0%,
+    rgba(255,250,242,.96) 11%,
+    rgba(255,250,242,.75) 17%,
+    rgba(255,250,242,0) 29%,
+    rgba(255,250,242,0) 71%,
+    rgba(255,250,242,.75) 83%,
+    rgba(255,250,242,.96) 89%,
+    rgba(255,250,242,.99) 100%);
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.60),#000 14%,#000 84%,rgba(0,0,0,.35));
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.60),#000 14%,#000 84%,rgba(0,0,0,.35));
+}
+.tomato-main>.tomato-product-surface>.tomato-specifications>.tomato-spec-panel,
+.tomato-main>.tomato-product-surface>.tomato-specifications>.tomato-spec-detail{
+  position:relative;
+  z-index:1;
+}
+@media(max-width:850px){
+  .tomato-main>.tomato-product-surface>.tomato-specifications::before{
+    background:linear-gradient(180deg,
+      rgba(255,250,242,.35) 0%,
+      rgba(255,250,242,.92) 16%,
+      rgba(255,250,242,.97) 80%,
+      rgba(255,250,242,.35) 100%);
+    -webkit-mask-image:none;
+    mask-image:none;
+  }
+}
+
 .tomato-main>.partners{
   position:relative;
   isolation:isolate;
