@@ -328,6 +328,69 @@ main>.catalog::after{display:none}
 }
 
 
+
+/* Tomato product cards: identical base components to the macaroni catalog. */
+.tomato-main>.tomato-product-surface{
+  position:relative;
+  isolation:isolate;
+  background-color:#fffaf2;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836168/ef560b05-671f-4623-8291-ce0c2357a1a9_y851ey.png");
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.tomato-main>.tomato-product-surface>.catalog{
+  background:transparent;
+  padding:48px clamp(18px,4vw,74px) 46px;
+}
+.tomato-main>.tomato-product-surface>.catalog::before,
+.tomato-main>.tomato-product-surface>.catalog::after{display:none}
+.tomato-main>.tomato-product-surface>.tomato-specifications{
+  background:transparent;
+  padding:32px clamp(14px,4vw,74px) 32px;
+}
+.tomato-product-image--aseptic{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836234/f3886384-b2c8-4424-802e-0c7b4d6296be_1_jypjfn.png");
+  background-size:cover;
+  background-position:center center;
+}
+.tomato-product-image--glass{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836234/b653d519-d350-4053-aa71-989db5e0e662_1_sqai39.png");
+  background-size:cover;
+  background-position:center center;
+}
+.tomato-product-image--can{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836232/44b219dc-9854-4df9-9733-1a445821447b_1_obrjjo.png");
+  background-size:cover;
+  background-position:center center;
+}
+.tomato-selected-packaging{
+  color:#687791;
+  font-size:11px;
+  line-height:1.8;
+  margin:7px 0 0;
+}
+.tomato-selected-packaging strong{color:var(--navy);font-weight:850}
+.tomato-main>.partners{
+  background-color:#fcf8ef;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836167/64184cf8-8c3c-43d4-912b-e58e7b3aa92a_tnkrhc.png");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:100% auto;
+}
+@media(max-width:850px){
+  .tomato-main>.tomato-product-surface{
+    background-size:100% auto;
+    background-position:center top;
+  }
+  .tomato-main>.partners{background-size:100% auto;background-position:center center}
+}
+@media(max-width:560px){
+  .tomato-main>.tomato-product-surface>.catalog{padding:29px 15px}
+  .tomato-main>.tomato-product-surface>.tomato-specifications{padding:22px 14px 30px}
+  .tomato-product-grid{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -390,25 +453,46 @@ main>.catalog::after{display:none}
   <div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg><p>بررسی مشخصات<br>هر محصول</p></div>
   <div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-plane"></use></svg><p>بررسی شرایط<br>عرضه و صادرات</p></div>
 </section>
-<section class="catalog tomato-overview" id="products" aria-label="معرفی محصولات رب گوجه‌فرنگی">
+<div class="tomato-product-surface">
+<section class="catalog tomato-catalog" id="products" aria-label="محصولات رب گوجه‌فرنگی">
   <div class="section-heading" data-reveal>
     <span class="heading-eyebrow">محصولات ما</span>
     <h2>محصولات رب گوجه‌فرنگی</h2>
-    <p>نوع محصول، وزن و مشخصات هر برند پس از دریافت اطلاعات تأییدشده معرفی می‌شود.</p>
+    <p>سه نوع بسته‌بندی رب گوجه‌فرنگی؛ برای مشاهده توضیحات هر محصول روی کارت آن کلیک کنید.</p>
   </div>
-  <div class="tomato-overview-card" data-reveal>
-    <span class="tomato-overview-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span>
-    <p>برای دریافت اطلاعات دقیق محصولات رب گوجه‌فرنگی و موجودی برندهای معرفی‌شده، با بخش فروش بازرگانی مهاجر در ارتباط باشید.</p>
-    <a href="index.html#contact">درخواست اطلاعات محصولات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+  <div class="product-grid tomato-product-grid" data-reveal>
+    <article class="product-card selected" data-kind="aseptic" role="button" tabindex="0" aria-pressed="true" aria-controls="tomato-specifications" aria-label="انتخاب رب گوجه‌فرنگی اسپتیک و مشاهده مشخصات">
+      <div class="product-image tomato-product-image--aseptic" role="img" aria-label="تصویر محصول رب گوجه‌فرنگی اسپتیک"></div>
+      <div class="card-copy">
+        <h3>رب گوجه‌فرنگی اسپتیک</h3>
+        <p>بسته‌بندی اسپتیک مناسب برای تأمین و مصارف صنعتی؛ جزئیات ظرفیت و شرایط سفارش با استعلام مشخص می‌شود.</p>
+        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>مصرف صنعتی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>مشخصات با استعلام</span></div>
+      </div>
+    </article>
+    <article class="product-card" data-kind="glass" role="button" tabindex="0" aria-pressed="false" aria-controls="tomato-specifications" aria-label="انتخاب رب گوجه‌فرنگی شیشه‌ای و مشاهده مشخصات">
+      <div class="product-image tomato-product-image--glass" role="img" aria-label="تصویر محصول رب گوجه‌فرنگی شیشه‌ای"></div>
+      <div class="card-copy">
+        <h3>رب گوجه‌فرنگی شیشه‌ای</h3>
+        <p>رب گوجه‌فرنگی در بسته‌بندی شیشه‌ای؛ برند، وزن و موجودی پس از استعلام تأیید می‌شود.</p>
+        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>بسته‌بندی شیشه‌ای</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg>عرضه با استعلام</span></div>
+      </div>
+    </article>
+    <article class="product-card" data-kind="can" role="button" tabindex="0" aria-pressed="false" aria-controls="tomato-specifications" aria-label="انتخاب رب گوجه‌فرنگی قوطی و مشاهده مشخصات">
+      <div class="product-image tomato-product-image--can" role="img" aria-label="تصویر محصول رب گوجه‌فرنگی قوطی"></div>
+      <div class="card-copy">
+        <h3>رب گوجه‌فرنگی قوطی</h3>
+        <p>رب گوجه‌فرنگی با بسته‌بندی قوطی فلزی؛ وزن و شرایط تأمین متناسب با محصول اعلام می‌شود.</p>
+        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>قوطی فلزی</span><span><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg>استعلام موجودی</span></div>
+      </div>
+    </article>
   </div>
 </section>
-
 <section class="spec-section tomato-specifications" id="tomato-specifications" aria-labelledby="tomato-spec-title">
   <div class="spec-panel tomato-spec-panel" data-reveal>
     <div class="spec-art tomato-spec-art" role="img" aria-label="رب گوجه‌فرنگی غلیظ در کاسه چوبی همراه با گوجه‌فرنگی تازه و ریحان"></div>
     <div class="spec-content tomato-spec-content">
       <div class="spec-top">
-        <div><span class="spec-title-kicker">مشخصات فنی و کیفی محصول</span><h2 id="tomato-spec-title">جدول مشخصات فنی رب گوجه‌فرنگی</h2></div>
+        <div><span class="spec-title-kicker">مشخصات فنی و کیفی محصول</span><h2 id="tomato-spec-title">جدول مشخصات فنی رب گوجه‌فرنگی</h2><p class="tomato-selected-packaging">بسته‌بندی انتخاب‌شده: <strong id="tomatoSelectedProduct">اسپتیک</strong></p></div>
         <span class="spec-head-icon" aria-hidden="true"><svg class="ico"><use href="#i-list"></use></svg></span>
       </div>
       <div class="nutrition-grid tomato-spec-grid" aria-label="۹ شاخص فنی رب گوجه‌فرنگی">
@@ -494,10 +578,12 @@ main>.catalog::after{display:none}
   </div>
   <details class="product-detail tomato-spec-detail">
     <summary>توضیحات مشخصات فنی و نتایج آزمایش رب گوجه‌فرنگی</summary>
+    <p><strong id="tomatoProductDetailsTitle">رب گوجه‌فرنگی اسپتیک: </strong><span id="tomatoProductDetailsText">برای اطلاع از ظرفیت، مشخصات بسته‌بندی و شرایط تأمین اسپتیک، استعلام محصول لازم است.</span></p>
     <p>بریکس (Brix)، ویسکوزیته، pH، نسبت رنگ (a/b) و شمارش کپک هاوارد (H.M.C) شاخص‌های کنترل کیفیت هستند. مقادیر ثبت‌شده از جدول ارسالی منتقل شده‌اند و به‌تنهایی جایگزین گواهی آزمایشگاهی محموله نیستند.</p>
     <p>برای دریافت مقادیر تأییدشده مربوط به ذرات خارجی، آزمایش باکتریایی، کپک و مخمر، برگه آنالیز همان محصول درخواست شود.</p>
   </details>
 </section>
+</div><!-- /.tomato-product-surface -->
 <section class="partners" id="tomato-brands" aria-label="برندهای رب گوجه‌فرنگی">
   <div class="section-heading" data-reveal>
     <span class="heading-eyebrow">برندهای رب گوجه‌فرنگی</span>
@@ -590,6 +676,37 @@ main>.catalog::after{display:none}
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open))});
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
+
+const chosenName=document.getElementById('tomatoSelectedProduct');
+const chosenTitle=document.getElementById('tomatoProductDetailsTitle');
+const chosenDetail=document.getElementById('tomatoProductDetailsText');
+const specSection=document.getElementById('tomato-specifications');
+const specDetails=document.querySelector('.tomato-spec-detail');
+const tomatoDescriptions={
+  aseptic:['اسپتیک','رب گوجه‌فرنگی اسپتیک','برای اطلاع از ظرفیت، مشخصات بسته‌بندی و شرایط تأمین اسپتیک، استعلام محصول لازم است.'],
+  glass:['شیشه‌ای','رب گوجه‌فرنگی شیشه‌ای','وزن، برند و موجودی رب شیشه‌ای پس از استعلام محصول مشخص می‌شوند.'],
+  can:['قوطی','رب گوجه‌فرنگی قوطی','برای اطلاع از وزن قوطی، برند و شرایط تأمین، استعلام محصول لازم است.']
+};
+document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(card=>{
+  const activate=()=>{
+    const info=tomatoDescriptions[card.dataset.kind];
+    if(!info || !specSection)return;
+    if(chosenName)chosenName.textContent=info[0];
+    if(chosenTitle)chosenTitle.textContent=info[1]+': ';
+    if(chosenDetail)chosenDetail.textContent=info[2];
+    document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(item=>{
+      const selected=item===card;
+      item.classList.toggle('selected',selected);
+      item.setAttribute('aria-pressed',String(selected));
+    });
+    if(specDetails)specDetails.open=true;
+    specSection.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+  };
+  card.addEventListener('click',activate);
+  card.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();activate();}
+  });
+});
 })();
 </script>
 </body></html>
