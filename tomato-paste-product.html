@@ -329,163 +329,54 @@ main>.catalog::after{display:none}
 
 
 
-/* Tomato product cards: identical base components to the macaroni catalog. */
+/* One continuous user-supplied illustration across the tomato products,
+   technical specifications and brand logos. */
 .tomato-main>.tomato-product-surface{
   position:relative;
   isolation:isolate;
-  background-color:#fffaf2;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836168/ef560b05-671f-4623-8291-ce0c2357a1a9_y851ey.png");
-  background-position:center center;
-  background-size:cover;
-  background-repeat:no-repeat;
+  background:#fffaf2 url("assets/tomato-unified-2560x1800.webp") center top / 100% 100% no-repeat;
 }
 .tomato-main>.tomato-product-surface>.catalog{
-  background:transparent;
+  position:relative;background:transparent;
   padding:48px clamp(18px,4vw,74px) 46px;
 }
 .tomato-main>.tomato-product-surface>.catalog::before,
 .tomato-main>.tomato-product-surface>.catalog::after{display:none}
 .tomato-main>.tomato-product-surface>.tomato-specifications{
-  background:transparent;
+  position:relative;background:transparent;
   padding:32px clamp(14px,4vw,74px) 32px;
 }
-.tomato-product-image--aseptic{
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836234/f3886384-b2c8-4424-802e-0c7b4d6296be_1_jypjfn.png");
-  background-size:cover;
-  background-position:center center;
-}
-.tomato-product-image--glass{
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836234/b653d519-d350-4053-aa71-989db5e0e662_1_sqai39.png");
-  background-size:cover;
-  background-position:center center;
-}
-.tomato-product-image--can{
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836232/44b219dc-9854-4df9-9733-1a445821447b_1_obrjjo.png");
-  background-size:cover;
-  background-position:center center;
-}
-.tomato-selected-packaging{
-  color:#687791;
-  font-size:11px;
-  line-height:1.8;
-  margin:7px 0 0;
-}
+.tomato-product-image--aseptic{background:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836234/f3886384-b2c8-4424-802e-0c7b4d6296be_1_jypjfn.png") center/cover no-repeat}
+.tomato-product-image--glass{background:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836234/b653d519-d350-4053-aa71-989db5e0e662_1_sqai39.png") center/cover no-repeat}
+.tomato-product-image--can{background:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836232/44b219dc-9854-4df9-9733-1a445821447b_1_obrjjo.png") center/cover no-repeat}
+.tomato-selected-packaging{color:#687791;font-size:11px;line-height:1.8;margin:7px 0 0}
 .tomato-selected-packaging strong{color:var(--navy);font-weight:850}
-/* The brand banner is a true 2048x322 crop with unwashed tomatoes at the edges.
-   Crossfade only at the section boundary, never over logos or the artwork itself. */
-.tomato-main>.tomato-product-surface::after{
-  content:"";
-  position:absolute;
-  inset:auto 0 0;
-  height:clamp(80px,8vw,125px);
-  z-index:0;
-  pointer-events:none;
-  background:linear-gradient(to bottom,rgba(255,247,233,0) 0%,rgba(255,247,233,.25) 42%,#fff7e9 100%);
+.tomato-main>.tomato-product-surface>.partners{position:relative;background:transparent;padding:32px clamp(18px,5vw,90px) 40px}
+.tomato-main>.tomato-product-surface>.partners .partner-grid{
+  grid-template-columns:repeat(5,minmax(0,182px));max-width:960px;justify-content:center;gap:11px;
 }
-.tomato-main>.tomato-product-surface>.catalog,
-.tomato-main>.tomato-product-surface>.tomato-specifications{position:relative;z-index:1}
-
-/* Quieter edges specifically around the technical specifications.
-   Fade strong tomato/leaf details under warm ivory only in the marked side
-   margins. The specification panel itself and brand art remain unchanged. */
-.tomato-main>.tomato-product-surface>.tomato-specifications{
-  isolation:isolate;
+.tomato-main>.tomato-product-surface>.partners .partner-logo{
+  height:88px;min-width:0;border:1px solid rgba(191,153,104,.38);
+  border-radius:15px;background:rgba(255,249,240,.54);box-shadow:none;backdrop-filter:none;
 }
-.tomato-main>.tomato-product-surface>.tomato-specifications::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background:linear-gradient(90deg,
-    rgba(255,250,242,.99) 0%,
-    rgba(255,250,242,.96) 11%,
-    rgba(255,250,242,.75) 17%,
-    rgba(255,250,242,0) 29%,
-    rgba(255,250,242,0) 71%,
-    rgba(255,250,242,.75) 83%,
-    rgba(255,250,242,.96) 89%,
-    rgba(255,250,242,.99) 100%);
-  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.60),#000 14%,#000 84%,rgba(0,0,0,.35));
-  mask-image:linear-gradient(180deg,rgba(0,0,0,.60),#000 14%,#000 84%,rgba(0,0,0,.35));
+.tomato-main>.tomato-product-surface>.partners .partner-logo img{
+  max-width:94%;max-height:78px;height:auto;width:auto;object-fit:contain;
 }
-.tomato-main>.tomato-product-surface>.tomato-specifications>.tomato-spec-panel,
-.tomato-main>.tomato-product-surface>.tomato-specifications>.tomato-spec-detail{
-  position:relative;
-  z-index:1;
+.tomato-main>.tomato-product-surface>.partners .partner-logo[aria-label="همرسین"] img{
+  max-width:98%;max-height:84px;transform:scale(1.18);
 }
 @media(max-width:850px){
-  .tomato-main>.tomato-product-surface>.tomato-specifications::before{
-    background:linear-gradient(180deg,
-      rgba(255,250,242,.35) 0%,
-      rgba(255,250,242,.92) 16%,
-      rgba(255,250,242,.97) 80%,
-      rgba(255,250,242,.35) 100%);
-    -webkit-mask-image:none;
-    mask-image:none;
+  .tomato-main>.tomato-product-surface{
+    background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/2f3bb822-2d54-442b-acc5-b7aac3d00671.png");
+    background-size:100% 100%;
   }
-}
-
-.tomato-main>.partners{
-  position:relative;
-  isolation:isolate;
-  background-color:#fff7e9;
-  background-image:url("assets/tomato-brands-clean-2048x322.webp");
-  background-repeat:no-repeat;
-  background-position:center center;
-  background-size:100% auto;
-  padding:32px clamp(18px,5vw,90px) 40px;
-}
-.tomato-main>.partners::before{
-  content:"";
-  position:absolute;
-  inset:0 0 auto;
-  height:clamp(30px,3vw,52px);
-  z-index:0;
-  pointer-events:none;
-  background:linear-gradient(to bottom,#fff7e9 0%,rgba(255,247,233,0) 100%);
-}
-.tomato-main>.partners>.section-heading,
-.tomato-main>.partners>.partner-grid{position:relative;z-index:1}
-.tomato-main>.partners .partner-grid{
-  grid-template-columns:repeat(5,minmax(0,182px));
-  max-width:960px;
-  justify-content:center;
-  gap:11px;
-}
-.tomato-main>.partners .partner-logo{
-  height:88px;
-  min-width:0;
-  border:1px solid rgba(191,153,104,.38);
-  background:rgba(255,249,240,.44);
-  border-radius:15px;
-  box-shadow:none;
-  backdrop-filter:none;
-}
-.tomato-main>.partners .partner-logo img{
-  max-width:94%;
-  max-height:78px;
-  height:auto;
-  width:auto;
-  object-fit:contain;
-}
-.tomato-main>.partners .partner-logo[aria-label="همرسین"] img{
-  max-width:98%;
-  max-height:84px;
-  transform:scale(1.18);
-}
-@media(max-width:850px){
-  .tomato-main>.tomato-product-surface{background-size:100% auto;background-position:center top}
-  .tomato-main>.partners{background-size:100% auto;background-position:center top}
-  .tomato-main>.partners .partner-grid{
-    grid-template-columns:repeat(2,minmax(0,182px));
-    max-width:425px;
-    gap:10px;
-  }
+  .tomato-main>.tomato-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,182px));max-width:425px;gap:10px}
 }
 @media(max-width:560px){
   .tomato-main>.tomato-product-surface>.catalog{padding:29px 15px}
   .tomato-main>.tomato-product-surface>.tomato-specifications{padding:22px 14px 30px}
+  .tomato-main>.tomato-product-surface>.partners{padding:35px 15px 48px}
+  .tomato-main>.tomato-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}
   .tomato-product-grid{grid-template-columns:1fr}
 }
 
@@ -681,7 +572,6 @@ main>.catalog::after{display:none}
     <p>برای دریافت مقادیر تأییدشده مربوط به ذرات خارجی، آزمایش باکتریایی، کپک و مخمر، برگه آنالیز همان محصول درخواست شود.</p>
   </details>
 </section>
-</div><!-- /.tomato-product-surface -->
 <section class="partners" id="tomato-brands" aria-label="برندهای رب گوجه‌فرنگی">
   <div class="section-heading" data-reveal>
     <span class="heading-eyebrow">برندهای رب گوجه‌فرنگی</span>
@@ -696,6 +586,7 @@ main>.catalog::after{display:none}
    <div class="partner-logo" aria-label="همرسین"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792322738/%D9%87%D9%85%D8%B1%D8%B3%DB%8C%D9%86_arfy8z.png" alt="لوگوی همرسین" loading="lazy" decoding="async"></div>
   </div>
 </section>
+</div><!-- /.tomato-product-surface -->
 </main>
 <footer id="contact" class="site-footer">
   <div class="footer-container">
