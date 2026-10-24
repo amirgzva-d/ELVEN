@@ -203,7 +203,52 @@ main>.catalog::after{display:none}
 
 /* Canned-food category styling. Partner cards intentionally match pasta cards. */
 .tomato-main{background:#fffaf2!important;background-image:none!important}
-.tomato-main>.tomato-hero{height:auto;min-height:555px;background:radial-gradient(circle at 76% 34%,rgba(214,173,110,.23) 0 9%,transparent 40%),linear-gradient(125deg,#fffdf8 9%,#fff5e5 62%,#f2e2c9 100%);background-image:radial-gradient(circle at 76% 34%,rgba(214,173,110,.23) 0 9%,transparent 40%),linear-gradient(125deg,#fffdf8 9%,#fff5e5 62%,#f2e2c9 100%)}
+.tomato-main>.tomato-hero{
+  height:clamp(560px,calc(100svh - 188px),700px);
+  min-height:560px;
+  background-color:#fffaf2;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792827925/e731417a-6190-49b5-abcb-4830c4343e65_dtxeiz.png"),url("assets/tomato-paste-card.webp");
+  background-position:right center,right center;
+  background-size:auto 100%,auto 100%;
+  background-repeat:no-repeat;
+}
+.tomato-main>.tomato-hero::before{display:none!important}
+.tomato-main>.tomato-hero::after{
+  background:linear-gradient(90deg,#fffaf2 0%,rgba(255,250,242,.98) 29%,rgba(255,250,242,.86) 40%,rgba(255,250,242,.55) 51%,rgba(255,250,242,.03) 67%,transparent 80%);
+}
+.tomato-main>.tomato-hero .hero-inner{
+  direction:ltr;
+  justify-content:flex-start;
+  align-items:center;
+  min-height:560px;
+  padding:35px clamp(24px,5.5vw,105px);
+}
+.tomato-main>.tomato-hero .hero-copy{
+  direction:rtl;
+  align-items:flex-start;
+  text-align:right;
+  width:min(510px,43vw);
+  transform:none;
+}
+.tomato-main>.tomato-hero .hero p{max-width:490px}
+.tomato-main>.tomato-hero .hero-features{max-width:500px}
+.tomato-main>.tomato-hero .hero-actions{justify-content:flex-start}
+@media(max-width:850px){
+  .tomato-main>.tomato-hero{height:auto;min-height:710px;background-position:70% bottom,70% bottom;background-size:auto 52%,auto 52%}
+  .tomato-main>.tomato-hero::after{background:linear-gradient(180deg,rgba(255,250,242,.98) 0%,rgba(255,250,242,.97) 29%,rgba(255,250,242,.83) 45%,rgba(255,250,242,.13) 66%,transparent 80%)}
+  .tomato-main>.tomato-hero .hero-inner{min-height:710px;padding:38px 24px 365px;align-items:flex-start;justify-content:center}
+  .tomato-main>.tomato-hero .hero-copy{align-items:center;text-align:center;width:min(100%,580px)}
+  .tomato-main>.tomato-hero .hero-actions{justify-content:center}
+}
+@media(max-width:560px){
+  .tomato-main>.tomato-hero{min-height:730px;background-size:auto 45%,auto 45%;background-position:76% bottom,76% bottom}
+  .tomato-main>.tomato-hero .hero-inner{min-height:730px;padding:32px 18px 345px}
+  .tomato-main>.tomato-hero .hero h1{margin-top:12px}
+  .tomato-main>.tomato-hero .hero h2{font-size:clamp(21px,5.7vw,28px)}
+  .tomato-main>.tomato-hero .hero p{font-size:11.5px;line-height:1.85}
+  .tomato-main>.tomato-hero .hero-features{margin:16px 0}
+}
+
 .tomato-main>.tomato-hero::before{content:"";position:absolute;z-index:0;width:clamp(260px,35vw,620px);aspect-ratio:1;border:1.5px solid rgba(198,151,89,.25);border-radius:50%;left:-6%;top:10%;box-shadow:0 0 0 38px rgba(213,174,115,.04),0 0 0 85px rgba(213,174,115,.035);pointer-events:none}
 .tomato-main>.tomato-hero::after{background:linear-gradient(90deg,rgba(255,253,248,.14),rgba(255,253,248,.4))}
 .tomato-main .hero-inner{direction:rtl;justify-content:center;padding:65px 22px;min-height:555px}
