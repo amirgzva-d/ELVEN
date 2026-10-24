@@ -228,6 +228,46 @@ main>.catalog::after{display:none}
 @media(max-width:850px){.tomato-main>.tomato-hero{min-height:510px;background-size:auto}.tomato-main .hero-inner{padding:58px 22px;min-height:510px;align-items:center}.tomato-main .partner-grid{grid-template-columns:repeat(2,minmax(0,196px));gap:12px}}
 @media(max-width:560px){.tomato-main>.tomato-hero{min-height:535px}.tomato-main .hero-inner{padding:50px 18px 65px;min-height:535px}.tomato-main .hero h2{font-size:24px}.tomato-main .hero-features{margin:25px 0}.tomato-main>.partners{padding:35px 15px 48px}.tomato-main .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}.tomato-main .partner-logo{height:96px}.tomato-main .tomato-overview-card{padding:24px 18px}}
 @media(max-width:370px){.tomato-main .hero-features{gap:0}.tomato-main .hero-feature{padding:0 3px}}
+
+/* Tomato paste technical specification: scoped, readable, responsive. */
+.tomato-main>.tomato-specifications{padding:42px clamp(16px,4vw,74px) 68px;background:linear-gradient(180deg,#fffcf7 0%,#fff6eb 100%)}
+.tomato-specifications .section-heading{max-width:900px;margin:0 auto 26px;text-align:center}
+.tomato-spec-card{max-width:1000px;margin:0 auto;padding:clamp(18px,3vw,34px);border:1px solid #ead9c3;border-radius:25px;background:rgba(255,255,255,.96);box-shadow:0 18px 55px rgba(37,44,61,.075);overflow:hidden}
+.tomato-spec-card-head{display:flex;justify-content:space-between;align-items:center;gap:18px;direction:rtl;margin-bottom:22px;padding-bottom:19px;border-bottom:1px solid #ece3d8}
+.tomato-spec-eyebrow{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:2px;color:#b78b53}
+.tomato-spec-card-head h3{margin:6px 0 0;font-size:clamp(18px,2vw,25px);font-weight:900;color:var(--navy)}
+.tomato-spec-card-head h3 span{display:inline-block;margin-inline-start:10px;padding:5px 10px;border:1px solid #ead9c3;border-radius:100px;color:#8b442e;background:#fff7ee;font:700 11px var(--en);vertical-align:middle}
+.tomato-spec-icon{width:48px;height:48px;flex-shrink:0;display:grid;place-items:center;border:1px solid #f0dcc8;border-radius:15px;background:linear-gradient(145deg,#fff5eb,#ffecdc);color:#ad6546}
+.tomato-spec-icon .ico{height:25px;width:25px}
+.tomato-spec-table-wrap{width:100%;overflow-x:auto;border:1px solid #e8dfd4;border-radius:16px}
+.tomato-spec-table{width:100%;border-collapse:collapse;direction:rtl;table-layout:fixed}
+.tomato-spec-table thead{background:#173960;color:#fff}
+.tomato-spec-table thead th{padding:16px 22px;font-size:13px;font-weight:900;text-align:right}
+.tomato-spec-table thead th:last-child{text-align:center}
+.tomato-spec-table thead small{font-family:var(--en);font-size:9px;font-weight:500;opacity:.72;display:block;margin-top:3px}
+.tomato-spec-table tbody tr{border-top:1px solid #eee6dc}
+.tomato-spec-table tbody tr:nth-child(even){background:#fcfaf7}
+.tomato-spec-table tbody tr:hover{background:#fff4e9}
+.tomato-spec-table tbody th,.tomato-spec-table tbody td{padding:13px 22px;font-size:13px;line-height:1.6}
+.tomato-spec-table tbody th{font-weight:800;color:#263f5e;text-align:right}
+.tomato-spec-table tbody th small{display:block;font-family:var(--en);font-size:10px;font-weight:500;color:#858b96;margin-top:2px}
+.tomato-spec-table tbody td{text-align:center;font-family:var(--en);font-weight:800;color:#9e4332;font-size:15px;font-variant-numeric:tabular-nums}
+.tomato-spec-note{margin:17px 2px 0;color:#6e7788;font-size:11px;line-height:2.1}
+@media(max-width:560px){
+  .tomato-main>.tomato-specifications{padding:30px 14px 44px}
+  .tomato-specifications .section-heading{margin-bottom:20px}
+  .tomato-spec-card{padding:16px 12px;border-radius:18px}
+  .tomato-spec-card-head{margin-bottom:15px;padding-bottom:14px}
+  .tomato-spec-card-head h3{font-size:16px;line-height:1.8}
+  .tomato-spec-card-head h3 span{font-size:10px;margin-inline-start:5px}
+  .tomato-spec-icon{height:40px;width:40px}
+  .tomato-spec-table thead th{padding:13px 10px;font-size:11px}
+  .tomato-spec-table tbody th,.tomato-spec-table tbody td{padding:11px 10px}
+  .tomato-spec-table tbody th{font-size:11px}
+  .tomato-spec-table tbody td{font-size:13px}
+  .tomato-spec-note{font-size:10px}
+}
+
 </style>
 </head>
 <body>
@@ -300,6 +340,41 @@ main>.catalog::after{display:none}
     <span class="tomato-overview-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span>
     <p>برای دریافت اطلاعات دقیق محصولات رب گوجه‌فرنگی و موجودی برندهای معرفی‌شده، با بخش فروش بازرگانی مهاجر در ارتباط باشید.</p>
     <a href="index.html#contact">درخواست اطلاعات محصولات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+  </div>
+</section>
+
+<section class="spec-section tomato-specifications" id="tomato-specifications" aria-labelledby="tomato-spec-title">
+  <div class="section-heading" data-reveal>
+    <span class="heading-eyebrow">کنترل کیفیت محصول</span>
+    <h2 id="tomato-spec-title">جدول مشخصات فنی و کیفی رب گوجه‌فرنگی</h2>
+    <p>شاخص‌های فنی و نتایج ارائه‌شده در جدول مشخصات محصول</p>
+  </div>
+  <div class="tomato-spec-card" data-reveal>
+    <div class="tomato-spec-card-head">
+      <div>
+        <span class="tomato-spec-eyebrow">PRODUCT SPECIFICATION</span>
+        <h3>مشخصات محصول <span lang="en" dir="ltr">Brix 36–38%</span></h3>
+      </div>
+      <span class="tomato-spec-icon" aria-hidden="true"><svg class="ico"><use href="#i-list"></use></svg></span>
+    </div>
+    <div class="tomato-spec-table-wrap">
+      <table class="tomato-spec-table">
+        <caption class="sr-only">مقادیر فنی رب گوجه‌فرنگی بر اساس جدول ارائه‌شده</caption>
+        <thead><tr><th scope="col">شاخص فنی <small lang="en" dir="ltr">Specification</small></th><th scope="col">نتیجه <small lang="en" dir="ltr">Result</small></th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span>بریکس</span><small lang="en" dir="ltr">Brix</small></th><td dir="ltr">36–38%</td></tr>
+          <tr><th scope="row"><span>ویسکوزیته</span><small lang="en" dir="ltr">Viscos</small></th><td dir="ltr">5–6</td></tr>
+          <tr><th scope="row"><span>اسیدیته</span><small lang="en" dir="ltr">pH</small></th><td dir="ltr">≤ 4.3</td></tr>
+          <tr><th scope="row"><span>نسبت رنگ</span><small lang="en" dir="ltr">Color (a/b)</small></th><td dir="ltr">2.1–2.3</td></tr>
+          <tr><th scope="row"><span>شمارش کپک هاوارد</span><small lang="en" dir="ltr">H.M.C</small></th><td dir="ltr">≤ 34%</td></tr>
+          <tr><th scope="row"><span>ذرات خارجی</span><small lang="en" dir="ltr">External Particle</small></th><td dir="ltr">—</td></tr>
+          <tr><th scope="row"><span>آزمایش باکتریایی</span><small lang="en" dir="ltr">Bacterial test</small></th><td dir="ltr">—</td></tr>
+          <tr><th scope="row"><span>کپک</span><small lang="en" dir="ltr">Mold</small></th><td dir="ltr">—</td></tr>
+          <tr><th scope="row"><span>مخمر</span><small lang="en" dir="ltr">Yeast</small></th><td dir="ltr">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tomato-spec-note">مقادیر از جدول مشخصات ارائه‌شده منتقل شده‌اند. علامت «—» به معنی اعلام‌نشدن نتیجه در جدول مرجع است، نه الزاماً صفر یا نتیجه منفی. مشخصات هر برند و محموله با برگه آنالیز تأییدشده قابل بررسی است.</p>
   </div>
 </section>
 <section class="partners" id="tomato-brands" aria-label="برندهای رب گوجه‌فرنگی">
