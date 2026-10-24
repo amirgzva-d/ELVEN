@@ -371,21 +371,75 @@ main>.catalog::after{display:none}
   margin:7px 0 0;
 }
 .tomato-selected-packaging strong{color:var(--navy);font-weight:850}
-/* Brand strip is now a true 2048x322 banner (matches the milk category). */
-.tomato-main>.partners .partner-logo{background-color:rgba(255,255,255,.96)}
+/* The brand banner is a true 2048x322 crop with unwashed tomatoes at the edges.
+   Crossfade only at the section boundary, never over logos or the artwork itself. */
+.tomato-main>.tomato-product-surface::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:clamp(80px,8vw,125px);
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(to bottom,rgba(255,247,233,0) 0%,rgba(255,247,233,.25) 42%,#fff7e9 100%);
+}
+.tomato-main>.tomato-product-surface>.catalog,
+.tomato-main>.tomato-product-surface>.tomato-specifications{position:relative;z-index:1}
 .tomato-main>.partners{
-  background-color:#fcf8ef;
-  background-image:url("assets/tomato-brands-2048x322.webp");
+  position:relative;
+  isolation:isolate;
+  background-color:#fff7e9;
+  background-image:url("assets/tomato-brands-clean-2048x322.webp");
   background-repeat:no-repeat;
   background-position:center center;
   background-size:100% auto;
+  padding:32px clamp(18px,5vw,90px) 40px;
+}
+.tomato-main>.partners::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:clamp(30px,3vw,52px);
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(to bottom,#fff7e9 0%,rgba(255,247,233,0) 100%);
+}
+.tomato-main>.partners>.section-heading,
+.tomato-main>.partners>.partner-grid{position:relative;z-index:1}
+.tomato-main>.partners .partner-grid{
+  grid-template-columns:repeat(5,minmax(0,182px));
+  max-width:960px;
+  justify-content:center;
+  gap:11px;
+}
+.tomato-main>.partners .partner-logo{
+  height:88px;
+  min-width:0;
+  border:1px solid rgba(191,153,104,.38);
+  background:rgba(255,249,240,.44);
+  border-radius:15px;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.tomato-main>.partners .partner-logo img{
+  max-width:94%;
+  max-height:78px;
+  height:auto;
+  width:auto;
+  object-fit:contain;
+}
+.tomato-main>.partners .partner-logo[aria-label="همرسین"] img{
+  max-width:98%;
+  max-height:84px;
+  transform:scale(1.18);
 }
 @media(max-width:850px){
-  .tomato-main>.tomato-product-surface{
-    background-size:100% auto;
-    background-position:center top;
-  }
+  .tomato-main>.tomato-product-surface{background-size:100% auto;background-position:center top}
   .tomato-main>.partners{background-size:100% auto;background-position:center top}
+  .tomato-main>.partners .partner-grid{
+    grid-template-columns:repeat(2,minmax(0,182px));
+    max-width:425px;
+    gap:10px;
+  }
 }
 @media(max-width:560px){
   .tomato-main>.tomato-product-surface>.catalog{padding:29px 15px}
