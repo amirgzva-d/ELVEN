@@ -371,9 +371,11 @@ main>.catalog::after{display:none}
   margin:7px 0 0;
 }
 .tomato-selected-packaging strong{color:var(--navy);font-weight:850}
+/* Brand strip is now a true 2048x322 banner (matches the milk category). */
+.tomato-main>.partners .partner-logo{background-color:rgba(255,255,255,.96)}
 .tomato-main>.partners{
   background-color:#fcf8ef;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1792836167/64184cf8-8c3c-43d4-912b-e58e7b3aa92a_tnkrhc.png");
+  background-image:url("assets/tomato-brands-2048x322.webp");
   background-repeat:no-repeat;
   background-position:center center;
   background-size:100% auto;
@@ -383,7 +385,7 @@ main>.catalog::after{display:none}
     background-size:100% auto;
     background-position:center top;
   }
-  .tomato-main>.partners{background-size:100% auto;background-position:center center}
+  .tomato-main>.partners{background-size:100% auto;background-position:center top}
 }
 @media(max-width:560px){
   .tomato-main>.tomato-product-surface>.catalog{padding:29px 15px}
