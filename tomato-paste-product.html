@@ -334,7 +334,7 @@ main>.catalog::after{display:none}
 .tomato-main>.tomato-product-surface{
   position:relative;
   isolation:isolate;
-  background:#fffaf2 url("assets/tomato-unified-2560x1800.webp") center top / 100% 100% no-repeat;
+  background:#fffaf2 url("assets/tomato-unified-natural-2560x1800.webp") center center / cover no-repeat;
 }
 .tomato-main>.tomato-product-surface>.catalog{
   position:relative;background:transparent;
@@ -367,8 +367,9 @@ main>.catalog::after{display:none}
 }
 @media(max-width:850px){
   .tomato-main>.tomato-product-surface{
-    background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/2f3bb822-2d54-442b-acc5-b7aac3d00671.png");
-    background-size:100% 100%;
+    background-image:url("assets/tomato-unified-mobile-480x3200.webp");
+    background-size:cover;
+    background-position:center center;
   }
   .tomato-main>.tomato-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,182px));max-width:425px;gap:10px}
 }
