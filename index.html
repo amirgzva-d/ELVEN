@@ -1163,6 +1163,11 @@ img{max-width:100%;display:block}
   .site-footer .footer-contact-item div small{font-size:12px}
   .site-footer .footer-bottom,.site-footer .footer-bottom div{font-size:11px}
 }
+/* Unified glucose/starch category card: original photography, one card. */
+.category-card .combined-ingredient-image{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:none}
+.category-card .combined-ingredient-image span{display:block;min-width:0;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
+.category-card .combined-ingredient-image .glucose-half{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997379/file_00000000d19c8243981a90919160d1ea_bdunvz.png")}
+.category-card .combined-ingredient-image .starch-half{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png")}
 </style>
 </head>
 <body>
@@ -1372,13 +1377,16 @@ img{max-width:100%;display:block}
         </div>
       </article>
 
-      <article class="category-card" data-product="Glucose" data-category="ingredients" data-subcategory="sweeteners" data-origin="iran" tabindex="0" role="button">
-        <div class="category-image image-10"></div>
+      <article class="category-card" data-product="Glucose & Starch" data-category="ingredients" data-subcategory="sweeteners ingredients" data-origin="iran" tabindex="0" role="button">
+        <div class="category-image combined-ingredient-image" role="img" aria-label="محصولات گلوکز و نشاسته ذرت و گندم">
+          <span class="glucose-half" aria-hidden="true"></span>
+          <span class="starch-half" aria-hidden="true"></span>
+        </div>
         <div class="card-content">
-          <h3>گلوکز</h3>
-          <p>گلوکز باکیفیت برای صنایع غذایی</p>
+          <h3>گلوکز و نشاسته</h3>
+          <p>گلوکز و نشاسته ذرت و گندم برای صنایع غذایی</p>
           <div class="card-footer">
-            <a class="product-details-link" href="glucose-product.html">مشاهده محصولات <span>←</span></a>
+            <a class="product-details-link" href="glucose-starch-product.html">مشاهده محصولات <span>←</span></a>
           </div>
         </div>
       </article>
@@ -1405,16 +1413,7 @@ img{max-width:100%;display:block}
         </div>
       </article>
 
-      <article class="category-card" data-product="Corn & Wheat Starch" data-category="ingredients" data-subcategory="ingredients" data-origin="iran" tabindex="0" role="button">
-        <div class="category-image image-2"></div>
-        <div class="card-content">
-          <h3>نشاسته ذرت و گندم</h3>
-          <p>راهکارهای قابل‌اعتماد نشاسته برای بازار جهانی</p>
-          <div class="card-footer">
-            <a class="product-details-link" href="starch-product.html">مشاهده محصولات <span>←</span></a>
-          </div>
-        </div>
-      </article>
+
 
     </div>
   </div>
@@ -1794,7 +1793,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   cards.forEach(card=>{
     const name=card.dataset.product || "Product Details";
-    const url=name==="Yeast Products" ? "yeast-product.html" : name==="Pasta & Macaroni" ? "pasta-product.html" : name==="Dairy & Milk Powders" ? "milk-powder-product.html" : name==="Sugar" ? "sugar-product.html" : name==="Canned Foods" ? "canned-food-product.html" : name==="Tomato Paste" ? "tomato-paste-product.html" : name==="Baking Soda" ? "baking-soda-product.html" : name==="Glucose" ? "glucose-product.html" : name==="Corn & Wheat Starch" ? "starch-product.html" : "product.html?product="+encodeURIComponent(name);
+    const url=name==="Yeast Products" ? "yeast-product.html" : name==="Pasta & Macaroni" ? "pasta-product.html" : name==="Dairy & Milk Powders" ? "milk-powder-product.html" : name==="Sugar" ? "sugar-product.html" : name==="Canned Foods" ? "canned-food-product.html" : name==="Tomato Paste" ? "tomato-paste-product.html" : name==="Baking Soda" ? "baking-soda-product.html" : name==="Glucose & Starch" ? "glucose-starch-product.html" : "product.html?product="+encodeURIComponent(name);
     const detailsLink=card.querySelector(".product-details-link");
     if(detailsLink) detailsLink.href=url;
     card.addEventListener("click",e=>{
