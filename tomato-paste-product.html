@@ -451,7 +451,7 @@ main>.catalog::after{display:none}
     <p>سه نوع بسته‌بندی رب گوجه‌فرنگی؛ برای مشاهده توضیحات هر محصول روی کارت آن کلیک کنید.</p>
   </div>
   <div class="product-grid tomato-product-grid" data-reveal>
-    <article class="product-card selected" data-kind="aseptic" role="button" tabindex="0" aria-pressed="true" aria-controls="tomato-specifications" aria-label="انتخاب رب گوجه‌فرنگی اسپتیک و مشاهده مشخصات">
+    <article class="product-card" data-kind="aseptic" role="button" tabindex="0" aria-pressed="false" aria-controls="tomato-specifications" aria-label="انتخاب رب گوجه‌فرنگی اسپتیک و مشاهده مشخصات">
       <div class="product-image tomato-product-image--aseptic" role="img" aria-label="تصویر محصول رب گوجه‌فرنگی اسپتیک"></div>
       <div class="card-copy">
         <h3>رب گوجه‌فرنگی اسپتیک</h3>
@@ -482,7 +482,7 @@ main>.catalog::after{display:none}
     <div class="spec-art tomato-spec-art" role="img" aria-label="رب گوجه‌فرنگی غلیظ در کاسه چوبی همراه با گوجه‌فرنگی تازه و ریحان"></div>
     <div class="spec-content tomato-spec-content">
       <div class="spec-top">
-        <div><span class="spec-title-kicker">مشخصات فنی و کیفی محصول</span><h2 id="tomato-spec-title">جدول مشخصات فنی رب گوجه‌فرنگی</h2><p class="tomato-selected-packaging">بسته‌بندی انتخاب‌شده: <strong id="tomatoSelectedProduct">اسپتیک</strong></p></div>
+        <div><span class="spec-title-kicker">مشخصات فنی و کیفی محصول</span><h2 id="tomato-spec-title">جدول مشخصات فنی رب گوجه‌فرنگی</h2><p class="tomato-selected-packaging">نوع آنالیز: <strong id="tomatoSelectedProduct">مرجع عمومی</strong></p></div>
         <span class="spec-head-icon" aria-hidden="true"><svg class="ico"><use href="#i-list"></use></svg></span>
       </div>
       <div class="nutrition-grid tomato-spec-grid" aria-label="۹ شاخص فنی رب گوجه‌فرنگی">
@@ -563,12 +563,12 @@ main>.catalog::after{display:none}
           </div>
         </div>
       </div>
-      <p class="spec-note tomato-spec-note">* اعداد مطابق جدول مشخصات ارسالی‌اند؛ «—» یعنی نتیجه در تصویر مرجع ارائه نشده است، نه اینکه آزمایش منفی بوده باشد. مشخصات قطعی هر برند و محموله نیازمند تأیید برگه آنالیز محصول است.</p>
+      <p class="spec-note tomato-spec-note" id="tomatoAnalysisNote" aria-live="polite">* اعداد فعلی فقط مربوط به جدول مرجع عمومی هستند و هنوز به هیچ‌یک از سه نوع بسته‌بندی نسبت داده نشده‌اند. برای نمایش آنالیز اختصاصی، کارت مربوط را انتخاب کنید.</p>
     </div>
   </div>
   <details class="product-detail tomato-spec-detail">
     <summary>توضیحات مشخصات فنی و نتایج آزمایش رب گوجه‌فرنگی</summary>
-    <p><strong id="tomatoProductDetailsTitle">رب گوجه‌فرنگی اسپتیک: </strong><span id="tomatoProductDetailsText">برای اطلاع از ظرفیت، مشخصات بسته‌بندی و شرایط تأمین اسپتیک، استعلام محصول لازم است.</span></p>
+    <p><strong id="tomatoProductDetailsTitle">رب گوجه‌فرنگی: </strong><span id="tomatoProductDetailsText">برای مشاهدهٔ آنالیز اختصاصی، یکی از سه کارت را انتخاب کنید.</span></p>
     <p>بریکس (Brix)، ویسکوزیته، pH، نسبت رنگ (a/b) و شمارش کپک هاوارد (H.M.C) شاخص‌های کنترل کیفیت هستند. مقادیر ثبت‌شده از جدول ارسالی منتقل شده‌اند و به‌تنهایی جایگزین گواهی آزمایشگاهی محموله نیستند.</p>
     <p>برای دریافت مقادیر تأییدشده مربوط به ذرات خارجی، آزمایش باکتریایی، کپک و مخمر، برگه آنالیز همان محصول درخواست شود.</p>
   </details>
@@ -672,30 +672,46 @@ const chosenTitle=document.getElementById('tomatoProductDetailsTitle');
 const chosenDetail=document.getElementById('tomatoProductDetailsText');
 const specSection=document.getElementById('tomato-specifications');
 const specDetails=document.querySelector('.tomato-spec-detail');
+const analysisNote=document.getElementById('tomatoAnalysisNote');
+const analysisCells=[...document.querySelectorAll('.tomato-spec-grid .tomato-nutrition-stat')];
+const analysisKeys=['brix','viscosity','ph','color','hmc','external','bacteria','mold','yeast'];
 const tomatoDescriptions={
   aseptic:['اسپتیک','رب گوجه‌فرنگی اسپتیک','برای اطلاع از ظرفیت، مشخصات بسته‌بندی و شرایط تأمین اسپتیک، استعلام محصول لازم است.'],
   glass:['شیشه‌ای','رب گوجه‌فرنگی شیشه‌ای','وزن، برند و موجودی رب شیشه‌ای پس از استعلام محصول مشخص می‌شوند.'],
   can:['قوطی','رب گوجه‌فرنگی قوطی','برای اطلاع از وزن قوطی، برند و شرایط تأمین، استعلام محصول لازم است.']
 };
-document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(card=>{
-  const activate=()=>{
-    const info=tomatoDescriptions[card.dataset.kind];
-    if(!info || !specSection)return;
-    if(chosenName)chosenName.textContent=info[0];
-    if(chosenTitle)chosenTitle.textContent=info[1]+': ';
-    if(chosenDetail)chosenDetail.textContent=info[2];
-    document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(item=>{
-      const selected=item===card;
-      item.classList.toggle('selected',selected);
-      item.setAttribute('aria-pressed',String(selected));
-    });
-    if(specDetails)specDetails.open=true;
-    specSection.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
-  };
-  card.addEventListener('click',activate);
-  card.addEventListener('keydown',event=>{
-    if(event.key==='Enter'||event.key===' '){event.preventDefault();activate();}
+/* Product-specific values supplied later. Missing analysis MUST NOT inherit the generic reference table.
+   Keys: brix, viscosity, ph, color, hmc, external, bacteria, mold, yeast. */
+const tomatoAnalyses={aseptic:{},glass:{},can:{}};
+function showTomatoAnalysis(kind){
+  const description=tomatoDescriptions[kind], values=tomatoAnalyses[kind];
+  if(!description||!values||!specSection)return;
+  if(chosenName)chosenName.textContent=description[0];
+  if(chosenTitle)chosenTitle.textContent=description[1]+': ';
+  if(chosenDetail)chosenDetail.textContent=description[2];
+  analysisCells.forEach((cell,i)=>{
+    const value=values[analysisKeys[i]];
+    const hasValue=(typeof value==='string'&&value.trim()!=='')||(typeof value==='number'&&Number.isFinite(value));
+    const number=cell.querySelector('.nutri-num');
+    const holder=cell.querySelector('.tomato-stat-value');
+    if(!number||!holder)return;
+    number.textContent=hasValue?String(value):'—';
+    if(hasValue)number.removeAttribute('aria-label');
+    else number.setAttribute('aria-label','نتیجهٔ آنالیز هنوز ارائه نشده');
+    let hint=holder.querySelector('.tomato-pending-note');
+    if(!hint&&!hasValue){hint=document.createElement('span');hint.className='tomato-pending-note';holder.appendChild(hint)}
+    if(hint){hint.textContent=hasValue?'':'در انتظار آنالیز اختصاصی';hint.hidden=hasValue}
   });
+  if(analysisNote)analysisNote.textContent='* فقط آنالیز اختصاصی رب '+description[0]+' نمایش داده می‌شود. «—» به معنی عدم دریافت نتیجه است، نه نتیجهٔ منفی آزمایش. مقادیر نهایی باید بر اساس برگهٔ آنالیز معتبر ثبت شوند.';
+  document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(card=>{
+    const active=card.dataset.kind===kind;card.classList.toggle('selected',active);card.setAttribute('aria-pressed',String(active))
+  });
+  if(specDetails)specDetails.open=true;
+  specSection.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+}
+document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(card=>{
+  card.addEventListener('click',()=>showTomatoAnalysis(card.dataset.kind));
+  card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();showTomatoAnalysis(card.dataset.kind)}});
 });
 })();
 </script>
