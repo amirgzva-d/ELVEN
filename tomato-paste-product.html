@@ -634,21 +634,21 @@ main>.catalog::after{display:none}
       <div class="footer-contact-item">
         <i>☎</i>
         <div>
-          <strong><a href="tel:+989153082367">۰۹۱۵۳۰۸۲۳۶۷</a></strong>
+          <strong><a href="tel:+989153028367">09153028367</a></strong>
           <small>محمد مهاجری</small>
         </div>
       </div>
       <div class="footer-contact-item">
         <i>☎</i>
         <div>
-          <strong><a href="tel:+98915551965">۰۹۱۵۵۵۱۹۶۵</a></strong>
+          <strong><a href="tel:+989155551965">09155551965</a></strong>
           <small>علیرضا تهرانی</small>
         </div>
       </div>
       <div class="footer-contact-item">
         <i>✉</i>
         <div>
-          <strong><a href="mailto:info@mohajer-steel.com">info@mohajer-steel.com</a></strong>
+          <strong><a href="mailto:info@mohajer-food.com">info@mohajer-food.com</a></strong>
           <small>ایمیل رسمی</small>
         </div>
       </div>
@@ -686,6 +686,21 @@ const originalAnalysisCaptions=analysisCells.map(cell=>({
   label:cell.querySelector('.nutri-label')?.textContent||'',
   english:cell.querySelector('.tomato-stat-value > small')?.textContent||''
 }));
+/* Nine unchanged display tiles; product-specific ASEPTIC test values. */
+const asepticKeys=['brix','viscosity','ph','color','hmc','foreignBody','bacteria','mold','yeast'];
+const asepticCaptions=[
+  ['بریکس','Brix'],['ویسکوزیته','Viscosity'],['اسیدیته','pH'],
+  ['نسبت رنگ','Color (a/b)'],['شمارش کپک هاوارد','H.M.C'],
+  ['ذرات خارجی','Foreign Body'],['آزمایش باکتریایی','Bacterial test'],
+  ['کپک','Mold'],['مخمر','Yeast']
+];
+const asepticValues={
+  brix:'۳۶–۳۸',viscosity:'۵–۶ cm/30sec',ph:'۴٫۲',
+  color:'۲٫۱۰–۲٫۱۵ ± ۰٫۱',hmc:'<۳۲',foreignBody:'منفی',
+  bacteria:'منفی',mold:'منفی',yeast:'منفی'
+};
+const asepticTests='آنالیز اسپتیک سال ۲۰۲۶: بریکس ۳۶–۳۸؛ pH برابر ۴٫۲؛ Color (a/b) در BX 12.5 برابر 2.10–2.15 ± 0.1؛ Bostwick در BX 12.5 و ۳۰ ثانیه برابر 5.5–6.5 ± 0.5؛ ویسکوزیته 5–6 cm/30sec؛ H.M.C و Howard Mold Count هر دو <32؛ ویژگی حسی طبیعی؛ ذرات سیاه، پوست و دانه منفی؛ باکتری هوازی مزوفیل و ترموفیل در هر گرم منفی؛ کپک و مخمر در هر گرم منفی؛ باکتری لاکتیک، مخمر و کپک منفی؛ ذرات خارجی منفی.';
+const asepticOther='ترکیبات: گوجه‌فرنگی غلیظ‌شده (Concentrated tomato)؛ فرآیند Cold Break؛ نمک 0.05–0.06 ± 0.01 (واحد در برگه ذکر نشده)؛ بسته‌بندی اسپتیک؛ ماندگاری ۲ سال بعد از تاریخ تولید؛ سرب (Lead): <0.3–0.5 (عبارت عیناً از برگه و بدون واحد مشخص)؛ آرسنیک (Arsenic): <0.02 (واحد نامشخص)؛ سال محصول: ۲۰۲۶؛ شماره بچ: ارائه نشده؛ فاقد مواد نگهدارنده مطابق برگهٔ ارسالی.';
 const extraParagraphs=[...specDetails.querySelectorAll('p')].slice(1,3);
 const originalExtraText=extraParagraphs.map(el=>el.textContent);
 // Values from the supplied Rowyal Exporter tomato analysis sheet.
@@ -707,17 +722,17 @@ const packageInfo={
   glass:'بسته‌بندی شیشه‌ای؛ وزن شیشه در برگهٔ مرجع مشخص نشده است.',
   can:'قوطی فلزی با درب آسان‌بازشو؛ Weight750.'
 };
-const tomatoAnalyses={aseptic:{},glass:{...sharedValues},can:{...sharedValues}};
-function showTomatoAnalysis(kind){
+const tomatoAnalyses={aseptic:{...asepticValues},glass:{...sharedValues},can:{...sharedValues}};
+function showTomatoAnalysis(kind,initial=false){
   const description=tomatoDescriptions[kind], values=tomatoAnalyses[kind];
   if(!description||!values||!specSection)return;
   if(chosenName)chosenName.textContent=description[0];
   if(chosenTitle)chosenTitle.textContent=description[1]+': ';
   if(chosenDetail)chosenDetail.textContent=description[2];
   analysisCells.forEach((cell,i)=>{
-    const value=values[analysisKeys[i]];
+    const value=values[(kind==='aseptic'?asepticKeys:analysisKeys)[i]];
     const hasValue=(typeof value==='string'&&value.trim()!=='')||(typeof value==='number'&&Number.isFinite(value));
-    const captions=kind==='aseptic'?[originalAnalysisCaptions[i].label,originalAnalysisCaptions[i].english]:analysisCaptions[i];
+    const captions=kind==='aseptic'?asepticCaptions[i]:analysisCaptions[i];
     const label=cell.querySelector('.nutri-label');
     const english=cell.querySelector('.tomato-stat-value > small');
     if(label)label.textContent=captions[0];
@@ -733,25 +748,30 @@ function showTomatoAnalysis(kind){
     if(hint){hint.textContent=hasValue?'':'در انتظار آنالیز اختصاصی';hint.hidden=hasValue}
   });
   if(kind==='aseptic'){
-    extraParagraphs.forEach((el,i)=>{el.textContent=originalExtraText[i]});
+    if(chosenDetail)chosenDetail.textContent='بسته‌بندی اسپتیک؛ آنالیز بر اساس برگهٔ ارسالی سال ۲۰۲۶ ثبت شده است.';
+    if(extraParagraphs[0])extraParagraphs[0].textContent=asepticTests;
+    if(extraParagraphs[1])extraParagraphs[1].textContent=asepticOther;
   }else{
     if(chosenDetail)chosenDetail.textContent=packageInfo[kind];
     if(extraParagraphs[0])extraParagraphs[0].textContent=analysisTests;
     if(extraParagraphs[1])extraParagraphs[1].textContent=otherResults+' '+packageInfo[kind];
   }
   if(analysisNote)analysisNote.textContent=kind==='aseptic'
-    ? '* آنالیز اختصاصی اسپتیک هنوز دریافت نشده است؛ «—» به معنی عدم دریافت نتیجه است.'
+    ? '* مقادیر اسپتیک مطابق برگهٔ آنالیز سال ۲۰۲۶ ثبت شده‌اند. موارد مبهم و فلزات سنگین با همان متن مرجع و بدون حدس دربارهٔ واحد نمایش داده می‌شوند. هر محموله نیازمند برگهٔ تأیید خود است.'
     : '* مقادیر از برگهٔ ارسالی برای هر دو بسته‌بندی درج شده‌اند؛ برگهٔ مرجع بسته‌بندی قوطی را توصیف می‌کند. اطلاعات هر محموله باید با گواهی آن محصول تأیید شود. تاریخ July 2024 مربوط به نمونهٔ مرجع است، نه موجودی فعلی.';
   document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(card=>{
     const active=card.dataset.kind===kind;card.classList.toggle('selected',active);card.setAttribute('aria-pressed',String(active))
   });
-  if(specDetails)specDetails.open=true;
-  specSection.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+  if(!initial){
+    if(specDetails)specDetails.open=true;
+    specSection.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+  }
 }
 document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(card=>{
   card.addEventListener('click',()=>showTomatoAnalysis(card.dataset.kind));
   card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();showTomatoAnalysis(card.dataset.kind)}});
 });
+showTomatoAnalysis('aseptic',true);
 })();
 </script>
 </body></html>
