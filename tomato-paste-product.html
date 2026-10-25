@@ -705,6 +705,9 @@ const extraParagraphs=[...specDetails.querySelectorAll('p')].slice(1,3);
 const originalExtraText=extraParagraphs.map(el=>el.textContent);
 // Values from the supplied Rowyal Exporter tomato analysis sheet.
 // Same values requested for glass and can, but packaging details differ.
+// Identical test RESULTS requested for the glass and metal-can categories.
+// These values are from the Rowyal Exporter reference sheet (not an individual
+// batch certificate for a glass jar).
 const sharedValues={
   brix:'۲۷',viscosity:'۵٫۵ تا ۶٫۵',ph:'≤ ۴٫۳',color:'≥ ۱٫۹',
   salt:'حداکثر ۱٫۵٪',organoleptic:'طبیعی',seedSkin:'منفی',
@@ -713,14 +716,14 @@ const sharedValues={
 const analysisCaptions=[
   ['بریکس','Brix'],['ویسکوزیته','Viscosity'],['اسیدیته','pH'],
   ['نسبت رنگ','Color (a/b)'],['نمک','Salt'],['ویژگی‌های حسی','Organoleptic'],
-  ['پوست و دانه','Seed & Skin'],['باکتری مقاوم به اسید','Bacterial test'],
+  ['پوست و دانه','Seed & Skin'],['باکتری‌های مقاوم به اسید','Bacterial test'],
   ['کپک و مخمر','Mold & Yeast']
 ];
-const analysisTests='بریکس: ۲۷؛ نمک: حداکثر ۱٫۵٪؛ pH: حداکثر ۴٫۳؛ ویسکوزیته Bostwick (BX 12.5، زمان ۳۰ ثانیه): ۵٫۵ تا ۶٫۵؛ نسبت رنگ a/b در BX 12.5: حداقل ۱٫۹؛ ویژگی‌های حسی: طبیعی؛ پوست و دانه: منفی؛ باکتری مزوفیل مقاوم به اسید (در هر گرم): منفی؛ باکتری ترموفیل مقاوم به اسید (در هر گرم): منفی؛ کپک و مخمر (در هر گرم): منفی.';
-const otherResults='ترکیبات: آب گوجه‌فرنگی غلیظ‌شده ۹۸٫۵٪ و نمک ۱٫۵٪؛ فرآیند تولید: Hot break؛ ماندگاری طبق برگه: ۲ سال پس از تولید؛ تاریخ تولید نمونهٔ مرجع: July 2024؛ قلع (Sn): ≤ ۲۵۰ mg/kg؛ سرب (Pb): ≤ ۱ mg/kg.';
+const analysisTests='نتایج برگهٔ Rowyal Exporter — بریکس (Brix): 27؛ نمک (Salt): حداکثر 1.5%؛ pH: ≤4.3؛ ویسکوزیته Bostwick در BX:12.5 و 30 ثانیه: از 5.5 تا 6.5؛ نسبت رنگ (a/b) در BX:12.5: ≥1.9؛ ویژگی‌های حسی (Organoleptic Properties): طبیعی (Natural)؛ دانه و پوست (Seed and Skin): منفی (Negative)؛ باکتری مزوفیل مقاوم به اسید (در هر 1 گرم): منفی؛ باکتری ترموفیل مقاوم به اسید (در هر 1 گرم): منفی؛ کپک و مخمر (در هر 1 گرم): منفی.';
+const otherResults='ادامهٔ برگهٔ مرجع — ترکیبات (Ingredients): آب گوجه‌فرنگی غلیظ‌شده 98.5% و نمک 1.5%؛ نوع فرآیند (Process Type): Hot break؛ بسته‌بندی ذکرشده در خود برگه: قوطی فلزی با درب آسان‌بازشو، وزن خالص 800+20 گرم (این مشخصات بسته‌بندی مربوط به نمونهٔ مرجع قوطی است، نه شیشه‌ای)؛ ماندگاری (Shelf Life): 2 سال پس از تولید؛ تاریخ تولید درج‌شده در برگه (Year of Production): July--24؛ فلز سنگین قلع (Sn): ≤250 mg/kg؛ فلز سنگین سرب (Pb): ≤1 mg/kg.';
 const packageInfo={
-  glass:'بسته‌بندی شیشه‌ای؛ وزن شیشه در برگهٔ مرجع مشخص نشده است.',
-  can:'قوطی فلزی با درب آسان‌بازشو؛ Weight750.'
+  glass:'بسته‌بندی شیشه‌ای؛ برگهٔ ارائه‌شده وزن یا مشخصات ظرف شیشه‌ای را تأیید نمی‌کند. نتایج آزمایش طبق درخواست برای این محصول نیز نمایش داده شده‌اند.',
+  can:'قوطی فلزی با درب آسان‌بازشو؛ Weight750. (وزن نمایشی محصول طبق درخواست؛ وزن درج‌شده در برگهٔ مرجع 800+20 گرم است.)'
 };
 const tomatoAnalyses={aseptic:{...asepticValues},glass:{...sharedValues},can:{...sharedValues}};
 function showTomatoAnalysis(kind,initial=false){
@@ -741,6 +744,11 @@ function showTomatoAnalysis(kind,initial=false){
     const holder=cell.querySelector('.tomato-stat-value');
     if(!number||!holder)return;
     number.textContent=hasValue?String(value):'—';
+    // Isolate comparative signs and decimal intervals so RTL layout never
+    // reverses the visible meaning of ≤4.3, ≥1.9 or 5.5–6.5.
+    const numericValue=i<4||(kind==='aseptic'&&i===4);
+    if(numericValue){number.setAttribute('dir','ltr');number.style.textAlign='right'}
+    else{number.removeAttribute('dir');number.style.removeProperty('text-align')}
     if(hasValue)number.removeAttribute('aria-label');
     else number.setAttribute('aria-label','نتیجهٔ آنالیز هنوز ارائه نشده');
     let hint=holder.querySelector('.tomato-pending-note');
@@ -758,7 +766,7 @@ function showTomatoAnalysis(kind,initial=false){
   }
   if(analysisNote)analysisNote.textContent=kind==='aseptic'
     ? '* مقادیر اسپتیک مطابق برگهٔ آنالیز سال ۲۰۲۶ ثبت شده‌اند. موارد مبهم و فلزات سنگین با همان متن مرجع و بدون حدس دربارهٔ واحد نمایش داده می‌شوند. هر محموله نیازمند برگهٔ تأیید خود است.'
-    : '* مقادیر از برگهٔ ارسالی برای هر دو بسته‌بندی درج شده‌اند؛ برگهٔ مرجع بسته‌بندی قوطی را توصیف می‌کند. اطلاعات هر محموله باید با گواهی آن محصول تأیید شود. تاریخ July 2024 مربوط به نمونهٔ مرجع است، نه موجودی فعلی.';
+    : '* نتایج ۱۷ ردیف برگهٔ Rowyal Exporter برای هر دو نوع قوطی و شیشه‌ای درج شده‌اند. تصویر مرجع نوع بسته‌بندی قوطی با وزن 800+20 گرم را ذکر می‌کند؛ وزن نمایشی قوطی طبق درخواست قبلی Weight750 است و برگه، وزن شیشه‌ای را مشخص نمی‌کند. تاریخ July--24 فقط متعلق به برگهٔ مرجع است، نه موجودی فعلی.';
   document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(card=>{
     const active=card.dataset.kind===kind;card.classList.toggle('selected',active);card.setAttribute('aria-pressed',String(active))
   });
