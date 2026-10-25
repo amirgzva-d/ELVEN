@@ -1190,6 +1190,24 @@ img{max-width:100%;display:block}
   }
   .hero .hero-content {padding-bottom:clamp(270px,70vw,370px) !important}
 }
+
+/* Homepage desktop image clarity: use the original sharp 2048x768
+   composition (high-quality 2560x960 export), NOT the blurred 16:9
+   sky extension. Match the hero to the original aspect ratio so every
+   branded package remains undistorted and visible. Mobile is unchanged. */
+@media (min-width:769px) {
+  .hero {
+    height:max(540px, 37.5vw) !important;
+    min-height:0 !important;
+  }
+  .hero .hero-image {
+    background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/b151b254-3e0f-44af-9eb0-0a7588ca6f79.webp") !important;
+    background-size:cover !important;
+    background-position:center center !important;
+    filter:none !important;
+    transform:none !important;
+  }
+}
 </style>
 </head>
 <body>
