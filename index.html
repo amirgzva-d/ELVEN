@@ -1168,6 +1168,30 @@ img{max-width:100%;display:block}
 .category-card .combined-ingredient-image span{display:block;min-width:0;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
 .category-card .combined-ingredient-image .glucose-half{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997379/file_00000000d19c8243981a90919160d1ea_bdunvz.png")}
 .category-card .combined-ingredient-image .starch-half{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png")}
+
+/* ELVEN homepage hero image adaptation: preserve products and room for copy. */
+.hero .hero-image {
+  background-color:#fbf8f1 !important;
+  background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/fd8a79eb-fd3b-4858-985e-5340066c72f9.webp") !important;
+  background-position:center bottom !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+@media (min-width:769px) and (max-width:1100px){
+  .hero .hero-image {background-size:100% auto !important}
+}
+@media (max-width:768px){
+  .hero .hero-image {background-size:100% auto !important}
+  .hero .hero-content {padding-bottom:clamp(220px,38vw,330px) !important}
+}
+@media (max-width:600px){
+  .hero .hero-image {
+    background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/1bd7ca91-6010-4a81-986b-58f786f292d8.webp") !important;
+    background-size:100% auto !important;
+    background-position:center bottom !important;
+  }
+  .hero .hero-content {padding-bottom:clamp(270px,70vw,370px) !important}
+}
 </style>
 </head>
 <body>
