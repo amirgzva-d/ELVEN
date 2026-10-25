@@ -48,7 +48,7 @@ img{max-width:100%;display:block}
 [data-stagger].is-visible>*:nth-child(11){transition-delay:.75s}
 
 .header{position:fixed;top:0;left:0;right:0;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,58px);background:transparent;z-index:1000;transition:background .35s ease,box-shadow .35s ease,height .3s ease}
-.header.is-scrolled{background:#fcfbf7;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 8px 34px rgba(10,58,44,.09);height:76px}
+.header.is-scrolled{background:rgba(252,251,247,.92);backdrop-filter:saturate(140%) blur(14px);box-shadow:0 8px 34px rgba(10,58,44,.09);height:76px}
 .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .brand-mark{width:46px;height:46px;border-radius:13px;background:linear-gradient(145deg,#0f7a5c,#0a5c46 60%,#063a2c);display:grid;place-items:center;color:#c9f4c9;box-shadow:0 8px 22px rgba(10,92,70,.28),inset 0 -2px 6px rgba(0,0,0,.15);position:relative;overflow:hidden;animation:brandPulse 4s ease-in-out infinite}
 .brand-mark::after{content:"";position:absolute;inset:-50%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);animation:brandShine 5s ease-in-out infinite}
@@ -347,7 +347,7 @@ img{max-width:100%;display:block}
 }
 
 @media(max-width:768px){
-  .header{height:70px;padding:0 16px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+  .header{height:70px;padding:0 16px;background:rgba(252,251,247,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 2px 12px rgba(10,58,44,.04)}
   .header.is-scrolled{height:64px;box-shadow:0 6px 22px rgba(10,58,44,.1)}
   .brand{gap:10px}
   .brand-mark{width:40px;height:40px;border-radius:11px}
@@ -883,8 +883,8 @@ img{max-width:100%;display:block}
 /* ===== FINAL YEAST GLASS DETAILS CTA ===== */
 .category-card--featured .featured-link.product-details-link{
   position:absolute !important;
-  left:18px !important;
-  right:auto !important;
+  left:auto !important;
+  right:18px !important;
   bottom:16px !important;
   top:auto !important;
   z-index:20 !important;
@@ -937,7 +937,8 @@ img{max-width:100%;display:block}
 
 @media(max-width:768px){
   .category-card--featured .featured-link.product-details-link{
-    left:14px !important;
+    left:auto !important;
+    right:14px !important;
     bottom:13px !important;
     padding:9px 13px !important;
     font-size:10px !important;
@@ -946,7 +947,8 @@ img{max-width:100%;display:block}
 }
 @media(max-width:480px){
   .category-card--featured .featured-link.product-details-link{
-    left:12px !important;
+    left:auto !important;
+    right:12px !important;
     bottom:11px !important;
     padding:8px 12px !important;
     font-size:9.5px !important;
@@ -954,6 +956,15 @@ img{max-width:100%;display:block}
   }
 }
 
+
+/* Correct the first yeast slide (X Power): its 2.07:1 source was
+   cropped by object-fit:cover within narrower featured card widths.
+   Display the full source without stretching or cutting the label. */
+.category-card--featured .featured-slider .featured-slide[alt="X Power"]{
+  object-fit:contain !important;
+  object-position:center !important;
+  background-color:#f8f3e9;
+}
 
 /* ===== REMOVE HERO BACKGROUND HALO ===== */
 .hero .hero-shapes{
