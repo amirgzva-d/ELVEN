@@ -213,6 +213,28 @@ main>.catalog::after{display:none}
   background-position:center center;
   background-size:cover;
 }
+/* Beverage-only fruit frame, exactly the supplied 1671x941 artwork.
+   Keep one uninterrupted image from product cards through the brands area. */
+body.beverages-view main{
+  background:#fffbf5;
+}
+body.beverages-view .beverages-background-surface{
+  position:relative;
+  background-color:#fffbf5;
+  background-image:url("assets/beverages-four-corners-1671x941.png");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:100% 100%;
+}
+body.beverages-view .beverages-background-surface>.catalog,
+body.beverages-view .beverages-background-surface>.spec-section,
+body.beverages-view .beverages-background-surface>.partners{
+  background:transparent;
+}
+body.beverages-view .beverages-background-surface>.catalog::before,
+body.beverages-view .beverages-background-surface>.catalog::after{
+  display:none;
+}
 </style>
 </head>
 <body>
@@ -404,6 +426,21 @@ const query=new URLSearchParams(location.search).get('product');
 const redirect={'Yeast Products':'yeast-product.html','Pasta & Macaroni':'pasta-product.html','Dairy & Milk Powders':'milk-powder-product.html','Sugar':'sugar-product.html'};
 if(Object.prototype.hasOwnProperty.call(redirect,query)){location.replace(redirect[query]);return}
 const cfg=configs[query]||{title:'محصولات صادراتی',subtitle:'تأمین مطمئن برای بازار جهانی',intro:'برای دریافت اطلاعات این دسته، مشخصات محصول را استعلام کنید.',products:['محصول منتخب','گزینه تأمین','سفارش عمده'],image:null};
+/* Preserve all existing cards, photos, typography, and interactions.
+   Only the Beverages & Juices View gets the requested background surface. */
+if(query==='Beverages & Juices'){
+  const main=document.querySelector('main');
+  const catalog=main?.querySelector(':scope > .catalog');
+  const specifications=main?.querySelector(':scope > .spec-section');
+  const partners=main?.querySelector(':scope > .partners');
+  if(catalog && specifications && partners){
+    document.body.classList.add('beverages-view');
+    const surface=document.createElement('div');
+    surface.className='beverages-background-surface';
+    main.insertBefore(surface,catalog);
+    surface.append(catalog,specifications,partners);
+  }
+}
 const setText=(selector,value)=>{const el=document.querySelector(selector);if(el)el.textContent=value};
 document.title=cfg.title+' | بازرگانی مهاجر';
 document.querySelector('meta[name="description"]')?.setAttribute('content','معرفی و استعلام '+cfg.title+' | بازرگانی مهاجر');
