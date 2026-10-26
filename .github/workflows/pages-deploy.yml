@@ -1,0 +1,30 @@
+name: Deploy ELVEN to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages-deployment
+  cancel-in-progress: false
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Package static website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
