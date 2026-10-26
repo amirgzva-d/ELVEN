@@ -235,6 +235,32 @@ body.beverages-view .beverages-background-surface>.catalog::before,
 body.beverages-view .beverages-background-surface>.catalog::after{
   display:none;
 }
+
+/* Beverages View: one centered RANI brand logo; other product views unchanged. */
+body.beverages-view .partners .partner-grid{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  max-width:1250px;
+}
+body.beverages-view .partners .partner-logo--rani{
+  width:240px;
+  height:114px;
+  flex:0 0 auto;
+}
+body.beverages-view .partners .partner-logo--rani img{
+  width:auto;
+  height:auto;
+  max-width:92%;
+  max-height:96px;
+  object-fit:contain;
+}
+@media(max-width:560px){
+  body.beverages-view .partners .partner-logo--rani{
+    width:min(240px,80vw);
+    height:108px;
+  }
+}
 </style>
 </head>
 <body>
@@ -439,6 +465,19 @@ if(query==='Beverages & Juices'){
     surface.className='beverages-background-surface';
     main.insertBefore(surface,catalog);
     surface.append(catalog,specifications,partners);
+    const brandGrid=partners.querySelector('.partner-grid');
+    if(brandGrid){
+      const brandCard=document.createElement('div');
+      brandCard.className='partner-logo partner-logo--rani';
+      brandCard.setAttribute('aria-label','برند رانی');
+      const logo=document.createElement('img');
+      logo.src='assets/rani-brand-logo.png';
+      logo.alt='لوگوی برند RANI';
+      logo.loading='lazy';
+      logo.decoding='async';
+      brandCard.appendChild(logo);
+      brandGrid.replaceChildren(brandCard);
+    }
   }
 }
 const setText=(selector,value)=>{const el=document.querySelector(selector);if(el)el.textContent=value};
