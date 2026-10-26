@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" aria-label="Fresh cut orange mango lemon lime and blueberries">
+<defs>
+<linearGradient id="soft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff8e8" stop-opacity="0"/><stop offset=".58" stop-color="#fff6e4" stop-opacity="0"/><stop offset=".9" stop-color="#fff2df" stop-opacity=".68"/><stop offset="1" stop-color="#fff3da" stop-opacity=".82"/></linearGradient>
+<radialGradient id="orange" cx=".35" cy=".25" r=".8"><stop stop-color="#ffdb68"/><stop offset=".55" stop-color="#ff9d24"/><stop offset="1" stop-color="#ef5c08"/></radialGradient>
+<radialGradient id="lemon" cx=".4" cy=".3" r=".85"><stop stop-color="#fff9b0"/><stop offset=".6" stop-color="#fbe45d"/><stop offset="1" stop-color="#edbc20"/></radialGradient>
+<linearGradient id="mango" x1="0" x2=".95" y1="0" y2="1"><stop stop-color="#ffde68"/><stop offset=".58" stop-color="#ffb024"/><stop offset="1" stop-color="#e96e0b"/></linearGradient>
+<radialGradient id="berry" cx=".25" cy=".17" r=".83"><stop stop-color="#8190e0"/><stop offset=".45" stop-color="#323d9c"/><stop offset="1" stop-color="#121a48"/></radialGradient>
+<linearGradient id="leaf" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#b5d858"/><stop offset=".5" stop-color="#4c9942"/><stop offset="1" stop-color="#176541"/></linearGradient>
+<filter id="drop" x="-35%" y="-40%" width="175%" height="190%"><feGaussianBlur in="SourceAlpha" stdDeviation="7"/><feOffset dy="8" dx="4"/><feComponentTransfer><feFuncA type="linear" slope=".22"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<clipPath id="orangeClip"><circle cx="167" cy="566" r="98"/></clipPath><clipPath id="lemonClip"><circle cx="403" cy="610" r="79"/></clipPath>
+</defs>
+<rect width="1200" height="660" fill="url(#soft)"/>
+<g opacity=".97" filter="url(#drop)">
+<circle cx="167" cy="566" r="108" fill="#e78519"/>
+<circle cx="167" cy="566" r="98" fill="#fff2c8"/><circle cx="167" cy="566" r="90" fill="url(#orange)"/>
+<g clip-path="url(#orangeClip)" stroke="#fffbe0" stroke-width="5" opacity=".82">
+<path d="M167 566L157 449M167 566L236 477M167 566L264 534M167 566L252 634M167 566L177 671M167 566L79 630M167 566L61 527M167 566L92 463" fill="none"/>
+</g>
+<circle cx="167" cy="566" r="13" fill="#fff5cd" opacity=".9"/>
+<circle cx="403" cy="610" r="87" fill="#d8a429"/><circle cx="403" cy="610" r="79" fill="#fff9df"/><circle cx="403" cy="610" r="73" fill="url(#lemon)"/>
+<g clip-path="url(#lemonClip)" stroke="#fffdf1" stroke-width="4" opacity=".88"><path d="M403 610L400 520M403 610L458 552M403 610L481 615M403 610L462 674M403 610L347 673M403 610L329 592M403 610L352 543" fill="none"/></g>
+<circle cx="403" cy="610" r="9" fill="#fff6bc"/>
+</g>
+<g fill="url(#leaf)" stroke="#2d793c" stroke-width="2" filter="url(#drop)">
+<path d="M277 510Q333 436 397 474Q351 520 277 510Z"/>
+<path d="M282 515Q286 451 329 422Q346 475 282 515Z"/>
+<path d="M1085 480Q1056 403 997 403Q1002 468 1085 480Z"/>
+<path d="M1103 477Q1156 434 1197 455Q1170 512 1103 477Z"/>
+<path d="M740 576Q705 510 664 525Q681 574 740 576Z"/>
+</g>
+<g stroke="#dfffbe" stroke-opacity=".72" stroke-width="2" fill="none"><path d="M282 512Q341 477 390 476"/><path d="M282 512Q320 472 325 431"/><path d="M1082 478Q1039 428 1006 408"/><path d="M1102 480Q1162 470 1191 459"/></g>
+<g filter="url(#drop)">
+<path d="M860 537l100 -7 5 79 -101 13z" fill="url(#mango)" stroke="#f18f1b" stroke-width="3"/>
+<path d="M981 493l100 5 -2 87 -108 -8z" fill="url(#mango)" stroke="#f18f1b" stroke-width="3"/>
+<path d="M1050 576l98 -9 13 82 -110 11z" fill="url(#mango)" stroke="#f18f1b" stroke-width="3"/>
+<path d="M929 609l101 -2 3 78 -112 0z" fill="url(#mango)" stroke="#f18f1b" stroke-width="3"/>
+<path d="M833 606l78 1 7 76 -98 -2z" fill="url(#mango)" stroke="#f18f1b" stroke-width="3"/>
+<path d="M870 540l72 -5 -4 13 -62 4M985 497l70 4 -5 13 -61-4M1058 584l73 -9 -1 11 -66 7" stroke="#fff2a9" stroke-width="5" opacity=".7" fill="none"/>
+</g>
+<g filter="url(#drop)"><circle cx="743" cy="634" r="28" fill="url(#berry)"/><circle cx="799" cy="647" r="23" fill="url(#berry)"/><circle cx="695" cy="643" r="22" fill="url(#berry)"/><path d="M732 613l10 -5 7 5m40 16 10 -8 8 7m-114 0 8 -7 9 7" fill="none" stroke="#8da6db" stroke-width="4"/><g fill="#d8e4ff" opacity=".78"><circle cx="733" cy="624" r="5"/><circle cx="789" cy="637" r="4"/><circle cx="689" cy="635" r="4"/></g></g>
+<g fill="#fcffff" opacity=".8"><circle cx="346" cy="543" r="3"/><circle cx="605" cy="597" r="4"/><circle cx="645" cy="627" r="3"/><circle cx="1162" cy="533" r="4"/><circle cx="803" cy="583" r="3"/></g>
+</svg>
