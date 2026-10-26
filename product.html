@@ -213,6 +213,38 @@ main>.catalog::after{display:none}
   background-position:center center;
   background-size:cover;
 }
+
+/* Beverages-only artwork: remove macaroni wheat and show fruit. */
+body.beverages-view main{background-color:#fffaf2;background-image:none}
+body.beverages-view main>.catalog{background:url("assets/beverage-fruit-slices-overlay.svg") center bottom/100% auto no-repeat,linear-gradient(180deg,#fffaf2,#f0f9f7 55%,#fff9ef)}
+body.beverages-view main>.spec-section{background:#fff9ef}
+body.beverages-view main>.partners{background:url("assets/beverage-fruit-slices-overlay.svg") center bottom/100% auto no-repeat,#fff9ef}
+body.beverages-view .hero{background:radial-gradient(ellipse at 85% 27%,rgba(161,222,229,.5),transparent 51%),linear-gradient(110deg,#fffaf2 8%,#fffaf2 42%,#e7f5f3)}
+body.beverages-view .hero::after{background:linear-gradient(90deg,#fffaf2 0%,rgba(255,250,242,.97) 29%,rgba(255,250,242,.2) 57%,transparent 74%)}
+body.beverages-view .hero-inner{position:relative;z-index:2}
+body.beverages-view .beverage-hero-items{position:absolute;direction:ltr;z-index:1;right:2%;bottom:3%;width:55%;height:87%;display:flex;align-items:end;justify-content:center;pointer-events:none}
+body.beverages-view .beverage-hero-items::before{content:"";position:absolute;inset:20% 0 0;background:url("assets/beverage-fruit-slices-overlay.svg") center bottom/100% auto no-repeat;opacity:.7}
+body.beverages-view .beverage-hero-items img{position:relative;width:24%;height:88%;object-fit:contain;mix-blend-mode:multiply;filter:drop-shadow(0 14px 12px rgba(20,60,66,.13))}
+body.beverages-view .beverage-hero-items img:nth-child(1){height:82%;width:23%}
+body.beverages-view .beverage-hero-items img:nth-child(2){height:87%;width:23%}
+body.beverages-view .beverage-hero-items img:nth-child(3){height:96%;width:26%}
+body.beverages-view .beverage-hero-items img:nth-child(4){height:91%;width:26%}
+body.beverages-view .product-image,body.beverages-view .spec-art{background:url("assets/beverage-fruit-slices-overlay.svg") center bottom/cover no-repeat,linear-gradient(140deg,#eef9f8,#fffdfa 50%,#fff0dc)}
+body.beverages-view .beverage-gallery{position:absolute;inset:5% 6%;display:flex;direction:ltr;justify-content:center;align-items:center;gap:2%}
+body.beverages-view .beverage-gallery img{width:44%;height:99%;min-width:0;object-fit:contain;mix-blend-mode:multiply;filter:drop-shadow(0 7px 7px rgba(25,55,65,.13))}
+body.beverages-view .beverage-gallery.four{inset:4% 2%;gap:0}
+body.beverages-view .beverage-gallery.four img{width:24%;height:94%}
+body.beverages-view .spec-art .beverage-gallery{inset:10% 3%}
+body.beverages-view .spec-art::after{background:linear-gradient(90deg,transparent 35%,rgba(255,255,255,.82))}
+@media(max-width:850px){
+body.beverages-view main,body.beverages-view main>.catalog,body.beverages-view main>.partners{background-color:#fff9ef;background-image:url("assets/beverage-fruit-slices-overlay.svg");background-repeat:no-repeat;background-position:center bottom;background-size:100% auto}
+body.beverages-view main>.spec-section{background:#fff9ef}
+body.beverages-view .hero{min-height:770px;background:linear-gradient(180deg,#fffaf2,#e8f5f3)}
+body.beverages-view .hero::after{background:linear-gradient(180deg,rgba(255,250,242,.94),transparent 66%)}
+body.beverages-view .beverage-hero-items{width:96%;right:2%;height:42%;bottom:2%}
+}
+@media(max-width:560px){body.beverages-view .hero{min-height:760px}body.beverages-view .hero-inner{padding-bottom:340px}body.beverages-view .beverage-hero-items{height:37%}}
+
 </style>
 </head>
 <body>
@@ -418,6 +450,41 @@ setText('.spec-top h2','مشخصات و آنالیز '+cfg.title);
 document.querySelector('.spec-art')?.setAttribute('aria-label','تصویر موقت '+cfg.title);
 setText('.partners .section-heading h2','تأمین '+cfg.title+' برای بازارهای جهانی');
 document.querySelector('.partners')?.setAttribute('aria-label','برندهای '+cfg.title);
+
+if(query==='Beverages & Juices'){
+ document.body.classList.add('beverages-view');
+ const photos={
+ bear:'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/a18a5ab6-7446-4f60-9d63-e9e5656c7d92.jpg',
+ soda:'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/38bb6908-6382-4628-b936-2d823d088ac1.png',
+ mango:'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/5a3cfc48-7403-4df1-8ae9-79b286b104d2.jpg',
+ basil:'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/5293381f-b477-4e57-b3e8-45a07f12a30a.jpg'
+ };
+ const alt={bear:'Strong Bear',soda:'Vata Sparkling Soda',mango:'Rani Mango',basil:'Basil Seed Blueberry'};
+ const makePhoto=(key)=>{
+  const img=document.createElement('img');
+  img.src=photos[key];img.alt=alt[key];img.decoding='async';
+  return img;
+ };
+ const addGallery=(container,names)=>{
+  if(!container)return;
+  const g=document.createElement('div');
+  g.className='beverage-gallery'+(names.length===4?' four':'');
+  names.forEach(k=>g.appendChild(makePhoto(k)));
+  container.appendChild(g);
+  container.setAttribute('aria-label',names.map(k=>alt[k]).join('، '));
+ };
+ const hero=document.querySelector('.hero');
+ if(hero){
+  const g=document.createElement('div');g.className='beverage-hero-items';
+  ['bear','soda','mango','basil'].forEach(k=>g.appendChild(makePhoto(k)));
+  g.setAttribute('aria-label','چهار نوشیدنی معرفی‌شده');
+  hero.prepend(g);
+ }
+ const groups=[['mango','basil'],['bear','soda'],['bear','soda','mango','basil']];
+ document.querySelectorAll('.product-grid .product-card').forEach((card,i)=>addGallery(card.querySelector('.product-image'),groups[i]||[]));
+ addGallery(document.querySelector('.spec-art'),['bear','soda','mango','basil']);
+}
+
 const cards=[...document.querySelectorAll('.product-card[data-kind]')];
 const descriptions={};
 for(let i=0;i<cards.length;i++){
