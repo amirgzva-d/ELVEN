@@ -261,6 +261,19 @@ body.beverages-view .partners .partner-logo--rani img{
     height:108px;
   }
 }
+
+/* Beverages-only: four product cards, with mobile-friendly columns. */
+body.beverages-view .catalog .product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+body.beverages-view .catalog .product-card{min-width:0}
+body.beverages-view .catalog .product-image{height:clamp(205px,18vw,260px);background-color:#faf7f0;background-repeat:no-repeat}
+@media(max-width:850px){
+body.beverages-view .catalog .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.beverages-view .catalog .product-card:last-child{grid-column:auto;width:auto;max-width:none;justify-self:stretch}
+}
+@media(max-width:560px){
+body.beverages-view .catalog .product-grid{grid-template-columns:1fr}
+body.beverages-view .catalog .product-image{height:250px}
+}
 </style>
 </head>
 <body>
@@ -447,7 +460,7 @@ body.beverages-view .partners .partner-logo--rani img{
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open))});
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
-const configs={"Beverages & Juices":{"title":"نوشیدنی‌ها و آبمیوه‌ها","subtitle":"طراوت و کیفیت برای بازارهای جهانی","intro":"انواع نوشیدنی و آبمیوه؛ موجودی، ترکیبات و شرایط سفارش پس از استعلام مشخص می‌شود.","products":["آبمیوه‌ها","نوشیدنی‌ها","سفارش عمده"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073980/file_00000000eb30822fa80fa6eb84f11f5b_hs6kc3.png"},"Canned Foods":{"title":"محصولات کنسروی","subtitle":"تنوع در تأمین و عرضه","intro":"محصولات کنسروی برای بازارهای مختلف؛ مشخصات، برند و بسته‌بندی پس از استعلام ارائه می‌شوند.","products":["کنسروها","گزینه‌های تأمین","سفارش صادراتی"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997372/a2091a7b-5311-4c0d-b5f4-3759ed4faa91_1_rjgv0w.png"},"Sugar":{"title":"شکر","subtitle":"تأمین شکر برای بازارهای جهانی","intro":"شکر سفید و گزینه‌های تأمین عمده؛ گرید، برند، مشخصات و موجودی با استعلام مشخص می‌شوند.","products":["شکر سفید","شکر فله","برندهای شکر"],"image":"assets/sugar-still-life.svg"},"Tomato Paste":{"title":"رب گوجه‌فرنگی","subtitle":"انتخابی برای تجارت جهانی","intro":"گزینه‌های تأمین رب گوجه‌فرنگی و شرایط بسته‌بندی متناسب با درخواست قابل استعلام‌اند.","products":["رب گوجه‌فرنگی","بسته‌بندی محصول","سفارش عمده"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073975/%D8%B3%D8%B3_lrwzle.png"},"Baking Soda":{"title":"جوش شیرین","subtitle":"مواد اولیه با تأمین مطمئن","intro":"اطلاعات گرید، بسته‌بندی و شرایط تأمین جوش شیرین پس از استعلام و تأیید ارائه می‌شود.","products":["جوش شیرین","مشخصات محصول","سفارش عمده"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790075680/file_00000000c27c81f4804ac29f3db4fbd3_1_zukkab.png"},"Glucose":{"title":"گلوکز","subtitle":"گزینه‌های تأمین برای صنایع غذایی","intro":"گلوکز و اطلاعات مربوط به گرید، مشخصات و شرایط عرضه بر اساس درخواست مشتری قابل بررسی است.","products":["گلوکز","مشخصات فنی","تأمین عمده"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png"},"Corn & Wheat Starch":{"title":"نشاسته ذرت و گندم","subtitle":"تأمین مواد اولیه باکیفیت","intro":"گزینه‌های تأمین نشاسته ذرت و گندم؛ گرید و اطلاعات فنی پس از دریافت مدارک تولیدکننده مشخص می‌شوند.","products":["نشاسته ذرت","نشاسته گندم","تأمین عمده"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png"}};
+const configs={"Beverages & Juices":{"title":"نوشیدنی‌ها و آبمیوه‌ها","subtitle":"طراوت و کیفیت برای بازارهای جهانی","intro":"انواع نوشیدنی و آبمیوه؛ موجودی، ترکیبات و شرایط سفارش پس از استعلام مشخص می‌شود.","products":["نوشیدنی انرژی‌زا","رانی","نوشیدنی تخم‌شربتی","نوشیدنی گازدار"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073980/file_00000000eb30822fa80fa6eb84f11f5b_hs6kc3.png"},"Canned Foods":{"title":"محصولات کنسروی","subtitle":"تنوع در تأمین و عرضه","intro":"محصولات کنسروی برای بازارهای مختلف؛ مشخصات، برند و بسته‌بندی پس از استعلام ارائه می‌شوند.","products":["کنسروها","گزینه‌های تأمین","سفارش صادراتی"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1789997372/a2091a7b-5311-4c0d-b5f4-3759ed4faa91_1_rjgv0w.png"},"Sugar":{"title":"شکر","subtitle":"تأمین شکر برای بازارهای جهانی","intro":"شکر سفید و گزینه‌های تأمین عمده؛ گرید، برند، مشخصات و موجودی با استعلام مشخص می‌شوند.","products":["شکر سفید","شکر فله","برندهای شکر"],"image":"assets/sugar-still-life.svg"},"Tomato Paste":{"title":"رب گوجه‌فرنگی","subtitle":"انتخابی برای تجارت جهانی","intro":"گزینه‌های تأمین رب گوجه‌فرنگی و شرایط بسته‌بندی متناسب با درخواست قابل استعلام‌اند.","products":["رب گوجه‌فرنگی","بسته‌بندی محصول","سفارش عمده"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073975/%D8%B3%D8%B3_lrwzle.png"},"Baking Soda":{"title":"جوش شیرین","subtitle":"مواد اولیه با تأمین مطمئن","intro":"اطلاعات گرید، بسته‌بندی و شرایط تأمین جوش شیرین پس از استعلام و تأیید ارائه می‌شود.","products":["جوش شیرین","مشخصات محصول","سفارش عمده"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790075680/file_00000000c27c81f4804ac29f3db4fbd3_1_zukkab.png"},"Glucose":{"title":"گلوکز","subtitle":"گزینه‌های تأمین برای صنایع غذایی","intro":"گلوکز و اطلاعات مربوط به گرید، مشخصات و شرایط عرضه بر اساس درخواست مشتری قابل بررسی است.","products":["گلوکز","مشخصات فنی","تأمین عمده"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png"},"Corn & Wheat Starch":{"title":"نشاسته ذرت و گندم","subtitle":"تأمین مواد اولیه باکیفیت","intro":"گزینه‌های تأمین نشاسته ذرت و گندم؛ گرید و اطلاعات فنی پس از دریافت مدارک تولیدکننده مشخص می‌شوند.","products":["نشاسته ذرت","نشاسته گندم","تأمین عمده"],"image":"https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073974/%D8%B3%DB%8C%D8%B4_utjujv.png"}};
 const query=new URLSearchParams(location.search).get('product');
 const redirect={'Yeast Products':'yeast-product.html','Pasta & Macaroni':'pasta-product.html','Dairy & Milk Powders':'milk-powder-product.html','Sugar':'sugar-product.html'};
 if(Object.prototype.hasOwnProperty.call(redirect,query)){location.replace(redirect[query]);return}
@@ -494,6 +507,36 @@ setText('.spec-top h2','مشخصات و آنالیز '+cfg.title);
 document.querySelector('.spec-art')?.setAttribute('aria-label','تصویر موقت '+cfg.title);
 setText('.partners .section-heading h2','تأمین '+cfg.title+' برای بازارهای جهانی');
 document.querySelector('.partners')?.setAttribute('aria-label','برندهای '+cfg.title);
+
+/* Four independent beverage variants. The last three use user-provided reference product photos
+   until their separately designed commercial images are approved. */
+if(query==='Beverages & Juices'){
+ const grid=document.querySelector('.catalog .product-grid');
+ const original=[...grid.querySelectorAll('.product-card[data-kind]')];
+ if(original.length===3){
+  const photos=[
+    'assets/beverage-energy-unbranded.webp',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/5a3cfc48-7403-4df1-8ae9-79b286b104d2.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/5293381f-b477-4e57-b3e8-45a07f12a30a.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/38bb6908-6382-4628-b936-2d823d088ac1.png'
+  ];
+  const kinds=['energy','rani','basil','soda'];
+  const cards4=[...original,original[2].cloneNode(true)];
+  cards4.forEach((card,i)=>{
+   card.dataset.kind=kinds[i];
+   card.classList.toggle('selected',i===0);
+   card.setAttribute('aria-pressed',String(i===0));
+   card.querySelector('.highlight-tag')?.remove();
+   const art=card.querySelector('.product-image');
+   art.className='product-image';
+   art.style.backgroundImage='url("'+photos[i]+'")';
+   art.style.backgroundSize='cover';
+   art.style.backgroundPosition='center center';
+   art.dataset.artwork=photos[i];
+  });
+  grid.replaceChildren(...cards4);
+ }
+}
 const cards=[...document.querySelectorAll('.product-card[data-kind]')];
 const descriptions={};
 for(let i=0;i<cards.length;i++){
@@ -507,6 +550,16 @@ for(let i=0;i<cards.length;i++){
 const selectText=document.getElementById('selectedProduct'),detail=document.getElementById('productDetails'),spec=document.getElementById('specifications'),nutritionNote=document.getElementById('nutritionNote');
 const activate=(card,shouldScroll)=>{
  const entry=descriptions[card.dataset.kind];if(!entry)return;
+ if(query==='Beverages & Juices'){
+  const source=card.querySelector('.product-image')?.dataset.artwork;
+  const art=document.querySelector('.spec-art');
+  if(source&&art){
+   art.style.backgroundImage='url("'+source+'")';
+   art.style.backgroundSize='cover';
+   art.style.backgroundPosition='center';
+   art.setAttribute('aria-label','تصویر '+entry[0]);
+  }
+ }
  selectText.textContent=entry[0];detail.textContent=entry[1];
  nutritionNote.textContent='اعداد و نتایج آنالیز '+entry[0]+' پس از دریافت برگه مشخصات تأییدشده درج خواهند شد.';
  document.querySelectorAll('.product-card[data-kind]').forEach(item=>{
@@ -521,6 +574,6 @@ cards.forEach(card=>{
  card.addEventListener('click',()=>activate(card,true));
  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(card,true)}});
 });
-if(cards[1])activate(cards[1],false);
+if(cards.length)activate(query==='Beverages & Juices'?cards[0]:cards[1],false);
 })();</script>
 </body></html>
