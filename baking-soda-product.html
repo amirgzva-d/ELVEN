@@ -258,17 +258,23 @@ main>.catalog::after{display:none}
   justify-content:center;
   gap:26px;
 }
+/* Soft translucent brand plaques, aligned with the tomato-paste section.
+   Real PNG logos are already transparent; keep them legible over the kitchen photo. */
 .soda-main>.partners .partner-logo,
 .soda-main>.partners .partner-logo:first-child{
   height:150px;
-  background:rgba(255,255,255,.96);
-  border:1px solid rgba(205,162,96,.47);
+  background:rgba(255,249,240,.30);
+  border:1px solid rgba(255,255,255,.42);
   border-radius:20px;
-  box-shadow:0 14px 28px rgba(95,66,33,.09);
+  box-shadow:0 6px 18px rgba(95,66,33,.04);
+  -webkit-backdrop-filter:blur(5px);
+  backdrop-filter:blur(5px);
 }
 .soda-main>.partners .partner-logo:hover{
   transform:translateY(-5px);
-  box-shadow:0 18px 30px rgba(95,66,33,.15);
+  background:rgba(255,249,240,.44);
+  border-color:rgba(205,162,96,.34);
+  box-shadow:0 10px 23px rgba(95,66,33,.09);
 }
 .soda-main>.partners .partner-logo img{
   max-width:86%;
