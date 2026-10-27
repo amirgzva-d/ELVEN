@@ -236,47 +236,75 @@ body.beverages-view .beverages-background-surface>.catalog::after{
   display:none;
 }
 
-/* Beverage partner logos: keep the actual colored artwork fully visible inside each card. */
+/* Beverage specification fade: begin nearer the image edge to show all drinks. */
+@media(min-width:851px){
+  body.beverages-view .spec-art::after{
+    left:auto;
+    right:0;
+    top:0;
+    bottom:0;
+    width:14%;
+    height:auto;
+    background:linear-gradient(90deg,transparent,#fff);
+  }
+}
+@media(max-width:850px){
+  body.beverages-view .spec-art::after{
+    top:auto;
+    left:0;
+    right:0;
+    bottom:0;
+    width:auto;
+    height:24%;
+    background:linear-gradient(180deg,transparent,#fff);
+  }
+}
+/* Beverage brand section: higher, compact and uniformly sized like tomato logos. */
+body.beverages-view .partners{padding-top:8px}
+body.beverages-view .partners .section-heading{margin-bottom:15px}
 body.beverages-view .partners .partner-grid{
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,215px));
+  grid-template-columns:repeat(4,minmax(0,182px));
   justify-content:center;
   align-items:center;
-  gap:14px;
-  max-width:1250px;
+  gap:11px;
+  max-width:761px;
 }
 body.beverages-view .partners .partner-logo--beverage{
-  height:130px;
+  height:88px;
   min-width:0;
   display:grid;
   place-items:center;
   overflow:hidden;
-  background:rgba(255,255,255,.96);
-  border:1px solid #e9decd;
+  border:1px solid rgba(191,153,104,.38);
+  border-radius:15px;
+  background:rgba(255,249,240,.54);
+  box-shadow:none;
 }
 body.beverages-view .partners .partner-logo--beverage img{
   display:block;
   width:auto;
-  height:160px;
-  max-width:none;
-  max-height:none;
+  height:auto;
+  max-width:94%;
+  max-height:78px;
   object-fit:contain;
   justify-self:center;
   align-self:center;
 }
 @media(max-width:680px){
   body.beverages-view .partners .partner-grid{
-    grid-template-columns:repeat(2,minmax(0,215px));
+    grid-template-columns:repeat(2,minmax(0,182px));
+    max-width:425px;
     gap:10px;
   }
-  body.beverages-view .partners .partner-logo--beverage{height:115px}
-  body.beverages-view .partners .partner-logo--beverage img{height:145px}
+  body.beverages-view .partners .partner-logo--beverage{height:88px}
+  body.beverages-view .partners .partner-logo--beverage img{max-height:76px}
 }
 
 /* Beverages-only: four product cards, with mobile-friendly columns. */
 body.beverages-view .catalog .product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 body.beverages-view .catalog .product-card{min-width:0}
-body.beverages-view .catalog .product-image{height:clamp(205px,18vw,260px);background-color:#faf7f0;background-repeat:no-repeat}
+body.beverages-view .catalog .product-image{height:clamp(205px,18vw,260px);background-color:#faf7f0;background-repeat:no-repeat;background-size:contain;background-position:center center}
 @media(max-width:850px){
 body.beverages-view .catalog .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 body.beverages-view .catalog .product-card:last-child{grid-column:auto;width:auto;max-width:none;justify-self:stretch}
@@ -532,19 +560,18 @@ document.querySelector('.spec-art')?.setAttribute('aria-label','تصویر مو�
 setText('.partners .section-heading h2','تأمین '+cfg.title+' برای بازارهای جهانی');
 document.querySelector('.partners')?.setAttribute('aria-label','برندهای '+cfg.title);
 
-/* Four independent beverage variants. The last three use user-provided reference product photos
-   until their separately designed commercial images are approved. */
+/* Four independent beverage variants using the supplied product-card photos. */
 if(query==='Beverages & Juices'){
  const grid=document.querySelector('.catalog .product-grid');
  const original=[...grid.querySelectorAll('.product-card[data-kind]')];
  if(original.length===3){
   const photos=[
-    'assets/beverage-energy-unbranded.webp',
-    'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/5a3cfc48-7403-4df1-8ae9-79b286b104d2.jpg',
-    'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/5293381f-b477-4e57-b3e8-45a07f12a30a.jpg',
-    'https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/38bb6908-6382-4628-b936-2d823d088ac1.png'
-  ];
-  const kinds=['energy','rani','basil','soda'];
+     'https://res.cloudinary.com/dqhbyqftq/image/upload/v1793080978/c4e288f9-77b9-405c-b401-dba3b1afb1e6_cm1whx.png',
+     'https://res.cloudinary.com/dqhbyqftq/image/upload/v1793080976/86d00814-af21-42b0-ac23-29e7d295949e_byf2l8.png',
+     'https://res.cloudinary.com/dqhbyqftq/image/upload/v1793080977/dbd95172-09a5-41ba-a8e9-a7794b3a61c1_s2r7oq.png',
+     'https://res.cloudinary.com/dqhbyqftq/image/upload/v1793080977/ab7a8327-99c0-48e6-841c-8f7d1f31a3c8_l21diw.png'
+   ];
+   const kinds=['energy','rani','basil','soda'];
   const cards4=[...original,original[2].cloneNode(true)];
   cards4.forEach((card,i)=>{
    card.dataset.kind=kinds[i];
@@ -554,9 +581,9 @@ if(query==='Beverages & Juices'){
    const art=card.querySelector('.product-image');
    art.className='product-image';
    art.style.backgroundImage='url("'+photos[i]+'")';
-   art.style.backgroundSize='cover';
-   art.style.backgroundPosition='center center';
-   art.dataset.artwork=photos[i];
+   art.style.backgroundSize='contain';
+    art.style.backgroundPosition='center center';
+    art.dataset.artwork=photos[i];
   });
   grid.replaceChildren(...cards4);
  }
@@ -569,7 +596,7 @@ for(let i=0;i<cards.length;i++){
  setText('.product-card[data-kind="'+key+'"] h3',name);
  setText('.product-card[data-kind="'+key+'"] .card-copy>p','مشخصات، تصاویر اختصاصی و شرایط سفارش پس از دریافت اطلاعات تأییدشده تکمیل می‌شوند.');
  card.setAttribute('aria-label','انتخاب '+name+' و مشاهده مشخصات');
- card.querySelector('.product-image')?.setAttribute('aria-label','تصویر موقت '+name);
+ card.querySelector('.product-image')?.setAttribute('aria-label',query==='Beverages & Juices'?'تصویر '+name:'تصویر موقت '+name);
 }
 const selectText=document.getElementById('selectedProduct'),detail=document.getElementById('productDetails'),spec=document.getElementById('specifications'),nutritionNote=document.getElementById('nutritionNote');
 const activate=(card,shouldScroll)=>{
