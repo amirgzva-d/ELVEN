@@ -381,26 +381,59 @@ main>.catalog::after{display:none}
   .tomato-product-grid{grid-template-columns:1fr}
 }
 
-/* Keep the analysis download in the upper product-details row, beside the feature chips. */
+/* Premium RTL product-card layout: download action leads from the right. */
 .tomato-product-grid{align-items:stretch}
 .tomato-product-grid .product-card{display:flex;flex-direction:column;height:100%}
 .tomato-product-grid .card-copy{flex:1}
-.tomato-product-grid .card-copy .chips{margin-top:auto}
+.tomato-product-grid .card-copy .chips{
+ direction:rtl;width:100%;margin:16px 0 2px;display:flex;
+ justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;
+}
+.tomato-product-grid .chips span{
+ min-height:35px;padding:7px 10px;
+ background:linear-gradient(180deg,#fffdf9 0%,#f8f1e6 100%);
+ border:1px solid #eee1cd;color:#53617a;
+}
+.tomato-product-grid .chips span .ico{width:15px;height:15px;color:#b77b2d}
 .tomato-card-downloads{
  display:inline-flex;width:auto;align-items:center;justify-content:center;
- flex-wrap:nowrap;gap:0;margin:0;padding:0;border:0;flex:0 0 auto;
+ flex:0 0 auto;margin:0;padding:0;border:0;
 }
 .tomato-card-downloads a{
- display:inline-flex;justify-content:center;align-items:center;gap:5px;
- padding:7px 10px;min-height:32px;font-size:10px;font-weight:800;
- line-height:1.5;border-radius:100px;text-decoration:none;white-space:nowrap;
- transition:background .2s,transform .2s;
+ position:relative;isolation:isolate;display:inline-flex;justify-content:center;
+ align-items:center;gap:8px;padding:6px 10px 6px 12px;min-height:39px;
+ border-radius:13px;text-decoration:none;white-space:nowrap;
+ color:#fff;background:linear-gradient(135deg,#1c477c 0%,#0b2852 100%);
+ border:1px solid #cda768;box-shadow:0 5px 13px rgba(13,42,82,.15),inset 0 1px 0 rgba(255,255,255,.12);
+ font-size:10px;font-weight:850;line-height:1.5;
+ transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease;
 }
-.tomato-card-downloads a:hover{transform:translateY(-2px)}
-.tomato-card-downloads a:focus-visible{outline:2px solid #1a4679;outline-offset:3px}
-.tomato-card-downloads .ico{width:14px;height:14px}
-.tomato-download-image{color:#fff;background:#173a6b;border:1px solid #173a6b}
-.tomato-download-image:hover{background:#27568d}
+.tomato-card-downloads a::after{
+ content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+ background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.11) 50%,transparent 72%);
+ opacity:0;transition:opacity .22s ease;
+}
+.tomato-card-downloads a:hover{
+ transform:translateY(-2px);border-color:#f0d39b;
+ box-shadow:0 9px 19px rgba(13,42,82,.22),0 0 0 3px rgba(205,167,104,.12);
+ background:linear-gradient(135deg,#24558e 0%,#103565 100%);
+}
+.tomato-card-downloads a:hover::after{opacity:1}
+.tomato-card-downloads a:active{transform:translateY(0)}
+.tomato-card-downloads a:focus-visible{outline:3px solid #d7ad69;outline-offset:3px}
+.tomato-card-downloads .ico{
+ width:25px;height:25px;padding:5px;box-sizing:border-box;flex:0 0 auto;
+ border-radius:8px;color:#f3cb83;background:rgba(238,195,120,.15);
+ border:1px solid rgba(238,195,120,.3);stroke-width:2.1;
+}
+@media(max-width:420px){
+ .tomato-product-grid .card-copy{padding:16px 12px 18px}
+ .tomato-product-grid .card-copy h3{font-size:20px}
+ .tomato-product-grid .card-copy .chips{gap:6px}
+ .tomato-product-grid .chips span{padding:6px 8px;font-size:9.5px}
+ .tomato-card-downloads a{padding:6px 9px;gap:6px;font-size:9.5px}
+ .tomato-card-downloads .ico{width:23px;height:23px}
+}
 
 </style>
 </head>
@@ -410,6 +443,7 @@ main>.catalog::after{display:none}
 <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 22V6m0 10 6-4m-6 1-6-4m6 1 5-4m-5 1-5-4M15 4c0-1.4-.9-2.3-3-3-.8 1-1 2-1 3m6 3c2-.3 3.2-1.5 3-3.8-2.3-.1-3.8 1.1-4 3.8M7 7C5 7 4 5.7 4 3.2 6.3 3 7.7 4.3 8 6m11 5c2.1-.1 3.1-1.3 3.1-3.6-2.7-.3-4 1.1-4.1 3.2M5 11C3 11 2 9.7 2 7.5c2.5-.2 4 1.1 4 3.3"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
 <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v17m-7-7 7 7 7-7"/></symbol>
+ <symbol id="i-file-download" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 11v6m-3-3 3 3 3-3"/></symbol>
 <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"/></symbol>
 <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C11 4 5 6 4 14a6 6 0 0 0 6 6c8-1 10-7 10-16ZM4 20c3-5 8-9 14-12"/></symbol>
 <symbol id="i-badge" viewBox="0 0 24 24"><path d="m12 2 3 2 4-.2.2 4L22 11l-2.8 3.2L19 18l-4 .2-3 2.8-3-2.8L5 18l-.2-3.8L2 11l2.8-3.2L5 4l4 .2z"/><path d="m8 11 2.5 2.5L16 8"/></symbol>
@@ -477,7 +511,7 @@ main>.catalog::after{display:none}
       <div class="card-copy">
         <h3>رب گوجه‌فرنگی اسپتیک</h3>
         <p>بسته‌بندی اسپتیک مناسب برای تأمین و مصارف صنعتی؛ جزئیات ظرفیت و شرایط سفارش با استعلام مشخص می‌شود.</p>
-        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>مصرف صنعتی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>مشخصات با استعلام</span><div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی اسپتیک"><a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-aseptic/v1793089866/%D8%A7%D8%B3%D9%BE%D8%AA%D8%A8%DA%A9_fidwfc.png" download="tomato-paste-aseptic.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی اسپتیک"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg>دانلود آنالیز</a></div></div>
+        <div class="chips"><div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی اسپتیک"><a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-aseptic/v1793089866/%D8%A7%D8%B3%D9%BE%D8%AA%D8%A8%DA%A9_fidwfc.png" download="tomato-paste-aseptic.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی اسپتیک"><svg class="ico" aria-hidden="true"><use href="#i-file-download"></use></svg>دانلود آنالیز</a></div><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>مصرف صنعتی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>مشخصات با استعلام</span></div>
       </div>
     </article>
     <article class="product-card" data-kind="glass" role="button" tabindex="0" aria-pressed="false" aria-controls="tomato-specifications" aria-label="انتخاب رب گوجه‌فرنگی شیشه‌ای و مشاهده مشخصات">
@@ -485,7 +519,7 @@ main>.catalog::after{display:none}
       <div class="card-copy">
         <h3>رب گوجه‌فرنگی شیشه‌ای</h3>
         <p>رب گوجه‌فرنگی در بسته‌بندی شیشه‌ای؛ برند، وزن و موجودی پس از استعلام تأیید می‌شود.</p>
-        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>بسته‌بندی شیشه‌ای</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg>عرضه با استعلام</span><div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی شیشه‌ای"><a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-glass/v1793089868/%D8%B4%DB%8C%D8%B4%D9%87_%D8%A7%DB%8C_oadyf1.png" download="tomato-paste-glass.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی شیشه‌ای"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg>دانلود آنالیز</a></div></div>
+        <div class="chips"><div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی شیشه‌ای"><a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-glass/v1793089868/%D8%B4%DB%8C%D8%B4%D9%87_%D8%A7%DB%8C_oadyf1.png" download="tomato-paste-glass.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی شیشه‌ای"><svg class="ico" aria-hidden="true"><use href="#i-file-download"></use></svg>دانلود آنالیز</a></div><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>بسته‌بندی شیشه‌ای</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg>عرضه با استعلام</span></div>
       </div>
     </article>
     <article class="product-card" data-kind="can" role="button" tabindex="0" aria-pressed="false" aria-controls="tomato-specifications" aria-label="انتخاب رب گوجه‌فرنگی قوطی و مشاهده مشخصات">
@@ -493,7 +527,7 @@ main>.catalog::after{display:none}
       <div class="card-copy">
         <h3>رب گوجه‌فرنگی قوطی</h3>
         <p>رب گوجه‌فرنگی با بسته‌بندی قوطی فلزی؛ وزن و شرایط تأمین متناسب با محصول اعلام می‌شود.</p>
-        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>قوطی فلزی</span><span><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg>استعلام موجودی</span><div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی قوطی"><a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-can/v1793089875/%D9%82%D9%88%D8%B7%DB%8C_sb7jaj.png" download="tomato-paste-can.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی قوطی"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg>دانلود آنالیز</a></div></div>
+        <div class="chips"><div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی قوطی"><a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-can/v1793089875/%D9%82%D9%88%D8%B7%DB%8C_sb7jaj.png" download="tomato-paste-can.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی قوطی"><svg class="ico" aria-hidden="true"><use href="#i-file-download"></use></svg>دانلود آنالیز</a></div><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>قوطی فلزی</span><span><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg>استعلام موجودی</span></div>
       </div>
     </article>
   </div>
