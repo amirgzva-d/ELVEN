@@ -476,9 +476,11 @@ const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObse
 </script>
 
 <style id="soda-hero-layout-match-tomato">
-/* Desktop: match the tomato hero's restrained right-side product scale and left-side copy. */
+/* Desktop: match the other product pages — restrained product scale on the right, copy on the left. */
 @media (min-width: 761px) {
   .soda-main > .soda-hero {
+    height: clamp(560px, calc(100svh - 188px), 700px) !important;
+    min-height: 560px !important;
     background-position: right center !important;
     background-size: auto 100% !important;
     background-repeat: no-repeat !important;
@@ -488,15 +490,33 @@ const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObse
     display: block !important;
     background: linear-gradient(90deg,
       #fffaf2 0%,
-      rgba(255,250,242,.98) 29%,
-      rgba(255,250,242,.86) 42%,
-      rgba(255,250,242,.48) 54%,
-      rgba(255,250,242,.04) 70%,
-      transparent 82%) !important;
+      rgba(255,250,242,.98) 22%,
+      rgba(255,250,242,.86) 33%,
+      rgba(255,250,242,.48) 43%,
+      rgba(255,250,242,.04) 56%,
+      transparent 68%) !important;
     pointer-events: none !important;
   }
+  .soda-main > .soda-hero .hero-inner {
+    direction: ltr !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    min-height: 560px;
+    padding: 35px clamp(24px, 5.5vw, 105px) !important;
+  }
+  .soda-main > .soda-hero .hero-copy {
+    direction: rtl !important;
+    align-items: flex-start !important;
+    text-align: right !important;
+    width: min(510px, 43vw) !important;
+    transform: none !important;
+  }
+  .soda-main > .soda-hero .hero p { max-width: 490px; }
+  .soda-main > .soda-hero .hero-features { max-width: 500px; }
+  .soda-main > .soda-hero .hero-actions { justify-content: flex-start !important; }
 }
-/* Mobile: keep copy readable above the image and avoid stretching/cropping the product. */
+
+/* Mobile: keep the copy readable above the image and preserve the product proportions. */
 @media (max-width: 760px) {
   .soda-main > .soda-hero {
     height: auto !important;
