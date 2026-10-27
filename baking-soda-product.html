@@ -221,6 +221,78 @@ main>.catalog::after{display:none}
 @media(max-width:560px){.soda-main>.soda-hero{min-height:535px}.soda-main .hero-inner{padding:50px 18px 65px;min-height:535px}.soda-main .hero h2{font-size:24px}.soda-main .hero-features{margin:25px 0}.soda-main>.partners{padding:35px 15px 48px}.soda-main .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}.soda-main .partner-logo{height:96px}}
 @media(max-width:370px){.soda-main .hero-features{gap:0}.soda-main .hero-feature{padding:0 3px}}
 .soda-main .partner-logo:first-child{background:#fff}
+
+/* Baking soda partner showcase: light kitchen scene with the real brand logos. */
+.soda-main>.partners{
+  position:relative;
+  isolation:isolate;
+  min-height:420px;
+  padding:66px clamp(18px,5vw,90px) 88px;
+  background-color:#f7ecdb;
+  background-image:url("assets/soda-brands-kitchen.svg");
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.soda-main>.partners .section-heading{
+  position:relative;
+  z-index:1;
+  margin-bottom:30px;
+}
+.soda-main>.partners .section-heading h2{
+  font-size:clamp(27px,2.4vw,40px);
+  line-height:1.55;
+  color:#0d2b5b;
+  margin:8px 0 5px;
+}
+.soda-main>.partners .section-heading p{
+  color:#57677d;
+  font-size:13px;
+}
+.soda-main>.partners .partner-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,280px));
+  max-width:900px;
+  justify-content:center;
+  gap:26px;
+}
+.soda-main>.partners .partner-logo,
+.soda-main>.partners .partner-logo:first-child{
+  height:150px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(205,162,96,.47);
+  border-radius:20px;
+  box-shadow:0 14px 28px rgba(95,66,33,.09);
+}
+.soda-main>.partners .partner-logo:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 30px rgba(95,66,33,.15);
+}
+.soda-main>.partners .partner-logo img{
+  max-width:86%;
+  max-height:103px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+}
+@media(max-width:850px){
+  .soda-main>.partners{min-height:365px;padding:56px 22px 72px}
+  .soda-main>.partners .partner-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .soda-main>.partners .partner-logo{height:124px}
+  .soda-main>.partners .partner-logo img{max-height:86px}
+}
+@media(max-width:560px){
+  .soda-main>.partners{min-height:0;padding:46px 17px 62px;background-position:center center}
+  .soda-main>.partners .section-heading{margin-bottom:25px}
+  .soda-main>.partners .section-heading h2{font-size:27px}
+  .soda-main>.partners .section-heading p{font-size:11px}
+  .soda-main>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:430px}
+  .soda-main>.partners .partner-logo{height:112px;border-radius:16px}
+  .soda-main>.partners .partner-logo img{max-height:78px}
+  .soda-main>.partners .partner-logo:last-child{grid-column:1/-1;justify-self:center;width:min(100%,210px)}
+}
 </style>
 </head>
 <body>
@@ -285,8 +357,8 @@ main>.catalog::after{display:none}
 </section>
 <section class="partners" id="soda-brands" aria-label="برندهای جوش شیرین">
   <div class="section-heading" data-reveal>
-    <span class="heading-eyebrow">برندهای جوش شیرین</span>
-    <h2>همراه با برندهای جوش شیرین</h2>
+    <span class="heading-eyebrow">برندهای ما</span>
+    <h2>برندهای تجاری جوش شیرین</h2>
     <p>سه نشان در این بخش؛ مشخصات و امکان تأمین هر محصول پس از استعلام تأیید می‌شود.</p>
   </div>
   <div class="partner-grid" data-reveal>
