@@ -301,17 +301,43 @@ body.beverages-view .partners .partner-logo--beverage img{
   body.beverages-view .partners .partner-logo--beverage img{max-height:76px}
 }
 
-/* Beverages-only: four product cards, with mobile-friendly columns. */
-body.beverages-view .catalog .product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-body.beverages-view .catalog .product-card{min-width:0}
-body.beverages-view .catalog .product-image{height:clamp(205px,18vw,260px);background-color:#faf7f0;background-repeat:no-repeat;background-size:contain;background-position:center center}
+/* Beverage photo cards: original supplied photos are landscape ~3:2.
+   Let each card's photo area follow its aspect ratio, not a fixed-height box.
+   This eliminates the empty strips created by 'contain' inside a tall area. */
+body.beverages-view .catalog .product-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-auto-rows:1fr;
+  gap:18px;
+}
+body.beverages-view .catalog .product-card{
+  min-width:0;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+body.beverages-view .catalog .product-image{
+  width:100%;
+  height:auto;
+  aspect-ratio:3 / 2;
+  flex:none;
+  background-color:#faf7f0;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center center;
+}
+body.beverages-view .catalog .card-copy{
+  flex:1;
+}
+body.beverages-view .catalog .card-copy .chips{
+  margin-top:auto;
+  padding-top:15px;
+}
 @media(max-width:850px){
-body.beverages-view .catalog .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-body.beverages-view .catalog .product-card:last-child{grid-column:auto;width:auto;max-width:none;justify-self:stretch}
+  body.beverages-view .catalog .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.beverages-view .catalog .product-card:last-child{grid-column:auto;width:auto;max-width:none;justify-self:stretch}
 }
 @media(max-width:560px){
-body.beverages-view .catalog .product-grid{grid-template-columns:1fr}
-body.beverages-view .catalog .product-image{height:250px}
+  body.beverages-view .catalog .product-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -581,7 +607,7 @@ if(query==='Beverages & Juices'){
    const art=card.querySelector('.product-image');
    art.className='product-image';
    art.style.backgroundImage='url("'+photos[i]+'")';
-   art.style.backgroundSize='contain';
+   art.style.backgroundSize='cover';
     art.style.backgroundPosition='center center';
     art.dataset.artwork=photos[i];
   });
