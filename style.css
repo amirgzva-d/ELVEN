@@ -1465,11 +1465,11 @@ button,input,select{font:inherit}a{text-decoration:none;color:inherit}
   background-repeat:no-repeat !important;
 }
 .image-3{
-  /* Fresh fruit wedges over the beverage photograph, replacing wheat-like trim. */
-  background-image:url("assets/beverage-fruit-slices-overlay.svg"),url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073980/file_00000000eb30822fa80fa6eb84f11f5b_hs6kc3.png") !important;
-  background-position:center bottom,center center !important;
-  background-size:cover,cover !important;
-  background-repeat:no-repeat,no-repeat !important;
+  /* Use only the original beverage photograph; no decorative fruit overlay. */
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073980/file_00000000eb30822fa80fa6eb84f11f5b_hs6kc3.png") !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
 }
 .image-4{
   background-image:url("assets/sugar-still-life.svg") !important;
