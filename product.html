@@ -236,30 +236,35 @@ body.beverages-view .beverages-background-surface>.catalog::after{
   display:none;
 }
 
-/* Beverages View: one centered RANI brand logo; other product views unchanged. */
+/* Four beverage brand logos, precisely the supplied artwork (beverages view only). */
 body.beverages-view .partners .partner-grid{
-  display:flex;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,215px));
   justify-content:center;
   align-items:center;
+  gap:14px;
   max-width:1250px;
 }
-body.beverages-view .partners .partner-logo--rani{
-  width:240px;
-  height:114px;
-  flex:0 0 auto;
+body.beverages-view .partners .partner-logo--beverage{
+  height:110px;
+  min-width:0;
+  overflow:hidden;
 }
-body.beverages-view .partners .partner-logo--rani img{
+body.beverages-view .partners .partner-logo--beverage img{
+  display:block;
+  height:180px;
   width:auto;
-  height:auto;
-  max-width:92%;
-  max-height:96px;
+  max-height:none;
+  max-width:none;
   object-fit:contain;
 }
-@media(max-width:560px){
-  body.beverages-view .partners .partner-logo--rani{
-    width:min(240px,80vw);
-    height:108px;
+@media(max-width:680px){
+  body.beverages-view .partners .partner-grid{
+    grid-template-columns:repeat(2,minmax(0,215px));
+    gap:10px;
   }
+  body.beverages-view .partners .partner-logo--beverage{height:100px}
+  body.beverages-view .partners .partner-logo--beverage img{height:160px}
 }
 
 /* Beverages-only: four product cards, with mobile-friendly columns. */
@@ -480,16 +485,20 @@ if(query==='Beverages & Juices'){
     surface.append(catalog,specifications,partners);
     const brandGrid=partners.querySelector('.partner-grid');
     if(brandGrid){
-      const brandCard=document.createElement('div');
-      brandCard.className='partner-logo partner-logo--rani';
-      brandCard.setAttribute('aria-label','برند رانی');
-      const logo=document.createElement('img');
-      logo.src='assets/rani-brand-logo.png';
-      logo.alt='لوگوی برند RANI';
-      logo.loading='lazy';
-      logo.decoding='async';
-      brandCard.appendChild(logo);
-      brandGrid.replaceChildren(brandCard);
+      const brandSources=["https://res.cloudinary.com/dqhbyqftq/image/upload/v1793079706/4_sabb67.png","https://res.cloudinary.com/dqhbyqftq/image/upload/v1793079707/1_p5mudj.png","https://res.cloudinary.com/dqhbyqftq/image/upload/v1793079707/3_d4fubt.png","https://res.cloudinary.com/dqhbyqftq/image/upload/v1793079707/2_z5rjah.png"];
+      const brandCards=brandSources.map((src,index)=>{
+        const card=document.createElement('div');
+        card.className='partner-logo partner-logo--beverage';
+        card.setAttribute('aria-label','برند نوشیدنی شماره '+(index+1));
+        const logo=document.createElement('img');
+        logo.src=src;
+        logo.alt='لوگوی برند نوشیدنی شماره '+(index+1);
+        logo.loading='lazy';
+        logo.decoding='async';
+        card.appendChild(logo);
+        return card;
+      });
+      brandGrid.replaceChildren(...brandCards);
     }
   }
 }
@@ -505,6 +514,15 @@ setText('.catalog .section-heading h2','محصولات '+cfg.title);
 setText('.catalog .section-heading p','برای دریافت مشخصات، تصویر اختصاصی، برند و شرایط تأمین هر مورد، استعلام بگیرید.');
 setText('.spec-top h2','مشخصات و آنالیز '+cfg.title);
 document.querySelector('.spec-art')?.setAttribute('aria-label','تصویر موقت '+cfg.title);
+ if(query==='Beverages & Juices'){
+  const art=document.querySelector('.spec-art');
+  if(art){
+   art.style.backgroundImage='url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793079058/0cdecf7e-1f3b-45ea-943a-3cfb3fae500e_mylyxv.png")';
+   art.style.backgroundSize='cover';
+   art.style.backgroundPosition='left center';
+   art.setAttribute('aria-label','عکس مشخصات و آنالیز نوشیدنی‌ها و آبمیوه‌ها');
+  }
+ }
 setText('.partners .section-heading h2','تأمین '+cfg.title+' برای بازارهای جهانی');
 document.querySelector('.partners')?.setAttribute('aria-label','برندهای '+cfg.title);
 
@@ -550,16 +568,7 @@ for(let i=0;i<cards.length;i++){
 const selectText=document.getElementById('selectedProduct'),detail=document.getElementById('productDetails'),spec=document.getElementById('specifications'),nutritionNote=document.getElementById('nutritionNote');
 const activate=(card,shouldScroll)=>{
  const entry=descriptions[card.dataset.kind];if(!entry)return;
- if(query==='Beverages & Juices'){
-  const source=card.querySelector('.product-image')?.dataset.artwork;
-  const art=document.querySelector('.spec-art');
-  if(source&&art){
-   art.style.backgroundImage='url("'+source+'")';
-   art.style.backgroundSize='cover';
-   art.style.backgroundPosition='center';
-   art.setAttribute('aria-label','تصویر '+entry[0]);
-  }
- }
+ /* Keep the supplied beverages analysis image unchanged when selecting a product. */
  selectText.textContent=entry[0];detail.textContent=entry[1];
  nutritionNote.textContent='اعداد و نتایج آنالیز '+entry[0]+' پس از دریافت برگه مشخصات تأییدشده درج خواهند شد.';
  document.querySelectorAll('.product-card[data-kind]').forEach(item=>{
