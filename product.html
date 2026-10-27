@@ -236,7 +236,7 @@ body.beverages-view .beverages-background-surface>.catalog::after{
   display:none;
 }
 
-/* Four beverage brand logos, precisely the supplied artwork (beverages view only). */
+/* Beverage partner logos: keep the actual colored artwork fully visible inside each card. */
 body.beverages-view .partners .partner-grid{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,215px));
@@ -246,25 +246,31 @@ body.beverages-view .partners .partner-grid{
   max-width:1250px;
 }
 body.beverages-view .partners .partner-logo--beverage{
-  height:110px;
+  height:130px;
   min-width:0;
+  display:grid;
+  place-items:center;
   overflow:hidden;
+  background:rgba(255,255,255,.96);
+  border:1px solid #e9decd;
 }
 body.beverages-view .partners .partner-logo--beverage img{
   display:block;
-  height:180px;
   width:auto;
-  max-height:none;
+  height:160px;
   max-width:none;
+  max-height:none;
   object-fit:contain;
+  justify-self:center;
+  align-self:center;
 }
 @media(max-width:680px){
   body.beverages-view .partners .partner-grid{
     grid-template-columns:repeat(2,minmax(0,215px));
     gap:10px;
   }
-  body.beverages-view .partners .partner-logo--beverage{height:100px}
-  body.beverages-view .partners .partner-logo--beverage img{height:160px}
+  body.beverages-view .partners .partner-logo--beverage{height:115px}
+  body.beverages-view .partners .partner-logo--beverage img{height:145px}
 }
 
 /* Beverages-only: four product cards, with mobile-friendly columns. */
