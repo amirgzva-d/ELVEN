@@ -381,20 +381,19 @@ main>.catalog::after{display:none}
   .tomato-product-grid{grid-template-columns:1fr}
 }
 
-/* Preserve original product-card photography and spacing; keep extra download actions at the bottom. */
+/* Keep the analysis download in the upper product-details row, beside the feature chips. */
 .tomato-product-grid{align-items:stretch}
 .tomato-product-grid .product-card{display:flex;flex-direction:column;height:100%}
 .tomato-product-grid .card-copy{flex:1}
 .tomato-product-grid .card-copy .chips{margin-top:auto}
 .tomato-card-downloads{
- display:flex;width:100%;align-items:center;justify-content:center;
- flex-wrap:wrap;gap:8px;margin-top:13px;padding-top:14px;
- border-top:1px solid #eee4d8;
+ display:inline-flex;width:auto;align-items:center;justify-content:center;
+ flex-wrap:nowrap;gap:0;margin:0;padding:0;border:0;flex:0 0 auto;
 }
 .tomato-card-downloads a{
- display:inline-flex;justify-content:center;align-items:center;gap:6px;
- padding:9px 12px;min-height:37px;font-size:10.5px;font-weight:800;
- line-height:1.5;border-radius:11px;text-decoration:none;
+ display:inline-flex;justify-content:center;align-items:center;gap:5px;
+ padding:7px 10px;min-height:32px;font-size:10px;font-weight:800;
+ line-height:1.5;border-radius:100px;text-decoration:none;white-space:nowrap;
  transition:background .2s,transform .2s;
 }
 .tomato-card-downloads a:hover{transform:translateY(-2px)}
@@ -402,8 +401,6 @@ main>.catalog::after{display:none}
 .tomato-card-downloads .ico{width:14px;height:14px}
 .tomato-download-image{color:#fff;background:#173a6b;border:1px solid #173a6b}
 .tomato-download-image:hover{background:#27568d}
-.tomato-invoice-request{color:#173a6b;background:#fffaf2;border:1px solid #ddcbb0}
-.tomato-invoice-request:hover{background:#f7ead7}
 
 </style>
 </head>
@@ -480,12 +477,7 @@ main>.catalog::after{display:none}
       <div class="card-copy">
         <h3>رب گوجه‌فرنگی اسپتیک</h3>
         <p>بسته‌بندی اسپتیک مناسب برای تأمین و مصارف صنعتی؛ جزئیات ظرفیت و شرایط سفارش با استعلام مشخص می‌شود.</p>
-        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>مصرف صنعتی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>مشخصات با استعلام</span></div>
-      
-        <div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی اسپتیک">
-          <a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-aseptic/v1793089866/%D8%A7%D8%B3%D9%BE%D8%AA%D8%A8%DA%A9_fidwfc.png" download="tomato-paste-aseptic.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی اسپتیک"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg>دانلود آنالیز</a>
-          <a class="tomato-invoice-request" href="mailto:info@mohajer-food.com" data-product-name="رب گوجه‌فرنگی اسپتیک" aria-label="درخواست فاکتور رب گوجه‌فرنگی اسپتیک"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>درخواست فاکتور</a>
-        </div>
+        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>مصرف صنعتی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>مشخصات با استعلام</span><div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی اسپتیک"><a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-aseptic/v1793089866/%D8%A7%D8%B3%D9%BE%D8%AA%D8%A8%DA%A9_fidwfc.png" download="tomato-paste-aseptic.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی اسپتیک"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg>دانلود آنالیز</a></div></div>
       </div>
     </article>
     <article class="product-card" data-kind="glass" role="button" tabindex="0" aria-pressed="false" aria-controls="tomato-specifications" aria-label="انتخاب رب گوجه‌فرنگی شیشه‌ای و مشاهده مشخصات">
@@ -493,12 +485,7 @@ main>.catalog::after{display:none}
       <div class="card-copy">
         <h3>رب گوجه‌فرنگی شیشه‌ای</h3>
         <p>رب گوجه‌فرنگی در بسته‌بندی شیشه‌ای؛ برند، وزن و موجودی پس از استعلام تأیید می‌شود.</p>
-        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>بسته‌بندی شیشه‌ای</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg>عرضه با استعلام</span></div>
-      
-        <div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی شیشه‌ای">
-          <a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-glass/v1793089868/%D8%B4%DB%8C%D8%B4%D9%87_%D8%A7%DB%8C_oadyf1.png" download="tomato-paste-glass.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی شیشه‌ای"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg>دانلود آنالیز</a>
-          <a class="tomato-invoice-request" href="mailto:info@mohajer-food.com" data-product-name="رب گوجه‌فرنگی شیشه‌ای" aria-label="درخواست فاکتور رب گوجه‌فرنگی شیشه‌ای"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>درخواست فاکتور</a>
-        </div>
+        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>بسته‌بندی شیشه‌ای</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg>عرضه با استعلام</span><div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی شیشه‌ای"><a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-glass/v1793089868/%D8%B4%DB%8C%D8%B4%D9%87_%D8%A7%DB%8C_oadyf1.png" download="tomato-paste-glass.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی شیشه‌ای"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg>دانلود آنالیز</a></div></div>
       </div>
     </article>
     <article class="product-card" data-kind="can" role="button" tabindex="0" aria-pressed="false" aria-controls="tomato-specifications" aria-label="انتخاب رب گوجه‌فرنگی قوطی و مشاهده مشخصات">
@@ -506,12 +493,7 @@ main>.catalog::after{display:none}
       <div class="card-copy">
         <h3>رب گوجه‌فرنگی قوطی</h3>
         <p>رب گوجه‌فرنگی با بسته‌بندی قوطی فلزی؛ وزن و شرایط تأمین متناسب با محصول اعلام می‌شود.</p>
-        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>قوطی فلزی</span><span><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg>استعلام موجودی</span></div>
-      
-        <div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی قوطی">
-          <a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-can/v1793089875/%D9%82%D9%88%D8%B7%DB%8C_sb7jaj.png" download="tomato-paste-can.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی قوطی"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg>دانلود آنالیز</a>
-          <a class="tomato-invoice-request" href="mailto:info@mohajer-food.com" data-product-name="رب گوجه‌فرنگی قوطی" aria-label="درخواست فاکتور رب گوجه‌فرنگی قوطی"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>درخواست فاکتور</a>
-        </div>
+        <div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>قوطی فلزی</span><span><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg>استعلام موجودی</span><div class="tomato-card-downloads" aria-label="فایل‌های رب گوجه‌فرنگی قوطی"><a class="tomato-download-image" href="https://res.cloudinary.com/dqhbyqftq/image/upload/fl_attachment:tomato-paste-can/v1793089875/%D9%82%D9%88%D8%B7%DB%8C_sb7jaj.png" download="tomato-paste-can.png" aria-label="دانلود برگه آنالیز رب گوجه‌فرنگی قوطی"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg>دانلود آنالیز</a></div></div>
       </div>
     </article>
   </div>
@@ -814,13 +796,7 @@ function showTomatoAnalysis(kind,initial=false){
     specSection.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
   }
 }
-/* The three images can be downloaded; request a real invoice by email. */
-document.querySelectorAll('.tomato-invoice-request').forEach(link=>{
- const name=link.dataset.productName||'رب گوجه‌فرنگی';
- const subject='درخواست فاکتور '+name;
- const body='سلام، لطفاً شرایط صدور فاکتور '+name+' را اعلام کنید.\nمقدار سفارش:\nنام شرکت:\nشماره تماس:';
- link.href='mailto:info@mohajer-food.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-});
+/* Analysis files stay available in the product details row; no invoice-request actions. */
 document.querySelectorAll('.tomato-product-grid .product-card[data-kind]').forEach(card=>{
  card.addEventListener('click',event=>{
   if(event.target.closest('.tomato-card-downloads'))return;
