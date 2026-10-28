@@ -716,46 +716,25 @@ main>.catalog::after{display:none}
 }
 
 
-/* Glucose/starch backdrop: preserve image corners, avoid stretched single-cover crop. */
+/* Glucose and starch product + brands: responsive single artwork.
+   Upload assets/glucose-starch-section-2560x1350.webp to use the new 2560x1350 image.
+   The previous Cloudinary image remains a safe fallback until that asset exists. */
 .ingredient-main>.ingredient-product-surface{
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  background-color:#fffbf5;
+  background-color:#fffbf6;
   background-image:
-    radial-gradient(ellipse 55% 52% at 50% 43%,rgba(229,200,144,.12) 0%,transparent 85%),
-    linear-gradient(180deg,#fffcf8 0%,#fffaf4 55%,#fffaf3 100%);
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+    url("assets/glucose-starch-section-2560x1350.webp"),
+    url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793182217/glucose_starch_background_1586x992_1_jtkv6m.png");
+  background-repeat:no-repeat,no-repeat;
+  background-position:center center,center center;
+  background-size:cover,cover;
 }
 .ingredient-main>.ingredient-product-surface::before,
 .ingredient-main>.ingredient-product-surface::after{
-  content:"";
-  position:absolute;
-  right:0;
-  left:0;
-  width:100%;
-  z-index:0;
-  pointer-events:none;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793182217/glucose_starch_background_1586x992_1_jtkv6m.png");
-  background-repeat:no-repeat;
-  background-size:100% auto;
-  filter:saturate(1.06) contrast(1.025);
-}
-.ingredient-main>.ingredient-product-surface::before{
-  top:0;
-  height:clamp(230px,29vw,430px);
-  background-position:center top;
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 42%,transparent 99%);
-  mask-image:linear-gradient(to bottom,#000 0%,#000 42%,transparent 99%);
-}
-.ingredient-main>.ingredient-product-surface::after{
-  bottom:0;
-  height:clamp(250px,32vw,490px);
-  background-position:center bottom;
-  -webkit-mask-image:linear-gradient(to top,#000 0%,#000 45%,transparent 99%);
-  mask-image:linear-gradient(to top,#000 0%,#000 45%,transparent 99%);
+  content:none;
+  display:none;
 }
 .ingredient-main>.ingredient-product-surface>.catalog,
 .ingredient-main>.ingredient-product-surface>.partners{
@@ -764,42 +743,46 @@ main>.catalog::after{display:none}
   background:transparent;
 }
 .ingredient-main>.ingredient-product-surface>.catalog::before,
-.ingredient-main>.ingredient-product-surface>.catalog::after{
-  display:none;
-}
+.ingredient-main>.ingredient-product-surface>.catalog::after{display:none}
 .ingredient-main>.ingredient-product-surface>.partners{
   border-top:1px solid rgba(190,149,85,.13);
 }
-@media(min-width:1921px){
- .ingredient-main>.ingredient-product-surface::before{height:430px}
- .ingredient-main>.ingredient-product-surface::after{height:490px}
-}
 @media(max-width:850px){
- .ingredient-main>.ingredient-product-surface::before{
-   height:clamp(140px,30vw,260px);
-   background-size:100% auto;
- }
- .ingredient-main>.ingredient-product-surface::after{
-   height:clamp(180px,38vw,320px);
-   background-size:100% auto;
- }
+  .ingredient-main>.ingredient-product-surface{
+    background:#fffbf6;
+  }
+  .ingredient-main>.ingredient-product-surface::before,
+  .ingredient-main>.ingredient-product-surface::after{
+    content:"";
+    display:block;
+    position:absolute;
+    left:0;
+    right:0;
+    width:100%;
+    pointer-events:none;
+    z-index:0;
+    background-image:url("assets/glucose-starch-section-2560x1350.webp"),url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793182217/glucose_starch_background_1586x992_1_jtkv6m.png");
+    background-position:center top,center top;
+    background-size:100% auto,100% auto;
+    background-repeat:no-repeat,no-repeat;
+  }
+  .ingredient-main>.ingredient-product-surface::before{
+    top:0;
+    height:clamp(150px,28vw,235px);
+    -webkit-mask-image:linear-gradient(to bottom,#000 10%,rgba(0,0,0,.96) 40%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 10%,rgba(0,0,0,.96) 40%,transparent 100%);
+  }
+  .ingredient-main>.ingredient-product-surface::after{
+    bottom:0;
+    height:clamp(170px,32vw,290px);
+    background-position:center bottom,center bottom;
+    -webkit-mask-image:linear-gradient(to top,#000 10%,rgba(0,0,0,.96) 40%,transparent 100%);
+    mask-image:linear-gradient(to top,#000 10%,rgba(0,0,0,.96) 40%,transparent 100%);
+  }
 }
 @media(max-width:560px){
- .ingredient-main>.ingredient-product-surface{
-   background-image:linear-gradient(180deg,#fffdfa 0%,#fffaf3 100%);
- }
- .ingredient-main>.ingredient-product-surface::before{
-   height:145px;
-   background-position:center top;
-   -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.9) 30%,transparent 100%);
-   mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.9) 30%,transparent 100%);
- }
- .ingredient-main>.ingredient-product-surface::after{
-   height:165px;
-   background-position:center bottom;
-   -webkit-mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.9) 34%,transparent 100%);
-   mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.9) 34%,transparent 100%);
- }
+  .ingredient-main>.ingredient-product-surface::before{height:140px}
+  .ingredient-main>.ingredient-product-surface::after{height:170px}
 }
 
 </style>
