@@ -716,22 +716,42 @@ main>.catalog::after{display:none}
 }
 
 
-/* Glucose + starch: single 4-corner artwork provided by the customer.
-   Original asset aspect ratio ~1.895; CSS keeps its proportions on all screens. */
+/* Glucose + starch: four small corner details without zooming the artwork.
+   Two softly faded bands show only the top and bottom of the SAME photo at width-based
+   scale. Unlike cover, section height can never enlarge the corner details. */
 .ingredient-main>.ingredient-product-surface{
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  background-color:#fffbf6;
-  background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/e2491603-0406-48ce-96e1-94afe5899546.png");
-  background-repeat:no-repeat;
-  background-position:center center;
-  background-size:cover;
+  background:#fffbf7 linear-gradient(180deg,#fffdf9 0%,#fffaf4 58%,#fffaf2 100%);
 }
 .ingredient-main>.ingredient-product-surface::before,
 .ingredient-main>.ingredient-product-surface::after{
-  content:none;
-  display:none;
+  content:"";
+  display:block;
+  position:absolute;
+  left:0;
+  right:0;
+  width:100%;
+  z-index:0;
+  pointer-events:none;
+  background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/e2491603-0406-48ce-96e1-94afe5899546.png");
+  background-repeat:no-repeat;
+  background-size:100% auto;
+}
+.ingredient-main>.ingredient-product-surface::before{
+  top:0;
+  height:clamp(145px,16vw,285px);
+  background-position:center top;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 32%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 32%,transparent 100%);
+}
+.ingredient-main>.ingredient-product-surface::after{
+  bottom:0;
+  height:clamp(185px,23vw,380px);
+  background-position:center bottom;
+  -webkit-mask-image:linear-gradient(to top,#000 0%,#000 37%,transparent 100%);
+  mask-image:linear-gradient(to top,#000 0%,#000 37%,transparent 100%);
 }
 .ingredient-main>.ingredient-product-surface>.catalog,
 .ingredient-main>.ingredient-product-surface>.partners{
@@ -745,41 +765,18 @@ main>.catalog::after{display:none}
   border-top:1px solid rgba(190,149,85,.13);
 }
 @media(max-width:850px){
-  .ingredient-main>.ingredient-product-surface{
-    background-image:linear-gradient(180deg,#fffcf8 0%,#fffaf3 100%);
-  }
-  .ingredient-main>.ingredient-product-surface::before,
-  .ingredient-main>.ingredient-product-surface::after{
-    content:"";
-    display:block;
-    position:absolute;
-    left:0;
-    right:0;
-    width:100%;
-    pointer-events:none;
-    z-index:0;
-    background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/e2491603-0406-48ce-96e1-94afe5899546.png");
-    background-size:100% auto;
-    background-repeat:no-repeat;
-  }
   .ingredient-main>.ingredient-product-surface::before{
-    top:0;
-    height:clamp(150px,28vw,235px);
-    background-position:center top;
-    -webkit-mask-image:linear-gradient(to bottom,#000 5%,rgba(0,0,0,.92) 34%,transparent 100%);
-    mask-image:linear-gradient(to bottom,#000 5%,rgba(0,0,0,.92) 34%,transparent 100%);
+    height:clamp(90px,19vw,150px);
+    background-size:100% auto;
   }
   .ingredient-main>.ingredient-product-surface::after{
-    bottom:0;
-    height:clamp(170px,32vw,290px);
-    background-position:center bottom;
-    -webkit-mask-image:linear-gradient(to top,#000 5%,rgba(0,0,0,.92) 34%,transparent 100%);
-    mask-image:linear-gradient(to top,#000 5%,rgba(0,0,0,.92) 34%,transparent 100%);
+    height:clamp(110px,26vw,195px);
+    background-size:100% auto;
   }
 }
 @media(max-width:560px){
-  .ingredient-main>.ingredient-product-surface::before{height:140px}
-  .ingredient-main>.ingredient-product-surface::after{height:170px}
+  .ingredient-main>.ingredient-product-surface::before{height:105px}
+  .ingredient-main>.ingredient-product-surface::after{height:135px}
 }
 
 </style>
