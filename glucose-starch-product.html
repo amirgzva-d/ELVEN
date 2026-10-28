@@ -1076,7 +1076,7 @@ document.querySelectorAll('.glucose-variant-card[data-product]').forEach(card=>{
   card.querySelector('.variant-meta').textContent=selected.meta;
   const link=card.querySelector('.glucose-card-inquiry');
   const subject='درخواست آنالیز - '+selected.name;
-  const message='سلام،\\nلطفاً آنالیز و شرایط تأمین '+selected.name+' را اعلام بفرمایید.\\nبا تشکر';
+  const message=['سلام،','لطفاً آنالیز و شرایط تأمین '+selected.name+' را اعلام بفرمایید.','با تشکر'].join(String.fromCharCode(10));
   link.setAttribute('href','mailto:info@mohajer-food.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(message));
   link.setAttribute('aria-label','درخواست آنالیز '+selected.name);
  };
