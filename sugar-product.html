@@ -187,56 +187,68 @@ main{background:#fffaf3}
   .sugar-hero{background-size:auto 46%;background-position:73% bottom}
 }
 
-/* Brand backdrop: use the original artwork at its natural aspect ratio.
-   Separate top and bottom crops keep the leaves and sugar/cane details crisp,
-   without stretching the tall illustration across a wide section. */
+/* Continuous sugar-brand backdrop: one image, no split crops or seam. */
 .sugar-section-surface{
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  background:#fffaf3;
+  background:#fffaf3 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png") center center / 100% 100% no-repeat;
 }
 .sugar-section-surface::before,
-.sugar-section-surface::after{
-  content:"";
-  position:absolute;
-  inset-inline:0;
-  height:clamp(150px,17vw,285px);
-  pointer-events:none;
-  z-index:0;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png");
-  background-repeat:no-repeat;
-  background-size:100% auto;
-}
-.sugar-section-surface::before{top:0;background-position:center top}
-.sugar-section-surface::after{bottom:0;background-position:center bottom}
-.sugar-section-surface>.catalog,
-.sugar-section-surface>.spec-section,
-.sugar-section-surface>.partners{
-  position:relative;
-  background:transparent;
-}
-.sugar-section-surface>.catalog{padding:48px clamp(18px,4vw,74px) 46px}
-.sugar-section-surface>.spec-section{padding:0 clamp(18px,4vw,74px) 28px}
+.sugar-section-surface::after{content:none;display:none}
 .sugar-section-surface>.partners{
   position:relative;
   z-index:1;
-  padding:42px clamp(18px,5vw,90px) 60px;
+  min-height:540px;
   background:transparent;
+  padding:68px clamp(18px,5vw,90px) 85px;
 }
-.sugar-section-surface>.catalog::before,
-.sugar-section-surface>.catalog::after{display:none}
-.sugar-section-surface>.partners .section-heading{margin-bottom:28px}
-.sugar-section-surface>.partners .partner-grid{max-width:1250px}
+.sugar-section-surface>.partners .section-heading{margin-bottom:30px}
+.sugar-section-surface>.partners .section-heading h2{
+  font-size:clamp(27px,2.4vw,40px);
+  line-height:1.5;
+}
+.sugar-section-surface>.partners .partner-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  max-width:1150px;
+  gap:17px;
+  justify-content:center;
+}
+.sugar-section-surface>.partners .partner-logo--brand{
+  min-width:0;
+  width:auto;
+  height:132px;
+  flex:none;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  padding:12px;
+  border:1px solid rgba(223,200,159,.5);
+  background:rgba(255,249,242,.82);
+  box-shadow:0 8px 23px rgba(95,66,33,.06);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.sugar-section-surface>.partners .partner-logo--brand img{
+  width:auto;
+  height:auto;
+  max-width:97%;
+  max-height:97px;
+  object-fit:contain;
+}
 @media(max-width:850px){
-  .sugar-section-surface::before,
-  .sugar-section-surface::after{height:clamp(150px,28vw,220px)}
-  .sugar-section-surface>.partners{padding:35px 18px 48px}
+  .sugar-section-surface{background-size:cover;background-position:center center}
+  .sugar-section-surface>.partners{min-height:0;padding:53px 21px 70px}
+  .sugar-section-surface>.partners .partner-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .sugar-section-surface>.partners .partner-logo--brand{height:115px}
 }
 @media(max-width:560px){
-  .sugar-section-surface>.catalog{padding:29px 15px}
-  .sugar-section-surface>.spec-section{padding:0 14px 24px}
-  .sugar-section-surface>.partners{padding:35px 14px 43px}
+  .sugar-section-surface{background-size:cover;background-position:center center}
+  .sugar-section-surface>.partners{padding:42px 15px 62px}
+  .sugar-section-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .sugar-section-surface>.partners .partner-logo--brand{height:106px;padding:9px;border-radius:15px}
+  .sugar-section-surface>.partners .partner-logo--brand:last-child{grid-column:1/-1;justify-self:center;width:min(100%,205px)}
 }
 </style>
 <body>
