@@ -267,13 +267,56 @@ main>.catalog::after{display:none}
   .ingredient-main>.ingredient-hero .hero-inner{min-height:730px;padding:32px 18px 345px}
 }
 
-/* Brand-section backdrop: product artwork belongs behind the brand logos, not on catalog cards. */
+/* Full-section brand artwork: display the whole supplied composition behind the logos. */
 .ingredient-main > #ingredient-brands{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  box-sizing:border-box;
+  min-height:390px;
+  padding-top:clamp(44px,4.4vw,70px);
+  padding-bottom:clamp(55px,5vw,78px);
   background-color:#fffaf2;
   background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png");
   background-position:center center;
-  background-size:cover;
+  background-size:100% 100%;
   background-repeat:no-repeat;
+}
+/* Keep the title legible without hiding the artwork around the edges. */
+.ingredient-main > #ingredient-brands::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,
+    rgba(255,251,245,.04) 0%,
+    rgba(255,251,245,.22) 24%,
+    rgba(255,251,245,.50) 50%,
+    rgba(255,251,245,.22) 76%,
+    rgba(255,251,245,.04) 100%);
+}
+.ingredient-main > #ingredient-brands > .section-heading,
+.ingredient-main > #ingredient-brands > .partner-grid{
+  position:relative;
+  z-index:1;
+}
+.ingredient-main > #ingredient-brands .partner-logo{
+  background-color:rgba(255,255,255,.91);
+  box-shadow:0 9px 26px rgba(20,39,66,.07);
+  backdrop-filter:blur(3px);
+}
+@media(max-width:760px){
+  .ingredient-main > #ingredient-brands{
+    min-height:0;
+    padding:42px 16px 58px;
+    background-size:100% 100%;
+  }
+}
+@media(max-width:480px){
+  .ingredient-main > #ingredient-brands{
+    padding:36px 14px 48px;
+  }
 }
 </style>
 </head>
