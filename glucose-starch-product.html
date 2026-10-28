@@ -335,6 +335,66 @@ main>.catalog::after{display:none}
 @media(max-width:560px){.ingredient-crop-grid{grid-template-columns:1fr;max-width:410px;gap:15px}.ingredient-crop-photo{height:185px}.ingredient-crop-copy h3{font-size:22px}}
 
 
+
+/* Two selectable product cards and detail section, matching the milk-powder template. */
+.ingredient-main .ingredient-product-surface>.catalog{padding:48px clamp(18px,4vw,74px) 36px}
+.ingredient-product-surface .product-grid{max-width:1080px;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2vw,28px);margin:0 auto;position:relative;z-index:1}
+.ingredient-product-surface .product-card{min-width:0;overflow:hidden;border:1px solid #f0e7dc;border-radius:19px;background:#fff;cursor:pointer;box-shadow:0 12px 36px rgba(15,41,80,.07);transition:transform .35s,box-shadow .35s,border-color .35s}
+.ingredient-product-surface .product-card:hover{transform:translateY(-8px);box-shadow:0 25px 45px rgba(15,41,80,.14);border-color:#ddc6a2}
+.ingredient-product-surface .product-card.selected{border-color:#c79b60;box-shadow:0 0 0 2px rgba(199,155,96,.16),0 18px 38px rgba(15,41,80,.09)}
+.ingredient-product-surface .product-card.selected .card-copy{background:linear-gradient(180deg,#fff,#fffaf2)}
+.ingredient-product-surface .product-card:focus-visible{outline:3px solid #c79b60;outline-offset:4px}
+.ingredient-product-surface .product-image{height:clamp(210px,21vw,300px);position:relative;background-size:cover;background-position:center;background-repeat:no-repeat}
+.ingredient-product-surface .product-image--corn{background-image:url("https://images.unsplash.com/photo-1635843105990-4f08403ecc12?auto=format&fit=crop&w=1100&q=82")}
+.ingredient-product-surface .product-image--wheat{background-image:url("assets/hemersin-wheat-desktop.webp");background-position:center 62%}
+.ingredient-product-surface .card-copy{padding:18px 20px 21px;text-align:center;display:flex;align-items:center;flex-direction:column;min-height:174px}
+.ingredient-product-surface .card-copy h3{font-size:22px;color:var(--navy);margin:0 0 6px;font-weight:900}
+.ingredient-product-surface .card-copy>p{font-size:12px;color:#66758d;margin:0;max-width:360px;min-height:50px;line-height:2.05}
+.ingredient-product-surface .chips{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin:15px 0 5px}
+.ingredient-product-surface .chips span{display:inline-flex;align-items:center;gap:5px;padding:7px 10px;color:#53617a;background:#fbf7f0;border-radius:100px;border:1px solid #f0e8dc;font-size:10px;font-weight:700}
+.ingredient-product-surface .chips .ico{width:16px;height:16px;color:#bc8640}
+.ingredient-product-surface>.spec-section{padding:0 clamp(18px,4vw,74px) 28px;position:relative;z-index:1;background:transparent}
+.ingredient-product-surface .spec-panel{max-width:1080px;min-height:310px;border:1px solid #eee5db;border-radius:24px;background:rgba(255,255,255,.97);display:grid;grid-template-columns:38% 62%;overflow:hidden;margin:0 auto;box-shadow:0 13px 33px rgba(15,41,80,.055);direction:ltr}
+.ingredient-product-surface .spec-art{background:url("https://images.unsplash.com/photo-1635843105990-4f08403ecc12?auto=format&fit=crop&w=1100&q=82") center/cover no-repeat #f8f5ed;min-height:310px;position:relative}
+.ingredient-product-surface .spec-art[data-kind="wheat"]{background-image:url("assets/hemersin-wheat-desktop.webp");background-position:center 62%}
+.ingredient-product-surface .spec-art::after{content:"";position:absolute;inset:0 0 0 auto;width:36%;background:linear-gradient(90deg,transparent,white)}
+.ingredient-product-surface .spec-content{direction:rtl;padding:26px 25px 23px}
+.ingredient-product-surface .spec-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.ingredient-product-surface .spec-title-kicker{color:#b58236;font-size:10px;font-weight:800}
+.ingredient-product-surface .spec-top h2{font-size:clamp(17px,1.55vw,25px);font-weight:900;margin:4px 0 0;color:var(--navy)}
+.ingredient-product-surface .spec-head-icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:#f1f5fb;color:#244c80}
+.ingredient-product-surface .nutrition-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.ingredient-product-surface .nutrition-stat{display:flex;align-items:center;gap:10px;padding:12px 10px;min-height:82px;border:1px solid #e9e8e5;background:#fff;border-radius:11px}
+.ingredient-product-surface .nutrition-stat>.ico{width:23px;height:23px;color:#c4903e;flex:none}
+.ingredient-product-surface .nutrition-stat>div{display:flex;flex-direction:column;gap:2px}
+.ingredient-product-surface .nutri-label{font-size:10px;color:#8b8e9b}
+.ingredient-product-surface .nutri-num{font-size:15px;color:var(--navy);font-weight:900}
+.ingredient-product-surface .nutrition-stat small{font-size:9px;color:#9299a7}
+.ingredient-product-surface .spec-note{font-size:10px;color:#7b8798;line-height:1.9;margin:12px 0 0}
+.ingredient-product-surface .product-detail{max-width:1080px;margin:12px auto 0;border:1px solid #e8dfd3;border-radius:13px;background:rgba(255,253,248,.96);padding:0 18px}
+.ingredient-product-surface .product-detail summary{font-size:12px;color:#28426c;font-weight:900;padding:14px 0;cursor:pointer}
+.ingredient-product-surface .product-detail[open]{padding-bottom:15px}
+.ingredient-product-surface .product-detail p{font-size:12px;line-height:2.25;color:#53637a;margin:7px 0}
+.ingredient-product-surface .ingredient-shortcuts{max-width:1080px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:18px auto 0}
+.ingredient-product-surface .ingredient-shortcuts a{color:#173c6e;font-size:11px;font-weight:900;border:1px solid #e8dccb;border-radius:99px;background:rgba(255,255,255,.96);padding:10px 17px}
+.ingredient-main>.trust-strip{background:#fffaf2}
+@media(max-width:850px){
+ .ingredient-product-surface .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .ingredient-product-surface .product-image{height:210px}
+ .ingredient-product-surface .spec-panel{grid-template-columns:1fr}
+ .ingredient-product-surface .spec-art{min-height:210px}
+ .ingredient-product-surface .spec-art::after{inset:auto 0 0;width:auto;height:40%;background:linear-gradient(180deg,transparent,white)}
+}
+@media(max-width:560px){
+ .ingredient-main .ingredient-product-surface>.catalog{padding:32px 15px 25px}
+ .ingredient-product-surface .product-grid{grid-template-columns:1fr;max-width:500px;gap:17px}
+ .ingredient-product-surface .product-image{height:220px}
+ .ingredient-product-surface .card-copy{padding:17px 14px 19px;min-height:0}
+ .ingredient-product-surface>.spec-section{padding:0 14px 25px}
+ .ingredient-product-surface .spec-content{padding:20px 15px}
+ .ingredient-product-surface .nutrition-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
 </style>
 </head>
 <body>
@@ -382,38 +442,38 @@ main>.catalog::after{display:none}
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><span>اطلاعات بسته‌بندی<br>با استعلام</span></div>
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg></span><span>شرایط سفارش<br>با استعلام</span></div>
    </div>
-   <div class="hero-actions"><a class="primary-button" href="index.html#contact">استعلام قیمت <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a><a class="secondary-link" href="#ingredient-brands"><span class="circle-play">↓</span><span>مشاهده برندها</span></a></div>
+   <div class="hero-actions"><a class="primary-button" href="index.html#contact">استعلام قیمت <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a><a class="secondary-link" href="#products"><span class="circle-play">↓</span><span>مشاهده برندها</span></a></div>
   </div></div>
-  <a class="scroll-down" href="#ingredient-brands" aria-label="رفتن به برندهای گلوکز و نشاسته"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
+  <a class="scroll-down" href="#products" aria-label="رفتن به برندهای گلوکز و نشاسته"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
  </section>
+<section class="trust-strip" aria-label="مزیت‌های مجموعه">
+<div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-users"></use></svg><p>گروه‌های مختلف<br>مواد اولیه</p></div>
+<div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-wheat"></use></svg><p>انواع منشأ<br>ذرت و گندم</p></div>
+<div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg><p>تأیید کیفیت<br>و مشخصات محصول</p></div>
+<div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-plane"></use></svg><p>شرایط تأمین<br>با استعلام</p></div>
+</section>
  <div class="ingredient-product-surface">
- <section class="catalog ingredient-overview" id="products" aria-label="انتخاب گروه گلوکز یا نشاسته">
-    <div class="section-heading" data-reveal>
-      <span class="heading-eyebrow">محصولات ما</span>
-      <h2>محصولات گلوکز و نشاسته</h2>
-      <p>از همین بخش می‌توانید جزئیات هر گروه محصول را مشاهده کنید.</p>
-    </div>
-    <nav class="ingredient-crop-shortcuts" aria-label="دسترسی سریع به انواع مواد اولیه" data-reveal>
-  <a href="glucose-product.html">مشاهده اطلاعات گلوکز</a>
-  <a href="starch-product.html">مشاهده اطلاعات نشاسته</a>
-</nav>
-<div class="ingredient-crop-grid" data-reveal aria-label="محصولات پایه ذرت و گندم">
- <article class="ingredient-crop-card">
-  <div class="ingredient-crop-photo"><img src="https://images.unsplash.com/photo-1635843105990-4f08403ecc12?auto=format&fit=crop&w=1100&q=82" width="800" height="500" loading="lazy" alt="ذرت زرد"></div>
-  <div class="ingredient-crop-copy"><span>مواد اولیه صنایع غذایی</span><h3>ذرت</h3><p>گروه فرآورده‌های پایه ذرت؛ نوع گلوکز یا نشاسته و مشخصات با استعلام.</p><a href="glucose-product.html">مشاهده محصولات گلوکز <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
- </article>
- <article class="ingredient-crop-card">
-  <div class="ingredient-crop-photo ingredient-crop-photo--wheat"><span aria-hidden="true">🌾</span></div>
-  <div class="ingredient-crop-copy"><span>مواد اولیه صنایع غذایی</span><h3>گندم</h3><p>گروه نشاسته گندم؛ گرید، بسته‌بندی و شرایط تأمین با استعلام.</p><a href="starch-product.html">مشاهده محصولات نشاسته <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
- </article>
-</div>
-<div class="ingredient-overview-card" data-reveal>
-      <span class="ingredient-overview-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span>
-      <p>برای دریافت اطلاعات بسته‌بندی، موجودی و شرایط تأمین گلوکز یا نشاسته، با بخش فروش بازرگانی مهاجر در ارتباط باشید.</p>
-      <a href="index.html#contact">درخواست اطلاعات محصولات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-    </div>
-  </section>
-  <section class="partners" id="ingredient-brands" aria-label="برندهای مرتبط با گلوکز و نشاسته">
+ <section class="catalog ingredient-overview" id="products">
+<div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات گلوکز و نشاسته</h2><p>برای مشاهده جزئیات هر گروه، روی کارت موردنظر کلیک کنید. مشخصات نهایی پس از استعلام تأیید می‌شوند.</p></div>
+<div class="product-grid" data-reveal><article class="product-card selected" data-kind="corn" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="مشاهده مشخصات ذرت">
+<div class="product-image product-image--corn" role="img" aria-label="تصویر ذرت"></div>
+<div class="card-copy"><h3>ذرت</h3><p>مواد اولیه پایه ذرت؛ گرید، مشخصات و موجودی با استعلام مشخص می‌شوند.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> بررسی کیفیت</span></div></div>
+</article>
+<article class="product-card" data-kind="wheat" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات گندم">
+<div class="product-image product-image--wheat" role="img" aria-label="تصویر گندم"><span class="highlight-tag">قابل استعلام</span></div>
+<div class="card-copy"><h3>گندم</h3><p>مواد اولیه پایه گندم؛ نوع محصول و شرایط تأمین نیازمند تأیید است.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> بررسی کیفیت</span></div></div>
+</article></div>
+<nav class="ingredient-shortcuts" aria-label="صفحات اختصاصی"><a href="glucose-product.html">صفحه گلوکز</a><a href="starch-product.html">صفحه نشاسته</a></nav>
+</section>
+<section class="spec-section" id="specifications" aria-label="اطلاعات فنی محصول">
+<div class="spec-panel" data-reveal>
+<div class="spec-art" data-kind="corn" id="ingredientSpecArt" role="img" aria-label="تصویر ذرت"></div>
+<div class="spec-content"><div class="spec-top"><div><span class="spec-title-kicker">اطلاعات فنی محصول</span><h2 id="ingredientSpecTitle">مشخصات ذرت</h2></div><span class="spec-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-list"></use></svg></span></div>
+<div class="nutrition-grid"><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-wheat"></use></svg><div><span class="nutri-label">منشأ</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-list"></use></svg><div><span class="nutri-label">گرید</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><div><span class="nutri-label">بسته‌بندی</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">آنالیز</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-badge"></use></svg><div><span class="nutri-label">موجودی</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg><div><span class="nutri-label">شرایط تأمین</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div></div>
+<p class="spec-note" id="nutritionNote">مقادیر آنالیز و گرید پس از دریافت اطلاعات تأییدشده ارائه می‌شوند.</p></div></div>
+<details class="product-detail" open id="ingredientDetail"><summary>معرفی و اطلاعات محصول انتخاب‌شده</summary><p><strong id="selectedProduct">ذرت</strong></p><p id="productDetails">مواد اولیه پایه ذرت؛ گرید، مشخصات و موجودی با استعلام مشخص می‌شوند.</p><p>برای دریافت اطلاعات محصول <a href="index.html#contact">با بخش فروش ارتباط بگیرید</a>.</p></details>
+</section>
+<section class="partners" id="ingredient-brands" aria-label="برندهای مرتبط با گلوکز و نشاسته">
   <div class="section-heading" data-reveal><span class="heading-eyebrow">برندهای مواد اولیه</span><h2>برندهای معرفی‌شده</h2><p>۳ لوگوی معرفی‌شده؛ شرایط تأمین هر محصول با استعلام مشخص می‌شود.</p></div>
   <div class="partner-grid" data-reveal><div class="partner-logo" aria-label="لوگوی فروکتوز ناب" title="فروکتوز ناب"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/48cacaa4-5a21-4397-8fd4-29b1503e9a5c.png" alt="لوگوی فروکتوز ناب" width="210" height="100" loading="lazy" decoding="async"></div>
 <div class="partner-logo" aria-label="لوگوی زرین شیر فروده" title="زرین شیر فروده"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/39799532-d9f6-4cc5-a199-135625172450.png" alt="لوگوی زرین شیر فروده" width="210" height="100" loading="lazy" decoding="async"></div>
@@ -498,6 +558,23 @@ main>.catalog::after{display:none}
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open))});
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
+
+const glucoseVariants={corn:{name:'ذرت',detail:'گرید، نوع محصول و موجودی گروه پایه ذرت تنها پس از استعلام مشخص می‌شود.'},wheat:{name:'گندم',detail:'گرید، نوع محصول و موجودی گروه پایه گندم تنها پس از استعلام مشخص می‌شود.'}};
+document.querySelectorAll('.ingredient-product-surface .product-card[data-kind]').forEach(card=>{
+ const choose=()=>{
+  const product=glucoseVariants[card.dataset.kind];if(!product)return;
+  document.getElementById('selectedProduct').textContent=product.name;
+  document.getElementById('productDetails').textContent=product.detail;
+  document.getElementById('ingredientSpecTitle').textContent='مشخصات '+product.name;
+  document.getElementById('nutritionNote').textContent='مقادیر آنالیز، گرید و مشخصات '+product.name+' پس از استعلام تأیید می‌شوند.';
+  const art=document.getElementById('ingredientSpecArt');art.dataset.kind=card.dataset.kind;art.setAttribute('aria-label','تصویر '+product.name);
+  document.getElementById('ingredientDetail').open=true;
+  document.querySelectorAll('.ingredient-product-surface .product-card[data-kind]').forEach(item=>{let active=item===card;item.classList.toggle('selected',active);item.setAttribute('aria-pressed',String(active));});
+  document.getElementById('specifications').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+ };
+ card.addEventListener('click',choose);
+ card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose();}});
+});
 })();
 </script>
 </body></html>
