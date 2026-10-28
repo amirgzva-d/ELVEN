@@ -256,74 +256,52 @@ main>.catalog::after{display:none}
   .ingredient-main>.ingredient-hero .hero-inner{min-height:730px;padding:32px 18px 345px}
 }
 
-/* Full-section brand artwork: display the whole supplied composition behind the logos. */
-.ingredient-main > #ingredient-brands{
+
+/* One continuous glucose/starch background across product information and brands. */
+.ingredient-product-surface{
   position:relative;
   isolation:isolate;
-  overflow:hidden;
-  box-sizing:border-box;
-  min-height:390px;
-  padding-top:clamp(44px,4.4vw,70px);
-  padding-bottom:clamp(55px,5vw,78px);
-  background-color:#fffaf2;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png");
-  background-position:center center;
-  background-size:100% 100%;
-  background-repeat:no-repeat;
+  background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png") center center / 100% 100% no-repeat;
 }
-/* Keep the title legible without hiding the artwork around the edges. */
-.ingredient-main > #ingredient-brands::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background:linear-gradient(90deg,
-    rgba(255,251,245,.04) 0%,
-    rgba(255,251,245,.22) 24%,
-    rgba(255,251,245,.50) 50%,
-    rgba(255,251,245,.22) 76%,
-    rgba(255,251,245,.04) 100%);
-}
-.ingredient-main > #ingredient-brands > .section-heading,
-.ingredient-main > #ingredient-brands > .partner-grid{
+.ingredient-product-surface>.catalog{
   position:relative;
-  z-index:1;
+  background:transparent;
+  padding:48px clamp(18px,4vw,74px) 46px;
 }
-.ingredient-main > #ingredient-brands .partner-logo{
-  background-color:rgba(255,255,255,.91);
+.ingredient-product-surface>.partners{
+  position:relative;
+  background:transparent;
+  padding:40px clamp(18px,5vw,90px) 66px;
+}
+.ingredient-product-surface>.catalog::before,
+.ingredient-product-surface>.catalog::after{display:none}
+.ingredient-product-surface>.partners .partner-grid{
+  grid-template-columns:repeat(3,minmax(0,196px));
+  justify-content:center;
+  gap:12px;
+}
+.ingredient-product-surface>.partners .partner-logo{
+  height:96px;
+  min-width:0;
+  background:rgba(255,255,255,.88);
   box-shadow:0 9px 26px rgba(20,39,66,.07);
-  backdrop-filter:blur(3px);
+  backdrop-filter:blur(2px);
 }
-@media(max-width:760px){
-  .ingredient-main > #ingredient-brands{
-    min-height:0;
-    padding:42px 16px 58px;
-    background-size:100% 100%;
-  }
+.ingredient-product-surface>.partners .partner-logo img{
+  max-width:88%;
+  max-height:68px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
 }
-@media(max-width:480px){
-  .ingredient-main > #ingredient-brands{
-    padding:36px 14px 48px;
-  }
+@media(max-width:850px){
+  .ingredient-product-surface{background-size:100% 100%;background-position:center center}
+  .ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,196px));gap:12px}
 }
-
-/* Page-wide glucose/starch artwork: continue the same background through all content sections. */
-.ingredient-main{
-  background-color:#fffaf2!important;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png")!important;
-  background-position:center center!important;
-  background-size:cover!important;
-  background-repeat:no-repeat!important;
-  background-attachment:fixed!important;
-}
-.ingredient-main > .catalog,
-.ingredient-main > #ingredient-brands{
-  background:transparent!important;
-}
-.ingredient-main > #ingredient-brands::before{
-  content:none!important;
-  display:none!important;
+@media(max-width:560px){
+  .ingredient-product-surface>.catalog{padding:29px 15px}
+  .ingredient-product-surface>.partners{padding:35px 15px 48px}
+  .ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}
 }
 
 </style>
@@ -377,6 +355,7 @@ main>.catalog::after{display:none}
   </div></div>
   <a class="scroll-down" href="#ingredient-brands" aria-label="رفتن به برندهای گلوکز"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
  </section>
+ <div class="ingredient-product-surface">
  <section class="catalog ingredient-overview" id="products">
   <div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات گلوکز</h2><p>مشخصات فنی و بسته‌بندی محصولات پس از تأیید تأمین‌کننده اعلام می‌شود.</p></div>
   <div class="ingredient-overview-card" data-reveal><span class="ingredient-overview-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><p>برای دریافت مشخصات محصولات گلوکز و شرایط تأمین با بخش فروش بازرگانی مهاجر در ارتباط باشید.</p><a href="index.html#contact">درخواست اطلاعات محصولات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
@@ -387,6 +366,7 @@ main>.catalog::after{display:none}
 <div class="partner-logo" aria-label="لوگوی زرین شیر فروده" title="زرین شیر فروده"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/39799532-d9f6-4cc5-a199-135625172450.png" alt="لوگوی زرین شیر فروده" width="210" height="100" loading="lazy" decoding="async"></div>
 <div class="partner-logo" aria-label="لوگوی زر فروکتوز" title="زر فروکتوز"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/5ff0bdc5-5539-4a98-8518-09efab064625.png" alt="لوگوی زر فروکتوز" width="210" height="100" loading="lazy" decoding="async"></div></div>
  </section>
+ </div>
  </main>
 <footer id="contact" class="site-footer">
   <div class="footer-container">
