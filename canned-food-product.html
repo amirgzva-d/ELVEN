@@ -228,75 +228,54 @@ main>.catalog::after{display:none}
 @media(max-width:560px){.canned-main>.canned-hero{min-height:535px}.canned-main .hero-inner{padding:50px 18px 65px;min-height:535px}.canned-main .hero h2{font-size:24px}.canned-main .hero-features{margin:25px 0}.canned-main>.partners{padding:35px 15px 48px}.canned-main .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}.canned-main .partner-logo{height:96px}.canned-main .canned-overview-card{padding:24px 18px}}
 @media(max-width:370px){.canned-main .hero-features{gap:0}.canned-main .hero-feature{padding:0 3px}}
 
-/* Full-section brand artwork: display the whole supplied composition behind the logos. */
-.canned-main > #canned-brands{
+
+/* One continuous product-area background, matching tomato-paste-product.html. */
+.canned-product-surface{
   position:relative;
   isolation:isolate;
-  overflow:hidden;
-  box-sizing:border-box;
-  min-height:390px;
-  padding-top:clamp(44px,4.4vw,70px);
-  padding-bottom:clamp(55px,5vw,78px);
-  background-color:#fffaf2;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png");
-  background-position:center center;
-  background-size:100% 100%;
-  background-repeat:no-repeat;
+  background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png") center center / 100% 100% no-repeat;
 }
-/* Keep the title legible without hiding the artwork around the edges. */
-.canned-main > #canned-brands::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background:linear-gradient(90deg,
-    rgba(255,251,245,.04) 0%,
-    rgba(255,251,245,.22) 24%,
-    rgba(255,251,245,.50) 50%,
-    rgba(255,251,245,.22) 76%,
-    rgba(255,251,245,.04) 100%);
-}
-.canned-main > #canned-brands > .section-heading,
-.canned-main > #canned-brands > .partner-grid{
+.canned-product-surface>.catalog{
   position:relative;
-  z-index:1;
+  background:transparent;
+  padding:48px clamp(18px,4vw,74px) 46px;
 }
-.canned-main > #canned-brands .partner-logo{
-  background-color:rgba(255,255,255,.91);
-  box-shadow:0 9px 26px rgba(20,39,66,.07);
-  backdrop-filter:blur(3px);
+.canned-product-surface>.partners{
+  position:relative;
+  background:transparent;
+  padding:40px clamp(18px,5vw,90px) 66px;
 }
-@media(max-width:760px){
-  .canned-main > #canned-brands{
-    min-height:0;
-    padding:42px 16px 58px;
-    background-size:100% 100%;
-  }
+.canned-product-surface>.catalog::before,
+.canned-product-surface>.catalog::after{display:none}
+.canned-product-surface>.partners .partner-grid{
+  grid-template-columns:repeat(4,minmax(0,196px));
+  justify-content:center;
+  gap:12px;
 }
-@media(max-width:480px){
-  .canned-main > #canned-brands{
-    padding:36px 14px 48px;
-  }
+.canned-product-surface>.partners .partner-logo{
+  height:96px;
+  min-width:0;
+  border:1px solid rgba(191,153,104,.38);
+  border-radius:15px;
+  background:rgba(255,249,240,.78);
+  box-shadow:none;
+  backdrop-filter:none;
 }
-
-/* Page-wide canned-food artwork: keep it behind the overview and brand sections. */
-.canned-main{
-  background-color:#fffaf2!important;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png")!important;
-  background-position:center center!important;
-  background-size:cover!important;
-  background-repeat:no-repeat!important;
-  background-attachment:fixed!important;
+.canned-product-surface>.partners .partner-logo img{
+  max-width:94%;
+  max-height:78px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
 }
-.canned-main > .catalog,
-.canned-main > .spec-section,
-.canned-main > #canned-brands{
-  background:transparent!important;
+@media(max-width:850px){
+  .canned-product-surface{background-size:100% 100%;background-position:center center}
+  .canned-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,196px));gap:12px}
 }
-.canned-main > #canned-brands::before{
-  content:none!important;
-  display:none!important;
+@media(max-width:560px){
+  .canned-product-surface>.catalog{padding:29px 15px}
+  .canned-product-surface>.partners{padding:35px 15px 48px}
+  .canned-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}
 }
 
 </style>
@@ -361,6 +340,7 @@ main>.catalog::after{display:none}
   <div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg><p>بررسی مشخصات<br>هر محصول</p></div>
   <div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-plane"></use></svg><p>بررسی شرایط<br>عرضه و صادرات</p></div>
 </section>
+<div class="canned-product-surface">
 <section class="catalog canned-overview" id="products" aria-label="معرفی محصولات کنسروی">
   <div class="section-heading" data-reveal>
     <span class="heading-eyebrow">محصولات ما</span>
@@ -386,6 +366,7 @@ main>.catalog::after{display:none}
    <div class="partner-logo" title="تایماز (TaiMaz)" aria-label="برند تایماز (TaiMaz)"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/8acc4b9c-5a01-4e0a-bf6d-6f4d7132803d.png" alt="لوگوی تایماز (TaiMaz)" width="210" height="100" loading="lazy" decoding="async"></div>
   </div>
 </section>
+</div>
 </main>
 <footer id="contact" class="site-footer">
   <div class="footer-container">
