@@ -278,6 +278,28 @@ main>.catalog::after{display:none}
   .canned-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}
 }
 
+
+/* Real product groups instead of the single placeholder. */
+.canned-product-surface{background-size:cover;background-position:center center}
+.canned-type-grid{max-width:1440px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:30px auto 0;position:relative;z-index:1}
+.canned-type-card{min-width:0;border:1px solid #eddfcd;border-radius:19px;overflow:hidden;background:rgba(255,255,255,.95);box-shadow:0 12px 30px rgba(13,43,91,.08);transition:transform .3s,box-shadow .3s}
+.canned-type-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(13,43,91,.13)}
+.canned-type-photo{height:clamp(180px,15vw,235px);background:#f3e9d8;overflow:hidden}
+.canned-type-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
+.canned-type-card:hover .canned-type-photo img{transform:scale(1.05)}
+.canned-type-copy{padding:18px;display:flex;flex-direction:column;align-items:flex-start;text-align:right;min-height:205px}
+.canned-type-kicker{font-size:10px;color:#b37b32;font-weight:850}
+.canned-type-copy h3{font-size:clamp(18px,1.5vw,24px);line-height:1.5;color:var(--navy);font-weight:900;margin:7px 0}
+.canned-type-copy p{font-size:12px;line-height:2;color:#607087;flex:1;margin:0 0 14px}
+.canned-type-copy a{font-size:11px;font-weight:900;color:#1b3d6c;display:inline-flex;align-items:center;gap:7px;border-bottom:1px solid #cb9756;padding-bottom:5px}
+.canned-type-copy a .ico{width:15px;height:15px}
+.canned-cards-note{max-width:650px;text-align:center;font-size:11px;line-height:1.9;color:#627086;margin:20px auto 0}
+.canned-photo-credit{text-align:center;font-size:9px;color:#758095;margin:5px auto 0}
+.canned-photo-credit a{color:#66758e;text-decoration:underline}
+@media(max-width:1050px){.canned-type-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:710px}.canned-type-photo{height:230px}}
+@media(max-width:760px){.canned-product-surface{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png"),url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png");background-size:100% auto,100% auto;background-position:center top,center bottom;background-repeat:no-repeat;background-color:#fffaf2}}
+@media(max-width:540px){.canned-type-grid{grid-template-columns:1fr;max-width:410px;gap:15px}.canned-type-photo{height:215px}.canned-type-copy{min-height:0}.canned-type-copy p{min-height:48px}}
+
 </style>
 </head>
 <body>
@@ -347,11 +369,14 @@ main>.catalog::after{display:none}
     <h2>محصولات کنسروی</h2>
     <p>نوع محصول، وزن و مشخصات هر برند پس از دریافت اطلاعات تأییدشده معرفی می‌شود.</p>
   </div>
-  <div class="canned-overview-card" data-reveal>
-    <span class="canned-overview-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span>
-    <p>برای دریافت اطلاعات دقیق محصولات کنسروی و موجودی برندهای معرفی‌شده، با بخش فروش بازرگانی مهاجر در ارتباط باشید.</p>
-    <a href="index.html#contact">درخواست اطلاعات محصولات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-  </div>
+  <div class="canned-type-grid" data-reveal>
+<article class="canned-type-card"><div class="canned-type-photo"><img src="https://images.unsplash.com/photo-1662714208483-3480ccd2de39?auto=format&fit=crop&w=900&q=80" alt="مخلوط سبزیجات" loading="lazy" width="850" height="600"></div><div class="canned-type-copy"><span class="canned-type-kicker">گروه محصولات کنسروی</span><h3>سبزیجات مخلوط</h3><p>انواع سبزیجات مخلوط؛ ترکیب و بسته‌بندی طبق استعلام.</p><a href="index.html#contact">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div></article>
+<article class="canned-type-card"><div class="canned-type-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ordinary_chickpeas_in_a_ceramic_bowl.jpg?width=950" alt="نخود در کاسه" loading="lazy" width="850" height="600"></div><div class="canned-type-copy"><span class="canned-type-kicker">گروه محصولات کنسروی</span><h3>نخود آبگوشتی</h3><p>نخود آماده مصرف؛ وزن و مشخصات با استعلام.</p><a href="index.html#contact">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div></article>
+<article class="canned-type-card"><div class="canned-type-photo"><img src="https://images.unsplash.com/photo-1632640109744-4dea429408ab?auto=format&fit=crop&w=900&q=80" alt="نخود سبز" loading="lazy" width="850" height="600"></div><div class="canned-type-copy"><span class="canned-type-kicker">گروه محصولات کنسروی</span><h3>نخودسبز</h3><p>نخودفرنگی سبز؛ مشخصات بسته‌بندی با استعلام.</p><a href="index.html#contact">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div></article>
+<article class="canned-type-card"><div class="canned-type-photo"><img src="https://images.unsplash.com/photo-1635843105990-4f08403ecc12?auto=format&fit=crop&w=900&q=80" alt="دانه ذرت" loading="lazy" width="850" height="600"></div><div class="canned-type-copy"><span class="canned-type-kicker">گروه محصولات کنسروی</span><h3>ذرت شیرین</h3><p>ذرت دانه‌ای؛ کیفیت و موجودی با استعلام.</p><a href="index.html#contact">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div></article>
+</div>
+<p class="canned-cards-note">تصاویر نمونه گروه محصولات هستند؛ مشخصات و تأمین هر محصول پس از استعلام تأیید می‌شود.</p>
+<p class="canned-photo-credit">عکس نخود: <a href="https://commons.wikimedia.org/wiki/File:Ordinary_chickpeas_in_a_ceramic_bowl.jpg" rel="noopener noreferrer" target="_blank">AlixSaz · CC BY-SA 4.0</a> (برش برای تناسب کارت)</p>
 </section>
 <section class="partners" id="canned-brands" aria-label="برندهای کنسروجات">
   <div class="section-heading" data-reveal>
