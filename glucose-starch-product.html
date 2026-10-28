@@ -281,6 +281,7 @@ main>.catalog::after{display:none}
 }
 .ingredient-product-surface>.partners{
   position:relative;
+  border-top:0!important; /* remove the actual 1px seam, not the image */
   background:transparent;
   padding:40px clamp(18px,5vw,90px) 66px;
 }
@@ -741,9 +742,7 @@ main>.catalog::after{display:none}
 }
 .ingredient-main>.ingredient-product-surface>.catalog::before,
 .ingredient-main>.ingredient-product-surface>.catalog::after{display:none}
-.ingredient-main>.ingredient-product-surface>.partners{
-  border-top:0;
-}
+
 @media(max-width:850px){
   .ingredient-main>.ingredient-product-surface{
     background-image:linear-gradient(180deg,#fffcf8 0%,#fffaf3 100%);
