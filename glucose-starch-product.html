@@ -272,7 +272,7 @@ main>.catalog::after{display:none}
 .ingredient-product-surface{
   position:relative;
   isolation:isolate;
-  background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png") center center / 100% 100% no-repeat;
+  background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png") center center / cover no-repeat;
 }
 .ingredient-product-surface>.catalog{
   position:relative;
@@ -306,7 +306,7 @@ main>.catalog::after{display:none}
   object-fit:contain;
 }
 @media(max-width:850px){
-  .ingredient-product-surface{background-size:100% 100%;background-position:center center}
+  .ingredient-product-surface{background-size:cover;background-position:center center}
   .ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,196px));gap:12px}
 }
 @media(max-width:560px){
@@ -331,27 +331,10 @@ main>.catalog::after{display:none}
 .ingredient-crop-copy p{font-size:12px;color:#607189;line-height:2;min-height:48px;margin:0 0 14px}
 .ingredient-crop-copy a{font-size:11px;color:#173c6b;font-weight:900;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid #c89951;padding-bottom:5px}
 .ingredient-crop-copy a .ico{width:15px;height:15px}
-@media(max-width:760px){.ingredient-product-surface{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png"),url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png");background-size:100% auto,100% auto;background-position:center top,center bottom;background-repeat:no-repeat;background-color:#fffaf2}}
+@media(max-width:760px){.ingredient-product-surface{background-size:cover;background-position:center 60%}}
 @media(max-width:560px){.ingredient-crop-grid{grid-template-columns:1fr;max-width:410px;gap:15px}.ingredient-crop-photo{height:185px}.ingredient-crop-copy h3{font-size:22px}}
 
 
-/* Keep the supplied artwork only below the hero. Draw its top and bottom
-   at their natural aspect ratio; never stretch an image to fill page height. */
-.ingredient-product-surface{position:relative;isolation:isolate;overflow:hidden;background:#fffaf2}
-.ingredient-product-surface::before,.ingredient-product-surface::after{
-  content:"";position:absolute;inset-inline:0;height:clamp(170px,24vw,350px);
-  pointer-events:none;z-index:0;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png");
-  background-repeat:no-repeat;background-size:100% auto;
-}
-.ingredient-product-surface::before{top:0;background-position:center top}
-.ingredient-product-surface::after{bottom:0;background-position:center bottom}
-.ingredient-product-surface>.catalog,.ingredient-product-surface>.partners{position:relative;z-index:1;background:transparent}
-
-
-/* Keep exactly two prominent product cards (corn and wheat). */
-.ingredient-crop-shortcuts{max-width:920px;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin:8px auto 18px}
-.ingredient-crop-shortcuts a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border:1px solid rgba(194,144,76,.32);border-radius:999px;background:rgba(255,255,255,.86);padding:8px 18px;color:#173e72;font-size:11px;font-weight:900;transition:background .25s}
-.ingredient-crop-shortcuts a:hover{background:#fff5e6}
 </style>
 </head>
 <body>
