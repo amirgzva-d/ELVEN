@@ -277,6 +277,22 @@ main>.catalog::after{display:none}
   .ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}
 }
 
+
+.starch-type-grid{max-width:900px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:25px auto 24px}
+.starch-type-card{min-width:0;background:rgba(255,255,255,.94);border:1px solid #e7d8bf;border-radius:20px;overflow:hidden;box-shadow:0 12px 29px rgba(13,43,91,.08)}
+.starch-type-photo{height:205px;overflow:hidden;background:#f3ead8}
+.starch-type-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.starch-type-photo--wheat{display:grid;place-items:center;background:linear-gradient(125deg,rgba(251,232,192,.5),rgba(255,250,235,.35)),url("assets/hemersin-wheat-desktop.webp") center bottom/cover no-repeat}
+.starch-type-photo--wheat span{font-size:112px;filter:drop-shadow(0 9px 12px rgba(143,105,47,.14))}
+.starch-type-copy{padding:20px;text-align:right}
+.starch-type-copy h3{font-size:24px;font-weight:900;color:var(--navy);margin:0 0 9px}
+.starch-type-copy p{color:#5e6c80;font-size:12px;line-height:2;margin:0 0 14px}
+.starch-type-copy a{display:inline-flex;gap:7px;align-items:center;font-size:11px;font-weight:900;color:#183c6b;border-bottom:1px solid #d0a15e;padding-bottom:5px}
+.starch-type-copy a .ico{width:15px;height:15px}
+.ingredient-product-surface{background-size:cover;background-position:center center}
+@media(max-width:760px){.ingredient-product-surface{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png"),url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png");background-size:100% auto,100% auto;background-position:center top,center bottom;background-repeat:no-repeat;background-color:#fffaf2}}
+@media(max-width:560px){.starch-type-grid{grid-template-columns:1fr;max-width:410px;gap:16px}.starch-type-photo{height:190px}}
+
 </style>
 </head>
 <body>
@@ -331,7 +347,12 @@ main>.catalog::after{display:none}
  <div class="ingredient-product-surface">
  <section class="catalog ingredient-overview" id="products">
   <div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات نشاسته ذرت و گندم</h2><p>مشخصات فنی و بسته‌بندی محصولات پس از تأیید تأمین‌کننده اعلام می‌شود.</p></div>
-  <div class="ingredient-overview-card" data-reveal><span class="ingredient-overview-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><p>برای دریافت مشخصات محصولات نشاسته ذرت و گندم و شرایط تأمین با بخش فروش بازرگانی مهاجر در ارتباط باشید.</p><a href="index.html#contact">درخواست اطلاعات محصولات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
+  
+<div class="starch-type-grid" data-reveal aria-label="نشاسته ذرت و گندم">
+ <article class="starch-type-card"><div class="starch-type-photo"><img src="https://images.unsplash.com/photo-1635843105990-4f08403ecc12?auto=format&fit=crop&w=1100&q=82" width="800" height="500" alt="ذرت زرد" loading="lazy"></div><div class="starch-type-copy"><h3>نشاسته ذرت</h3><p>گرید، نوع بسته‌بندی و مشخصات محصول با استعلام تأیید می‌شود.</p><a href="index.html#contact">درخواست اطلاعات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div></article>
+ <article class="starch-type-card"><div class="starch-type-photo starch-type-photo--wheat"><span aria-hidden="true">🌾</span></div><div class="starch-type-copy"><h3>نشاسته گندم</h3><p>شرایط تأمین، موجودی و مشخصات فنی محصول با استعلام.</p><a href="index.html#contact">درخواست اطلاعات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div></article>
+</div>
+<div class="ingredient-overview-card" data-reveal><span class="ingredient-overview-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><p>برای دریافت مشخصات محصولات نشاسته ذرت و گندم و شرایط تأمین با بخش فروش بازرگانی مهاجر در ارتباط باشید.</p><a href="index.html#contact">درخواست اطلاعات محصولات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
  </section>
  <section class="partners" id="ingredient-brands" aria-label="برندهای نشاسته ذرت و گندم">
   <div class="section-heading" data-reveal><span class="heading-eyebrow">برندهای نشاسته ذرت و گندم</span><h2>همراه با برندهای نشاسته ذرت و گندم</h2><p>۳ لوگوی معرفی‌شده؛ شرایط تأمین هر محصول با استعلام مشخص می‌شود.</p></div>
