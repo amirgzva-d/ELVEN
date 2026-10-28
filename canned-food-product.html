@@ -228,13 +228,56 @@ main>.catalog::after{display:none}
 @media(max-width:560px){.canned-main>.canned-hero{min-height:535px}.canned-main .hero-inner{padding:50px 18px 65px;min-height:535px}.canned-main .hero h2{font-size:24px}.canned-main .hero-features{margin:25px 0}.canned-main>.partners{padding:35px 15px 48px}.canned-main .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}.canned-main .partner-logo{height:96px}.canned-main .canned-overview-card{padding:24px 18px}}
 @media(max-width:370px){.canned-main .hero-features{gap:0}.canned-main .hero-feature{padding:0 3px}}
 
-/* Brand-section backdrop: product artwork belongs behind the brand logos, not on catalog cards. */
+/* Full-section brand artwork: display the whole supplied composition behind the logos. */
 .canned-main > #canned-brands{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  box-sizing:border-box;
+  min-height:390px;
+  padding-top:clamp(44px,4.4vw,70px);
+  padding-bottom:clamp(55px,5vw,78px);
   background-color:#fffaf2;
   background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png");
   background-position:center center;
-  background-size:cover;
+  background-size:100% 100%;
   background-repeat:no-repeat;
+}
+/* Keep the title legible without hiding the artwork around the edges. */
+.canned-main > #canned-brands::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,
+    rgba(255,251,245,.04) 0%,
+    rgba(255,251,245,.22) 24%,
+    rgba(255,251,245,.50) 50%,
+    rgba(255,251,245,.22) 76%,
+    rgba(255,251,245,.04) 100%);
+}
+.canned-main > #canned-brands > .section-heading,
+.canned-main > #canned-brands > .partner-grid{
+  position:relative;
+  z-index:1;
+}
+.canned-main > #canned-brands .partner-logo{
+  background-color:rgba(255,255,255,.91);
+  box-shadow:0 9px 26px rgba(20,39,66,.07);
+  backdrop-filter:blur(3px);
+}
+@media(max-width:760px){
+  .canned-main > #canned-brands{
+    min-height:0;
+    padding:42px 16px 58px;
+    background-size:100% 100%;
+  }
+}
+@media(max-width:480px){
+  .canned-main > #canned-brands{
+    padding:36px 14px 48px;
+  }
 }
 </style>
 </head>
