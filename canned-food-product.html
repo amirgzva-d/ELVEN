@@ -279,6 +279,26 @@ main>.catalog::after{display:none}
     padding:36px 14px 48px;
   }
 }
+
+/* Page-wide canned-food artwork: keep it behind the overview and brand sections. */
+.canned-main{
+  background-color:#fffaf2!important;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png")!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-attachment:fixed!important;
+}
+.canned-main > .catalog,
+.canned-main > .spec-section,
+.canned-main > #canned-brands{
+  background:transparent!important;
+}
+.canned-main > #canned-brands::before{
+  content:none!important;
+  display:none!important;
+}
+
 </style>
 </head>
 <body>
