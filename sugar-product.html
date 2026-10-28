@@ -217,6 +217,21 @@ main{background:#fffaf3}
   .sugar-section-surface>.partners{padding:35px 14px 43px}
 }
 
+
+/* Sugar is a brand-only showcase like baking-soda-product.html. */
+.sugar-section-surface{position:relative;isolation:isolate;overflow:hidden;background:#fffaf3}
+.sugar-section-surface::before,.sugar-section-surface::after{content:"";position:absolute;inset-inline:0;height:clamp(170px,24vw,330px);pointer-events:none;z-index:0;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png");background-repeat:no-repeat;background-size:100% auto}
+.sugar-section-surface::before{top:0;background-position:center top}
+.sugar-section-surface::after{bottom:0;background-position:center bottom}
+.sugar-section-surface>.partners{position:relative;z-index:1;min-height:540px;background:transparent;padding:68px clamp(18px,5vw,90px) 85px}
+.sugar-section-surface>.partners .section-heading{margin-bottom:30px}
+.sugar-section-surface>.partners .section-heading h2{font-size:clamp(27px,2.4vw,40px);line-height:1.5}
+.sugar-section-surface>.partners .partner-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));max-width:1150px;gap:17px;justify-content:center}
+.sugar-section-surface>.partners .partner-logo--brand{min-width:0;height:132px;width:auto;flex:none;display:grid;place-items:center;border-radius:18px;padding:12px;border:1px solid rgba(223,200,159,.5);background:rgba(255,249,242,.78);box-shadow:0 8px 23px rgba(95,66,33,.06);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.sugar-section-surface>.partners .partner-logo--brand img{width:auto;height:auto;max-width:97%;max-height:97px;object-fit:contain}
+@media(max-width:850px){.sugar-section-surface>.partners{padding:53px 21px 70px}.sugar-section-surface>.partners .partner-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.sugar-section-surface>.partners .partner-logo--brand{height:115px}}
+@media(max-width:560px){.sugar-section-surface>.partners{padding:42px 15px 62px}.sugar-section-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sugar-section-surface>.partners .partner-logo--brand{height:106px;padding:9px;border-radius:15px}.sugar-section-surface>.partners .partner-logo--brand:last-child{grid-column:1/-1;justify-self:center;width:min(100%,205px)}}
+
 </style>
 <body>
 
@@ -266,10 +281,10 @@ main{background:#fffaf3}
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg></span><span>ویژه بازارهای<br>صادراتی</span></div>
    </div>
    <div class="hero-actions"><a class="primary-button" href="index.html#contact">استعلام قیمت <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-    <a class="secondary-link" href="#products"><span class="circle-play">▶</span><span>مشاهده انواع<br>محصولات شکر</span></a></div>
+    <a class="secondary-link" href="#sugar-brands"><span class="circle-play">↓</span><span>مشاهده برندهای<br>شکر</span></a></div>
   </div>
  </div>
- <a class="scroll-down" href="#products" aria-label="رفتن به محصولات شکر"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
+ <a class="scroll-down" href="#sugar-brands" aria-label="رفتن به برندهای شکر"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
 </section>
 <section class="trust-strip" aria-label="مزیت‌های تأمین شکر">
  <div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-users"></use></svg><p>تأمین متناسب با<br>سفارش مشتریان</p></div>
@@ -278,38 +293,7 @@ main{background:#fffaf3}
  <div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-plane"></use></svg><p>استعلام تأمین<br>برای بازار جهانی</p></div>
 </section>
 <div class="sugar-section-surface">
- <section class="catalog" id="products">
-  <div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات شکر</h2><p>انواع شکر و گزینه‌های بسته‌بندی؛ گرید، برند، موجودی و شرایط سفارش پس از استعلام تأیید می‌شوند.</p></div>
-  <div class="product-grid" data-reveal>
-   <article class="product-card selected" data-kind="white" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="نمایش مشخصات شکر سفید">
-    <div class="product-image product-image--spaghetti" role="img" aria-label="تصویرسازی شکر سفید تصفیه‌شده"><span class="highlight-tag">قابل استعلام</span></div>
-    <div class="card-copy"><h3>شکر سفید تصفیه‌شده</h3><p>بررسی گرید و مشخصات شکر سفید برای مصرف صنایع غذایی و بسته‌بندی.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> گرید با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> کیفیت قابل بررسی</span></div></div>
-   </article>
-   <article class="product-card" data-kind="bulk" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="نمایش مشخصات شکر فله">
-    <div class="product-image product-image--bulk" role="img" aria-label="تصویرسازی شکر فله و صادراتی"></div>
-    <div class="card-copy"><h3>شکر فله و صنعتی</h3><p>گزینه‌های تأمین عمده با بسته‌بندی و شرایط حمل متناسب با درخواست.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> بسته‌بندی سفارشی</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> استعلام برند</span></div></div>
-   </article>
-  </div>
- </section>
- <section class="spec-section" id="specifications">
-  <div class="spec-panel" data-reveal>
-   <div class="spec-art" role="img" aria-label="تصویرسازی شکر و محصولات قندی"></div>
-   <div class="spec-content">
-    <div class="spec-top"><div><span class="spec-title-kicker">اطلاعات فنی محصول</span><h2>مشخصات و آنالیز شکر</h2></div><span class="spec-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-list"></use></svg></span></div>
-    <div class="nutrition-grid" id="nutritionStats">
-     <div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><div><span class="nutri-label">نوع محصول</span><strong class="nutri-num">—</strong><small>طبق سفارش</small></div></div>
-     <div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-wheat"></use></svg><div><span class="nutri-label">درجه خلوص</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
-     <div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">درجه رنگ</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
-     <div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-leaf"></use></svg><div><span class="nutri-label">اندازه بلور</span><strong class="nutri-num">—</strong><small>با استعلام</small></div></div>
-     <div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg><div><span class="nutri-label">برگه آنالیز</span><strong class="nutri-num">—</strong><small>طبق برند</small></div></div>
-     <div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><div><span class="nutri-label">بسته‌بندی</span><strong class="nutri-num">—</strong><small>طبق سفارش</small></div></div>
-    </div>
-    <p id="nutritionNote" class="spec-note">مقادیر فنی و گواهی‌های هر محصول پس از دریافت آنالیز معتبر از تأمین‌کننده اعلام می‌شوند.</p>
-   </div>
-  </div>
-  <details class="product-detail"><summary>اطلاعات محصول انتخاب‌شده</summary><p><strong id="selectedProduct">شکر سفید تصفیه‌شده</strong></p><p id="productDetails">خلوص، اندازه بلور، درجه رنگ و نوع بسته‌بندی شکر سفید پس از دریافت اطلاعات تأییدشده اعلام می‌شود.</p></details>
- </section>
-<section class="partners" id="sugar-brands" aria-label="برندهای شکر">
+ <section class="partners" id="sugar-brands" aria-label="برندهای شکر">
  <div class="section-heading" data-reveal><span class="heading-eyebrow">برندهای شکر</span><h2>برندهای مطرح شکر در بازارهای جهانی</h2><p>۹ برند معرفی‌شده؛ موجودی، اصالت و امکان تأمین هر برند صرفاً پس از استعلام مشخص می‌شود.</p></div>
  <div class="partner-grid" data-reveal><div class="partner-logo partner-logo--brand" title="شکر سفید تصفیه‌شده" aria-label="شکر سفید تصفیه‌شده"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792588066/389874f5-0ddd-403c-bfa9-b7f11fcca779_y3zy1a.png" alt="لوگوی شکر سفید تصفیه‌شده" width="210" height="100" loading="lazy" decoding="async"></div>
 <div class="partner-logo partner-logo--brand" title="اتحاد (Etihad Sugar)" aria-label="اتحاد (Etihad Sugar)"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792588070/f33ef6fa-c2e0-4f20-8956-fb5c24eb15a7_z12iaw.png" alt="لوگوی اتحاد (Etihad Sugar)" width="210" height="100" loading="lazy" decoding="async"></div>
@@ -400,24 +384,5 @@ main{background:#fffaf3}
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open))});
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
-const selectText=document.getElementById('selectedProduct'),detail=document.getElementById('productDetails'),spec=document.getElementById('specifications'),nutritionNote=document.getElementById('nutritionNote');
-const descriptions={
- white:['شکر سفید تصفیه‌شده','خلوص، اندازه بلور، درجه رنگ و نوع بسته‌بندی شکر سفید پس از دریافت اطلاعات تأییدشده اعلام می‌شود.'],
- bulk:['شکر فله و صنعتی','نوع شکر، گرید، شرایط حمل، بسته‌بندی عمده و اطلاعات آنالیز پس از دریافت مستندات تأمین‌کننده اعلام می‌شود.']
-};
-document.querySelectorAll('.product-card[data-kind]').forEach(card=>{
- const activate=()=>{
-  const entry=descriptions[card.dataset.kind];if(!entry)return;
-  selectText.textContent=entry[0];detail.textContent=entry[1];
-  document.querySelector('.product-detail').open=true;
-  nutritionNote.textContent='مقادیر فنی '+entry[0]+' پس از دریافت مشخصات و برگه آنالیز معتبر درج می‌شوند.';
-  document.querySelectorAll('.product-card[data-kind]').forEach(item=>{
-   const selected=item===card;item.classList.toggle('selected',selected);item.setAttribute('aria-pressed',String(selected));
-  });
-  spec.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
- };
- card.addEventListener('click',activate);
- card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
-});
 })();</script>
 </body></html>
