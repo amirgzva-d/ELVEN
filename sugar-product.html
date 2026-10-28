@@ -238,6 +238,27 @@ main > #sugar-brands .partner-logo{
     padding:36px 14px 48px;
   }
 }
+
+/* Page-wide sugar artwork: show it behind the product, analysis and brand areas. */
+main{
+  background-color:#fffaf3!important;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png")!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-attachment:fixed!important;
+}
+.sugar-section-surface{
+  background:transparent!important;
+}
+main > #sugar-brands{
+  background:transparent!important;
+}
+main > #sugar-brands::before{
+  content:none!important;
+  display:none!important;
+}
+
 </style>
 <body>
 
