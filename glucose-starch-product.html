@@ -516,6 +516,205 @@ main>.catalog::after{display:none}
   .ingredient-main>.ingredient-hero .hero-features{margin:16px 0}
 }
 
+
+/* Exact tomato-paste card dimensions, navy CTA finish and hover animations.
+   Two cards are centered in the same layout; all glucose/starch content remains in one page. */
+.ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog{
+  position:relative;
+  z-index:1;
+  background:transparent;
+  padding:48px clamp(18px,4vw,74px) 46px;
+}
+.ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog::before,
+.ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog::after{display:none}
+.ingredient-product-surface .glucose-tomato-grid{
+  width:100%;max-width:1450px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,465px));
+  justify-content:center;
+  align-items:stretch;
+  gap:24px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card{
+  min-width:0;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #f0e7dc;
+  border-radius:19px;
+  background:#fff;
+  box-shadow:0 12px 36px rgba(15,41,80,.07);
+  cursor:default;
+  transition:transform .42s cubic-bezier(.18,1,.3,1),box-shadow .42s,border-color .42s;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card:hover,
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card:focus-within{
+  transform:translateY(-9px);
+  box-shadow:0 25px 45px rgba(15,41,80,.14);
+  border-color:#ddc6a2;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-image{
+  position:relative;
+  flex:none;
+  height:clamp(200px,17vw,285px);
+  background-color:#f7e9d3;
+  background-size:cover;
+  background-repeat:no-repeat;
+  overflow:hidden;
+  transition:filter .3s;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  box-shadow:inset 0 -30px 30px -25px rgba(12,32,65,.18);
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card:hover .glucose-tomato-image{
+  filter:saturate(1.1) contrast(1.02);
+}
+.ingredient-product-surface .glucose-tomato-image--glucose{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793183672/9928cdad-5956-4f1f-ba77-2cbbb8c2a993_njlqtl.png");
+  background-position:77% center;
+}
+.ingredient-product-surface .glucose-tomato-image--starch{
+  background-image:url("assets/hemersin-wheat-desktop.webp");
+  background-position:center 58%;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card .card-copy{
+  padding:17px 20px 21px;
+  text-align:center;
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+  flex:1;
+  background:#fff;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card .card-copy h3{
+  font-size:22px;
+  color:var(--navy);
+  margin:0 0 6px;
+  font-weight:900;
+  line-height:1.55;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card .card-copy>p{
+  font-size:12px;
+  color:#66758d;
+  margin:0;
+  max-width:360px;
+  line-height:2.05;
+  min-height:50px;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card .chips{
+  direction:rtl;
+  width:100%;
+  margin:auto 0 2px;
+  padding-top:16px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  flex-wrap:wrap;
+}
+.ingredient-product-surface .glucose-tomato-grid .chips>span,
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-inquiry{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  min-height:35px;
+  padding:7px 10px;
+  border-radius:100px;
+  background:linear-gradient(180deg,#fffdf9 0%,#f8f1e6 100%);
+  border:1px solid #eee1cd;
+  color:#53617a;
+  font-size:10px;
+  font-weight:750;
+  text-decoration:none;
+  line-height:1.5;
+}
+.ingredient-product-surface .glucose-tomato-grid .chips>span .ico,
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-inquiry .ico{
+  height:15px;width:15px;color:#b77b2d;flex-shrink:0;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-inquiry{
+  cursor:pointer;
+  transition:transform .22s,background .22s,box-shadow .22s,border-color .22s;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-inquiry:hover,
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-inquiry:focus-visible{
+  background:#f3e6d1;
+  border-color:#d6b47e;
+  transform:translateY(-2px);
+  box-shadow:0 6px 12px rgba(13,42,82,.12);
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-inquiry:focus-visible{
+  outline:3px solid #d7ad69;outline-offset:2px;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-downloads{
+  display:inline-flex;
+  width:auto;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  margin:0;padding:0;border:0;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-downloads button{
+  position:relative;isolation:isolate;
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:8px;padding:6px 10px 6px 12px;min-height:39px;
+  border-radius:13px;
+  white-space:nowrap;
+  border:1px solid #cda768;
+  color:#fff;
+  background:linear-gradient(135deg,#1c477c 0%,#0b2852 100%);
+  box-shadow:0 5px 13px rgba(13,42,82,.15),inset 0 1px 0 rgba(255,255,255,.12);
+  font-family:inherit;font-size:10px;font-weight:850;line-height:1.5;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-downloads button:disabled{
+  cursor:not-allowed;
+  opacity:1;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-downloads button::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.11) 50%,transparent 72%);
+  opacity:0;transition:opacity .22s ease;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card:hover .glucose-card-downloads button::after{
+  opacity:.8;
+}
+.ingredient-product-surface .glucose-tomato-grid .glucose-card-downloads .ico{
+  width:25px;height:25px;padding:5px;box-sizing:border-box;flex:0 0 auto;
+  border-radius:8px;color:#f3cb83;background:rgba(238,195,120,.15);
+  border:1px solid rgba(238,195,120,.3);stroke-width:2.1;
+}
+.ingredient-product-surface .glucose-analysis-status{
+  margin:18px auto 0;max-width:810px;
+  text-align:center;font-size:11px;line-height:2;color:#5c6e87;
+}
+@media(max-width:850px){
+  .ingredient-product-surface .glucose-tomato-grid{gap:16px}
+  .ingredient-product-surface .glucose-tomato-grid .glucose-tomato-image{height:220px}
+}
+@media(max-width:620px){
+  .ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog{padding:32px 15px 45px}
+  .ingredient-product-surface .glucose-tomato-grid{grid-template-columns:minmax(0,1fr);max-width:500px;gap:17px}
+  .ingredient-product-surface .glucose-tomato-grid .glucose-tomato-image{height:235px}
+  .ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card .card-copy{padding:16px 13px 19px}
+  .ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card .card-copy>p{min-height:0}
+}
+@media(max-width:420px){
+  .ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card .card-copy h3{font-size:20px}
+  .ingredient-product-surface .glucose-tomato-grid .glucose-tomato-card .chips{gap:6px}
+  .ingredient-product-surface .glucose-tomato-grid .chips>span{padding:6px 8px;font-size:9.5px}
+  .ingredient-product-surface .glucose-tomato-grid .glucose-card-downloads button{padding:6px 9px;gap:6px;font-size:9.5px}
+  .ingredient-product-surface .glucose-tomato-grid .glucose-card-downloads .ico{width:23px;height:23px}
+}
+
 </style>
 </head>
 <body>
@@ -579,39 +778,39 @@ main>.catalog::after{display:none}
   <div class="section-heading" data-reveal>
     <span class="heading-eyebrow">محصولات ما</span>
     <h2>محصولات گلوکز و نشاسته</h2>
-    <p>دو گروه اصلی مواد اولیه، در یک صفحه و با کارت‌هایی مشابه محصولات رب گوجه‌فرنگی. برای اطلاعات فنی یا موجودی، استعلام بگیرید.</p>
+    <p>گروه‌های گلوکز و نشاسته ذرت و گندم برای صنایع غذایی؛ مشخصات فنی و شرایط تأمین هر محصول با استعلام تأیید می‌شود.</p>
   </div>
   <div class="product-grid glucose-tomato-grid" data-reveal>
-    <article class="product-card glucose-tomato-card" aria-label="گلوکز">
-      <div class="product-image glucose-tomato-image glucose-tomato-image--glucose" role="img" aria-label="تصویر محصول گلوکز در کنار ذرت"></div>
+    <article class="product-card glucose-tomato-card" aria-label="کارت محصول گلوکز">
+      <div class="product-image glucose-tomato-image glucose-tomato-image--glucose" role="img" aria-label="تصویر گلوکز در کنار ذرت و شربت گلوکز"></div>
       <div class="card-copy">
         <h3>گلوکز</h3>
-        <p>فرآورده‌های گلوکز برای صنایع غذایی؛ نوع گرید، بسته‌بندی، مشخصات فنی و شرایط تأمین پس از استعلام مشخص می‌شوند.</p>
+        <p>گلوکز مورد استفاده در صنایع غذایی؛ گرید، نوع بسته‌بندی و موجودی بر اساس استعلام اعلام می‌شود.</p>
         <div class="chips">
           <div class="glucose-card-downloads" aria-label="وضعیت برگه آنالیز گلوکز">
-            <button type="button" disabled aria-label="دانلود آنالیز گلوکز؛ فایل تأییدشده هنوز ارائه نشده است" title="فایل آنالیز تأییدشده هنوز ارائه نشده است"><svg class="ico" aria-hidden="true"><use href="#i-file-download"></use></svg>دانلود آنالیز</button>
+            <button type="button" disabled aria-label="دانلود آنالیز گلوکز در انتظار فایل تأییدشده" title="برگه آنالیز تأییدشده برای دانلود موجود نیست"><svg class="ico" aria-hidden="true"><use href="#i-file-download"></use></svg>دانلود آنالیز</button>
           </div>
           <span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>بسته‌بندی با استعلام</span>
-          <a class="glucose-card-inquiry" href="index.html#contact" aria-label="درخواست برگه آنالیز گلوکز">درخواست آنالیز <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          <a class="glucose-card-inquiry" href="index.html#contact" aria-label="درخواست آنالیز گلوکز از بخش فروش"><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>درخواست آنالیز</a>
         </div>
       </div>
     </article>
-    <article class="product-card glucose-tomato-card" aria-label="نشاسته">
-      <div class="product-image glucose-tomato-image glucose-tomato-image--starch" role="img" aria-label="تصویر محصولات پایه گندم برای نشاسته"></div>
+    <article class="product-card glucose-tomato-card" aria-label="کارت محصول نشاسته">
+      <div class="product-image glucose-tomato-image glucose-tomato-image--starch" role="img" aria-label="تصویر نمایشی گندم برای گروه نشاسته ذرت و گندم"></div>
       <div class="card-copy">
         <h3>نشاسته ذرت و گندم</h3>
-        <p>گزینه‌های نشاسته ذرت و گندم برای صنایع غذایی؛ موجودی، گرید و آنالیز معتبر هر محصول با استعلام تأیید می‌شود.</p>
+        <p>نشاسته ذرت و گندم برای صنایع غذایی؛ نوع محصول، آنالیز و شرایط تأمین پس از استعلام تأیید می‌شود.</p>
         <div class="chips">
           <div class="glucose-card-downloads" aria-label="وضعیت برگه آنالیز نشاسته">
-            <button type="button" disabled aria-label="دانلود آنالیز نشاسته؛ فایل تأییدشده هنوز ارائه نشده است" title="فایل آنالیز تأییدشده هنوز ارائه نشده است"><svg class="ico" aria-hidden="true"><use href="#i-file-download"></use></svg>دانلود آنالیز</button>
+            <button type="button" disabled aria-label="دانلود آنالیز نشاسته در انتظار فایل تأییدشده" title="برگه آنالیز تأییدشده برای دانلود موجود نیست"><svg class="ico" aria-hidden="true"><use href="#i-file-download"></use></svg>دانلود آنالیز</button>
           </div>
           <span><svg class="ico" aria-hidden="true"><use href="#i-wheat"></use></svg>ذرت و گندم</span>
-          <a class="glucose-card-inquiry" href="index.html#contact" aria-label="درخواست برگه آنالیز نشاسته">درخواست آنالیز <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          <a class="glucose-card-inquiry" href="index.html#contact" aria-label="درخواست آنالیز نشاسته از بخش فروش"><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg>درخواست آنالیز</a>
         </div>
       </div>
     </article>
   </div>
-  <p class="glucose-analysis-status" role="note">دکمه‌های دانلود پس از دریافت برگه آنالیز تأییدشده هر محصول فعال می‌شوند. فعلاً می‌توانید برگه آنالیز را از بخش فروش درخواست کنید.</p>
+  <p class="glucose-analysis-status" role="note">برای دریافت برگه آنالیز هر محصول با بخش فروش تماس بگیرید. دکمه دانلود پس از دریافت و تأیید فایل فعال می‌شود.</p>
 </section>
 <section class="partners" id="ingredient-brands" aria-label="برندهای مرتبط با گلوکز و نشاسته">
   <div class="section-heading" data-reveal><span class="heading-eyebrow">برندهای مواد اولیه</span><h2>برندهای معرفی‌شده</h2><p>۳ لوگوی معرفی‌شده؛ شرایط تأمین هر محصول با استعلام مشخص می‌شود.</p></div>
