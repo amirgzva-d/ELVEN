@@ -300,6 +300,19 @@ main>.catalog::after{display:none}
 @media(max-width:760px){.canned-product-surface{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png"),url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png");background-size:100% auto,100% auto;background-position:center top,center bottom;background-repeat:no-repeat;background-color:#fffaf2}}
 @media(max-width:540px){.canned-type-grid{grid-template-columns:1fr;max-width:410px;gap:15px}.canned-type-photo{height:215px}.canned-type-copy{min-height:0}.canned-type-copy p{min-height:48px}}
 
+
+/* Keep the supplied artwork only below the hero. Draw its top and bottom
+   at their natural aspect ratio; never stretch an image to fill page height. */
+.canned-product-surface{position:relative;isolation:isolate;overflow:hidden;background:#fffaf2}
+.canned-product-surface::before,.canned-product-surface::after{
+  content:"";position:absolute;inset-inline:0;height:clamp(170px,24vw,350px);
+  pointer-events:none;z-index:0;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793169049/3655c7a4-3325-4309-8da6-d5a6daaaed1f_kygxbq.png");
+  background-repeat:no-repeat;background-size:100% auto;
+}
+.canned-product-surface::before{top:0;background-position:center top}
+.canned-product-surface::after{bottom:0;background-position:center bottom}
+.canned-product-surface>.catalog,.canned-product-surface>.partners{position:relative;z-index:1;background:transparent}
+
 </style>
 </head>
 <body>
