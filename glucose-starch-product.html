@@ -239,6 +239,33 @@ main>.catalog::after{display:none}
 .ingredient-choice-link{display:inline-flex;align-items:center;gap:8px;color:var(--navy);font-weight:900;font-size:12px}
 .ingredient-choice-link .ico{width:16px;height:16px;color:#ba8741}
 @media(max-width:560px){.ingredient-choice-grid{grid-template-columns:1fr}.ingredient-choice{padding:21px 20px}}
+
+/* Updated glucose landing artwork: match product-hero alignment and protect copy. */
+.ingredient-main>.ingredient-hero{
+  background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793170135/8e59b794-c2a7-43f9-9272-001633adfc2f_uflkm6.png") right center / auto 100% no-repeat;
+}
+.ingredient-main>.ingredient-hero::before{display:none}
+.ingredient-main>.ingredient-hero::after{
+  background:linear-gradient(90deg,#fffaf2 0%,rgba(255,250,242,.97) 29%,rgba(255,250,242,.81) 43%,rgba(255,250,242,.12) 67%,transparent 80%);
+}
+.ingredient-main>.ingredient-hero .hero-inner{
+  direction:ltr;justify-content:flex-start;align-items:center;padding:35px clamp(24px,5.5vw,105px);
+}
+.ingredient-main>.ingredient-hero .hero-copy{
+  direction:rtl;align-items:flex-start;text-align:right;width:min(510px,43vw);transform:none;
+}
+.ingredient-main>.ingredient-hero .hero-actions{justify-content:flex-start}
+@media(max-width:850px){
+  .ingredient-main>.ingredient-hero{min-height:730px;background-size:auto 52%;background-position:72% bottom}
+  .ingredient-main>.ingredient-hero::after{background:linear-gradient(180deg,rgba(255,250,242,.99) 0%,rgba(255,250,242,.96) 30%,rgba(255,250,242,.76) 44%,rgba(255,250,242,.07) 70%,transparent 85%)}
+  .ingredient-main>.ingredient-hero .hero-inner{min-height:730px;align-items:flex-start;justify-content:center;padding:38px 24px 365px}
+  .ingredient-main>.ingredient-hero .hero-copy{align-items:center;text-align:center;width:min(100%,580px)}
+  .ingredient-main>.ingredient-hero .hero-actions{justify-content:center}
+}
+@media(max-width:560px){
+  .ingredient-main>.ingredient-hero{min-height:730px;background-size:auto 45%;background-position:74% bottom}
+  .ingredient-main>.ingredient-hero .hero-inner{min-height:730px;padding:32px 18px 345px}
+}
 </style>
 </head>
 <body>
