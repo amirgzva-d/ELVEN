@@ -171,28 +171,55 @@ main{background:#fffaf3}
 @media(max-width:560px){.sugar-hero{min-height:705px}.sugar-hero-art{height:330px}.sugar-hero .hero-inner{padding:35px 19px 350px}.sugar-hero h1{font-size:35px}.sugar-hero h2{font-size:25px}.sugar-section-surface .product-grid{grid-template-columns:1fr;max-width:500px;gap:18px}.sugar-section-surface .product-image{height:230px}.sugar-section-surface .product-card:last-child{max-width:none;width:100%}.sugar-section-surface .spec-panel .spec-art{min-height:220px}.sugar-section-surface .spec-art::after{top:auto;right:0;left:0;bottom:0;width:auto;height:40%;background:linear-gradient(180deg,transparent,white)}.partners{padding:35px 14px 43px}.partners .partner-grid{gap:10px}.partners .partner-logo--brand{flex-basis:calc((100% - 10px)/2);height:108px;padding:10px}.partners .partner-logo--brand img{max-height:85px}}
 
 
-/* Updated sugar landing artwork: desktop right-aligned, mobile below copy. */
+/* Sugar hero: the photograph covers the full canvas; its left edge fades
+   progressively into the text panel, without a hard vertical image boundary. */
 .sugar-hero{
-  background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793170141/6f277c1b-35e1-4cf0-aa95-b0d6efe2de83_haque9.png") right center / auto 100% no-repeat;
+  background-color:#fffaf2;
+  background-image:
+    linear-gradient(90deg,
+      #fffaf2 0%,#fffaf2 16%,
+      rgba(255,250,242,.99) 25%,
+      rgba(255,250,242,.96) 32%,
+      rgba(255,250,242,.87) 40%,
+      rgba(255,250,242,.60) 49%,
+      rgba(255,250,242,.20) 60%,
+      rgba(255,250,242,0) 72%),
+    url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793170141/6f277c1b-35e1-4cf0-aa95-b0d6efe2de83_haque9.png");
+  background-position:center center,right center;
+  background-size:100% 100%,cover;
+  background-repeat:no-repeat;
 }
 .sugar-hero .sugar-hero-art{display:none}
-.sugar-hero::after{
-  background:linear-gradient(90deg,#fffaf2 0%,rgba(255,250,242,.96) 27%,rgba(255,250,242,.74) 43%,rgba(255,250,242,.08) 64%,transparent 79%);
-}
+.sugar-hero::after{content:none;display:none}
 @media(max-width:850px){
-  .sugar-hero{background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793170141/6f277c1b-35e1-4cf0-aa95-b0d6efe2de83_haque9.png") 72% bottom / auto 52% no-repeat}
-  .sugar-hero::after{background:linear-gradient(180deg,rgba(255,250,242,.99) 0%,rgba(255,250,242,.96) 32%,rgba(255,250,242,.75) 47%,rgba(255,250,242,.06) 72%,transparent 85%)}
+  .sugar-hero{
+    background-image:
+      linear-gradient(180deg,
+        #fffaf2 0%,rgba(255,250,242,.99) 23%,
+        rgba(255,250,242,.96) 34%,
+        rgba(255,250,242,.76) 46%,
+        rgba(255,250,242,.08) 66%,transparent 78%),
+      url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793170141/6f277c1b-35e1-4cf0-aa95-b0d6efe2de83_haque9.png");
+    background-size:100% 100%,auto 55%;
+    background-position:center center,74% bottom;
+  }
 }
 @media(max-width:560px){
-  .sugar-hero{background-size:auto 46%;background-position:73% bottom}
+  .sugar-hero{background-size:100% 100%,auto 47%;background-position:center center,73% bottom}
 }
-
 
 /* One continuous sugar background across products, specifications and brands. */
 .sugar-section-surface{
   position:relative;
   isolation:isolate;
-  background:#fffaf3 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png") center center / cover no-repeat;
+  /* This artwork is a tall composition with important details at both ends.
+     Fit the whole artwork to the shallow, wide brand showcase without cropping
+     its sugar bowl, cane stalks or corner leaves away. */
+  background-color:#fffaf3;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png");
+  background-position:center center;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
 }
 .sugar-section-surface>.catalog,
 .sugar-section-surface>.spec-section,
@@ -208,7 +235,7 @@ main{background:#fffaf3}
 .sugar-section-surface>.partners .section-heading{margin-bottom:28px}
 .sugar-section-surface>.partners .partner-grid{max-width:1250px}
 @media(max-width:850px){
-  .sugar-section-surface{background-size:cover;background-position:center center}
+  .sugar-section-surface{background-size:100% 100%;background-position:center center}
   .sugar-section-surface>.partners{padding:35px 18px 48px}
 }
 @media(max-width:560px){
