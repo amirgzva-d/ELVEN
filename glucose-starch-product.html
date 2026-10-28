@@ -347,6 +347,11 @@ main>.catalog::after{display:none}
 .ingredient-product-surface::after{bottom:0;background-position:center bottom}
 .ingredient-product-surface>.catalog,.ingredient-product-surface>.partners{position:relative;z-index:1;background:transparent}
 
+
+/* Keep exactly two prominent product cards (corn and wheat). */
+.ingredient-crop-shortcuts{max-width:920px;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin:8px auto 18px}
+.ingredient-crop-shortcuts a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border:1px solid rgba(194,144,76,.32);border-radius:999px;background:rgba(255,255,255,.86);padding:8px 18px;color:#173e72;font-size:11px;font-weight:900;transition:background .25s}
+.ingredient-crop-shortcuts a:hover{background:#fff5e6}
 </style>
 </head>
 <body>
@@ -405,21 +410,10 @@ main>.catalog::after{display:none}
       <h2>محصولات گلوکز و نشاسته</h2>
       <p>از همین بخش می‌توانید جزئیات هر گروه محصول را مشاهده کنید.</p>
     </div>
-    <div class="ingredient-choice-grid" data-reveal>
-      <a class="ingredient-choice" href="glucose-product.html" aria-label="مشاهده محصولات گلوکز">
-        <span class="ingredient-choice-kicker">محصول اول</span>
-        <h3>گلوکز</h3>
-        <p>مشاهده اطلاعات معرفی محصول و برندهای گلوکز</p>
-        <span class="ingredient-choice-link">مشاهده جزئیات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
-      </a>
-      <a class="ingredient-choice" href="starch-product.html" aria-label="مشاهده محصولات نشاسته ذرت و گندم">
-        <span class="ingredient-choice-kicker">محصول دوم</span>
-        <h3>نشاسته ذرت و گندم</h3>
-        <p>مشاهده اطلاعات معرفی محصول و برندهای نشاسته</p>
-        <span class="ingredient-choice-link">مشاهده جزئیات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
-      </a>
-    </div>
-    
+    <nav class="ingredient-crop-shortcuts" aria-label="دسترسی سریع به انواع مواد اولیه" data-reveal>
+  <a href="glucose-product.html">مشاهده اطلاعات گلوکز</a>
+  <a href="starch-product.html">مشاهده اطلاعات نشاسته</a>
+</nav>
 <div class="ingredient-crop-grid" data-reveal aria-label="محصولات پایه ذرت و گندم">
  <article class="ingredient-crop-card">
   <div class="ingredient-crop-photo"><img src="https://images.unsplash.com/photo-1635843105990-4f08403ecc12?auto=format&fit=crop&w=1100&q=82" width="800" height="500" loading="lazy" alt="ذرت زرد"></div>
