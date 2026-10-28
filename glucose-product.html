@@ -304,6 +304,19 @@ main>.catalog::after{display:none}
   .ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}
 }
 
+
+/* Keep the supplied artwork only below the hero. Draw its top and bottom
+   at their natural aspect ratio; never stretch an image to fill page height. */
+.ingredient-product-surface{position:relative;isolation:isolate;overflow:hidden;background:#fffaf2}
+.ingredient-product-surface::before,.ingredient-product-surface::after{
+  content:"";position:absolute;inset-inline:0;height:clamp(170px,24vw,350px);
+  pointer-events:none;z-index:0;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png");
+  background-repeat:no-repeat;background-size:100% auto;
+}
+.ingredient-product-surface::before{top:0;background-position:center top}
+.ingredient-product-surface::after{bottom:0;background-position:center bottom}
+.ingredient-product-surface>.catalog,.ingredient-product-surface>.partners{position:relative;z-index:1;background:transparent}
+
 </style>
 </head>
 <body>
