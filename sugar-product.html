@@ -192,7 +192,7 @@ main{background:#fffaf3}
 .sugar-section-surface{
   position:relative;
   isolation:isolate;
-  background:#fffaf3 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png") center center / 100% 100% no-repeat;
+  background:#fffaf3 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png") center center / cover no-repeat;
 }
 .sugar-section-surface>.catalog,
 .sugar-section-surface>.spec-section,
@@ -208,7 +208,7 @@ main{background:#fffaf3}
 .sugar-section-surface>.partners .section-heading{margin-bottom:28px}
 .sugar-section-surface>.partners .partner-grid{max-width:1250px}
 @media(max-width:850px){
-  .sugar-section-surface{background-size:100% 100%;background-position:center center}
+  .sugar-section-surface{background-size:cover;background-position:center center}
   .sugar-section-surface>.partners{padding:35px 18px 48px}
 }
 @media(max-width:560px){
@@ -219,10 +219,6 @@ main{background:#fffaf3}
 
 
 /* Sugar is a brand-only showcase like baking-soda-product.html. */
-.sugar-section-surface{position:relative;isolation:isolate;overflow:hidden;background:#fffaf3}
-.sugar-section-surface::before,.sugar-section-surface::after{content:"";position:absolute;inset-inline:0;height:clamp(170px,24vw,330px);pointer-events:none;z-index:0;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png");background-repeat:no-repeat;background-size:100% auto}
-.sugar-section-surface::before{top:0;background-position:center top}
-.sugar-section-surface::after{bottom:0;background-position:center bottom}
 .sugar-section-surface>.partners{position:relative;z-index:1;min-height:540px;background:transparent;padding:68px clamp(18px,5vw,90px) 85px}
 .sugar-section-surface>.partners .section-heading{margin-bottom:30px}
 .sugar-section-surface>.partners .section-heading h2{font-size:clamp(27px,2.4vw,40px);line-height:1.5}
