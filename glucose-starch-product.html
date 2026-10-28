@@ -315,6 +315,25 @@ main>.catalog::after{display:none}
   .ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}
 }
 
+
+/* New corn & wheat product cards, keeping the existing glucose/starch navigation. */
+.ingredient-product-surface{background-size:cover;background-position:center center}
+.ingredient-crop-grid{max-width:920px;margin:24px auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.ingredient-crop-card{min-width:0;overflow:hidden;border:1px solid #eadbc7;border-radius:19px;background:rgba(255,255,255,.94);box-shadow:0 12px 29px rgba(20,49,93,.075);transition:transform .25s}
+.ingredient-crop-card:hover{transform:translateY(-5px)}
+.ingredient-crop-photo{height:200px;background:#f4e8d0;overflow:hidden}
+.ingredient-crop-photo img{width:100%;height:100%;display:block;object-fit:cover}
+.ingredient-crop-photo--wheat{display:grid;place-items:center;background:linear-gradient(130deg,rgba(249,232,193,.48),rgba(255,252,244,.42)),url("assets/hemersin-wheat-desktop.webp") center bottom/cover no-repeat}
+.ingredient-crop-photo--wheat span{font-size:110px;filter:drop-shadow(0 9px 13px rgba(144,109,47,.17))}
+.ingredient-crop-copy{padding:20px;text-align:right}
+.ingredient-crop-copy>span{font-size:10px;font-weight:850;color:#b07f3a}
+.ingredient-crop-copy h3{font-size:24px;color:var(--navy);margin:6px 0 8px;font-weight:900}
+.ingredient-crop-copy p{font-size:12px;color:#607189;line-height:2;min-height:48px;margin:0 0 14px}
+.ingredient-crop-copy a{font-size:11px;color:#173c6b;font-weight:900;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid #c89951;padding-bottom:5px}
+.ingredient-crop-copy a .ico{width:15px;height:15px}
+@media(max-width:760px){.ingredient-product-surface{background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png"),url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168585/glucose_starch_clean_corners_2560x2000_s2y0yg.png");background-size:100% auto,100% auto;background-position:center top,center bottom;background-repeat:no-repeat;background-color:#fffaf2}}
+@media(max-width:560px){.ingredient-crop-grid{grid-template-columns:1fr;max-width:410px;gap:15px}.ingredient-crop-photo{height:185px}.ingredient-crop-copy h3{font-size:22px}}
+
 </style>
 </head>
 <body>
@@ -387,7 +406,18 @@ main>.catalog::after{display:none}
         <span class="ingredient-choice-link">مشاهده جزئیات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
       </a>
     </div>
-    <div class="ingredient-overview-card" data-reveal>
+    
+<div class="ingredient-crop-grid" data-reveal aria-label="محصولات پایه ذرت و گندم">
+ <article class="ingredient-crop-card">
+  <div class="ingredient-crop-photo"><img src="https://images.unsplash.com/photo-1635843105990-4f08403ecc12?auto=format&fit=crop&w=1100&q=82" width="800" height="500" loading="lazy" alt="ذرت زرد"></div>
+  <div class="ingredient-crop-copy"><span>مواد اولیه صنایع غذایی</span><h3>ذرت</h3><p>گروه فرآورده‌های پایه ذرت؛ نوع گلوکز یا نشاسته و مشخصات با استعلام.</p><a href="glucose-product.html">مشاهده محصولات گلوکز <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
+ </article>
+ <article class="ingredient-crop-card">
+  <div class="ingredient-crop-photo ingredient-crop-photo--wheat"><span aria-hidden="true">🌾</span></div>
+  <div class="ingredient-crop-copy"><span>مواد اولیه صنایع غذایی</span><h3>گندم</h3><p>گروه نشاسته گندم؛ گرید، بسته‌بندی و شرایط تأمین با استعلام.</p><a href="starch-product.html">مشاهده محصولات نشاسته <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
+ </article>
+</div>
+<div class="ingredient-overview-card" data-reveal>
       <span class="ingredient-overview-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span>
       <p>برای دریافت اطلاعات بسته‌بندی، موجودی و شرایط تأمین گلوکز یا نشاسته، با بخش فروش بازرگانی مهاجر در ارتباط باشید.</p>
       <a href="index.html#contact">درخواست اطلاعات محصولات <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
