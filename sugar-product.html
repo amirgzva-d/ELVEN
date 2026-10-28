@@ -170,6 +170,22 @@ main{background:#fffaf3}
 @media(max-width:850px){.sugar-hero{height:auto;min-height:790px;background:#fff9ed}.sugar-hero::after{background:linear-gradient(180deg,#fffdf8 0%,rgba(255,253,248,.96) 35%,rgba(255,253,248,.04) 72%,transparent 100%)}.sugar-hero-art{right:0;left:0;bottom:0;width:100%;height:460px;background-size:auto 100%;background-position:center bottom}.sugar-hero .hero-inner{align-items:flex-start;padding:45px 30px 490px}.sugar-hero .hero-copy{width:min(100%,500px);transform:none}.sugar-section-surface .product-image{height:245px}.partners .partner-logo--brand{flex-basis:calc((100% - 28px)/3);height:115px}}
 @media(max-width:560px){.sugar-hero{min-height:705px}.sugar-hero-art{height:330px}.sugar-hero .hero-inner{padding:35px 19px 350px}.sugar-hero h1{font-size:35px}.sugar-hero h2{font-size:25px}.sugar-section-surface .product-grid{grid-template-columns:1fr;max-width:500px;gap:18px}.sugar-section-surface .product-image{height:230px}.sugar-section-surface .product-card:last-child{max-width:none;width:100%}.sugar-section-surface .spec-panel .spec-art{min-height:220px}.sugar-section-surface .spec-art::after{top:auto;right:0;left:0;bottom:0;width:auto;height:40%;background:linear-gradient(180deg,transparent,white)}.partners{padding:35px 14px 43px}.partners .partner-grid{gap:10px}.partners .partner-logo--brand{flex-basis:calc((100% - 10px)/2);height:108px;padding:10px}.partners .partner-logo--brand img{max-height:85px}}
 
+
+/* Updated sugar landing artwork: desktop right-aligned, mobile below copy. */
+.sugar-hero{
+  background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793170141/6f277c1b-35e1-4cf0-aa95-b0d6efe2de83_haque9.png") right center / auto 100% no-repeat;
+}
+.sugar-hero .sugar-hero-art{display:none}
+.sugar-hero::after{
+  background:linear-gradient(90deg,#fffaf2 0%,rgba(255,250,242,.96) 27%,rgba(255,250,242,.74) 43%,rgba(255,250,242,.08) 64%,transparent 79%);
+}
+@media(max-width:850px){
+  .sugar-hero{background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793170141/6f277c1b-35e1-4cf0-aa95-b0d6efe2de83_haque9.png") 72% bottom / auto 52% no-repeat}
+  .sugar-hero::after{background:linear-gradient(180deg,rgba(255,250,242,.99) 0%,rgba(255,250,242,.96) 32%,rgba(255,250,242,.75) 47%,rgba(255,250,242,.06) 72%,transparent 85%)}
+}
+@media(max-width:560px){
+  .sugar-hero{background-size:auto 46%;background-position:73% bottom}
+}
 </style>
 <body>
 
