@@ -187,15 +187,38 @@ main{background:#fffaf3}
   .sugar-hero{background-size:auto 46%;background-position:73% bottom}
 }
 
-/* Continuous sugar-brand backdrop: one image, no split crops or seam. */
+/* Sugar brand backdrop: preserve the artwork's proportions and softly fade the top/bottom details. */
 .sugar-section-surface{
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  background:#fffaf3 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png") center center / 100% 100% no-repeat;
+  background:#fffaf3;
 }
 .sugar-section-surface::before,
-.sugar-section-surface::after{content:none;display:none}
+.sugar-section-surface::after{
+  content:"";
+  position:absolute;
+  inset-inline:0;
+  pointer-events:none;
+  z-index:0;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png");
+  background-repeat:no-repeat;
+  background-size:100% auto;
+}
+.sugar-section-surface::before{
+  top:0;
+  height:clamp(115px,8vw,155px);
+  background-position:center top;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 46%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 46%,transparent 100%);
+}
+.sugar-section-surface::after{
+  bottom:0;
+  height:clamp(110px,9vw,170px);
+  background-position:center bottom;
+  -webkit-mask-image:linear-gradient(to top,#000 0%,#000 42%,transparent 100%);
+  mask-image:linear-gradient(to top,#000 0%,#000 42%,transparent 100%);
+}
 .sugar-section-surface>.partners{
   position:relative;
   z-index:1;
@@ -238,13 +261,15 @@ main{background:#fffaf3}
   object-fit:contain;
 }
 @media(max-width:850px){
-  .sugar-section-surface{background-size:cover;background-position:center center}
+  .sugar-section-surface::before{height:115px}
+  .sugar-section-surface::after{height:140px}
   .sugar-section-surface>.partners{min-height:0;padding:53px 21px 70px}
   .sugar-section-surface>.partners .partner-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
   .sugar-section-surface>.partners .partner-logo--brand{height:115px}
 }
 @media(max-width:560px){
-  .sugar-section-surface{background-size:cover;background-position:center center}
+  .sugar-section-surface::before{height:90px}
+  .sugar-section-surface::after{height:110px}
   .sugar-section-surface>.partners{padding:42px 15px 62px}
   .sugar-section-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .sugar-section-surface>.partners .partner-logo--brand{height:106px;padding:9px;border-radius:15px}
