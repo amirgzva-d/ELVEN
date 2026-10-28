@@ -365,6 +365,122 @@ main>.catalog::after{display:none}
  .ingredient-product-surface .nutrition-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
+
+/* Glucose full-page layout mirrors the tomato-paste page. */
+.ingredient-main>.ingredient-hero{
+ height:clamp(560px,calc(100svh - 188px),700px);min-height:560px;
+ background-color:#fffaf2;background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793170135/8e59b794-c2a7-43f9-9272-001633adfc2f_uflkm6.png");
+ background-position:right center;background-size:auto 100%;background-repeat:no-repeat;overflow:hidden
+}
+.ingredient-main>.ingredient-hero::before{display:none!important}
+.ingredient-main>.ingredient-hero::after{background:linear-gradient(90deg,#fffaf2 0%,rgba(255,250,242,.98) 29%,rgba(255,250,242,.86) 40%,rgba(255,250,242,.55) 51%,rgba(255,250,242,.03) 67%,transparent 80%)}
+.ingredient-main>.ingredient-hero .hero-inner{direction:ltr;justify-content:flex-start;align-items:center;min-height:560px;padding:35px clamp(24px,5.5vw,105px)}
+.ingredient-main>.ingredient-hero .hero-copy{direction:rtl;align-items:flex-start;text-align:right;width:min(510px,43vw);transform:none}
+.ingredient-main>.ingredient-hero .hero h1{margin-top:19px}
+.ingredient-main>.ingredient-hero .hero p{max-width:490px}
+.ingredient-main>.ingredient-hero .hero-features{max-width:500px}
+.ingredient-main>.ingredient-hero .hero-actions{justify-content:flex-start}
+.ingredient-main>.trust-strip{background:#fffaf2}
+.ingredient-main>.ingredient-product-surface{
+ position:relative;isolation:isolate;
+ background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793182217/glucose_starch_background_1586x992_1_jtkv6m.png") center center/cover no-repeat
+}
+.ingredient-main>.ingredient-product-surface>.catalog{
+ position:relative;background:transparent;padding:48px clamp(18px,4vw,74px) 46px
+}
+.ingredient-main>.ingredient-product-surface>.catalog::before,
+.ingredient-main>.ingredient-product-surface>.catalog::after{display:none}
+.ingredient-product-surface .glucose-product-grid{
+ max-width:1080px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:clamp(18px,2vw,28px)
+}
+.ingredient-product-surface .glucose-product-grid .product-card{
+ display:flex;flex-direction:column;height:100%;border-radius:19px;
+ border:1px solid #f0e7dc;background:#fff;box-shadow:0 12px 36px rgba(15,41,80,.07)
+}
+.ingredient-product-surface .glucose-product-grid .product-image{height:clamp(200px,17vw,285px)}
+.ingredient-product-surface .glucose-product-grid .card-copy{flex:1}
+.ingredient-product-surface .glucose-product-grid .chips{
+ direction:rtl;width:100%;margin:16px 0 2px;display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap
+}
+.ingredient-product-surface .glucose-product-grid .chips span{
+ min-height:35px;padding:7px 10px;background:linear-gradient(180deg,#fffdf9,#f8f1e6);
+ border:1px solid #eee1cd;color:#53617a
+}
+.ingredient-main>.ingredient-product-surface>.glucose-specifications{
+ position:relative;background:transparent;padding:32px clamp(14px,4vw,74px) 32px
+}
+.ingredient-product-surface .glucose-spec-panel{
+ width:100%;max-width:1450px;min-height:440px;grid-template-columns:38% minmax(0,62%);align-items:stretch
+}
+.ingredient-product-surface .glucose-spec-panel .spec-art{min-height:440px;background-size:cover}
+.ingredient-product-surface .glucose-spec-content{
+ padding:clamp(19px,2.6vw,31px) clamp(16px,2vw,28px) 22px;display:flex;flex-direction:column
+}
+.ingredient-product-surface .glucose-spec-content .spec-top{margin-bottom:17px}
+.ingredient-product-surface .glucose-spec-content .spec-top h2{font-size:clamp(18px,1.7vw,25px)}
+.ingredient-product-surface .glucose-spec-content .nutrition-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.ingredient-product-surface .glucose-spec-content .nutrition-stat{min-height:83px;padding:10px 11px;gap:10px;background:#fff}
+.ingredient-product-surface .glucose-spec-content .nutrition-stat>.ico{flex-shrink:0;height:25px;width:25px;color:#c4903e}
+.ingredient-product-surface .glucose-spec-content .nutri-label{font-size:10px;line-height:1.5;color:#8b8e9b}
+.ingredient-product-surface .glucose-spec-content .nutri-num{font-size:clamp(15px,1.35vw,20px);line-height:1.34;color:var(--navy);font-weight:900}
+.ingredient-product-surface .glucose-spec-content .spec-note{margin-top:auto;padding-top:17px;font-size:10px;line-height:1.85;color:#9299a7}
+.ingredient-product-surface .glucose-specifications .product-detail{max-width:1450px;margin-top:13px;background:#fffdf8;border-radius:13px}
+.ingredient-main>.ingredient-product-surface>.partners{
+ position:relative;background:transparent;padding:32px clamp(18px,5vw,90px) 40px
+}
+.ingredient-main>.ingredient-product-surface>.partners .partner-grid{
+ grid-template-columns:repeat(3,minmax(0,182px));max-width:960px;justify-content:center;gap:11px
+}
+.ingredient-main>.ingredient-product-surface>.partners .partner-logo{
+ height:88px;min-width:0;border:1px solid rgba(191,153,104,.38);
+ border-radius:15px;background:rgba(255,249,240,.65);box-shadow:none;backdrop-filter:none
+}
+.ingredient-main>.ingredient-product-surface>.partners .partner-logo img{max-width:94%;max-height:78px;height:auto;width:auto;object-fit:contain}
+@media (min-width:851px) and (max-width:1100px){
+ .ingredient-product-surface .glucose-spec-panel{grid-template-columns:34% minmax(0,66%)}
+ .ingredient-product-surface .glucose-spec-content{padding:19px 15px}
+ .ingredient-product-surface .glucose-spec-content .nutrition-stat{padding:9px 7px;gap:6px}
+}
+@media(max-width:850px){
+ .ingredient-main>.ingredient-hero{height:auto;min-height:710px;background-position:70% bottom;background-size:auto 52%}
+ .ingredient-main>.ingredient-hero::after{background:linear-gradient(180deg,rgba(255,250,242,.98) 0%,rgba(255,250,242,.97) 29%,rgba(255,250,242,.83) 45%,rgba(255,250,242,.13) 66%,transparent 80%)}
+ .ingredient-main>.ingredient-hero .hero-inner{min-height:710px;padding:38px 24px 365px;align-items:flex-start;justify-content:center}
+ .ingredient-main>.ingredient-hero .hero-copy{align-items:center;text-align:center;width:min(100%,580px)}
+ .ingredient-main>.ingredient-hero .hero-actions{justify-content:center}
+ .ingredient-main>.ingredient-product-surface{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793182217/glucose_starch_background_1586x992_1_jtkv6m.png");background-size:100% auto;
+  background-position:center bottom;background-repeat:no-repeat;background-color:#fffaf2
+ }
+ .ingredient-product-surface .glucose-spec-panel{grid-template-columns:1fr;min-height:0}
+ .ingredient-product-surface .glucose-spec-panel .spec-art{min-height:260px;grid-row:1}
+ .ingredient-product-surface .glucose-spec-panel .spec-art::after{background:linear-gradient(0deg,rgba(255,255,255,.68),transparent 34%)}
+ .ingredient-product-surface .glucose-spec-content{grid-row:2}
+ .ingredient-main>.ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,182px));max-width:425px;gap:10px}
+}
+@media(max-width:560px){
+ .ingredient-main>.ingredient-hero{min-height:730px;background-size:auto 45%;background-position:76% bottom}
+ .ingredient-main>.ingredient-hero .hero-inner{min-height:730px;padding:32px 18px 345px}
+ .ingredient-main>.ingredient-hero .hero h1{margin-top:12px}
+ .ingredient-main>.ingredient-hero .hero h2{font-size:clamp(21px,5.7vw,28px)}
+ .ingredient-main>.ingredient-hero .hero p{font-size:11.5px;line-height:1.85}
+ .ingredient-main>.ingredient-hero .hero-features{margin:16px 0}
+ .ingredient-main>.ingredient-product-surface>.catalog{padding:29px 15px}
+ .ingredient-product-surface .glucose-product-grid{grid-template-columns:1fr;max-width:500px}
+ .ingredient-main>.ingredient-product-surface>.glucose-specifications{padding:22px 14px 30px}
+ .ingredient-product-surface .glucose-spec-panel{border-radius:18px}
+ .ingredient-product-surface .glucose-spec-panel .spec-art{min-height:210px}
+ .ingredient-product-surface .glucose-spec-content{padding:19px 14px}
+ .ingredient-product-surface .glucose-spec-content .nutrition-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .ingredient-product-surface .glucose-spec-content .nutrition-stat{min-height:78px;padding:9px 8px;gap:7px}
+ .ingredient-product-surface .glucose-spec-content .nutri-num{font-size:17px}
+ .ingredient-main>.ingredient-product-surface>.partners{padding:35px 15px 48px}
+ .ingredient-main>.ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}
+}
+@media(max-width:360px){
+ .ingredient-product-surface .glucose-spec-content .nutrition-grid{grid-template-columns:1fr}
+ .ingredient-product-surface .glucose-spec-panel .spec-art{min-height:175px}
+}
+
 </style>
 </head>
 <body>
@@ -405,16 +521,16 @@ main>.catalog::after{display:none}
   <div class="hero-inner"><div class="hero-copy">
    <span class="kicker">مواد اولیه صنایع غذایی</span>
    <h1>گلوکز</h1>
-   <h2>معرفی برندهای گلوکز</h2>
-   <p>در این بخش نشان‌های معرفی‌شده مربوط به محصولات گلوکز را مشاهده می‌کنید. مشخصات، موجودی و شرایط سفارش هر محصول پس از استعلام تأیید می‌شود.</p>
+   <h2>گلوکز صادراتی، تأمین باکیفیت</h2>
+   <p>گلوکز و فرآورده‌های مرتبط برای کاربردهای صنایع غذایی؛ گزینه‌های تأمین، گرید، بسته‌بندی و شرایط سفارش پس از استعلام تأیید می‌شوند.</p>
    <div class="hero-features">
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-badge"></use></svg></span><span>۳ برند<br>معرفی‌شده</span></div>
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><span>اطلاعات بسته‌بندی<br>با استعلام</span></div>
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg></span><span>شرایط سفارش<br>با استعلام</span></div>
    </div>
-   <div class="hero-actions"><a class="primary-button" href="index.html#contact">استعلام قیمت <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a><a class="secondary-link" href="#products"><span class="circle-play">↓</span><span>مشاهده برندها</span></a></div>
+   <div class="hero-actions"><a class="primary-button" href="index.html#contact">استعلام قیمت <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a><a class="secondary-link" href="#ingredient-brands"><span class="circle-play">↓</span><span>مشاهده برندها</span></a></div>
   </div></div>
-  <a class="scroll-down" href="#products" aria-label="رفتن به برندهای گلوکز"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
+  <a class="scroll-down" href="#ingredient-brands" aria-label="رفتن به برندهای گلوکز"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
  </section>
 <section class="trust-strip" aria-label="مزیت‌های مجموعه">
 <div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-users"></use></svg><p>گروه‌های مختلف<br>مواد اولیه</p></div>
@@ -424,8 +540,8 @@ main>.catalog::after{display:none}
 </section>
  <div class="ingredient-product-surface">
  <section class="catalog ingredient-overview" id="products">
-<div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات گلوکز</h2><p>برای مشاهده جزئیات هر گروه، روی کارت موردنظر کلیک کنید. مشخصات نهایی پس از استعلام تأیید می‌شوند.</p></div>
-<div class="product-grid" data-reveal><article class="product-card selected" data-kind="corn" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="مشاهده مشخصات گلوکز پایه ذرت">
+<div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات گلوکز</h2><p>دو گزینه از گروه گلوکز؛ برای مشاهده مشخصات هر محصول روی کارت آن کلیک کنید.</p></div>
+<div class="product-grid glucose-product-grid" data-reveal><article class="product-card selected" data-kind="corn" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="مشاهده مشخصات گلوکز پایه ذرت">
 <div class="product-image product-image--corn" role="img" aria-label="تصویر گلوکز پایه ذرت"></div>
 <div class="card-copy"><h3>گلوکز پایه ذرت</h3><p>گزینه‌های گلوکز با منشأ ذرت؛ گرید و شرایط عرضه با استعلام مشخص می‌شوند.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> بررسی کیفیت</span></div></div>
 </article>
@@ -435,10 +551,10 @@ main>.catalog::after{display:none}
 </article></div>
 
 </section>
-<section class="spec-section" id="specifications" aria-label="اطلاعات فنی محصول">
-<div class="spec-panel" data-reveal>
+<section class="spec-section glucose-specifications" id="specifications" aria-label="اطلاعات فنی محصول">
+<div class="spec-panel glucose-spec-panel" data-reveal>
 <div class="spec-art" data-kind="corn" id="ingredientSpecArt" role="img" aria-label="تصویر گلوکز پایه ذرت"></div>
-<div class="spec-content"><div class="spec-top"><div><span class="spec-title-kicker">اطلاعات فنی محصول</span><h2 id="ingredientSpecTitle">مشخصات گلوکز پایه ذرت</h2></div><span class="spec-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-list"></use></svg></span></div>
+<div class="spec-content glucose-spec-content"><div class="spec-top"><div><span class="spec-title-kicker">اطلاعات فنی محصول</span><h2 id="ingredientSpecTitle">مشخصات گلوکز پایه ذرت</h2></div><span class="spec-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-list"></use></svg></span></div>
 <div class="nutrition-grid"><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-wheat"></use></svg><div><span class="nutri-label">منشأ</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-list"></use></svg><div><span class="nutri-label">گرید</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><div><span class="nutri-label">بسته‌بندی</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">آنالیز</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-badge"></use></svg><div><span class="nutri-label">موجودی</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg><div><span class="nutri-label">شرایط تأمین</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div></div>
 <p class="spec-note" id="nutritionNote">مقادیر آنالیز و گرید پس از دریافت اطلاعات تأییدشده ارائه می‌شوند.</p></div></div>
 <details class="product-detail" open id="ingredientDetail"><summary>معرفی و اطلاعات محصول انتخاب‌شده</summary><p><strong id="selectedProduct">گلوکز پایه ذرت</strong></p><p id="productDetails">گزینه‌های گلوکز با منشأ ذرت؛ گرید و شرایط عرضه با استعلام مشخص می‌شوند.</p><p>برای دریافت اطلاعات محصول <a href="index.html#contact">با بخش فروش ارتباط بگیرید</a>.</p></details>
