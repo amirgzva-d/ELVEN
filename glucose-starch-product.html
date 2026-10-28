@@ -468,12 +468,101 @@ main>.catalog::after{display:none}
  .ingredient-main>.ingredient-hero .hero-actions{gap:12px}
 }
 
+
+/* The two glucose/starch product cards share tomato-paste card layout.
+   No secondary product-selection panel or extra subpages. */
+.ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog{
+  padding:50px clamp(18px,4vw,74px) 64px;
+  position:relative;z-index:1;background:transparent;
+}
+.ingredient-product-surface .glucose-tomato-grid{
+  max-width:1190px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;gap:24px;
+}
+.ingredient-product-surface .glucose-tomato-card{
+  height:100%;display:flex;flex-direction:column;
+  overflow:hidden;background:#fff;border:1px solid #f0e7dc;
+  border-radius:19px;box-shadow:0 12px 36px rgba(15,41,80,.07);
+  cursor:default;transition:transform .4s cubic-bezier(.18,1,.3,1),box-shadow .4s,border-color .4s;
+}
+.ingredient-product-surface .glucose-tomato-card:hover{
+  transform:translateY(-8px);border-color:#ddc6a2;box-shadow:0 25px 45px rgba(15,41,80,.14);
+}
+.ingredient-product-surface .glucose-tomato-image{height:clamp(245px,22vw,330px);background-size:cover;background-position:center center}
+.ingredient-product-surface .glucose-tomato-image--glucose{
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793183672/9928cdad-5956-4f1f-ba77-2cbbb8c2a993_njlqtl.png");
+  background-position:77% center;
+}
+.ingredient-product-surface .glucose-tomato-image--starch{
+  background-image:url("assets/hemersin-wheat-desktop.webp");
+  background-position:center 58%;
+}
+.ingredient-product-surface .glucose-tomato-card .card-copy{
+  min-height:213px;flex:1;padding:19px 17px 22px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.ingredient-product-surface .glucose-tomato-card .card-copy h3{
+  font-size:clamp(20px,1.8vw,25px);line-height:1.6;font-weight:900;margin:0 0 7px;color:var(--navy);
+}
+.ingredient-product-surface .glucose-tomato-card .card-copy>p{
+  font-size:12px;color:#65758b;line-height:2;max-width:480px;margin:0 auto 7px;min-height:50px;
+}
+.ingredient-product-surface .glucose-tomato-grid .chips{
+  width:100%;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:7px;margin:auto 0 0;direction:rtl;padding-top:17px;
+}
+.ingredient-product-surface .glucose-tomato-grid .chips>span{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:35px;
+  padding:7px 10px;border-radius:99px;
+  border:1px solid #eee1cd;background:linear-gradient(180deg,#fffdf9 0%,#f8f1e6 100%);
+  font-size:10px;color:#53617a;font-weight:750;
+}
+.ingredient-product-surface .glucose-tomato-grid .chips>span .ico{width:15px;height:15px;color:#b77b2d}
+.glucose-card-downloads{display:inline-flex;flex:none;margin:0}
+.glucose-card-downloads button{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:39px;
+  border-radius:13px;padding:6px 10px 6px 12px;border:1px solid #cda768;
+  color:#fff;background:linear-gradient(135deg,#1c477c 0%,#0b2852 100%);
+  box-shadow:0 5px 13px rgba(13,42,82,.15);font:850 10px/1.5 inherit;
+}
+.glucose-card-downloads button:disabled{
+  cursor:not-allowed;opacity:.62;filter:saturate(.7);
+}
+.glucose-card-downloads .ico{width:25px;height:25px;padding:5px;box-sizing:border-box;flex:none;border-radius:8px;color:#f3cb83;background:rgba(238,195,120,.15);border:1px solid rgba(238,195,120,.3)}
+.glucose-card-inquiry{
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  min-height:35px;padding:7px 10px;border:1px solid #e6d5bb;
+  border-radius:99px;color:#183c6b;background:#fffaf3;
+  font-size:10px;font-weight:900;text-decoration:none;transition:background .2s;
+}
+.glucose-card-inquiry:hover,.glucose-card-inquiry:focus-visible{background:#f3e6d1}
+.glucose-card-inquiry .ico{width:14px;height:14px}
+.glucose-analysis-status{max-width:780px;margin:20px auto 0;font-size:11px;line-height:2;text-align:center;color:#576a80}
+@media(max-width:850px){
+  .ingredient-product-surface .glucose-tomato-grid{gap:16px}
+  .ingredient-product-surface .glucose-tomato-image{height:215px}
+}
+@media(max-width:620px){
+  .ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog{padding:32px 15px 48px}
+  .ingredient-product-surface .glucose-tomato-grid{grid-template-columns:1fr;max-width:500px;gap:18px}
+  .ingredient-product-surface .glucose-tomato-image{height:230px}
+  .ingredient-product-surface .glucose-tomato-card .card-copy{min-height:0;padding:16px 13px 20px}
+  .ingredient-product-surface .glucose-tomato-card .card-copy>p{min-height:0}
+}
+@media(max-width:390px){
+  .ingredient-product-surface .glucose-tomato-image{height:190px}
+  .glucose-card-downloads button{font-size:9px;padding:6px 7px}
+  .glucose-card-inquiry{font-size:9px;padding:6px 8px}
+}
+
 </style>
 </head>
 <body>
 
 <svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true">
 <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 22V6m0 10 6-4m-6 1-6-4m6 1 5-4m-5 1-5-4M15 4c0-1.4-.9-2.3-3-3-.8 1-1 2-1 3m6 3c2-.3 3.2-1.5 3-3.8-2.3-.1-3.8 1.1-4 3.8M7 7C5 7 4 5.7 4 3.2 6.3 3 7.7 4.3 8 6m11 5c2.1-.1 3.1-1.3 3.1-3.6-2.7-.3-4 1.1-4.1 3.2M5 11C3 11 2 9.7 2 7.5c2.5-.2 4 1.1 4 3.3"/></symbol>
+<symbol id="i-file-download" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 11v6m-3-3 3 3 3-3"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
 <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v17m-7-7 7 7 7-7"/></symbol>
 <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"/></symbol>
@@ -515,9 +604,9 @@ main>.catalog::after{display:none}
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><span>اطلاعات بسته‌بندی<br>با استعلام</span></div>
     <div class="hero-feature"><span class="round-icon"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg></span><span>شرایط سفارش<br>با استعلام</span></div>
    </div>
-   <div class="hero-actions"><a class="primary-button" href="index.html#contact">استعلام قیمت <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a><a class="secondary-link" href="#products"><span class="circle-play">↓</span><span>مشاهده برندها</span></a></div>
+   <div class="hero-actions"><a class="primary-button" href="index.html#contact">استعلام قیمت <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a><a class="secondary-link" href="#products"><span class="circle-play">↓</span><span>مشاهده محصولات</span></a></div>
   </div></div>
-  <a class="scroll-down" href="#products" aria-label="رفتن به برندهای گلوکز و نشاسته"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
+  <a class="scroll-down" href="#products" aria-label="رفتن به محصولات گلوکز و نشاسته"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
  </section>
 <section class="trust-strip" aria-label="مزیت‌های مجموعه">
 <div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-users"></use></svg><p>گروه‌های مختلف<br>مواد اولیه</p></div>
@@ -526,25 +615,43 @@ main>.catalog::after{display:none}
 <div class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-plane"></use></svg><p>شرایط تأمین<br>با استعلام</p></div>
 </section>
  <div class="ingredient-product-surface">
- <section class="catalog ingredient-overview" id="products">
-<div class="section-heading" data-reveal><span class="heading-eyebrow">محصولات ما</span><h2>محصولات گلوکز و نشاسته</h2><p>برای مشاهده جزئیات هر گروه، روی کارت موردنظر کلیک کنید. مشخصات نهایی پس از استعلام تأیید می‌شوند.</p></div>
-<div class="product-grid" data-reveal><article class="product-card selected" data-kind="corn" role="button" tabindex="0" aria-pressed="true" aria-controls="specifications" aria-label="مشاهده مشخصات ذرت">
-<div class="product-image product-image--corn" role="img" aria-label="تصویر ذرت"></div>
-<div class="card-copy"><h3>ذرت</h3><p>مواد اولیه پایه ذرت؛ گرید، مشخصات و موجودی با استعلام مشخص می‌شوند.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> بررسی کیفیت</span></div></div>
-</article>
-<article class="product-card" data-kind="wheat" role="button" tabindex="0" aria-pressed="false" aria-controls="specifications" aria-label="مشاهده مشخصات گندم">
-<div class="product-image product-image--wheat" role="img" aria-label="تصویر گندم"><span class="highlight-tag">قابل استعلام</span></div>
-<div class="card-copy"><h3>گندم</h3><p>مواد اولیه پایه گندم؛ نوع محصول و شرایط تأمین نیازمند تأیید است.</p><div class="chips"><span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg> مشخصات با استعلام</span><span><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg> بررسی کیفیت</span></div></div>
-</article></div>
-<nav class="ingredient-shortcuts" aria-label="صفحات اختصاصی"><a href="glucose-product.html">صفحه گلوکز</a><a href="starch-product.html">صفحه نشاسته</a></nav>
-</section>
-<section class="spec-section" id="specifications" aria-label="اطلاعات فنی محصول">
-<div class="spec-panel" data-reveal>
-<div class="spec-art" data-kind="corn" id="ingredientSpecArt" role="img" aria-label="تصویر ذرت"></div>
-<div class="spec-content"><div class="spec-top"><div><span class="spec-title-kicker">اطلاعات فنی محصول</span><h2 id="ingredientSpecTitle">مشخصات ذرت</h2></div><span class="spec-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-list"></use></svg></span></div>
-<div class="nutrition-grid"><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-wheat"></use></svg><div><span class="nutri-label">منشأ</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-list"></use></svg><div><span class="nutri-label">گرید</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg><div><span class="nutri-label">بسته‌بندی</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">آنالیز</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-badge"></use></svg><div><span class="nutri-label">موجودی</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div><div class="nutrition-stat"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg><div><span class="nutri-label">شرایط تأمین</span><strong class="nutri-num">استعلام</strong><small>در انتظار تأیید</small></div></div></div>
-<p class="spec-note" id="nutritionNote">مقادیر آنالیز و گرید پس از دریافت اطلاعات تأییدشده ارائه می‌شوند.</p></div></div>
-<details class="product-detail" open id="ingredientDetail"><summary>معرفی و اطلاعات محصول انتخاب‌شده</summary><p><strong id="selectedProduct">ذرت</strong></p><p id="productDetails">مواد اولیه پایه ذرت؛ گرید، مشخصات و موجودی با استعلام مشخص می‌شوند.</p><p>برای دریافت اطلاعات محصول <a href="index.html#contact">با بخش فروش ارتباط بگیرید</a>.</p></details>
+ <section class="catalog ingredient-overview glucose-tomato-catalog" id="products" aria-label="محصولات گلوکز و نشاسته">
+  <div class="section-heading" data-reveal>
+    <span class="heading-eyebrow">محصولات ما</span>
+    <h2>محصولات گلوکز و نشاسته</h2>
+    <p>دو گروه اصلی مواد اولیه، در یک صفحه و با کارت‌هایی مشابه محصولات رب گوجه‌فرنگی. برای اطلاعات فنی یا موجودی، استعلام بگیرید.</p>
+  </div>
+  <div class="product-grid glucose-tomato-grid" data-reveal>
+    <article class="product-card glucose-tomato-card" aria-label="گلوکز">
+      <div class="product-image glucose-tomato-image glucose-tomato-image--glucose" role="img" aria-label="تصویر محصول گلوکز در کنار ذرت"></div>
+      <div class="card-copy">
+        <h3>گلوکز</h3>
+        <p>فرآورده‌های گلوکز برای صنایع غذایی؛ نوع گرید، بسته‌بندی، مشخصات فنی و شرایط تأمین پس از استعلام مشخص می‌شوند.</p>
+        <div class="chips">
+          <div class="glucose-card-downloads" aria-label="وضعیت برگه آنالیز گلوکز">
+            <button type="button" disabled aria-label="دانلود آنالیز گلوکز؛ فایل تأییدشده هنوز ارائه نشده است" title="فایل آنالیز تأییدشده هنوز ارائه نشده است"><svg class="ico" aria-hidden="true"><use href="#i-file-download"></use></svg>دانلود آنالیز</button>
+          </div>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg>بسته‌بندی با استعلام</span>
+          <a class="glucose-card-inquiry" href="index.html#contact" aria-label="درخواست برگه آنالیز گلوکز">درخواست آنالیز <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card glucose-tomato-card" aria-label="نشاسته">
+      <div class="product-image glucose-tomato-image glucose-tomato-image--starch" role="img" aria-label="تصویر محصولات پایه گندم برای نشاسته"></div>
+      <div class="card-copy">
+        <h3>نشاسته ذرت و گندم</h3>
+        <p>گزینه‌های نشاسته ذرت و گندم برای صنایع غذایی؛ موجودی، گرید و آنالیز معتبر هر محصول با استعلام تأیید می‌شود.</p>
+        <div class="chips">
+          <div class="glucose-card-downloads" aria-label="وضعیت برگه آنالیز نشاسته">
+            <button type="button" disabled aria-label="دانلود آنالیز نشاسته؛ فایل تأییدشده هنوز ارائه نشده است" title="فایل آنالیز تأییدشده هنوز ارائه نشده است"><svg class="ico" aria-hidden="true"><use href="#i-file-download"></use></svg>دانلود آنالیز</button>
+          </div>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-wheat"></use></svg>ذرت و گندم</span>
+          <a class="glucose-card-inquiry" href="index.html#contact" aria-label="درخواست برگه آنالیز نشاسته">درخواست آنالیز <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        </div>
+      </div>
+    </article>
+  </div>
+  <p class="glucose-analysis-status" role="note">دکمه‌های دانلود پس از دریافت برگه آنالیز تأییدشده هر محصول فعال می‌شوند. فعلاً می‌توانید برگه آنالیز را از بخش فروش درخواست کنید.</p>
 </section>
 <section class="partners" id="ingredient-brands" aria-label="برندهای مرتبط با گلوکز و نشاسته">
   <div class="section-heading" data-reveal><span class="heading-eyebrow">برندهای مواد اولیه</span><h2>برندهای معرفی‌شده</h2><p>۳ لوگوی معرفی‌شده؛ شرایط تأمین هر محصول با استعلام مشخص می‌شود.</p></div>
@@ -632,22 +739,6 @@ toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open')
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
 
-const glucoseVariants={corn:{name:'ذرت',detail:'گرید، نوع محصول و موجودی گروه پایه ذرت تنها پس از استعلام مشخص می‌شود.'},wheat:{name:'گندم',detail:'گرید، نوع محصول و موجودی گروه پایه گندم تنها پس از استعلام مشخص می‌شود.'}};
-document.querySelectorAll('.ingredient-product-surface .product-card[data-kind]').forEach(card=>{
- const choose=()=>{
-  const product=glucoseVariants[card.dataset.kind];if(!product)return;
-  document.getElementById('selectedProduct').textContent=product.name;
-  document.getElementById('productDetails').textContent=product.detail;
-  document.getElementById('ingredientSpecTitle').textContent='مشخصات '+product.name;
-  document.getElementById('nutritionNote').textContent='مقادیر آنالیز، گرید و مشخصات '+product.name+' پس از استعلام تأیید می‌شوند.';
-  const art=document.getElementById('ingredientSpecArt');art.dataset.kind=card.dataset.kind;art.setAttribute('aria-label','تصویر '+product.name);
-  document.getElementById('ingredientDetail').open=true;
-  document.querySelectorAll('.ingredient-product-surface .product-card[data-kind]').forEach(item=>{let active=item===card;item.classList.toggle('selected',active);item.setAttribute('aria-pressed',String(active));});
-  document.getElementById('specifications').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
- };
- card.addEventListener('click',choose);
- card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose();}});
-});
 })();
 </script>
 </body></html>
