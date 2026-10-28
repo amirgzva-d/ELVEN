@@ -397,6 +397,64 @@ main>.catalog::after{display:none}
  .ingredient-product-surface .nutrition-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
+
+/* Unified hero art - match the milk-powder product page. */
+.ingredient-main>.ingredient-hero{
+  height:clamp(545px,calc(100svh - 188px),690px);
+  min-height:545px;
+  background-color:#fffaf2;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793183672/9928cdad-5956-4f1f-ba77-2cbbb8c2a993_njlqtl.png");
+  background-repeat:no-repeat;
+  background-size:auto 100%;
+  background-position:right center;
+  overflow:hidden;
+}
+.ingredient-main>.ingredient-hero::before{display:none!important}
+.ingredient-main>.ingredient-hero::after{
+  background:linear-gradient(90deg,#fffaf2 0%,#fffaf2 37%,rgba(255,250,242,.84) 45%,rgba(255,250,242,.14) 62%,transparent 73%);
+}
+.ingredient-main>.ingredient-hero .hero-inner{
+  min-height:0;height:100%;
+  align-items:center;justify-content:flex-start;direction:ltr;
+  padding:22px clamp(26px,5.6vw,108px);
+}
+.ingredient-main>.ingredient-hero .hero-copy{
+  direction:rtl;align-items:flex-start;text-align:right;
+  width:min(550px,43vw);transform:none;
+}
+.ingredient-main>.ingredient-hero .kicker{padding:9px 13px}
+.ingredient-main>.ingredient-hero h1{font-size:clamp(38px,3.1vw,55px);line-height:1.25;letter-spacing:-.8px;margin:11px 0 3px}
+.ingredient-main>.ingredient-hero h2{font-size:clamp(25px,2.1vw,38px);line-height:1.42;letter-spacing:-.5px;margin:4px 0 14px}
+.ingredient-main>.ingredient-hero .hero-copy>p{font-size:clamp(12px,1vw,15px);line-height:1.9;max-width:490px}
+.ingredient-main>.ingredient-hero .hero-features{margin:18px 0 16px;max-width:550px}
+.ingredient-main>.ingredient-hero .hero-actions{gap:14px;justify-content:flex-start}
+@media(max-width:850px){
+  .ingredient-main>.ingredient-hero{
+    height:auto;min-height:780px;
+    background-size:auto 60%;background-position:center bottom;
+  }
+  .ingredient-main>.ingredient-hero::after{
+    background:linear-gradient(180deg,rgba(255,251,242,.99) 0%,rgba(255,251,242,.95) 38%,rgba(255,251,242,.2) 62%,transparent 85%);
+  }
+  .ingredient-main>.ingredient-hero .hero-inner{
+    min-height:780px;height:auto;
+    padding:45px 30px 480px;align-items:flex-start;justify-content:center;
+  }
+  .ingredient-main>.ingredient-hero .hero-copy{
+    width:min(100%,500px);align-items:center;text-align:center;
+  }
+  .ingredient-main>.ingredient-hero .hero-actions{justify-content:center}
+}
+@media(max-width:560px){
+  .ingredient-main>.ingredient-hero{min-height:720px;background-size:auto 49%;background-position:center bottom}
+  .ingredient-main>.ingredient-hero .hero-inner{min-height:720px;padding:36px 20px 360px}
+  .ingredient-main>.ingredient-hero h1{font-size:34px}
+  .ingredient-main>.ingredient-hero h2{font-size:25px;line-height:1.55;margin-bottom:9px}
+  .ingredient-main>.ingredient-hero .hero-copy>p{font-size:12px;line-height:1.9}
+  .ingredient-main>.ingredient-hero .hero-features{margin:20px 0}
+  .ingredient-main>.ingredient-hero .hero-actions{gap:12px}
+}
+
 </style>
 </head>
 <body>
