@@ -187,76 +187,34 @@ main{background:#fffaf3}
   .sugar-hero{background-size:auto 46%;background-position:73% bottom}
 }
 
-/* Full-section brand artwork: display the whole supplied composition behind the logos. */
-main > #sugar-brands{
+
+/* One continuous sugar background across products, specifications and brands. */
+.sugar-section-surface{
   position:relative;
   isolation:isolate;
-  overflow:hidden;
-  box-sizing:border-box;
-  min-height:390px;
-  padding-top:clamp(44px,4.4vw,70px);
-  padding-bottom:clamp(55px,5vw,78px);
-  background-color:#fffaf2;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png");
-  background-position:center center;
-  background-size:100% 100%;
-  background-repeat:no-repeat;
+  background:#fffaf3 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png") center center / 100% 100% no-repeat;
 }
-/* Keep the title legible without hiding the artwork around the edges. */
-main > #sugar-brands::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background:linear-gradient(90deg,
-    rgba(255,251,245,.04) 0%,
-    rgba(255,251,245,.22) 24%,
-    rgba(255,251,245,.50) 50%,
-    rgba(255,251,245,.22) 76%,
-    rgba(255,251,245,.04) 100%);
-}
-main > #sugar-brands > .section-heading,
-main > #sugar-brands > .partner-grid{
+.sugar-section-surface>.catalog,
+.sugar-section-surface>.spec-section,
+.sugar-section-surface>.partners{
   position:relative;
-  z-index:1;
+  background:transparent;
 }
-main > #sugar-brands .partner-logo{
-  background-color:rgba(255,255,255,.91);
-  box-shadow:0 9px 26px rgba(20,39,66,.07);
-  backdrop-filter:blur(3px);
+.sugar-section-surface>.catalog{padding:48px clamp(18px,4vw,74px) 46px}
+.sugar-section-surface>.spec-section{padding:0 clamp(18px,4vw,74px) 28px}
+.sugar-section-surface>.partners{padding:42px clamp(18px,5vw,90px) 60px}
+.sugar-section-surface>.catalog::before,
+.sugar-section-surface>.catalog::after{display:none}
+.sugar-section-surface>.partners .section-heading{margin-bottom:28px}
+.sugar-section-surface>.partners .partner-grid{max-width:1250px}
+@media(max-width:850px){
+  .sugar-section-surface{background-size:100% 100%;background-position:center center}
+  .sugar-section-surface>.partners{padding:35px 18px 48px}
 }
-@media(max-width:760px){
-  main > #sugar-brands{
-    min-height:0;
-    padding:42px 16px 58px;
-    background-size:100% 100%;
-  }
-}
-@media(max-width:480px){
-  main > #sugar-brands{
-    padding:36px 14px 48px;
-  }
-}
-
-/* Page-wide sugar artwork: show it behind the product, analysis and brand areas. */
-main{
-  background-color:#fffaf3!important;
-  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793168220/sugar_full_section_2560x2000_x86avw.png")!important;
-  background-position:center center!important;
-  background-size:cover!important;
-  background-repeat:no-repeat!important;
-  background-attachment:fixed!important;
-}
-.sugar-section-surface{
-  background:transparent!important;
-}
-main > #sugar-brands{
-  background:transparent!important;
-}
-main > #sugar-brands::before{
-  content:none!important;
-  display:none!important;
+@media(max-width:560px){
+  .sugar-section-surface>.catalog{padding:29px 15px}
+  .sugar-section-surface>.spec-section{padding:0 14px 24px}
+  .sugar-section-surface>.partners{padding:35px 14px 43px}
 }
 
 </style>
@@ -351,7 +309,6 @@ main > #sugar-brands::before{
   </div>
   <details class="product-detail"><summary>اطلاعات محصول انتخاب‌شده</summary><p><strong id="selectedProduct">شکر سفید تصفیه‌شده</strong></p><p id="productDetails">خلوص، اندازه بلور، درجه رنگ و نوع بسته‌بندی شکر سفید پس از دریافت اطلاعات تأییدشده اعلام می‌شود.</p></details>
  </section>
-</div>
 <section class="partners" id="sugar-brands" aria-label="برندهای شکر">
  <div class="section-heading" data-reveal><span class="heading-eyebrow">برندهای شکر</span><h2>برندهای مطرح شکر در بازارهای جهانی</h2><p>۹ برند معرفی‌شده؛ موجودی، اصالت و امکان تأمین هر برند صرفاً پس از استعلام مشخص می‌شود.</p></div>
  <div class="partner-grid" data-reveal><div class="partner-logo partner-logo--brand" title="شکر سفید تصفیه‌شده" aria-label="شکر سفید تصفیه‌شده"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792588066/389874f5-0ddd-403c-bfa9-b7f11fcca779_y3zy1a.png" alt="لوگوی شکر سفید تصفیه‌شده" width="210" height="100" loading="lazy" decoding="async"></div>
@@ -364,6 +321,7 @@ main > #sugar-brands::before{
 <div class="partner-logo partner-logo--brand" title="AzarŞəkər" aria-label="AzarŞəkər"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792588782/26b48973-6044-480b-8da7-03924d04b796%DB%8C_rf5ieo.png" alt="لوگوی AzarŞəkər" width="210" height="100" loading="lazy" decoding="async"></div>
 <div class="partner-logo partner-logo--brand" title="Türkşeker" aria-label="Türkşeker"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792588784/233_rkup7z.png" alt="لوگوی Türkşeker" width="210" height="100" loading="lazy" decoding="async"></div></div>
 </section>
+</div>
 </main>
 <footer id="contact" class="site-footer">
   <div class="footer-container">
