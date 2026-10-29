@@ -1899,7 +1899,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   navLinks.forEach(link=>{
     link.addEventListener("click",e=>{
       const target=link.dataset.navTarget;
-      if(link.getAttribute("href")==="contact.html"){nav?.classList.remove("mobile-open");return;}
+      if(link.getAttribute("href")==="contact.html" || link.getAttribute("href")==="about.html"){nav?.classList.remove("mobile-open");return;}
       const section=document.getElementById(target);
       e.preventDefault();
       setActiveNav(target);
