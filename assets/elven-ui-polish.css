@@ -30,6 +30,16 @@ svg.ico{flex-shrink:0;vertical-align:middle}
  background-repeat:no-repeat,no-repeat,no-repeat!important;
  background-color:#f7f1e6;
 }
+/* Product grids (e.g. macaroni and tomato paste) should fill each photo
+   frame like the homepage beverage card. The old contain/front + washed
+   cover/back layers created pale side strips around these images.
+   Scope the fix to product-card photos; logos and other media stay as-is. */
+.product-grid .product-card .product-image.elven-card-bg-fit{
+ background-image:var(--elven-card-fit-image)!important;
+ background-size:cover!important;
+ background-position:center center!important;
+ background-repeat:no-repeat!important;
+}
 .canned-type-card .canned-type-photo.elven-card-photo-fit,
 .brand-product-card .brand-product-image.elven-card-photo-fit{
  background-image:linear-gradient(rgba(250,247,242,.78),rgba(250,247,242,.78)),
