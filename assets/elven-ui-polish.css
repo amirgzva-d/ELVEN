@@ -17,3 +17,32 @@ svg.ico{flex-shrink:0;vertical-align:middle}
 @media(prefers-reduced-motion:reduce){
   :where(.partner-logo,.brand-card) img{transition:none!important}
 }
+
+
+/* ELVEN SMART IMAGE FIT v2 — show the whole product, softly fill spare space.
+   Only opted-in card media. Card sizing, banners and brand logos are unchanged. */
+.elven-card-bg-fit{
+ background-image:var(--elven-card-fit-image),
+   linear-gradient(rgba(250,247,242,.78),rgba(250,247,242,.78)),
+   var(--elven-card-fit-image)!important;
+ background-size:contain,cover,cover!important;
+ background-position:center center,center center,center center!important;
+ background-repeat:no-repeat,no-repeat,no-repeat!important;
+ background-color:#f7f1e6;
+}
+.canned-type-card .canned-type-photo.elven-card-photo-fit,
+.brand-product-card .brand-product-image.elven-card-photo-fit{
+ background-image:linear-gradient(rgba(250,247,242,.78),rgba(250,247,242,.78)),
+   var(--elven-card-fit-image)!important;
+ background-size:cover,cover!important;
+ background-position:center center,center center!important;
+ background-repeat:no-repeat,no-repeat!important;
+}
+.canned-type-card .canned-type-photo.elven-card-photo-fit > img,
+.brand-product-card .brand-product-image.elven-card-photo-fit > img{
+ object-fit:contain!important;object-position:center center!important;max-width:100%;
+}
+.canned-type-card:hover .canned-type-photo.elven-card-photo-fit > img,
+.brand-product-card:hover .brand-product-image.elven-card-photo-fit > img{
+ transform:none!important;
+}

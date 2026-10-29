@@ -53,3 +53,50 @@ function init(){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
 else init();
 })();
+
+
+/* ELVEN SMART IMAGE FIT v2 — scoped, dynamically updated product imagery. */
+(function(){
+'use strict';
+var bgSel='.category-card:not(.category-card--featured) .category-image:not(.featured-slider):not(.combined-ingredient-image), .category-card .combined-ingredient-image > span, .product-card .product-image';
+var imgSel='.canned-type-card .canned-type-photo > img, .brand-product-card .brand-product-image > img';
+function bgFit(el){
+ if(!el||el.classList.contains('elven-card-bg-fit'))return;
+ var background=getComputedStyle(el).backgroundImage;
+ if(!background||background==='none')return;
+ var match=background.match(/url\((?:"[^"]*"|'[^']*'|[^)]*)\)/i);
+ if(!match)return;
+ el.style.setProperty('--elven-card-fit-image',match[0]);
+ el.classList.add('elven-card-bg-fit');
+}
+function photoFit(img){
+ if(!(img instanceof HTMLImageElement))return;
+ var box=img.parentElement;
+ if(!box||!box.matches('.canned-type-card .canned-type-photo, .brand-product-card .brand-product-image'))return;
+ var src=img.currentSrc||img.getAttribute('src');
+ if(!src)return;
+ box.style.setProperty('--elven-card-fit-image','url('+JSON.stringify(src)+')');
+ box.classList.add('elven-card-photo-fit');
+}
+function apply(root){
+ if(!(root instanceof Element||root instanceof Document))return;
+ if(root instanceof Element){
+   if(root.matches(bgSel))bgFit(root);
+   if(root.matches(imgSel))photoFit(root);
+ }
+ root.querySelectorAll(bgSel).forEach(bgFit);
+ root.querySelectorAll(imgSel).forEach(photoFit);
+}
+function init(){
+ apply(document);
+ new MutationObserver(function(records){
+   records.forEach(function(m){
+     if(m.type==='attributes'){
+       if(m.target instanceof HTMLImageElement)photoFit(m.target);
+     }else m.addedNodes.forEach(function(node){if(node.nodeType===1)apply(node)});
+   });
+ }).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['src','srcset']});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+else init();
+})();
