@@ -1254,100 +1254,84 @@ img{max-width:100%;display:block}
 }
 
 
-/* 2026-10-29: Homepage category photos – taller media frames, no clipped packaging.
-   Scoped to #categories: no product detail cards, other pages, or unrelated banners. */
-@media (min-width:769px) {
-  #categories.category-grid { grid-auto-rows:380px; }
-  #categories.category-grid > article.category-card:not(.category-card--featured) {
-    height:380px;
-    min-height:380px;
-  }
-  #categories.category-grid > article.category-card.category-card--featured {
-    height:380px !important;
-    min-height:380px !important;
-  }
+/* Homepage category cards: natural photo proportions, without forced tall rows.
+   The main product photos use a roughly 3:2 composition; let the media box
+   follow its width, and keep the text area compact without modifying content. */
+#categories.category-grid {
+  grid-auto-rows:auto !important;
+  align-items:stretch;
 }
-/* A larger image area, while retaining the existing title, copy and CTA panel. */
+#categories.category-grid > article.category-card:not(.category-card--featured) {
+  height:auto !important;
+  min-height:0 !important;
+}
 #categories.category-grid > article.category-card:not(.category-card--featured) > .category-image {
+  display:block;
   position:relative;
-  isolation:isolate;
-  overflow:hidden;
-  height:230px !important;
-  min-height:230px !important;
+  aspect-ratio:3 / 2;
   width:100%;
-  flex:0 0 230px;
-  background-color:#edf3ed;
-  background-size:contain !important;
+  height:auto !important;
+  min-height:0 !important;
+  flex:0 0 auto !important;
+  background-size:cover !important;
   background-repeat:no-repeat !important;
   background-position:center center !important;
   transform:none !important;
 }
+/* Disable the previous blurred/letterboxed image layers. The image itself
+   fills the 3:2 frame directly. Rani's photograph follows the same rule. */
+#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit {
+  background-image:var(--elven-card-fit-image) !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  background-position:center center !important;
+}
 #categories.category-grid > article.category-card:not(.category-card--featured):hover > .category-image {
   transform:none !important;
 }
-/* Once elven-ui-polish.js has read the original image, use two separate
-   image layers: soft full-bleed backfill + crisp 100% visible photograph.
-   No white side gutters, and the entire foreground is always uncropped. */
-#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit {
-  background-image:none !important;
+#categories.category-grid > article.category-card:not(.category-card--featured) > .card-content {
+  flex:1 1 auto;
+  min-height:118px;
+  padding:13px 16px 14px;
 }
-#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit::before,
-#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit::after {
-  content:"";
-  position:absolute;
-  pointer-events:none;
-  display:block;
+#categories.category-grid > article.category-card:not(.category-card--featured) > .card-content p {
+  flex:0 0 auto;
+  margin-bottom:10px;
 }
-#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit::before {
-  inset:-12px;
-  z-index:0;
-  background:var(--elven-card-fit-image) center center / cover no-repeat;
-  filter:blur(13px) saturate(.84) brightness(.92);
-  opacity:.72;
+#categories.category-grid > article.category-card:not(.category-card--featured) > .card-content .card-footer {
+  margin-top:auto;
 }
-#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit::after {
-  inset:0;
-  z-index:1;
-  background:var(--elven-card-fit-image) center center / contain no-repeat;
+/* Featured banner spans two columns; let it match its row rather than force
+   a 380px panel with dark bands around the XPOWER visual. */
+#categories.category-grid > article.category-card.category-card--featured {
+  height:100% !important;
+  min-height:0 !important;
+  align-self:stretch;
 }
-/* Featured XPOWER banner stays a full card, but its slides show their complete art. */
 #categories.category-grid > article.category-card--featured > .category-image.featured-slider {
   background-color:#0d1e1f !important;
 }
 #categories.category-grid > article.category-card--featured .featured-slider .featured-slide {
-  object-fit:contain !important;
+  object-fit:cover !important;
   object-position:center center !important;
 }
-@media (min-width:769px) and (max-width:1100px) {
-  #categories.category-grid { grid-auto-rows:355px; }
-  #categories.category-grid > article.category-card:not(.category-card--featured) {
-    height:355px;min-height:355px;
+@media(max-width:768px) {
+  #categories.category-grid {
+    grid-auto-rows:auto !important;
   }
   #categories.category-grid > article.category-card.category-card--featured {
-    height:355px !important;min-height:355px !important;
+    height:300px !important;
+    min-height:300px !important;
   }
-  #categories.category-grid > article.category-card:not(.category-card--featured) > .category-image {
-    height:205px !important;min-height:205px !important;flex-basis:205px;
+  #categories.category-grid > article.category-card:not(.category-card--featured) > .card-content {
+    min-height:110px;
+    padding:12px 13px 13px;
   }
 }
-@media (max-width:768px) {
-  #categories.category-grid { grid-auto-rows:auto; }
-  #categories.category-grid > article.category-card:not(.category-card--featured) {
-    height:auto;min-height:0;
-  }
-  #categories.category-grid > article.category-card:not(.category-card--featured) > .category-image {
-    height:185px !important;min-height:185px !important;flex-basis:185px;
-  }
+@media(max-width:480px) {
   #categories.category-grid > article.category-card.category-card--featured {
-    height:300px !important;min-height:300px !important;
-  }
-}
-@media (max-width:480px) {
-  #categories.category-grid > article.category-card:not(.category-card--featured) > .category-image {
-    height:260px !important;min-height:260px !important;flex-basis:260px;
-  }
-  #categories.category-grid > article.category-card.category-card--featured {
-    height:270px !important;min-height:270px !important;
+    height:270px !important;
+    min-height:270px !important;
   }
 }
 
