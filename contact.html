@@ -448,6 +448,129 @@ body{background:#f4f6f8}
   .values-strip .catalog-cta{max-width:100%}
 }
 
+
+/* Contact info layout: vertically centered cards, with catalog in the top-right toolbar.
+   The CTA belongs to the same section, so no detached lower band or dead space. */
+#contactInfo.info-section{
+  min-height:370px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:20px;
+  padding:32px clamp(16px,2.4vw,38px) 38px;
+  background:#f3f5f4;
+}
+#contactInfo .info-toolbar{
+  display:flex;
+  width:min(100%,1600px);
+  align-items:center;
+  justify-content:flex-start;
+  min-height:62px;
+  direction:rtl;
+  margin:0 auto;
+}
+#contactInfo .catalog-cta.catalog-cta--top{
+  appearance:none;
+  display:flex;
+  align-items:center;
+  flex-direction:row;
+  gap:12px;
+  justify-content:space-between;
+  width:min(100%,350px);
+  min-width:0;
+  max-width:350px;
+  height:62px;
+  min-height:62px;
+  padding:10px 13px;
+  border:1px solid #dfe9e2;
+  border-radius:15px;
+  background:linear-gradient(120deg,#fff,#fafdfb);
+  color:#0b3e30;
+  box-shadow:0 8px 24px rgba(8,60,45,.06);
+  text-align:right;
+  direction:rtl;
+  font:inherit;
+  cursor:pointer;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+#contactInfo .catalog-cta--top:hover{
+  transform:translateY(-2px);
+  border-color:#b7d4c1;
+  box-shadow:0 15px 35px rgba(8,60,45,.13);
+}
+#contactInfo .catalog-cta--top:focus-visible{
+  outline:3px solid #c9a35a;outline-offset:3px;
+}
+#contactInfo .catalog-cta--top .file-icon{
+  flex:none;
+  display:grid;
+  place-items:center;
+  width:42px;height:42px;
+  color:#075a43;
+}
+#contactInfo .catalog-cta--top .file-icon svg{width:32px;height:32px}
+#contactInfo .catalog-cta--top .cta-copy{
+  flex:1;
+  min-width:0;
+  text-align:right;
+}
+#contactInfo .catalog-cta--top .cta-copy strong{
+  display:block;
+  font-size:12.5px;
+  font-weight:900;
+  color:#123b2d;
+  white-space:normal;
+  line-height:1.6;
+}
+#contactInfo .catalog-cta--top .cta-copy small{
+  display:block;
+  font-size:10px;
+  color:#77887e;
+  margin-top:1px;
+  white-space:normal;
+}
+#contactInfo .catalog-cta--top .open-catalog{
+  flex:none;
+  display:grid;
+  place-items:center;
+  width:40px;height:40px;
+  border-radius:50%;
+  background:#c9a35a;
+  color:#132d20;
+  transition:background .25s,transform .25s;
+}
+#contactInfo .catalog-cta--top:hover .open-catalog{
+  background:#e0bc76;
+  transform:translateX(-3px);
+}
+#contactInfo .info-grid{
+  width:min(100%,1600px);
+  margin-inline:auto;
+  align-items:center;
+}
+#contactInfo .info-grid > *{align-self:stretch}
+@media(max-width:1280px){
+  #contactInfo.info-section{
+    min-height:0;
+    padding:30px clamp(16px,3vw,32px) 36px;
+    gap:20px;
+  }
+}
+@media(max-width:600px){
+  #contactInfo.info-section{
+    padding:20px 12px 26px;
+    gap:16px;
+  }
+  #contactInfo .info-toolbar{min-height:58px}
+  #contactInfo .catalog-cta.catalog-cta--top{
+    width:100%;max-width:none;height:auto;min-height:60px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #contactInfo .catalog-cta--top,
+  #contactInfo .catalog-cta--top .open-catalog{transition:none}
+}
+
 </style>
 </head>
 <body>
@@ -501,6 +624,13 @@ body{background:#f4f6f8}
 </section>
 
 <section class="info-section" id="contactInfo" aria-label="اطلاعات تماس">
+  <div class="info-toolbar" aria-label="دسترسی به کاتالوگ">
+    <button class="catalog-cta catalog-cta--top" id="catalogOpen" type="button" aria-haspopup="dialog" aria-controls="catalogModal" aria-label="دریافت کاتالوگ محصولات فارسی و انگلیسی">
+      <span class="file-icon" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h8l5 5v15H6zM14 2v5h5M9 12h7m-7 4h7"/></svg></span>
+      <span class="cta-copy"><strong>دریافت کاتالوگ محصولات</strong><small>دانلود نسخه فارسی و انگلیسی</small></span>
+      <span class="open-catalog" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    </button>
+  </div>
   <div class="info-grid">
     <div class="info-tile hot">
       <div class="ico"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.68A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.98.35 1.95.69 2.87a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.21-1.26a2 2 0 0 1 2.11-.45c.92.34 1.89.57 2.87.69A2 2 0 0 1 22 16.9Z"/></svg></div><h3>تماس با ما</h3>
@@ -525,13 +655,6 @@ body{background:#f4f6f8}
     </div>
   </div>
 </section>
-<section class="values-strip" aria-label="دسترسی به کاتالوگ محصولات">
-  <div class="catalog-cta">
-    <button class="open-catalog" id="catalogOpen" type="button" aria-haspopup="dialog" aria-controls="catalogModal" aria-label="انتخاب زبان کاتالوگ"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
-    <div class="cta-copy"><strong>درخواست کاتالوگ محصولات</strong><small>معرفی محصولات صادراتی در دو زبان</small></div>
-    <span class="file-icon"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6zM14 2v5h5M9 12h7m-7 4h7"/></svg></span>
-  </div>
-</section>
 <footer class="site-foot"><span>© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.</span><a href="index.html">بازگشت به صفحه اصلی</a></footer>
 <div class="modal-backdrop" id="catalogModal" role="presentation" aria-hidden="true">
   <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="catalogTitle">
@@ -553,7 +676,6 @@ body{background:#f4f6f8}
   function show(id){lastFocus=document.activeElement;const el=document.getElementById(id);el.setAttribute('aria-hidden','false');el.querySelector('button.close')?.focus()}
   function hide(id){document.getElementById(id).setAttribute('aria-hidden','true');if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus()}
   document.getElementById('catalogOpen').addEventListener('click',()=>show('catalogModal'));
-  document.querySelector('.catalog-cta .cta-copy').addEventListener('click',()=>show('catalogModal'));
   document.getElementById('catalogClose').addEventListener('click',()=>hide('catalogModal'));
   document.querySelectorAll('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)hide(m.id)}));
   document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(nav.classList.contains('is-open')){nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false')}document.querySelectorAll('.modal-backdrop[aria-hidden="false"]').forEach(m=>hide(m.id))});
