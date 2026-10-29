@@ -1253,6 +1253,104 @@ img{max-width:100%;display:block}
   background-repeat:no-repeat !important;
 }
 
+
+/* 2026-10-29: Homepage category photos – taller media frames, no clipped packaging.
+   Scoped to #categories: no product detail cards, other pages, or unrelated banners. */
+@media (min-width:769px) {
+  #categories.category-grid { grid-auto-rows:380px; }
+  #categories.category-grid > article.category-card:not(.category-card--featured) {
+    height:380px;
+    min-height:380px;
+  }
+  #categories.category-grid > article.category-card.category-card--featured {
+    height:380px !important;
+    min-height:380px !important;
+  }
+}
+/* A larger image area, while retaining the existing title, copy and CTA panel. */
+#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  height:230px !important;
+  min-height:230px !important;
+  width:100%;
+  flex:0 0 230px;
+  background-color:#edf3ed;
+  background-size:contain !important;
+  background-repeat:no-repeat !important;
+  background-position:center center !important;
+  transform:none !important;
+}
+#categories.category-grid > article.category-card:not(.category-card--featured):hover > .category-image {
+  transform:none !important;
+}
+/* Once elven-ui-polish.js has read the original image, use two separate
+   image layers: soft full-bleed backfill + crisp 100% visible photograph.
+   No white side gutters, and the entire foreground is always uncropped. */
+#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit {
+  background-image:none !important;
+}
+#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit::before,
+#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit::after {
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  display:block;
+}
+#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit::before {
+  inset:-12px;
+  z-index:0;
+  background:var(--elven-card-fit-image) center center / cover no-repeat;
+  filter:blur(13px) saturate(.84) brightness(.92);
+  opacity:.72;
+}
+#categories.category-grid > article.category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit::after {
+  inset:0;
+  z-index:1;
+  background:var(--elven-card-fit-image) center center / contain no-repeat;
+}
+/* Featured XPOWER banner stays a full card, but its slides show their complete art. */
+#categories.category-grid > article.category-card--featured > .category-image.featured-slider {
+  background-color:#0d1e1f !important;
+}
+#categories.category-grid > article.category-card--featured .featured-slider .featured-slide {
+  object-fit:contain !important;
+  object-position:center center !important;
+}
+@media (min-width:769px) and (max-width:1100px) {
+  #categories.category-grid { grid-auto-rows:355px; }
+  #categories.category-grid > article.category-card:not(.category-card--featured) {
+    height:355px;min-height:355px;
+  }
+  #categories.category-grid > article.category-card.category-card--featured {
+    height:355px !important;min-height:355px !important;
+  }
+  #categories.category-grid > article.category-card:not(.category-card--featured) > .category-image {
+    height:205px !important;min-height:205px !important;flex-basis:205px;
+  }
+}
+@media (max-width:768px) {
+  #categories.category-grid { grid-auto-rows:auto; }
+  #categories.category-grid > article.category-card:not(.category-card--featured) {
+    height:auto;min-height:0;
+  }
+  #categories.category-grid > article.category-card:not(.category-card--featured) > .category-image {
+    height:185px !important;min-height:185px !important;flex-basis:185px;
+  }
+  #categories.category-grid > article.category-card.category-card--featured {
+    height:300px !important;min-height:300px !important;
+  }
+}
+@media (max-width:480px) {
+  #categories.category-grid > article.category-card:not(.category-card--featured) > .category-image {
+    height:260px !important;min-height:260px !important;flex-basis:260px;
+  }
+  #categories.category-grid > article.category-card.category-card--featured {
+    height:270px !important;min-height:270px !important;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
@@ -1408,7 +1506,7 @@ img{max-width:100%;display:block}
       </article>
 
       <article class="category-card" data-product="Beverages & Juices" data-category="food-beverages" data-subcategory="drinks" data-origin="iran" tabindex="0" role="button">
-        <div class="category-image image-3" role="img" aria-label="نوشیدنی رانی و میوه‌های طبیعی" style="background-image:url('https://res.cloudinary.com/dqhbyqftq/image/upload/v1790073980/file_00000000eb30822fa80fa6eb84f11f5b_hs6kc3.png') !important;background-position:center center !important;background-size:cover !important;background-repeat:no-repeat !important"></div>
+        <div class="category-image image-3" role="img" aria-label="نوشیدنی رانی و میوه‌های طبیعی"></div>
         <div class="card-content">
           <h3>نوشیدنی‌ها و آبمیوه‌ها</h3>
           <p>تازگی و کیفیت برای بازارهای جهانی</p>
