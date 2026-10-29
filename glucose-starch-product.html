@@ -440,36 +440,40 @@ main>.catalog::after{display:none}
 
 
 
-/* Unified editorial layout: one seamless cream surface for products + brands.
-   Deliberately avoid oversized photographic cover backgrounds. */
+/* Glucose and starch background: proportional edge art, no stretching or
+   extra section height; fades into the site's existing warm cream. */
 .ingredient-main>.ingredient-product-surface{
+  --ingredient-surface-art:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793252165/3bd7e45d-a972-40c3-bcf2-57e772937d09_dvfon1.png");
   position:relative;
   isolation:isolate;
   overflow:hidden;
   padding:clamp(42px,5.1vw,76px) 0 clamp(54px,6vw,90px);
-  background-color:#fbf7f0;
-  background-image:
-    radial-gradient(ellipse 310px 330px at 0% 7%,rgba(202,165,105,.10),transparent 80%),
-    radial-gradient(ellipse 330px 360px at 100% 90%,rgba(191,160,109,.095),transparent 83%),
-    linear-gradient(180deg,#fffcf7 0%,#fbf8f3 53%,#f9f3e9 100%);
-  background-repeat:no-repeat;
-  background-size:auto;
+  background:#fbf7f0;
 }
 .ingredient-main>.ingredient-product-surface::before,
 .ingredient-main>.ingredient-product-surface::after{
   content:"";
-  display:block;
-  pointer-events:none;
   position:absolute;
+  inset-inline:0;
+  height:clamp(260px,78vw,1500px);
   z-index:0;
-  width:170px;
-  height:255px;
-  border:1px solid rgba(186,149,91,.09);
-  border-radius:47% 53% 60% 40%;
-  background:radial-gradient(ellipse,rgba(218,190,142,.035),transparent 70%);
+  pointer-events:none;
+  background-image:var(--ingredient-surface-art);
+  background-repeat:no-repeat;
+  background-size:100% auto;
 }
-.ingredient-main>.ingredient-product-surface::before{top:90px;right:-120px;transform:rotate(-25deg)}
-.ingredient-main>.ingredient-product-surface::after{bottom:125px;left:-117px;transform:rotate(28deg)}
+.ingredient-main>.ingredient-product-surface::before{
+  top:0;
+  background-position:center top;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);
+}
+.ingredient-main>.ingredient-product-surface::after{
+  bottom:0;
+  background-position:center bottom;
+  -webkit-mask-image:linear-gradient(to top,#000 0%,#000 45%,transparent 100%);
+  mask-image:linear-gradient(to top,#000 0%,#000 45%,transparent 100%);
+}
 .ingredient-main>.ingredient-product-surface>.catalog,
 .ingredient-main>.ingredient-product-surface>.partners{
   position:relative;z-index:1;background:transparent;
