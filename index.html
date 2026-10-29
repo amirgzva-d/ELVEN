@@ -1244,6 +1244,15 @@ img{max-width:100%;display:block}
   }
 }
 
+/* Homepage catalog image fix: like Rani, no pale side strips.
+   Scoped to the ordinary product cards; keeps their size and aspect ratio. */
+#categories.category-grid > .category-card:not(.category-card--featured) > .category-image.elven-card-bg-fit{
+  background-image:var(--elven-card-fit-image) !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+}
+
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
