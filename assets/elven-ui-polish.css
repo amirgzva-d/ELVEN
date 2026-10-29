@@ -17,3 +17,57 @@ svg.ico{flex-shrink:0;vertical-align:middle}
 @media(prefers-reduced-motion:reduce){
   :where(.partner-logo,.brand-card) img{transition:none!important}
 }
+
+/* ELVEN RESPONSIVE PRODUCT IMAGE FIT V1
+   Show the whole product image in existing card frames.
+   Scoped deliberately: NO hero images, full-bleed featured slide, video,
+   editorial backgrounds, card dimensions, grids, logos or content changed. */
+
+/* Regular homepage category cards: their existing image frame stays the same. */
+.category-card:not(.category-card--featured) > .category-image:not(.combined-ingredient-image){
+  background-size:contain !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  background-color:#f6f2e9;
+}
+.category-card .combined-ingredient-image > .glucose-half,
+.category-card .combined-ingredient-image > .starch-half{
+  background-size:contain !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  background-color:#f6f2e9;
+}
+/* Card still lifts on hover, but the image itself never zooms into a crop. */
+.category-card:not(.category-card--featured):hover > .category-image{
+  transform:none !important;
+}
+
+/* Tomato paste, pasta, milk powder and generic product card photography. */
+.product-card > .product-image{
+  background-size:contain !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+}
+
+/* Canned food and yeast use real <img> elements rather than CSS backgrounds. */
+.canned-type-photo > img,
+.brand-product-image > img,
+.details-image > img{
+  object-fit:contain !important;
+  object-position:center center !important;
+}
+.canned-type-photo{background-color:#f3e9d8}
+.details-image{background-color:#f4faf6}
+/* Override yeast's more specific brand-by-brand full-bleed declarations. */
+.brand-product-card[data-product-id] .brand-product-image > img{
+  object-fit:contain !important;
+  object-position:center center !important;
+}
+/* Preserve the current card-hover movement, not a zoom that re-crops photos. */
+.canned-type-card:hover .canned-type-photo > img,
+.details-image:hover > img,
+.brand-product-card:hover .brand-product-image > img,
+body .brand-product-card[data-product-id]:hover .brand-product-image > img{
+  transform:none !important;
+}
+/* These rules are fluid by default: no fixed pixel size or media breakpoint. */
