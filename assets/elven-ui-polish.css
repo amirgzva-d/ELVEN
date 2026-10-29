@@ -1,0 +1,19 @@
+/* ELVEN UI polish v1 — appearance-preserving shared enhancements. */
+:root{--elven-ui-focus:#c49a5b;--elven-ui-ease:cubic-bezier(.2,.82,.25,1)}
+:where(a,button,summary,[role="button"],[role="tab"],[tabindex]):focus-visible{
+  outline:3px solid var(--elven-ui-focus);outline-offset:3px;
+}
+:where(.primary-button,.header-cta,.cta-quote,.btn-primary,.cta-primary,.text-product-contact,.text-variant-request,.menu-toggle,.mobile-toggle,.tab-btn,.pd-tab,summary){
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+}
+svg.ico{flex-shrink:0;vertical-align:middle}
+:where(.partner-logo img,.brand-card img){object-fit:contain}
+:where(section[id],#products,#about,#contact){scroll-margin-top:86px}
+@media(hover:hover) and (pointer:fine){
+  :where(.primary-button,.header-cta,.cta-quote,.btn-primary,.cta-primary,.text-product-contact,.text-variant-request):hover{filter:brightness(1.045)}
+  :where(.partner-logo,.brand-card) img{transition:filter .25s var(--elven-ui-ease)}
+  :where(.partner-logo,.brand-card):hover img{filter:saturate(1.04) contrast(1.02)}
+}
+@media(prefers-reduced-motion:reduce){
+  :where(.partner-logo,.brand-card) img{transition:none!important}
+}

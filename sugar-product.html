@@ -252,6 +252,8 @@ main{background:#fffaf3}
   .sugar-section-surface>.partners .partner-logo--brand:last-child{grid-column:1/-1;justify-self:center;width:min(100%,205px)}
 }
 </style>
+<link rel="stylesheet" href="assets/elven-ui-polish.css">
+</head>
 <body>
 
 <svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true">
@@ -404,4 +406,5 @@ toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open')
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
 })();</script>
+<script defer src="assets/elven-ui-polish.js"></script>
 </body></html>
