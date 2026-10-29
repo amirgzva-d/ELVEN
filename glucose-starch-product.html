@@ -268,137 +268,7 @@ main>.catalog::after{display:none}
 }
 
 
-/* One continuous glucose/starch background across product information and brands. */
-.ingredient-product-surface{
-  position:relative;
-  isolation:isolate;
-  background:#fffaf2 url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793182217/glucose_starch_background_1586x992_1_jtkv6m.png") center center / cover no-repeat;
-}
-.ingredient-product-surface>.catalog{
-  position:relative;
-  background:transparent;
-  padding:48px clamp(18px,4vw,74px) 46px;
-}
-.ingredient-product-surface>.partners{
-  position:relative;
-  border-top:0!important; /* remove the actual 1px seam, not the image */
-  background:transparent;
-  padding:40px clamp(18px,5vw,90px) 66px;
-}
-.ingredient-product-surface>.catalog::before,
-.ingredient-product-surface>.catalog::after{display:none}
-.ingredient-product-surface>.partners .partner-grid{
-  grid-template-columns:repeat(3,minmax(0,196px));
-  justify-content:center;
-  gap:12px;
-}
-.ingredient-product-surface>.partners .partner-logo{
-  height:96px;
-  min-width:0;
-  background:rgba(255,255,255,.88);
-  box-shadow:0 9px 26px rgba(20,39,66,.07);
-  backdrop-filter:blur(2px);
-}
-.ingredient-product-surface>.partners .partner-logo img{
-  max-width:88%;
-  max-height:68px;
-  width:auto;
-  height:auto;
-  object-fit:contain;
-}
-@media(max-width:850px){
-  .ingredient-product-surface{background-size:cover;background-position:center center}
-  .ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,196px));gap:12px}
-}
-@media(max-width:560px){
-  .ingredient-product-surface>.catalog{padding:29px 15px}
-  .ingredient-product-surface>.partners{padding:35px 15px 48px}
-  .ingredient-product-surface>.partners .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:410px;gap:10px}
-}
-
-
-/* New corn & wheat product cards, keeping the existing glucose/starch navigation. */
-.ingredient-product-surface{background-size:cover;background-position:center center}
-.ingredient-crop-grid{max-width:920px;margin:24px auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.ingredient-crop-card{min-width:0;overflow:hidden;border:1px solid #eadbc7;border-radius:19px;background:rgba(255,255,255,.94);box-shadow:0 12px 29px rgba(20,49,93,.075);transition:transform .25s}
-.ingredient-crop-card:hover{transform:translateY(-5px)}
-.ingredient-crop-photo{height:200px;background:#f4e8d0;overflow:hidden}
-.ingredient-crop-photo img{width:100%;height:100%;display:block;object-fit:cover}
-.ingredient-crop-photo--wheat{display:grid;place-items:center;background:linear-gradient(130deg,rgba(249,232,193,.48),rgba(255,252,244,.42)),url("assets/hemersin-wheat-desktop.webp") center bottom/cover no-repeat}
-.ingredient-crop-photo--wheat span{font-size:110px;filter:drop-shadow(0 9px 13px rgba(144,109,47,.17))}
-.ingredient-crop-copy{padding:20px;text-align:right}
-.ingredient-crop-copy>span{font-size:10px;font-weight:850;color:#b07f3a}
-.ingredient-crop-copy h3{font-size:24px;color:var(--navy);margin:6px 0 8px;font-weight:900}
-.ingredient-crop-copy p{font-size:12px;color:#607189;line-height:2;min-height:48px;margin:0 0 14px}
-.ingredient-crop-copy a{font-size:11px;color:#173c6b;font-weight:900;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid #c89951;padding-bottom:5px}
-.ingredient-crop-copy a .ico{width:15px;height:15px}
-@media(max-width:760px){.ingredient-product-surface{background-size:cover;background-position:center 60%}}
-@media(max-width:560px){.ingredient-crop-grid{grid-template-columns:1fr;max-width:410px;gap:15px}.ingredient-crop-photo{height:185px}.ingredient-crop-copy h3{font-size:22px}}
-
-
-
-/* Two selectable product cards and detail section, matching the milk-powder template. */
-.ingredient-main .ingredient-product-surface>.catalog{padding:48px clamp(18px,4vw,74px) 36px}
-.ingredient-product-surface .product-grid{max-width:1080px;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2vw,28px);margin:0 auto;position:relative;z-index:1}
-.ingredient-product-surface .product-card{min-width:0;overflow:hidden;border:1px solid #f0e7dc;border-radius:19px;background:#fff;cursor:pointer;box-shadow:0 12px 36px rgba(15,41,80,.07);transition:transform .35s,box-shadow .35s,border-color .35s}
-.ingredient-product-surface .product-card:hover{transform:translateY(-8px);box-shadow:0 25px 45px rgba(15,41,80,.14);border-color:#ddc6a2}
-.ingredient-product-surface .product-card.selected{border-color:#c79b60;box-shadow:0 0 0 2px rgba(199,155,96,.16),0 18px 38px rgba(15,41,80,.09)}
-.ingredient-product-surface .product-card.selected .card-copy{background:linear-gradient(180deg,#fff,#fffaf2)}
-.ingredient-product-surface .product-card:focus-visible{outline:3px solid #c79b60;outline-offset:4px}
-.ingredient-product-surface .product-image{height:clamp(210px,21vw,300px);position:relative;background-size:cover;background-position:center;background-repeat:no-repeat}
-.ingredient-product-surface .product-image--corn{background-image:url("https://images.unsplash.com/photo-1635843105990-4f08403ecc12?auto=format&fit=crop&w=1100&q=82")}
-.ingredient-product-surface .product-image--wheat{background-image:url("assets/hemersin-wheat-desktop.webp");background-position:center 62%}
-.ingredient-product-surface .card-copy{padding:18px 20px 21px;text-align:center;display:flex;align-items:center;flex-direction:column;min-height:174px}
-.ingredient-product-surface .card-copy h3{font-size:22px;color:var(--navy);margin:0 0 6px;font-weight:900}
-.ingredient-product-surface .card-copy>p{font-size:12px;color:#66758d;margin:0;max-width:360px;min-height:50px;line-height:2.05}
-.ingredient-product-surface .chips{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin:15px 0 5px}
-.ingredient-product-surface .chips span{display:inline-flex;align-items:center;gap:5px;padding:7px 10px;color:#53617a;background:#fbf7f0;border-radius:100px;border:1px solid #f0e8dc;font-size:10px;font-weight:700}
-.ingredient-product-surface .chips .ico{width:16px;height:16px;color:#bc8640}
-.ingredient-product-surface>.spec-section{padding:0 clamp(18px,4vw,74px) 28px;position:relative;z-index:1;background:transparent}
-.ingredient-product-surface .spec-panel{max-width:1080px;min-height:310px;border:1px solid #eee5db;border-radius:24px;background:rgba(255,255,255,.97);display:grid;grid-template-columns:38% 62%;overflow:hidden;margin:0 auto;box-shadow:0 13px 33px rgba(15,41,80,.055);direction:ltr}
-.ingredient-product-surface .spec-art{background:url("https://images.unsplash.com/photo-1635843105990-4f08403ecc12?auto=format&fit=crop&w=1100&q=82") center/cover no-repeat #f8f5ed;min-height:310px;position:relative}
-.ingredient-product-surface .spec-art[data-kind="wheat"]{background-image:url("assets/hemersin-wheat-desktop.webp");background-position:center 62%}
-.ingredient-product-surface .spec-art::after{content:"";position:absolute;inset:0 0 0 auto;width:36%;background:linear-gradient(90deg,transparent,white)}
-.ingredient-product-surface .spec-content{direction:rtl;padding:26px 25px 23px}
-.ingredient-product-surface .spec-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-.ingredient-product-surface .spec-title-kicker{color:#b58236;font-size:10px;font-weight:800}
-.ingredient-product-surface .spec-top h2{font-size:clamp(17px,1.55vw,25px);font-weight:900;margin:4px 0 0;color:var(--navy)}
-.ingredient-product-surface .spec-head-icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:#f1f5fb;color:#244c80}
-.ingredient-product-surface .nutrition-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
-.ingredient-product-surface .nutrition-stat{display:flex;align-items:center;gap:10px;padding:12px 10px;min-height:82px;border:1px solid #e9e8e5;background:#fff;border-radius:11px}
-.ingredient-product-surface .nutrition-stat>.ico{width:23px;height:23px;color:#c4903e;flex:none}
-.ingredient-product-surface .nutrition-stat>div{display:flex;flex-direction:column;gap:2px}
-.ingredient-product-surface .nutri-label{font-size:10px;color:#8b8e9b}
-.ingredient-product-surface .nutri-num{font-size:15px;color:var(--navy);font-weight:900}
-.ingredient-product-surface .nutrition-stat small{font-size:9px;color:#9299a7}
-.ingredient-product-surface .spec-note{font-size:10px;color:#7b8798;line-height:1.9;margin:12px 0 0}
-.ingredient-product-surface .product-detail{max-width:1080px;margin:12px auto 0;border:1px solid #e8dfd3;border-radius:13px;background:rgba(255,253,248,.96);padding:0 18px}
-.ingredient-product-surface .product-detail summary{font-size:12px;color:#28426c;font-weight:900;padding:14px 0;cursor:pointer}
-.ingredient-product-surface .product-detail[open]{padding-bottom:15px}
-.ingredient-product-surface .product-detail p{font-size:12px;line-height:2.25;color:#53637a;margin:7px 0}
-.ingredient-product-surface .ingredient-shortcuts{max-width:1080px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:18px auto 0}
-.ingredient-product-surface .ingredient-shortcuts a{color:#173c6e;font-size:11px;font-weight:900;border:1px solid #e8dccb;border-radius:99px;background:rgba(255,255,255,.96);padding:10px 17px}
-.ingredient-main>.trust-strip{background:linear-gradient(105deg,#092653 0%,#10366d 52%,#0a2856 100%);color:#fff}
-.ingredient-main>.trust-strip .trust-item p{color:#fff;opacity:1}
-.ingredient-main>.trust-strip .trust-item .ico{color:#e6ba6e}
-@media(max-width:850px){
- .ingredient-product-surface .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .ingredient-product-surface .product-image{height:210px}
- .ingredient-product-surface .spec-panel{grid-template-columns:1fr}
- .ingredient-product-surface .spec-art{min-height:210px}
- .ingredient-product-surface .spec-art::after{inset:auto 0 0;width:auto;height:40%;background:linear-gradient(180deg,transparent,white)}
-}
-@media(max-width:560px){
- .ingredient-main .ingredient-product-surface>.catalog{padding:32px 15px 25px}
- .ingredient-product-surface .product-grid{grid-template-columns:1fr;max-width:500px;gap:17px}
- .ingredient-product-surface .product-image{height:220px}
- .ingredient-product-surface .card-copy{padding:17px 14px 19px;min-height:0}
- .ingredient-product-surface>.spec-section{padding:0 14px 25px}
- .ingredient-product-surface .spec-content{padding:20px 15px}
- .ingredient-product-surface .nutrition-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-
-
+/* Legacy glucose/starch product/brand styles replaced by the unified editorial layout below. */
 
 /* Unified glucose & starch hero: the same edge-to-edge photo layout as milk powder.
    The supplied image is 16:9. Keep its aspect ratio; never mask it into a circle. */
@@ -518,72 +388,6 @@ main>.catalog::after{display:none}
 }
 
 
-/* Glucose + starch: single 4-corner artwork provided by the customer.
-   Original asset aspect ratio ~1.895; CSS keeps its proportions on all screens. */
-.ingredient-main>.ingredient-product-surface{
-  position:relative;
-  isolation:isolate;
-  overflow:hidden;
-  background-color:#fffbf6;
-  background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/b0484631-ae99-42e0-bd72-f20dd3ba7c0d.png");
-  background-repeat:no-repeat;
-  background-position:center center;
-  background-size:cover;
-}
-.ingredient-main>.ingredient-product-surface::before,
-.ingredient-main>.ingredient-product-surface::after{
-  content:none;
-  display:none;
-}
-.ingredient-main>.ingredient-product-surface>.catalog,
-.ingredient-main>.ingredient-product-surface>.partners{
-  position:relative;
-  z-index:1;
-  background:transparent;
-}
-.ingredient-main>.ingredient-product-surface>.catalog::before,
-.ingredient-main>.ingredient-product-surface>.catalog::after{display:none}
-
-@media(max-width:850px){
-  .ingredient-main>.ingredient-product-surface{
-    background-image:linear-gradient(180deg,#fffcf8 0%,#fffaf3 100%);
-  }
-  .ingredient-main>.ingredient-product-surface::before,
-  .ingredient-main>.ingredient-product-surface::after{
-    content:"";
-    display:block;
-    position:absolute;
-    left:0;
-    right:0;
-    width:100%;
-    pointer-events:none;
-    z-index:0;
-    background-image:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/b0484631-ae99-42e0-bd72-f20dd3ba7c0d.png");
-    background-size:100% auto;
-    background-repeat:no-repeat;
-  }
-  .ingredient-main>.ingredient-product-surface::before{
-    top:0;
-    height:clamp(150px,28vw,235px);
-    background-position:center top;
-    -webkit-mask-image:linear-gradient(to bottom,#000 5%,rgba(0,0,0,.92) 34%,transparent 100%);
-    mask-image:linear-gradient(to bottom,#000 5%,rgba(0,0,0,.92) 34%,transparent 100%);
-  }
-  .ingredient-main>.ingredient-product-surface::after{
-    bottom:0;
-    height:clamp(170px,32vw,290px);
-    background-position:center bottom;
-    -webkit-mask-image:linear-gradient(to top,#000 5%,rgba(0,0,0,.92) 34%,transparent 100%);
-    mask-image:linear-gradient(to top,#000 5%,rgba(0,0,0,.92) 34%,transparent 100%);
-  }
-}
-@media(max-width:560px){
-  .ingredient-main>.ingredient-product-surface::before{height:140px}
-  .ingredient-main>.ingredient-product-surface::after{height:170px}
-}
-
-
-
 /* TEXT-ONLY PRODUCT CARDS: premium no-photo corn/wheat catalog */
 .ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog{position:relative;z-index:1;background:transparent;padding:48px clamp(18px,4vw,74px) 54px}
 .ingredient-product-surface .glucose-tomato-grid{width:100%;max-width:1120px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.2vw,28px);align-items:stretch}
@@ -633,6 +437,147 @@ main>.catalog::after{display:none}
 @media(max-width:760px){.ingredient-product-surface .glucose-tomato-grid{grid-template-columns:1fr;max-width:530px}.ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog{padding:33px 16px 45px}.ingredient-product-surface .text-product-intro{min-height:0}}
 @media(max-width:420px){.ingredient-product-surface .glucose-tomato-grid .text-product-card{padding:20px 15px}.text-variant-summary{padding:10px 12px}.text-product-contact,.text-product-download{font-size:10px;padding:9px}}
 @media(prefers-reduced-motion:reduce){.ingredient-product-surface .glucose-tomato-grid .text-product-card,.text-variant-chevron,.text-variant-body,.text-variant-request,.text-product-contact{transition:none;animation:none}}
+
+
+
+/* Unified editorial layout: one seamless cream surface for products + brands.
+   Deliberately avoid oversized photographic cover backgrounds. */
+.ingredient-main>.ingredient-product-surface{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:clamp(42px,5.1vw,76px) 0 clamp(54px,6vw,90px);
+  background-color:#fbf7f0;
+  background-image:
+    radial-gradient(ellipse 310px 330px at 0% 7%,rgba(202,165,105,.10),transparent 80%),
+    radial-gradient(ellipse 330px 360px at 100% 90%,rgba(191,160,109,.095),transparent 83%),
+    linear-gradient(180deg,#fffcf7 0%,#fbf8f3 53%,#f9f3e9 100%);
+  background-repeat:no-repeat;
+  background-size:auto;
+}
+.ingredient-main>.ingredient-product-surface::before,
+.ingredient-main>.ingredient-product-surface::after{
+  content:"";
+  display:block;
+  pointer-events:none;
+  position:absolute;
+  z-index:0;
+  width:170px;
+  height:255px;
+  border:1px solid rgba(186,149,91,.09);
+  border-radius:47% 53% 60% 40%;
+  background:radial-gradient(ellipse,rgba(218,190,142,.035),transparent 70%);
+}
+.ingredient-main>.ingredient-product-surface::before{top:90px;right:-120px;transform:rotate(-25deg)}
+.ingredient-main>.ingredient-product-surface::after{bottom:125px;left:-117px;transform:rotate(28deg)}
+.ingredient-main>.ingredient-product-surface>.catalog,
+.ingredient-main>.ingredient-product-surface>.partners{
+  position:relative;z-index:1;background:transparent;
+  max-width:1240px;width:100%;margin:0 auto;
+  border:0;box-shadow:none;
+}
+.ingredient-main>.ingredient-product-surface>.catalog::before,
+.ingredient-main>.ingredient-product-surface>.catalog::after{display:none}
+.ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog{
+  padding:0 clamp(20px,4.6vw,64px) 0;
+}
+.ingredient-main>.ingredient-product-surface>.partners{
+  border-top:0!important;
+  margin:0 auto;
+  padding:62px clamp(20px,4.6vw,64px) 0;
+}
+.ingredient-main>.ingredient-product-surface>.catalog .section-heading{
+  max-width:720px;margin:0 auto 31px;
+}
+.ingredient-main>.ingredient-product-surface>.partners .section-heading{
+  max-width:700px;margin:0 auto 27px;
+}
+.ingredient-main>.ingredient-product-surface>.partners .section-heading h2{
+  font-size:clamp(24px,2.2vw,32px);
+}
+.ingredient-main>.ingredient-product-surface .section-heading p{
+  max-width:660px;margin-inline:auto;line-height:2;
+}
+.ingredient-product-surface .glucose-tomato-grid{
+  width:100%;max-width:1020px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;gap:22px;
+}
+.ingredient-product-surface .glucose-tomato-grid>.text-product-card:last-child{
+  grid-column:auto;max-width:none;width:auto;justify-self:stretch;
+}
+.ingredient-product-surface .glucose-tomato-grid .text-product-card{
+  height:100%;min-width:0;
+  background:rgba(255,255,255,.96);
+  border-color:#e8d9bf;
+  box-shadow:0 14px 36px rgba(18,48,87,.068);
+}
+.ingredient-product-surface .glucose-tomato-grid .text-product-card:hover,
+.ingredient-product-surface .glucose-tomato-grid .text-product-card:focus-within{
+  transform:translateY(-5px);
+  box-shadow:0 21px 42px rgba(18,48,87,.11);
+}
+.ingredient-product-surface .glucose-tomato-grid .text-product-intro{
+  min-height:81px;margin-bottom:18px;
+}
+.ingredient-product-surface .text-product-options{gap:12px}
+.ingredient-product-surface .glucose-analysis-status{margin:23px auto 0;max-width:740px}
+.ingredient-product-surface>.partners .partner-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  justify-content:center;
+  gap:17px;max-width:930px;width:100%;margin:0 auto;
+}
+.ingredient-product-surface>.partners .partner-logo{
+  box-sizing:border-box;
+  min-width:0;height:116px;padding:16px;
+  display:grid;place-items:center;
+  border-radius:18px;border:1px solid #eadfcf;
+  background:rgba(255,255,255,.91);
+  box-shadow:0 10px 25px rgba(18,48,87,.055);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+.ingredient-product-surface>.partners .partner-logo:hover{
+  transform:translateY(-5px);
+  border-color:#d4b47f;
+  box-shadow:0 15px 30px rgba(18,48,87,.105);
+}
+.ingredient-product-surface>.partners .partner-logo img{
+  display:block;width:auto;height:auto;max-width:90%;max-height:78px;
+  object-fit:contain;
+}
+@media(min-width:761px) and (max-width:920px){
+  .ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog,
+  .ingredient-main>.ingredient-product-surface>.partners{padding-inline:27px}
+  .ingredient-product-surface .glucose-tomato-grid{gap:16px}
+  .ingredient-product-surface .glucose-tomato-grid .text-product-card{padding:22px 19px}
+}
+@media(max-width:760px){
+  .ingredient-main>.ingredient-product-surface{padding:43px 0 60px}
+  .ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog,
+  .ingredient-main>.ingredient-product-surface>.partners{padding-right:18px;padding-left:18px}
+  .ingredient-main>.ingredient-product-surface>.partners{padding-top:44px}
+  .ingredient-product-surface .glucose-tomato-grid{grid-template-columns:minmax(0,1fr);max-width:540px;gap:18px}
+  .ingredient-product-surface .glucose-tomato-grid .text-product-intro{min-height:0}
+  .ingredient-product-surface>.partners .partner-grid{max-width:540px;gap:10px}
+  .ingredient-product-surface>.partners .partner-logo{height:92px;padding:10px;border-radius:14px}
+  .ingredient-product-surface>.partners .partner-logo img{max-height:64px}
+}
+@media(max-width:480px){
+  .ingredient-main>.ingredient-product-surface{padding:37px 0 53px}
+  .ingredient-main>.ingredient-product-surface>.glucose-tomato-catalog,
+  .ingredient-main>.ingredient-product-surface>.partners{padding-right:15px;padding-left:15px}
+  .ingredient-main>.ingredient-product-surface>.partners{padding-top:38px}
+  .ingredient-product-surface>.partners .partner-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:440px;
+  }
+  .ingredient-product-surface>.partners .partner-logo{height:83px;padding:7px;border-radius:12px}
+  .ingredient-product-surface>.partners .partner-logo img{max-width:93%;max-height:54px}
+  .ingredient-main>.ingredient-product-surface>.partners .section-heading{margin-bottom:22px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ingredient-product-surface>.partners .partner-logo{transition:none}
+}
 
 </style>
 </head>
