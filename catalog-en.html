@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ELVEN | English Product Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--dark:#004231;--deep:#002e25;--gold:#cba261;--muted:#5e726a;--line:#e1e8e4}
+body{margin:0;background:#eff3f0;color:#152820;font-family:'Poppins',Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:center;gap:12px;padding:12px;background:#eef2ef;border-bottom:1px solid #d9e3dd}
+.toolbar button,.toolbar a{font-family:inherit;border:0;border-radius:9px;background:var(--dark);color:white;padding:9px 17px;font-size:12px;font-weight:700;cursor:pointer}
+.toolbar a{background:#d6bc8b;color:#122b21}
+.sheet{width:min(100%,920px);margin:24px auto 40px;background:white;box-shadow:0 18px 60px rgba(0,33,20,.12);overflow:hidden}
+.cover{padding:52px 54px 38px;background:linear-gradient(130deg,#003f30,#002720);color:white;position:relative}
+.cover::after{content:"";position:absolute;right:-80px;top:-120px;width:320px;height:320px;border:1px solid rgba(224,182,101,.22);border-radius:50%;box-shadow:0 0 0 45px rgba(224,182,101,.03),0 0 0 90px rgba(224,182,101,.03)}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;z-index:1}
+.brand{font:700 30px 'Poppins',Arial,sans-serif;letter-spacing:3px;color:#f0c47a;direction:ltr}
+.brand small{display:block;font-size:10px;color:#e9eee8;letter-spacing:2px}
+.category{font:12px 'Poppins',Arial,sans-serif;color:#c3d6cb;letter-spacing:1.5px;direction:ltr;text-align:right}
+.cover h1{font-size:clamp(29px,4.5vw,45px);line-height:1.6;margin:50px 0 10px;position:relative;z-index:1}
+.cover p{font-size:14px;line-height:2.15;color:#e0eae2;max-width:660px;margin:0 0 25px}
+.line{display:block;background:var(--gold);width:75px;height:4px;border-radius:6px}
+.content{padding:34px 54px}
+.section-head{display:flex;gap:15px;align-items:center;margin:0 0 24px}
+.section-head b{height:2px;width:27px;background:var(--gold)}
+.section-head h2{font-size:23px;margin:0}
+.items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.product{position:relative;min-height:176px;padding:18px 18px 17px;border:1px solid #e3ebe5;border-radius:12px;background:linear-gradient(160deg,#fff,#f8faf8);break-inside:avoid;display:flex;flex-direction:column;gap:12px}
+.num{color:#bc9c63;font:800 12px 'Poppins',Arial,sans-serif}
+.product h3{font-size:16px;margin:0 0 9px;color:var(--dark)}
+.product p{font-size:11px;line-height:2.1;margin:0;color:#53685f}
+.note{margin:25px 0 0;padding:15px 18px;border-radius:10px;background:#f5f8f5;border-inline-start:3px solid var(--gold);font-size:11px;line-height:2;color:#53665c}
+.contact{padding:24px 54px;background:#edf4ee;border-top:1px solid #d7e3da}
+.contact h2{color:var(--dark);font-size:19px;margin:0 0 11px}
+.contact p{font-size:12px;line-height:2;color:#456257;margin:0}
+.contact .email{font:600 13px 'Poppins',Arial,sans-serif;direction:ltr;display:inline-block;margin-top:6px}
+.footer{background:var(--deep);color:#e6eee7;padding:13px 54px;display:flex;justify-content:space-between;gap:8px;font:11px 'Poppins',Arial,sans-serif}
+@media(max-width:660px){.sheet{margin:0 auto}.cover{padding:35px 22px}.content{padding:26px 20px}.contact{padding:22px}.items{grid-template-columns:repeat(2,minmax(0,1fr))}.product{min-height:170px}.footer{padding-inline:20px}}
+@media(max-width:420px){.items{grid-template-columns:1fr}.product{min-height:0}}
+@media print{
+ @page{size:A4;margin:10mm}
+ body{background:white;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .toolbar{display:none!important}
+ .sheet{width:100%;margin:0;box-shadow:none}
+ .cover{padding:32px 34px 26px}
+ .cover h1{margin-top:25px;font-size:33px}
+ .cover p{font-size:11px;margin-bottom:11px}
+ .content{padding:20px 34px}
+ .section-head{margin-bottom:14px}
+ .section-head h2{font-size:19px}
+ .items{gap:9px}
+ .product{min-height:139px;padding:12px}
+ .product h3{font-size:13px;margin-bottom:5px}
+ .product p{font-size:9px;line-height:1.75}
+ .note{margin-top:13px;padding:10px;font-size:9px}
+ .contact{padding:15px 34px}
+ .contact h2{font-size:16px}
+ .contact p{font-size:10px}
+ .footer{padding:10px 34px}
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+<a href="contact.html">Back to Contact</a>
+<button type="button" onclick="window.print()">Save / Print as PDF</button>
+<a href="catalog-en.html" download="ELVEN-Product-Catalog-EN.html">Download catalog file</a>
+</div>
+<main class="sheet">
+ <header class="cover">
+  <div class="topline"><div class="brand">ELVEN<small>Export Company</small></div><div class="category">PRODUCT CATALOG · 2026</div></div>
+  <h1>Food Products Catalog</h1>
+  <p>An overview of product categories for sourcing and international trade. Contact our team for brands, grades, technical specifications, and order conditions.</p>
+  <span class="line"></span>
+ </header>
+ <section class="content">
+  <div class="section-head"><b></b><h2>Product Categories</h2></div>
+  <div class="items"><article class="product"><span class="num">01</span><div><h3>Yeast</h3><p>Yeast products for bakery and food production; brands and specifications upon request.</p></div></article>
+<article class="product"><span class="num">02</span><div><h3>Pasta</h3><p>Pasta varieties and packaging options; specifications upon request.</p></div></article>
+<article class="product"><span class="num">03</span><div><h3>Tomato Paste</h3><p>Tomato paste in multiple packaging formats; analysis upon request.</p></div></article>
+<article class="product"><span class="num">04</span><div><h3>Milk Powder</h3><p>Milk powder and dairy ingredients; grade and supply terms upon request.</p></div></article>
+<article class="product"><span class="num">05</span><div><h3>Beverages</h3><p>Beverage products; brands and availability upon request.</p></div></article>
+<article class="product"><span class="num">06</span><div><h3>Sugar</h3><p>Sugar sourcing and brands; packaging details upon request.</p></div></article>
+<article class="product"><span class="num">07</span><div><h3>Canned Foods</h3><p>Canned food categories; varieties and packaging upon request.</p></div></article>
+<article class="product"><span class="num">08</span><div><h3>Baking Soda</h3><p>Sodium bicarbonate for permitted food-industry use; details upon request.</p></div></article>
+<article class="product"><span class="num">09</span><div><h3>Glucose & Starch</h3><p>Corn- or wheat-based glucose and starch; grades upon request.</p></div></article></div>
+  <p class="note">This is a general product overview. Specifications, stock, pricing, brands, and technical documents are confirmed only after inquiry.</p>
+ </section>
+ <section class="contact"><h2>Request More Information</h2><p>Contact our sales team for quotes, analysis documents, and packaging information.</p><a class="email" href="mailto:info@mohajer-food.com">info@mohajer-food.com</a></section>
+ <footer class="footer"><span>ELVEN · Export Company</span><span>mohajer-foodstuff.com</span></footer>
+</main>
+</body></html>
