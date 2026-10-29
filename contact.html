@@ -241,6 +241,67 @@ body{background:#f4f6f8}
   .values-strip{padding:16px 12px}
 }
 
+
+/* Responsive contact-page redesign: flowing grid prevents the form overlapping the cards. */
+.hero-shell{min-height:0;background:radial-gradient(circle at 12% 38%,rgba(22,114,89,.24),transparent 39%),linear-gradient(112deg,#031b17,#00362a 60%,#064435)}
+.hero-content{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(32px,5vw,85px);max-width:1420px;min-height:0;padding:clamp(128px,10vw,156px) clamp(30px,6vw,90px) clamp(65px,6vw,96px);direction:rtl}
+.hero-content .intro-panel,.hero-content .form-card{position:relative;inset:auto;top:auto;left:auto;right:auto;bottom:auto;transform:none;margin:0;width:100%;max-width:none}
+.hero-content .intro-panel{z-index:2;text-align:right;direction:rtl;padding:12px 0}
+.intro-panel h1{font-size:clamp(32px,3.55vw,54px);line-height:1.55;white-space:normal}
+.intro-panel p{max-width:490px;line-height:2}
+.intro-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:32px}
+.intro-action{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 16px;border:1px solid rgba(230,199,143,.35);background:rgba(255,255,255,.07);color:#f8fcfa;font-size:12px;font-weight:700;border-radius:13px;backdrop-filter:blur(10px);transition:background .25s,transform .25s,border-color .25s}
+.intro-action svg{color:#dec391;flex:none}
+.intro-action:hover{background:rgba(255,255,255,.16);border-color:#c9a35a;transform:translateY(-3px)}
+.hero-content .form-card{z-index:3;padding:clamp(24px,2.7vw,40px);min-height:0;border:1px solid rgba(201,163,90,.5);border-radius:24px;background:linear-gradient(144deg,rgba(255,255,255,.99),rgba(245,250,247,.98));box-shadow:0 28px 72px rgba(0,18,14,.22),0 0 38px rgba(201,163,90,.09);animation:formBreath 7s ease-in-out infinite}
+@property --frame-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+.form-card::before{content:"";position:absolute;inset:-2px;border-radius:26px;padding:2px;background:conic-gradient(from var(--frame-angle),transparent 0deg,transparent 66deg,#c9a35a 108deg,#f1d39b 135deg,#0a7d5d 165deg,transparent 205deg,transparent 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;pointer-events:none;z-index:1;animation:frameRotate 9s linear infinite}
+@keyframes frameRotate{to{--frame-angle:360deg}}
+@keyframes formBreath{0%,100%{box-shadow:0 28px 72px rgba(0,18,14,.22),0 0 35px rgba(201,163,90,.06)}50%{box-shadow:0 30px 80px rgba(0,18,14,.24),0 0 44px rgba(201,163,90,.15)}}
+.form-head .eyebrow{color:#668476;font-size:10px;letter-spacing:1.8px}
+.form-head h2{font-size:clamp(24px,2.3vw,31px);color:#0d382a}
+.form-head h2::after{background:linear-gradient(90deg,#c9a35a,#0a5c46);border-radius:3px}
+.form-head p{font-size:12px;color:#61736a}
+.fields{gap:14px}
+.field{min-height:54px;padding:0 14px;border:1px solid #d8e5dd;border-radius:13px;background:#fbfdfb;box-shadow:0 2px 10px rgba(10,58,44,.025);transition:border-color .25s,box-shadow .25s,background .25s,transform .25s}
+.field svg{color:#0a7757;width:18px;height:18px}
+.field:hover{border-color:#a3c8b5;background:#fff;transform:translateY(-1px)}
+.field:focus-within{border-color:#0a7959;box-shadow:0 0 0 4px rgba(10,92,70,.095),0 7px 20px rgba(10,58,44,.06);background:#fff}
+.field input,.field textarea{font-size:12px;color:#173c2e}
+.field input[dir="ltr"]{text-align:left}
+.field input::placeholder,.field textarea::placeholder{color:#73857b}
+.field.textarea{min-height:116px;height:auto;padding-top:14px}
+.field textarea{height:96px;min-height:88px}
+.send-btn{min-height:60px;margin-top:6px;overflow:hidden;background:linear-gradient(115deg,#07503d,#0a7255,#07503d);background-size:200% 100%;border-radius:14px;box-shadow:0 13px 28px rgba(7,80,61,.22);transition:background-position .45s,transform .25s,box-shadow .25s}
+.send-btn::before{content:"";position:absolute;top:0;bottom:0;width:95px;right:-120px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.19),transparent);transform:skewX(-20deg);transition:right .6s ease;pointer-events:none}
+.send-btn:hover{background-position:100% 0;transform:translateY(-2px);box-shadow:0 18px 35px rgba(7,80,61,.29)}
+.send-btn:hover::before{right:115%}
+.send-btn .send-icon{background:#e3bf7c;transition:transform .25s,background .25s}
+.send-btn:hover .send-icon{transform:translateX(-3px);background:#f2d69d}
+.form-notice{font-size:11px;line-height:1.95}
+.port-art{width:42%;opacity:.38;filter:saturate(.82)}
+.info-section{margin-top:0;border-radius:0;padding:clamp(28px,4vw,55px) clamp(18px,4vw,65px) clamp(25px,4vw,48px);box-shadow:none;background:#f4f6f8}
+.info-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1320px;min-height:0}
+.info-tile{min-height:170px;padding:18px 14px;gap:11px;border:1px solid #e4ebe7;border-radius:17px;box-shadow:0 8px 28px rgba(10,58,44,.04);transition:transform .3s,box-shadow .3s,border-color .3s}
+.info-tile:hover{transform:translateY(-4px);border-color:#c8ded1;box-shadow:0 16px 34px rgba(10,58,44,.09)}
+.info-tile.hot{background:linear-gradient(130deg,#0a5c46,#053e30)}
+.info-tile h3{font-size:14px}
+.info-tile p{font-size:12px;line-height:1.95}
+.info-tile a[dir="ltr"]{display:inline-block;unicode-bidi:isolate}
+.map-tile,.company-photo-tile{grid-column:span 2;min-height:270px;border-radius:18px;border:1px solid #dce7e0;box-shadow:0 8px 28px rgba(10,58,44,.05)}
+.map-tile .map-link{margin:12px;border-radius:11px;padding:12px 16px;box-shadow:0 8px 18px rgba(0,28,20,.26)}
+.company-photo-tile span{font-size:13px;padding:18px}
+.values-strip{padding-top:4px;padding-bottom:28px}
+.catalog-cta{border-color:#dce9df;box-shadow:0 9px 28px rgba(10,58,44,.065)}
+.catalog-cta .open-catalog{transition:transform .25s,background .25s}
+.catalog-cta .open-catalog:hover{transform:rotate(-15deg) scale(1.05);background:#f0cc88}
+#contactInfo{scroll-margin-top:24px}
+@media(max-width:1120px){.hero-content{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:30px;padding-inline:30px}.hero-content .form-card{padding:25px}.intro-panel h1{font-size:clamp(30px,3.3vw,43px)}}
+@media(max-width:950px){.hero-content{display:flex;flex-direction:column;align-items:stretch;gap:32px;padding:126px 25px 55px}.hero-content .intro-panel{max-width:680px;margin:auto;padding:0}.hero-content .form-card{max-width:680px;margin:auto;padding:clamp(23px,5vw,36px)}.intro-panel h1{font-size:clamp(30px,5vw,48px)}.intro-panel p{max-width:650px}.port-art{width:100%;opacity:.2}.info-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.map-tile,.company-photo-tile{grid-column:span 1}}
+@media(max-width:850px){.hero-content{display:flex;flex-direction:column;gap:27px;padding:35px 18px 48px}.hero-content .intro-panel{text-align:right}.hero-content .intro-panel h1{text-align:right}.gold-rule{margin:0}.info-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.map-tile,.company-photo-tile{grid-column:span 2}}
+@media(max-width:600px){.hero-content{padding:32px 14px 40px;gap:25px}.intro-panel h1{font-size:clamp(28px,7.3vw,38px);white-space:normal}.intro-panel p{font-size:13px;line-height:1.95;margin-bottom:20px}.intro-actions{margin-top:22px;gap:9px}.intro-action{padding:10px 12px;font-size:11px}.hero-content .form-card{padding:24px 17px;border-radius:20px}.form-card::before{border-radius:22px}.fields{grid-template-columns:1fr;gap:12px}.info-section{padding:22px 12px 28px}.info-grid{gap:11px}.info-tile{min-height:160px;padding:14px 9px}.info-tile h3{font-size:12px}.info-tile p{font-size:10.5px}.map-tile,.company-photo-tile{grid-column:span 2;min-height:240px}.map-tile .map-link{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.form-card,.form-card::before{animation:none!important}.intro-action,.field,.send-btn,.info-tile{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -269,20 +330,22 @@ body{background:#f4f6f8}
       <h1>با ما در <em>ارتباط</em> باشید</h1>
       <p>ما آماده همکاری با شما در زمینه صادرات و تأمین محصولات غذایی با کیفیت به سراسر جهان هستیم.</p>
       <span class="gold-rule" aria-hidden="true"></span>
+      <div class="intro-actions">
+        <a class="intro-action" href="tel:+989153028367" aria-label="تماس تلفنی با بازرگانی مهاجر"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.68A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.98.35 1.95.69 2.87a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.21-1.26a2 2 0 0 1 2.11-.45c.92.34 1.89.57 2.87.69A2 2 0 0 1 22 16.9Z"/></svg>تماس مستقیم</a>
+        <a class="intro-action" href="#contactInfo"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>آدرس و موقعیت ما</a>
+      </div>
     </div>
     <section class="form-card" aria-labelledby="formTitle">
       <div class="form-head">
         <div class="eyebrow">CONTACT US</div>
         <h2 id="formTitle">ارسال پیام به ما</h2>
-        <p>فرم زیر را تکمیل کنید تا کارشناسان ما در سریع‌ترین زمان با شما تماس بگیرند.</p>
+        <p>مشخصات و پیام خود را بنویسید تا ایمیل شما برای ارسال به تیم ما آماده شود.</p>
       </div>
       <form id="contactForm">
         <div class="fields">
           <label class="field"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 21v-2a7.5 7.5 0 0 1 15 0v2"/></svg><input name="fullName" type="text" autocomplete="name" placeholder="نام و نام خانوادگی *" aria-label="نام و نام خانوادگی" required maxlength="100"></label>
           <label class="field"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><input name="email" type="email" autocomplete="email" placeholder="ایمیل *" aria-label="ایمیل" required maxlength="180" dir="ltr"></label>
-          <label class="field"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.68A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.98.35 1.95.69 2.87a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.21-1.26a2 2 0 0 1 2.11-.45c.92.34 1.89.57 2.87.69A2 2 0 0 1 22 16.9Z"/></svg><input name="phone" type="tel" autocomplete="tel" placeholder="شماره تماس *" aria-label="شماره تماس" required maxlength="35" dir="ltr"></label>
-          <label class="field"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18"/></svg><select name="country" aria-label="کشور مقصد" required><option value="" selected disabled>کشور مقصد *</option><option>ایران</option><option>امارات متحده عربی</option><option>عراق</option><option>افغانستان</option><option>ترکیه</option><option>سایر کشورها</option></select><span class="chev">⌄</span></label>
-          <label class="field full"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h8l5 5v15H6zM14 2v5h5M9 12h7m-7 4h7"/></svg><select name="topic" aria-label="موضوع درخواست" required><option value="" selected disabled>موضوع درخواست *</option><option>استعلام قیمت</option><option>همکاری در صادرات</option><option>درخواست کاتالوگ</option><option>مشاوره تأمین محصولات غذایی</option><option>سایر</option></select><span class="chev">⌄</span></label>
+          <label class="field full"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.68A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.98.35 1.95.69 2.87a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.21-1.26a2 2 0 0 1 2.11-.45c.92.34 1.89.57 2.87.69A2 2 0 0 1 22 16.9Z"/></svg><input name="phone" type="tel" autocomplete="tel" placeholder="شماره تماس *" aria-label="شماره تماس" required maxlength="35" dir="ltr"></label>
           <label class="field full textarea"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><textarea name="message" placeholder="توضیحات و پیام شما *" aria-label="توضیحات و پیام شما" required maxlength="1800"></textarea></label>
           <button class="send-btn" type="submit">ارسال پیام<span class="send-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
         </div>
@@ -292,7 +355,7 @@ body{background:#f4f6f8}
   </div>
 </section>
 
-<section class="info-section" aria-label="اطلاعات تماس">
+<section class="info-section" id="contactInfo" aria-label="اطلاعات تماس">
   <div class="info-grid">
     <div class="info-tile hot">
       <div class="ico"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.68A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.98.35 1.95.69 2.87a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.21-1.26a2 2 0 0 1 2.11-.45c.92.34 1.89.57 2.87.69A2 2 0 0 1 22 16.9Z"/></svg></div><h3>تماس با ما</h3>
@@ -308,8 +371,8 @@ body{background:#f4f6f8}
       <div class="ico"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>ساعات کاری</h3><p>شنبه تا پنج‌شنبه<br>۸:۰۰ تا ۱۷:۰۰</p>
     </div>
     <div class="map-tile">
-      <iframe title="نقشه دفتر مرکزی در مشهد" src="https://maps.google.com/maps?q=%D9%85%D8%B4%D9%87%D8%AF%D8%8C%20%D9%85%DB%8C%D8%AF%D8%A7%D9%86%20%D8%AC%D8%A7%D9%86%D8%A8%D8%A7%D8%B2%D8%8C%20%D9%BE%D8%A7%DA%98%20%D8%A7%D8%AF%D8%A7%D8%B1%DB%8C%20%DB%B2%D8%8C%20%D8%B7%D8%A8%D9%82%D9%87%20%DB%B3%D8%8C%20%D9%88%D8%A7%D8%AD%D8%AF%20%DB%B3%DB%B1%DB%B3&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <a class="map-link" href="https://maps.app.goo.gl/mh4U4WVArxht12z68" target="_blank" rel="noopener noreferrer">موقعیت دقیق در گوگل‌مپ <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      <iframe title="نقشه دفتر مرکزی در مشهد" src="https://maps.google.com/maps?output=embed&amp;hl=fa&amp;q=%D9%85%D8%AC%D8%AA%D9%85%D8%B9%20%D8%AA%D8%AC%D8%A7%D8%B1%DB%8C%20%D8%A7%D8%AF%D8%A7%D8%B1%DB%8C%20%D9%BE%D8%A7%DA%98%20%DB%B2%20%D9%85%DB%8C%D8%AF%D8%A7%D9%86%20%D8%AC%D8%A7%D9%86%D8%A8%D8%A7%D8%B2%20%D9%85%D8%B4%D9%87%D8%AF&amp;z=17" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="map-link" href="https://maps.app.goo.gl/mh4U4WVArxht12z68" target="_blank" rel="noopener noreferrer">نمایش موقعیت دقیق در گوگل‌مپ <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
     </div>
     <div class="company-photo-tile">
       <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793264333/62b69d67-e2f2-4899-8754-e228f1e50b17_a5xy7e.png" alt="تصویر شرکت بازرگانی مهاجر" loading="lazy" decoding="async">
@@ -353,8 +416,8 @@ body{background:#f4f6f8}
     event.preventDefault();
     if(!this.reportValidity())return;
     const f=new FormData(this);
-    const subject='درخواست تماس / '+f.get('topic');
-    const lines=['نام: '+f.get('fullName'),'ایمیل: '+f.get('email'),'شماره تماس: '+f.get('phone'),'کشور مقصد: '+f.get('country'),'موضوع: '+f.get('topic'),'','پیام:',f.get('message')];
+    const subject='درخواست تماس از وب‌سایت بازرگانی مهاجر';
+    const lines=['نام و نام خانوادگی: '+f.get('fullName'),'ایمیل: '+f.get('email'),'شماره تماس: '+f.get('phone'),'','پیام:',f.get('message')];
     document.getElementById('formNotice').textContent='برنامه ایمیل برای ارسال پیام آماده می‌شود. لطفاً ارسال ایمیل را در برنامه خود تأیید کنید.';
     location.href='mailto:info@mohajer-food.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
   });
