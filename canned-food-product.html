@@ -638,9 +638,9 @@ main>.catalog::after{display:none}
   }
   .canned-main .canned-mobile-hero-copy {
     position:absolute;
-    top:7.5%;
-    left:2.2%;
-    right:2.2%;
+    top:14%;
+    left:2.5%;
+    right:2.5%;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -652,10 +652,10 @@ main>.catalog::after{display:none}
     position:relative;
     margin:0;
     display:inline-block;
-    font-size:clamp(38px,10.9vw,66px);
+    font-size:clamp(42px,12.7vw,76px);
     font-weight:900;
     letter-spacing:-1.7px;
-    line-height:1.29;
+    line-height:1.18;
     white-space:nowrap;
     color:#003f2a;
     text-shadow:0 2px 1px rgba(255,255,255,.18);
@@ -667,15 +667,15 @@ main>.catalog::after{display:none}
     width:clamp(19px,5.8vw,34px);
     height:auto;
     top:1%;
-    left:44%;
+    left:62%;
     transform:translate(-50%,-17%);
     overflow:visible;
     pointer-events:none;
     filter:drop-shadow(0 1px 1px rgba(0,55,20,.09));
   }
   .canned-main > .canned-hero .canned-mobile-hero-subtitle {
-    margin:clamp(4px,.85vw,8px) 0 0;
-    font-size:clamp(14px,4.0vw,23px);
+    margin:clamp(8px,2.2vw,15px) 0 0;
+    font-size:clamp(16px,5vw,30px);
     font-weight:900;
     letter-spacing:-.5px;
     line-height:1.5;
@@ -683,22 +683,25 @@ main>.catalog::after{display:none}
     color:#ae721f;
   }
   .canned-main .canned-mobile-hero-lead {
-    max-width:98%;
-    margin:clamp(4px,1vw,9px) 0 0;
-    font-size:clamp(9px,2.45vw,15px);
+    max-width:96%;
+    margin:clamp(9px,2.1vw,14px) 0 0;
+    font-size:clamp(10px,2.85vw,17px);
     font-weight:750;
-    line-height:1.55;
+    line-height:1.68;
     color:#385371;
   }
   .canned-main .canned-mobile-hero-ctas {
     position:absolute;
     bottom:5.7%;
-    left:0;
-    right:0;
-    display:flex;
+    left:50%;
+    right:auto;
+    width:50%;
+    transform:translateX(-50%);
+    display:grid;
+    grid-template-columns:minmax(0,1fr) clamp(40px,9.2vw,64px);
     align-items:center;
     justify-content:center;
-    gap:clamp(9px,2.4vw,21px);
+    gap:clamp(8px,2.1vw,15px);
     pointer-events:auto;
     direction:ltr;
   }
@@ -707,30 +710,32 @@ main>.catalog::after{display:none}
     justify-content:center;
     align-items:center;
     gap:clamp(8px,1.8vw,16px);
-    width:39%;
+    width:100%;
     min-width:0;
-    min-height:clamp(43px,8.9vw,70px);
+    min-height:clamp(42px,9.4vw,68px);
     padding:5px 8px;
     border-radius:999px;
     background:linear-gradient(115deg,#073f2a,#005332);
     color:white;
     text-decoration:none;
     box-shadow:0 10px 22px rgba(3,48,30,.2);
-    font-size:clamp(13px,3.3vw,27px);
+    font-size:clamp(14px,4.1vw,25px);
     font-weight:900;
     line-height:1.25;
     white-space:nowrap;
+    text-align:center;
   }
   .canned-main .canned-mobile-hero-inquiry .ico {
-    width:clamp(17px,3.5vw,28px);
-    height:clamp(17px,3.5vw,28px);
+    width:clamp(17px,3.4vw,26px);
+    height:clamp(17px,3.4vw,26px);
+    transform:rotate(180deg);
   }
   .canned-main .canned-mobile-hero-products {
     display:grid;
     place-items:center;
     flex:none;
-    width:clamp(42px,9.3vw,75px);
-    height:clamp(42px,9.3vw,75px);
+    width:clamp(40px,9.2vw,64px);
+    height:clamp(40px,9.2vw,64px);
     border:1px solid #c8934c;
     border-radius:50%;
     background:#fff8e9;
@@ -749,23 +754,23 @@ main>.catalog::after{display:none}
   }
 }
 @media (max-width:390px) {
-  .canned-main .canned-mobile-hero-copy {top:7.4%;left:2.7%;right:2.7%}
+  .canned-main .canned-mobile-hero-copy {top:14%;left:2.7%;right:2.7%}
   .canned-main > .canned-hero .canned-mobile-hero-title {
-    font-size:clamp(32px,10.6vw,42px);
+    font-size:clamp(38px,12.7vw,50px);
     margin-top:0;
   }
   .canned-main > .canned-hero .canned-mobile-hero-subtitle {
-    font-size:clamp(13px,3.85vw,16px);
-    margin-top:4px;
+    font-size:clamp(15px,4.9vw,20px);
+    margin-top:7px;
   }
   .canned-main .canned-mobile-hero-lead {
     max-width:98%;
-    font-size:clamp(9px,2.45vw,10px);
-    line-height:1.5;
-    margin-top:4px;
+    font-size:clamp(10px,2.8vw,11px);
+    line-height:1.65;
+    margin-top:7px;
   }
   .canned-main .canned-mobile-hero-ctas {bottom:5%}
-  .canned-main .canned-mobile-hero-inquiry {width:46%;font-size:13px}
+  .canned-main .canned-mobile-hero-inquiry {font-size:clamp(13px,4.1vw,16px)}
 }
 @media (min-width:601px) {
   .canned-mobile-hero-overlay {display:none !important}
@@ -830,7 +835,7 @@ main>.catalog::after{display:none}
     <div class="canned-mobile-hero-copy">
       <h1 class="canned-mobile-hero-title">کنسروجات<svg class="canned-mobile-hero-sprout" viewBox="0 0 48 36" fill="none" aria-hidden="true" focusable="false"><path d="M23 34c0-11 0-16-3-22" stroke="#087b34" stroke-width="3" stroke-linecap="round"/><path d="M21 21C11 21 5 14 5 3c10 1 17 7 16 18Z" fill="#00a54d"/><path d="M25 19C24 8 32 3 44 3c-1 11-8 18-19 16Z" fill="#009947"/><path d="M23 30c0-8 4-13 12-20" stroke="#006a35" stroke-width="2" stroke-linecap="round"/></svg></h1>
       <h2 class="canned-mobile-hero-subtitle">طعم واقعی، همیشه در دسترس شما</h2>
-      <p class="canned-mobile-hero-lead">مجموعه‌ای از برندهای معتبر کنسروجات با کیفیت عالی، برای وعده‌های خوشمزه و سریع.</p>
+      <p class="canned-mobile-hero-lead">مجموعه‌ای از برندهای معتبر کنسروجات با کیفیت عالی،<br>برای وعده‌های خوشمزه و سریع.</p>
     </div>
     <div class="canned-mobile-hero-ctas">
       <a class="canned-mobile-hero-inquiry" href="contact.html"><svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>استعلام قیمت</a>
