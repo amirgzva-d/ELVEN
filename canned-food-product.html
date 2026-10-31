@@ -468,6 +468,137 @@ main>.catalog::after{display:none}
 }
 @media(prefers-reduced-motion:reduce){.canned-category-panel{animation:none}.canned-category-tab{transition:none}}
 
+
+/* ELVEN CANNED MOBILE TWO-COLUMN REFERENCE 2026-10-31 */
+/* Mobile-only layout matched to the supplied reference:
+   RTL two-up catalog, 13:8 edge-to-edge product photos, compact white cards,
+   blue/gold category pills. Do not alter desktop sections or product data. */
+@media (max-width: 600px) {
+  .canned-product-surface > .catalog.canned-overview {
+    padding: 29px 15px 42px;
+  }
+  .canned-overview .section-heading {
+    text-align: center;
+  }
+  .canned-category-switch {
+    width: min(100%, 342px);
+    max-width: 342px;
+    gap: 10px;
+    flex-wrap: nowrap;
+    margin: 27px auto 0;
+  }
+  .canned-category-tab {
+    min-width: 0;
+    min-height: 44px;
+    height: 44px;
+    flex: 1 1 0;
+    padding: 8px 9px;
+    gap: 7px;
+    border-radius: 999px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .canned-category-tab svg {
+    width: 17px;
+    height: 17px;
+  }
+  .canned-category-panel .canned-type-grid {
+    display: grid;
+    width: 100%;
+    max-width: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 28px auto 0;
+    align-items: stretch;
+  }
+  .canned-category-panel .canned-type-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    border-radius: 17px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(13, 43, 91, .08);
+  }
+  .canned-category-panel .canned-type-photo {
+    width: 100%;
+    height: auto;
+    flex: 0 0 auto;
+    aspect-ratio: 13 / 8;
+    overflow: hidden;
+  }
+  .canned-category-panel .canned-type-photo > img,
+  .canned-category-panel .canned-type-card .canned-type-photo.elven-card-photo-fit > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: none;
+  }
+  /* Neutralize the site's global contain/washed-backdrop helper on these
+     product photos only; the actual original photos stay unchanged. */
+  .canned-category-panel .canned-type-card .canned-type-photo.elven-card-photo-fit {
+    background-image: none !important;
+  }
+  .canned-category-panel .canned-type-card:hover {
+    transform: none;
+  }
+  .canned-category-panel .canned-type-card:hover .canned-type-photo > img {
+    transform: none;
+  }
+  .canned-category-panel .canned-type-copy {
+    flex: 1;
+    min-width: 0;
+    min-height: 184px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: right;
+  }
+  .canned-category-panel .canned-type-kicker {
+    font-size: 9px;
+    line-height: 1.7;
+  }
+  .canned-category-panel .canned-type-copy h3 {
+    font-size: clamp(14px, 3.15vw, 17px);
+    line-height: 1.65;
+    margin: 5px 0 7px;
+  }
+  .canned-category-panel .canned-type-copy p {
+    font-size: 10px;
+    line-height: 1.8;
+    min-height: 0;
+    margin: 0 0 16px;
+    overflow-wrap: anywhere;
+  }
+  .canned-category-panel .canned-type-copy a {
+    margin-top: auto;
+    font-size: 10px;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .canned-category-panel .canned-type-copy a .ico {
+    width: 13px;
+    height: 13px;
+  }
+  .canned-category-panel .canned-cards-note {
+    padding-inline: 5px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .canned-product-surface > .catalog.canned-overview { padding-inline: 11px; }
+  .canned-category-panel .canned-type-grid { gap: 10px; }
+  .canned-category-panel .canned-type-copy { padding: 11px; min-height: 188px; }
+  .canned-category-panel .canned-type-copy h3 { font-size: 14px; }
+  .canned-category-panel .canned-type-kicker { font-size: 8px; }
+  .canned-category-panel .canned-type-copy a { font-size: 9px; }
+  .canned-category-tab { font-size: 10px; padding-inline: 5px; }
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
