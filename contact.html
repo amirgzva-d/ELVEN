@@ -734,7 +734,7 @@ body{background:#f4f6f8}
 }
 #contactInfo .info-tile.hot .contact-phone-row{
   display:flex;
-  flex-direction:row;
+  flex-direction:row-reverse;
   justify-content:center;
   align-items:center;
   gap:7px;
@@ -759,10 +759,10 @@ body{background:#f4f6f8}
   width:31px;
   height:31px;
   min-width:31px;
-  border:1px solid rgba(157,240,187,.4);
+  border:1px solid #ffffff;
   border-radius:50%;
-  background:rgba(236,255,241,.12);
-  color:#a6f6b9;
+  background:#ffffff;
+  color:#087f48;
   text-decoration:none;
   transition:background .2s ease,transform .2s ease,color .2s ease;
 }
@@ -772,8 +772,9 @@ body{background:#f4f6f8}
   display:block;
 }
 #contactInfo .info-tile.hot .contact-whatsapp-link:is(:hover,:focus-visible){
-  background:#eafff0;
-  color:#087f48;
+  background:#f0fff4;
+  border-color:#ffffff;
+  color:#056b3b;
   transform:translateY(-1px);
 }
 #contactInfo .info-tile.hot .contact-whatsapp-link:focus-visible{
