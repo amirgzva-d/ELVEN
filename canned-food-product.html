@@ -599,6 +599,86 @@ main>.catalog::after{display:none}
   .canned-category-panel .canned-type-copy a { font-size: 9px; }
   .canned-category-tab { font-size: 10px; padding-inline: 5px; }
 }
+
+/* ELVEN CANNED MOBILE CUSTOM HERO IMAGE 2026-10-31 */
+/* The artwork supplied for mobile is a complete 1024x1536 composition,
+   including its own Persian typography, illustration, badges and CTA. Show
+   it as one proportional background with no duplicate HTML text or gradients.
+   All desktop / larger-screen layouts and product cards remain unchanged. */
+@media (max-width: 600px) {
+  .canned-main > .canned-hero {
+    display:block !important;
+    position:relative !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    aspect-ratio:2 / 3 !important;
+    background-color:#fff7e7 !important;
+    background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793438753/0c19d725-6e33-46d7-bc8b-01f859adee9f_azgphb.png") !important;
+    background-repeat:no-repeat !important;
+    background-position:center top !important;
+    background-size:100% 100% !important;
+    overflow:hidden !important;
+  }
+  .canned-main > .canned-hero::before,
+  .canned-main > .canned-hero::after {
+    content:none !important;
+    display:none !important;
+  }
+  .canned-main > .canned-hero > .hero-inner,
+  .canned-main > .canned-hero > .scroll-down {
+    display:none !important;
+  }
+  .canned-main > .canned-hero > .canned-mobile-hero-overlay {
+    display:block;
+    position:absolute;
+    inset:0;
+    z-index:2;
+  }
+  .canned-mobile-hero-sr-only {
+    position:absolute !important;
+    width:1px !important;
+    height:1px !important;
+    padding:0 !important;
+    margin:-1px !important;
+    overflow:hidden !important;
+    clip:rect(0,0,0,0) !important;
+    clip-path:inset(50%) !important;
+    white-space:nowrap !important;
+    border:0 !important;
+  }
+  /* Invisible hit areas match the CTAs already printed on the artwork.
+     Center of the printed controls falls around 92% of artwork height. */
+  .canned-mobile-hero-overlay .canned-mobile-inquiry-link,
+  .canned-mobile-hero-overlay .canned-mobile-products-link {
+    display:block;
+    position:absolute;
+    z-index:3;
+    top:87%;
+    height:9.4%;
+    min-height:40px;
+    border-radius:999px;
+    background:transparent;
+    text-decoration:none;
+    -webkit-tap-highlight-color:rgba(0,71,45,.12);
+  }
+  .canned-mobile-hero-overlay .canned-mobile-inquiry-link {
+    left:26%;
+    width:39%;
+  }
+  .canned-mobile-hero-overlay .canned-mobile-products-link {
+    left:66.5%;
+    width:12.5%;
+  }
+  .canned-mobile-hero-overlay a:focus-visible {
+    outline:3px solid #07583d;
+    outline-offset:2px;
+  }
+}
+@media (min-width: 601px) {
+  .canned-mobile-hero-overlay { display:none !important; }
+}
+
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
@@ -653,6 +733,15 @@ main>.catalog::after{display:none}
         <a class="secondary-link" href="#canned-brands"><span class="circle-play">↓</span><span>مشاهده برندهای<br>کنسروجات</span></a>
       </div>
     </div>
+  </div>
+  <div class="canned-mobile-hero-overlay">
+    <div class="canned-mobile-hero-sr-only">
+      <h2>کنسروجات؛ طعم واقعی، همیشه در دسترس شما</h2>
+      <p>مجموعه‌ای از برندهای معتبر کنسروجات با کیفیت عالی، برای وعده‌های خوشمزه و سریع.</p>
+      <p>برندهای معرفی‌شده، مشخصات بسته‌بندی با استعلام و بررسی شرایط سفارش صادراتی.</p>
+    </div>
+    <a class="canned-mobile-inquiry-link" href="contact.html" aria-label="استعلام قیمت کنسروجات"><span class="canned-mobile-hero-sr-only">استعلام قیمت</span></a>
+    <a class="canned-mobile-products-link" href="#products" aria-label="پایین رفتن و مشاهده محصولات کنسروی"><span class="canned-mobile-hero-sr-only">مشاهده محصولات کنسروی</span></a>
   </div>
   <a class="scroll-down" href="#canned-brands" aria-label="رفتن به برندهای کنسروجات"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a>
 </section>
