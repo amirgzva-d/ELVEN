@@ -1361,6 +1361,290 @@ body.mh-about-page{background:#f3f7f3}
  .mh-about-page .nav{top:70px}
 }
 @media(prefers-reduced-motion:reduce){.mh-about-page{scroll-behavior:auto}}
+
+/* ELVEN ABOUT MOBILE SCREENSHOT LAYOUT 2026-10-31 */
+/* Mobile-only alignment to supplied visual references.
+   Desktop remains governed by the existing heritage stylesheet. */
+@media (max-width: 780px) {
+  body.mh-about-page .mh-story-shell {
+    width: calc(100% - 34px);
+    max-width: 640px;
+  }
+
+  /* Hero: green editorial copy above the overlapping warehouse photographs. */
+  body.mh-about-page .mh-story-hero {
+    padding-bottom: 30px;
+  }
+  body.mh-about-page .mh-story-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 29px;
+  }
+  body.mh-about-page .mh-story-hero-copy {
+    text-align: right;
+    min-width: 0;
+  }
+  body.mh-about-page .mh-story-hero .mh-story-overline {
+    margin-bottom: 16px;
+  }
+  body.mh-about-page .mh-story-hero h2 {
+    max-width: 660px;
+    font-size: clamp(25px, 5.8vw, 34px);
+    line-height: 1.55;
+    letter-spacing: -.55px;
+    margin-bottom: 23px;
+  }
+  body.mh-about-page .mh-story-lead {
+    max-width: none;
+    font-size: 12.5px;
+    line-height: 2.18;
+    margin-bottom: 22px;
+  }
+  body.mh-about-page .mh-story-intro-extra {
+    max-width: none;
+    font-size: 12px;
+    line-height: 2.1;
+    margin-bottom: 24px;
+  }
+  body.mh-about-page .mh-story-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1px;
+  }
+  body.mh-about-page .mh-story-actions .mh-story-primary,
+  body.mh-about-page .mh-story-actions .mh-story-secondary {
+    width: auto;
+    min-height: 42px;
+    padding: 10px 16px;
+    font-size: 11px;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+  body.mh-about-page .mh-story-visual {
+    width: min(100%, 440px);
+    max-width: 440px;
+    padding: 0 16px 39px 0;
+    margin: 2px auto 0;
+  }
+  body.mh-about-page .mh-story-image-main {
+    aspect-ratio: 1.13;
+    border-radius: 22px;
+  }
+  body.mh-about-page .mh-story-image-small {
+    right: 0;
+    bottom: 2px;
+    width: 45%;
+    aspect-ratio: 1.08;
+    border: 5px solid #f4faf5;
+    border-radius: 17px;
+  }
+  body.mh-about-page .mh-story-since {
+    left: -19px;
+    top: 24px;
+    width: 90px;
+    height: 90px;
+    border-radius: 17px;
+  }
+  body.mh-about-page .mh-story-since strong { font-size: 28px; }
+  body.mh-about-page .mh-story-since span { font-size: 9px; }
+
+  /* Three horizontal stat strips, stacked vertically on mobile. */
+  body.mh-about-page .mh-story-statbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+    margin-top: 26px;
+  }
+  body.mh-about-page .mh-story-stat {
+    min-height: 70px;
+    gap: 14px;
+    padding: 13px 17px;
+    border-radius: 16px;
+    justify-content: flex-start;
+  }
+  body.mh-about-page .mh-story-stat strong { font-size: 24px; }
+  body.mh-about-page .mh-story-stat span { font-size: 11px; }
+
+  /* Founders: preserve side-by-side portrait on the right and bio on the left. */
+  body.mh-about-page .mh-story-founders { padding: 69px 0 52px; }
+  body.mh-about-page .mh-story-section-head {
+    max-width: 620px;
+    margin-bottom: 31px;
+  }
+  body.mh-about-page .mh-story-section-head h3 {
+    font-size: clamp(21px, 4.4vw, 27px);
+    line-height: 1.55;
+  }
+  body.mh-about-page .mh-story-section-head p {
+    font-size: 11.5px;
+    line-height: 2;
+  }
+  body.mh-about-page .mh-story-people {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+  body.mh-about-page .mh-story-person {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 15px;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 17px;
+    border-radius: 20px;
+  }
+  body.mh-about-page .mh-story-portrait {
+    flex: 0 0 35%;
+    width: 35%;
+    max-width: 174px;
+    height: auto;
+    min-height: 233px;
+    align-self: stretch;
+    border-radius: 14px;
+  }
+  body.mh-about-page .mh-story-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+  }
+  body.mh-about-page .mh-story-person-content {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: right;
+    align-self: center;
+  }
+  body.mh-about-page .mh-story-person-badge {
+    padding: 5px 10px;
+    font-size: 9px;
+    margin-bottom: 9px;
+  }
+  body.mh-about-page .mh-story-person h4 {
+    font-size: clamp(14px, 3.1vw, 18px);
+    line-height: 1.65;
+    margin-bottom: 5px;
+  }
+  body.mh-about-page .mh-story-person-role {
+    font-size: 10px;
+    line-height: 1.8;
+    margin-bottom: 9px;
+  }
+  body.mh-about-page .mh-story-person p {
+    font-size: 11px;
+    line-height: 2.08;
+  }
+
+  /* Timeline: year badge on the right, title and copy alongside it. */
+  body.mh-about-page .mh-story-journey {
+    padding: 58px 0 43px;
+  }
+  body.mh-about-page .mh-story-timeline {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  body.mh-about-page .mh-story-step {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 25px 19px;
+    min-height: 0;
+    border-radius: 19px;
+  }
+  body.mh-about-page .mh-story-step-copy {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: right;
+  }
+  body.mh-about-page .mh-story-year {
+    flex: 0 0 72px;
+    width: 72px;
+    min-width: 72px;
+    height: 49px;
+    font-size: 17px;
+    border-radius: 12px;
+  }
+  body.mh-about-page .mh-story-step h4 {
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0 0 9px;
+  }
+  body.mh-about-page .mh-story-step p {
+    font-size: 11.5px;
+    line-height: 2.1;
+  }
+
+  /* Compact green closing call-to-action with right-aligned gold button. */
+  body.mh-about-page .mh-story-final {
+    padding: 28px 0 58px;
+  }
+  body.mh-about-page .mh-story-final-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 21px;
+    padding: 30px 24px;
+    border-radius: 18px;
+    text-align: right;
+  }
+  body.mh-about-page .mh-story-final-card h3 {
+    font-size: clamp(16px, 3.4vw, 21px);
+    line-height: 1.65;
+  }
+  body.mh-about-page .mh-story-final-card p {
+    font-size: 11px;
+    line-height: 2;
+  }
+  body.mh-about-page .mh-story-final-card a {
+    width: auto;
+    min-height: 43px;
+    padding: 11px 20px;
+    font-size: 11px;
+    align-self: flex-start;
+  }
+}
+
+/* Small phones: keep two-column founder bios readable, with no clipping. */
+@media (max-width: 390px) {
+  body.mh-about-page .mh-story-shell { width: calc(100% - 28px); }
+  body.mh-about-page .mh-story-hero h2 { font-size: 25px; }
+  body.mh-about-page .mh-story-actions { gap: 7px; }
+  body.mh-about-page .mh-story-actions .mh-story-primary,
+  body.mh-about-page .mh-story-actions .mh-story-secondary {
+    font-size: 10px;
+    padding: 8px 12px;
+    min-height: 40px;
+  }
+  body.mh-about-page .mh-story-visual { width: min(100%, 370px); }
+  body.mh-about-page .mh-story-people { gap: 12px; }
+  body.mh-about-page .mh-story-person { padding: 11px; gap: 10px; }
+  body.mh-about-page .mh-story-portrait {
+    flex-basis: 34%;
+    width: 34%;
+    min-height: 235px;
+  }
+  body.mh-about-page .mh-story-person-badge { font-size: 8px; padding: 4px 7px; }
+  body.mh-about-page .mh-story-person h4 { font-size: 13px; }
+  body.mh-about-page .mh-story-person-role { font-size: 9px; }
+  body.mh-about-page .mh-story-person p { font-size: 10px; line-height: 1.95; }
+  body.mh-about-page .mh-story-step { padding: 20px 13px; gap: 10px; }
+  body.mh-about-page .mh-story-year {
+    flex-basis: 63px;
+    width: 63px;
+    min-width: 63px;
+    height: 44px;
+    font-size: 15px;
+  }
+  body.mh-about-page .mh-story-step h4 { font-size: 13.5px; }
+  body.mh-about-page .mh-story-step p { font-size: 10.5px; line-height: 2; }
+}
+
 </style>
 </head>
 <body class="mh-about-page">
