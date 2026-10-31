@@ -776,6 +776,30 @@ main>.catalog::after{display:none}
   .canned-mobile-hero-overlay {display:none !important}
 }
 
+
+/* ELVEN SINGLE TUNA PRODUCT CARD — one centered card at all widths. */
+.canned-category-panel .canned-type-grid.canned-tuna-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  width:min(100%,390px);
+  max-width:390px;
+  margin-inline:auto;
+}
+.canned-category-panel .canned-tuna-grid .canned-type-photo > img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+@media (max-width:600px) {
+  .canned-category-panel .canned-type-grid.canned-tuna-grid {
+    grid-template-columns:minmax(0,1fr);
+    width:min(100%,340px);
+    max-width:340px;
+    margin-inline:auto;
+  }
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
@@ -898,37 +922,21 @@ main>.catalog::after{display:none}
 <p class="canned-cards-note">تصاویر نمونه گروه محصولات هستند؛ مشخصات و تأمین هر محصول پس از استعلام تأیید می‌شود.</p>
   </div>
   <div class="canned-category-panel" id="canned-panel-tuna" role="tabpanel" aria-labelledby="canned-tab-tuna" hidden>
-    <h3 class="canned-category-sr-only">انواع کنسرو تن ماهی</h3>
+    <h3 class="canned-category-sr-only">کنسرو تن ماهی</h3>
     <div class="canned-type-grid canned-tuna-grid">
       <article class="canned-type-card">
-        <div class="canned-type-photo tuna-type-photo tuna-type-photo--oil" role="img" aria-label="تصویرسازی نمادین بسته کنسرو تن ماهی در روغن">
-          <div class="tuna-packshot" aria-hidden="true"><div class="tuna-packshot__label">
-            <svg class="tuna-packshot__fish" viewBox="0 0 120 62" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M16 31C37 6 77 10 97 31 77 52 37 56 16 31Z"/><path d="M97 31l18-16v32L97 31ZM51 17l11-13 14 12M52 45l11 12 15-13"/><circle cx="37" cy="29" r="3" fill="currentColor" stroke="none"/></svg>
-            <span class="tuna-packshot__en">TUNA</span><span class="tuna-packshot__sub">IN OIL</span>
-          </div></div>
+        <div class="canned-type-photo">
+          <img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793441867/8a16f528-7421-4edd-afd9-6fc5286914c7_bkjo4l.png" alt="محصول کنسرو تن ماهی" loading="lazy" decoding="async">
         </div>
-        <div class="canned-type-copy"><span class="canned-type-kicker">گروه کنسرو تن ماهی</span><h3>تن ماهی در روغن</h3><p>نوع روغن، وزن خالص و مشخصات بسته‌بندی پس از استعلام تأیید می‌شود.</p><a href="contact.html">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
-      </article>
-      <article class="canned-type-card">
-        <div class="canned-type-photo tuna-type-photo tuna-type-photo--brine" role="img" aria-label="تصویرسازی نمادین بسته کنسرو تن ماهی در آب نمک">
-          <div class="tuna-packshot" aria-hidden="true"><div class="tuna-packshot__label">
-            <svg class="tuna-packshot__fish" viewBox="0 0 120 62" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M16 31C37 6 77 10 97 31 77 52 37 56 16 31Z"/><path d="M97 31l18-16v32L97 31ZM51 17l11-13 14 12M52 45l11 12 15-13"/><circle cx="37" cy="29" r="3" fill="currentColor" stroke="none"/></svg>
-            <span class="tuna-packshot__en">TUNA</span><span class="tuna-packshot__sub">IN BRINE</span>
-          </div></div>
+        <div class="canned-type-copy">
+          <span class="canned-type-kicker">گروه محصولات کنسروی</span>
+          <h3>کنسرو تن ماهی</h3>
+          <p>وزن، نوع بسته‌بندی و مشخصات محصول پس از استعلام اعلام می‌شود.</p>
+          <a href="contact.html">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
         </div>
-        <div class="canned-type-copy"><span class="canned-type-kicker">گروه کنسرو تن ماهی</span><h3>تن ماهی در آب‌نمک</h3><p>نوع ماهی، وزن و جزئیات محصول متناسب با درخواست خریدار استعلام می‌شود.</p><a href="contact.html">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
-      </article>
-      <article class="canned-type-card">
-        <div class="canned-type-photo tuna-type-photo tuna-type-photo--flavored" role="img" aria-label="تصویرسازی نمادین بسته کنسرو تن ماهی طعم‌دار">
-          <div class="tuna-packshot" aria-hidden="true"><div class="tuna-packshot__label">
-            <svg class="tuna-packshot__fish" viewBox="0 0 120 62" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M16 31C37 6 77 10 97 31 77 52 37 56 16 31Z"/><path d="M97 31l18-16v32L97 31ZM51 17l11-13 14 12M52 45l11 12 15-13"/><circle cx="37" cy="29" r="3" fill="currentColor" stroke="none"/></svg>
-            <span class="tuna-packshot__en">TUNA</span><span class="tuna-packshot__sub">FLAVORED</span>
-          </div></div>
-        </div>
-        <div class="canned-type-copy"><span class="canned-type-kicker">گروه کنسرو تن ماهی</span><h3>تن ماهی طعم‌دار</h3><p>گزینه‌های طعم‌دار و شرایط تأمین، بسته‌بندی و ترکیبات با استعلام مشخص می‌شوند.</p><a href="contact.html">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
       </article>
     </div>
-    <p class="canned-cards-note">تصاویر تن ماهی صرفاً تصویرسازی نمایشی هستند؛ موجودی، انواع قابل تأمین و مشخصات نهایی پس از استعلام تأیید می‌شود.</p>
+    <p class="canned-cards-note">مشخصات و شرایط تأمین کنسرو تن ماهی پس از استعلام تأیید می‌شود.</p>
   </div>
 </section>
 <section class="partners" id="canned-brands" aria-label="برندهای کنسروجات">
