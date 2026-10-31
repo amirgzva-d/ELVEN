@@ -648,28 +648,6 @@ main>.catalog::after{display:none}
     gap:0;
     color:#06442e;
   }
-  .canned-main .canned-mobile-hero-eyebrow {
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:7px;
-    max-width:100%;
-    min-height:clamp(28px,6.3vw,45px);
-    padding:5px 13px;
-    border:1px solid #dba95e;
-    border-radius:999px;
-    background:rgba(255,251,241,.93);
-    color:#98601f;
-    font-weight:900;
-    font-size:clamp(11px,2.7vw,19px);
-    line-height:1.45;
-    box-shadow:0 4px 12px rgba(105,77,33,.065);
-  }
-  .canned-main .canned-mobile-hero-eyebrow .ico {
-    width:clamp(13px,3.1vw,23px);
-    height:clamp(13px,3.1vw,23px);
-    color:#b77922;
-  }
   .canned-main .canned-mobile-hero-title {
     margin:clamp(10px,3vw,22px) 0 0;
     font-size:clamp(36px,9.8vw,88px);
@@ -694,46 +672,6 @@ main>.catalog::after{display:none}
     font-weight:750;
     line-height:1.75;
     color:#385371;
-  }
-  .canned-main .canned-mobile-hero-features {
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    width:100%;
-    max-width:520px;
-    margin:clamp(14px,3.1vw,25px) 0 0;
-    padding:0;
-    direction:rtl;
-  }
-  .canned-main .canned-mobile-hero-feature {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
-    gap:clamp(6px,1.2vw,12px);
-    min-width:0;
-    padding:0 clamp(2px,1.1vw,10px);
-    color:#375372;
-    font-size:clamp(9px,2.15vw,17px);
-    font-weight:850;
-    line-height:1.48;
-  }
-  .canned-main .canned-mobile-hero-feature + .canned-mobile-hero-feature {
-    border-right:1px solid rgba(189,135,66,.43);
-  }
-  .canned-main .canned-mobile-hero-feature .feature-icon {
-    width:clamp(36px,8.7vw,71px);
-    height:clamp(36px,8.7vw,71px);
-    display:grid;
-    place-items:center;
-    border:1px solid #d7a55e;
-    border-radius:50%;
-    background:rgba(255,250,239,.56);
-    color:#ad762a;
-  }
-  .canned-main .canned-mobile-hero-feature .feature-icon .ico {
-    width:49%;
-    height:49%;
-    stroke-width:1.9;
   }
   .canned-main .canned-mobile-hero-ctas {
     position:absolute;
@@ -795,11 +733,6 @@ main>.catalog::after{display:none}
 }
 @media (max-width:390px) {
   .canned-main .canned-mobile-hero-copy {top:7.4%;left:2.7%;right:2.7%}
-  .canned-main .canned-mobile-hero-eyebrow {
-    font-size:10px;
-    min-height:28px;
-    padding:4px 10px;
-  }
   .canned-main .canned-mobile-hero-title {
     font-size:clamp(34px,9.7vw,39px);
     margin-top:9px;
@@ -813,15 +746,6 @@ main>.catalog::after{display:none}
     font-size:10px;
     line-height:1.55;
     margin-top:7px;
-  }
-  .canned-main .canned-mobile-hero-features {margin-top:10px}
-  .canned-main .canned-mobile-hero-feature {
-    gap:5px;
-    font-size:9px;
-    line-height:1.38;
-  }
-  .canned-main .canned-mobile-hero-feature .feature-icon {
-    width:34px;height:34px;
   }
   .canned-main .canned-mobile-hero-ctas {bottom:5%}
   .canned-main .canned-mobile-hero-inquiry {width:46%;font-size:13px}
@@ -887,15 +811,9 @@ main>.catalog::after{display:none}
   </div>
   <div class="canned-mobile-hero-overlay" lang="fa">
     <div class="canned-mobile-hero-copy">
-      <span class="canned-mobile-hero-eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-leaf"></use></svg>محصولات غذایی و کنسروی</span>
       <h1 class="canned-mobile-hero-title">کنسروجات</h1>
       <h2 class="canned-mobile-hero-subtitle">طعم واقعی، همیشه در دسترس شما</h2>
       <p class="canned-mobile-hero-lead">مجموعه‌ای از برندهای معتبر کنسروجات با کیفیت عالی، برای وعده‌های خوشمزه و سریع.</p>
-      <div class="canned-mobile-hero-features" aria-label="ویژگی‌های محصولات کنسروی">
-        <div class="canned-mobile-hero-feature"><span class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-badge"></use></svg></span><span>برندهای<br>معرفی‌شده</span></div>
-        <div class="canned-mobile-hero-feature"><span class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-package"></use></svg></span><span>مشخصات بسته‌بندی<br>با استعلام</span></div>
-        <div class="canned-mobile-hero-feature"><span class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg></span><span>بررسی شرایط<br>سفارش صادراتی</span></div>
-      </div>
     </div>
     <div class="canned-mobile-hero-ctas">
       <a class="canned-mobile-hero-inquiry" href="contact.html"><svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>استعلام قیمت</a>
