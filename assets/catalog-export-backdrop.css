@@ -1,0 +1,40 @@
+/* ELVEN — product categories only.
+   Original harbor / world map backdrop, kept soft across the full height
+   of the real (content-sized) catalog. Product cards and filters are untouched. */
+#products.catalog {
+  background-color: #f8faf7;
+  background-image:
+    radial-gradient(ellipse 64% 86% at 51% 47%,
+      rgba(255,255,255,.93) 0%,
+      rgba(255,255,255,.86) 30%,
+      rgba(255,255,255,.67) 62%,
+      rgba(255,255,255,.16) 100%),
+    linear-gradient(180deg,
+      rgba(250,252,249,.13) 0%,
+      rgba(250,252,249,.27) 20%,
+      rgba(250,252,249,.57) 48%,
+      rgba(250,252,249,.83) 75%,
+      #f8faf7 100%),
+    url("catalog-export-soft-desktop.webp");
+  background-position: center center, center center, center top;
+  background-size: 100% 100%, 100% 100%, 100% auto;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+@media (max-width: 900px) {
+  #products.catalog {
+    background-image:
+      radial-gradient(ellipse 105% 82% at 50% 37%,
+        rgba(255,255,255,.88) 0%,
+        rgba(255,255,255,.78) 44%,
+        rgba(255,255,255,.25) 100%),
+      linear-gradient(180deg,
+        rgba(250,252,249,.25) 0%,
+        rgba(250,252,249,.59) 28%,
+        rgba(250,252,249,.88) 67%,
+        #f8faf7 100%),
+      url("catalog-export-soft-desktop.webp");
+    background-size: 100% 100%, 100% 100%, auto clamp(300px,65vw,520px);
+    background-position: center, center, center top;
+  }
+}
