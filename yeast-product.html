@@ -3912,6 +3912,169 @@
     display: none !important;
   }
 }
+
+/* YEAST MOBILE NAV MATCH ORIGINAL PRODUCT DROPDOWN 2026-10-31 */
+/* Header nav only: match the original other product pages' full-width
+   mobile dropdown, instead of a narrow centered grid column. Desktop and
+   the separate product-detail modal header are not changed. */
+@media (max-width: 960px) {
+  #siteHeader.header,
+  #siteHeader.header.is-scrolled {
+    position:fixed !important;
+    top:0 !important;
+    right:0 !important;
+    left:0 !important;
+    width:100% !important;
+    height:69px !important;
+    min-height:69px !important;
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:8px !important;
+    padding:0 13px !important;
+    box-sizing:border-box !important;
+    background:rgba(255,251,245,.97) !important;
+    z-index:2000 !important;
+  }
+  #siteHeader.header > .brand {
+    display:flex !important;
+    align-items:center !important;
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    max-width:none !important;
+    margin:0 !important;
+    gap:7px !important;
+  }
+  #siteHeader.header > .brand .brand-mark {
+    flex:0 0 34px !important;
+    width:34px !important;
+    height:36px !important;
+  }
+  #siteHeader.header > .brand .brand-text {
+    min-width:0;
+  }
+  #siteHeader.header > .brand .brand-text strong {
+    display:block;
+    font-size:13px !important;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  #siteHeader.header > .brand .brand-text small {
+    font-size:6px !important;
+    letter-spacing:1px !important;
+    white-space:nowrap;
+  }
+  #siteHeader.header > .header-actions {
+    display:flex !important;
+    flex:0 0 auto !important;
+    align-items:center !important;
+    justify-content:center !important;
+    margin:0 !important;
+    min-width:0 !important;
+  }
+  #siteHeader.header > .header-actions .cta-quote {
+    display:inline-flex !important;
+    padding:9px 11px !important;
+    min-height:36px;
+    border-radius:999px;
+    font-size:10px !important;
+    white-space:nowrap;
+  }
+  #siteHeader.header > .header-actions .cta-quote svg {
+    display:none;
+  }
+  #siteHeader.header > .mobile-toggle {
+    display:flex !important;
+    flex:0 0 41px !important;
+    width:41px !important;
+    height:41px !important;
+    min-width:41px !important;
+    align-items:center !important;
+    justify-content:center !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:1px solid #dfd0b8 !important;
+    border-radius:12px !important;
+    background:#fff9f0 !important;
+    color:#0d2b5b !important;
+    cursor:pointer;
+  }
+  #siteHeader.header > #primaryNav.nav {
+    position:absolute !important;
+    top:100% !important;
+    right:0 !important;
+    left:0 !important;
+    bottom:auto !important;
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    height:auto !important;
+    max-height:calc(100dvh - 69px) !important;
+    max-height:calc(100svh - 69px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    justify-content:flex-start !important;
+    direction:rtl !important;
+    grid-column:1 / -1 !important;
+    justify-self:stretch !important;
+    gap:6px !important;
+    padding:16px 20px 21px !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain;
+    border:0 !important;
+    border-bottom:1px solid #e9d7bb !important;
+    border-radius:0 !important;
+    background:#fffbf5 !important;
+    box-shadow:0 20px 22px rgba(13,43,91,.1) !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:translateY(-9px) !important;
+    z-index:2001 !important;
+    transition:opacity .24s ease,transform .24s ease,visibility .24s ease !important;
+  }
+  #siteHeader.header > #primaryNav.nav.mobile-open {
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:translateY(0) !important;
+  }
+  #siteHeader.header > #primaryNav.nav > a {
+    display:block !important;
+    width:100% !important;
+    min-height:42px;
+    padding:10px 0 !important;
+    margin:0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    text-align:right !important;
+    white-space:normal !important;
+    font-size:14px !important;
+    color:#51617d !important;
+    font-weight:800 !important;
+  }
+  #siteHeader.header > #primaryNav.nav > a.active {
+    color:#0d2b5b !important;
+  }
+  #siteHeader.header > #primaryNav.nav > a::after {
+    display:none !important;
+  }
+}
+@media (max-width:380px) {
+  #siteHeader.header > .brand .brand-mark {flex-basis:31px !important;width:31px !important}
+  #siteHeader.header > .brand .brand-text strong {font-size:12px !important}
+  #siteHeader.header > .header-actions .cta-quote {font-size:9px !important;padding:8px 9px !important}
+  #siteHeader.header > .mobile-toggle {width:39px !important;min-width:39px !important;flex-basis:39px !important}
+}
+@media (max-width:960px) and (prefers-reduced-motion:reduce) {
+  #siteHeader.header > #primaryNav.nav {transition:none !important}
+}
+
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
