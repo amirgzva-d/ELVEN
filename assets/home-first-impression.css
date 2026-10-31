@@ -1,0 +1,168 @@
+/* ELVEN home first-impression refresh (2026-10-31)
+   Preserve the client's approved hero artwork and all existing product cards. */
+
+/* Readable frosted-glass navbar over the bright hero photograph. */
+@media (min-width:769px){
+  #siteHeader.header{
+    position:fixed !important;
+    top:12px !important;
+    left:clamp(16px,3vw,52px) !important;
+    right:clamp(16px,3vw,52px) !important;
+    width:auto !important;
+    height:74px !important;
+    padding:0 clamp(18px,2.2vw,36px) !important;
+    border:1px solid rgba(255,255,255,.82);
+    border-radius:25px;
+    background:rgba(253,252,248,.87) !important;
+    -webkit-backdrop-filter:blur(18px) saturate(150%);
+    backdrop-filter:blur(18px) saturate(150%);
+    box-shadow:0 8px 34px rgba(13,52,38,.13),inset 0 1px 0 rgba(255,255,255,.65);
+    transition:top .28s ease,height .28s ease,background .28s ease,box-shadow .28s ease;
+  }
+  #siteHeader.header.is-scrolled{
+    top:8px !important;
+    height:68px !important;
+    background:rgba(253,252,248,.95) !important;
+    -webkit-backdrop-filter:blur(20px) saturate(150%);
+    backdrop-filter:blur(20px) saturate(150%);
+    box-shadow:0 10px 28px rgba(12,51,37,.15) !important;
+  }
+  #siteHeader .nav a{
+    color:#213f34;
+    font-weight:650;
+    text-shadow:none;
+  }
+  #siteHeader .nav a:hover,
+  #siteHeader .nav a.active{color:#07563f}
+  #siteHeader .brand-text strong{color:#073b2d}
+  #products.catalog{padding-top:32px !important}
+}
+@media (min-width:769px) and (max-width:1120px){
+  #siteHeader.header{
+    left:14px !important;right:14px !important;
+    padding:0 17px !important;
+    height:68px !important;
+  }
+  #siteHeader .nav{gap:clamp(10px,1.3vw,19px) !important}
+  #siteHeader .nav a{font-size:12px !important}
+  #siteHeader .brand{gap:7px}
+  #siteHeader .brand-text strong{font-size:15px}
+  #siteHeader .brand-text small{font-size:6.5px;letter-spacing:1.4px}
+  #siteHeader .header-actions{margin-right:8px}
+  #siteHeader .cta-quote{padding:9px 12px;font-size:11px}
+}
+/* Keep the existing mobile glass menu/layout and photograph untouched. */
+@media (max-width:768px){
+  #siteHeader.header{
+    background:rgba(252,251,247,.94) !important;
+    -webkit-backdrop-filter:blur(16px) saturate(135%);
+    backdrop-filter:blur(16px) saturate(135%);
+    box-shadow:0 4px 20px rgba(12,52,39,.1) !important;
+  }
+  #products.catalog{padding-top:24px !important}
+}
+
+/* Compact category discovery strip, placed *after* (never over) the hero.
+   Reduces the empty-looking transition without cropping brand packages. */
+.home-quick-categories{
+  position:relative;
+  z-index:5;
+  padding:19px clamp(20px,3.6vw,68px) 14px;
+  background:linear-gradient(180deg,#f9faf8 0%,#f4f6f8 100%);
+  border-radius:22px 22px 0 0;
+  border-top:1px solid rgba(255,255,255,.88);
+}
+.home-quick-inner{
+  max-width:1680px;
+  margin-inline:auto;
+  display:grid;
+  grid-template-columns:128px minmax(0,1fr);
+  align-items:center;
+  gap:19px;
+}
+.home-quick-intro{
+  color:#0a5c46;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:4px;
+  white-space:nowrap;
+}
+.home-quick-intro strong{font-size:22px;line-height:1.2;font-weight:900}
+.home-quick-intro span{font-size:12px;font-weight:700}
+.home-quick-intro a{font-size:10px;color:#63766c;text-decoration:underline;text-underline-offset:3px;width:max-content}
+.home-quick-links{
+  min-width:0;
+  display:grid;
+  grid-template-columns:repeat(9,minmax(0,1fr));
+  gap:10px;
+}
+.home-category-link{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:0;
+  min-height:91px;
+  padding:12px 5px 10px;
+  color:#174e3a;
+  background:rgba(255,255,255,.79);
+  border:1px solid rgba(217,230,220,.73);
+  border-radius:20px;
+  box-shadow:0 4px 15px rgba(24,60,42,.035);
+  text-align:center;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.home-category-link svg{
+  flex-shrink:0;
+  width:27px;height:27px;
+  fill:none;
+  stroke:currentColor;stroke-width:1.65;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.home-category-link span{font-size:11px;line-height:1.65;font-weight:700}
+.home-category-link:hover{
+  transform:translateY(-3px);
+  background:#fff;border-color:#a4c6b2;
+  box-shadow:0 10px 22px rgba(21,70,45,.09);
+}
+.home-category-link:focus-visible{outline:3px solid #c9a35a;outline-offset:3px}
+@media (min-width:769px) and (max-width:1190px){
+  .home-quick-categories{padding-inline:20px}
+  .home-quick-inner{grid-template-columns:110px minmax(0,1fr);gap:12px}
+  .home-quick-links{gap:6px}
+  .home-category-link{min-height:88px;padding:8px 3px;border-radius:15px}
+  .home-category-link svg{width:24px;height:24px}
+  .home-category-link span{font-size:10px}
+}
+@media (max-width:768px){
+  .home-quick-categories{padding:16px 0 14px;border-radius:16px 16px 0 0}
+  .home-quick-inner{display:block}
+  .home-quick-intro{padding:0 18px 12px;gap:2px}
+  .home-quick-intro strong{font-size:18px}
+  .home-quick-intro span{font-size:11px}
+  .home-quick-intro a{display:none}
+  .home-quick-links{
+    display:flex;
+    gap:9px;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scroll-snap-type:x proximity;
+    padding:3px 16px 12px;
+    scrollbar-width:thin;
+    -webkit-overflow-scrolling:touch;
+  }
+  .home-category-link{
+    flex:0 0 96px;
+    min-height:89px;
+    scroll-snap-align:start;
+    padding:9px 5px;
+    border-radius:16px;
+  }
+  .home-category-link svg{width:25px;height:25px}
+  .home-category-link span{font-size:10.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  .home-category-link{transition:none}
+}
