@@ -57,49 +57,48 @@ svg.ico{flex-shrink:0;vertical-align:middle}
  transform:none!important;
 }
 
-/* ELVEN mobile footer: centered original link columns, no card styling.
-   Only layout/alignment on small screens; desktop and contact tiles unchanged. */
+/* ELVEN mobile footer: original unboxed RTL links, grouped toward page center.
+   Do not alter desktop, footer brand, contact cards or other page sections. */
 @media (max-width: 768px) {
   .site-footer .footer-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: clamp(14px, 4vw, 28px);
+    column-gap: clamp(18px, 4vw, 32px);
     row-gap: 30px;
   }
 
   .site-footer .footer-container > .footer-col:nth-child(2),
   .site-footer .footer-container > .footer-col:nth-child(3) {
-    width: min(100%, 154px);
+    width: min(100%, 150px);
     min-width: 0;
-    text-align: center;
+    text-align: right;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
   }
 
-  /* In RTL, pull each link column inward toward the center of the viewport. */
+  /* RTL columns: move the outer headings/links inward, retaining their
+     exact original right alignment and gold heading underlines. */
   .site-footer .footer-container > .footer-col:nth-child(2) {
     justify-self: end;
   }
+
   .site-footer .footer-container > .footer-col:nth-child(3) {
     justify-self: start;
   }
 
   .site-footer .footer-container > .footer-col:nth-child(2) h4,
-  .site-footer .footer-container > .footer-col:nth-child(3) h4 {
-    text-align: center;
+  .site-footer .footer-container > .footer-col:nth-child(3) h4,
+  .site-footer .footer-container > .footer-col:nth-child(2) ul,
+  .site-footer .footer-container > .footer-col:nth-child(3) ul,
+  .site-footer .footer-container > .footer-col:nth-child(2) li a,
+  .site-footer .footer-container > .footer-col:nth-child(3) li a {
+    text-align: right;
   }
 
   .site-footer .footer-container > .footer-col:nth-child(2) h4::after,
   .site-footer .footer-container > .footer-col:nth-child(3) h4::after {
-    right: 50%;
-    transform: translateX(50%);
-  }
-
-  .site-footer .footer-container > .footer-col:nth-child(2) ul,
-  .site-footer .footer-container > .footer-col:nth-child(3) ul {
-    text-align: center;
-  }
-
-  .site-footer .footer-container > .footer-col:nth-child(2) li a,
-  .site-footer .footer-container > .footer-col:nth-child(3) li a {
-    justify-content: center;
-    text-align: center;
+    right: 0;
+    transform: none;
   }
 }
