@@ -56,3 +56,119 @@ svg.ico{flex-shrink:0;vertical-align:middle}
 .brand-product-card:hover .brand-product-image.elven-card-photo-fit > img{
  transform:none!important;
 }
+
+
+/* ELVEN mobile footer balance — layout only, desktop stays unchanged.
+   Match the existing dark-green/gold palette, with readable insets on phones. */
+@media (max-width: 768px) {
+  .site-footer .footer-container {
+    width: 100%;
+    max-width: 440px;
+    margin-inline: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 22px;
+    align-items: stretch;
+  }
+
+  .site-footer .footer-container > .footer-brand-block {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer .footer-container > .footer-col:not(:last-child) {
+    min-width: 0;
+    padding: 17px 14px 13px;
+    border: 1px solid rgba(111, 167, 142, .16);
+    border-radius: 16px;
+    background: rgba(10, 92, 70, .13);
+    text-align: right;
+  }
+
+  .site-footer .footer-container > .footer-col:not(:last-child) h4 {
+    margin: 0 0 10px;
+    padding-bottom: 12px;
+    text-align: right;
+    line-height: 1.65;
+  }
+
+  .site-footer .footer-container > .footer-col:not(:last-child) ul {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+
+  .site-footer .footer-container > .footer-col:not(:last-child) li {
+    margin: 0;
+  }
+
+  .site-footer .footer-container > .footer-col:not(:last-child) li a {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    width: 100%;
+    padding: 7px 0;
+    line-height: 1.75;
+    text-align: right;
+    white-space: normal;
+    border-bottom: 1px solid rgba(111, 167, 142, .12);
+  }
+
+  .site-footer .footer-container > .footer-col:not(:last-child) li:last-child a {
+    border-bottom: 0;
+  }
+
+  .site-footer .footer-container > .footer-col:last-child {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    padding-top: 25px;
+  }
+
+  .site-footer .footer-container > .footer-col:last-child h4 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .site-footer .footer-container > .footer-col:last-child h4::after {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .site-footer .footer-container > .footer-col:last-child .footer-contact-item {
+    width: 100%;
+    max-width: 440px;
+    margin-inline: auto;
+    justify-content: flex-start;
+  }
+
+  .site-footer .footer-bottom {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer .footer-container {
+    max-width: 400px;
+    column-gap: 10px;
+    row-gap: 18px;
+  }
+
+  .site-footer .footer-container > .footer-col:not(:last-child) {
+    padding: 15px 11px 11px;
+    border-radius: 14px;
+  }
+
+  .site-footer .footer-container > .footer-col:not(:last-child) h4 {
+    font-size: 13.5px;
+  }
+
+  .site-footer .footer-container > .footer-col:not(:last-child) li a {
+    font-size: 12px;
+    min-height: 39px;
+  }
+
+  .site-footer .footer-container > .footer-col:last-child {
+    padding-top: 22px;
+  }
+}
