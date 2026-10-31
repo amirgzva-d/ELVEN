@@ -57,118 +57,49 @@ svg.ico{flex-shrink:0;vertical-align:middle}
  transform:none!important;
 }
 
-
-/* ELVEN mobile footer balance — layout only, desktop stays unchanged.
-   Match the existing dark-green/gold palette, with readable insets on phones. */
+/* ELVEN mobile footer: centered original link columns, no card styling.
+   Only layout/alignment on small screens; desktop and contact tiles unchanged. */
 @media (max-width: 768px) {
   .site-footer .footer-container {
-    width: 100%;
-    max-width: 440px;
-    margin-inline: auto;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 12px;
-    row-gap: 22px;
-    align-items: stretch;
+    column-gap: clamp(14px, 4vw, 28px);
+    row-gap: 30px;
   }
 
-  .site-footer .footer-container > .footer-brand-block {
-    grid-column: 1 / -1;
-  }
-
-  .site-footer .footer-container > .footer-col:not(:last-child) {
+  .site-footer .footer-container > .footer-col:nth-child(2),
+  .site-footer .footer-container > .footer-col:nth-child(3) {
+    width: min(100%, 154px);
     min-width: 0;
-    padding: 17px 14px 13px;
-    border: 1px solid rgba(111, 167, 142, .16);
-    border-radius: 16px;
-    background: rgba(10, 92, 70, .13);
-    text-align: right;
-  }
-
-  .site-footer .footer-container > .footer-col:not(:last-child) h4 {
-    margin: 0 0 10px;
-    padding-bottom: 12px;
-    text-align: right;
-    line-height: 1.65;
-  }
-
-  .site-footer .footer-container > .footer-col:not(:last-child) ul {
-    margin: 0;
-    padding: 0;
-    text-align: right;
-  }
-
-  .site-footer .footer-container > .footer-col:not(:last-child) li {
-    margin: 0;
-  }
-
-  .site-footer .footer-container > .footer-col:not(:last-child) li a {
-    display: flex;
-    align-items: center;
-    min-height: 40px;
-    width: 100%;
-    padding: 7px 0;
-    line-height: 1.75;
-    text-align: right;
-    white-space: normal;
-    border-bottom: 1px solid rgba(111, 167, 142, .12);
-  }
-
-  .site-footer .footer-container > .footer-col:not(:last-child) li:last-child a {
-    border-bottom: 0;
-  }
-
-  .site-footer .footer-container > .footer-col:last-child {
-    grid-column: 1 / -1;
-    margin-top: 0;
-    padding-top: 25px;
-  }
-
-  .site-footer .footer-container > .footer-col:last-child h4 {
     text-align: center;
-    margin-bottom: 20px;
   }
 
-  .site-footer .footer-container > .footer-col:last-child h4::after {
+  /* In RTL, pull each link column inward toward the center of the viewport. */
+  .site-footer .footer-container > .footer-col:nth-child(2) {
+    justify-self: end;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(3) {
+    justify-self: start;
+  }
+
+  .site-footer .footer-container > .footer-col:nth-child(2) h4,
+  .site-footer .footer-container > .footer-col:nth-child(3) h4 {
+    text-align: center;
+  }
+
+  .site-footer .footer-container > .footer-col:nth-child(2) h4::after,
+  .site-footer .footer-container > .footer-col:nth-child(3) h4::after {
     right: 50%;
     transform: translateX(50%);
   }
 
-  .site-footer .footer-container > .footer-col:last-child .footer-contact-item {
-    width: 100%;
-    max-width: 440px;
-    margin-inline: auto;
-    justify-content: flex-start;
-  }
-
-  .site-footer .footer-bottom {
-    justify-content: center;
-    align-items: center;
+  .site-footer .footer-container > .footer-col:nth-child(2) ul,
+  .site-footer .footer-container > .footer-col:nth-child(3) ul {
     text-align: center;
   }
-}
 
-@media (max-width: 480px) {
-  .site-footer .footer-container {
-    max-width: 400px;
-    column-gap: 10px;
-    row-gap: 18px;
-  }
-
-  .site-footer .footer-container > .footer-col:not(:last-child) {
-    padding: 15px 11px 11px;
-    border-radius: 14px;
-  }
-
-  .site-footer .footer-container > .footer-col:not(:last-child) h4 {
-    font-size: 13.5px;
-  }
-
-  .site-footer .footer-container > .footer-col:not(:last-child) li a {
-    font-size: 12px;
-    min-height: 39px;
-  }
-
-  .site-footer .footer-container > .footer-col:last-child {
-    padding-top: 22px;
+  .site-footer .footer-container > .footer-col:nth-child(2) li a,
+  .site-footer .footer-container > .footer-col:nth-child(3) li a {
+    justify-content: center;
+    text-align: center;
   }
 }
