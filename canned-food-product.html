@@ -409,6 +409,65 @@ main>.catalog::after{display:none}
     pointer-events: none !important;
   }
 }
+
+/* Two selectable canned-food categories; original vegetable cards are untouched. */
+.canned-category-switch{
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:12px;margin:26px auto 0;max-width:620px;direction:rtl;
+}
+.canned-category-tab{
+  appearance:none;display:inline-flex;align-items:center;justify-content:center;
+  gap:10px;min-height:49px;min-width:184px;padding:11px 23px;
+  border:1px solid rgba(15,54,96,.16);border-radius:999px;
+  background:rgba(255,255,255,.88);color:#153966;
+  box-shadow:0 5px 17px rgba(19,48,87,.05);
+  font:inherit;font-size:13px;font-weight:850;line-height:1.5;
+  cursor:pointer;transition:background .2s,color .2s,border-color .2s,box-shadow .2s,transform .2s;
+}
+.canned-category-tab svg{width:20px;height:20px;flex:none;color:#b48548}
+.canned-category-tab:hover{border-color:#c69b5a;transform:translateY(-2px);box-shadow:0 8px 19px rgba(19,48,87,.09)}
+.canned-category-tab[aria-selected="true"]{
+  background:linear-gradient(135deg,#103767,#0c2851);color:#fff;
+  border-color:#c49a56;box-shadow:0 8px 22px rgba(13,43,91,.18);
+}
+.canned-category-tab[aria-selected="true"] svg{color:#efcf94}
+.canned-category-tab:focus-visible{outline:3px solid #c59c53;outline-offset:3px}
+.canned-category-panel[hidden]{display:none!important}
+.canned-category-panel{animation:cannedPanelEnter .3s ease both}
+@keyframes cannedPanelEnter{from{opacity:.55;transform:translateY(8px)}to{opacity:1;transform:none}}
+.canned-category-sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.tuna-type-photo{position:relative;display:grid;place-items:center;isolation:isolate;overflow:hidden;
+  background:linear-gradient(155deg,#f7efe1 0%,#dfece9 50%,#b9d1d2 100%);
+}
+.tuna-type-photo::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(circle at 22% 20%,rgba(255,255,255,.95),transparent 39%),
+             radial-gradient(ellipse at 74% 82%,rgba(33,98,106,.14),transparent 53%);
+}
+.tuna-type-photo--oil{--tuna-color-1:#155b75;--tuna-color-2:#0b3658}
+.tuna-type-photo--brine{--tuna-color-1:#137a82;--tuna-color-2:#0c4e65;background:linear-gradient(155deg,#f4f1e8,#daeee9 60%,#b8d8d4)}
+.tuna-type-photo--flavored{--tuna-color-1:#ae6b35;--tuna-color-2:#733e2b;background:linear-gradient(155deg,#fcf1df,#f0ddc9 61%,#dcc6a7)}
+.tuna-packshot{position:relative;display:grid;place-items:center;width:min(35%,142px);min-width:112px;height:76%;min-height:134px;max-height:185px;
+  border:2px solid rgba(127,139,145,.8);border-radius:15px 15px 20px 20px;
+  background:linear-gradient(90deg,#919ba1 0%,#eceff0 14%,#fdfdfb 48%,#d3dcdf 85%,#87969c 100%);
+  box-shadow:19px 18px 27px rgba(34,68,70,.2),inset 0 0 14px rgba(255,255,255,.7);
+}
+.tuna-packshot::before{content:"";position:absolute;top:-7px;left:-2px;right:-2px;height:15px;border:2px solid #98a1a3;border-radius:50%;
+  background:linear-gradient(#e8edef,#adb9bf);box-shadow:inset 0 2px 2px rgba(255,255,255,.9)}
+.tuna-packshot::after{content:"";position:absolute;bottom:-3px;left:0;right:0;height:9px;border:1px solid #9babad;border-radius:50%;
+  background:linear-gradient(#dce4e5,#98abb0)}
+.tuna-packshot__label{width:100%;height:69%;margin-top:13px;padding:13px 5px 9px;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:2px;text-align:center;color:#fff;background:linear-gradient(135deg,var(--tuna-color-1),var(--tuna-color-2));
+  border-top:3px solid #c9a367;border-bottom:3px solid #c9a367}
+.tuna-packshot__fish{width:75%;height:44px;color:#f1d2a0}
+.tuna-packshot__en{font:900 19px/1.15 Arial,sans-serif;letter-spacing:1.8px}
+.tuna-packshot__sub{font:700 8px/1.3 Arial,sans-serif;letter-spacing:.8px;color:#f2ddc0}
+@media(max-width:540px){
+  .canned-category-switch{gap:9px;flex-wrap:nowrap;max-width:410px}
+  .canned-category-tab{min-width:0;flex:1;padding:11px 8px;font-size:12px;gap:6px}
+  .canned-category-tab svg{width:17px;height:17px}
+}
+@media(prefers-reduced-motion:reduce){.canned-category-panel{animation:none}.canned-category-tab{transition:none}}
+
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
@@ -479,6 +538,18 @@ main>.catalog::after{display:none}
     <h2>محصولات کنسروی</h2>
     <p>نوع محصول، وزن و مشخصات هر برند پس از دریافت اطلاعات تأییدشده معرفی می‌شود.</p>
   </div>
+
+  <div class="canned-category-switch" role="tablist" aria-label="دسته‌بندی محصولات کنسروی">
+    <button type="button" class="canned-category-tab is-active" id="canned-tab-vegetables" role="tab" aria-selected="true" aria-controls="canned-panel-vegetables" tabindex="0">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-9M12 12C8 12 5 9 5 5c4 0 7 2 7 7ZM12 16c0-5 3-8 7-8 0 5-3 8-7 8Z"/></svg>
+      <span>کنسرو سبزیجات</span>
+    </button>
+    <button type="button" class="canned-category-tab" id="canned-tab-tuna" role="tab" aria-selected="false" aria-controls="canned-panel-tuna" tabindex="-1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c4-5 10-6 15 0-5 6-11 5-15 0ZM18 12l4-5v10l-4-5ZM8 11h.01"/></svg>
+      <span>کنسرو تن ماهی</span>
+    </button>
+  </div>
+  <div class="canned-category-panel" id="canned-panel-vegetables" role="tabpanel" aria-labelledby="canned-tab-vegetables">
   <div class="canned-type-grid" data-reveal>
 <article class="canned-type-card">
   <div class="canned-type-photo"><img src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793252366/4bd2797a-428e-4c53-a894-af42dc6479f0_jf1tnr.png" alt="تصویر کنسرو سبزیجات مخلوط" loading="lazy" decoding="async" width="1300" height="800"></div>
@@ -506,6 +577,40 @@ main>.catalog::after{display:none}
 </article>
 </div>
 <p class="canned-cards-note">تصاویر نمونه گروه محصولات هستند؛ مشخصات و تأمین هر محصول پس از استعلام تأیید می‌شود.</p>
+  </div>
+  <div class="canned-category-panel" id="canned-panel-tuna" role="tabpanel" aria-labelledby="canned-tab-tuna" hidden>
+    <h3 class="canned-category-sr-only">انواع کنسرو تن ماهی</h3>
+    <div class="canned-type-grid canned-tuna-grid">
+      <article class="canned-type-card">
+        <div class="canned-type-photo tuna-type-photo tuna-type-photo--oil" role="img" aria-label="تصویرسازی نمادین بسته کنسرو تن ماهی در روغن">
+          <div class="tuna-packshot" aria-hidden="true"><div class="tuna-packshot__label">
+            <svg class="tuna-packshot__fish" viewBox="0 0 120 62" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M16 31C37 6 77 10 97 31 77 52 37 56 16 31Z"/><path d="M97 31l18-16v32L97 31ZM51 17l11-13 14 12M52 45l11 12 15-13"/><circle cx="37" cy="29" r="3" fill="currentColor" stroke="none"/></svg>
+            <span class="tuna-packshot__en">TUNA</span><span class="tuna-packshot__sub">IN OIL</span>
+          </div></div>
+        </div>
+        <div class="canned-type-copy"><span class="canned-type-kicker">گروه کنسرو تن ماهی</span><h3>تن ماهی در روغن</h3><p>نوع روغن، وزن خالص و مشخصات بسته‌بندی پس از استعلام تأیید می‌شود.</p><a href="contact.html">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
+      </article>
+      <article class="canned-type-card">
+        <div class="canned-type-photo tuna-type-photo tuna-type-photo--brine" role="img" aria-label="تصویرسازی نمادین بسته کنسرو تن ماهی در آب نمک">
+          <div class="tuna-packshot" aria-hidden="true"><div class="tuna-packshot__label">
+            <svg class="tuna-packshot__fish" viewBox="0 0 120 62" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M16 31C37 6 77 10 97 31 77 52 37 56 16 31Z"/><path d="M97 31l18-16v32L97 31ZM51 17l11-13 14 12M52 45l11 12 15-13"/><circle cx="37" cy="29" r="3" fill="currentColor" stroke="none"/></svg>
+            <span class="tuna-packshot__en">TUNA</span><span class="tuna-packshot__sub">IN BRINE</span>
+          </div></div>
+        </div>
+        <div class="canned-type-copy"><span class="canned-type-kicker">گروه کنسرو تن ماهی</span><h3>تن ماهی در آب‌نمک</h3><p>نوع ماهی، وزن و جزئیات محصول متناسب با درخواست خریدار استعلام می‌شود.</p><a href="contact.html">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
+      </article>
+      <article class="canned-type-card">
+        <div class="canned-type-photo tuna-type-photo tuna-type-photo--flavored" role="img" aria-label="تصویرسازی نمادین بسته کنسرو تن ماهی طعم‌دار">
+          <div class="tuna-packshot" aria-hidden="true"><div class="tuna-packshot__label">
+            <svg class="tuna-packshot__fish" viewBox="0 0 120 62" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M16 31C37 6 77 10 97 31 77 52 37 56 16 31Z"/><path d="M97 31l18-16v32L97 31ZM51 17l11-13 14 12M52 45l11 12 15-13"/><circle cx="37" cy="29" r="3" fill="currentColor" stroke="none"/></svg>
+            <span class="tuna-packshot__en">TUNA</span><span class="tuna-packshot__sub">FLAVORED</span>
+          </div></div>
+        </div>
+        <div class="canned-type-copy"><span class="canned-type-kicker">گروه کنسرو تن ماهی</span><h3>تن ماهی طعم‌دار</h3><p>گزینه‌های طعم‌دار و شرایط تأمین، بسته‌بندی و ترکیبات با استعلام مشخص می‌شوند.</p><a href="contact.html">استعلام محصول <svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
+      </article>
+    </div>
+    <p class="canned-cards-note">تصاویر تن ماهی صرفاً تصویرسازی نمایشی هستند؛ موجودی، انواع قابل تأمین و مشخصات نهایی پس از استعلام تأیید می‌شود.</p>
+  </div>
 </section>
 <section class="partners" id="canned-brands" aria-label="برندهای کنسروجات">
   <div class="section-heading" data-reveal>
@@ -599,6 +704,37 @@ main>.catalog::after{display:none}
 toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open))});
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
+})();
+</script>
+
+<script>
+/* Accessible canned-products tabs; all original vegetable product cards remain intact. */
+(()=>{
+  const tabs=[...document.querySelectorAll('.canned-category-tab')];
+  if(tabs.length!==2)return;
+  const select=(chosen,focus)=>{
+    tabs.forEach(tab=>{
+      const active=tab===chosen;
+      tab.setAttribute('aria-selected',String(active));
+      tab.classList.toggle('is-active',active);
+      tab.tabIndex=active?0:-1;
+      const panel=document.getElementById(tab.getAttribute('aria-controls'));
+      if(panel)panel.hidden=!active;
+    });
+    if(focus)chosen.focus();
+  };
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener('click',()=>select(tab,false));
+    tab.addEventListener('keydown',event=>{
+      let next=index;
+      if(event.key==='ArrowRight'||event.key==='ArrowLeft')next=(index+(event.key==='ArrowRight'?-1:1)+tabs.length)%tabs.length;
+      else if(event.key==='Home')next=0;
+      else if(event.key==='End')next=tabs.length-1;
+      else return;
+      event.preventDefault();
+      select(tabs[next],true);
+    });
+  });
 })();
 </script>
 <script defer src="assets/elven-ui-polish.js"></script>
