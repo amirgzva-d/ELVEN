@@ -581,6 +581,27 @@ body{background:#f4f6f8}
   .hero-shell .port-art{background-position:center,center center}
 }
 
+
+/* CONTACT HERO DESKTOP ALIGNMENT 2026-10-31
+   Bring BOTH the contact form and the introduction toward the right edge.
+   Preserve the RTL two-column ordering, their gap, and all mobile layouts. */
+@media (min-width: 951px) {
+  .hero-shell > .hero-content {
+    width: 100%;
+    max-width: none;
+    grid-template-columns: minmax(0, min(460px, 42%)) minmax(0, min(570px, 53%));
+    column-gap: clamp(28px, 4vw, 76px);
+    justify-content: start;
+    padding-inline: clamp(28px, 4vw, 72px);
+  }
+  .hero-shell > .hero-content > .intro-panel {
+    justify-self: end;
+    text-align: right;
+  }
+  .hero-shell > .hero-content > .form-card {
+    justify-self: end;
+  }
+}
 </style>
 </head>
 <body>
