@@ -3902,7 +3902,34 @@
       }
     }
 
-  </style>
+  
+/* ELVEN YEAST MOBILE QUIET TABS 2026-10-31 */
+/* Keep the Details / How-to-use pill unobtrusive until a visitor interacts.
+   Mobile only; existing tab logic and content are unchanged. */
+@media (max-width: 768px) {
+  #productTabs.tabs-bar {
+    max-width: max-content;
+    margin-inline: auto;
+    margin-bottom: 1.2rem;
+    transform-origin: center;
+    transition: opacity .28s ease, transform .32s cubic-bezier(.2,.8,.2,1), filter .28s ease;
+  }
+  #productTabs.tabs-bar.is-mobile-idle:not(:focus-within) {
+    opacity: .38;
+    transform: scale(.88);
+    filter: saturate(.65);
+  }
+  #productTabs.tabs-bar:focus-within {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  #productTabs.tabs-bar { transition: none; }
+}
+
+</style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
 <body>
@@ -5802,6 +5829,26 @@
     document.getElementById('headerQuoteBtn')?.addEventListener('click', openHeaderInquiry);
 </script>
 
+
+<script>
+/* Mobile only: gently dim the product tab switch until tapped/focused.
+   Uses the existing tab handlers, without intercepting or cancelling clicks. */
+(() => {
+  const tabs = document.getElementById('productTabs');
+  if (!tabs) return;
+  const mobile = window.matchMedia('(max-width: 768px)');
+  const reset = () => tabs.classList.toggle('is-mobile-idle', mobile.matches);
+  reset();
+  tabs.addEventListener('pointerdown', () => tabs.classList.remove('is-mobile-idle'));
+  tabs.addEventListener('focusin', () => tabs.classList.remove('is-mobile-idle'));
+  document.addEventListener('pointerdown', (event) => {
+    if (mobile.matches && !tabs.contains(event.target)) {
+      tabs.classList.add('is-mobile-idle');
+    }
+  }, { passive: true });
+  if (mobile.addEventListener) mobile.addEventListener('change', reset);
+})();
+</script>
 <script defer src="assets/elven-ui-polish.js"></script>
 </body>
 </html>
