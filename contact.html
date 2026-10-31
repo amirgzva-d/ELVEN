@@ -721,6 +721,78 @@ body{background:#f4f6f8}
   }
 }
 
+
+/* ELVEN WHATSAPP LINKS BESIDE CONTACT PHONE NUMBERS 2026-10-31 */
+#contactInfo .info-tile.hot .contact-phone-list{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  margin:0;
+  padding:0;
+}
+#contactInfo .info-tile.hot .contact-phone-row{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  width:100%;
+  min-width:0;
+  white-space:nowrap;
+}
+#contactInfo .info-tile.hot .contact-phone-number{
+  direction:ltr;
+  unicode-bidi:isolate;
+  display:inline-block;
+  white-space:nowrap;
+  color:#fff;
+  text-decoration:none;
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+}
+#contactInfo .info-tile.hot .contact-whatsapp-link{
+  flex:0 0 31px;
+  display:grid;
+  place-items:center;
+  width:31px;
+  height:31px;
+  min-width:31px;
+  border:1px solid rgba(157,240,187,.4);
+  border-radius:50%;
+  background:rgba(236,255,241,.12);
+  color:#a6f6b9;
+  text-decoration:none;
+  transition:background .2s ease,transform .2s ease,color .2s ease;
+}
+#contactInfo .info-tile.hot .contact-whatsapp-link svg{
+  width:19px;
+  height:19px;
+  display:block;
+}
+#contactInfo .info-tile.hot .contact-whatsapp-link:is(:hover,:focus-visible){
+  background:#eafff0;
+  color:#087f48;
+  transform:translateY(-1px);
+}
+#contactInfo .info-tile.hot .contact-whatsapp-link:focus-visible{
+  outline:2px solid #e0bd73;
+  outline-offset:2px;
+}
+@media(max-width:600px){
+  #contactInfo .info-tile.hot .contact-phone-row{gap:5px}
+  #contactInfo .info-tile.hot .contact-phone-number{font-size:10px}
+  #contactInfo .info-tile.hot .contact-whatsapp-link{
+    flex-basis:30px;
+    width:30px;
+    height:30px;
+    min-width:30px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #contactInfo .info-tile.hot .contact-whatsapp-link{transition:none}
+}
 </style>
 </head>
 <body>
@@ -780,7 +852,10 @@ body{background:#f4f6f8}
   <div class="info-grid">
     <div class="info-tile hot">
       <div class="ico"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.68A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.98.35 1.95.69 2.87a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.21-1.26a2 2 0 0 1 2.11-.45c.92.34 1.89.57 2.87.69A2 2 0 0 1 22 16.9Z"/></svg></div><h3>تماس با ما</h3>
-      <p><a href="tel:+989153028367" dir="ltr">+98 915 302 8367</a><br><a href="tel:+989155551965" dir="ltr">+98 915 555 1965</a></p>
+      <p class="contact-phone-list">
+        <span class="contact-phone-row" dir="ltr"><a class="contact-phone-number" href="tel:+989153028367" dir="ltr">+98 915 302 8367</a><a class="contact-whatsapp-link" href="https://wa.me/989153028367" target="_blank" rel="noopener noreferrer" aria-label="ارسال پیام واتساپ به +98 915 302 8367" title="گفتگو در واتساپ"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.7 11.6a8.7 8.7 0 0 1-12.9 7.6L3 20.5l1.3-4.7A8.7 8.7 0 1 1 20.7 11.6Z"/><path d="M9 7.7c-.4 0-.8.3-1.1.9-.4.8-.2 1.8.5 2.9 1.2 1.9 2.7 3.3 4.8 4.2.9.4 1.9.2 2.5-.5.3-.3.4-.7.3-1l-2.2-1c-.3-.1-.5 0-.7.2l-.6.7a7.8 7.8 0 0 1-2.9-2.9l.6-.6c.2-.2.2-.5.1-.7L9.4 8c-.1-.2-.2-.3-.4-.3Z"/></svg></a></span>
+        <span class="contact-phone-row" dir="ltr"><a class="contact-phone-number" href="tel:+989155551965" dir="ltr">+98 915 555 1965</a><a class="contact-whatsapp-link" href="https://wa.me/989155551965" target="_blank" rel="noopener noreferrer" aria-label="ارسال پیام واتساپ به +98 915 555 1965" title="گفتگو در واتساپ"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.7 11.6a8.7 8.7 0 0 1-12.9 7.6L3 20.5l1.3-4.7A8.7 8.7 0 1 1 20.7 11.6Z"/><path d="M9 7.7c-.4 0-.8.3-1.1.9-.4.8-.2 1.8.5 2.9 1.2 1.9 2.7 3.3 4.8 4.2.9.4 1.9.2 2.5-.5.3-.3.4-.7.3-1l-2.2-1c-.3-.1-.5 0-.7.2l-.6.7a7.8 7.8 0 0 1-2.9-2.9l.6-.6c.2-.2.2-.5.1-.7L9.4 8c-.1-.2-.2-.3-.4-.3Z"/></svg></a></span>
+      </p>
     </div>
     <div class="info-tile">
       <div class="ico"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><h3>ایمیل</h3><p><a href="mailto:info@mohajer-food.com">info@mohajer-food.com</a></p>
