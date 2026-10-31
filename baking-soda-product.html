@@ -489,14 +489,17 @@ const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObse
   .soda-main > .soda-hero::after {
     content: "" !important;
     display: block !important;
+    /* Match the image's left edge before beginning the soft dissolve.
+       Keep the copy background fully opaque; preserve the product at right. */
     background: linear-gradient(90deg,
       #fffaf2 0%,
-      rgba(255,250,242,.995) 16%,
-      rgba(255,250,242,.98) 25%,
-      rgba(255,250,242,.78) 31%,
-      rgba(255,250,242,.36) 39%,
-      rgba(255,250,242,.03) 47%,
-      transparent 54%) !important;
+      #fffaf2 32%,
+      rgba(255,250,242,.98) 36%,
+      rgba(255,250,242,.87) 41%,
+      rgba(255,250,242,.65) 47%,
+      rgba(255,250,242,.37) 53%,
+      rgba(255,250,242,.12) 60%,
+      transparent 67%) !important;
     pointer-events: none !important;
   }
   .soda-main > .soda-hero .hero-inner {
