@@ -200,6 +200,24 @@ main>.catalog::after{display:none}
   .hero-features{margin:18px 0 16px}
   .hero-actions{gap:14px}
 }
+
+/* ELVEN SOFT HERO IMAGE BLEND 2026-10-31
+   Smooth the background-image edge like baking soda; no changes to image scale,
+   card layout, copy, or the mobile portrait transition. */
+@media (min-width: 851px) {
+  .hero::after {
+    background: linear-gradient(90deg,
+      #fffaf2 0%,
+      #fffaf2 32%,
+      rgba(255,250,242,.98) 36%,
+      rgba(255,250,242,.87) 41%,
+      rgba(255,250,242,.65) 47%,
+      rgba(255,250,242,.37) 53%,
+      rgba(255,250,242,.12) 60%,
+      transparent 67%) !important;
+    pointer-events: none !important;
+  }
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
