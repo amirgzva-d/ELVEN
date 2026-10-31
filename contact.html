@@ -605,6 +605,122 @@ body{background:#f4f6f8}
     justify-self: end;
   }
 }
+
+/* ELVEN CONTACT MOBILE CATALOG BESIDE PHONE 2026-10-31 */
+/* On phones the catalog button becomes an equal-sized tile beside the phone.
+   `display:contents` promotes the two existing wrappers' children
+   into the same grid without moving DOM nodes or affecting desktop markup. */
+@media (max-width: 600px) {
+  #contactInfo.info-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    align-items: stretch;
+    padding: 16px 12px 24px;
+    direction: rtl;
+  }
+  #contactInfo .info-toolbar,
+  #contactInfo .info-grid {
+    display: contents;
+  }
+  #contactInfo .catalog-cta.catalog-cta--top {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: stretch;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    height: auto;
+    min-height: 160px;
+    padding: 14px 12px 17px;
+    border: 1px solid #e4ebe7;
+    border-radius: 15px;
+    background: linear-gradient(150deg, #fffefa, #f7fbf8);
+    text-align: center;
+    box-shadow: 0 7px 22px rgba(8, 60, 45, .05);
+  }
+  #contactInfo .catalog-cta--top .file-icon {
+    flex: none;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: #eef5ee;
+    color: #075a43;
+  }
+  #contactInfo .catalog-cta--top .file-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  #contactInfo .catalog-cta--top .cta-copy {
+    flex: none;
+    width: 100%;
+    text-align: center;
+  }
+  #contactInfo .catalog-cta--top .cta-copy strong {
+    font-size: 11.5px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+  #contactInfo .catalog-cta--top .cta-copy small {
+    font-size: 9px;
+    line-height: 1.65;
+    margin-top: 3px;
+  }
+  #contactInfo .catalog-cta--top .open-catalog {
+    position: absolute;
+    left: 9px;
+    bottom: 9px;
+    width: 26px;
+    height: 26px;
+    background: #c9a35a;
+  }
+  #contactInfo .catalog-cta--top .open-catalog svg {
+    width: 14px;
+    height: 14px;
+  }
+  #contactInfo .info-grid > .info-tile {
+    min-height: 160px;
+    min-width: 0;
+  }
+  #contactInfo .info-grid > .info-tile.hot {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  #contactInfo .info-grid > .info-tile:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  #contactInfo .info-grid > .info-tile:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  #contactInfo .info-grid > .info-tile:nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    min-height: 106px;
+    gap: 5px;
+    padding: 11px 14px;
+  }
+  #contactInfo .info-grid > .info-tile:nth-child(3) .ico {
+    width: 34px;
+    height: 34px;
+  }
+  #contactInfo .info-grid > .map-tile {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    min-height: 232px;
+  }
+  #contactInfo .info-grid > .company-photo-tile {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    min-height: 232px;
+  }
+}
+
 </style>
 </head>
 <body>
