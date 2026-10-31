@@ -583,14 +583,17 @@ body{background:#f4f6f8}
 
 
 /* CONTACT HERO DESKTOP ALIGNMENT 2026-10-31
-   Bring BOTH the contact form and the introduction toward the right edge.
-   Preserve the RTL two-column ordering, their gap, and all mobile layouts. */
+   Balance the form near the visual center of the banner and leave the
+   headline aligned at the far right. Keep the two-column RTL layout,
+   existing form styling, and mobile/tablet stacking intact. */
 @media (min-width: 951px) {
   .hero-shell > .hero-content {
     width: 100%;
     max-width: none;
-    grid-template-columns: minmax(0, min(460px, 42%)) minmax(0, min(570px, 53%));
-    column-gap: clamp(28px, 4vw, 76px);
+    grid-template-columns:
+      minmax(0, min(clamp(400px, 29.6vw, 460px), 40%))
+      minmax(0, min(clamp(490px, 36.7vw, 570px), 49%));
+    column-gap: clamp(36px, calc(50vw - 817px), 580px);
     justify-content: start;
     padding-inline: clamp(28px, 4vw, 72px);
   }
