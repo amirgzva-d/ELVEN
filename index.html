@@ -1335,6 +1335,50 @@ img{max-width:100%;display:block}
   }
 }
 
+
+/* ELVEN MOBILE YEAST FEATURED IMAGE NATURAL RATIO 2026-10-31 */
+/* The two yeast banner slides must remain fully visible on phones.
+   Let the first image's intrinsic aspect ratio size the card, rather than
+   cropping it into the old fixed 245/270/300px frame. The second slide stays
+   stacked in the same frame, and both use contain instead of cover.
+   Desktop layout, slide content, buttons and animation timings are unchanged. */
+@media (max-width: 768px) {
+  #categories.category-grid > article.category-card.category-card--featured {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    align-self: start !important;
+  }
+  #categories.category-grid > article.category-card.category-card--featured > .category-image.featured-slider {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    background-color: #101b16 !important;
+  }
+  #categories.category-grid > article.category-card.category-card--featured .featured-slider img.featured-slide {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+  #categories.category-grid > article.category-card.category-card--featured .featured-slider img.featured-slide:first-child {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 <link rel="stylesheet" href="assets/home-first-impression.css">
