@@ -1,0 +1,77 @@
+/* MOHAJER TRADING GROUP — Three interactive divisions.
+   Editorial photo cards, purposefully distinct from the steel site's long department cards. */
+.elven-departments{
+  position:relative;
+  isolation:isolate;
+  padding:clamp(72px,7vw,116px) clamp(20px,4vw,68px) clamp(78px,7.2vw,120px);
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 31% 42% at 0% 8%,rgba(204,221,207,.30) 0%,transparent 100%),
+    radial-gradient(ellipse 30% 45% at 100% 100%,rgba(233,217,177,.24) 0%,transparent 100%),
+    linear-gradient(180deg,#f9faf7 0%,#f5f8f5 58%,#fbfaf7 100%);
+}
+.elven-departments::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.34;
+  background-image:radial-gradient(#b3c9b7 .7px,transparent .8px);
+  background-size:24px 24px;
+  mask-image:linear-gradient(90deg,black,transparent 32%,transparent 70%,black);
+  -webkit-mask-image:linear-gradient(90deg,black,transparent 32%,transparent 70%,black);
+}
+.elven-departments-inner{max-width:1470px;margin:0 auto;}
+.elven-departments-heading{text-align:center;max-width:780px;margin:0 auto clamp(28px,4vw,49px);}
+.elven-departments-kicker{display:inline-flex;align-items:center;justify-content:center;gap:13px;font-size:12px;font-weight:800;letter-spacing:.15px;color:#aa813d;}
+.elven-departments-kicker span{display:inline-block;width:29px;height:1px;background:#c9a35a;}
+.elven-departments h2{margin:13px 0 10px;color:#092e25;font-size:clamp(26px,3.2vw,43px);font-weight:900;line-height:1.38;}
+.elven-departments-heading p{margin:0;color:#667b70;font-size:clamp(13px,1.1vw,15px);line-height:2;max-width:720px;margin-inline:auto;}
+.elven-departments-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.7vw,26px);}
+.elven-dept-card{
+  --accent:#0a654d;--accentsoft:#e8f4ec;
+  min-width:0;display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  background:#fff;border:1px solid rgba(141,172,149,.25);border-radius:25px;overflow:hidden;
+  box-shadow:0 12px 32px rgba(21,58,43,.065);
+  transition:transform .35s cubic-bezier(.2,.65,.2,1),box-shadow .35s,border-color .3s;
+}
+.elven-dept-card--steel{--accent:#27516d;--accentsoft:#e9f1f6;}
+.elven-dept-card--petro{--accent:#8b654b;--accentsoft:#f8efe7;}
+.elven-dept-card:hover{transform:translateY(-7px);border-color:rgba(174,146,83,.48);box-shadow:0 23px 45px rgba(18,53,39,.15);}
+.elven-dept-card:focus-visible{outline:3px solid #c9a35a;outline-offset:4px;}
+.elven-dept-photo{height:clamp(185px,16.2vw,244px);overflow:hidden;position:relative;display:block;background:#e4eae6;}
+.elven-dept-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .65s cubic-bezier(.2,.7,.1,1);}
+.elven-dept-card:hover .elven-dept-photo img{transform:scale(1.06);}
+.elven-dept-photo-wash{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,25,24,.03),transparent 45%,rgba(6,26,24,.34));pointer-events:none;}
+.elven-dept-no{position:absolute;top:15px;left:17px;min-width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.55);border-radius:11px;color:#fff;background:rgba(7,30,29,.38);backdrop-filter:blur(8px);font-size:15px;font-weight:750;}
+.elven-dept-mark{position:absolute;right:20px;bottom:16px;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.92);color:var(--accent);box-shadow:0 5px 19px rgba(0,0,0,.13);}
+.elven-dept-mark svg{height:26px;width:26px;}
+.elven-dept-content{display:flex;flex:1;flex-direction:column;padding:24px clamp(17px,2vw,28px) 20px;text-align:right;}
+.elven-dept-eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:750;color:var(--accent);font-family:Poppins,Arial,sans-serif;direction:ltr;text-align:right;opacity:.85;}
+.elven-dept-title{font-size:clamp(19px,1.55vw,24px);font-weight:900;color:#10392f;margin:5px 0 3px;}
+.elven-dept-subtitle{font-size:12px;font-weight:750;color:#9a824f;}
+.elven-dept-desc{display:block;margin-top:12px;color:#667a73;font-size:13px;line-height:2;min-height:78px;}
+.elven-dept-foot{margin-top:auto;border-top:1px solid #e9eee9;padding-top:15px;display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--accent);font-size:12px;font-weight:800;}
+.elven-dept-arrow{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:35px;height:35px;border-radius:12px;background:var(--accentsoft);color:var(--accent);transition:transform .25s,background .25s;}
+.elven-dept-arrow svg{width:17px;height:17px;}
+.elven-dept-card:hover .elven-dept-arrow{transform:translateX(-4px);background:#dcebdc;}
+.elven-departments-footnote{text-align:center;margin:28px 0 0;color:#80928b;font-size:12px;letter-spacing:.1px;}
+@media (max-width:900px){
+  .elven-departments-grid{gap:13px;}
+  .elven-dept-content{padding:17px 16px 17px;}
+  .elven-dept-photo{height:170px;}
+  .elven-dept-mark{right:12px;bottom:11px;width:44px;height:44px;}
+  .elven-dept-desc{min-height:104px;font-size:12px;}
+}
+@media (max-width:700px){
+  .elven-departments{padding:64px 16px 72px;}
+  .elven-departments-grid{grid-template-columns:1fr;max-width:490px;margin:0 auto;gap:18px;}
+  .elven-departments-heading{margin-bottom:27px;}
+  .elven-departments h2{font-size:27px;}
+  .elven-departments-heading p{font-size:13px;}
+  .elven-dept-card{border-radius:21px;}
+  .elven-dept-photo{height:clamp(185px,52vw,235px);}
+  .elven-dept-content{padding:19px 21px 19px;}
+  .elven-dept-desc{min-height:0;margin-bottom:20px;font-size:12.5px;}
+  .elven-dept-title{font-size:21px;}
+  .elven-departments-footnote{line-height:1.9;}
+}
+@media (prefers-reduced-motion:reduce){
+ .elven-dept-card,.elven-dept-photo img,.elven-dept-arrow{transition:none;}
+}
