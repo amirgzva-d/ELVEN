@@ -6061,7 +6061,15 @@
       });
     });
 
-    const openHeaderInquiry = () => document.getElementById('inquiryBtn')?.click();
+    const openHeaderInquiry = () => {
+      // The original inquiry dock is intentionally hidden behind the mobile
+      // artwork; route the mobile header CTA to the visible contact form.
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        window.location.href = 'contact.html#contactForm';
+        return;
+      }
+      document.getElementById('inquiryBtn')?.click();
+    };
     document.getElementById('headerQuoteBtn')?.addEventListener('click', openHeaderInquiry);
 </script>
 
