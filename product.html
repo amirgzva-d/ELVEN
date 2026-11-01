@@ -357,6 +357,158 @@ body.beverages-view .catalog .card-copy .chips{
     pointer-events: none !important;
   }
 }
+
+/* ELVEN BEVERAGES MOBILE TWO-COLUMN CATALOG AND FRUIT BACKGROUND 2026-11-01 */
+/* All changes are scoped to the beverages view on phones.
+   The four existing product images, card selection behavior and all desktop
+   layouts remain unchanged. Preserve the supplied portrait image's aspect
+   ratio with background-size: cover, never stretch it to 100% 100%. */
+@media (max-width: 680px) {
+  body.beverages-view .beverages-background-surface {
+    background-image: none;
+    background-color: #fff8ef;
+  }
+  body.beverages-view .beverages-background-surface > .catalog {
+    position: relative;
+    background-color: #fff8ef;
+    background-image: url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793509000/%D9%BE%D8%B3_%D8%B2%D9%85%DB%8C%D9%86%D9%87_%D8%B9%D9%85%D9%88%D8%AF%DB%8C_%D9%85%DB%8C%D9%88%D9%87_%D8%A7%DB%8C_%D8%A8%D8%A7_%D9%81%D8%B6%D8%A7%DB%8C_%DA%A9%D8%B1%D9%85%DB%8C_rcyhiz.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: scroll;
+    padding: 30px 13px 42px;
+    overflow: hidden;
+  }
+  body.beverages-view .catalog > .section-heading {
+    max-width: 95%;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+  body.beverages-view .catalog > .section-heading h2 {
+    font-size: clamp(22px, 5.5vw, 29px);
+    color: #0d2b5b;
+    line-height: 1.5;
+  }
+  body.beverages-view .catalog > .section-heading p {
+    font-size: 11px;
+    line-height: 1.9;
+    color: #4b5e69;
+  }
+  body.beverages-view .catalog .product-grid {
+    display: grid;
+    width: 100%;
+    max-width: none;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    grid-auto-rows: 1fr;
+    gap: 12px;
+    margin: 0 auto;
+    align-items: stretch;
+    direction: rtl;
+  }
+  body.beverages-view .catalog .product-card,
+  body.beverages-view .catalog .product-card:last-child {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    grid-column: auto;
+    justify-self: stretch;
+    overflow: hidden;
+    border: 1px solid #e9ddcb;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(18,45,67,.09);
+    text-align: right;
+  }
+  body.beverages-view .catalog .product-card:hover {
+    transform: none;
+  }
+  body.beverages-view .catalog .product-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+    flex: 0 0 auto;
+    background-color: #f7f4eb;
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+  body.beverages-view .catalog .card-copy {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-width: 0;
+    min-height: 160px;
+    padding: 13px 12px 13px;
+    text-align: right;
+    background: rgba(255,255,255,.98);
+  }
+  body.beverages-view .catalog .product-card.selected .card-copy {
+    background: #fffdfa;
+  }
+  body.beverages-view .catalog .card-copy h3 {
+    margin: 0 0 6px;
+    font-size: clamp(13px,3.35vw,16px);
+    font-weight: 900;
+    line-height: 1.7;
+    color: #0d2b5b;
+    overflow-wrap: anywhere;
+  }
+  body.beverages-view .catalog .card-copy > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    min-height: 0;
+    max-width: none;
+    margin: 0 0 12px;
+    font-size: 10px;
+    line-height: 1.9;
+    color: #657187;
+    overflow-wrap: anywhere;
+  }
+  body.beverages-view .catalog .card-copy .chips {
+    display: none;
+  }
+  /* The entire original card is a working keyboard/touch button: this footer
+     is visual guidance and does not introduce a nested fake interactive link. */
+  body.beverages-view .catalog .card-copy::after {
+    content: "مشاهده مشخصات  ←";
+    display: block;
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 10px;
+    border-bottom: 1px solid #bb8b4a;
+    color: #113861;
+    font-size: 10px;
+    line-height: 1.7;
+    font-weight: 850;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+}
+@media (max-width: 360px) {
+  body.beverages-view .beverages-background-surface > .catalog {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  body.beverages-view .catalog .product-grid { gap: 9px; }
+  body.beverages-view .catalog .card-copy { padding: 11px 9px 12px; min-height: 172px; }
+  body.beverages-view .catalog .card-copy h3 { font-size: 12px; }
+  body.beverages-view .catalog .card-copy > p { font-size: 9.5px; }
+  body.beverages-view .catalog .card-copy::after { font-size: 9px; }
+}
+
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css">
 </head>
