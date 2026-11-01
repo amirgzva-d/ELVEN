@@ -281,3 +281,18 @@ svg.ico{flex-shrink:0;vertical-align:middle}
   .elven-mobile-portrait-actions{bottom:5%}
   .elven-mobile-portrait-quote{font-size:clamp(13px,4.1vw,16px)}
 }
+
+
+/* ELVEN SHARED FOOTER DIRECT PHONE AND SOCIAL LINKS 2026-11-01 */
+.site-footer .footer-contact-item--landline strong a{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.site-footer .footer-social-links{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:10px;margin-top:17px;direction:rtl}
+.site-footer .footer-social-link{display:grid;place-items:center;width:39px;height:39px;flex:0 0 39px;border:1px solid rgba(201,163,90,.34);border-radius:12px;background:rgba(255,255,255,.07);color:#e2c186;transition:background .22s ease,border-color .22s ease,transform .22s ease;text-decoration:none}
+.site-footer .footer-social-link svg{display:block;width:21px;height:21px}
+.site-footer a.footer-social-link:is(:hover,:focus-visible){background:#0a5c46;border-color:#c9a35a;color:#fff;transform:translateY(-2px)}
+.site-footer a.footer-social-link:focus-visible{outline:2px solid #e2c186;outline-offset:3px}
+.site-footer .footer-social-link--pending{opacity:.48;cursor:default}
+@media(max-width:600px){
+  .site-footer .footer-social-links{justify-content:center;gap:9px;margin-top:13px}
+  .site-footer .footer-social-link{width:38px;height:38px;flex-basis:38px}
+}
+@media(prefers-reduced-motion:reduce){.site-footer .footer-social-link{transition:none}}
