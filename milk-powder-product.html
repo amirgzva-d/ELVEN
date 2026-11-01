@@ -404,6 +404,7 @@ main>.partners>.partner-grid{
 }
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261101-footer-clean-4">
+<link rel="stylesheet" href="assets/mobile-nutrition-preview.css?v=20261101-1">
 </head>
 <body>
 
@@ -479,10 +480,11 @@ main>.partners>.partner-grid{
   </article>
  </div>
 </section>
-<section class="spec-section" id="specifications">
+<section class="spec-section mobile-nutrition-preview" id="specifications" data-nutrition-label="شیر خشک">
  <div class="spec-panel" data-reveal>
-  <div class="spec-art" role="img" aria-label="تصویر موقت محصول شیر خشک"></div>
-  <div class="spec-content">
+  <div class="spec-art" role="img" aria-label="تصویر موقت محصول شیر خشک"><img class="mobile-nutrition-photo" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467416/6c9cf805-727f-49bb-9d81-8999d4a25c7a_mubz3u.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>
+  <button type="button" class="mobile-nutrition-toggle" aria-expanded="false" aria-controls="nutritionPreviewContent nutritionPreviewMore" aria-label="دیدن جزئیات شیر خشک"><span class="mobile-nutrition-toggle__label">دیدن جزئیات</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  <div class="spec-content" id="nutritionPreviewContent">
    <div class="spec-top"><div><span class="spec-title-kicker">اطلاعات فنی محصول</span><h2>مشخصات و آنالیز شیر خشک</h2></div><span class="spec-head-icon"><svg class="ico " aria-hidden="true"><use href="#i-list"></use></svg></span></div>
    <div id="nutritionStats" class="nutrition-grid"><div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-fire"></use></svg><div><span class="nutri-label">انرژی</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
 <div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">پروتئین</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
@@ -493,7 +495,7 @@ main>.partners>.partner-grid{
    <p id="nutritionNote" class="spec-note">مقادیر آنالیز هر نوع شیر خشک پس از دریافت برگه مشخصات و تأیید تولیدکننده درج خواهد شد.</p>
   </div>
  </div>
- <details class="product-detail"><summary>معرفی و اطلاعات محصول انتخاب‌شده</summary>
+ <details class="product-detail" id="nutritionPreviewMore"><summary>معرفی و اطلاعات محصول انتخاب‌شده</summary>
   <p><strong id="selectedProduct">شیر خشک پرچرب</strong></p>
   <p id="productDetails">گرید، ترکیبات و مشخصات بسته‌بندی شیر خشک پرچرب پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.</p>
  </details>
@@ -601,4 +603,5 @@ document.querySelectorAll('.product-card[data-kind]').forEach(card=>{
 });
 })();</script>
 <script defer src="assets/elven-ui-polish.js"></script>
+<script defer src="assets/mobile-nutrition-preview.js?v=20261101-1"></script>
 </body></html>

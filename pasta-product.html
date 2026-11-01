@@ -220,6 +220,7 @@ main>.catalog::after{display:none}
 }
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261101-footer-clean-4">
+<link rel="stylesheet" href="assets/mobile-nutrition-preview.css?v=20261101-1">
 </head>
 <body>
 
@@ -313,10 +314,11 @@ main>.catalog::after{display:none}
   </div>
 </article></div>
 </section>
-<section class="spec-section" id="specifications">
+<section class="spec-section mobile-nutrition-preview" id="specifications" data-nutrition-label="ماکارونی">
  <div class="spec-panel" data-reveal>
-  <div class="spec-art" role="img" aria-label="پاستا فرمی در چیدمان مواد غذایی"></div>
-  <div class="spec-content">
+  <div class="spec-art" role="img" aria-label="پاستا فرمی در چیدمان مواد غذایی"><img class="mobile-nutrition-photo" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1792467418/328ebcd4-84ca-4037-a50e-3fc6f4078f56_u3nqmd.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>
+  <button type="button" class="mobile-nutrition-toggle" aria-expanded="false" aria-controls="nutritionPreviewContent nutritionPreviewMore" aria-label="دیدن جزئیات ماکارونی"><span class="mobile-nutrition-toggle__label">دیدن جزئیات</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  <div class="spec-content" id="nutritionPreviewContent">
    <div class="spec-top"><div><span class="spec-title-kicker">ارزش غذایی محصول</span><h2>جدول ارزش غذایی ماکارونی همرسین</h2></div><span class="spec-head-icon"><svg class="ico " aria-hidden="true"><use href="#i-list"></use></svg></span></div>
    <div id="nutritionStats" class="nutrition-grid"><div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-fire"></use></svg><div><span class="nutri-label">انرژی</span><strong class="nutri-num">۱۸۷/۶۴</strong><small>کیلو کالری - ۷۸۵/۰۸ کیلوژول</small></div></div>
 <div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">پروتئین</span><strong class="nutri-num">۶/۴۷</strong><small>گرم</small></div></div>
@@ -328,7 +330,7 @@ main>.catalog::after{display:none}
    <p id="nutritionNote" class="spec-note">* اعداد ارائه‌شده مربوط به ۵۵ گرم پاستا فرمی هستند؛ اطلاعات قبل از انتشار نهایی باید با برچسب محصول تأیید شوند.</p>
   </div>
  </div>
- <details class="product-detail"><summary>معرفی، ترکیبات و روش پخت محصول انتخاب‌شده</summary>
+ <details class="product-detail" id="nutritionPreviewMore"><summary>معرفی، ترکیبات و روش پخت محصول انتخاب‌شده</summary>
   <p><strong id="selectedProduct">پاستا فرمی همرسین</strong></p>
   <p id="productDetails">پاستا فرمی صدفی همرسین با انواع سس‌های غلیظ و رقیق به‌خوبی ترکیب می‌شود. با سس‌های خامه‌ای، سس‌های پایه گوشت، سوپ و غذاهای دریایی مناسب است. بسته‌بندی ۵۰۰ گرمی برای ۴ تا ۶ نفر در نظر گرفته شده است.</p>
   <p data-form-only><strong>ترکیبات پاستا فرمی:</strong> آرد گندم (آرد ماکارونی) و آب.</p>
@@ -436,4 +438,5 @@ document.querySelectorAll('.product-card[data-kind]').forEach(card=>{
 });
 })();</script>
 <script defer src="assets/elven-ui-polish.js"></script>
+<script defer src="assets/mobile-nutrition-preview.js?v=20261101-1"></script>
 </body></html>

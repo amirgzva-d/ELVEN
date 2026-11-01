@@ -455,6 +455,7 @@ main>.catalog::after{display:none}
 }
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261101-footer-clean-4">
+<link rel="stylesheet" href="assets/mobile-nutrition-preview.css?v=20261101-1">
 </head>
 <body>
 
@@ -563,10 +564,11 @@ main>.catalog::after{display:none}
     </article>
   </div>
 </section>
-<section class="spec-section tomato-specifications" id="tomato-specifications" aria-labelledby="tomato-spec-title">
+<section class="spec-section mobile-nutrition-preview tomato-specifications" id="tomato-specifications" aria-labelledby="tomato-spec-title" data-nutrition-label="رب گوجه‌فرنگی">
   <div class="spec-panel tomato-spec-panel" data-reveal>
-    <div class="spec-art tomato-spec-art" role="img" aria-label="رب گوجه‌فرنگی غلیظ در کاسه چوبی همراه با گوجه‌فرنگی تازه و ریحان"></div>
-    <div class="spec-content tomato-spec-content">
+    <div class="spec-art tomato-spec-art" role="img" aria-label="رب گوجه‌فرنگی غلیظ در کاسه چوبی همراه با گوجه‌فرنگی تازه و ریحان"><img class="mobile-nutrition-photo" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3KTuTVGZxFnGuiKvaXWqNmECNgG/dc5f79de-3b8e-4ba9-9e7a-cccce4207e87.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>
+  <button type="button" class="mobile-nutrition-toggle" aria-expanded="false" aria-controls="nutritionPreviewContent nutritionPreviewMore" aria-label="دیدن جزئیات رب گوجه‌فرنگی"><span class="mobile-nutrition-toggle__label">دیدن جزئیات</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="spec-content tomato-spec-content" id="nutritionPreviewContent">
       <div class="spec-top">
         <div><span class="spec-title-kicker">مشخصات فنی و کیفی محصول</span><h2 id="tomato-spec-title">جدول مشخصات فنی رب گوجه‌فرنگی</h2><p class="tomato-selected-packaging">نوع آنالیز: <strong id="tomatoSelectedProduct">مرجع عمومی</strong></p></div>
         <span class="spec-head-icon" aria-hidden="true"><svg class="ico"><use href="#i-list"></use></svg></span>
@@ -652,7 +654,7 @@ main>.catalog::after{display:none}
       <p class="spec-note tomato-spec-note" id="tomatoAnalysisNote" aria-live="polite">* اعداد فعلی فقط مربوط به جدول مرجع عمومی هستند و هنوز به هیچ‌یک از سه نوع بسته‌بندی نسبت داده نشده‌اند. برای نمایش آنالیز اختصاصی، کارت مربوط را انتخاب کنید.</p>
     </div>
   </div>
-  <details class="product-detail tomato-spec-detail">
+  <details class="product-detail tomato-spec-detail" id="nutritionPreviewMore">
     <summary>توضیحات مشخصات فنی و نتایج آزمایش رب گوجه‌فرنگی</summary>
     <p><strong id="tomatoProductDetailsTitle">رب گوجه‌فرنگی: </strong><span id="tomatoProductDetailsText">برای مشاهدهٔ آنالیز اختصاصی، یکی از سه کارت را انتخاب کنید.</span></p>
     <p>بریکس (Brix)، ویسکوزیته، pH، نسبت رنگ (a/b) و شمارش کپک هاوارد (H.M.C) شاخص‌های کنترل کیفیت هستند. مقدار هر شاخص برای بسته‌بندی انتخاب‌شده جداگانه نمایش داده می‌شود و برگهٔ آنالیز همان محصول ملاک تأیید نهایی است.</p>
@@ -871,4 +873,5 @@ showTomatoAnalysis('aseptic',true);
 })();
 </script>
 <script defer src="assets/elven-ui-polish.js"></script>
+<script defer src="assets/mobile-nutrition-preview.js?v=20261101-1"></script>
 </body></html>
