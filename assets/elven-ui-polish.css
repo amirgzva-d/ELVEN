@@ -385,57 +385,55 @@ svg.ico{flex-shrink:0;vertical-align:middle}
   transform:none !important;
 }
 .site-footer .footer-col .footer-social-link--pending{opacity:.65 !important;}
-/* Each phone gets an actionable icon on the left, just as on contact.html. */
-.site-footer .footer-col .footer-contact-item--phone,
-.site-footer .footer-col .footer-contact-item--landline{
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:flex-start;
-  gap:9px;
+/* ELVEN CLEAN FOOTER CONTACT DETAILS — 2026-11-01
+   Hide no content: links remain actionable, with no detached phone or email icons. */
+.site-footer .footer-col:last-child .footer-contact-item{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+  width:100% !important;
+  gap:0 !important;
+  margin:0 0 12px !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+  text-align:right !important;
 }
-.site-footer .footer-col .footer-contact-item--phone > div,
-.site-footer .footer-col .footer-contact-item--landline > div{
-  min-width:0;
-  flex:0 1 auto;
+.site-footer .footer-col:last-child .footer-contact-item > div{
+  width:100% !important;
+  min-width:0 !important;
+  flex:1 1 auto !important;
 }
-.site-footer .footer-col a.footer-phone-action{
-  display:grid !important;
-  place-items:center !important;
-  flex:0 0 29px;
-  width:29px;height:29px;min-width:29px;
-  margin:0;padding:0 !important;
-  border:1px solid #fff;
-  border-radius:50%;
-  background:#fff;
-  color:#087f48;
-  text-decoration:none;
-  line-height:1;
-}
-.site-footer .footer-col .footer-phone-action svg{
+.site-footer .footer-col:last-child .footer-contact-item strong{
   display:block;
-  width:17px;
-  height:17px;
-  fill:none;
-  stroke:currentColor;
+  direction:ltr;
+  text-align:right;
+  line-height:1.55;
 }
-.site-footer .footer-col .footer-phone-action .social-brand-fill{
-  fill:currentColor;
-  stroke:none;
+.site-footer .footer-col:last-child .footer-contact-item small{
+  display:block;
+  text-align:right;
+  margin-top:2px;
+  line-height:1.65;
 }
-.site-footer .footer-col .footer-phone-action::before,
-.site-footer .footer-col .footer-phone-action::after{
-  display:none !important;content:none !important;
+.site-footer .footer-col:last-child .footer-contact-item--email a[href^="mailto:"]{
+  display:inline-block;
+  direction:ltr;
+  unicode-bidi:isolate;
+  max-width:100%;
+  overflow-wrap:anywhere;
+  text-align:right;
 }
-.site-footer .footer-col a.footer-phone-action:is(:hover,:focus-visible){
-  background:#f0fff4;
-  color:#056b3b;
-}
-.site-footer .footer-col a.footer-phone-action:focus-visible{
-  outline:2px solid #c9a35a;outline-offset:3px;
+.site-footer .footer-col:last-child .footer-contact-item--email strong{
+  white-space:normal;
 }
 @media(max-width:600px){
-  .site-footer .footer-col .footer-contact-item--phone,
-  .site-footer .footer-col .footer-contact-item--landline{justify-content:center;}
-  .site-footer .footer-col a.footer-phone-action{flex-basis:28px;width:28px;height:28px;min-width:28px;}
+  .site-footer .footer-col:last-child .footer-contact-item{
+    padding:6px 0 !important;
+    margin-bottom:7px !important;
+  }
 }
