@@ -75,3 +75,7 @@
 @media (prefers-reduced-motion:reduce){
  .elven-dept-card,.elven-dept-photo img,.elven-dept-arrow{transition:none;}
 }
+
+/* Anchor offset below the floating navigation and a compact desktop navigation gap. */
+#departments{scroll-margin-top:95px}
+@media (min-width:769px) and (max-width:1150px){.header .nav{gap:clamp(9px,1.4vw,18px)}.header .nav a{font-size:clamp(11px,1.15vw,13px)}}
