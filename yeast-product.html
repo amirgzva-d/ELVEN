@@ -4091,8 +4091,6 @@
         <span class="yeast-mobile-feature__eyebrow">گروه بازرگانی مهاجر · محصولات نانوایی</span>
         <h1>خمیرمایه</h1>
         <p class="yeast-mobile-feature__tagline">کیفیت حرفه‌ای، طراوت در هر پخت</p>
-        <p class="yeast-mobile-feature__intro">پنج برند تخصصی خمیرمایه برای نان و شیرینی</p>
-        <span class="yeast-mobile-feature__current">برند انتخابی: <strong id="yeastMobileSelectedBrand">ایکس پاور</strong></span>
       </div>
       <div class="yeast-mobile-feature__bottom">
         <div class="yeast-mobile-feature__brands" role="group" aria-label="انتخاب برند خمیرمایه">
@@ -5405,20 +5403,12 @@
     const heroSection = document.getElementById('heroSection');
     const heroBrandVideo = document.getElementById('heroBrandVideo');
     const yeastMobileArt = document.getElementById('yeastMobileHeroArt');
-    const yeastMobileSelectedBrand = document.getElementById('yeastMobileSelectedBrand');
     const yeastMobileArtByBrand = {
       "ixpower": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529215/3_mnsxvn.png",
       "shetab": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529209/2_rc7ppc.png",
       "razavi": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529206/5_vtxxff.png",
       "nanmaye": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529206/4_q8uck2.png",
       "dezmaye": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529205/1_j9ebsq.png"
-};
-    const yeastMobileLabelByBrand = {
-      "ixpower": "ایکس پاور",
-      "shetab": "شتاب",
-      "razavi": "رضوی",
-      "nanmaye": "نان مایه",
-      "dezmaye": "دزمایه"
 };
     const heroTitleEl = document.getElementById('heroTitle');
     const heroSubtitleEl = document.getElementById('heroSubtitle');
@@ -5528,7 +5518,6 @@
           yeastMobileArt.getAttribute('src') !== yeastMobileArtByBrand[brandKey]) {
         yeastMobileArt.setAttribute('src', yeastMobileArtByBrand[brandKey]);
       }
-      if (yeastMobileSelectedBrand) yeastMobileSelectedBrand.textContent = yeastMobileLabelByBrand[brandKey] || displayBrand.brandName;
       document.querySelectorAll('[data-yeast-brand]').forEach(choice => {
         const selected = choice.dataset.yeastBrand === brandKey;
         choice.classList.toggle('is-active', selected);
