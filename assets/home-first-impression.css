@@ -166,18 +166,24 @@
 @media (prefers-reduced-motion:reduce){
   .home-category-link{transition:none}
 }
-/* Custom 9-category illustrations: vector traced from the approved transparent icon artwork. */
+/* Nine custom category icons: normalized SVG art bounds and bigger consistent display. */
 .home-category-link .home-category-icon {
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
   display: block;
   fill: #075c46;
   stroke: none;
 }
-@media (max-width:1190px){
-  .home-category-link .home-category-icon {width:32px;height:32px;flex-basis:32px;}
+.home-category-link {
+  min-height: 112px;
+  gap: 7px;
+}
+@media (min-width:769px) and (max-width:1190px){
+  .home-category-link .home-category-icon {width:44px;height:44px;flex-basis:44px;}
+  .home-category-link {min-height:110px;}
 }
 @media (max-width:768px){
-  .home-category-link .home-category-icon {width:34px;height:34px;flex-basis:34px;}
+  .home-category-link .home-category-icon {width:44px;height:44px;flex-basis:44px;}
+  .home-category-link {min-height:108px;gap:7px;}
 }
