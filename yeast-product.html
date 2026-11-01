@@ -4077,11 +4077,37 @@
 
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261101-footer-clean-4">
+<link rel="stylesheet" href="assets/yeast-mobile-hero.css?v=20261101-1">
 </head>
 <body>
 
   <section class="hero" id="heroSection">
     <video id="heroBrandVideo" class="hero-brand-video" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video>
+    <!-- Mobile-only five-brand product showcase; desktop hero is unchanged. -->
+    <div class="yeast-mobile-feature" lang="fa">
+      <img id="yeastMobileHeroArt" class="yeast-mobile-feature__art" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529215/3_mnsxvn.png" alt="" aria-hidden="true" decoding="async" fetchpriority="high">
+      <div class="yeast-mobile-feature__shade" aria-hidden="true"></div>
+      <div class="yeast-mobile-feature__headline">
+        <span class="yeast-mobile-feature__eyebrow">گروه بازرگانی مهاجر · محصولات نانوایی</span>
+        <h1>خمیرمایه</h1>
+        <p class="yeast-mobile-feature__tagline">کیفیت حرفه‌ای، طراوت در هر پخت</p>
+        <p class="yeast-mobile-feature__intro">پنج برند تخصصی خمیرمایه برای نان و شیرینی</p>
+        <span class="yeast-mobile-feature__current">برند انتخابی: <strong id="yeastMobileSelectedBrand">ایکس پاور</strong></span>
+      </div>
+      <div class="yeast-mobile-feature__bottom">
+        <div class="yeast-mobile-feature__brands" role="group" aria-label="انتخاب برند خمیرمایه">
+          <button class="yeast-mobile-brand-choice is-active" type="button" data-yeast-brand="ixpower" aria-pressed="true">ایکس پاور</button>
+          <button class="yeast-mobile-brand-choice" type="button" data-yeast-brand="shetab" aria-pressed="false">شتاب</button>
+          <button class="yeast-mobile-brand-choice" type="button" data-yeast-brand="razavi" aria-pressed="false">رضوی</button>
+          <button class="yeast-mobile-brand-choice" type="button" data-yeast-brand="nanmaye" aria-pressed="false">نان مایه</button>
+          <button class="yeast-mobile-brand-choice" type="button" data-yeast-brand="dezmaye" aria-pressed="false">دزمایه</button>
+        </div>
+        <div class="yeast-mobile-feature__actions">
+          <a href="contact.html#contactForm" class="yeast-mobile-feature__inquiry">استعلام قیمت <span aria-hidden="true">←</span></a>
+          <a href="#products" class="yeast-mobile-feature__browse" aria-label="مشاهده محصولات خمیرمایه"><span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </div>
 
     <header class="header" id="siteHeader">
   <a class="brand" href="index.html" aria-label="بازرگانی مهاجر">
@@ -5378,6 +5404,22 @@
     const brandsSubtitle = document.getElementById('brandsSubtitle');
     const heroSection = document.getElementById('heroSection');
     const heroBrandVideo = document.getElementById('heroBrandVideo');
+    const yeastMobileArt = document.getElementById('yeastMobileHeroArt');
+    const yeastMobileSelectedBrand = document.getElementById('yeastMobileSelectedBrand');
+    const yeastMobileArtByBrand = {
+      "ixpower": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529215/3_mnsxvn.png",
+      "shetab": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529209/2_rc7ppc.png",
+      "razavi": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529206/5_vtxxff.png",
+      "nanmaye": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529206/4_q8uck2.png",
+      "dezmaye": "https://res.cloudinary.com/dqhbyqftq/image/upload/v1793529205/1_j9ebsq.png"
+};
+    const yeastMobileLabelByBrand = {
+      "ixpower": "ایکس پاور",
+      "shetab": "شتاب",
+      "razavi": "رضوی",
+      "nanmaye": "نان مایه",
+      "dezmaye": "دزمایه"
+};
     const heroTitleEl = document.getElementById('heroTitle');
     const heroSubtitleEl = document.getElementById('heroSubtitle');
     const analysisTitleEl = document.getElementById('analysisTitle');
@@ -5481,8 +5523,19 @@
       if (!brand || !displayBrand) return;
       currentBrandKey = brandKey;
       if (brand.heroBg) heroSection.style.backgroundImage = `url('${brand.heroBg}')`;
+      // Keep the mobile artwork and its selector synchronized with the existing brand state.
+      if (yeastMobileArt && yeastMobileArtByBrand[brandKey] &&
+          yeastMobileArt.getAttribute('src') !== yeastMobileArtByBrand[brandKey]) {
+        yeastMobileArt.setAttribute('src', yeastMobileArtByBrand[brandKey]);
+      }
+      if (yeastMobileSelectedBrand) yeastMobileSelectedBrand.textContent = yeastMobileLabelByBrand[brandKey] || displayBrand.brandName;
+      document.querySelectorAll('[data-yeast-brand]').forEach(choice => {
+        const selected = choice.dataset.yeastBrand === brandKey;
+        choice.classList.toggle('is-active', selected);
+        choice.setAttribute('aria-pressed', String(selected));
+      });
 
-      if (brand.heroVideo) {
+      if (brand.heroVideo && !window.matchMedia('(max-width: 768px)').matches) {
         if (heroBrandVideo.getAttribute('src') !== brand.heroVideo) {
           heroBrandVideo.src = brand.heroVideo;
           heroBrandVideo.load();
@@ -5564,6 +5617,15 @@
     }
 
     topBrandCards.forEach(bindBrandCardClick);
+    // Mobile brand buttons switch the same product data, without the desktop slider's scroll jump.
+    document.querySelectorAll('[data-yeast-brand]').forEach(choice => {
+      choice.addEventListener('click', () => {
+        const key = choice.dataset.yeastBrand;
+        if (!catalog[key] || key === currentBrandKey) return;
+        topBrandCards.forEach(card => card.classList.toggle('active', card.dataset.brand === key));
+        updatePageForBrand(key);
+      });
+    });
 
     function getVisibleCardRange(container, selector) {
       const cards = Array.from(container.querySelectorAll(selector));

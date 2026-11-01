@@ -1,0 +1,188 @@
+/* Mobile-only brand hero for the yeast page. Desktop markup and layout are untouched. */
+.yeast-mobile-feature{display:none}
+@media(max-width:768px){
+  #heroSection.hero{
+    display:block !important;
+    position:relative !important;
+    height:auto !important;
+    min-height:0 !important;
+    width:100%;
+    aspect-ratio:9 / 16;
+    overflow:hidden !important;
+    isolation:isolate;
+    background-color:#f7f7f0 !important;
+    background-image:none !important;
+  }
+  #heroSection.hero::after{display:none !important;content:none !important}
+  #heroSection.hero .hero-brand-video{display:none !important;visibility:hidden !important}
+  #heroSection.hero > .hero__content{display:none !important}
+  #heroSection.hero > .yeast-mobile-feature{
+    display:block;
+    position:absolute;
+    inset:0;
+    z-index:5;
+    direction:rtl;
+    font-family:"Vazirmatn",Tahoma,sans-serif;
+  }
+  .yeast-mobile-feature__art{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;
+    object-position:center center;
+    background:#f7f7f0;
+    pointer-events:none;
+  }
+  .yeast-mobile-feature__shade{
+    position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(251,250,245,.88) 0%,rgba(251,250,245,.66) 18%,rgba(251,250,245,.05) 35%,transparent 52%,rgba(251,250,245,.06) 69%,rgba(250,250,244,.80) 88%,rgba(248,248,243,.95) 100%);
+  }
+  .yeast-mobile-feature__headline{
+    position:absolute;
+    top:clamp(99px,15.4%,143px);
+    left:4%;right:4%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    color:#0b513a;
+    gap:0;
+    pointer-events:none;
+  }
+  .yeast-mobile-feature__eyebrow{
+    color:#7a7a54;
+    font-size:clamp(9px,2.45vw,13px);
+    font-weight:800;
+    letter-spacing:0;
+    line-height:1.7;
+  }
+  .yeast-mobile-feature__headline h1{
+    margin:4px 0 0;
+    font-size:clamp(36px,11.2vw,58px);
+    line-height:1.28;
+    font-weight:900;
+    letter-spacing:-1.4px;
+    color:#075c46;
+    text-shadow:0 1px 0 rgba(255,255,255,.45);
+  }
+  .yeast-mobile-feature__tagline{
+    margin:3px 0 0;
+    font-size:clamp(15px,4.1vw,23px);
+    font-weight:900;
+    line-height:1.7;
+    color:#a47731;
+  }
+  .yeast-mobile-feature__intro{
+    margin:3px 0 0;
+    font-size:clamp(10px,2.85vw,14px);
+    font-weight:600;
+    line-height:1.7;
+    color:#52675b;
+  }
+  .yeast-mobile-feature__current{
+    margin-top:8px;
+    padding:4px 13px;
+    border-radius:999px;
+    background:rgba(255,255,255,.74);
+    border:1px solid rgba(172,149,100,.28);
+    color:#516a5c;
+    font-weight:650;
+    font-size:clamp(9px,2.6vw,12px);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+  }
+  .yeast-mobile-feature__current strong{color:#075c46;font-weight:900}
+  .yeast-mobile-feature__bottom{
+    position:absolute;
+    inset-inline:0;
+    bottom:max(14px,env(safe-area-inset-bottom));
+    padding:0 clamp(13px,4.4vw,25px);
+    display:flex;
+    flex-direction:column;
+    gap:clamp(9px,2.6vw,16px);
+  }
+  .yeast-mobile-feature__brands{
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:clamp(4px,1.2vw,7px);
+    width:100%;
+  }
+  .yeast-mobile-brand-choice{
+    min-width:0;min-height:36px;
+    border:1px solid rgba(9,94,69,.26);
+    border-radius:13px;
+    background:rgba(255,255,255,.89);
+    color:#0a5b43;
+    box-shadow:0 3px 9px rgba(12,70,47,.06);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    padding:6px 2px;
+    font:800 clamp(9px,2.55vw,11px)/1.3 "Vazirmatn",Tahoma,sans-serif;
+    white-space:nowrap;
+    cursor:pointer;
+    transition:color .22s,background .22s,transform .22s,border-color .22s;
+  }
+  .yeast-mobile-brand-choice.is-active,
+  .yeast-mobile-brand-choice[aria-pressed="true"]{
+    color:#fff;
+    background:#075c46;
+    border-color:#c7a469;
+    box-shadow:0 5px 14px rgba(5,76,50,.17);
+  }
+  .yeast-mobile-brand-choice:active{transform:scale(.97)}
+  .yeast-mobile-brand-choice:focus-visible,
+  .yeast-mobile-feature__actions a:focus-visible{outline:3px solid #bd9148;outline-offset:3px}
+  .yeast-mobile-feature__actions{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+  }
+  .yeast-mobile-feature__inquiry{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    width:min(68%,252px);
+    min-height:46px;
+    padding:10px 17px;
+    border-radius:999px;
+    background:#075c46;
+    border:1px solid rgba(209,179,119,.65);
+    color:#fff;
+    font:850 clamp(12px,3.15vw,15px)/1.4 "Vazirmatn",Tahoma,sans-serif;
+    text-decoration:none;
+    box-shadow:0 9px 23px rgba(0,78,51,.2);
+  }
+  .yeast-mobile-feature__inquiry span{font-size:20px;line-height:1}
+  .yeast-mobile-feature__browse{
+    flex:none;
+    display:grid;
+    place-items:center;
+    width:46px;height:46px;
+    border:1px solid rgba(181,145,79,.52);
+    border-radius:50%;
+    color:#075c46;
+    background:rgba(255,255,255,.9);
+    box-shadow:0 5px 15px rgba(0,78,51,.10);
+    font-size:23px;
+    text-decoration:none;
+  }
+  #products{scroll-margin-top:90px}
+}
+@media(max-width:380px){
+  .yeast-mobile-feature__headline{top:clamp(84px,14.8%,117px)}
+  .yeast-mobile-feature__intro{font-size:10px}
+  .yeast-mobile-feature__current{margin-top:5px;padding:3px 10px}
+  .yeast-mobile-brand-choice{min-height:32px;border-radius:10px;font-size:9px}
+  .yeast-mobile-feature__inquiry,.yeast-mobile-feature__browse{min-height:42px;height:42px}
+}
+@media(min-width:601px) and (max-width:768px){
+  #heroSection.hero{aspect-ratio:4 / 5;max-height:850px}
+  .yeast-mobile-feature__headline{top:16%}
+}
+@media(prefers-reduced-motion:reduce){
+  .yeast-mobile-brand-choice{transition:none}
+}
