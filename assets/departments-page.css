@@ -1,0 +1,15 @@
+/* Dedicated departments page only. */
+.departments-standalone{background:#f9faf7}
+.departments-standalone .departments-page-trail{
+display:flex;gap:12px;align-items:center;max-width:1470px;margin:0 auto;
+padding:126px clamp(20px,4vw,68px) 0;font-size:12px;font-weight:650;color:#77877f}
+.departments-standalone .departments-page-trail a{color:#0a5c46;text-decoration:none}
+.departments-standalone .departments-page-trail a:hover{color:#b38c40}
+.departments-standalone .departments-page-trail span[aria-current]{color:#9a814b}
+.departments-standalone .elven-departments{padding-top:38px}
+.departments-standalone #siteHeader .nav a[aria-current="page"]{color:#075c46;font-weight:800}
+.departments-standalone #siteHeader .nav a[aria-current="page"]::after{transform:scaleX(1)}
+@media(max-width:768px){.departments-standalone .departments-page-trail{padding:101px 20px 0}
+.departments-standalone .elven-departments{padding-top:27px}}
+@media(min-width:769px) and (max-width:1180px){.departments-standalone #siteHeader .nav{gap:clamp(8px,1.4vw,18px)}
+.departments-standalone #siteHeader .nav a{font-size:clamp(11px,1.12vw,13px)}}
