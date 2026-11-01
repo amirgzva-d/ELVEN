@@ -520,46 +520,119 @@ body.beverages-view .catalog .card-copy .chips{
 }
 
 
-/* Mobile beverages: full analysis photo first; details appear on demand. */
-.beverages-mobile-details-toggle{display:none}
-@media(max-width:768px){
+/* Beverage analysis card: refined, photo-led mobile treatment. */
+.beverages-mobile-details-toggle,.beverages-analysis-photo{display:none}
+@media (max-width:768px){
+ body.beverages-view .spec-section{
+   padding-left:clamp(12px,3.5vw,20px);
+   padding-right:clamp(12px,3.5vw,20px);
+ }
  body.beverages-view .spec-section .spec-panel{
-  display:flex;flex-direction:column;min-height:0;border-radius:22px;overflow:hidden;
+   display:flex;
+   flex-direction:column;
+   min-height:0;
+   padding:7px;
+   border:1px solid #e7dbca;
+   border-radius:20px;
+   background:linear-gradient(165deg,#fffefa,#fffaf2);
+   box-shadow:0 8px 24px rgba(45,66,48,.07);
+   overflow:hidden;
  }
  body.beverages-view .spec-section .spec-art{
-  flex:none;width:100%;height:auto;min-height:0;aspect-ratio:16 / 9;
-  background-size:contain !important;background-position:center center !important;
-  background-repeat:no-repeat !important;background-color:#f8f5ed;
+   flex:none;
+   width:100%;
+   min-height:0;
+   height:auto;
+   aspect-ratio:auto;
+   background-image:none !important;
+   background-color:transparent !important;
+   border-radius:14px;
+   overflow:hidden;
  }
  body.beverages-view .spec-section .spec-art::after{display:none !important}
+ body.beverages-view .spec-section .spec-art .beverages-analysis-photo{
+   display:block;
+   width:100%;
+   height:auto;
+   object-fit:contain;
+   border-radius:14px;
+ }
  body.beverages-view .spec-section .beverages-mobile-details-toggle{
-  display:flex;align-items:center;justify-content:center;gap:12px;direction:rtl;
-  width:calc(100% - 28px);min-height:50px;margin:12px 14px 14px;
-  border:1px solid #d3b57e;border-radius:14px;
-  background:linear-gradient(135deg,#075c46,#09785a);color:#fff;
-  font-family:inherit;font-size:13px;font-weight:850;cursor:pointer;
-  box-shadow:0 6px 17px rgba(7,92,70,.14);
+   display:flex;
+   align-items:center;
+   justify-content:space-between;
+   direction:rtl;
+   gap:10px;
+   width:100%;
+   min-height:46px;
+   margin:9px 0 0;
+   padding:6px 12px 6px 8px;
+   border:1px solid #cddfd3;
+   border-radius:12px;
+   background:linear-gradient(115deg,#f7faf5 0%,#fffdf8 100%);
+   box-shadow:0 2px 8px rgba(8,76,51,.045);
+   color:#075c46;
+   font-family:inherit;
+   font-size:13px;
+   font-weight:850;
+   cursor:pointer;
+   transition:background .22s ease,border-color .22s ease,box-shadow .22s ease;
+ }
+ body.beverages-view .beverages-mobile-details-toggle:hover{
+   border-color:#c4a366;
+   background:#fff9ef;
+   box-shadow:0 4px 12px rgba(8,76,51,.08);
  }
  body.beverages-view .beverages-mobile-details-toggle svg{
-  width:18px;height:18px;transition:transform .2s ease;
+   display:block;
+   width:30px;
+   height:30px;
+   flex:none;
+   padding:7px;
+   border:1px solid #ead6b5;
+   border-radius:10px;
+   background:#faf0df;
+   color:#ac803c;
+   transition:transform .22s ease,background .22s ease;
+ }
+ body.beverages-view .spec-section.beverages-details-open .beverages-mobile-details-toggle{
+   background:#edf5ee;
+   border-color:#b9d2bf;
  }
  body.beverages-view .spec-section.beverages-details-open .beverages-mobile-details-toggle svg{
-  transform:rotate(180deg);
+   transform:rotate(180deg);
+   background:#fff5e6;
  }
  body.beverages-view .beverages-mobile-details-toggle:focus-visible{
-  outline:3px solid #c59b56;outline-offset:3px;
+   outline:3px solid #b88a42;
+   outline-offset:3px;
  }
  body.beverages-view .spec-section:not(.beverages-details-open) .spec-content,
  body.beverages-view .spec-section:not(.beverages-details-open) > .product-detail{
-  display:none !important;
+   display:none !important;
  }
  body.beverages-view .spec-section.beverages-details-open .spec-content{
-  display:block;border-top:1px solid #eee8dd;
+   display:block;
+   width:100%;
+   margin-top:9px;
+   padding:18px 12px 13px;
+   border-top:1px solid #ebe5d7;
+ }
+ body.beverages-view .spec-section.beverages-details-open > .product-detail{
+   margin-top:12px;
  }
 }
-@media(prefers-reduced-motion:reduce){
+@media (max-width:360px){
+ body.beverages-view .spec-section .spec-panel{padding:6px;border-radius:17px}
+ body.beverages-view .spec-section .spec-art,
+ body.beverages-view .spec-section .spec-art .beverages-analysis-photo{border-radius:12px}
+ body.beverages-view .spec-section .beverages-mobile-details-toggle{min-height:44px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){
+ body.beverages-view .beverages-mobile-details-toggle,
  body.beverages-view .beverages-mobile-details-toggle svg{transition:none}
 }
+
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261101-footer-clean-4">
 </head>
@@ -653,7 +726,7 @@ body.beverages-view .catalog .card-copy .chips{
 </section>
 <section class="spec-section" id="specifications">
  <div class="spec-panel" data-reveal>
-  <div class="spec-art" role="img" aria-label="تصویر محصول این دسته"></div>
+  <div class="spec-art" role="img" aria-label="تصویر محصول این دسته"><img class="beverages-analysis-photo" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793079058/0cdecf7e-1f3b-45ea-943a-3cfb3fae500e_mylyxv.png" alt="" loading="lazy" decoding="async"></div>
   <button class="beverages-mobile-details-toggle" id="beverageDetailsToggle" type="button" aria-expanded="false" aria-controls="beverageNutritionDetails beverageProductMore" aria-label="دیدن جزئیات و آنالیز نوشیدنی‌ها">
    <span class="beverages-toggle-label">دیدن جزئیات</span>
    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
