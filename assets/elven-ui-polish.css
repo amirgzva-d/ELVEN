@@ -296,3 +296,39 @@ svg.ico{flex-shrink:0;vertical-align:middle}
   .site-footer .footer-social-link{width:38px;height:38px;flex-basis:38px}
 }
 @media(prefers-reduced-motion:reduce){.site-footer .footer-social-link{transition:none}}
+
+/* ELVEN SOCIAL FOOTER REFINEMENT AND LINKEDIN ICON 2026-11-01 */
+.site-footer .footer-col:last-child{min-width:0}
+.site-footer .footer-social-links{
+  display:flex !important;flex-direction:row !important;direction:rtl;
+  flex-wrap:wrap;align-items:center;justify-content:flex-start;
+  column-gap:8px !important;row-gap:8px !important;
+  width:100%;max-width:265px;
+  margin:12px 0 0 !important;padding-top:13px;
+  border-top:1px solid rgba(201,163,90,.19);
+  position:relative;z-index:2;
+}
+.site-footer .footer-social-caption{
+  display:block;flex-basis:100%;width:100%;
+  font:700 11px/1.6 inherit;color:#b6cbbf;text-align:right;
+}
+.site-footer .footer-social-link{
+  display:inline-flex !important;align-items:center;justify-content:center;
+  flex:0 0 36px !important;width:36px !important;height:36px !important;
+  min-width:36px !important;min-height:36px !important;max-height:36px !important;
+  padding:0 !important;margin:0 !important;border:1px solid rgba(201,163,90,.46) !important;
+  border-radius:10px !important;background:rgba(8,87,62,.38) !important;
+  color:#f2e1bf !important;line-height:1 !important;text-decoration:none !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+.site-footer .footer-social-link svg{display:block !important;flex:none;width:18px !important;height:18px !important;fill:none}
+.site-footer .footer-social-link .social-brand-fill{fill:currentColor !important;stroke:none !important}
+.site-footer a.footer-social-link:is(:hover,:focus-visible){
+  background:#0b7454 !important;border-color:#e1bc75 !important;color:#fff !important;
+  transform:translateY(-2px);
+}
+.site-footer .footer-social-link--pending{opacity:.68 !important;cursor:default;filter:none}
+@media(max-width:600px){
+  .site-footer .footer-social-links{justify-content:center !important;max-width:none}
+  .site-footer .footer-social-caption{text-align:center}
+}
