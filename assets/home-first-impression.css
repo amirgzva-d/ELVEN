@@ -166,3 +166,18 @@
 @media (prefers-reduced-motion:reduce){
   .home-category-link{transition:none}
 }
+/* Custom 9-category illustrations: vector traced from the approved transparent icon artwork. */
+.home-category-link .home-category-icon {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: block;
+  fill: #075c46;
+  stroke: none;
+}
+@media (max-width:1190px){
+  .home-category-link .home-category-icon {width:32px;height:32px;flex-basis:32px;}
+}
+@media (max-width:768px){
+  .home-category-link .home-category-icon {width:34px;height:34px;flex-basis:34px;}
+}
