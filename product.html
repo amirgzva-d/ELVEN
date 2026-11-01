@@ -519,6 +519,47 @@ body.beverages-view .catalog .card-copy .chips{
   body.beverages-view .catalog .card-copy::after { font-size: 9px; }
 }
 
+
+/* Mobile beverages: full analysis photo first; details appear on demand. */
+.beverages-mobile-details-toggle{display:none}
+@media(max-width:768px){
+ body.beverages-view .spec-section .spec-panel{
+  display:flex;flex-direction:column;min-height:0;border-radius:22px;overflow:hidden;
+ }
+ body.beverages-view .spec-section .spec-art{
+  flex:none;width:100%;height:auto;min-height:0;aspect-ratio:16 / 9;
+  background-size:contain !important;background-position:center center !important;
+  background-repeat:no-repeat !important;background-color:#f8f5ed;
+ }
+ body.beverages-view .spec-section .spec-art::after{display:none !important}
+ body.beverages-view .spec-section .beverages-mobile-details-toggle{
+  display:flex;align-items:center;justify-content:center;gap:12px;direction:rtl;
+  width:calc(100% - 28px);min-height:50px;margin:12px 14px 14px;
+  border:1px solid #d3b57e;border-radius:14px;
+  background:linear-gradient(135deg,#075c46,#09785a);color:#fff;
+  font-family:inherit;font-size:13px;font-weight:850;cursor:pointer;
+  box-shadow:0 6px 17px rgba(7,92,70,.14);
+ }
+ body.beverages-view .beverages-mobile-details-toggle svg{
+  width:18px;height:18px;transition:transform .2s ease;
+ }
+ body.beverages-view .spec-section.beverages-details-open .beverages-mobile-details-toggle svg{
+  transform:rotate(180deg);
+ }
+ body.beverages-view .beverages-mobile-details-toggle:focus-visible{
+  outline:3px solid #c59b56;outline-offset:3px;
+ }
+ body.beverages-view .spec-section:not(.beverages-details-open) .spec-content,
+ body.beverages-view .spec-section:not(.beverages-details-open) > .product-detail{
+  display:none !important;
+ }
+ body.beverages-view .spec-section.beverages-details-open .spec-content{
+  display:block;border-top:1px solid #eee8dd;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ body.beverages-view .beverages-mobile-details-toggle svg{transition:none}
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261101-footer-clean-4">
 </head>
@@ -613,7 +654,11 @@ body.beverages-view .catalog .card-copy .chips{
 <section class="spec-section" id="specifications">
  <div class="spec-panel" data-reveal>
   <div class="spec-art" role="img" aria-label="تصویر محصول این دسته"></div>
-  <div class="spec-content">
+  <button class="beverages-mobile-details-toggle" id="beverageDetailsToggle" type="button" aria-expanded="false" aria-controls="beverageNutritionDetails beverageProductMore" aria-label="دیدن جزئیات و آنالیز نوشیدنی‌ها">
+   <span class="beverages-toggle-label">دیدن جزئیات</span>
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+  </button>
+  <div class="spec-content" id="beverageNutritionDetails">
    <div class="spec-top"><div><span class="spec-title-kicker">اطلاعات فنی محصول</span><h2>اطلاعات و آنالیز محصولات</h2></div><span class="spec-head-icon"><svg class="ico " aria-hidden="true"><use href="#i-list"></use></svg></span></div>
    <div id="nutritionStats" class="nutrition-grid"><div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-fire"></use></svg><div><span class="nutri-label">انرژی</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
 <div class="nutrition-stat"><svg class="ico " aria-hidden="true"><use href="#i-gem"></use></svg><div><span class="nutri-label">پروتئین</span><strong class="nutri-num">—</strong><small>در انتظار تأیید</small></div></div>
@@ -624,7 +669,7 @@ body.beverages-view .catalog .card-copy .chips{
    <p id="nutritionNote" class="spec-note">مقادیر آنالیز محصولات این دسته پس از دریافت برگه مشخصات و تأیید تولیدکننده درج خواهند شد.</p>
   </div>
  </div>
- <details class="product-detail"><summary>معرفی و اطلاعات محصول انتخاب‌شده</summary>
+ <details class="product-detail" id="beverageProductMore"><summary>معرفی و اطلاعات محصول انتخاب‌شده</summary>
   <p><strong id="selectedProduct">گزینه تأمین</strong></p>
   <p id="productDetails">گرید، ترکیبات، مشخصات فنی و اطلاعات بسته‌بندی پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.</p>
  </details>
@@ -813,6 +858,20 @@ for(let i=0;i<cards.length;i++){
  card.querySelector('.product-image')?.setAttribute('aria-label',query==='Beverages & Juices'?'تصویر '+name:'تصویر موقت '+name);
 }
 const selectText=document.getElementById('selectedProduct'),detail=document.getElementById('productDetails'),spec=document.getElementById('specifications'),nutritionNote=document.getElementById('nutritionNote');
+
+const beverageDetailsToggle=document.getElementById('beverageDetailsToggle');
+if(query==='Beverages & Juices' && beverageDetailsToggle){
+ const beverageSpecSection=document.getElementById('specifications');
+ const beverageExtraInfo=document.getElementById('beverageProductMore');
+ beverageDetailsToggle.addEventListener('click',()=>{
+  const opened=beverageSpecSection.classList.toggle('beverages-details-open');
+  beverageDetailsToggle.setAttribute('aria-expanded',String(opened));
+  beverageDetailsToggle.setAttribute('aria-label',opened?'بستن جزئیات و آنالیز نوشیدنی‌ها':'دیدن جزئیات و آنالیز نوشیدنی‌ها');
+  beverageDetailsToggle.querySelector('.beverages-toggle-label').textContent=opened?'بستن جزئیات':'دیدن جزئیات';
+  beverageExtraInfo.open=opened;
+ });
+}
+
 const activate=(card,shouldScroll)=>{
  const entry=descriptions[card.dataset.kind];if(!entry)return;
  /* Keep the supplied beverages analysis image unchanged when selecting a product. */
@@ -822,7 +881,10 @@ const activate=(card,shouldScroll)=>{
   const selected=item===card;item.classList.toggle('selected',selected);item.setAttribute('aria-pressed',String(selected));
  });
  if(shouldScroll){
-  document.querySelector('.product-detail').open=true;
+  // Selecting a drink keeps mobile analysis closed until the user requests details.
+  if(query!=='Beverages & Juices'||!matchMedia('(max-width:768px)').matches){
+   document.querySelector('.product-detail').open=true;
+  }
   spec.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
  }
 };
