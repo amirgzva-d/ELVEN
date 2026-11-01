@@ -188,3 +188,41 @@
   .home-category-link img.home-category-icon{width:56px;height:56px;flex-basis:56px}
   .home-category-link{min-height:120px;gap:7px}
 }
+
+/* Premium white-glass quotation CTA, matching the Mohajer gold / green palette. */
+@media (min-width:769px){
+  #siteHeader .header-actions .cta-quote {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    min-height:44px;
+    padding:9px 17px;
+    border:1.4px solid #c9a35a;
+    border-radius:16px;
+    background:rgba(255,255,255,.79);
+    color:#075c46;
+    box-shadow:0 4px 16px rgba(26,67,47,.09),inset 0 1px 0 rgba(255,255,255,.95);
+    -webkit-backdrop-filter:blur(12px);
+    backdrop-filter:blur(12px);
+    text-decoration:none;
+    font-weight:750;
+    transition:background .25s ease,transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  #siteHeader .header-actions .cta-quote::before {display:none;}
+  #siteHeader .header-actions .cta-quote:hover {
+    background:#fffdf8;
+    color:#075c46;
+    border-color:#b38c40;
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(26,67,47,.13);
+  }
+  #siteHeader .header-actions .cta-quote:focus-visible {
+    outline:3px solid rgba(201,163,90,.55);
+    outline-offset:3px;
+  }
+  #siteHeader .header-actions .cta-quote svg {width:18px;height:18px;flex:0 0 18px;}
+  #siteHeader .header-actions .cta-quote .cta-quote__message {color:#b58939;}
+  #siteHeader .header-actions .cta-quote .cta-quote__arrow {width:15px;height:15px;flex-basis:15px;color:#075c46;}
+  #siteHeader .header-actions .cta-quote:hover svg {transform:none;}
+}
