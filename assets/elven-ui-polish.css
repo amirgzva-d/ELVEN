@@ -338,3 +338,104 @@ svg.ico{flex-shrink:0;vertical-align:middle}
   .site-footer .footer-social-links{justify-content:center !important;max-width:none}
   .site-footer .footer-social-caption{text-align:center}
 }
+
+
+/* ELVEN MATCH CONTACT WHITE CIRCULAR ICONS GLOBALLY 2026-11-01 */
+/* Match the approved contact card: white circle + forest-green glyph.
+   Specificity and !important override previously imposed dark square style. */
+.site-footer .footer-col .footer-social-links{
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+}
+.site-footer .footer-col .footer-social-link,
+.site-footer .footer-col a.footer-social-link{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+  min-height:34px !important;
+  max-height:34px !important;
+  flex:0 0 34px !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:#fff !important;
+  border:1px solid #fff !important;
+  border-radius:50% !important;
+  color:#087f48 !important;
+  box-shadow:none !important;
+  line-height:1 !important;
+}
+.site-footer .footer-col .footer-social-link svg{
+  width:19px !important;
+  height:19px !important;
+  fill:none !important;
+  stroke:currentColor;
+}
+.site-footer .footer-col .footer-social-link .social-brand-fill{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+.site-footer .footer-col a.footer-social-link:is(:hover,:focus-visible){
+  background:#f0fff4 !important;
+  border-color:#fff !important;
+  color:#056b3b !important;
+  transform:none !important;
+}
+.site-footer .footer-col .footer-social-link--pending{opacity:.65 !important;}
+/* Each phone gets an actionable icon on the left, just as on contact.html. */
+.site-footer .footer-col .footer-contact-item--phone,
+.site-footer .footer-col .footer-contact-item--landline{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
+  gap:9px;
+}
+.site-footer .footer-col .footer-contact-item--phone > div,
+.site-footer .footer-col .footer-contact-item--landline > div{
+  min-width:0;
+  flex:0 1 auto;
+}
+.site-footer .footer-col a.footer-phone-action{
+  display:grid !important;
+  place-items:center !important;
+  flex:0 0 29px;
+  width:29px;height:29px;min-width:29px;
+  margin:0;padding:0 !important;
+  border:1px solid #fff;
+  border-radius:50%;
+  background:#fff;
+  color:#087f48;
+  text-decoration:none;
+  line-height:1;
+}
+.site-footer .footer-col .footer-phone-action svg{
+  display:block;
+  width:17px;
+  height:17px;
+  fill:none;
+  stroke:currentColor;
+}
+.site-footer .footer-col .footer-phone-action .social-brand-fill{
+  fill:currentColor;
+  stroke:none;
+}
+.site-footer .footer-col .footer-phone-action::before,
+.site-footer .footer-col .footer-phone-action::after{
+  display:none !important;content:none !important;
+}
+.site-footer .footer-col a.footer-phone-action:is(:hover,:focus-visible){
+  background:#f0fff4;
+  color:#056b3b;
+}
+.site-footer .footer-col a.footer-phone-action:focus-visible{
+  outline:2px solid #c9a35a;outline-offset:3px;
+}
+@media(max-width:600px){
+  .site-footer .footer-col .footer-contact-item--phone,
+  .site-footer .footer-col .footer-contact-item--landline{justify-content:center;}
+  .site-footer .footer-col a.footer-phone-action{flex-basis:28px;width:28px;height:28px;min-width:28px;}
+}
