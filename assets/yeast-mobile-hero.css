@@ -332,3 +332,155 @@
   #heroSection.hero{aspect-ratio:4 / 5}
   .yeast-mobile-feature__headline{top:clamp(120px,19%,175px)}
 }
+
+/* Yeast mobile 5-brand photography gallery — editorial, canned-inspired 3 + 2 grid. */
+@media (max-width:768px) {
+  #heroSection.hero { scroll-margin-top:0 }
+  #heroSection.hero .yeast-mobile-feature__art {
+    object-fit:contain !important;
+    object-position:center center !important;
+    background:linear-gradient(180deg,#fafbf5 0%,#f8f6eb 100%);
+  }
+  #heroSection.hero > .yeast-mobile-feature {
+    background:linear-gradient(180deg,#f8f9f1 0%,#f8f6e9 100%) !important;
+  }
+  #heroSection.hero .yeast-mobile-feature__shade {
+    background:linear-gradient(180deg,
+      rgba(248,250,243,.96) 0%,
+      rgba(248,250,243,.78) 16%,
+      rgba(248,250,243,.24) 30%,
+      transparent 43%,
+      transparent 92%,
+      rgba(248,250,243,.16) 100%) !important;
+  }
+  #heroSection.hero .yeast-mobile-feature__headline {
+    top:clamp(102px,17.6%,169px) !important;
+    left:5%;right:5%;
+    filter:none;
+  }
+  #heroSection.hero .yeast-mobile-feature__headline h1{
+    color:#075c46;
+    font-size:clamp(34px,9.5vw,49px);
+    text-shadow:0 2px 12px rgba(255,255,255,.8);
+  }
+  #heroSection.hero .yeast-mobile-feature__tagline{
+    font-size:clamp(11px,3.1vw,16px);
+    max-width:95%;
+    white-space:normal;
+    line-height:1.7;
+    background:rgba(255,249,232,.84);
+    border:1px solid rgba(192,157,98,.16);
+    color:#916220;
+  }
+  .yeast-mobile-brand-nav{
+    display:block !important;
+    position:relative;
+    padding:25px clamp(12px,4.1vw,23px) 34px;
+    background:linear-gradient(180deg,#f9f8f1 0%,#fffaf1 55%,#fffefa 100%);
+    border-bottom:1px solid #e8e3d7;
+  }
+  .yeast-mobile-brand-nav__heading{
+    max-width:560px;
+    margin:0 auto 19px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    color:#174b3a;
+  }
+  .yeast-mobile-brand-nav__eyebrow{
+    font:800 11px/1.7 "Vazirmatn",Tahoma,sans-serif;
+    color:#ad7d36;
+    background:#faf0df;
+    border:1px solid #ecd8b6;
+    padding:3px 12px;
+    border-radius:99px;
+  }
+  .yeast-mobile-brand-nav__heading h2{
+    font:900 clamp(17px,4.4vw,24px)/1.6 "Vazirmatn",Tahoma,sans-serif;
+    color:#075c46;
+    margin:4px 0 0;
+  }
+  .yeast-mobile-brand-nav__heading p{
+    font:600 clamp(10px,2.6vw,13px)/1.75 "Vazirmatn",Tahoma,sans-serif;
+    margin:0;
+    color:#718177;
+  }
+  .yeast-mobile-brand-nav .yeast-mobile-feature__brands{
+    width:100%;
+    max-width:560px;
+    margin:0 auto;
+    display:grid !important;
+    grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+  .yeast-mobile-brand-nav .yeast-mobile-brand-choice{
+    grid-column:span 2;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    padding:7px 7px 9px !important;
+    min-width:0;
+    min-height:0;
+    height:auto;
+    white-space:normal;
+    gap:6px;
+    border:1px solid rgba(15,91,66,.13) !important;
+    border-radius:17px !important;
+    background:rgba(255,255,255,.98) !important;
+    box-shadow:0 5px 15px rgba(22,69,46,.07);
+    color:#175841 !important;
+    cursor:pointer;
+    transition:transform .25s,box-shadow .25s,border-color .25s;
+  }
+  .yeast-mobile-brand-nav .yeast-mobile-brand-choice:nth-child(n+4){grid-column:span 3}
+  .yeast-mobile-brand-choice__visual{
+    display:block;
+    width:100%;
+    height:clamp(111px,28vw,164px);
+    overflow:hidden;
+    border-radius:12px;
+    background:#f2f4ee;
+  }
+  .yeast-mobile-brand-choice__visual img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
+  .yeast-mobile-brand-choice__name{
+    display:block;
+    padding:0 3px;
+    font:800 clamp(11px,2.9vw,15px)/1.7 "Vazirmatn",Tahoma,sans-serif;
+    text-align:center;
+    color:#075c46;
+    white-space:nowrap;
+  }
+  .yeast-mobile-brand-nav .yeast-mobile-brand-choice[aria-pressed="true"]{
+    border-color:#c79c51 !important;
+    box-shadow:0 0 0 2px rgba(198,159,90,.26),0 10px 24px rgba(15,81,53,.13);
+    transform:translateY(-2px);
+  }
+  .yeast-mobile-brand-nav .yeast-mobile-brand-choice[aria-pressed="true"] .yeast-mobile-brand-choice__name{
+    color:#075c46;
+  }
+  .yeast-mobile-brand-nav .yeast-mobile-brand-choice:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(15,81,53,.14);
+  }
+  .yeast-mobile-brand-nav .yeast-mobile-brand-choice:focus-visible{
+    outline:3px solid #b68d47;outline-offset:3px;
+  }
+}
+@media(max-width:380px){
+  .yeast-mobile-brand-nav{padding-inline:10px}
+  .yeast-mobile-brand-nav .yeast-mobile-feature__brands{gap:7px !important}
+  .yeast-mobile-brand-nav .yeast-mobile-brand-choice{padding:5px 5px 8px !important;border-radius:13px !important}
+  .yeast-mobile-brand-choice__visual{height:105px;border-radius:9px}
+  .yeast-mobile-brand-choice__name{font-size:11px}
+}
+@media (prefers-reduced-motion:reduce){
+  .yeast-mobile-brand-nav .yeast-mobile-brand-choice{transition:none !important}
+}
