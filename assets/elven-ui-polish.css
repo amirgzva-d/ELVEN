@@ -310,7 +310,7 @@ svg.ico{flex-shrink:0;vertical-align:middle}
 }
 .site-footer .footer-social-caption{
   display:block;flex-basis:100%;width:100%;
-  font:700 11px/1.6 inherit;color:#b6cbbf;text-align:right;
+  font-size:11px;font-weight:700;line-height:1.6;font-family:inherit;color:#b6cbbf;text-align:right;
 }
 .site-footer .footer-social-link{
   display:inline-flex !important;align-items:center;justify-content:center;
@@ -328,6 +328,12 @@ svg.ico{flex-shrink:0;vertical-align:middle}
   transform:translateY(-2px);
 }
 .site-footer .footer-social-link--pending{opacity:.68 !important;cursor:default;filter:none}
+
+/* Footer links inherit a decorative underline rule from the main footer.
+   Disable it on square social buttons so the WhatsApp glyph stays centered. */
+.site-footer .footer-col .footer-social-link::before,
+.site-footer .footer-col .footer-social-link::after{display:none !important;content:none !important}
+.site-footer .footer-col .footer-social-link:hover{padding:0 !important}
 @media(max-width:600px){
   .site-footer .footer-social-links{justify-content:center !important;max-width:none}
   .site-footer .footer-social-caption{text-align:center}
