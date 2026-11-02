@@ -226,3 +226,84 @@
   #siteHeader .header-actions .cta-quote .cta-quote__arrow {width:15px;height:15px;flex-basis:15px;color:#075c46;}
   #siteHeader .header-actions .cta-quote:hover svg {transform:none;}
 }
+
+
+/* ELVEN approved mobile category-strip cleanup 2026-11-02 */
+/* Remove duplicated metadata in mobile only. Preserve all desktop styles,
+   quick-category destinations and swipe behavior. */
+@media (max-width: 768px) {
+  .home-quick-categories {
+    padding: 13px 0 15px !important;
+    background: linear-gradient(180deg,#f9faf8 0%,#f4f6f8 100%) !important;
+  }
+  .home-quick-inner {
+    display: block !important;
+  }
+  .home-quick-categories .home-quick-intro {
+    display: none !important;
+  }
+  .home-quick-categories .home-quick-links {
+    margin: 0 !important;
+    padding: 4px 15px 11px !important;
+    gap: 10px !important;
+    scroll-padding-inline: 15px;
+    align-items: stretch;
+  }
+  .home-quick-categories .home-category-link {
+    flex: 0 0 96px !important;
+    min-height: 120px !important;
+    padding: 10px 5px !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+  }
+  /* Center the section title between two subtle gold strokes. */
+  #products.catalog {
+    padding-top: 28px !important;
+  }
+  #products .catalog-content {
+    gap: 20px !important;
+  }
+  #products .catalog-head {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+  #products .catalog-head > div:first-child {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  #products .catalog-head .section-kicker,
+  #products .catalog-head-right {
+    display: none !important;
+  }
+  #products .catalog-head h2 {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(9px, 3vw, 16px) !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    color: #0e3529 !important;
+    font-size: clamp(20px, 5.5vw, 24px) !important;
+    font-weight: 900 !important;
+    line-height: 1.55 !important;
+    text-align: center !important;
+    white-space: nowrap;
+  }
+  #products .catalog-head h2::before,
+  #products .catalog-head h2::after {
+    content: "" !important;
+    display: block !important;
+    flex: 0 1 44px !important;
+    width: clamp(15px, 8vw, 44px) !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background: #c9a35a !important;
+  }
+}
