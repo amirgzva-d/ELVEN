@@ -281,7 +281,7 @@ main{background:#fffaf3}
   }
 }
 </style>
-<link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261102-mobile-reference-footer-v2">
+<link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261102-mobile-reference-footer-v3">
 <style>
 /* Sugar hero mobile: move the title, tagline and description above the bag.
    Scope to this page alone; other mobile heroes and desktop remain unchanged. */
@@ -451,5 +451,5 @@ toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open')
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
 })();</script>
-<script defer src="assets/elven-ui-polish.js?v=20261102-mobile-reference-footer-v2"></script>
+<script defer src="assets/elven-ui-polish.js?v=20261102-mobile-reference-footer-v3"></script>
 </body></html>
