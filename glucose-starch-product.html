@@ -610,6 +610,24 @@ main>.catalog::after{display:none}
  .elven-category-hero .elven-mobile-portrait-title--long{font-size:clamp(27px,8.3vw,48px)}
  .elven-category-hero .elven-mobile-portrait-subtitle{max-width:96%;font-size:clamp(15px,4.7vw,25px)}
 }
+
+/* 2026-11-02: dedicated mobile upper/lower illustrations.
+   Change only the decorative artwork in the glucose/starch product + brand surface;
+   do not affect desktop hero, interactive product cards or brand layout. */
+@media (max-width: 760px) {
+  .ingredient-main > .ingredient-product-surface::before {
+    background-image: url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793599962/glucose_starch_mobile_top_900x1600_ef396x.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+  }
+  .ingredient-main > .ingredient-product-surface::after {
+    background-image: url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793599742/glucose_starch_mobile_bottom_900x1600_qra8zm.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+  }
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261102-desktop-to-mobile-footer-1">
 </head>
