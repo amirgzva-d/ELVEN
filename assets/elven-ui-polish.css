@@ -437,3 +437,293 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     margin-bottom:7px !important;
   }
 }
+
+
+/* ELVEN MOBILE FOOTER — REFERENCE 1 CENTERED NAV 2026-11-02
+   Centered stacked navigation with fine rules, compact contact grid and round
+   social controls. Leaves all desktop footer rules, markup and links unchanged. */
+@media (max-width: 768px) {
+  .site-footer {
+    box-sizing: border-box !important;
+    border-radius: 18px 18px 0 0 !important;
+    padding: 29px 18px 13px !important;
+  }
+  .site-footer .footer-container {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 370px !important;
+    margin: 0 auto !important;
+    padding: 0 0 13px !important;
+    direction: rtl !important;
+  }
+  .site-footer .footer-container > .footer-brand-block {
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 6px 13px !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-logo {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin: 0 0 9px !important;
+  }
+  .site-footer .footer-logo-mark {
+    width: 43px !important;
+    height: 43px !important;
+    border-radius: 12px !important;
+  }
+  .site-footer .footer-logo-mark svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  .site-footer .footer-logo-text {
+    text-align: right !important;
+  }
+  .site-footer .footer-logo-text strong {
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+  }
+  .site-footer .footer-logo-text small {
+    font-size: 8px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 1.2px !important;
+  }
+  .site-footer .footer-brand-block p {
+    width: 100% !important;
+    max-width: 310px !important;
+    margin: 0 auto !important;
+    font-size: 11.5px !important;
+    line-height: 1.8 !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+  }
+
+  /* The customer-services column duplicates dedicated contact pages on mobile. */
+  .site-footer .footer-container > .footer-col:nth-child(3) {
+    display: none !important;
+  }
+
+  /* Reference layout: a short vertical list with hairline separators. */
+  .site-footer .footer-container > .footer-col:nth-child(2) {
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 330px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    text-align: center !important;
+    justify-self: auto !important;
+    align-self: center !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) h4 {
+    display: none !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) ul {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) li {
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,.13) !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) li:nth-child(2),
+  .site-footer .footer-container > .footer-col:nth-child(2) li:nth-child(4) {
+    display: none !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) li a {
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 40px !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    color: #f3f6fc !important;
+    font-size: 12px !important;
+    font-weight: 650 !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) li a::before,
+  .site-footer .footer-container > .footer-col:nth-child(2) li a::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* Contact numbers stay clickable, with their original names and labels. */
+  .site-footer .footer-container > .footer-col:last-child {
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: start !important;
+    justify-items: stretch !important;
+    column-gap: 9px !important;
+    row-gap: 5px !important;
+    width: 100% !important;
+    max-width: 330px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 13px 0 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    text-align: center !important;
+    align-self: center !important;
+  }
+  .site-footer .footer-container > .footer-col:last-child > h4 {
+    grid-column: 1 / -1 !important;
+    margin: 0 0 5px !important;
+    padding: 0 !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-container > .footer-col:last-child > h4::after {
+    content: none !important;
+    display: none !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item {
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 3px 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item--landline,
+  .site-footer .footer-col:last-child .footer-contact-item--email {
+    grid-column: 1 / -1 !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item > div {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item strong {
+    display: block !important;
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    font-weight: 750 !important;
+    letter-spacing: 0 !important;
+    line-height: 1.55 !important;
+    overflow-wrap: anywhere !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item small {
+    display: block !important;
+    margin-top: 1px !important;
+    color: #c5d5dd !important;
+    text-align: center !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    line-height: 1.55 !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item a {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    white-space: normal !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item a::before,
+  .site-footer .footer-col:last-child .footer-contact-item a::after {
+    content: none !important;
+    display: none !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item--email a[href^="mailto:"] {
+    font-size: 11.5px !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  /* Existing white round LinkedIn/Instagram/Telegram/WhatsApp icons. */
+  .site-footer .footer-col:last-child .footer-social-links {
+    box-sizing: border-box !important;
+    grid-column: 1 / -1 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 11px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 12px 0 0 !important;
+    padding: 2px 0 0 !important;
+    border: 0 !important;
+  }
+  .site-footer .footer-col:last-child .footer-social-caption {
+    display: none !important;
+  }
+  .site-footer .footer-col:last-child .footer-social-link {
+    flex: 0 0 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+  }
+
+  .site-footer .footer-bottom {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 370px !important;
+    margin: 0 auto !important;
+    padding: 12px 0 0 !important;
+    border-top: 1px solid rgba(255,255,255,.14) !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-bottom > div {
+    font-size: 10px !important;
+    font-weight: 450 !important;
+    line-height: 1.65 !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-bottom .designer {
+    display: none !important;
+  }
+}
+@media (max-width: 355px) {
+  .site-footer {padding-inline: 12px !important}
+  .site-footer .footer-container > .footer-col:last-child {column-gap: 3px !important}
+  .site-footer .footer-col:last-child .footer-contact-item strong {font-size: 11px !important}
+}
