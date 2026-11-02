@@ -453,6 +453,35 @@ main>.catalog::after{display:none}
     pointer-events: none !important;
   }
 }
+
+/* Tomato-paste mobile-only section backgrounds, 2026-11-02.
+   Keep desktop hero, product cards, nutrition and brands untouched.
+   The top image belongs to the products area; the bottom image to brands.
+   A neutral middle keeps the two designs visually separated. */
+@media (max-width: 850px) {
+  .tomato-main > .tomato-product-surface {
+    background-color: #fffaf2;
+    background-image: none;
+  }
+  .tomato-main > .tomato-product-surface > .catalog {
+    background-color: transparent;
+    background-image: url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793597259/6505dd83-9bc8-4a47-961c-036b47c5185f_ugdq1i.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+  .tomato-main > .tomato-product-surface > .tomato-specifications {
+    background-color: transparent;
+    background-image: none;
+  }
+  .tomato-main > .tomato-product-surface > .partners {
+    background-color: transparent;
+    background-image: url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793597255/0781f223-e4c3-4e05-abc9-e6972a55356d_xfuvkc.png");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261102-contact-grid-1">
 <link rel="stylesheet" href="assets/mobile-nutrition-preview.css?v=20261101-1">
