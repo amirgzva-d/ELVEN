@@ -1,0 +1,48 @@
+/* Yeast product detail photos — mobile only.
+   Preserve original modal, controls, spacing and desktop presentation.
+   The image frame follows each product's real image ratio instead of
+   clipping images at the old 210–300px fixed-height constraint. */
+@media (max-width: 768px) {
+  #pdOverlay .pd-image-side {
+    align-self: start !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    /* Keep the inquiry/share dock under the image, not on top of it. */
+    padding-bottom: calc(68px + env(safe-area-inset-bottom)) !important;
+  }
+  #pdOverlay .pd-image-container:not(.no-img) {
+    position: relative !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: min(72dvh, 620px) !important;
+    aspect-ratio: var(--yeast-product-photo-ratio, 16 / 10) !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
+    /* Keep the original pale green photo background and borders. */
+  }
+  #pdOverlay .pd-image-container:not(.no-img) > #pdImage {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  #pdOverlay .pd-image-container.no-img {
+    aspect-ratio: auto !important;
+    min-height: 205px !important;
+    max-height: none !important;
+  }
+  #pdOverlay .pd-image-container .pd-fav-btn {
+    z-index: 4 !important;
+  }
+}
