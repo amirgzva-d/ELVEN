@@ -1576,8 +1576,10 @@ img{max-width:100%;display:block}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <div class="category-image image-featured featured-slider" aria-label="تصاویر محصولات مخمر">
-          <img class="featured-slide is-active" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793525624/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_effg02.png" alt="X Power" loading="eager">
-          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793525627/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87_ubtgem.png" alt="Yeast" loading="eager">
+          <img class="featured-slide is-active" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793608258/%D9%86%D8%A7%D9%86_%D9%85%D8%A7%DB%8C%D9%87_czlo9p.png" alt="نان مایه" loading="eager" decoding="async">
+          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793608256/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87_p2tsic.png" alt="دزمایه" loading="lazy" decoding="async">
+          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793608250/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_ktiwap_1_sves4v.png" alt="ایکس پاور" loading="lazy" decoding="async">
+          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793608249/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_cdbfxd.png" alt="ایکس پاور" loading="lazy" decoding="async">
         </div>
       </article>
 
@@ -2035,13 +2037,14 @@ document.addEventListener("DOMContentLoaded",()=>{
   if(featured){
     const slides=featured.querySelectorAll(".featured-slide");
     let current=0;
-    setInterval(()=>{
-      if(slides.length!==2)return;
-      const next=current===0?1:0;
-      slides[current].classList.remove("is-active");
-      slides[next].classList.add("is-active");
-      current=next;
-    },4500);
+    if(slides.length>1){
+      setInterval(()=>{
+        const next=(current+1)%slides.length;
+        slides[current].classList.remove("is-active");
+        slides[next].classList.add("is-active");
+        current=next;
+      },4500);
+    }
   }
 
   cards.forEach(card=>{
