@@ -4,6 +4,7 @@
   var phoneIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.1 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.7L7 10.3a16 16 0 0 0 6.7 6.7l1.9-2a2 2 0 0 1 1.7-.6l3 .5a2 2 0 0 1 1.7 1.8z"/></svg>';
   var mailIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>';
   var pinIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+  var arrowIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 18-6-6 6-6"/></svg>';
   var brandIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/><path d="M12 21V11"/><path d="M9 14l3-3 3 3"/></svg>';
   function init(){
     document.querySelectorAll('footer.site-footer, footer.site-foot.contact-page-expanded-footer').forEach(function(footer){
@@ -18,16 +19,23 @@
           '<span class="elven-mobile-reference-brand-name"><strong>بازرگانی مهاجر</strong><small>MOHAJER TRADING GROUP</small></span></div>',
           '<p>تأمین و صادرات انواع مواد غذایی ایرانی<br>با کیفیت برای بازارهای جهانی</p>',
         '</div>',
+        '<nav class="elven-mobile-reference-links" aria-label="صفحات اصلی سایت">',
+          '<a href="index.html"><span>صفحه اصلی</span>'+arrowIcon+'</a>',
+          '<a href="index.html#products"><span>محصولات</span>'+arrowIcon+'</a>',
+          '<a href="about.html"><span>درباره ما</span>'+arrowIcon+'</a>',
+          '<a href="contact.html"><span>تماس با ما</span>'+arrowIcon+'</a>',
+        '</nav>',
         '<address class="elven-mobile-reference-contact">',
-          '<a class="elven-mobile-reference-person-phone" href="tel:+989153028367">'+phoneIcon+'<span class="elven-mobile-reference-phone-name">محمد مهاجری</span><bdi dir="ltr">+98 915 302 8367</bdi></a>',
-          '<a class="elven-mobile-reference-person-phone" href="tel:+989155551965">'+phoneIcon+'<span class="elven-mobile-reference-phone-name">علیرضا تهرانی</span><bdi dir="ltr">+98 915 555 1965</bdi></a>',
-          '<a class="elven-mobile-reference-secondary-row" href="tel:+985137057126">'+phoneIcon+'<bdi dir="ltr">+98 513 705 7126</bdi></a>',
-          '<a class="elven-mobile-reference-secondary-row" href="mailto:info@mohajer-food.com">'+mailIcon+'<bdi dir="ltr">info@mohajer-food.com</bdi></a>',
+          '<a href="tel:+989153028367">'+phoneIcon+'<bdi dir="ltr">+98 915 302 8367</bdi></a>',
+          '<a href="tel:+989155551965">'+phoneIcon+'<bdi dir="ltr">+98 915 555 1965</bdi></a>',
+          '<a href="tel:+985137057126">'+phoneIcon+'<bdi dir="ltr">+98 513 705 7126</bdi></a>',
+          '<a href="mailto:info@mohajer-food.com">'+mailIcon+'<bdi dir="ltr">info@mohajer-food.com</bdi></a>',
           '<div class="elven-mobile-reference-address">'+pinIcon+'<span>مشهد، میدان جانباز، پاژ اداری ۲، طبقه ۳، واحد ۳۱۳</span></div>',
         '</address>',
         '<div class="elven-mobile-reference-social" aria-label="شبکه‌های اجتماعی"></div>',
         '<div class="elven-mobile-reference-bottom">',
-                    '<small>© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.</small>',
+          '<div class="elven-mobile-reference-world"><span>صادرات به سراسر جهان</span></div>',
+          '<small>© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.</small>',
         '</div>'
       ].join('');
       var originalSocial=footer.querySelector('.footer-social-links');
