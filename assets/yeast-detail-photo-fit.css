@@ -46,3 +46,14 @@
     z-index: 4 !important;
   }
 }
+
+/* The product specifications are already visible below the product title.
+   Hide the redundant single "Details" tab on mobile, not the data itself. */
+@media (max-width: 768px) {
+  #pdOverlay .pd-info-side > .pd-tabs.pd-tabs-single {
+    display: none !important;
+  }
+  #pdOverlay .pd-info-side > .pd-feature-list {
+    margin-top: 0.35rem;
+  }
+}
