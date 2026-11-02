@@ -942,3 +942,53 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     gap:0!important;
   }
 }
+
+/* Mobile footer: remove the redundant page links and place contact names
+   beside their telephone numbers. No desktop/layout changes. */
+@media (max-width: 768px) {
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-links {
+    display: none !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact {
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 8px auto 17px !important;
+    padding-top: 17px !important;
+    border-top: 1px solid rgba(221, 242, 228, .16) !important;
+    gap: 11px !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-person-phone {
+    display: flex !important;
+    flex-direction: row !important;
+    direction: rtl !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(5px, 1.8vw, 9px) !important;
+    width: 100% !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-person-phone .elven-mobile-reference-phone-name {
+    display: inline !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    color: #f5fff8 !important;
+    direction: rtl !important;
+    font-size: clamp(11px, 3vw, 12.5px) !important;
+    font-weight: 750 !important;
+    line-height: 1.75 !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-person-phone bdi {
+    color: #fff !important;
+    direction: ltr !important;
+    font-size: clamp(11px, 3vw, 12.5px) !important;
+    font-weight: 600 !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-person-phone svg {
+    flex: 0 0 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
