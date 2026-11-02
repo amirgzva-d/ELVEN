@@ -114,3 +114,62 @@
   footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer{padding-right:17px!important;padding-left:17px!important}
   .elven-mobile-reference-contact a{font-size:11.5px!important}
 }
+
+/* Mobile footer contact details and brand-color social icon refinement 2026-11-02 */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact{
+    gap:8px!important;
+    margin-bottom:16px!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address{
+    display:flex!important;
+    align-items:flex-start!important;
+    justify-content:center!important;
+    gap:9px!important;
+    width:100%!important;
+    max-width:320px!important;
+    margin:2px auto 0!important;
+    text-align:center!important;
+    font-style:normal!important;
+    color:#f4fff7!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address svg{
+    flex:0 0 17px!important;
+    width:17px!important;
+    height:17px!important;
+    margin-top:3px!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address span{
+    display:block!important;
+    flex:0 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:280px!important;
+    margin:0!important;
+    padding:0!important;
+    direction:rtl!important;
+    font-size:12px!important;
+    font-weight:600!important;
+    line-height:1.9!important;
+    text-align:center!important;
+    white-space:normal!important;
+    color:#f4fff7!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link,
+  footer.site-footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link,
+  footer.site-foot.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link{
+    background:#087c52!important;
+    border:1.5px solid #effff5!important;
+    color:#fff!important;
+    opacity:1!important;
+    box-shadow:0 0 0 1px rgba(10,140,87,.2)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg{
+    color:#fff!important;
+    stroke:#fff!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link .social-brand-fill{
+    fill:#fff!important;
+    stroke:none!important;
+  }
+}
