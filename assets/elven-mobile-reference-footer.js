@@ -1,0 +1,50 @@
+/* ELVEN mobile reference footer — independent of existing desktop footer. */
+(function(){
+  'use strict';
+  var phoneIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.1 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.7L7 10.3a16 16 0 0 0 6.7 6.7l1.9-2a2 2 0 0 1 1.7-.6l3 .5a2 2 0 0 1 1.7 1.8z"/></svg>';
+  var mailIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>';
+  var pinIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+  var arrowIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 18-6-6 6-6"/></svg>';
+  var globeIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3 3-3 15 0 18M12 3c3 3 3 15 0 18"/></svg>';
+  var brandIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/><path d="M12 21V11"/><path d="M9 14l3-3 3 3"/></svg>';
+  function init(){
+    document.querySelectorAll('footer.site-footer, footer.site-foot.contact-page-expanded-footer').forEach(function(footer){
+      if(footer.classList.contains('has-elven-mobile-reference-footer'))return;
+      var panel=document.createElement('section');
+      panel.className='elven-mobile-reference-footer';
+      panel.setAttribute('dir','rtl');
+      panel.setAttribute('aria-label','اطلاعات و راه‌های ارتباطی شرکت');
+      panel.innerHTML=[
+        '<div class="elven-mobile-reference-brand">',
+          '<div class="elven-mobile-reference-identity"><span class="elven-mobile-reference-brand-icon">'+brandIcon+'</span>',
+          '<span class="elven-mobile-reference-brand-name"><strong>بازرگانی مهاجر</strong><small>MOHAJER TRADING GROUP</small></span></div>',
+          '<p>تأمین و صادرات انواع مواد غذایی ایرانی<br>با کیفیت برای بازارهای جهانی</p>',
+        '</div>',
+        '<nav class="elven-mobile-reference-links" aria-label="صفحات اصلی سایت">',
+          '<a href="index.html"><span>صفحه اصلی</span>'+arrowIcon+'</a>',
+          '<a href="index.html#products"><span>محصولات</span>'+arrowIcon+'</a>',
+          '<a href="about.html"><span>درباره ما</span>'+arrowIcon+'</a>',
+          '<a href="contact.html"><span>تماس با ما</span>'+arrowIcon+'</a>',
+        '</nav>',
+        '<address class="elven-mobile-reference-contact">',
+          '<a href="tel:+985137057126">'+phoneIcon+'<bdi dir="ltr">+98 513 705 7126</bdi></a>',
+          '<a href="mailto:info@mohajer-food.com">'+mailIcon+'<bdi dir="ltr">info@mohajer-food.com</bdi></a>',
+          '<span>'+pinIcon+'مشهد، ایران</span>',
+        '</address>',
+        '<div class="elven-mobile-reference-social" aria-label="شبکه‌های اجتماعی"></div>',
+        '<div class="elven-mobile-reference-bottom">',
+          '<div class="elven-mobile-reference-world">'+globeIcon+'<span>صادرات به سراسر جهان</span>'+globeIcon+'</div>',
+          '<small>© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.</small>',
+        '</div>'
+      ].join('');
+      var originalSocial=footer.querySelector('.footer-social-links');
+      var container=panel.querySelector('.elven-mobile-reference-social');
+      if(originalSocial){var socialCopy=originalSocial.cloneNode(true);container.appendChild(socialCopy);}
+      else container.remove();
+      footer.appendChild(panel);
+      footer.classList.add('has-elven-mobile-reference-footer');
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
