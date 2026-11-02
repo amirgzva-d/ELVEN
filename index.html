@@ -1401,6 +1401,30 @@ img{max-width:100%;display:block}
     border-radius:11px !important;
   }
 }
+
+/* ELVEN FEATURED YEAST SLIDES — SHOW ENTIRE PHOTO (2026-11-02) */
+/* Apply to desktop AND mobile. Keep card geometry and the 4-slide timing.
+   Previous object-fit:cover cropped the outer portions of product artwork. */
+#categories.category-grid > article.category-card.category-card--featured
+> .category-image.featured-slider img.featured-slide {
+  object-fit:contain !important;
+  object-position:center center !important;
+  max-width:100% !important;
+  max-height:100% !important;
+}
+/* A neutral surround is visible only when an image's aspect ratio differs
+   from the card. Unlike cover, contain shows its entire photograph. */
+#categories.category-grid > article.category-card.category-card--featured
+> .category-image.featured-slider {
+  background-color:#f5f6f2 !important;
+}
+@media(max-width:768px) {
+  #categories.category-grid > article.category-card.category-card--featured
+  > .category-image.featured-slider img.featured-slide {
+    object-fit:contain !important;
+    object-position:center center !important;
+  }
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261102-footer-restored-links-v8">
 <link rel="stylesheet" href="assets/home-first-impression.css?v=20261102-mobile-two-column-v1">
