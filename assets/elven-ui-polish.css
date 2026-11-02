@@ -438,75 +438,76 @@ svg.ico{flex-shrink:0;vertical-align:middle}
   }
 }
 
-/* ELVEN MOBILE FOOTER — NAVY CONTACT ONLY 2026-11-02
-   Mobile social row and contact block with original navy; quick links hidden.
-   Only the shared footer at <=768px; desktop and contact-page footer remain unchanged. */
+
+/* ELVEN MOBILE FOOTER — BALANCED CONTACT GRID 2026-11-02
+   Social icons at top, centered-width 2-column contacts below.
+   Preserves navy palette, real contact links, and desktop footer. */
 @media (max-width:768px) {
   .site-footer {
     box-sizing:border-box !important;
-    padding:22px 20px 13px !important;
-    border-radius:0 0 18px 18px !important;
+    padding:22px 18px 15px !important;
+    border-radius:0 0 16px 16px !important;
     background:#0e2a57 !important;
     color:#fff !important;
     overflow:hidden !important;
   }
   .site-footer::before {
-    background:radial-gradient(circle at center,rgba(255,255,255,.08),transparent 68%) !important;
+    background:radial-gradient(circle at center,rgba(255,255,255,.06),transparent 68%) !important;
     opacity:.5 !important;
   }
   .site-footer .footer-container {
     box-sizing:border-box !important;
     position:relative !important;
-    display:grid !important;
-    grid-template-columns:minmax(0,1fr) !important;
-    align-items:start !important;
-    justify-content:stretch !important;
-    column-gap:0 !important;
-    row-gap:0 !important;
+    display:block !important;
     width:100% !important;
-    max-width:400px !important;
+    max-width:410px !important;
     min-width:0 !important;
     margin:0 auto !important;
-    padding:50px 0 12px !important;
+    padding:58px 0 11px !important;
     direction:rtl !important;
   }
-  /* No company masthead or service list; keep the desktop markup intact. */
+  /* Keep underlying HTML unchanged; mobile shows only contact and social. */
   .site-footer .footer-container > .footer-brand-block,
   .site-footer .footer-container > .footer-col:nth-child(2),
   .site-footer .footer-container > .footer-col:nth-child(3) {
     display:none !important;
   }
 
-  /* Left column: existing real office, two mobile numbers and email. */
+  /* Four contact methods evenly fill the screen in two clean rows. */
   .site-footer .footer-container > .footer-col:last-child {
     box-sizing:border-box !important;
     position:static !important;
-    display:block !important;
-    grid-column:1 !important;
-    grid-row:1 !important;
-    justify-self:stretch !important;
-    align-self:start !important;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    align-items:start !important;
+    justify-items:stretch !important;
+    gap:0 17px !important;
     width:100% !important;
-    max-width:310px !important;
+    max-width:none !important;
     min-width:0 !important;
-    margin:0 auto !important;
+    margin:0 !important;
     padding:0 !important;
     border:0 !important;
     background:transparent !important;
-    text-align:left !important;
+    text-align:right !important;
+    direction:rtl !important;
   }
   .site-footer .footer-container > .footer-col:last-child > h4 {
-    box-sizing:border-box !important;
+    grid-column:1 / -1 !important;
     display:block !important;
+    width:100% !important;
     margin:0 0 12px !important;
     padding:0 !important;
     border:0 !important;
+    background:transparent !important;
     color:#fff !important;
-    font-size:12.5px !important;
+    font-family:Vazirmatn,Tahoma,sans-serif !important;
+    font-size:14px !important;
     font-weight:800 !important;
-    line-height:1.5 !important;
-    text-align:left !important;
+    line-height:1.55 !important;
+    text-align:right !important;
   }
+  .site-footer .footer-container > .footer-col:last-child > h4::before,
   .site-footer .footer-container > .footer-col:last-child > h4::after {
     content:none !important;
     display:none !important;
@@ -516,85 +517,100 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     display:block !important;
     width:100% !important;
     min-width:0 !important;
-    margin:0 0 11px !important;
-    padding:0 !important;
+    min-height:62px !important;
+    margin:0 !important;
+    padding:10px 3px 12px !important;
     border:0 !important;
+    border-bottom:1px solid rgba(255,255,255,.14) !important;
+    border-radius:0 !important;
     background:transparent !important;
     box-shadow:none !important;
     transform:none !important;
-    text-align:left !important;
+    text-align:right !important;
   }
   .site-footer .footer-col:last-child .footer-contact-item > div {
     width:100% !important;
     min-width:0 !important;
   }
   .site-footer .footer-col:last-child .footer-contact-item strong {
+    box-sizing:border-box !important;
     display:block !important;
     width:100% !important;
+    margin:0 !important;
     direction:ltr !important;
     unicode-bidi:isolate !important;
-    text-align:left !important;
+    text-align:right !important;
     font-family:Vazirmatn,Tahoma,sans-serif !important;
-    font-size:11px !important;
+    font-size:13px !important;
     font-weight:750 !important;
-    line-height:1.5 !important;
+    line-height:1.6 !important;
     letter-spacing:0 !important;
     overflow-wrap:anywhere !important;
     white-space:normal !important;
   }
   .site-footer .footer-col:last-child .footer-contact-item small {
     display:block !important;
-    margin:1px 0 0 !important;
-    color:rgba(255,255,255,.69) !important;
+    width:100% !important;
+    margin:3px 0 0 !important;
+    padding:0 !important;
+    direction:rtl !important;
+    color:#bbcadc !important;
     font-family:Vazirmatn,Tahoma,sans-serif !important;
-    font-size:10px !important;
+    font-size:10.5px !important;
     font-weight:500 !important;
     line-height:1.5 !important;
-    text-align:left !important;
+    text-align:right !important;
   }
   .site-footer .footer-col:last-child .footer-contact-item a {
-    color:#fff !important;
+    display:inline !important;
     direction:ltr !important;
     unicode-bidi:isolate !important;
+    color:#fff !important;
+    font-family:inherit !important;
     font-size:inherit !important;
     font-weight:inherit !important;
     line-height:inherit !important;
-    text-align:left !important;
+    overflow-wrap:anywhere !important;
     white-space:normal !important;
+    text-align:right !important;
   }
   .site-footer .footer-col:last-child .footer-contact-item a::before,
   .site-footer .footer-col:last-child .footer-contact-item a::after {
     content:none !important;
     display:none !important;
   }
+  .site-footer .footer-col:last-child .footer-contact-item--email strong {
+    font-size:clamp(10px,2.8vw,11.25px) !important;
+  }
   .site-footer .footer-col:last-child .footer-contact-item--email a[href^="mailto:"] {
-    display:inline !important;
     font-family:Poppins,Vazirmatn,sans-serif !important;
-    font-size:10px !important;
+    font-size:inherit !important;
     max-width:100% !important;
     overflow-wrap:anywhere !important;
-    text-align:left !important;
   }
 
-  /* First row of reference: caption left, small round social icons right. */
+  /* Slim social heading and four outlined icons; balanced across full width. */
   .site-footer .footer-col:last-child .footer-social-links {
     box-sizing:border-box !important;
     position:absolute !important;
-    inset:auto 0 auto 0 !important;
+    left:0 !important;
+    right:0 !important;
     top:0 !important;
+    bottom:auto !important;
     z-index:3 !important;
     display:flex !important;
     flex-direction:row !important;
     flex-wrap:nowrap !important;
     align-items:center !important;
     justify-content:flex-start !important;
-    gap:6px !important;
+    gap:7px !important;
     width:100% !important;
     max-width:none !important;
-    height:30px !important;
+    height:38px !important;
     margin:0 !important;
-    padding:0 !important;
+    padding:0 0 11px !important;
     border:0 !important;
+    border-bottom:1px solid rgba(255,255,255,.17) !important;
     direction:ltr !important;
     background:transparent !important;
   }
@@ -602,47 +618,49 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     display:block !important;
     flex:0 1 auto !important;
     width:auto !important;
-    max-width:110px !important;
+    max-width:none !important;
     margin:0 auto 0 0 !important;
     padding:0 !important;
     color:#fff !important;
+    font-family:Vazirmatn,Tahoma,sans-serif !important;
     font-size:11px !important;
     font-weight:750 !important;
     line-height:1.4 !important;
+    direction:rtl !important;
     text-align:left !important;
     white-space:nowrap !important;
-    direction:rtl !important;
   }
   .site-footer .footer-col:last-child .footer-social-links .footer-social-link {
     box-sizing:border-box !important;
     display:inline-flex !important;
+    flex:0 0 30px !important;
     align-items:center !important;
     justify-content:center !important;
-    flex:0 0 28px !important;
-    width:28px !important;
-    height:28px !important;
-    min-width:28px !important;
-    min-height:28px !important;
-    max-width:28px !important;
-    max-height:28px !important;
+    width:30px !important;
+    height:30px !important;
+    min-width:30px !important;
+    min-height:30px !important;
+    max-width:30px !important;
+    max-height:30px !important;
     margin:0 !important;
     padding:0 !important;
-    border:1px solid rgba(255,255,255,.38) !important;
+    border:1px solid rgba(255,255,255,.4) !important;
     border-radius:50% !important;
-    color:#fff !important;
-    background:rgba(255,255,255,.14) !important;
+    background:rgba(255,255,255,.09) !important;
     box-shadow:none !important;
+    color:#fff !important;
     opacity:1 !important;
+    line-height:1 !important;
     transform:none !important;
   }
   .site-footer .footer-col:last-child .footer-social-links .footer-social-link svg {
     display:block !important;
     flex:none !important;
-    width:15px !important;
-    height:15px !important;
-    color:#fff !important;
+    width:16px !important;
+    height:16px !important;
     fill:none !important;
     stroke:currentColor !important;
+    color:#fff !important;
   }
   .site-footer .footer-col:last-child .footer-social-links .footer-social-link .social-brand-fill {
     fill:currentColor !important;
@@ -650,7 +668,7 @@ svg.ico{flex-shrink:0;vertical-align:middle}
   }
   .site-footer .footer-col:last-child .footer-social-links a.footer-social-link:is(:hover,:focus-visible) {
     border-color:rgba(255,255,255,.72) !important;
-    background:rgba(255,255,255,.25) !important;
+    background:rgba(255,255,255,.22) !important;
     color:#fff !important;
     transform:none !important;
   }
@@ -659,20 +677,22 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     display:flex !important;
     flex-direction:column !important;
     align-items:center !important;
+    justify-content:center !important;
     gap:0 !important;
     width:100% !important;
-    max-width:400px !important;
+    max-width:410px !important;
     margin:0 auto !important;
-    padding:10px 0 0 !important;
-    border-top:1px solid rgba(255,255,255,.19) !important;
-    color:rgba(255,255,255,.75) !important;
+    padding:12px 0 0 !important;
+    border-top:1px solid rgba(255,255,255,.13) !important;
+    color:#bfcde0 !important;
     text-align:center !important;
   }
   .site-footer .footer-bottom > div {
+    font-family:Vazirmatn,Tahoma,sans-serif !important;
     font-size:10px !important;
     font-weight:450 !important;
     line-height:1.7 !important;
-    color:rgba(255,255,255,.75) !important;
+    color:#bfcde0 !important;
     text-align:center !important;
   }
   .site-footer .footer-bottom .designer {
@@ -680,10 +700,18 @@ svg.ico{flex-shrink:0;vertical-align:middle}
   }
 }
 @media (max-width:355px) {
-  .site-footer {padding-left:14px !important;padding-right:14px !important}
-  .site-footer .footer-container {column-gap:0 !important;grid-template-columns:minmax(0,1fr) !important}
+  .site-footer {padding-inline:12px !important}
+  .site-footer .footer-container > .footer-col:last-child {column-gap:9px !important}
+  .site-footer .footer-col:last-child .footer-contact-item strong {font-size:11.25px !important}
+  .site-footer .footer-col:last-child .footer-contact-item--email strong {font-size:10px !important}
   .site-footer .footer-col:last-child .footer-social-links .footer-social-link {
-    width:25px !important;height:25px !important;min-width:25px !important;min-height:25px !important;max-width:25px !important;max-height:25px !important;flex-basis:25px !important;
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+    min-height:28px !important;
+    max-width:28px !important;
+    max-height:28px !important;
+    flex-basis:28px !important;
   }
 }
 
