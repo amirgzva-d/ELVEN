@@ -21,14 +21,13 @@
         '<address class="elven-mobile-reference-contact">',
           '<a class="elven-mobile-reference-person-phone" href="tel:+989153028367">'+phoneIcon+'<span class="elven-mobile-reference-phone-name">محمد مهاجری</span><bdi dir="ltr">+98 915 302 8367</bdi></a>',
           '<a class="elven-mobile-reference-person-phone" href="tel:+989155551965">'+phoneIcon+'<span class="elven-mobile-reference-phone-name">علیرضا تهرانی</span><bdi dir="ltr">+98 915 555 1965</bdi></a>',
-          '<a href="tel:+985137057126">'+phoneIcon+'<bdi dir="ltr">+98 513 705 7126</bdi></a>',
-          '<a href="mailto:info@mohajer-food.com">'+mailIcon+'<bdi dir="ltr">info@mohajer-food.com</bdi></a>',
+          '<a class="elven-mobile-reference-secondary-row" href="tel:+985137057126">'+phoneIcon+'<bdi dir="ltr">+98 513 705 7126</bdi></a>',
+          '<a class="elven-mobile-reference-secondary-row" href="mailto:info@mohajer-food.com">'+mailIcon+'<bdi dir="ltr">info@mohajer-food.com</bdi></a>',
           '<div class="elven-mobile-reference-address">'+pinIcon+'<span>مشهد، میدان جانباز، پاژ اداری ۲، طبقه ۳، واحد ۳۱۳</span></div>',
         '</address>',
         '<div class="elven-mobile-reference-social" aria-label="شبکه‌های اجتماعی"></div>',
         '<div class="elven-mobile-reference-bottom">',
-          '<div class="elven-mobile-reference-world"><span>صادرات به سراسر جهان</span></div>',
-          '<small>© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.</small>',
+                    '<small>© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.</small>',
         '</div>'
       ].join('');
       var originalSocial=footer.querySelector('.footer-social-links');
