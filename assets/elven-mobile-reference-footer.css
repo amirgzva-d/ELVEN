@@ -201,3 +201,16 @@
     fill:#087c52!important;stroke:none!important;
   }
 }
+
+/* Mobile footer: defensive removal of decorative globe icons 2026-11-02 */
+@media (max-width:768px){
+  footer .elven-mobile-reference-world > :not(span),
+  footer .elven-mobile-reference-world::before,
+  footer .elven-mobile-reference-world::after{
+    display:none!important;
+    content:none!important;
+  }
+  footer .elven-mobile-reference-world{
+    gap:0!important;
+  }
+}
