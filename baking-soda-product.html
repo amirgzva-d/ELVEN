@@ -556,7 +556,12 @@ const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObse
 /* Mobile only: canned-style photographic hero without image distortion. */
 @media(max-width:600px){
  .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero{height:auto!important;min-height:0!important;aspect-ratio:9/16!important;background-color:#fffaf2!important;background-image:var(--elven-mobile-hero-photo)!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}
- .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-copy{top:12%}
+ .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-copy{top:6%}
+ /* Remove legacy mobile gradient that obscured the new portrait and buttons. */
+ .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero::before,
+ .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero::after{
+  content:none!important;display:none!important;background:none!important;
+ }
  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-actions{bottom:5.2%}
  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-title--long{font-size:clamp(27px,8.3vw,48px)}
  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-subtitle{max-width:96%;font-size:clamp(15px,4.7vw,25px)}
