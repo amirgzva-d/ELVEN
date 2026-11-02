@@ -264,3 +264,177 @@
     height: 16px !important;
   }
 }
+
+
+/* ELVEN mobile contact card layout - matches approved 2026-11-02 screenshot.
+   Keeps desktop and all non-footer contact components untouched. */
+@media (max-width: 768px) {
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact {
+    --elven-contact-bleed: clamp(18px, 7vw, 32px);
+    box-sizing: border-box !important;
+    width: calc(100% + 2 * var(--elven-contact-bleed)) !important;
+    max-width: none !important;
+    margin: 8px calc(-1 * var(--elven-contact-bleed)) 17px !important;
+    padding: 15px 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 9px !important;
+    border-top: 1px solid rgba(221, 242, 228, .16) !important;
+    font-style: normal !important;
+  }
+
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-person-phone {
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: 38px minmax(0, .95fr) minmax(0, 1.16fr) !important;
+    direction: rtl !important;
+    justify-items: stretch !important;
+    align-items: center !important;
+    column-gap: clamp(4px, 1.8vw, 9px) !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 51px !important;
+    margin: 0 !important;
+    padding: 5px 10px !important;
+    border: 1px solid rgba(137, 213, 169, .24) !important;
+    border-radius: 16px !important;
+    background: linear-gradient(115deg, rgba(24, 106, 80, .54), rgba(11, 80, 60, .65)) !important;
+    box-shadow: inset 0 1px 0 rgba(230, 255, 240, .035) !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-person-phone > svg {
+    box-sizing: border-box !important;
+    display: block !important;
+    grid-column: 1 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    padding: 8px !important;
+    border-radius: 11px !important;
+    background: linear-gradient(145deg, #159255, #08713d) !important;
+    color: #fff !important;
+    stroke: #fff !important;
+    fill: none !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-person-phone > span.elven-mobile-reference-phone-name {
+    box-sizing: border-box !important;
+    display: flex !important;
+    grid-column: 2 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 25px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: 0 0 0 4px !important;
+    border-left: 1px solid #3ed18a !important;
+    color: #fff !important;
+    font-family: Vazirmatn, Tahoma, sans-serif !important;
+    font-size: clamp(10px, 3.05vw, 13px) !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    direction: rtl !important;
+    white-space: nowrap !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-person-phone > bdi {
+    display: block !important;
+    grid-column: 3 !important;
+    justify-self: center !important;
+    min-width: 0 !important;
+    color: #fff !important;
+    direction: ltr !important;
+    text-align: center !important;
+    font-family: Vazirmatn, Tahoma, sans-serif !important;
+    font-size: clamp(10px, 3.13vw, 13.5px) !important;
+    font-weight: 800 !important;
+    line-height: 1.65 !important;
+    white-space: nowrap !important;
+  }
+
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-secondary-row,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact .elven-mobile-reference-address {
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: 38px minmax(0, 1fr) !important;
+    align-items: center !important;
+    justify-content: start !important;
+    justify-items: stretch !important;
+    gap: clamp(11px, 3.8vw, 18px) !important;
+    direction: ltr !important;
+    width: min(100%, 370px) !important;
+    max-width: 370px !important;
+    min-width: 0 !important;
+    min-height: 34px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    text-align: left !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-person-phone + a.elven-mobile-reference-secondary-row {
+    margin-top: 3px !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-secondary-row > svg,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact .elven-mobile-reference-address > svg {
+    box-sizing: border-box !important;
+    grid-column: 1 !important;
+    justify-self: start !important;
+    flex: none !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    padding: 9px !important;
+    border-radius: 11px !important;
+    background: linear-gradient(145deg, #116a4b, #064a37) !important;
+    border: 1px solid rgba(91, 195, 138, .22) !important;
+    color: #fff !important;
+    stroke: #fff !important;
+    fill: none !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact a.elven-mobile-reference-secondary-row > bdi {
+    grid-column: 2 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    font-family: Vazirmatn, Tahoma, sans-serif !important;
+    font-size: clamp(11px, 3.3vw, 13px) !important;
+    font-weight: 700 !important;
+    line-height: 1.8 !important;
+    color: #fff !important;
+    direction: ltr !important;
+    text-align: left !important;
+    overflow-wrap: anywhere !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact .elven-mobile-reference-address > span {
+    grid-column: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-self: center !important;
+    color: #f7fff9 !important;
+    font-family: Vazirmatn, Tahoma, sans-serif !important;
+    font-size: clamp(10px, 2.95vw, 12px) !important;
+    font-weight: 650 !important;
+    line-height: 1.8 !important;
+    direction: rtl !important;
+    text-align: right !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-bottom small {
+    margin-top: 0 !important;
+    text-align: center !important;
+  }
+}
