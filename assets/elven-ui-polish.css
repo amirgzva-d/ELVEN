@@ -437,3 +437,223 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     margin-bottom:7px !important;
   }
 }
+
+
+/* ELVEN COMPACT MOBILE FOOTER — 2026-11-02
+   Single-column layout for the shared food-site footer only.
+   Desktop layout and all contact information remain intact. */
+@media (max-width: 768px) {
+  .site-footer {
+    box-sizing: border-box;
+    padding: 30px 18px 14px !important;
+  }
+  .site-footer .footer-container {
+    box-sizing: border-box;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 430px !important;
+    margin-inline: auto !important;
+    padding: 0 0 16px !important;
+    direction: rtl;
+    align-items: start !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(3) {
+    display: none !important; /* Customer services not needed in mobile footer. */
+  }
+  .site-footer .footer-container > .footer-brand-block {
+    grid-column: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 0 16px !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-logo {
+    justify-content: center !important;
+    gap: 9px !important;
+    margin-bottom: 8px !important;
+  }
+  .site-footer .footer-logo-mark {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 12px !important;
+  }
+  .site-footer .footer-logo-mark svg {
+    width: 23px !important;
+    height: 23px !important;
+  }
+  .site-footer .footer-logo-text strong {
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+  }
+  .site-footer .footer-logo-text small {
+    font-size: 8px !important;
+    letter-spacing: 1.2px !important;
+    line-height: 1.4 !important;
+  }
+  .site-footer .footer-brand-block p {
+    width: 100%;
+    max-width: 315px !important;
+    margin: 0 auto !important;
+    font-size: 11.5px !important;
+    line-height: 1.85 !important;
+    text-align: center !important;
+  }
+
+  /* Replace the tall company link column with three clear quick links. */
+  .site-footer .footer-container > .footer-col:nth-child(2) {
+    display: block !important;
+    grid-column: 1 !important;
+    justify-self: stretch !important;
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 12px 0 !important;
+    border-top: 1px solid rgba(255,255,255,.12) !important;
+    border-bottom: 1px solid rgba(255,255,255,.12) !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) h4 {
+    display: none !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px 24px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) li {
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.6 !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) li:nth-child(2),
+  .site-footer .footer-container > .footer-col:nth-child(2) li:nth-child(4) {
+    display: none !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) li a {
+    display: inline-block !important;
+    padding: 2px 0 !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    color: #d4e5db !important;
+    white-space: nowrap;
+    text-align: center !important;
+  }
+  .site-footer .footer-container > .footer-col:nth-child(2) li a::before {
+    display: none !important;
+  }
+
+  /* Two mobile contacts on the first row; office and email below. */
+  .site-footer .footer-container > .footer-col:last-child {
+    display: grid !important;
+    grid-column: 1 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 12px !important;
+    row-gap: 10px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 15px 0 0 !important;
+    border: 0 !important;
+    text-align: center !important;
+    justify-items: stretch !important;
+  }
+  .site-footer .footer-container > .footer-col:last-child h4 {
+    grid-column: 1 / -1 !important;
+    margin: 0 0 1px !important;
+    padding: 0 !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  .site-footer .footer-container > .footer-col:last-child h4::after {
+    display: none !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item {
+    box-sizing: border-box;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 2px 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item--landline,
+  .site-footer .footer-col:last-child .footer-contact-item--email {
+    grid-column: 1 / -1 !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item > div {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item strong,
+  .site-footer .footer-col:last-child .footer-contact-item small {
+    text-align: center !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item strong {
+    font-size: 12.5px !important;
+    line-height: 1.55 !important;
+    letter-spacing: 0 !important;
+    overflow-wrap: anywhere;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item small {
+    margin: 2px 0 0 !important;
+    font-size: 10.5px !important;
+    font-weight: 500 !important;
+    line-height: 1.45 !important;
+    color: #b7cfc0 !important;
+  }
+  .site-footer .footer-col:last-child .footer-contact-item--email a[href^="mailto:"] {
+    font-size: 12px !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+  .site-footer .footer-col:last-child .footer-social-links {
+    grid-column: 1 / -1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 11px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 5px auto 0 !important;
+    padding: 0 !important;
+  }
+  .site-footer .footer-col:last-child .footer-social-caption {
+    display: none !important;
+  }
+  .site-footer .footer-bottom {
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 430px !important;
+    margin: 0 auto !important;
+    padding: 12px 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    text-align: center !important;
+    font-size: 10px !important;
+    line-height: 1.7 !important;
+  }
+  .site-footer .footer-bottom div {
+    font-size: 10px !important;
+    line-height: 1.7 !important;
+  }
+  .site-footer .footer-bottom .designer {
+    display: none !important;
+  }
+}
