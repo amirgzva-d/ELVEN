@@ -411,6 +411,25 @@ main>.partners>.partner-grid{
  .elven-category-hero .elven-mobile-portrait-title--long{font-size:clamp(27px,8.3vw,48px)}
  .elven-category-hero .elven-mobile-portrait-subtitle{max-width:96%;font-size:clamp(15px,4.7vw,25px)}
 }
+
+/* Milk powder: mobile-only section artwork (separate upper and lower images).
+   Keep the mobile first-page hero, interactive product cards, and desktop styles untouched. */
+@media (max-width:760px) {
+  main > .milk-section-surface {
+    background-color:#fffaf2;
+    background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793600501/b4976801-0a23-4598-afa8-d91da6da0305_o0ksne.png");
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:100% auto;
+  }
+  main > .partners {
+    background-color:#fcf8ef;
+    background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1793600155/29748176-1389-4a07-b181-178e29b6e22c_usqf3i.png");
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    background-size:100% auto;
+  }
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261102-mobile-reference-footer-v2">
 <link rel="stylesheet" href="assets/mobile-nutrition-preview.css?v=20261101-1">
