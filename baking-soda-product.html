@@ -518,7 +518,7 @@ const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObse
 }
 
 /* Mobile: keep the copy readable above the image and preserve the product proportions. */
-@media (max-width: 760px) {
+@media (min-width: 601px) and (max-width: 760px) {
   .soda-main > .soda-hero {
     height: auto !important;
     min-height: 730px !important;
@@ -553,18 +553,83 @@ const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObse
   .soda-hero .hero h2 { font-size: clamp(21px, 5.7vw, 28px) !important; }
 }
 
-/* Mobile only: canned-style photographic hero without image distortion. */
-@media(max-width:600px){
- .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero{height:auto!important;min-height:0!important;aspect-ratio:9/16!important;background-color:#fffaf2!important;background-image:var(--elven-mobile-hero-photo)!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}
- .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-copy{top:6%}
- /* Remove legacy mobile gradient that obscured the new portrait and buttons. */
- .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero::before,
- .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero::after{
-  content:none!important;display:none!important;background:none!important;
- }
- .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-actions{bottom:5.2%}
- .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-title--long{font-size:clamp(27px,8.3vw,48px)}
- .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-subtitle{max-width:96%;font-size:clamp(15px,4.7vw,25px)}
+/* Mobile: use the SAME portrait composition as milk, pasta and glucose.
+   The old soda-specific 730px/gradient layout now applies only to tablets.
+   Preserve the supplied photo, sizing, buttons and desktop layout. */
+@media (max-width:600px) {
+  .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero {
+    display:block!important;
+    position:relative!important;
+    box-sizing:border-box!important;
+    isolation:isolate!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    aspect-ratio:9 / 16!important;
+    padding:0!important;
+    background-color:#fffaf2!important;
+    background-image:var(--elven-mobile-hero-photo)!important;
+    background-size:contain!important;
+    background-position:center center!important;
+    background-repeat:no-repeat!important;
+    overflow:hidden!important;
+  }
+  .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero::before,
+  .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero::after {
+    content:none!important;
+    display:none!important;
+    background:none!important;
+  }
+  .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero > .hero-inner,
+  .soda-main > .soda-hero.elven-mobile-portrait-hero.elven-category-hero > .scroll-down {
+    display:none!important;
+  }
+  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-overlay {
+    display:block!important;
+    position:absolute!important;
+    inset:0;
+    z-index:3;
+  }
+  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-copy {
+    top:6%!important;
+    left:2.5%;
+    right:2.5%;
+  }
+  /* Override old .soda-main .hero h1/h2/p selectors that were styling mobile overlay text. */
+  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-title {
+    margin:0!important;
+    padding:0!important;
+    font-size:clamp(38px,12.7vw,76px)!important;
+    line-height:1.18!important;
+    color:#003f2a;
+  }
+  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-subtitle {
+    margin:clamp(8px,2.2vw,15px) 0 0!important;
+    font-size:clamp(15px,4.7vw,25px)!important;
+    line-height:1.5!important;
+    color:#ae721f;
+  }
+  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-lead {
+    max-width:96%!important;
+    margin:clamp(9px,2.1vw,14px) 0 0!important;
+    font-size:clamp(10px,2.85vw,17px)!important;
+    line-height:1.68!important;
+    color:#385371;
+  }
+  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-actions {
+    bottom:5.2%!important;
+  }
+}
+@media(max-width:390px) {
+  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-copy{
+    top:6%!important;
+  }
+  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-subtitle {
+    font-size:clamp(15px,4.9vw,20px)!important;
+  }
+  .soda-main > .soda-hero.elven-category-hero .elven-mobile-portrait-lead {
+    font-size:clamp(10px,2.8vw,11px)!important;
+  }
 }
 </style>
 
