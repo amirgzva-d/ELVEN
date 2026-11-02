@@ -5844,6 +5844,14 @@
       if (pdShareMenu.classList.contains('open') && !e.target.closest('#pdShareBtn') && !e.target.closest('#pdShareMenu')) {
         pdShareMenu.classList.remove('open');
       }
+      // Close only the inquiry contact panel after a click elsewhere in
+      // the product details view. Keep clicks within the panel and its
+      // toggle buttons interactive, without dismissing the full overlay.
+      if (pdOverlay.classList.contains('open') &&
+          pdContactsPanel.classList.contains('open') &&
+          !e.target.closest('#pdContactsPanel, #pdInquiryBtn, #pdHeaderQuoteBtn')) {
+        pdContactsPanel.classList.remove('open');
+      }
     });
 
     pdClose.addEventListener('click', closeProductDetail);
