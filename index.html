@@ -1402,51 +1402,65 @@ img{max-width:100%;display:block}
   }
 }
 
-/* ELVEN YEAST CARD — PREVIOUS ROUNDED FRAME, COMPLETE PHOTOS (2026-11-02)
-   Retain the card size, rounded outline, button and four-image slider.
-   Use contain for the sharp image; a soft copy of the same slide fills any
-   spare edge space instead of creating solid gray/dark letterbox bands. */
+/* ELVEN YEAST FEATURED — restored original clean rounded card, no empty bands.
+   The first real slide determines the frame height on every screen. All four
+   supplied images have matching dimensions; subsequent slides fill that frame. */
 #categories.category-grid > article.category-card.category-card--featured {
+  display:block !important;
+  height:auto !important;
+  min-height:0 !important;
+  align-self:start !important;
   border-radius:18px !important;
   overflow:hidden !important;
+  background:#fff !important;
 }
 #categories.category-grid > article.category-card.category-card--featured
 > .category-image.featured-slider {
-  border-radius:inherit !important;
+  position:relative !important;
+  inset:auto !important;
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
   overflow:hidden !important;
-  background-color:#fff !important;
+  border-radius:inherit !important;
+  background:none !important;
   isolation:isolate !important;
 }
 #categories.category-grid > article.category-card.category-card--featured
 > .category-image.featured-slider::before {
-  content:"" !important;
-  position:absolute !important;
-  inset:-15px !important;
-  display:block !important;
-  z-index:0 !important;
-  pointer-events:none !important;
-  background-image:var(--yeast-featured-backdrop,none) !important;
-  background-size:cover !important;
-  background-position:center !important;
-  background-repeat:no-repeat !important;
-  filter:blur(14px) !important;
-  opacity:.72 !important;
+  content:none !important;
+  display:none !important;
 }
+/* Keep every slide full-bleed and preserve the original image proportions. */
 #categories.category-grid > article.category-card.category-card--featured
-> .category-image.featured-slider img.featured-slide {
-  object-fit:contain !important;
+> .category-image.featured-slider > img.featured-slide {
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:cover !important;
   object-position:center center !important;
-  max-width:100% !important;
-  max-height:100% !important;
-  border-radius:inherit;
 }
-/* Keep earlier mobile auto-height image frame; apply the same rounded treatment. */
+/* The first image establishes the correct frame height, avoiding top/bottom gaps. */
+#categories.category-grid > article.category-card.category-card--featured
+> .category-image.featured-slider > img.featured-slide:first-child {
+  position:relative !important;
+  inset:auto !important;
+  width:100% !important;
+  height:auto !important;
+  object-fit:cover !important;
+}
 @media(max-width:768px) {
-  #categories.category-grid > article.category-card.category-card--featured,
-  #categories.category-grid > article.category-card.category-card--featured
-  > .category-image.featured-slider {
+  #products #categories.category-grid > article.category-card.category-card--featured {
+    grid-column:1 / -1 !important;
     border-radius:18px !important;
-    overflow:hidden !important;
+    height:auto !important;
+    min-height:0 !important;
   }
 }
 </style>
@@ -1623,7 +1637,7 @@ img{max-width:100%;display:block}
           جزئیات محصول
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <div class="category-image image-featured featured-slider" aria-label="تصاویر محصولات مخمر" style="--yeast-featured-backdrop:url('https://res.cloudinary.com/dqhbyqftq/image/upload/v1793616128/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_tmm3jl.png')">
+        <div class="category-image image-featured featured-slider" aria-label="تصاویر محصولات مخمر">
           <img class="featured-slide is-active" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793616128/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_tmm3jl.png" alt="ایکس پاور" loading="eager" decoding="async">
           <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793616127/4ac13c31-2e91-4397-aeaa-7942ea276d6d_eyoatd.png" alt="خمیرمایه" loading="lazy" decoding="async">
           <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793614125/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87_hgcxbj.png" alt="دزمایه" loading="lazy" decoding="async">
@@ -2084,14 +2098,10 @@ document.addEventListener("DOMContentLoaded",()=>{
   const featured=document.querySelector(".category-card--featured");
   if(featured){
     const slides=featured.querySelectorAll(".featured-slide");
-    const slideFrame=featured.querySelector(".featured-slider");
     let current=0;
     if(slides.length>1){
       setInterval(()=>{
         const next=(current+1)%slides.length;
-        // Fill the outer edges with this same image while showing the sharp
-        // foreground photo in full, without resizing or changing card geometry.
-        slideFrame?.style.setProperty("--yeast-featured-backdrop", `url("${slides[next].src}")`);
         slides[current].classList.remove("is-active");
         slides[next].classList.add("is-active");
         current=next;
