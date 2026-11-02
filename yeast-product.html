@@ -2601,6 +2601,16 @@
     }
 
 
+
+    /* During gentle mobile auto-pan disable snap and CSS smooth scrolling,
+       otherwise the browser repeatedly snaps the logo row between cards. */
+    @media (max-width:768px) and (prefers-reduced-motion:no-preference) {
+      #topBrandSlider.is-auto-gliding {
+        scroll-behavior:auto !important;
+        scroll-snap-type:none !important;
+      }
+    }
+
     /* ===== SMART SLIDER NAV + MOUSE GRAB SCROLL ===== */
     .brand-slider,
     .brands-track{
@@ -5735,6 +5745,109 @@
     topBrandSlider?.addEventListener('scroll', updateBrandStripArrows, { passive: true });
     enableGrabScroll(topBrandSlider, updateBrandStripArrows);
     requestAnimationFrame(updateBrandStripArrows);
+
+    /* Gentle, reversible auto-pan for the five brand logos on mobile only.
+       It never changes selected brands or duplicates interactive brand cards.
+       Pause during interaction, when off-screen, or for reduced-motion users. */
+    (function setupMobileBrandDrift() {
+      if (!topBrandSlider) return;
+      const mobile = window.matchMedia('(max-width: 768px)');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let inView = false;
+      let pointerHeld = false;
+      let mouseOver = false;
+      let hasFocus = false;
+      let idleUntil = 0;
+      let direction = 1;
+      let rafId = 0;
+      let previousFrame = 0;
+
+      const mayRun = () =>
+        mobile.matches && !reducedMotion.matches && inView &&
+        !document.hidden && topBrandSlider.scrollWidth > topBrandSlider.clientWidth + 2;
+
+      function stopDrift() {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = 0;
+        previousFrame = 0;
+        topBrandSlider.classList.remove('is-auto-gliding');
+      }
+
+      function driftFrame(now) {
+        rafId = 0;
+        if (!mayRun()) { stopDrift(); return; }
+        topBrandSlider.classList.add('is-auto-gliding');
+        const elapsed = previousFrame ? Math.min((now - previousFrame) / 1000, 0.05) : 0;
+        previousFrame = now;
+        if (!pointerHeld && !mouseOver && !hasFocus && now >= idleUntil) {
+          const limit = Math.max(0, topBrandSlider.scrollWidth - topBrandSlider.clientWidth);
+          // ~15 px per second, with a soft turnaround instead of a visual jump.
+          const next = topBrandSlider.scrollLeft + direction * 15 * elapsed;
+          if (next >= limit) {
+            topBrandSlider.scrollLeft = limit;
+            direction = -1;
+          } else if (next <= 0) {
+            topBrandSlider.scrollLeft = 0;
+            direction = 1;
+          } else {
+            topBrandSlider.scrollLeft = next;
+          }
+        }
+        rafId = requestAnimationFrame(driftFrame);
+      }
+
+      function syncDrift() {
+        if (!mayRun()) { stopDrift(); return; }
+        if (!rafId) rafId = requestAnimationFrame(driftFrame);
+      }
+      function postponeDrift() { idleUntil = performance.now() + 4200; }
+
+      topBrandSlider.addEventListener('pointerdown', () => {
+        pointerHeld = true;
+        postponeDrift();
+      });
+      ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(type => {
+        topBrandSlider.addEventListener(type, () => {
+          pointerHeld = false;
+          postponeDrift();
+        });
+      });
+      topBrandSlider.addEventListener('pointerenter', e => {
+        if (e.pointerType === 'mouse') mouseOver = true;
+      });
+      topBrandSlider.addEventListener('pointerleave', e => {
+        if (e.pointerType === 'mouse') mouseOver = false;
+        pointerHeld = false;
+        postponeDrift();
+      });
+      topBrandSlider.addEventListener('focusin', () => { hasFocus = true; });
+      topBrandSlider.addEventListener('focusout', e => {
+        if (!topBrandSlider.contains(e.relatedTarget)) {
+          hasFocus = false;
+          postponeDrift();
+        }
+      });
+      topBrandSlider.addEventListener('wheel', postponeDrift, { passive: true });
+      topBrandSlider.addEventListener('keydown', postponeDrift);
+      document.addEventListener('visibilitychange', syncDrift);
+      window.addEventListener('resize', syncDrift, { passive: true });
+      [mobile, reducedMotion].forEach(query => {
+        if (query.addEventListener) query.addEventListener('change', syncDrift);
+        else query.addListener(syncDrift);
+      });
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          inView = entries[0]?.isIntersecting ?? false;
+          syncDrift();
+        }, { threshold: 0.15 });
+        observer.observe(topBrandSlider);
+      } else {
+        inView = true;
+        syncDrift();
+      }
+    })();
+
 
     const pdClose = document.getElementById('pdClose');
     const pdCategory = document.getElementById('pdCategory');
