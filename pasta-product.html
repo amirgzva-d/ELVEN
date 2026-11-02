@@ -218,6 +218,15 @@ main>.catalog::after{display:none}
     pointer-events: none !important;
   }
 }
+
+/* Mobile only: canned-style photographic hero without image distortion. */
+@media(max-width:600px){
+ .elven-mobile-portrait-hero.elven-category-hero{height:auto!important;min-height:0!important;aspect-ratio:9/16!important;background-color:#fffaf2!important;background-image:var(--elven-mobile-hero-photo)!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}
+ .elven-category-hero .elven-mobile-portrait-copy{top:12%}
+ .elven-category-hero .elven-mobile-portrait-actions{bottom:5.2%}
+ .elven-category-hero .elven-mobile-portrait-title--long{font-size:clamp(27px,8.3vw,48px)}
+ .elven-category-hero .elven-mobile-portrait-subtitle{max-width:96%;font-size:clamp(15px,4.7vw,25px)}
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261102-desktop-to-mobile-footer-1">
 <link rel="stylesheet" href="assets/mobile-nutrition-preview.css?v=20261101-1">
@@ -256,7 +265,7 @@ main>.catalog::after{display:none}
  <button id="menuToggle" class="menu-toggle" type="button" aria-label="باز کردن منو" aria-controls="siteNav" aria-expanded="false"><svg class="ico " aria-hidden="true"><use href="#i-bars"></use></svg></button>
 </header>
 <main>
-<section class="hero" aria-label="محصولات ماکارونی همرسین">
+<section class="hero elven-mobile-portrait-hero elven-category-hero" aria-label="محصولات ماکارونی همرسین" style="--elven-mobile-hero-photo:url('https://res.cloudinary.com/dqhbyqftq/image/upload/v1793597743/%D9%85%DA%AF%D8%A7%D8%B1%D8%A7%D9%86%DB%8C_xzgfvs.png')">
  <div class="hero-inner">
  <div class="hero-copy">
   <span class="kicker">مجموعه محصولات همرسین</span>
@@ -273,7 +282,8 @@ main>.catalog::after{display:none}
   </div>
  </div>
  </div>
- <a class="scroll-down" href="#products" aria-label="رفتن به بخش محصولات"><svg class="ico " aria-hidden="true"><use href="#i-down"></use></svg></a>
+ <div class="elven-mobile-portrait-overlay elven-category-portrait" lang="fa"><div class="elven-mobile-portrait-copy"><h1 class="elven-mobile-portrait-title">ماکارونی<svg class="elven-mobile-portrait-sprout" viewBox="0 0 48 36" fill="none" aria-hidden="true"><path d="M23 34c0-11 0-16-3-22" stroke="#087b34" stroke-width="3" stroke-linecap="round"/><path d="M21 21C11 21 5 14 5 3c10 1 17 7 16 18Z" fill="#00a54d"/><path d="M25 19C24 8 32 3 44 3c-1 11-8 18-19 16Z" fill="#009947"/></svg></h1><h2 class="elven-mobile-portrait-subtitle">طعم اصیل، کیفیت ماندگار</h2><p class="elven-mobile-portrait-lead">اسپاگتی، پاستا فرمی و ماکارونی برای سلیقه‌ها و نیازهای مختلف.</p></div><div class="elven-mobile-portrait-actions"><a class="elven-mobile-portrait-quote" href="contact.html"><svg class="ico" aria-hidden="true"><use href="#i-arrow"></use></svg>استعلام قیمت</a><a class="elven-mobile-portrait-down" href="#products" aria-label="مشاهده محصولات ماکارونی"><svg class="ico" aria-hidden="true"><use href="#i-down"></use></svg></a></div></div>
+<a class="scroll-down" href="#products" aria-label="رفتن به بخش محصولات"><svg class="ico " aria-hidden="true"><use href="#i-down"></use></svg></a>
 </section>
 <section class="trust-strip" aria-label="مزیت‌های مجموعه">
  <div class="trust-item"><svg class="ico " aria-hidden="true"><use href="#i-users"></use></svg><p>محصولات متنوع<br>برای نیازهای مختلف</p></div>
