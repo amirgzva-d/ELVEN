@@ -901,3 +901,31 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     stroke:none!important;
   }
 }
+
+/* Approved round social icons and clean tagline — mobile footer only, 2026-11-02 */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-world svg{display:none!important}
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-world{gap:0!important}
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-links{gap:9px!important}
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link,
+  footer.site-footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link,
+  footer.site-foot.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link{
+    display:inline-flex!important;
+    width:36px!important;height:36px!important;min-width:36px!important;flex:0 0 36px!important;
+    border:0!important;border-radius:50%!important;
+    background:#ffffff!important;color:#087c52!important;
+    padding:0!important;opacity:1!important;box-shadow:none!important;
+    align-items:center!important;justify-content:center!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--pending,
+  footer.site-footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--pending,
+  footer.site-foot.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--pending{
+    background:#a9b9b3!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg{
+    width:21px!important;height:21px!important;color:#087c52!important;stroke:#087c52!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link .social-brand-fill{
+    fill:#087c52!important;stroke:none!important;
+  }
+}
