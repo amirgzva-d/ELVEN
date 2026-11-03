@@ -1,37 +1,46 @@
-/* ELVEN catalog responsive alignment — 2026-11-03
-   Scoped to the product catalog; large desktop and mobile layouts stay unchanged. */
-@media (min-width: 769px) and (max-width: 1360px) {
+/* ELVEN: keep the filter panel exactly within the vertical bounds of the product-card area.
+   Desktop/tablet only. The heading and 9-category shortcut strip stay above both columns. */
+@media (min-width: 769px) {
   #products.catalog {
-    grid-template-columns: minmax(210px, 230px) minmax(0, 1fr);
-    gap: 18px;
-    padding-left: 18px;
-    padding-right: 18px;
-    align-items: start;
+    display: block;
   }
 
-  #products .catalog-content {
+  #products .catalog-products-layout {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 32px;
+    align-items: stretch;
     min-width: 0;
-    gap: 20px;
+  }
+
+  #products .catalog-products-main {
+    min-width: 0;
+  }
+
+  #products .filters {
+    position: relative;
+    top: auto;
+    align-self: stretch;
+    height: 100%;
+    max-height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd8d1 transparent;
+  }
+}
+
+/* Compact desktop/tablet widths: preserve enough room for readable product cards. */
+@media (min-width: 769px) and (max-width: 1360px) {
+  #products .catalog-products-layout {
+    grid-template-columns: minmax(210px, 230px) minmax(0, 1fr);
+    gap: 18px;
   }
 
   #products #categories.category-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
-  }
-
-  #products .category-card {
-    min-width: 0;
-  }
-
-  #products .filters {
-    position: sticky;
-    top: 92px;
-    height: min(620px, calc(100vh - 112px));
-    max-height: calc(100vh - 112px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
-    scrollbar-color: #cbd8d1 transparent;
   }
 
   #products .filter-title {
@@ -63,10 +72,20 @@
   }
 }
 
-
+/* Five columns return where the viewport has enough room. */
 @media (min-width: 1101px) and (max-width: 1360px) {
   #products #categories.category-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 14px;
+  }
+}
+
+/* Existing mobile layout remains a single catalog column; filters stay hidden as before. */
+@media (max-width: 768px) {
+  #products .catalog-products-layout {
+    display: block;
+  }
+  #products .catalog-products-main {
+    min-width: 0;
   }
 }
