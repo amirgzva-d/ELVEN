@@ -433,3 +433,30 @@
     transition:none !important;
   }
 }
+
+
+/* Mobile category ticker: seamless motion, no visible scrollbar. */
+@media (max-width:768px){
+  .home-quick-categories .home-quick-links{
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scrollbar-width:none!important;
+    -ms-overflow-style:none!important;
+    scroll-snap-type:none!important;
+    overscroll-behavior-x:contain;
+    touch-action:pan-x;
+    scroll-behavior:auto!important;
+  }
+  .home-quick-categories .home-quick-links::-webkit-scrollbar{
+    display:none!important;
+    width:0!important;
+    height:0!important;
+    background:transparent!important;
+  }
+  .home-quick-categories .home-category-link{
+    scroll-snap-align:none!important;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .home-quick-categories .home-quick-links{scroll-behavior:auto!important}
+}
