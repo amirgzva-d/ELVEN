@@ -1,0 +1,72 @@
+/* ELVEN catalog responsive alignment — 2026-11-03
+   Scoped to the product catalog; large desktop and mobile layouts stay unchanged. */
+@media (min-width: 769px) and (max-width: 1360px) {
+  #products.catalog {
+    grid-template-columns: minmax(210px, 230px) minmax(0, 1fr);
+    gap: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+    align-items: start;
+  }
+
+  #products .catalog-content {
+    min-width: 0;
+    gap: 20px;
+  }
+
+  #products #categories.category-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  #products .category-card {
+    min-width: 0;
+  }
+
+  #products .filters {
+    position: sticky;
+    top: 92px;
+    height: min(620px, calc(100vh - 112px));
+    max-height: calc(100vh - 112px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd8d1 transparent;
+  }
+
+  #products .filter-title {
+    min-height: 58px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+
+  #products .filter-section {
+    padding: 15px 17px;
+  }
+
+  #products .filter-section h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  #products .filter-section label {
+    gap: 8px;
+    margin: 7px 0;
+    font-size: 12px;
+  }
+
+  #products .apply-button {
+    width: calc(100% - 34px);
+    margin: 14px 17px 18px;
+    height: 42px;
+    font-size: 12px;
+  }
+}
+
+
+@media (min-width: 1101px) and (max-width: 1360px) {
+  #products #categories.category-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
