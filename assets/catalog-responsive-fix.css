@@ -137,3 +137,54 @@
     margin-bottom: 22px;
   }
 }
+
+
+/* Exact row lock: product cards define the row height; filter fills that row only. */
+@media (min-width: 769px) {
+  #products .catalog-products-layout {
+    display: block;
+    position: relative;
+    padding-inline-start: 322px;
+    min-width: 0;
+  }
+
+  #products .catalog-products-layout > .filters {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 290px;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    align-self: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #products .catalog-products-layout > .catalog-content {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  #products .catalog-products-layout {
+    padding-inline-start: 274px;
+  }
+
+  #products .catalog-products-layout > .filters {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  #products .catalog-products-layout {
+    padding-inline-start: 0;
+  }
+
+  #products .catalog-products-layout > .filters {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+}
