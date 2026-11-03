@@ -1486,6 +1486,62 @@ img{max-width:100%;display:block}
 <link rel="stylesheet" href="assets/home-first-impression.css?v=20261102-mobile-two-column-v1">
 <link rel="stylesheet" href="assets/catalog-responsive-fix.css?v=20261103-v1">
 <style id="elven-mobile-world-icons-off">@media(max-width:768px){footer .elven-mobile-reference-world>:not(span),footer .elven-mobile-reference-world::before,footer .elven-mobile-reference-world::after{display:none!important;content:none!important}footer .elven-mobile-reference-world{gap:0!important}}</style>
+<style id="yeast-card-premium-motion-v1">
+/* Yeast card only — clean full-bleed image transitions, no decorative overlay. */
+#catalog-card-yeast{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+}
+#catalog-card-yeast>.featured-slider,
+#catalog-card-yeast>.category-image.featured-slider{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  margin:0!important;
+  overflow:hidden!important;
+  background:none!important;
+  z-index:1!important;
+}
+#catalog-card-yeast .featured-slider>img.featured-slide{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  transform:translate3d(2.2%,0,0) scale(1.035)!important;
+  transition:
+    opacity 1.05s cubic-bezier(.22,.61,.36,1),
+    transform 1.5s cubic-bezier(.16,1,.3,1)!important;
+  backface-visibility:hidden;
+  will-change:opacity,transform;
+  z-index:1!important;
+}
+#catalog-card-yeast .featured-slider>img.featured-slide.is-active{
+  opacity:1!important;
+  transform:translate3d(0,0,0) scale(1)!important;
+  z-index:2!important;
+}
+#catalog-card-yeast>.featured-link{
+  position:absolute!important;
+  z-index:5!important;
+  pointer-events:auto!important;
+}
+@media(prefers-reduced-motion:reduce){
+  #catalog-card-yeast .featured-slider>img.featured-slide{
+    transition:none!important;
+    transform:none!important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -2099,20 +2155,34 @@ document.addEventListener("DOMContentLoaded",()=>{
     nav?.classList.toggle("mobile-open");
   });
 
+  /* Premium, scoped four-frame yeast-card carousel. */
   const featured=document.getElementById("catalog-card-yeast");
   if(featured){
+    const slider=featured.querySelector(".featured-slider");
     const slides=Array.from(featured.querySelectorAll(".featured-slider > img.featured-slide"));
     let current=Math.max(0,slides.findIndex(slide=>slide.classList.contains("is-active")));
+    let inView=true;
+
     slides.forEach((slide,index)=>{
       slide.classList.toggle("is-active",index===current);
       slide.loading="eager";
+      slide.decoding="async";
+      slide.draggable=false;
     });
-    if(slides.length>1){
+
+    if(slider && slides.length>1){
+      if("IntersectionObserver" in window){
+        const observer=new IntersectionObserver(entries=>{
+          inView=!!entries[0]?.isIntersecting;
+        },{threshold:0.12});
+        observer.observe(featured);
+      }
       window.setInterval(()=>{
+        if(document.hidden || !inView) return;
         slides[current].classList.remove("is-active");
         current=(current+1)%slides.length;
         slides[current].classList.add("is-active");
-      },4500);
+      },5600);
     }
   }
 
