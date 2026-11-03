@@ -219,3 +219,101 @@
     min-height: 150px;
   }
 }
+
+
+/* Narrow-window desktop/tablet catalog:
+   three equal columns so yeast sits beside exactly two cards and matches
+   every other card's footprint. Phone and full desktop layouts are untouched. */
+@media (min-width:769px) and (max-width:1200px) {
+  #products #categories.category-grid {
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    grid-auto-rows:300px !important;
+    align-items:stretch !important;
+    gap:16px !important;
+  }
+  #products #categories.category-grid > .category-card,
+  #products #categories.category-grid > .category-card--featured {
+    grid-column:auto !important;
+    grid-row:auto !important;
+    width:100% !important;
+    height:300px !important;
+    min-height:300px !important;
+    min-width:0 !important;
+    align-self:stretch !important;
+    border-radius:16px !important;
+    overflow:hidden !important;
+  }
+  /* Convert the yeast feature into the same image + information card
+     proportions as the other categories at this intermediate width only. */
+  #products #categories.category-grid > .category-card--featured {
+    display:block !important;
+    background:#fff !important;
+    border:1px solid #e2e9e4 !important;
+    color:#0f4234 !important;
+  }
+  #products #categories.category-grid > .category-card--featured::after {
+    display:none !important;
+  }
+  #products #categories.category-grid > .category-card--featured > .featured-slider {
+    position:absolute !important;
+    inset:0 0 auto 0 !important;
+    width:100% !important;
+    height:150px !important;
+    min-height:150px !important;
+    overflow:hidden !important;
+  }
+  #products #categories.category-grid > .category-card--featured .featured-slide {
+    object-fit:cover !important;
+    object-position:center !important;
+  }
+  #products #categories.category-grid > .category-card--featured > .featured-copy {
+    position:absolute !important;
+    inset:auto 0 0 0 !important;
+    width:100% !important;
+    height:150px !important;
+    min-height:150px !important;
+    padding:12px 12px 10px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:5px !important;
+    background:#fff !important;
+    color:#0f4234 !important;
+    text-align:center !important;
+    pointer-events:none !important;
+  }
+  #products #categories.category-grid > .category-card--featured .featured-icon,
+  #products #categories.category-grid > .category-card--featured .pill {
+    display:none !important;
+  }
+  #products #categories.category-grid > .category-card--featured h3 {
+    margin:0 !important;
+    color:#0f4234 !important;
+    font-size:15px !important;
+    line-height:1.45 !important;
+  }
+  #products #categories.category-grid > .category-card--featured p {
+    max-width:100% !important;
+    margin:0 !important;
+    color:#6b7c75 !important;
+    font-size:11px !important;
+    line-height:1.55 !important;
+  }
+  #products #categories.category-grid > .category-card--featured .featured-link {
+    position:static !important;
+    margin-top:auto !important;
+    align-self:stretch !important;
+    justify-content:center !important;
+    padding:6px 8px !important;
+    border:0 !important;
+    border-top:1px solid #edf0ec !important;
+    border-radius:0 !important;
+    color:#0a5c46 !important;
+    background:transparent !important;
+    font-size:10.5px !important;
+    pointer-events:auto !important;
+    backdrop-filter:none !important;
+  }
+}
