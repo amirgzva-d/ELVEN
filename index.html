@@ -2159,7 +2159,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   let paused=false, inView=true, lastTime=0, frame=0, resumeTimer;
   let loopWidth=0;
   const measure=()=>{loopWidth=originalItems.reduce((sum,item)=>sum+item.getBoundingClientRect().width,0)+
-    parseFloat(getComputedStyle(strip).columnGap||getComputedStyle(strip).gap||0)*Math.max(0,originalItems.length-1);};
+    parseFloat(getComputedStyle(strip).columnGap||getComputedStyle(strip).gap||0)*originalItems.length;};
   measure();
   window.addEventListener("resize",measure,{passive:true});
 
