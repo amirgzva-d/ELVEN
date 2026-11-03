@@ -1607,7 +1607,6 @@ img{max-width:100%;display:block}
       </div>
     </div>
 
-    <button class="apply-button" type="button" data-apply>اعمال فیلترها ←</button>
   </aside>
     <div class="catalog-content">
       <div class="active-filters" id="activeFilters" aria-live="polite"></div>
@@ -2018,16 +2017,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     runFilter();
   });
 
-  applyBtn?.addEventListener("click",e=>{
-    const b = e.currentTarget;
-    const old = b.innerHTML;
-    runFilter();
-    b.innerHTML = "فیلترها اعمال شد ✓";
-    setTimeout(()=>b.innerHTML = old, 1300);
-    if(window.innerWidth <= 768){
-      grid.scrollIntoView({behavior:"smooth", block:"start"});
-    }
-  });
 
   document.querySelectorAll(".filter-section h3").forEach(h=>{
     h.addEventListener("click",()=>{
