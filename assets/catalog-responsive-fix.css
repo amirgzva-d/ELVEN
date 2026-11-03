@@ -70,3 +70,70 @@
     gap: 14px;
   }
 }
+
+
+/* ELVEN catalog: filter stays in the product-row bounds, never sticky to viewport. */
+#products.catalog {
+  display: block;
+}
+
+#products .catalog-top {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+#products .catalog-products-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 290px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: stretch;
+  min-width: 0;
+}
+
+#products .catalog-products-layout > .filters {
+  position: relative;
+  top: auto;
+  align-self: stretch;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd8d1 transparent;
+}
+
+#products .catalog-products-layout > .catalog-content {
+  min-width: 0;
+  align-self: stretch;
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  #products .catalog-products-layout {
+    grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  #products.catalog {
+    display: block;
+  }
+
+  #products .catalog-products-layout {
+    display: block;
+  }
+
+  #products .catalog-products-layout > .filters {
+    display: none !important;
+  }
+
+  #products .catalog-top {
+    gap: 22px;
+    margin-bottom: 22px;
+  }
+}
