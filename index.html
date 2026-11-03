@@ -1463,6 +1463,24 @@ img{max-width:100%;display:block}
     min-height:0 !important;
   }
 }
+/* YEAST HOMEPAGE SLIDER — enforce visible active slide above legacy card rules */
+#catalog-card-yeast > .category-image.featured-slider > img.featured-slide {
+  opacity:0 !important;
+  visibility:hidden !important;
+  transition:opacity .8s ease, transform 1.3s cubic-bezier(.16,1,.3,1) !important;
+  z-index:1 !important;
+}
+#catalog-card-yeast > .category-image.featured-slider > img.featured-slide.is-active {
+  opacity:1 !important;
+  visibility:visible !important;
+  z-index:2 !important;
+  transform:translate3d(0,0,0) scale(1) !important;
+}
+@media(prefers-reduced-motion:reduce) {
+  #catalog-card-yeast > .category-image.featured-slider > img.featured-slide {
+    transition:none !important;
+  }
+}
 </style>
 <link rel="stylesheet" href="assets/elven-ui-polish.css?v=20261102-footer-restored-links-v8">
 <link rel="stylesheet" href="assets/home-first-impression.css?v=20261102-mobile-two-column-v1">
@@ -2081,16 +2099,19 @@ document.addEventListener("DOMContentLoaded",()=>{
     nav?.classList.toggle("mobile-open");
   });
 
-  const featured=document.querySelector(".category-card--featured");
+  const featured=document.getElementById("catalog-card-yeast");
   if(featured){
-    const slides=featured.querySelectorAll(".featured-slide");
-    let current=0;
+    const slides=Array.from(featured.querySelectorAll(".featured-slider > img.featured-slide"));
+    let current=Math.max(0,slides.findIndex(slide=>slide.classList.contains("is-active")));
+    slides.forEach((slide,index)=>{
+      slide.classList.toggle("is-active",index===current);
+      slide.loading="eager";
+    });
     if(slides.length>1){
-      setInterval(()=>{
-        const next=(current+1)%slides.length;
+      window.setInterval(()=>{
         slides[current].classList.remove("is-active");
-        slides[next].classList.add("is-active");
-        current=next;
+        current=(current+1)%slides.length;
+        slides[current].classList.add("is-active");
       },4500);
     }
   }
