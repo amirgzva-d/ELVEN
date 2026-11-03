@@ -1542,6 +1542,18 @@ img{max-width:100%;display:block}
   }
 }
 </style>
+<style id="yeast-mobile-five-image-set-v1">
+/* The fifth (Razavi) frame belongs to the phone-specific image sequence only. */
+@media (min-width:769px){
+  #catalog-card-yeast .featured-slider>img[data-mobile-only="true"]{display:none!important}
+}
+@media (max-width:768px){
+  #catalog-card-yeast .featured-slider>img.featured-slide{
+    object-fit:contain!important;
+    object-position:center center!important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -1694,10 +1706,11 @@ img{max-width:100%;display:block}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <div class="category-image image-featured featured-slider" aria-label="تصاویر محصولات مخمر">
-          <img class="featured-slide is-active" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793703856/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_bi7tuj.webp" alt="ایکس پاور" loading="eager" decoding="async">
-          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793703837/%D9%86%D8%A7%D9%86_%D9%85%D8%A7%DB%8C%D9%87_ksgt2f.webp" alt="ایکس پاور" loading="lazy" decoding="async">
-          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793703835/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_tmm3jl_lv2cct_kebtr2.webp" alt="ایکس پاور" loading="lazy" decoding="async">
-          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793703834/%D8%B4%D8%AA%D8%A7%D9%84_ptwxuh.webp" alt="خمیرمایه" loading="lazy" decoding="async">
+          <img class="featured-slide is-active" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793703856/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_bi7tuj.webp" data-mobile-src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793706056/28a63969-254e-4c71-9787-d289b3f23ead_ajmx4w_y7bohb.webp" alt="نان مایه" loading="eager" decoding="async">
+          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793703837/%D9%86%D8%A7%D9%86_%D9%85%D8%A7%DB%8C%D9%87_ksgt2f.webp" data-mobile-src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793706055/%D8%AF%D8%B2%D9%85%D8%A7%DB%8C%D9%87._vqgwmx_bmlvci.webp" alt="دزمایه" loading="lazy" decoding="async">
+          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793703835/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_tmm3jl_lv2cct_kebtr2.webp" data-mobile-src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793706055/834cd68d-adab-4b82-ae73-001bd475a736_rpw5u9_nrwbxo.webp" alt="ایکس پاور" loading="lazy" decoding="async">
+          <img class="featured-slide" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793703834/%D8%B4%D8%AA%D8%A7%D9%84_ptwxuh.webp" data-mobile-src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793706055/51d3ced8-bdeb-4df1-9d4e-f997f6e1c0d2_qy0lyn_pgpjkc.webp" alt="شتاب" loading="lazy" decoding="async">
+          <img class="featured-slide" data-mobile-only="true" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793703856/%D8%A7%DB%8C%DA%A9%D8%B3_%D9%BE%D8%A7%D9%88%D8%B1_bi7tuj.webp" data-mobile-src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793706054/faedff63-1615-43be-9d85-5a76921d61a5_bfbwtr_fedfpt.webp" alt="رضوی" loading="lazy" decoding="async">
         </div>
       </article>
 
@@ -2155,22 +2168,39 @@ document.addEventListener("DOMContentLoaded",()=>{
     nav?.classList.toggle("mobile-open");
   });
 
-  /* Premium, scoped four-frame yeast-card carousel. */
+  /* Responsive yeast carousel: five supplied phone images, original desktop set retained. */
   const featured=document.getElementById("catalog-card-yeast");
   if(featured){
     const slider=featured.querySelector(".featured-slider");
-    const slides=Array.from(featured.querySelectorAll(".featured-slider > img.featured-slide"));
-    let current=Math.max(0,slides.findIndex(slide=>slide.classList.contains("is-active")));
+    const allSlides=Array.from(featured.querySelectorAll(".featured-slider > img.featured-slide"));
+    const mobileQuery=window.matchMedia("(max-width: 768px)");
+    let current=0;
     let inView=true;
+    let activeSlides=[];
 
-    slides.forEach((slide,index)=>{
-      slide.classList.toggle("is-active",index===current);
-      slide.loading="eager";
-      slide.decoding="async";
-      slide.draggable=false;
-    });
+    const configureSlides=()=>{
+      const isMobile=mobileQuery.matches;
+      activeSlides=allSlides.filter(slide=>isMobile || slide.dataset.mobileOnly!=="true");
+      allSlides.forEach(slide=>{
+        const mobileSrc=slide.dataset.mobileSrc;
+        const desktopSrc=slide.dataset.desktopSrc || slide.getAttribute("src");
+        if(!slide.dataset.desktopSrc && desktopSrc) slide.dataset.desktopSrc=desktopSrc;
+        const target=isMobile && mobileSrc ? mobileSrc : desktopSrc;
+        if(target && slide.getAttribute("src")!==target) slide.setAttribute("src",target);
+        slide.classList.remove("is-active");
+        slide.loading="eager";
+        slide.decoding="async";
+        slide.draggable=false;
+      });
+      current=0;
+      if(activeSlides[0]) activeSlides[0].classList.add("is-active");
+    };
 
-    if(slider && slides.length>1){
+    configureSlides();
+    if(mobileQuery.addEventListener) mobileQuery.addEventListener("change",configureSlides);
+    else mobileQuery.addListener(configureSlides);
+
+    if(slider && activeSlides.length>1){
       if("IntersectionObserver" in window){
         const observer=new IntersectionObserver(entries=>{
           inView=!!entries[0]?.isIntersecting;
@@ -2178,10 +2208,10 @@ document.addEventListener("DOMContentLoaded",()=>{
         observer.observe(featured);
       }
       window.setInterval(()=>{
-        if(document.hidden || !inView) return;
-        slides[current].classList.remove("is-active");
-        current=(current+1)%slides.length;
-        slides[current].classList.add("is-active");
+        if(document.hidden || !inView || activeSlides.length<2) return;
+        activeSlides[current].classList.remove("is-active");
+        current=(current+1)%activeSlides.length;
+        activeSlides[current].classList.add("is-active");
       },5600);
     }
   }
