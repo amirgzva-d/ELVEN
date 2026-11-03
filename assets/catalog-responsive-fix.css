@@ -63,9 +63,3 @@
   }
 }
 
-/* Keep the existing mobile rules and product-card layout untouched. */
-@media (max-width: 768px) {
-  #products.catalog {
-    display: block;
-  }
-}
