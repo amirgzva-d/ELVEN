@@ -219,22 +219,3 @@
     min-height: 150px;
   }
 }
-
-
-/* Keep the filter panel's own natural size stable while product results change. */
-@media (min-width:769px) {
-  #products .catalog-products-layout > .filters {
-    align-self:start !important;
-    height:max-content !important;
-    min-height:0 !important;
-    max-height:none !important;
-    position:sticky !important;
-    top:110px !important;
-    overflow:hidden !important;
-  }
-  #products .catalog-products-layout > .filters .filter-section,
-  #products .catalog-products-layout > .filters .filter-title,
-  #products .catalog-products-layout > .filters .apply-button {
-    flex-shrink:0 !important;
-  }
-}
