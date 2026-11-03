@@ -219,32 +219,3 @@
     min-height: 150px;
   }
 }
-
-/* Filters match the complete product-card area height, with no inner scrollbar.
-   Keep the original filter typography, spacing, options and controls. */
-@media (min-width:769px) {
-  #products .catalog-products-layout {
-    display:grid !important;
-    grid-template-columns:290px minmax(0,1fr) !important;
-    align-items:stretch !important;
-    gap:28px !important;
-    min-width:0 !important;
-  }
-  #products .catalog-products-layout > .filters {
-    position:relative !important;
-    top:auto !important;
-    align-self:stretch !important;
-    height:100% !important;
-    min-height:0 !important;
-    max-height:none !important;
-    overflow:visible !important;
-  }
-  #products .catalog-products-layout > .filters .filter-section .filter-options {
-    max-height:none !important;
-    overflow:visible !important;
-  }
-  #products .catalog-products-layout > .filters .filter-section.is-collapsed .filter-options {
-    max-height:0 !important;
-    overflow:hidden !important;
-  }
-}
