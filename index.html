@@ -2203,5 +2203,55 @@ document.addEventListener("DOMContentLoaded",()=>{
 })();
 </script>
 
+
+<script id="yeast-card-four-image-rotator">
+(() => {
+  const start = () => {
+    const card = document.getElementById("catalog-card-yeast");
+    const frame = card?.querySelector(".category-image.featured-slider");
+    const slides = Array.from(frame?.querySelectorAll(":scope > img.featured-slide") || []);
+    if (!frame || slides.length !== 4 || frame.dataset.rotatorReady === "1") return;
+    frame.dataset.rotatorReady = "1";
+    frame.style.setProperty("position", "relative", "important");
+    frame.style.setProperty("overflow", "hidden", "important");
+    slides.forEach((img, i) => {
+      img.loading = "eager";
+      img.style.setProperty("display", "block", "important");
+      img.style.setProperty("width", "100%", "important");
+      img.style.setProperty("max-width", "none", "important");
+      img.style.setProperty("object-fit", "cover", "important");
+      img.style.setProperty("object-position", "center", "important");
+      img.style.setProperty("transition", "opacity .85s ease, transform 1.2s ease", "important");
+      img.style.setProperty("inset", "0", "important");
+      img.style.setProperty("z-index", i === 0 ? "2" : "1", "important");
+      img.style.setProperty("opacity", i === 0 ? "1" : "0", "important");
+      img.style.setProperty("visibility", i === 0 ? "visible" : "hidden", "important");
+      if (i === 0) {
+        img.style.setProperty("position", "relative", "important");
+        img.style.setProperty("height", "auto", "important");
+      } else {
+        img.style.setProperty("position", "absolute", "important");
+        img.style.setProperty("height", "100%", "important");
+      }
+      img.classList.toggle("is-active", i === 0);
+    });
+    let active = 0;
+    window.setInterval(() => {
+      const previous = active;
+      active = (active + 1) % slides.length;
+      slides[previous].classList.remove("is-active");
+      slides[previous].style.setProperty("opacity", "0", "important");
+      slides[previous].style.setProperty("visibility", "hidden", "important");
+      slides[previous].style.setProperty("z-index", "1", "important");
+      slides[active].classList.add("is-active");
+      slides[active].style.setProperty("visibility", "visible", "important");
+      slides[active].style.setProperty("z-index", "2", "important");
+      slides[active].style.setProperty("opacity", "1", "important");
+    }, 4000);
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true });
+  else start();
+})();
+</script>
 </body>
 </html>
