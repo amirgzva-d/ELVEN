@@ -1859,25 +1859,45 @@ img{max-width:100%;display:block}
 document.addEventListener("DOMContentLoaded",()=>{
 
   const progress=document.getElementById("scrollProgress");
-  const updateProgress=()=>{
+  const backTop=document.getElementById("backTop");
+  let scrollFrame=0;
+  const updateScrollUI=()=>{
+    scrollFrame=0;
     const h=document.documentElement;
-    const scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    const maxScroll=Math.max(1,h.scrollHeight-h.clientHeight);
+    const scrolled=Math.min(1,Math.max(0,h.scrollTop/maxScroll));
     progress.style.width=(scrolled*100)+"%";
+    backTop.classList.toggle("is-visible",window.scrollY>600);
   };
-  window.addEventListener("scroll",updateProgress,{passive:true});
-  updateProgress();
+  const requestScrollUI=()=>{
+    if(!scrollFrame) scrollFrame=requestAnimationFrame(updateScrollUI);
+  };
+  window.addEventListener("scroll",requestScrollUI,{passive:true});
+  updateScrollUI();
 
   const glow=document.getElementById("cursorGlow");
-  let glowX=0,glowY=0,targetX=0,targetY=0;
-  if(window.matchMedia("(hover:hover)").matches){
-    window.addEventListener("mousemove",e=>{targetX=e.clientX;targetY=e.clientY;},{passive:true});
+  if(glow && window.matchMedia("(hover:hover) and (prefers-reduced-motion:no-preference)").matches){
+    let glowX=0,glowY=0,targetX=0,targetY=0,glowFrame=0;
     const animateGlow=()=>{
-      glowX+=(targetX-glowX)*0.12;
-      glowY+=(targetY-glowY)*0.12;
+      const dx=targetX-glowX;
+      const dy=targetY-glowY;
+      glowX+=dx*0.18;
+      glowY+=dy*0.18;
       glow.style.transform=`translate(${glowX}px,${glowY}px) translate(-50%,-50%)`;
-      requestAnimationFrame(animateGlow);
+      if(Math.abs(dx)>0.35 || Math.abs(dy)>0.35){
+        glowFrame=requestAnimationFrame(animateGlow);
+      }else{
+        glowX=targetX;
+        glowY=targetY;
+        glow.style.transform=`translate(${glowX}px,${glowY}px) translate(-50%,-50%)`;
+        glowFrame=0;
+      }
     };
-    animateGlow();
+    window.addEventListener("mousemove",e=>{
+      targetX=e.clientX;
+      targetY=e.clientY;
+      if(!glowFrame) glowFrame=requestAnimationFrame(animateGlow);
+    },{passive:true});
   }
 
   const revealEls=document.querySelectorAll("[data-reveal],[data-stagger]");
@@ -1895,13 +1915,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     revealEls.forEach(el=>el.classList.add("is-visible"));
   }
 
-  const backTop=document.getElementById("backTop");
-  const toggleBackTop=()=>{
-    if(window.scrollY>600) backTop.classList.add("is-visible");
-    else backTop.classList.remove("is-visible");
-  };
-  window.addEventListener("scroll",toggleBackTop,{passive:true});
-  toggleBackTop();
   backTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 
   const toFa=(n)=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
