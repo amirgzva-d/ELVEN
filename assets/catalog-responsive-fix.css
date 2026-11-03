@@ -1,6 +1,6 @@
 /* ELVEN catalog responsive alignment — 2026-11-03
    Scoped to the product catalog; large desktop and mobile layouts stay unchanged. */
-@media (min-width: 769px) and (max-width: 1200px) {
+@media (min-width: 769px) and (max-width: 1360px) {
   #products.catalog {
     grid-template-columns: minmax(210px, 230px) minmax(0, 1fr);
     gap: 18px;
@@ -63,3 +63,10 @@
   }
 }
 
+
+@media (min-width: 1101px) and (max-width: 1360px) {
+  #products #categories.category-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
