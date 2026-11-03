@@ -2109,16 +2109,31 @@ document.addEventListener("DOMContentLoaded",()=>{
   cards.forEach(card=>{
     const name=card.dataset.product || "Product Details";
     const url=name==="Yeast Products" ? "yeast-product.html" : name==="Pasta & Macaroni" ? "pasta-product.html" : name==="Dairy & Milk Powders" ? "milk-powder-product.html" : name==="Sugar" ? "sugar-product.html" : name==="Canned Foods" ? "canned-food-product.html" : name==="Tomato Paste" ? "tomato-paste-product.html" : name==="Baking Soda" ? "baking-soda-product.html" : name==="Glucose & Starch" ? "glucose-starch-product.html" : "product.html?product="+encodeURIComponent(name);
+    card.dataset.href=url;
     const detailsLink=card.querySelector(".product-details-link");
     if(detailsLink) detailsLink.href=url;
-    card.addEventListener("click",e=>{
-      if(e.target.closest("a")) return;
-      window.location.href=url;
-    });
-    card.addEventListener("keydown",e=>{
-      if(e.key==="Enter" || e.key===" "){e.preventDefault();window.location.href=url;}
-    });
   });
+
+  /* Whole product card is an activation target; inner links keep their normal behavior. */
+  if(grid){
+    grid.addEventListener("click",e=>{
+      const card=e.target.closest(".category-card[data-product]");
+      if(!card || !grid.contains(card)) return;
+      if(e.target.closest("a,button,input,select,textarea,label")) return;
+      const url=card.dataset.href || card.querySelector(".product-details-link")?.getAttribute("href");
+      if(url) window.location.assign(url);
+    },true);
+
+    grid.addEventListener("keydown",e=>{
+      const card=e.target.closest(".category-card[data-product]");
+      if(!card || !grid.contains(card)) return;
+      if(e.key==="Enter" || e.key===" "){
+        e.preventDefault();
+        const url=card.dataset.href || card.querySelector(".product-details-link")?.getAttribute("href");
+        if(url) window.location.assign(url);
+      }
+    });
+  }
 });
 </script>
 <script defer src="assets/elven-ui-polish.js?v=20261102-footer-restored-links-v8"></script>
