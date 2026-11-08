@@ -1558,6 +1558,78 @@ img{max-width:100%;display:block}
   }
 }
 
+
+/* MOBILE: PLACE HERO TEXT AND ACTIONS AT THE BOTTOM OF THE VISUAL */
+@media (max-width:768px){
+  .hero{
+    position:relative !important;
+    height:100svh !important;
+    min-height:720px !important;
+    overflow:hidden !important;
+  }
+  .hero .hero-image{
+    inset:0 !important;
+    background-size:cover !important;
+    background-position:center center !important;
+  }
+  .hero .hero-overlay{
+    background:linear-gradient(
+      0deg,
+      rgba(252,251,247,.97) 0%,
+      rgba(252,251,247,.88) 23%,
+      rgba(252,251,247,.28) 48%,
+      rgba(252,251,247,0) 68%
+    ) !important;
+  }
+  .hero .hero-content{
+    position:absolute !important;
+    top:auto !important;
+    right:0 !important;
+    bottom:14px !important;
+    left:0 !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding:18px 18px 20px !important;
+    text-align:right !important;
+    z-index:4 !important;
+  }
+  .hero .hero-content h1{
+    margin:0 0 10px !important;
+    font-size:clamp(27px,7.5vw,34px) !important;
+    line-height:1.18 !important;
+  }
+  .hero .hero-lead{
+    max-width:100% !important;
+    margin:0 0 12px auto !important;
+    font-size:12px !important;
+    line-height:1.75 !important;
+  }
+  .hero .hero-actions{
+    display:flex !important;
+    flex-direction:row !important;
+    gap:8px !important;
+    margin-top:12px !important;
+  }
+  .hero .hero-actions a{
+    flex:1 1 0 !important;
+    width:auto !important;
+    min-width:0 !important;
+    justify-content:center !important;
+    padding:12px 8px !important;
+    font-size:11.5px !important;
+  }
+  .hero .hero-metrics{
+    display:none !important;
+  }
+}
+@media (max-width:480px){
+  .hero{min-height:720px !important}
+  .hero .hero-content{bottom:10px !important;padding:16px 16px 18px !important}
+  .hero .hero-content h1{font-size:clamp(26px,7.2vw,31px) !important}
+  .hero .hero-lead{font-size:11.5px !important}
+}
+
 /* HERO IMAGE FIT + REDUCE THE EMPTY GAP BEFORE THE NEXT SECTION */
 @media (min-width:769px){
   .hero{
