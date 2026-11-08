@@ -1675,6 +1675,49 @@ img{max-width:100%;display:block}
     padding-bottom:24px !important;
   }
 }
+
+/* FINAL HOMEPAGE HERO: new desktop/mobile artwork fills the full first screen */
+.hero{
+  position:relative !important;
+  height:100svh !important;
+  min-height:100vh !important;
+  max-height:none !important;
+  overflow:hidden !important;
+}
+.hero .hero-image{
+  position:absolute !important;
+  inset:0 !important;
+  background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1794122893/333_xaoczg.png") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+}
+@media (max-width:768px){
+  .hero{
+    height:100svh !important;
+    min-height:100svh !important;
+    max-height:none !important;
+    overflow:hidden !important;
+  }
+  .hero .hero-image{
+    background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1794122885/2222_wqucl4.png") !important;
+    background-size:cover !important;
+    background-position:center center !important;
+    background-repeat:no-repeat !important;
+  }
+  /* Keep the mobile headline and information block near the bottom. */
+  .hero .hero-content{
+    top:auto !important;
+    bottom:14px !important;
+    right:0 !important;
+    left:0 !important;
+    transform:none !important;
+  }
+}
+@media (max-width:480px){
+  .hero{height:100svh !important;min-height:100svh !important}
+}
+
 </style>
 </head>
 <body>
