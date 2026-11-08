@@ -4375,6 +4375,76 @@
 }
 @media(max-width:380px){body>#pdPrimaryNav.elven-pd-menu-portal{width:min(86vw,320px)!important;padding-right:18px!important;padding-left:18px!important}}
 </style>
+<style id="elven-pd-menu-final-layer-fix">
+@media(max-width:900px){
+  body #pdPrimaryNav.elven-pd-menu-portal{
+    position:fixed!important;top:0!important;right:0!important;bottom:0!important;left:auto!important;
+    width:min(82vw,340px)!important;height:100vh!important;height:100dvh!important;
+    max-height:100vh!important;max-height:100dvh!important;
+    display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;
+    gap:0!important;margin:0!important;padding:112px 22px 28px!important;box-sizing:border-box!important;
+    border:0!important;border-radius:26px 0 0 26px!important;
+    background:linear-gradient(160deg,#fffdf8 0%,#f4f0e5 100%)!important;
+    box-shadow:-18px 0 55px rgba(7,47,35,.24)!important;
+    transform:translate3d(105%,0,0)!important;opacity:1!important;
+    visibility:hidden!important;pointer-events:none!important;overflow-y:auto!important;
+    z-index:2147483646!important;
+    transition:transform .42s cubic-bezier(.22,1,.36,1),visibility .42s ease!important;
+  }
+  body #pdPrimaryNav.elven-pd-menu-portal:before{
+    content:"بازرگانی مهاجر"!important;position:absolute!important;top:30px!important;right:24px!important;left:24px!important;
+    display:block!important;text-align:right!important;color:#0a4a38!important;
+    font-family:var(--fa)!important;font-size:19px!important;font-weight:900!important;line-height:1.6!important;
+    pointer-events:none!important;
+  }
+  body #pdPrimaryNav.elven-pd-menu-portal:after{
+    content:"MOHAJER TRADING GROUP"!important;position:absolute!important;top:59px!important;right:25px!important;
+    display:block!important;text-align:right!important;color:#87958d!important;
+    font-family:var(--en)!important;font-size:8px!important;letter-spacing:2px!important;line-height:1.5!important;
+    pointer-events:none!important;
+  }
+  body #pdPrimaryNav.elven-pd-menu-portal.mobile-open{
+    transform:translate3d(0,0,0)!important;visibility:visible!important;pointer-events:auto!important;
+  }
+  body #pdPrimaryNav.elven-pd-menu-portal>a{
+    position:relative!important;z-index:1!important;display:flex!important;align-items:center!important;
+    flex:0 0 auto!important;min-height:58px!important;width:100%!important;padding:14px 12px!important;
+    margin:3px 0!important;box-sizing:border-box!important;
+    border:1px solid rgba(10,92,70,.07)!important;border-radius:14px!important;
+    background:rgba(255,255,255,.76)!important;color:#344b42!important;
+    font-family:var(--fa)!important;font-size:15px!important;font-weight:700!important;
+    line-height:1.7!important;text-align:right!important;text-decoration:none!important;
+  }
+  body #pdPrimaryNav.elven-pd-menu-portal>a:before{
+    content:""!important;width:7px!important;height:7px!important;flex:0 0 7px!important;
+    margin-left:12px!important;border-radius:50%!important;background:#c49a4a!important;
+  }
+  body #pdPrimaryNav.elven-pd-menu-portal>a.active{
+    color:#075c46!important;border-color:rgba(10,92,70,.18)!important;
+    background:linear-gradient(100deg,rgba(10,92,70,.11),rgba(255,255,255,.9))!important;
+    box-shadow:inset -3px 0 #0a5c46!important;
+  }
+  body #pdPrimaryNav.elven-pd-menu-portal>a:after{display:none!important}
+  body button.pd-menu-backdrop.elven-pd-menu-portal{
+    position:fixed!important;inset:0!important;display:block!important;
+    width:100vw!important;height:100vh!important;height:100dvh!important;
+    margin:0!important;padding:0!important;border:0!important;border-radius:0!important;
+    background:rgba(7,35,27,.48)!important;-webkit-backdrop-filter:blur(5px)!important;backdrop-filter:blur(5px)!important;
+    opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+    z-index:2147483645!important;transition:opacity .32s ease,visibility .32s ease!important;
+  }
+  body button.pd-menu-backdrop.elven-pd-menu-portal.is-visible{
+    opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+  }
+  body.pd-menu-open{overflow:hidden!important}
+  body.pd-menu-open .pd-close{visibility:hidden!important;pointer-events:none!important}
+}
+@media(max-width:380px){
+  body #pdPrimaryNav.elven-pd-menu-portal{
+    width:min(86vw,320px)!important;padding-right:18px!important;padding-left:18px!important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -6452,52 +6522,57 @@
     const nav=document.getElementById('pdPrimaryNav');
     const toggle=header?.querySelector('button[data-pd-menu]');
     const backdrop=document.querySelector('button.pd-menu-backdrop');
-    if(!header||!nav||!toggle||!backdrop||toggle.dataset.unifiedMenuReady==='1')return;
-    toggle.dataset.unifiedMenuReady='1';
-    const navHome=document.createComment('yeast-card-nav-home');
-    const backdropHome=document.createComment('yeast-card-backdrop-home');
+    if(!header||!nav||!toggle||!backdrop||toggle.dataset.unifiedMenuReady==='2')return;
+    toggle.dataset.unifiedMenuReady='2';
+    const navHome=document.createComment('pd-nav-original-position');
+    const backdropHome=document.createComment('pd-backdrop-original-position');
     nav.parentNode.insertBefore(navHome,nav);
     backdrop.parentNode.insertBefore(backdropHome,backdrop);
     const mobile=()=>window.matchMedia('(max-width:900px)').matches;
-    const placeForViewport=()=>{
-      if(mobile()){
-        if(nav.parentNode!==document.body)document.body.appendChild(nav);
-        if(backdrop.parentNode!==document.body)document.body.appendChild(backdrop);
-        nav.classList.add('elven-pd-menu-portal');
-        backdrop.classList.add('elven-pd-menu-portal');
-      }else{
-        closeMenu();
-        nav.classList.remove('elven-pd-menu-portal');
-        backdrop.classList.remove('elven-pd-menu-portal');
-        if(navHome.parentNode)navHome.parentNode.insertBefore(nav,navHome.nextSibling);
-        if(backdropHome.parentNode)backdropHome.parentNode.insertBefore(backdrop,backdropHome.nextSibling);
-      }
+    const restore=(node,placeholder)=>{
+      if(placeholder.parentNode)placeholder.parentNode.insertBefore(node,placeholder.nextSibling);
     };
     const closeMenu=()=>{
-      nav.classList.remove('mobile-open');
-      backdrop.classList.remove('is-visible');
+      nav.classList.remove('mobile-open','elven-pd-menu-portal');
+      backdrop.classList.remove('is-visible','elven-pd-menu-portal');
       toggle.classList.remove('is-open');
       toggle.setAttribute('aria-expanded','false');
       document.body.classList.remove('pd-menu-open');
+      restore(nav,navHome);
+      restore(backdrop,backdropHome);
     };
     const openMenu=()=>{
-      placeForViewport();
-      nav.classList.add('mobile-open');
+      if(mobile()){
+        document.body.appendChild(backdrop);
+        document.body.appendChild(nav);
+        backdrop.classList.add('elven-pd-menu-portal');
+        nav.classList.add('elven-pd-menu-portal');
+      }
       backdrop.classList.add('is-visible');
+      nav.classList.add('mobile-open');
       toggle.classList.add('is-open');
       toggle.setAttribute('aria-expanded','true');
       document.body.classList.add('pd-menu-open');
     };
-    placeForViewport();
     toggle.addEventListener('click',event=>{
       event.preventDefault();
+      event.stopPropagation();
       event.stopImmediatePropagation();
-      nav.classList.contains('mobile-open')?closeMenu():openMenu();
+      if(nav.classList.contains('mobile-open'))closeMenu();
+      else openMenu();
     },true);
-    backdrop.addEventListener('click',event=>{event.preventDefault();closeMenu()});
+    backdrop.addEventListener('click',event=>{
+      event.preventDefault();
+      event.stopPropagation();
+      closeMenu();
+    });
     nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
-    document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
-    window.addEventListener('resize',placeForViewport,{passive:true});
+    document.addEventListener('keydown',event=>{
+      if(event.key==='Escape'&&nav.classList.contains('mobile-open'))closeMenu();
+    });
+    window.addEventListener('resize',()=>{
+      if(!mobile()&&nav.classList.contains('mobile-open'))closeMenu();
+    },{passive:true});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initYeastCardMenu,{once:true});
   else initYeastCardMenu();
