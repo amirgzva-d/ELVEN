@@ -2614,7 +2614,7 @@ img{max-width:100%;display:block}
   <div class="hero-content">
     <div class="hero-mobile-copy" aria-label="صادرات مواد غذایی با کیفیت جهانی">
       <span class="hero-mobile-kicker">از مزرعه تا سفره جهان</span>
-      <h2>صادرات مواد غذایی<br><em>با کیفیت جهانی</em></h2>
+      <h2>صادرات مواد غذایی<br>با کیفیت <em>جهانی</em></h2>
       <p>تأمین و صادرات انواع مواد غذایی سالم و باکیفیت<br>به بازارهای بین‌المللی</p>
     </div>
     <span class="hero-kicker reveal delay-1">از مزرعه تا سفره جهان</span>
@@ -2624,11 +2624,11 @@ img{max-width:100%;display:block}
     <div class="hero-actions reveal delay-3">
       <a class="btn-primary" href="#products">
         مشاهده محصولات
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M3 13v-1a9 9 0 0 1 18 0v1"/><rect x="2.5" y="12" width="4" height="7" rx="2"/><rect x="17.5" y="12" width="4" height="7" rx="2"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a class="btn-secondary" href="contact.html">
-        درخواست مشاوره
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M3 13v-1a9 9 0 0 1 18 0v1"/><rect x="2.5" y="12" width="4" height="7" rx="2"/><rect x="17.5" y="12" width="4" height="7" rx="2"/></svg>
+        درخواست قیمت
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
     </div>
     <div class="hero-mobile-dots" aria-hidden="true"><span></span><span class="is-active"></span><span></span></div>
@@ -3459,105 +3459,6 @@ document.addEventListener("DOMContentLoaded",()=>{
   else init();
 })();
 </script>
-<style id="homepage-hero-reference-style">
-/* Homepage hero typography and composition matched to the supplied reference */
-@media (min-width:769px){
-  .hero .hero-content{
-    position:absolute!important;
-    inset:0!important;
-    right:0!important;left:0!important;top:0!important;bottom:0!important;
-    transform:none!important;
-    width:100%!important;max-width:none!important;
-    display:flex!important;flex-direction:column!important;
-    align-items:center!important;justify-content:center!important;
-    text-align:center!important;
-    padding:100px clamp(28px,6vw,90px) 42px!important;
-    z-index:5!important;
-  }
-  .hero .hero-kicker{
-    display:flex!important;align-items:center!important;justify-content:center!important;
-    gap:clamp(16px,2.4vw,32px)!important;
-    width:100%!important;margin:0 auto 20px!important;
-    color:#174b39!important;font-size:clamp(19px,2.1vw,29px)!important;
-    font-weight:800!important;line-height:1.5!important;text-align:center!important;
-  }
-  .hero .hero-kicker:before,.hero .hero-kicker:after{
-    content:""!important;display:block!important;
-    width:clamp(75px,20vw,215px)!important;height:2px!important;
-    background:linear-gradient(90deg,transparent,#c99a3d 35%,#c99a3d)!important;
-    flex:0 1 215px!important;
-  }
-  .hero .hero-kicker:after{transform:scaleX(-1)!important}
-  .hero .hero-content>h1{
-    display:block!important;width:100%!important;max-width:1120px!important;
-    margin:0 auto 22px!important;
-    color:#064b39!important;font-family:var(--fa)!important;
-    font-size:clamp(48px,8.4vw,104px)!important;
-    font-weight:900!important;line-height:1.3!important;
-    letter-spacing:-1.8px!important;text-align:center!important;
-    text-shadow:0 1px 10px rgba(255,255,255,.26)!important;
-  }
-  .hero .hero-content>h1 em{
-    display:inline-block!important;position:relative!important;
-    color:#b98422!important;background:none!important;
-    -webkit-text-fill-color:#b98422!important;
-    font-style:normal!important;font-weight:900!important;
-    padding-bottom:9px!important;
-  }
-  .hero .hero-content>h1 em:after{
-    content:""!important;position:absolute!important;
-    left:3%!important;right:3%!important;bottom:0!important;
-    height:9px!important;border-bottom:5px solid #bf8d2b!important;
-    border-radius:50%!important;transform:rotate(-2deg)!important;
-  }
-  .hero .hero-lead{
-    display:block!important;max-width:850px!important;
-    margin:8px auto 0!important;color:#263c32!important;
-    font-size:clamp(17px,2vw,25px)!important;
-    font-weight:700!important;line-height:1.95!important;
-    text-align:center!important;
-  }
-  .hero .hero-actions{
-    display:flex!important;flex-direction:row!important;
-    align-items:center!important;justify-content:center!important;
-    gap:clamp(16px,2.8vw,30px)!important;
-    width:min(760px,90%)!important;margin:38px auto 0!important;
-  }
-  .hero .hero-actions a{
-    display:inline-flex!important;align-items:center!important;justify-content:center!important;
-    gap:12px!important;min-width:300px!important;min-height:82px!important;
-    padding:18px 34px!important;border-radius:999px!important;
-    font-family:var(--fa)!important;font-size:clamp(17px,1.8vw,23px)!important;
-    font-weight:800!important;white-space:nowrap!important;
-    box-shadow:0 8px 22px rgba(36,42,32,.16)!important;
-  }
-  .hero .hero-actions .btn-primary{
-    order:1!important;background:#00613f!important;color:#fff!important;
-    border:2px solid rgba(255,255,255,.82)!important;
-  }
-  .hero .hero-actions .btn-secondary{
-    order:2!important;background:rgba(255,248,235,.92)!important;
-    color:#174b39!important;border:2px solid #c99a3d!important;
-    box-shadow:0 0 0 2px rgba(201,154,61,.12),0 8px 22px rgba(36,42,32,.14)!important;
-  }
-  .hero .hero-shapes{display:none!important}
-  .hero .hero-overlay{
-    background:rgba(255,249,238,.10)!important;
-  }
-}
-@media (max-width:768px){
-  .hero-mobile-copy h2 em{
-    display:inline-block!important;color:#b98422!important;
-    background:none!important;-webkit-text-fill-color:#b98422!important;
-    font-style:normal!important;font-weight:900!important;
-  }
-  .hero-mobile-copy h2 em:after{
-    content:""!important;position:absolute!important;
-    left:2px!important;right:0!important;bottom:-5px!important;
-    height:4px!important;border-bottom:3px solid #c28c24!important;
-    border-radius:50%!important;transform:rotate(-2deg)!important;
-  }
-}
-</style>
+
 </body>
 </html>
