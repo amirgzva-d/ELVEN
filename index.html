@@ -2154,6 +2154,77 @@ img{max-width:100%;display:block}
   #about .about-mobile-copy{display:none!important}
 }
 </style>
+<style id="elven-mobile-filter-spacing">
+@media (max-width: 768px) {
+  .filters {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 610px !important;
+    height: auto !important;
+  }
+  .filters > .filter-title {
+    flex: 0 0 50px !important;
+    min-height: 50px !important;
+  }
+  .filters > .filter-section[data-filter-group="category"] {
+    flex: 6 1 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 15px 18px 12px !important;
+  }
+  .filters > .filter-section[data-filter-group="subcategory"] {
+    flex: 7 1 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 15px 18px 16px !important;
+  }
+  .filters > .filter-section h3 {
+    flex: 0 0 auto !important;
+    font-size: 12.5px !important;
+    margin: 0 0 10px !important;
+    min-height: 22px !important;
+  }
+  .filters > .filter-section .filter-options {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    justify-content: space-evenly !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+  }
+  .filters > .filter-section label {
+    min-height: 28px !important;
+    margin: 0 !important;
+    gap: 8px !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+  }
+  .filters > .filter-section label .count {
+    font-size: 9px !important;
+    min-width: 18px !important;
+    text-align: center !important;
+    padding: 3px 6px !important;
+  }
+  .filters > .filter-section input[type="checkbox"] {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .filters > .filter-section.is-collapsed {
+    flex: 0 0 auto !important;
+  }
+  .filters > .filter-section.is-collapsed .filter-options {
+    display: block !important;
+    flex: 0 0 auto !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+  }
+}
+@media (max-width: 380px) {
+  .filters { min-height: 590px !important; }
+}
+</style>
 </head>
 <body>
 
