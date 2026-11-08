@@ -962,3 +962,80 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     padding-bottom:20px!important;
   }
 }
+
+
+/* Named WhatsApp contact cards — mobile footer */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact{
+    align-items:stretch!important;
+    gap:9px!important;
+    max-width:330px!important;
+    margin:17px auto 18px!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:12px!important;
+    width:100%!important;
+    min-height:61px!important;
+    box-sizing:border-box!important;
+    padding:9px 13px!important;
+    border:1px solid rgba(223,245,230,.15)!important;
+    border-radius:14px!important;
+    background:linear-gradient(110deg,rgba(255,255,255,.075),rgba(255,255,255,.025))!important;
+    box-shadow:0 5px 16px rgba(0,0,0,.08)!important;
+    text-decoration:none!important;
+    transition:transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease!important;
+    animation:elvenContactRise .55s both!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact:nth-child(2){animation-delay:.1s!important}
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact:active{
+    transform:scale(.975)!important;
+    border-color:rgba(222,190,112,.65)!important;
+    background:rgba(216,182,107,.12)!important;
+    box-shadow:0 0 0 3px rgba(216,182,107,.08)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-details{
+    display:flex!important;
+    flex:1 1 auto!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:center!important;
+    gap:3px!important;
+    min-width:0!important;
+    direction:rtl!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-details strong{
+    display:block!important;
+    color:#fff!important;
+    font-size:13px!important;
+    font-weight:850!important;
+    line-height:1.6!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-details bdi{
+    display:block!important;
+    color:#d8e9dd!important;
+    font-size:12px!important;
+    font-weight:650!important;
+    letter-spacing:.2px!important;
+    line-height:1.5!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact>svg{
+    display:block!important;
+    flex:0 0 29px!important;
+    width:29px!important;
+    height:29px!important;
+    color:#fff!important;
+    padding:6px!important;
+    box-sizing:border-box!important;
+    border-radius:50%!important;
+    background:#087e55!important;
+    filter:drop-shadow(0 0 5px rgba(8,126,85,.25))!important;
+  }
+}
+@keyframes elvenContactRise{
+  from{opacity:0;transform:translateY(9px)}
+  to{opacity:1;transform:translateY(0)}
+}
