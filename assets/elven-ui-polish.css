@@ -942,3 +942,23 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     gap:0!important;
   }
 }
+
+
+/* MOBILE FOOTER: remove redundant navigation rows and tighten the card */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-links{
+    display:none!important;
+    height:0!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+  }
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-contact{
+    margin-top:22px!important;
+    margin-bottom:18px!important;
+  }
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer{
+    padding-top:27px!important;
+    padding-bottom:20px!important;
+  }
+}
