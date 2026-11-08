@@ -1379,3 +1379,180 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     overflow-wrap:anywhere!important;
   }
 }
+
+
+/* Final mobile footer normalization: consistent cards, icon geometry and spacing */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact{
+    width:100%!important;
+    box-sizing:border-box!important;
+    gap:9px!important;
+    margin:18px 0 0!important;
+    padding:0!important;
+    font-style:normal!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact,
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-contact,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    width:100%!important;
+    min-height:64px!important;
+    box-sizing:border-box!important;
+    margin:0!important;
+    padding:10px 13px!important;
+    gap:12px!important;
+    border:1px solid rgba(213,238,223,.17)!important;
+    border-radius:15px!important;
+    background:rgba(255,255,255,.055)!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+    font-style:normal!important;
+    text-decoration:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact{
+    justify-content:space-between!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-icon,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon{
+    display:flex!important;
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    height:40px!important;
+    min-height:40px!important;
+    box-sizing:border-box!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:0!important;
+    border-radius:11px!important;
+    background:#e7f1eb!important;
+    color:#07543e!important;
+    box-shadow:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-icon svg,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg{
+    display:block!important;
+    width:19px!important;
+    height:19px!important;
+    min-width:19px!important;
+    min-height:19px!important;
+    color:#07543e!important;
+    stroke:#07543e!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact>svg{
+    display:block!important;
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    height:40px!important;
+    min-height:40px!important;
+    box-sizing:border-box!important;
+    padding:9px!important;
+    border:1px solid rgba(255,255,255,.18)!important;
+    border-radius:11px!important;
+    background:#087d55!important;
+    color:#fff!important;
+    box-shadow:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-details,
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-copy,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-copy{
+    display:flex!important;
+    flex:1 1 auto!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:center!important;
+    min-width:0!important;
+    gap:3px!important;
+    direction:rtl!important;
+    text-align:right!important;
+    font-style:normal!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-details strong,
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-copy small,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-copy small{
+    display:block!important;
+    margin:0!important;
+    color:#b9d9c9!important;
+    font-size:11px!important;
+    font-weight:700!important;
+    line-height:1.5!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-details strong{
+    color:#fff!important;
+    font-size:13px!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-details bdi,
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-copy bdi{
+    display:block!important;
+    max-width:100%!important;
+    color:#f4faf6!important;
+    font-size:13px!important;
+    font-weight:750!important;
+    line-height:1.55!important;
+    white-space:nowrap!important;
+    direction:ltr!important;
+    unicode-bidi:isolate!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-email .elven-mobile-meta-copy bdi{
+    font-size:clamp(11px,3.3vw,13px)!important;
+    letter-spacing:-.1px!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-copy bdi{
+    display:block!important;
+    color:#f4faf6!important;
+    font-size:12px!important;
+    font-weight:650!important;
+    line-height:1.75!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:12px!important;
+    margin:18px 0 0!important;
+    padding:16px 0!important;
+    border-top:1px solid rgba(225,243,232,.17)!important;
+    border-bottom:1px solid rgba(225,243,232,.17)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-links{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:12px!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link{
+    display:flex!important;
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    height:40px!important;
+    min-height:40px!important;
+    box-sizing:border-box!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:0!important;
+    border:1px solid rgba(255,255,255,.9)!important;
+    border-radius:50%!important;
+    background:#fff!important;
+    color:#087d55!important;
+    box-shadow:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg{
+    display:block!important;
+    width:20px!important;
+    height:20px!important;
+    color:#087d55!important;
+    stroke:#087d55!important;
+  }
+}
+@media(max-width:370px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-email .elven-mobile-meta-copy bdi{
+    font-size:10.5px!important;
+  }
+}
