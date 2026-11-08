@@ -2090,6 +2090,46 @@ img{max-width:100%;display:block}
 }
 
 </style>
+
+<style id="elven-mobile-fullpage-background">
+/* Homepage mobile only: continuous supplied background from hero through the content.
+   Keep the desktop artwork, card surfaces, and emerald footer unchanged. */
+@media (max-width:768px){
+  body{
+    background:#f8ead8 !important;
+  }
+  .page{
+    background-color:#f8ead8 !important;
+    background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1794138089/WWWW_kt1gxq.png") !important;
+    background-position:top center !important;
+    background-size:100% auto !important;
+    background-repeat:repeat-y !important;
+  }
+  main,
+  main > section,
+  .hero,
+  .home-quick-categories,
+  #products.catalog{
+    background-color:transparent !important;
+    background-image:none !important;
+  }
+  .hero .hero-image{
+    background-image:none !important;
+  }
+  .hero .hero-overlay{
+    background:none !important;
+  }
+  /* Retain white product cards and the existing dark footer as designed. */
+  #products .category-card,
+  #products .category-card .card-content{
+    background:#fff !important;
+  }
+  .site-footer{
+    background:linear-gradient(180deg,#04251b 0%,#031c14 100%) !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
