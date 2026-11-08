@@ -1556,3 +1556,25 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     font-size:10.5px!important;
   }
 }
+
+
+/* Mobile footer sequence: contact details, socials, then address */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-contact{
+    margin-bottom:0!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social{
+    margin-top:17px!important;
+    margin-bottom:14px!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address{
+    margin:0 0 15px!important;
+    min-height:64px!important;
+    background:rgba(255,255,255,.055)!important;
+    border:1px solid rgba(213,238,223,.17)!important;
+    border-radius:15px!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-bottom{
+    margin-top:0!important;
+  }
+}
