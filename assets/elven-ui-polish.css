@@ -1741,3 +1741,80 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     stroke-width:1.8!important;
   }
 }
+
+
+/* Restore original social brand glyphs and square location tile on mobile */
+@media(max-width:768px){
+  /* Instagram: keep the camera outline, not a filled square */
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--instagram svg{
+    fill:none!important;
+    stroke:#07865b!important;
+    stroke-width:1.8!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--instagram svg rect,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--instagram svg circle{
+    fill:none!important;
+    stroke:#07865b!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--instagram svg circle:last-child{
+    fill:#07865b!important;
+    stroke:none!important;
+  }
+  /* Preserve the WhatsApp logo silhouette and LinkedIn's original glyph */
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link:not(.footer-social-link--instagram) svg{
+    color:#07865b!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link:not(.footer-social-link--instagram) svg .social-brand-fill{
+    fill:#07865b!important;
+  }
+  /* Location tile and pin: fixed square tile, centered outline pin */
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:12px!important;
+    min-height:64px!important;
+    margin:0 0 15px!important;
+    padding:10px 13px!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon{
+    display:flex!important;
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+    height:40px!important;
+    min-height:40px!important;
+    max-height:40px!important;
+    box-sizing:border-box!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:0!important;
+    border-radius:12px!important;
+    overflow:hidden!important;
+    background:#e7f1eb!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg{
+    display:block!important;
+    flex:none!important;
+    width:22px!important;
+    height:22px!important;
+    min-width:22px!important;
+    min-height:22px!important;
+    max-width:22px!important;
+    max-height:22px!important;
+    margin:0!important;
+    padding:0!important;
+    fill:none!important;
+    stroke:#07543e!important;
+    stroke-width:1.8!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg path,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg circle{
+    fill:none!important;
+    stroke:#07543e!important;
+  }
+}
