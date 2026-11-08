@@ -1886,3 +1886,35 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     stroke:none!important;
   }
 }
+
+
+
+/* Mobile footer icons: remove circular backing from social and location glyphs. */
+@media (max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link,
+  footer.site-footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link,
+  footer.site-foot.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link{
+    background:transparent!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    color:#f3fff7!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg{
+    color:#f3fff7!important;
+    stroke:#f3fff7!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link .social-brand-fill{
+    fill:#f3fff7!important;
+    stroke:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address svg{
+    background:transparent!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    color:#f3fff7!important;
+    stroke:#f3fff7!important;
+    padding:0!important;
+  }
+}
