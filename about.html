@@ -1795,7 +1795,7 @@ body.mh-about-page{background:#f3f7f3}
           <div class="mh-story-step-copy"><h4>ورود به تجارت بین‌المللی</h4>
           <p>در سال ۱۳۶۶، این مجموعه وارد عرصه تجارت بین‌المللی شد و صادرات محصولات کراس و ویت‌بلو را به کشورهای ترکیه و ایتالیا آغاز کرد. این گام مهم، نقطه عطفی در توسعه فعالیت‌های بازرگانی مجموعه و ورود به بازارهای جهانی به شمار می‌آید.</p></div>
         </li>
-        <li class="mh-story-step" data-mh-reveal>
+        <li class="mh-story-step is-current" data-mh-reveal>
           <span class="mh-story-year">۱۳۷۴</span>
           <div class="mh-story-step-copy"><h4>توسعه صادرات با محوریت مواد غذایی</h4>
           <p>در ادامه این مسیر و از سال ۱۳۷۴، جناب هاشم مهاجری خراسانی با بهره‌گیری از تجربیات ارزشمند گذشته، فعالیت‌های صادراتی مجموعه را به‌صورت تخصصی در حوزه‌هایی همچون مواد غذایی توسعه دادند. در این دوره، دامنه صادرات به کشورهای متعددی از جمله افغانستان، پاکستان، ترکمنستان، تاجیکستان، قزاقستان، قرقیزستان، روسیه، امارات، ترکیه، لبنان، عراق، کانادا، انگلستان، آلمان و سومالی گسترش یافت.</p></div>
@@ -1910,26 +1910,6 @@ body.mh-about-page{background:#f3f7f3}
    const limit=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
    progress.style.width=(scrollTop/limit*100)+'%';
 
-   /* Keep the timeline milestone nearest the reading line highlighted. */
-   const timeline=document.querySelector('.mh-story-timeline');
-   if(timeline){
-     const steps=Array.from(timeline.querySelectorAll('.mh-story-step'));
-     const section=timeline.closest('.mh-story-journey');
-     const sectionRect=section.getBoundingClientRect();
-     const inView=sectionRect.bottom>0 && sectionRect.top<window.innerHeight;
-     if(inView && steps.length){
-       const readingLine=window.innerHeight*0.42;
-       let current=steps[0], nearest=Infinity;
-       steps.forEach(step=>{
-         const rect=step.getBoundingClientRect();
-         const distance=Math.abs((rect.top+rect.bottom)/2-readingLine);
-         if(distance<nearest){nearest=distance;current=step;}
-       });
-       steps.forEach(step=>step.classList.toggle('is-current',step===current));
-     }else{
-       steps.forEach(step=>step.classList.remove('is-current'));
-     }
-   }
  }
  function closeMenu(){
    nav.classList.remove('mobile-open');
