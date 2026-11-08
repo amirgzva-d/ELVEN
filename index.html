@@ -2410,6 +2410,30 @@ img{max-width:100%;display:block}
   #about .about-media-secondary{left:8px!important;width:45%!important;bottom:-42px!important}
 }
 </style>
+<style id="elven-about-mobile-photo-fit-v2">
+@media (max-width:768px){
+  /* Match the main image frame to the portrait artwork instead of letterboxing it. */
+  #about .about-media-main{
+    width:100%!important;
+    aspect-ratio:4/5!important;
+    height:auto!important;
+    background-size:cover!important;
+    background-position:center 44%!important;
+    background-repeat:no-repeat!important;
+    background-color:#eef2eb!important;
+  }
+  /* The smaller overlapping photo also fills its frame edge to edge. */
+  #about .about-media-secondary{
+    background-size:cover!important;
+    background-position:center center!important;
+    background-repeat:no-repeat!important;
+    background-color:#eef2eb!important;
+  }
+}
+@media(max-width:380px){
+  #about .about-media-main{aspect-ratio:4/5!important;background-position:center 44%!important}
+}
+</style>
 </head>
 <body>
 
