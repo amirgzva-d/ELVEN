@@ -1681,3 +1681,63 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     stroke:currentColor!important;
   }
 }
+
+
+/* Mobile footer WhatsApp badges match white social buttons; repair location pin */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact>svg{
+    display:block!important;
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+    height:40px!important;
+    min-height:40px!important;
+    max-height:40px!important;
+    box-sizing:border-box!important;
+    padding:10px!important;
+    border:1px solid rgba(255,255,255,.96)!important;
+    border-radius:50%!important;
+    background:#fff!important;
+    color:#07865b!important;
+    fill:none!important;
+    box-shadow:0 2px 8px rgba(0,0,0,.08)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact>svg path{
+    fill:currentColor!important;
+    stroke:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon{
+    display:flex!important;
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+    height:40px!important;
+    min-height:40px!important;
+    max-height:40px!important;
+    padding:0!important;
+    overflow:visible!important;
+    align-items:center!important;
+    justify-content:center!important;
+    border-radius:12px!important;
+    background:#e7f1eb!important;
+    color:#07543e!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg{
+    display:block!important;
+    flex:none!important;
+    width:22px!important;
+    min-width:22px!important;
+    max-width:22px!important;
+    height:22px!important;
+    min-height:22px!important;
+    max-height:22px!important;
+    overflow:visible!important;
+    margin:0!important;
+    padding:0!important;
+    color:#07543e!important;
+    stroke:#07543e!important;
+    stroke-width:1.8!important;
+  }
+}
