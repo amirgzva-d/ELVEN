@@ -1578,3 +1578,106 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     margin-top:0!important;
   }
 }
+
+
+/* Mobile footer icon system: unified WhatsApp, contact and location icons */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact>svg,
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-icon,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon{
+    display:flex!important;
+    flex:0 0 40px!important;
+    align-self:center!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+    height:40px!important;
+    min-height:40px!important;
+    max-height:40px!important;
+    box-sizing:border-box!important;
+    align-items:center!important;
+    justify-content:center!important;
+    overflow:hidden!important;
+    padding:0!important;
+    border-radius:12px!important;
+    line-height:1!important;
+    transform:none!important;
+  }
+  /* WhatsApp: one consistent round green badge for both contacts */
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact>svg{
+    flex-basis:40px!important;
+    border:1px solid rgba(255,255,255,.2)!important;
+    border-radius:50%!important;
+    background:#07865b!important;
+    color:#fff!important;
+    padding:9px!important;
+  }
+  /* Phone, email and address: matching pale-green icon tiles */
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-icon,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon{
+    border:1px solid rgba(7,84,62,.06)!important;
+    border-radius:12px!important;
+    background:#e7f1eb!important;
+    color:#07543e!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-icon svg,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg{
+    display:block!important;
+    flex:0 0 21px!important;
+    width:21px!important;
+    min-width:21px!important;
+    height:21px!important;
+    min-height:21px!important;
+    max-width:21px!important;
+    max-height:21px!important;
+    padding:0!important;
+    color:#07543e!important;
+    stroke:#07543e!important;
+    stroke-width:1.8!important;
+  }
+  /* Social icons: same circular white buttons and equal icon scale */
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-links{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:13px!important;
+    width:100%!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link{
+    display:flex!important;
+    flex:0 0 42px!important;
+    align-self:center!important;
+    width:42px!important;
+    min-width:42px!important;
+    max-width:42px!important;
+    height:42px!important;
+    min-height:42px!important;
+    max-height:42px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    box-sizing:border-box!important;
+    padding:0!important;
+    border:1px solid rgba(255,255,255,.92)!important;
+    border-radius:50%!important;
+    background:#fff!important;
+    color:#07865b!important;
+    box-shadow:0 2px 8px rgba(0,0,0,.08)!important;
+    line-height:1!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg{
+    display:block!important;
+    flex:0 0 21px!important;
+    width:21px!important;
+    min-width:21px!important;
+    height:21px!important;
+    min-height:21px!important;
+    max-width:21px!important;
+    max-height:21px!important;
+    margin:0!important;
+    padding:0!important;
+    color:#07865b!important;
+    fill:currentColor!important;
+    stroke:currentColor!important;
+  }
+}
