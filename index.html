@@ -2092,30 +2092,7 @@ img{max-width:100%;display:block}
 
 
 
-/* MOBILE MENU FOCUS: stronger dimming and compact drawer height */
-@media(max-width:768px){
-  /* Fade and soften the page behind the drawer so the menu stays dominant. */
-  .mobile-menu-backdrop{
-    background:rgba(4,24,19,.66)!important;
-    -webkit-backdrop-filter:blur(7px) saturate(.72)!important;
-    backdrop-filter:blur(7px) saturate(.72)!important;
-  }
-  /* Let the drawer wrap its navigation instead of leaving a large empty lower area. */
-  .header .nav{
-    top:12px!important;
-    bottom:auto!important;
-    height:auto!important;
-    min-height:0!important;
-    max-height:calc(100dvh - 24px)!important;
-    padding-top:104px!important;
-    padding-bottom:24px!important;
-    border-radius:24px 0 0 24px!important;
-    overflow-y:auto!important;
-  }
-  .header .nav a{
-    flex:0 0 auto!important;
-  }
-}
+
 </style>
 
 
