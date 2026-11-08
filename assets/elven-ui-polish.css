@@ -1860,3 +1860,29 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     stroke:none!important;
   }
 }
+
+
+/* Remove halo/ring from location icon; keep a clean outline pin */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon{
+    border:0!important;
+    box-shadow:none!important;
+    outline:0!important;
+    filter:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg{
+    fill:none!important;
+    stroke:#07543e!important;
+    stroke-width:1.9!important;
+    filter:none!important;
+    box-shadow:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg path{
+    fill:none!important;
+    stroke:#07543e!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg circle{
+    fill:#07543e!important;
+    stroke:none!important;
+  }
+}
