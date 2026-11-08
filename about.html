@@ -1502,10 +1502,12 @@ body.mh-about-page{background:#f3f7f3}
   body.mh-about-page .mh-story-portrait {
     flex: 0 0 35%;
     width: 35%;
-    max-width: 174px;
+    max-width: 132px;
+    min-height: 0;
     height: auto;
-    min-height: 233px;
-    align-self: stretch;
+    aspect-ratio: 5 / 6;
+    align-self: center;
+    overflow: hidden;
     border-radius: 14px;
   }
   body.mh-about-page .mh-story-portrait img {
@@ -1627,7 +1629,11 @@ body.mh-about-page{background:#f3f7f3}
   body.mh-about-page .mh-story-portrait {
     flex-basis: 34%;
     width: 34%;
-    min-height: 235px;
+    max-width: 122px;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 5 / 6;
+    align-self: center;
   }
   body.mh-about-page .mh-story-person-badge { font-size: 8px; padding: 4px 7px; }
   body.mh-about-page .mh-story-person h4 { font-size: 13px; }
