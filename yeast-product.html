@@ -4254,6 +4254,79 @@
 
 
 </style>
+<style id="elven-pd-homepage-drawer">
+@media(max-width:900px){
+  .pd-card{position:relative!important;isolation:isolate!important}
+  .pd-main-header-card{position:relative!important;z-index:4002!important;overflow:visible!important}
+  .pd-main-header-card .pd-mobile-toggle{
+    position:relative!important;z-index:4004!important;
+    border:1px solid rgba(10,92,70,.10)!important;
+    border-radius:12px!important;background:rgba(10,92,70,.07)!important;
+    color:#0a5c46!important;box-shadow:0 5px 14px rgba(10,58,44,.06)!important;
+  }
+  .pd-main-header-card .pd-mobile-toggle.is-open{background:#0a5c46!important;color:#fff!important}
+  .pd-main-header-card .pd-mobile-toggle.is-open span{background:transparent!important}
+  .pd-main-header-card .pd-mobile-toggle.is-open span:before{top:0!important;transform:rotate(45deg)!important}
+  .pd-main-header-card .pd-mobile-toggle.is-open span:after{top:0!important;transform:rotate(-45deg)!important}
+  .pd-card > .pd-menu-backdrop{
+    display:block!important;position:fixed!important;inset:0!important;
+    width:100%!important;height:100%!important;margin:0!important;padding:0!important;
+    border:0!important;border-radius:0!important;
+    background:rgba(7,35,27,.42)!important;
+    -webkit-backdrop-filter:blur(4px)!important;backdrop-filter:blur(4px)!important;
+    opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+    z-index:4000!important;transition:opacity .32s ease,visibility .32s ease!important;
+  }
+  .pd-card > .pd-menu-backdrop.is-visible{
+    opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+  }
+  .pd-main-header-card #pdPrimaryNav{
+    position:fixed!important;top:0!important;right:0!important;left:auto!important;bottom:0!important;
+    width:min(82vw,340px)!important;height:100%!important;max-height:100%!important;
+    display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;
+    gap:0!important;margin:0!important;padding:104px 22px 28px!important;
+    border:0!important;border-radius:26px 0 0 26px!important;
+    background:linear-gradient(160deg,#fffdf8 0%,#f4f0e5 100%)!important;
+    box-shadow:-18px 0 55px rgba(7,47,35,.20)!important;
+    transform:translate3d(105%,0,0)!important;opacity:1!important;
+    visibility:hidden!important;pointer-events:none!important;overflow-y:auto!important;
+    z-index:4003!important;
+    transition:transform .42s cubic-bezier(.22,1,.36,1),visibility .42s ease!important;
+  }
+  .pd-main-header-card #pdPrimaryNav:before{
+    content:"بازرگانی مهاجر"!important;position:absolute!important;top:30px!important;right:24px!important;
+    color:#0a4a38!important;font-family:var(--fa)!important;font-size:19px!important;font-weight:900!important;letter-spacing:-.4px!important;
+  }
+  .pd-main-header-card #pdPrimaryNav:after{
+    content:"MOHAJER TRADING GROUP"!important;position:absolute!important;top:57px!important;right:25px!important;
+    color:#87958d!important;font-family:var(--en)!important;font-size:8px!important;letter-spacing:2px!important;
+  }
+  .pd-main-header-card #pdPrimaryNav.mobile-open{
+    transform:translate3d(0,0,0)!important;visibility:visible!important;pointer-events:auto!important;
+  }
+  .pd-main-header-card #pdPrimaryNav>a{
+    display:flex!important;align-items:center!important;min-height:58px!important;width:100%!important;
+    padding:14px 12px!important;margin:3px 0!important;
+    border:1px solid rgba(10,92,70,.07)!important;border-radius:14px!important;
+    background:rgba(255,255,255,.58)!important;color:#344b42!important;
+    font-family:var(--fa)!important;font-size:15px!important;font-weight:700!important;text-align:right!important;
+  }
+  .pd-main-header-card #pdPrimaryNav>a:before{
+    content:""!important;width:7px!important;height:7px!important;flex:0 0 7px!important;
+    margin-left:12px!important;border-radius:50%!important;background:#c49a4a!important;opacity:.75!important;
+  }
+  .pd-main-header-card #pdPrimaryNav>a.active{
+    color:#075c46!important;border-color:rgba(10,92,70,.18)!important;
+    background:linear-gradient(100deg,rgba(10,92,70,.11),rgba(255,255,255,.82))!important;
+    box-shadow:inset -3px 0 #0a5c46!important;
+  }
+  .pd-main-header-card #pdPrimaryNav>a:after{display:none!important}
+  body.pd-menu-open{overflow:hidden!important}
+}
+@media(max-width:380px){
+  .pd-main-header-card #pdPrimaryNav{width:min(86vw,320px)!important;padding-right:18px!important;padding-left:18px!important}
+}
+</style>
 </head>
 <body>
 
@@ -4722,6 +4795,7 @@
           <span></span>
         </button>
       </header>
+      <button class="pd-menu-backdrop" type="button" aria-label="بستن منو" tabindex="-1"></button>
 
       <div class="pd-body">
         <div class="pd-info-side">
@@ -6022,16 +6096,29 @@
     const pdHeaderNav = document.getElementById('pdPrimaryNav');
 
     pdHeaderQuoteBtn?.addEventListener('click', () => pdInquiryBtn?.click());
-    pdHeaderMenuBtn?.addEventListener('click', () => {
-      const open = pdHeaderNav?.classList.toggle('mobile-open');
-      pdHeaderMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    pdHeaderNav?.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        pdHeaderNav.classList.remove('mobile-open');
-        pdHeaderMenuBtn?.setAttribute('aria-expanded', 'false');
-      });
-    });
+    const pdMenuBackdrop = document.querySelector('.pd-menu-backdrop');
+    function closePdHeaderMenu(){
+      pdHeaderNav?.classList.remove('mobile-open');
+      pdMenuBackdrop?.classList.remove('is-visible');
+      pdHeaderMenuBtn?.classList.remove('is-open');
+      pdHeaderMenuBtn?.setAttribute('aria-expanded','false');
+      document.body.classList.remove('pd-menu-open');
+    }
+    pdHeaderMenuBtn?.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const opening = !pdHeaderNav?.classList.contains('mobile-open');
+      if(opening){
+        pdHeaderNav?.classList.add('mobile-open');
+        pdMenuBackdrop?.classList.add('is-visible');
+        pdHeaderMenuBtn?.classList.add('is-open');
+        pdHeaderMenuBtn?.setAttribute('aria-expanded','true');
+        document.body.classList.add('pd-menu-open');
+      }else closePdHeaderMenu();
+    }, true);
+    pdMenuBackdrop?.addEventListener('click',closePdHeaderMenu);
+    pdHeaderNav?.querySelectorAll('a').forEach(link => link.addEventListener('click',closePdHeaderMenu));
+    document.addEventListener('keydown',event=>{if(event.key==='Escape')closePdHeaderMenu()});
 
     function openProductDetail(product) {
       currentProductId = product.id;
@@ -6074,8 +6161,7 @@
       document.body.style.overflow = '';
       pdContactsPanel.classList.remove('open');
       pdShareMenu.classList.remove('open');
-      pdHeaderNav?.classList.remove('mobile-open');
-      pdHeaderMenuBtn?.setAttribute('aria-expanded', 'false');
+      closePdHeaderMenu();
     }
 
     pdInquiryBtn.addEventListener('click', () => {
