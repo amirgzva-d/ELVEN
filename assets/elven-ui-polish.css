@@ -1195,3 +1195,63 @@ svg.ico{flex-shrink:0;vertical-align:middle}
   footer.has-elven-mobile-reference-footer .elven-mobile-meta-contact{gap:6px!important;padding:8px 6px!important}
   footer.has-elven-mobile-reference-footer .elven-mobile-meta-copy bdi{font-size:9.5px!important}
 }
+
+
+/* MOBILE FOOTER: remove gold palette; return to refined green and ivory */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact{
+    border:1px solid rgba(218,239,226,.16)!important;
+    background:linear-gradient(115deg,rgba(255,255,255,.075),rgba(255,255,255,.025))!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 5px 14px rgba(0,0,0,.08)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact>svg{
+    color:#fff!important;background:#07865b!important;border:1px solid rgba(255,255,255,.18)!important;
+    box-shadow:0 3px 10px rgba(0,0,0,.12)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-person-contact:active{
+    border-color:rgba(174,225,195,.55)!important;background:rgba(255,255,255,.09)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-contact{
+    border:1px solid rgba(218,239,226,.14)!important;
+    background:rgba(255,255,255,.055)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-contact:active{
+    border-color:rgba(174,225,195,.5)!important;background:rgba(255,255,255,.10)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-icon,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon{
+    color:#07543e!important;background:rgba(228,244,233,.96)!important;
+    box-shadow:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-icon svg,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg{
+    color:#07543e!important;stroke:#07543e!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-meta-copy small,
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-copy small{
+    color:#b8d9c6!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address{
+    border:1px solid rgba(218,239,226,.15)!important;
+    background:rgba(255,255,255,.045)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social{
+    border-top:1px solid rgba(230,246,235,.19)!important;
+    border-bottom:1px solid rgba(230,246,235,.19)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link{
+    border:1.5px solid rgba(255,255,255,.9)!important;
+    background:#fff!important;color:#087d55!important;
+    box-shadow:0 3px 10px rgba(0,0,0,.10)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link:active{
+    transform:translateY(-2px) scale(1.04)!important;
+    box-shadow:0 0 0 4px rgba(216,239,225,.10)!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg{
+    color:#087d55!important;stroke:#087d55!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-world span{
+    color:#edf8f0!important;
+  }
+}
