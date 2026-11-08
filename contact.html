@@ -907,6 +907,72 @@ body{background:#f4f6f8}
 </style>
 <link rel="stylesheet" href="assets/elven-mobile-reference-footer.css?v=20261102-footer-restored-links-v8">
 <style id="elven-mobile-world-icons-off">@media(max-width:768px){footer .elven-mobile-reference-world>:not(span),footer .elven-mobile-reference-world::before,footer .elven-mobile-reference-world::after{display:none!important;content:none!important}footer .elven-mobile-reference-world{gap:0!important}}</style>
+
+<style id="elven-unified-mobile-navigation">
+@media(max-width:768px){
+  body.menu-drawer-open{overflow:hidden!important}
+  body.menu-drawer-open::before{
+    content:"";position:fixed;inset:0;z-index:1190;
+    background:rgba(7,35,27,.42);
+    -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  }
+  .header,.site-header,.masthead{z-index:1200!important;isolation:isolate}
+  .mobile-toggle,.menu-toggle,.mobile-nav-toggle{
+    width:42px!important;height:42px!important;min-width:42px!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    border:1px solid rgba(10,92,70,.10)!important;border-radius:12px!important;
+    background:rgba(10,92,70,.07)!important;color:#0a5c46!important;
+    box-shadow:0 5px 14px rgba(10,58,44,.06)!important;
+    cursor:pointer;position:relative;z-index:1302!important;
+  }
+  .mobile-toggle span{width:20px!important}
+  .menu-toggle svg,.mobile-nav-toggle svg{width:20px!important;height:20px!important}
+  .header .nav,.site-header .main-nav,.masthead .primary-nav{
+    position:fixed!important;top:0!important;right:0!important;left:auto!important;bottom:0!important;
+    width:min(82vw,340px)!important;height:100dvh!important;max-height:100dvh!important;
+    display:flex!important;flex-direction:column!important;align-items:stretch!important;
+    justify-content:flex-start!important;gap:0!important;margin:0!important;
+    padding:104px 22px 28px!important;border:0!important;border-radius:26px 0 0 26px!important;
+    background:linear-gradient(160deg,#fffdf8 0%,#f4f0e5 100%)!important;
+    box-shadow:-18px 0 55px rgba(7,47,35,.20)!important;
+    transform:translate3d(105%,0,0)!important;opacity:1!important;visibility:hidden!important;
+    pointer-events:none!important;overflow-y:auto!important;z-index:1300!important;
+    transition:transform .42s cubic-bezier(.22,1,.36,1),visibility .42s ease!important;
+  }
+  .header .nav.mobile-open,.site-header .main-nav.is-open,.masthead .primary-nav.is-open{
+    transform:translate3d(0,0,0)!important;visibility:visible!important;pointer-events:auto!important;
+  }
+  .header .nav:before,.site-header .main-nav:before,.masthead .primary-nav:before{
+    content:"بازرگانی مهاجر"!important;position:absolute!important;top:30px!important;right:24px!important;
+    color:#0a4a38!important;font-family:Vazirmatn,system-ui,sans-serif!important;
+    font-size:19px!important;font-weight:900!important;letter-spacing:-.4px!important;
+  }
+  .header .nav:after,.site-header .main-nav:after,.masthead .primary-nav:after{
+    content:"MOHAJER TRADING GROUP"!important;position:absolute!important;top:57px!important;right:25px!important;
+    color:#87958d!important;font-family:Poppins,Arial,sans-serif!important;font-size:8px!important;letter-spacing:2px!important;
+  }
+  .header .nav a,.site-header .main-nav a,.masthead .primary-nav a{
+    display:flex!important;align-items:center!important;min-height:58px!important;width:100%!important;
+    padding:14px 12px!important;margin:3px 0!important;border:1px solid rgba(10,92,70,.07)!important;
+    border-radius:14px!important;background:rgba(255,255,255,.58)!important;color:#344b42!important;
+    font-family:Vazirmatn,system-ui,sans-serif!important;font-size:15px!important;font-weight:700!important;
+    text-align:right!important;text-decoration:none!important;box-shadow:none!important;
+  }
+  .header .nav a:before,.site-header .main-nav a:before,.masthead .primary-nav a:before{
+    content:""!important;width:7px!important;height:7px!important;flex:0 0 7px!important;
+    margin-left:12px!important;border-radius:50%!important;background:#c49a4a!important;opacity:.75!important;
+  }
+  .header .nav a.active,.site-header .main-nav a.is-active,.masthead .primary-nav a.current{
+    color:#075c46!important;border-color:rgba(10,92,70,.18)!important;
+    background:linear-gradient(100deg,rgba(10,92,70,.11),rgba(255,255,255,.82))!important;
+    box-shadow:inset -3px 0 #0a5c46!important;
+  }
+  .header .nav a:after,.site-header .main-nav a:after,.masthead .primary-nav a:after{display:none!important}
+}
+@media(max-width:380px){
+  .header .nav,.site-header .main-nav,.masthead .primary-nav{width:min(86vw,320px)!important;padding-right:18px!important;padding-left:18px!important}
+}
+</style>
 </head>
 <body>
 <section class="hero-shell" id="top">
@@ -1031,4 +1097,23 @@ body{background:#f4f6f8}
 })();
 </script>
 <script defer src="assets/elven-mobile-reference-footer.js?v=20261102-footer-restored-links-v8"></script>
+
+<script id="elven-unified-mobile-navigation-script">
+(()=>{
+  const navs=['.header .nav','.site-header .main-nav','.masthead .primary-nav'];
+  const toggles=['[data-menu]','#menuToggle','#contactNavToggle'];
+  const nav=()=>document.querySelector(navs.join(','));
+  const toggle=()=>document.querySelector(toggles.join(','));
+  const isOpen=()=>{const n=nav();return !!n&&(n.classList.contains('mobile-open')||n.classList.contains('is-open'));};
+  const sync=()=>document.body.classList.toggle('menu-drawer-open',isOpen());
+  document.addEventListener('click',e=>{
+    if(e.target.closest(toggles.join(','))){queueMicrotask(sync);return;}
+    if(e.target.closest(navs.join(','))&&e.target.closest('a')){document.body.classList.remove('menu-drawer-open');return;}
+    if(document.body.classList.contains('menu-drawer-open')&&!e.target.closest(navs.join(','))){const t=toggle();if(t)t.click();document.body.classList.remove('menu-drawer-open');}
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&document.body.classList.contains('menu-drawer-open')){const t=toggle();if(t)t.click();document.body.classList.remove('menu-drawer-open');}
+  });
+})();
+</script>
 </body></html>
