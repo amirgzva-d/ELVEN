@@ -1818,3 +1818,45 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     stroke:#07543e!important;
   }
 }
+
+
+/* Final location pin repair: solid centered map marker */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon{
+    display:flex!important;
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+    height:40px!important;
+    min-height:40px!important;
+    max-height:40px!important;
+    box-sizing:border-box!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:0!important;
+    overflow:hidden!important;
+    border:1px solid rgba(7,84,62,.07)!important;
+    border-radius:12px!important;
+    background:#e7f1eb!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg{
+    display:block!important;
+    flex:0 0 23px!important;
+    width:23px!important;
+    min-width:23px!important;
+    max-width:23px!important;
+    height:23px!important;
+    min-height:23px!important;
+    max-height:23px!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+    fill:none!important;
+    stroke:none!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-address-icon svg .elven-pin-solid{
+    fill:#07543e!important;
+    stroke:none!important;
+  }
+}
