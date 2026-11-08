@@ -2228,6 +2228,127 @@ img{max-width:100%;display:block}
   .filters { min-height: 590px !important; }
 }
 </style>
+<style id="elven-about-mobile-editorial-layout">
+@media (max-width:768px){
+  #about{
+    padding:58px 18px 56px!important;
+    background:linear-gradient(180deg,#fbfaf6 0%,#f5f7f2 100%)!important;
+    overflow:hidden!important;
+  }
+  #about .about-inner{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    max-width:520px!important;
+    align-items:stretch!important;
+  }
+  /* Flatten the copy wrapper so the image can sit between the intro and benefits. */
+  #about .about-inner>.about-copy{display:contents!important}
+  #about .about-copy .section-kicker{
+    grid-row:1!important;
+    display:block!important;
+    margin:0 0 11px!important;
+    text-align:center!important;
+    color:#a98240!important;
+    font-size:11px!important;
+    font-weight:800!important;
+    letter-spacing:1.2px!important;
+  }
+  #about .about-copy h2{
+    grid-row:2!important;
+    margin:0 auto 14px!important;
+    max-width:440px!important;
+    text-align:center!important;
+    font-size:clamp(26px,7.2vw,33px)!important;
+    line-height:1.48!important;
+    letter-spacing:-.55px!important;
+  }
+  #about .about-copy>p{
+    grid-row:3!important;
+    max-width:460px!important;
+    margin:0 auto 22px!important;
+    text-align:center!important;
+    font-size:13px!important;
+    line-height:2.05!important;
+    color:#64736d!important;
+  }
+  #about .about-media{
+    grid-row:4!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0 0 22px!important;
+    padding:0!important;
+  }
+  #about .about-media-main{
+    width:100%!important;
+    aspect-ratio:1.58/1!important;
+    border-radius:19px!important;
+    transform:none!important;
+    box-shadow:0 16px 34px rgba(10,60,45,.14)!important;
+    background-position:center!important;
+  }
+  #about .about-media-secondary,
+  #about .about-badge{display:none!important}
+  #about .about-copy .about-features{
+    grid-row:5!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    margin:0 0 20px!important;
+  }
+  #about .about-copy .about-feature{
+    min-width:0!important;
+    min-height:112px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:flex-start!important;
+    gap:9px!important;
+    padding:13px 12px 12px!important;
+    border:1px solid rgba(10,92,70,.09)!important;
+    border-radius:15px!important;
+    background:rgba(255,255,255,.82)!important;
+    box-shadow:0 7px 18px rgba(24,55,43,.045)!important;
+  }
+  #about .about-copy .about-feature i{
+    display:grid!important;
+    width:31px!important;height:31px!important;
+    border-radius:10px!important;
+    font-size:14px!important;
+    background:#eaf3ee!important;
+    color:#0a5c46!important;
+  }
+  #about .about-copy .about-feature div{min-width:0!important}
+  #about .about-copy .about-feature div strong{
+    margin:0 0 4px!important;
+    font-size:12px!important;
+    line-height:1.6!important;
+    color:#123d30!important;
+  }
+  #about .about-copy .about-feature div span{
+    display:block!important;
+    font-size:10.5px!important;
+    line-height:1.7!important;
+    color:#74827c!important;
+  }
+  #about .about-copy .about-actions{
+    grid-row:6!important;
+    display:flex!important;
+    margin:0!important;
+  }
+  #about .about-copy .about-cta-primary{
+    min-height:48px!important;
+    border-radius:15px!important;
+    font-size:13px!important;
+  }
+}
+@media(max-width:360px){
+  #about{padding-right:14px!important;padding-left:14px!important}
+  #about .about-copy .about-feature{padding:11px 9px!important}
+  #about .about-copy .about-feature div strong{font-size:11.5px!important}
+  #about .about-copy .about-feature div span{font-size:10px!important}
+}
+</style>
 </head>
 <body>
 
