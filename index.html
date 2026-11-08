@@ -1934,6 +1934,137 @@ img{max-width:100%;display:block}
   .hero .hero-content{padding-top:120px!important}
 }
 
+
+/* MOBILE NAVIGATION: elegant right-side slide-in drawer */
+.mobile-menu-backdrop{display:none}
+@media(max-width:768px){
+  .header{z-index:1200!important}
+  .mobile-toggle{
+    position:relative!important;
+    z-index:1210!important;
+    border:1px solid rgba(10,92,70,.10)!important;
+    background:rgba(10,92,70,.07)!important;
+    box-shadow:0 5px 14px rgba(10,58,44,.06)!important;
+  }
+  .mobile-toggle.is-open{
+    background:#0a5c46!important;
+    color:#fff!important;
+  }
+  .mobile-toggle.is-open span{background:transparent!important}
+  .mobile-toggle.is-open span:before{top:0!important;transform:rotate(45deg)!important}
+  .mobile-toggle.is-open span:after{top:0!important;transform:rotate(-45deg)!important}
+  .mobile-menu-backdrop{
+    display:block!important;
+    position:fixed!important;
+    inset:0!important;
+    z-index:1190!important;
+    border:0!important;
+    padding:0!important;
+    background:rgba(7,35,27,.42)!important;
+    -webkit-backdrop-filter:blur(4px)!important;
+    backdrop-filter:blur(4px)!important;
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    transition:opacity .32s ease,visibility .32s ease!important;
+  }
+  .mobile-menu-backdrop.is-visible{
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+  }
+  .header .nav{
+    position:fixed!important;
+    top:0!important;
+    right:0!important;
+    left:auto!important;
+    bottom:0!important;
+    width:min(82vw,340px)!important;
+    height:100dvh!important;
+    max-height:100dvh!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    gap:0!important;
+    margin:0!important;
+    padding:104px 22px 28px!important;
+    border-radius:26px 0 0 26px!important;
+    background:linear-gradient(160deg,#fffdf8 0%,#f4f0e5 100%)!important;
+    box-shadow:-18px 0 55px rgba(7,47,35,.20)!important;
+    transform:translateX(105%)!important;
+    opacity:1!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    overflow-y:auto!important;
+    z-index:1200!important;
+    transition:transform .42s cubic-bezier(.22,1,.36,1),visibility .42s ease!important;
+  }
+  .header .nav:before{
+    content:"بازرگانی مهاجر"!important;
+    position:absolute!important;
+    top:30px!important;
+    right:24px!important;
+    color:#0a4a38!important;
+    font-family:var(--fa)!important;
+    font-size:19px!important;
+    font-weight:900!important;
+    letter-spacing:-.4px!important;
+  }
+  .header .nav:after{
+    content:"MOHAJER TRADING GROUP"!important;
+    position:absolute!important;
+    top:57px!important;
+    right:25px!important;
+    color:#87958d!important;
+    font-family:var(--en)!important;
+    font-size:8px!important;
+    letter-spacing:2px!important;
+  }
+  .header .nav.mobile-open{
+    transform:translateX(0)!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+  }
+  .header .nav a{
+    display:flex!important;
+    align-items:center!important;
+    min-height:58px!important;
+    width:100%!important;
+    padding:14px 12px!important;
+    margin:3px 0!important;
+    border:1px solid rgba(10,92,70,.07)!important;
+    border-radius:14px!important;
+    background:rgba(255,255,255,.58)!important;
+    color:#344b42!important;
+    font-family:var(--fa)!important;
+    font-size:15px!important;
+    font-weight:700!important;
+    text-align:right!important;
+    transition:background .25s ease,color .25s ease,transform .25s ease,border-color .25s ease!important;
+  }
+  .header .nav a:before{
+    content:""!important;
+    width:7px!important;
+    height:7px!important;
+    margin-left:12px!important;
+    border-radius:50%!important;
+    background:#c49a4a!important;
+    opacity:.75!important;
+  }
+  .header .nav a.active{
+    color:#075c46!important;
+    border-color:rgba(10,92,70,.18)!important;
+    background:linear-gradient(100deg,rgba(10,92,70,.11),rgba(255,255,255,.82))!important;
+    box-shadow:inset -3px 0 #0a5c46!important;
+  }
+  .header .nav a.active:before{background:#0a5c46!important;opacity:1!important}
+  .header .nav a:active{transform:scale(.985)!important}
+}
+@media(max-width:380px){
+  .header .nav{width:min(86vw,320px)!important;padding-right:18px!important;padding-left:18px!important}
+}
+
 </style>
 </head>
 <body>
@@ -1966,6 +2097,7 @@ img{max-width:100%;display:block}
     <a href="about.html" data-nav-target="about">درباره ما</a>
     <a href="contact.html" data-nav-target="contact">تماس</a>
   </nav>
+  <button class="mobile-menu-backdrop" type="button" aria-label="بستن منو" tabindex="-1"></button>
 
   <div class="header-actions">
     <a class="cta-quote" href="contact.html#contactForm" aria-label="استعلام قیمت؛ انتقال به فرم تماس">
@@ -2550,8 +2682,30 @@ document.addEventListener("DOMContentLoaded",()=>{
     sections.forEach(item=>sectionObserver.observe(item.el));
   }
 
-  document.querySelector("[data-menu]")?.addEventListener("click",()=>{
-    nav?.classList.toggle("mobile-open");
+  const menuToggle=document.querySelector("[data-menu]");
+  const menuBackdrop=document.querySelector(".mobile-menu-backdrop");
+  const closeMobileMenu=()=>{
+    nav?.classList.remove("mobile-open");
+    menuBackdrop?.classList.remove("is-visible");
+    menuToggle?.classList.remove("is-open");
+    menuToggle?.setAttribute("aria-expanded","false");
+    document.body.classList.remove("menu-drawer-open");
+  };
+  menuToggle?.setAttribute("aria-expanded","false");
+  menuToggle?.addEventListener("click",()=>{
+    const opening=!nav?.classList.contains("mobile-open");
+    nav?.classList.toggle("mobile-open",opening);
+    menuBackdrop?.classList.toggle("is-visible",opening);
+    menuToggle?.classList.toggle("is-open",opening);
+    menuToggle?.setAttribute("aria-expanded",String(opening));
+    document.body.classList.toggle("menu-drawer-open",opening);
+  });
+  menuBackdrop?.addEventListener("click",closeMobileMenu);
+  document.addEventListener("keydown",event=>{
+    if(event.key==="Escape") closeMobileMenu();
+  });
+  nav?.querySelectorAll("a").forEach(link=>{
+    link.addEventListener("click",()=>closeMobileMenu());
   });
 
   /* Responsive yeast carousel: five supplied phone images, original desktop set retained. */
