@@ -1918,3 +1918,37 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     padding:0!important;
   }
 }
+
+
+/* MOBILE ABOUT SECTION — clean export-company layout inspired by supplied reference */
+@media(max-width:768px){
+.about{padding:44px 18px 48px!important;background:#fbfaf6!important;overflow:hidden!important}
+.about:before,.about:after{display:none!important}
+.about .about-inner{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-areas:"kicker" "heading" "intro" "visual" "features" "action"!important;gap:0!important;width:100%!important;max-width:520px!important;margin:0 auto!important;align-items:start!important}
+.about .about-copy{display:contents!important}
+.about .about-copy .section-kicker{grid-area:kicker!important;display:block!important;margin:0 0 10px!important;color:#a98240!important;font-size:13px!important;font-weight:800!important;letter-spacing:0!important;text-align:center!important}
+.about .about-copy h2{grid-area:heading!important;margin:0 0 12px!important;color:#0e4938!important;font-size:clamp(25px,7vw,34px)!important;font-weight:900!important;line-height:1.45!important;letter-spacing:-.5px!important;text-align:center!important}
+.about .about-copy h2 em{color:#0e4938!important;background:none!important;-webkit-text-fill-color:currentColor!important}
+.about .about-copy>p{grid-area:intro!important;width:100%!important;max-width:500px!important;margin:0 auto 22px!important;color:#657078!important;font-size:13px!important;font-weight:600!important;line-height:1.95!important;text-align:center!important}
+.about .about-media{grid-area:visual!important;width:100%!important;max-width:none!important;margin:0 0 24px!important;padding:0!important}
+.about .about-media-main{width:100%!important;aspect-ratio:1.72/1!important;border-radius:22px!important;background-position:center!important;box-shadow:none!important;transform:none!important}
+.about .about-media-secondary,.about .about-badge{display:none!important}
+.about .about-features{grid-area:features!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px 0!important;width:100%!important;margin:0 0 27px!important;padding:0!important}
+.about .about-feature{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;min-width:0!important;padding:0 6px!important;text-align:center!important}
+.about .about-feature:not(:last-child){border-left:1px solid rgba(190,151,82,.55)!important}
+.about .about-feature i{display:grid!important;place-items:center!important;width:48px!important;height:48px!important;border:0!important;border-radius:0!important;background:transparent!important;color:#10563f!important;font-size:0!important}
+.about .about-feature i svg{display:block!important;width:100%!important;height:100%!important}
+.about .about-feature div{min-width:0!important}
+.about .about-feature div strong{display:block!important;margin:0 0 4px!important;color:#173e34!important;font-size:11.5px!important;font-weight:900!important;line-height:1.6!important}
+.about .about-feature div span{display:block!important;color:#68757a!important;font-size:9.5px!important;font-weight:600!important;line-height:1.65!important}
+.about .about-actions{grid-area:action!important;display:flex!important;justify-content:center!important;width:100%!important;margin:0!important}
+.about .about-cta-primary{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:14px!important;width:auto!important;min-width:190px!important;min-height:52px!important;padding:12px 28px!important;border-radius:999px!important;background:#07543e!important;color:#fff!important;font-size:14px!important;font-weight:800!important;box-shadow:none!important}
+.about .about-cta-primary span{font-size:20px!important;line-height:1!important}
+}
+@media(max-width:380px){
+.about{padding-right:13px!important;padding-left:13px!important}
+.about .about-feature{padding-right:3px!important;padding-left:3px!important}
+.about .about-feature i{width:42px!important;height:42px!important}
+.about .about-feature div strong{font-size:10.5px!important}
+.about .about-feature div span{font-size:9px!important}
+}
