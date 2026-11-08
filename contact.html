@@ -909,55 +909,90 @@ body{background:#f4f6f8}
 <style id="elven-mobile-world-icons-off">@media(max-width:768px){footer .elven-mobile-reference-world>:not(span),footer .elven-mobile-reference-world::before,footer .elven-mobile-reference-world::after{display:none!important;content:none!important}footer .elven-mobile-reference-world{gap:0!important}}</style>
 
 
-<style id="elven-homepage-mobile-menu-contact">
-.mobile-menu-backdrop{display:none}
-@media(max-width:768px){
-  .masthead{z-index:1200!important;isolation:isolate}
-  .mobile-nav-toggle{position:relative!important;z-index:1210!important;width:42px!important;height:42px!important;display:flex!important;align-items:center!important;justify-content:center!important;border:1px solid rgba(10,92,70,.10)!important;border-radius:12px!important;background:rgba(10,92,70,.07)!important;color:#0a5c46!important;box-shadow:0 5px 14px rgba(10,58,44,.06)!important}
-  .mobile-nav-toggle span{display:block!important;width:20px!important;height:2px!important;background:currentColor!important;position:relative!important;transition:.3s!important}
-  .mobile-nav-toggle span:before,.mobile-nav-toggle span:after{content:"";position:absolute;left:0;width:100%;height:2px;background:currentColor;transition:.3s}
-  .mobile-nav-toggle span:before{top:-6px}.mobile-nav-toggle span:after{top:6px}
-  .mobile-nav-toggle.is-open{background:#0a5c46!important;color:#fff!important}
-  .mobile-nav-toggle.is-open span{background:transparent!important}
-  .mobile-nav-toggle.is-open span:before{top:0!important;transform:rotate(45deg)!important}
-  .mobile-nav-toggle.is-open span:after{top:0!important;transform:rotate(-45deg)!important}
-  .mobile-menu-backdrop{display:block!important;position:fixed!important;inset:0!important;z-index:1190!important;border:0!important;padding:0!important;background:rgba(7,35,27,.42)!important;-webkit-backdrop-filter:blur(4px)!important;backdrop-filter:blur(4px)!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .32s ease,visibility .32s ease!important}
-  .mobile-menu-backdrop.is-visible{opacity:1!important;visibility:visible!important;pointer-events:auto!important}
-  .masthead .primary-nav{position:fixed!important;top:0!important;right:0!important;left:auto!important;bottom:0!important;width:min(82vw,340px)!important;height:100dvh!important;max-height:100dvh!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:0!important;margin:0!important;padding:104px 22px 28px!important;border-radius:26px 0 0 26px!important;background:linear-gradient(160deg,#fffdf8 0%,#f4f0e5 100%)!important;box-shadow:-18px 0 55px rgba(7,47,35,.20)!important;transform:translateX(105%)!important;opacity:1!important;visibility:hidden!important;pointer-events:none!important;overflow-y:auto!important;z-index:1200!important;transition:transform .42s cubic-bezier(.22,1,.36,1),visibility .42s ease!important}
-  .masthead .primary-nav.mobile-open{transform:translateX(0)!important;visibility:visible!important;pointer-events:auto!important}
-  .masthead .primary-nav:before{content:"بازرگانی مهاجر"!important;position:absolute!important;top:30px!important;right:24px!important;color:#0a4a38!important;font-family:var(--font)!important;font-size:19px!important;font-weight:900!important;letter-spacing:-.4px!important}
-  .masthead .primary-nav:after{content:"MOHAJER TRADING GROUP"!important;position:absolute!important;top:57px!important;right:25px!important;color:#87958d!important;font-family:Arial,sans-serif!important;font-size:8px!important;letter-spacing:2px!important}
-  .masthead .primary-nav a{display:flex!important;align-items:center!important;min-height:58px!important;width:100%!important;padding:14px 12px!important;margin:3px 0!important;border:1px solid rgba(10,92,70,.07)!important;border-radius:14px!important;background:rgba(255,255,255,.58)!important;color:#344b42!important;font-family:var(--font)!important;font-size:15px!important;font-weight:700!important;text-align:right!important;text-decoration:none!important;box-shadow:none!important}
-  .masthead .primary-nav a:before{content:""!important;width:7px!important;height:7px!important;flex:0 0 7px!important;margin-left:12px!important;border-radius:50%!important;background:#c49a4a!important;opacity:.75!important}
-  .masthead .primary-nav a.current{color:#075c46!important;border-color:rgba(10,92,70,.18)!important;background:linear-gradient(100deg,rgba(10,92,70,.11),rgba(255,255,255,.82))!important;box-shadow:inset -3px 0 #0a5c46!important}
-  .masthead .primary-nav a:after{display:none!important}
-  body.menu-drawer-open{overflow:hidden!important}
-}
-@media(max-width:380px){.masthead .primary-nav{width:min(86vw,320px)!important;padding-right:18px!important;padding-left:18px!important}}
+
+<style id="elven-exact-home-header-css">
+.header{position:fixed;top:0;left:0;right:0;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,58px);background:transparent;z-index:1000;transition:background .35s ease,box-shadow .35s ease,height .3s ease}
+.header.is-scrolled{background:rgba(252,251,247,.92);backdrop-filter:saturate(140%) blur(14px);box-shadow:0 8px 34px rgba(10,58,44,.09);height:76px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-mark{width:46px;height:46px;border-radius:13px;background:linear-gradient(145deg,#0f7a5c,#0a5c46 60%,#063a2c);display:grid;place-items:center;color:#c9f4c9;box-shadow:0 8px 22px rgba(10,92,70,.28),inset 0 -2px 6px rgba(0,0,0,.15);position:relative;overflow:hidden;animation:brandPulse 4s ease-in-out infinite}
+.brand-mark::after{content:"";position:absolute;inset:-50%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);animation:brandShine 5s ease-in-out infinite}
+@keyframes brandShine{0%,85%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes brandPulse{0%,100%{box-shadow:0 8px 22px rgba(10,92,70,.28),inset 0 -2px 6px rgba(0,0,0,.15)}50%{box-shadow:0 8px 30px rgba(10,92,70,.42),inset 0 -2px 6px rgba(0,0,0,.15)}}
+.brand-mark svg{width:26px;height:26px;position:relative;z-index:1}
+.brand-text strong{display:block;font-size:18px;font-weight:800;line-height:1;color:#0a3a2c;letter-spacing:-.3px}
+.brand-text small{display:block;margin-top:5px;font-family:var(--en);font-size:8px;letter-spacing:2.6px;color:#6b7c75;font-weight:500}
+
+.nav{display:flex;gap:clamp(20px,2.3vw,38px);align-items:center;margin:0 auto 0 0}
+.nav a{position:relative;color:#3b4d47;font-size:14.5px;font-weight:500;padding:8px 2px;transition:color .3s ease;white-space:nowrap}
+.nav a::after{content:'';position:absolute;bottom:0;right:0;left:0;height:2px;border-radius:2px;background:#0a5c46;transform:scaleX(0);transform-origin:right center;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.nav a:hover{color:#0a5c46}
+.nav a:hover::after{transform:scaleX(1)}
+.nav a.active{color:#0a5c46;font-weight:700}
+.nav a.active::after{transform:scaleX(1);background:#0a5c46}
+
+.header-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.icon-button{width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:#3b4d47;display:grid;place-items:center;cursor:pointer;position:relative;transition:background .3s,color .3s,transform .3s}
+.icon-button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.icon-button:hover{background:rgba(10,92,70,.08);color:#0a5c46;transform:translateY(-2px)}
+.icon-button:hover svg{transform:rotate(-8deg) scale(1.06)}
+
+.cta-quote{display:inline-flex;align-items:center;gap:9px;background:#0a5c46;color:#fff;border:0;padding:12px 22px;border-radius:40px;font-family:var(--fa);font-size:13px;font-weight:700;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 10px 26px rgba(10,92,70,.28);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,background .3s}
+.cta-quote::before{content:"";position:absolute;top:0;right:-130%;width:90%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.42),transparent);transform:skewX(-20deg);transition:right .75s ease}
+.cta-quote:hover::before{right:130%}
+.cta-quote:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(10,92,70,.38);background:#0c6c52}
+.cta-quote svg{width:15px;height:15px;transition:transform .35s}
+.cta-quote:hover svg{transform:translateX(-4px)}
+
+.mobile-toggle{display:none;border:0;background:transparent;color:#0a5c46;width:42px;height:42px;border-radius:12px;cursor:pointer;align-items:center;justify-content:center;transition:background .25s}
+.mobile-toggle:hover{background:rgba(10,92,70,.08)}
+.mobile-toggle span{display:block;width:20px;height:2px;background:currentColor;position:relative;transition:.3s}
+.mobile-toggle span::before,.mobile-toggle span::after{content:'';position:absolute;left:0;width:100%;height:2px;background:currentColor;transition:.3s}
+.mobile-toggle span::before{top:-6px}
+.mobile-toggle span::after{top:6px}
+
+
 </style>
 </head>
 <body>
 <section class="hero-shell" id="top">
   <div class="port-art" aria-hidden="true"></div>
-  <header class="masthead" id="siteHeader">
-    <a class="wordmark" href="index.html" aria-label="بازرگانی مهاجر - صفحه اصلی">
-      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/><path d="M12 21V11"/><path d="M9 14l3-3 3 3"/></svg></span>
-      <span class="brand-text"><strong>بازرگانی مهاجر</strong><small>MOHAJER TRADING GROUP</small></span>
-    </a>
-    <nav class="primary-nav" id="contactNav" aria-label="منوی اصلی">
-      <a href="index.html">خانه</a>
-      <a href="index.html#products">محصولات</a>
-      <a href="departments.html">دپارتمان‌ها</a>
-      
-      <a href="about.html">درباره ما</a>
-      <a class="current" aria-current="page" href="contact.html">تماس با ما</a>
-    </nav>
-    <button class="mobile-menu-backdrop" type="button" aria-label="بستن منو" tabindex="-1"></button>
-    <div class="nav-actions">
+  <header class="header" id="siteHeader">
+  <a class="brand" href="index.html" aria-label="بازرگانی مهاجر">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+        <path d="M12 21V11"/>
+        <path d="M9 14l3-3 3 3"/>
+      </svg>
+    </span>
+    <span class="brand-text">
+      <strong>بازرگانی مهاجر</strong>
+      <small>MOHAJER TRADING GROUP</small>
+    </span>
+  </a>
 
-      <button class="mobile-nav-toggle" id="contactNavToggle" type="button" aria-label="منو" aria-expanded="false" aria-controls="contactNav"><span></span></button>
-    </div>
-  </header>
+  <nav class="nav" id="primaryNav" aria-label="منوی اصلی">
+    <a class="active" href="#home" data-nav-target="home">خانه</a>
+    <a href="index.html#products" data-nav-target="products">محصولات</a>
+    <a href="departments.html">دپارتمان‌ها</a>
+    
+    <a href="about.html" data-nav-target="about">درباره ما</a>
+    <a class="active" href="contact.html" data-nav-target="contact" aria-current="page">تماس</a>
+  </nav>
+  <button class="mobile-menu-backdrop" type="button" aria-label="بستن منو" tabindex="-1"></button>
+
+  <div class="header-actions">
+    <a class="cta-quote" href="contact.html#contactForm" aria-label="استعلام قیمت؛ انتقال به فرم تماس">
+      <svg class="cta-quote__message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.8 8.4 9 9 0 0 1-3.4-.7L3 21l1.8-5.8A9 9 0 1 1 21 11.5Z"/><path d="M8 11.5h8M8 14.5h5"/></svg>
+      <span>استعلام قیمت</span>
+      <svg class="cta-quote__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6"/></svg>
+    </a>
+  </div>
+
+  <button class="mobile-toggle" aria-label="منو" data-menu>
+    <span></span>
+  </button>
+</header>
   <div class="hero-content">
     <div class="intro-panel">
       <h1>با ما در <em>ارتباط</em> باشید</h1>
@@ -1038,27 +1073,28 @@ body{background:#f4f6f8}
 </div>
 <script>
 (function(){
-  const nav=document.getElementById('contactNav');
-  const toggle=document.getElementById('contactNavToggle');
-  const backdrop=document.querySelector('.mobile-menu-backdrop');
-  const closeMenu=()=>{
-    nav?.classList.remove('mobile-open');
-    backdrop?.classList.remove('is-visible');
-    toggle?.classList.remove('is-open');
-    toggle?.setAttribute('aria-expanded','false');
-    document.body.classList.remove('menu-drawer-open');
+  const nav=document.getElementById("primaryNav");
+  const menuToggle=document.querySelector("[data-menu]");
+  const menuBackdrop=document.querySelector(".mobile-menu-backdrop");
+  const closeMobileMenu=()=>{
+    nav?.classList.remove("mobile-open");
+    menuBackdrop?.classList.remove("is-visible");
+    menuToggle?.classList.remove("is-open");
+    menuToggle?.setAttribute("aria-expanded","false");
+    document.body.classList.remove("menu-drawer-open");
   };
-  toggle?.addEventListener('click',()=>{
-    const opening=!nav?.classList.contains('mobile-open');
-    nav?.classList.toggle('mobile-open',opening);
-    backdrop?.classList.toggle('is-visible',opening);
-    toggle?.classList.toggle('is-open',opening);
-    toggle?.setAttribute('aria-expanded',String(opening));
-    document.body.classList.toggle('menu-drawer-open',opening);
+  menuToggle?.setAttribute("aria-expanded","false");
+  menuToggle?.addEventListener("click",()=>{
+    const opening=!nav?.classList.contains("mobile-open");
+    nav?.classList.toggle("mobile-open",opening);
+    menuBackdrop?.classList.toggle("is-visible",opening);
+    menuToggle?.classList.toggle("is-open",opening);
+    menuToggle?.setAttribute("aria-expanded",String(opening));
+    document.body.classList.toggle("menu-drawer-open",opening);
   });
-  backdrop?.addEventListener('click',closeMenu);
-  nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+  menuBackdrop?.addEventListener("click",closeMobileMenu);
+  document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMobileMenu();});
+  nav?.querySelectorAll("a").forEach(link=>link.addEventListener("click",closeMobileMenu));
   let lastFocus;
   function show(id){lastFocus=document.activeElement;const el=document.getElementById(id);el.setAttribute('aria-hidden','false');el.querySelector('button.close')?.focus()}
   function hide(id){document.getElementById(id).setAttribute('aria-hidden','true');if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus()}
