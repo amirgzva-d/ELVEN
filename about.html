@@ -1468,7 +1468,7 @@ body.mh-about-page{background:#f3f7f3}
   body.mh-about-page .mh-story-stat strong { font-size: 24px; }
   body.mh-about-page .mh-story-stat span { font-size: 11px; }
 
-  /* Founders: preserve side-by-side portrait on the right and bio on the left. */
+  /* Founders: compact editorial card — portrait on the right, all copy grouped beside it. */
   body.mh-about-page .mh-story-founders { padding: 69px 0 52px; }
   body.mh-about-page .mh-story-section-head {
     max-width: 620px;
@@ -1488,10 +1488,11 @@ body.mh-about-page{background:#f3f7f3}
     gap: 15px;
   }
   body.mh-about-page .mh-story-person {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(108px, 36%);
+    grid-template-areas: "copy portrait";
+    align-items: center;
+    gap: 14px;
     width: 100%;
     max-width: none;
     min-width: 0;
@@ -1500,10 +1501,10 @@ body.mh-about-page{background:#f3f7f3}
     border-radius: 20px;
   }
   body.mh-about-page .mh-story-portrait {
-    flex: 0 0 39%;
-    width: 39%;
+    grid-area: portrait;
+    width: 100%;
     max-width: 138px;
-    min-width: 116px;
+    min-width: 0;
     min-height: 0;
     height: auto;
     aspect-ratio: 5 / 6;
@@ -1518,8 +1519,9 @@ body.mh-about-page{background:#f3f7f3}
     object-position: center 18%;
   }
   body.mh-about-page .mh-story-person-content {
-    flex: 1 1 0;
+    grid-area: copy;
     min-width: 0;
+    width: 100%;
     text-align: right;
     align-self: center;
   }
