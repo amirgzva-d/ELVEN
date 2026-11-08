@@ -1652,6 +1652,30 @@ body.mh-about-page{background:#f3f7f3}
 }
 
 </style>
+<style id="mh-story-timeline-active">
+  body.mh-about-page .mh-story-step {
+    transition: border-color .28s ease, background-color .28s ease, box-shadow .28s ease, transform .28s ease;
+  }
+  body.mh-about-page .mh-story-year {
+    transition: background-color .28s ease, color .28s ease, border-color .28s ease, box-shadow .28s ease;
+  }
+  body.mh-about-page .mh-story-step.is-current {
+    border-color: rgba(10,92,70,.34);
+    background: linear-gradient(115deg, #ffffff 0%, #f1f8f3 100%);
+    box-shadow: 0 12px 30px rgba(10,92,70,.09);
+  }
+  body.mh-about-page .mh-story-step.is-current .mh-story-year {
+    color: #fff;
+    background: #0a5c46;
+    border-color: #0a5c46;
+    box-shadow: 0 7px 17px rgba(10,92,70,.2);
+    transform: translateY(-1px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body.mh-about-page .mh-story-step,
+    body.mh-about-page .mh-story-year { transition: none; }
+  }
+</style>
 <style id="elven-mobile-world-icons-off">@media(max-width:768px){footer .elven-mobile-reference-world>:not(span),footer .elven-mobile-reference-world::before,footer .elven-mobile-reference-world::after{display:none!important;content:none!important}footer .elven-mobile-reference-world{gap:0!important}}</style>
 </head>
 <body class="mh-about-page">
@@ -1883,6 +1907,27 @@ body.mh-about-page{background:#f3f7f3}
    backTop.classList.toggle('is-visible',scrollTop>450);
    const limit=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
    progress.style.width=(scrollTop/limit*100)+'%';
+
+   /* Keep the timeline milestone nearest the reading line highlighted. */
+   const timeline=document.querySelector('.mh-story-timeline');
+   if(timeline){
+     const steps=Array.from(timeline.querySelectorAll('.mh-story-step'));
+     const section=timeline.closest('.mh-story-journey');
+     const sectionRect=section.getBoundingClientRect();
+     const inView=sectionRect.bottom>0 && sectionRect.top<window.innerHeight;
+     if(inView && steps.length){
+       const readingLine=window.innerHeight*0.42;
+       let current=steps[0], nearest=Infinity;
+       steps.forEach(step=>{
+         const rect=step.getBoundingClientRect();
+         const distance=Math.abs((rect.top+rect.bottom)/2-readingLine);
+         if(distance<nearest){nearest=distance;current=step;}
+       });
+       steps.forEach(step=>step.classList.toggle('is-current',step===current));
+     }else{
+       steps.forEach(step=>step.classList.remove('is-current'));
+     }
+   }
  }
  function closeMenu(){
    nav.classList.remove('mobile-open');
