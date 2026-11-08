@@ -130,8 +130,8 @@ else init();
           '<a href="contact.html"><span>تماس با ما</span>'+arrowIcon+'</a>',
         '</nav>',
         '<address class="elven-mobile-reference-contact">',
-          '<a href="tel:+989153028367">'+phoneIcon+'<bdi dir="ltr">+98 915 302 8367</bdi></a>',
-          '<a href="tel:+989155551965">'+phoneIcon+'<bdi dir="ltr">+98 915 555 1965</bdi></a>',
+          '<a href="https://wa.me/989153028367" target="_blank" rel="noopener noreferrer" aria-label="پیام در واتساپ به شماره 09153028367">'+phoneIcon+'<bdi dir="ltr">+98 915 302 8367</bdi></a>',
+          '<a href="https://wa.me/989155551965" target="_blank" rel="noopener noreferrer" aria-label="پیام در واتساپ به شماره 09155551965">'+phoneIcon+'<bdi dir="ltr">+98 915 555 1965</bdi></a>',
           '<a href="tel:+985137057126">'+phoneIcon+'<bdi dir="ltr">+98 513 705 7126</bdi></a>',
           '<a href="mailto:info@mohajer-food.com">'+mailIcon+'<bdi dir="ltr">info@mohajer-food.com</bdi></a>',
           '<div class="elven-mobile-reference-address">'+pinIcon+'<span>مشهد، میدان جانباز، پاژ اداری ۲، طبقه ۳، واحد ۳۱۳</span></div>',
@@ -144,8 +144,15 @@ else init();
       ].join('');
       var originalSocial=footer.querySelector('.footer-social-links');
       var container=panel.querySelector('.elven-mobile-reference-social');
-      if(originalSocial){var socialCopy=originalSocial.cloneNode(true);container.appendChild(socialCopy);}
-      else container.remove();
+      if(originalSocial){
+        var socialCopy=originalSocial.cloneNode(true);
+        var socialItems=Array.from(socialCopy.querySelectorAll('.footer-social-link'));
+        var linkedIn=socialItems.find(function(item){return item.classList.contains('footer-social-link--linkedin');});
+        var instagram=socialItems.find(function(item){return item.classList.contains('footer-social-link--instagram');});
+        var whatsapp=socialItems.find(function(item){return item.title==='واتساپ'||item.getAttribute('aria-label')==='گفتگو در واتساپ';});
+        [linkedIn,instagram,whatsapp].forEach(function(item){if(item) socialCopy.appendChild(item);});
+        container.appendChild(socialCopy);
+      } else container.remove();
       footer.appendChild(panel);
       footer.classList.add('has-elven-mobile-reference-footer');
     });
