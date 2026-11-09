@@ -147,13 +147,47 @@ else init();
       var originalSocial=footer.querySelector('.footer-social-links');
       var container=panel.querySelector('.elven-mobile-reference-social');
       if(originalSocial){
-        var socialCopy=originalSocial.cloneNode(true);
-        var socialItems=Array.from(socialCopy.querySelectorAll('.footer-social-link'));
-        var linkedIn=socialItems.find(function(item){return item.classList.contains('footer-social-link--linkedin');});
-        var instagram=socialItems.find(function(item){return item.classList.contains('footer-social-link--instagram');});
-        var whatsapp=socialItems.find(function(item){return item.title==='واتساپ'||item.getAttribute('aria-label')==='گفتگو در واتساپ';});
-        [linkedIn,instagram,whatsapp].forEach(function(item){if(item) socialCopy.appendChild(item);});
-        container.appendChild(socialCopy);
+        var mobileSocial=document.createElement('div');
+        mobileSocial.className='footer-social-links';
+        mobileSocial.setAttribute('role','group');
+        mobileSocial.setAttribute('aria-label','شبکه‌های اجتماعی');
+        var whatsappSource=originalSocial.querySelector('a[href*="wa.me"],a.footer-social-link--whatsapp');
+        var instagramSource=originalSocial.querySelector('a.footer-social-link--instagram');
+        var linkedinSource=originalSocial.querySelector('.footer-social-link--linkedin');
+
+        if(whatsappSource){
+          var whatsappPrimary=whatsappSource.cloneNode(true);
+          whatsappPrimary.classList.add('footer-social-link--whatsapp','footer-social-link--whatsapp-primary');
+          whatsappPrimary.href='https://wa.me/989153028367';
+          whatsappPrimary.target='_blank';
+          whatsappPrimary.rel='noopener noreferrer';
+          whatsappPrimary.setAttribute('aria-label','واتساپ محمد مهاجری');
+          whatsappPrimary.title='واتساپ محمد مهاجری';
+
+          var whatsappSecondary=whatsappSource.cloneNode(true);
+          whatsappSecondary.classList.add('footer-social-link--whatsapp','footer-social-link--whatsapp-secondary');
+          whatsappSecondary.href='https://wa.me/989155551965';
+          whatsappSecondary.target='_blank';
+          whatsappSecondary.rel='noopener noreferrer';
+          whatsappSecondary.setAttribute('aria-label','واتساپ علیرضا تهرانی');
+          whatsappSecondary.title='واتساپ علیرضا تهرانی';
+
+          var commonWhatsappIcon='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.1 11.7a8.1 8.1 0 0 1-12 7.1L4 20l1.2-4A8.1 8.1 0 1 1 20.1 11.7Z"/><path d="M9 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.5.9 1.3 1.6 2.2 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5 0 .5-.3 1.2-.8 1.5-.5.4-1.1.6-1.8.5-1.1-.2-2.4-.8-3.7-2-1.1-1-2-2.3-2.2-3.4-.2-.9.1-1.7.4-2.1Z"/></svg>';
+          whatsappPrimary.innerHTML=commonWhatsappIcon;
+          whatsappSecondary.innerHTML=commonWhatsappIcon;
+          mobileSocial.appendChild(whatsappPrimary);
+          mobileSocial.appendChild(whatsappSecondary);
+        }
+
+        if(linkedinSource) mobileSocial.appendChild(linkedinSource.cloneNode(true));
+        if(instagramSource){
+          var instagramLink=instagramSource.cloneNode(true);
+          instagramLink.href='https://www.instagram.com/mohajer_trading_group?dlrf=NXNwN2F2NjR3enRj';
+          mobileSocial.appendChild(instagramLink);
+        }
+
+        if(mobileSocial.children.length) container.appendChild(mobileSocial);
+        else container.remove();
       } else container.remove();
       footer.appendChild(panel);
       footer.classList.add('has-elven-mobile-reference-footer');
