@@ -4332,6 +4332,23 @@
   }
 }
 </style>
+
+<style id="yeast-mobile-menu-scroll-lock">
+/* Keep the page from scrolling behind the open drawer; allow scrolling inside the drawer itself. */
+@media(max-width:768px){
+  html.menu-drawer-open,
+  html.menu-drawer-open body,
+  body.menu-drawer-open{
+    overflow:hidden!important;
+    overscroll-behavior:none!important;
+  }
+  #siteHeader.header .nav{
+    overscroll-behavior:contain!important;
+    -webkit-overflow-scrolling:touch!important;
+    touch-action:pan-y!important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -6436,6 +6453,7 @@
       toggle.classList.remove("is-open");
       toggle.setAttribute("aria-expanded","false");
       document.body.classList.remove("menu-drawer-open");
+      document.documentElement.classList.remove("menu-drawer-open");
     };
     const open=()=>{
       drawer.classList.add("mobile-open");
@@ -6443,6 +6461,7 @@
       toggle.classList.add("is-open");
       toggle.setAttribute("aria-expanded","true");
       document.body.classList.add("menu-drawer-open");
+      document.documentElement.classList.add("menu-drawer-open");
     };
     toggle.addEventListener("click",function(event){
       event.preventDefault();
@@ -6450,6 +6469,7 @@
       drawer.classList.contains("mobile-open")?close():open();
     },true);
     backdrop.addEventListener("click",close);
+    backdrop.addEventListener("touchmove",event=>event.preventDefault(),{passive:false});
     drawer.querySelectorAll("a").forEach(link=>link.addEventListener("click",close));
     document.addEventListener("keydown",event=>{if(event.key==="Escape")close()});
   }
