@@ -86,3 +86,20 @@ header.masthead {
     z-index: 2147483000 !important;
   }
 }
+
+
+/* ELVEN HEADER SCROLLBAR CLEANUP — all site navigation variants.
+   Hide only native scroll tracks/thumbs inside the header; retain the
+   existing menu/dropdown scrolling and do not clip header content. */
+:where(header.site-header, header.header, header#siteHeader, header.masthead),
+:where(header.site-header, header.header, header#siteHeader, header.masthead) * {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+:where(header.site-header, header.header, header#siteHeader, header.masthead)::-webkit-scrollbar,
+:where(header.site-header, header.header, header#siteHeader, header.masthead) *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
