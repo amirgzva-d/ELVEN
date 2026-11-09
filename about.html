@@ -2380,5 +2380,47 @@ document.addEventListener("DOMContentLoaded",()=>{
 })();
 </script>
 <script defer src="assets/elven-mobile-drawer-fix.js?v=20261109-home-drawer-v2"></script>
+
+<style id="elven-language-dropdown-position-fix">
+/* Desktop: keep the language card below its trigger, away from the viewport edge. */
+@media (min-width:851px){
+  .header,.site-header,.header-actions{overflow:visible!important}
+  .header .language-picker,.site-header .language-picker{
+    position:relative!important;
+    z-index:1400!important;
+  }
+  .header .language-picker .language-menu,
+  .site-header .language-picker .language-menu{
+    position:absolute!important;
+    top:calc(100% + 12px)!important;
+    left:calc(50% + 24px)!important;
+    right:auto!important;
+    width:194px!important;
+    max-width:calc(100vw - 28px)!important;
+    transform:translate(-50%,-8px) scale(.98)!important;
+    transform-origin:top center!important;
+    border-radius:17px!important;
+    box-shadow:0 16px 38px rgba(13,43,91,.16)!important;
+    z-index:99999!important;
+  }
+  .header .language-picker.is-open .language-menu,
+  .site-header .language-picker.is-open .language-menu{
+    transform:translate(-50%,0) scale(1)!important;
+  }
+  .header .language-picker .language-menu::before,
+  .site-header .language-picker .language-menu::before{
+    content:""!important;
+    position:absolute!important;
+    top:-6px!important;
+    left:calc(50% - 24px)!important;
+    width:10px!important;
+    height:10px!important;
+    background:#fff!important;
+    border-left:1px solid rgba(201,163,90,.35)!important;
+    border-top:1px solid rgba(201,163,90,.35)!important;
+    transform:translateX(-50%) rotate(45deg)!important;
+  }
+}
+</style>
 </body>
 </html>
