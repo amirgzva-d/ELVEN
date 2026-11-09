@@ -4600,6 +4600,34 @@
   }
 }
 </style>
+
+<style id="yeast-mobile-menu-remove-ghost-heading">
+/* Remove the duplicated generated brand captions from the mobile drawers.
+   They were painted over/too close to the first navigation row ("خانه"). */
+@media (max-width:960px){
+  #siteHeader #primaryNav::before,
+  #siteHeader #primaryNav::after,
+  body>#primaryNav.elven-pd-menu-portal::before,
+  body>#primaryNav.elven-pd-menu-portal::after,
+  .pd-main-header-card #pdPrimaryNav::before,
+  .pd-main-header-card #pdPrimaryNav::after,
+  body>#pdPrimaryNav.elven-pd-menu-portal::before,
+  body>#pdPrimaryNav.elven-pd-menu-portal::after{
+    content:none!important;
+    display:none!important;
+    visibility:hidden!important;
+  }
+  #siteHeader #primaryNav>a:first-child,
+  body>#primaryNav.elven-pd-menu-portal>a:first-child,
+  .pd-main-header-card #pdPrimaryNav>a:first-child,
+  body>#pdPrimaryNav.elven-pd-menu-portal>a:first-child{
+    text-shadow:none!important;
+    filter:none!important;
+    opacity:1!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
