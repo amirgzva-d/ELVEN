@@ -1627,3 +1627,89 @@
   footer.catalog-contact-footer.has-elven-mobile-reference-footer > :not(.elven-mobile-reference-footer){display:revert!important}
 }
 
+
+
+/* FINAL MOBILE SOCIAL GLYPHS: identical bold white icons on every page (2026-11-09). */
+@media screen and (max-width:768px){
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-links{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:27px!important;
+    width:100%!important;
+    margin:0 auto!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+  }
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link,
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social a.footer-social-link{
+    display:inline-flex!important;
+    flex:0 0 26px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:26px!important;
+    min-width:26px!important;
+    max-width:26px!important;
+    height:26px!important;
+    min-height:26px!important;
+    max-height:26px!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    color:#fff!important;
+    opacity:1!important;
+    text-decoration:none!important;
+    transform:none!important;
+  }
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg{
+    display:block!important;
+    flex:0 0 24px!important;
+    width:24px!important;
+    min-width:24px!important;
+    max-width:24px!important;
+    height:24px!important;
+    min-height:24px!important;
+    max-height:24px!important;
+    margin:0!important;
+    padding:0!important;
+    color:#fff!important;
+    stroke:#fff!important;
+    stroke-width:2.3!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+    fill:none!important;
+    opacity:1!important;
+    overflow:visible!important;
+  }
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--whatsapp svg path:first-child{
+    fill:none!important;
+    stroke:#fff!important;
+    stroke-width:2.3!important;
+  }
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--whatsapp svg path:last-child{
+    fill:#fff!important;
+    stroke:#fff!important;
+    stroke-width:.75!important;
+  }
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--instagram svg{
+    stroke-width:2.3!important;
+  }
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--instagram svg circle:last-child{
+    fill:#fff!important;
+    stroke:none!important;
+  }
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--linkedin svg,
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--linkedin svg path,
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--linkedin svg rect,
+  footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--linkedin svg circle{
+    fill:#fff!important;
+    stroke:none!important;
+  }
+}
+
