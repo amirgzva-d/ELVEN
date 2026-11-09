@@ -103,3 +103,20 @@ header.masthead {
   height: 0 !important;
   background: transparent !important;
 }
+
+
+/* Product pages only: hide the native scrollbar on the main drawer itself.
+   Keep vertical scrolling available; this removes the stray horizontal track
+   that can appear when the drawer is detached/repositioned by mobile scripts. */
+#siteNav,
+#siteNav * {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+#siteNav::-webkit-scrollbar,
+#siteNav *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
