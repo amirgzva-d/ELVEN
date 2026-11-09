@@ -2026,3 +2026,13 @@ svg.ico{flex-shrink:0;vertical-align:middle}
     stroke: none !important;
   }
 }
+
+
+/* ELVEN DESKTOP HEADER OVERFLOW GUARD — non-yeast product pages.
+   Prevent the stray horizontal overflow track beneath the shared navigation;
+   keep the yeast page (which uses a different .header) unchanged. */
+@media (min-width: 851px) {
+  html:has(.site-header) {
+    overflow-x: clip !important;
+  }
+}
