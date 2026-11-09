@@ -460,3 +460,11 @@
 @media (prefers-reduced-motion:reduce){
   .home-quick-categories .home-quick-links{scroll-behavior:auto!important}
 }
+
+
+/* MOBILE: keep the farm-to-table kicker only once; the mobile copy already contains it. */
+@media (max-width: 768px) {
+  .hero .hero-content > .hero-kicker {
+    display: none !important;
+  }
+}
