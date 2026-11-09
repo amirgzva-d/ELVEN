@@ -5,6 +5,8 @@
   .masthead,
   #siteHeader {
     position: fixed !important;
+    height: 70px !important;
+    min-height: 70px !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
@@ -31,11 +33,11 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 42px !important;
-    height: 42px !important;
-    min-width: 42px !important;
-    flex: 0 0 42px !important;
-    margin: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    flex: 0 0 40px !important;
+    margin: 0 2px 0 0 !important;
     padding: 0 !important;
     border: 1px solid rgba(10, 92, 70, .10) !important;
     border-radius: 12px !important;
@@ -307,6 +309,12 @@
   .site-header.is-scrolled,
   .masthead.is-scrolled,
   #siteHeader.is-scrolled { height: 60px !important; min-height: 60px !important; }
+
+  .mobile-toggle,
+  .menu-toggle.mobile-toggle,
+  .mobile-nav-toggle { width: 38px !important; height: 38px !important; min-width: 38px !important; flex-basis: 38px !important; }
+
+  body:has(header.site-header) { padding-top: 66px !important; }
 }
 
 @media (max-width: 380px) {
