@@ -339,3 +339,11 @@
     transition-duration: .01ms !important;
   }
 }
+
+/* ELVEN DESKTOP PRODUCT HEADER — hide the dynamically-created mobile drawer backdrop.
+   The button is only a tap-to-close layer on mobile; it must never render in desktop headers. */
+@media (min-width: 769px) {
+  header.site-header > .mobile-menu-backdrop {
+    display: none !important;
+  }
+}
