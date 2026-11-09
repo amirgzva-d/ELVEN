@@ -747,6 +747,46 @@ body.beverages-view .catalog .card-copy .chips{
   }
 }
 </style>
+<style id="elven-desktop-language-far-left">
+/* Desktop header layout: logo on the right, navigation centered,
+   and the language selector at the far-left end of the header. */
+@media (min-width:851px){
+  .site-header{
+    display:grid!important;
+    grid-template-columns:max-content minmax(0,1fr) max-content!important;
+    align-items:center!important;
+    justify-content:initial!important;
+    direction:rtl!important;
+  }
+  .site-header>.site-logo{
+    grid-column:1!important;
+    justify-self:start!important;
+    min-width:max-content!important;
+  }
+  .site-header>.main-nav{
+    grid-column:2!important;
+    justify-self:center!important;
+    min-width:max-content!important;
+    margin:0!important;
+  }
+  .site-header>.header-actions{
+    grid-column:3!important;
+    justify-self:end!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    width:auto!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    gap:0!important;
+  }
+  .site-header>.header-actions>.language-picker{
+    margin:0!important;
+  }
+  .site-header>.menu-toggle{display:none!important}
+}
+</style>
 </head>
 <body>
 
