@@ -73,11 +73,11 @@ header.masthead {
 /* Mobile: keep product-page navigation pinned to the viewport, not merely sticky.
    The body padding preserves the original 69px header space in normal flow. */
 @media (max-width: 850px) {
-  body:has(> header.site-header) {
-    padding-top: 69px !important;
+  body:has(header.site-header) {
+    padding-top: 70px !important;
   }
 
-  body > header.site-header {
+  header.site-header {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
