@@ -6461,6 +6461,28 @@
   else initYeastCardMenu();
 })();
 </script>
+<script id="yeast-main-menu-toggle-controller">
+/* Main yeast page toggle: the shared cross-page script handles backdrop and Escape. */
+(()=>{
+  const nav=document.getElementById('primaryNav');
+  const toggle=document.querySelector('#siteHeader [data-menu]');
+  if(!nav||!toggle||toggle.dataset.mainDrawerReady==='1')return;
+  toggle.dataset.mainDrawerReady='1';
+  const closeMenu=()=>{
+    nav.classList.remove('mobile-open');
+    toggle.classList.remove('active');
+    toggle.setAttribute('aria-expanded','false');
+  };
+  toggle.addEventListener('click',()=>{
+    const open=nav.classList.toggle('mobile-open');
+    toggle.classList.toggle('active',open);
+    toggle.setAttribute('aria-expanded',String(open));
+  });
+  nav.addEventListener('click',event=>{
+    if(event.target.closest('a'))closeMenu();
+  });
+})();
+</script>
 <script id="elven-unified-mobile-navigation-script">
 (()=>{
   const navs=['.header .nav','.site-header .main-nav','.masthead .primary-nav'];
