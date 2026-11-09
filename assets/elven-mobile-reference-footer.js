@@ -7,7 +7,7 @@
   var arrowIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 18-6-6 6-6"/></svg>';
   var brandIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/><path d="M12 21V11"/><path d="M9 14l3-3 3 3"/></svg>';
   function init(){
-    document.querySelectorAll('footer.site-footer, footer.site-foot.contact-page-expanded-footer').forEach(function(footer){
+    document.querySelectorAll('footer.site-footer, footer.site-foot.contact-page-expanded-footer, footer.catalog-contact-footer').forEach(function(footer){
       if(footer.classList.contains('has-elven-mobile-reference-footer'))return;
       var panel=document.createElement('section');
       panel.className='elven-mobile-reference-footer';
