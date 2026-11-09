@@ -4332,16 +4332,6 @@
   }
 }
 </style>
-
-<style id="yeast-main-menu-fixed-viewport">
-/* Keep the main mobile drawer attached to the viewport while the page is scrolled. */
-@media(max-width:768px){
-  body>#primaryNav.yeast-main-menu-portal{position:fixed!important;inset:0 0 0 auto!important;width:min(82vw,340px)!important;height:100vh!important;height:100dvh!important;max-height:100dvh!important;box-sizing:border-box!important;z-index:2147483647!important;overflow-y:auto!important;overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important}
-  body>#primaryNav.yeast-main-menu-portal.mobile-open{position:fixed!important;transform:translate3d(0,0,0)!important}
-  body>button.mobile-menu-backdrop.yeast-main-menu-portal{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;z-index:2147483646!important}
-  body.menu-drawer-open{overflow:hidden!important;overscroll-behavior:none!important}
-}
-</style>
 </head>
 <body>
 
@@ -6432,43 +6422,39 @@
 
 
 <script>
-/* Portal the main mobile drawer to body so it stays fixed to the viewport during page scroll. */
+/* Reliable standalone mobile drawer controller (independent of page scripts). */
 (function(){
- function initMobileDrawer(){
-  const toggle=document.querySelector('.mobile-toggle[data-menu]');
-  const drawer=document.getElementById('primaryNav');
-  const backdrop=document.querySelector('.mobile-menu-backdrop');
-  if(!toggle||!drawer||!backdrop||toggle.dataset.drawerReady==='true')return;
-  toggle.dataset.drawerReady='true';
-  const drawerHome=document.createComment('yeast-main-nav-original-position');
-  const backdropHome=document.createComment('yeast-main-backdrop-original-position');
-  drawer.parentNode.insertBefore(drawerHome,drawer);
-  backdrop.parentNode.insertBefore(backdropHome,backdrop);
-  const isMobile=()=>window.matchMedia('(max-width:768px)').matches;
-  const restore=(node,placeholder)=>{if(placeholder.parentNode)placeholder.parentNode.insertBefore(node,placeholder.nextSibling)};
-  const close=()=>{
-   drawer.classList.remove('mobile-open','yeast-main-menu-portal');
-   backdrop.classList.remove('is-visible','yeast-main-menu-portal');
-   toggle.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');
-   document.body.classList.remove('menu-drawer-open');
-   restore(drawer,drawerHome);restore(backdrop,backdropHome);
-  };
-  const open=()=>{
-   if(isMobile()){
-    document.body.appendChild(backdrop);document.body.appendChild(drawer);
-    backdrop.classList.add('yeast-main-menu-portal');drawer.classList.add('yeast-main-menu-portal');
-   }
-   drawer.classList.add('mobile-open');backdrop.classList.add('is-visible');
-   toggle.classList.add('is-open');toggle.setAttribute('aria-expanded','true');
-   document.body.classList.add('menu-drawer-open');
-  };
-  toggle.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();event.stopImmediatePropagation();drawer.classList.contains('mobile-open')?close():open()},true);
-  backdrop.addEventListener('click',close);
-  drawer.querySelectorAll('a').forEach(link=>link.addEventListener('click',close));
-  document.addEventListener('keydown',event=>{if(event.key==='Escape')close()});
-  window.addEventListener('resize',()=>{if(!isMobile()&&drawer.classList.contains('mobile-open'))close()});
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMobileDrawer,{once:true});else initMobileDrawer();
+  function initMobileDrawer(){
+    const toggle=document.querySelector(".mobile-toggle[data-menu]");
+    const drawer=document.getElementById("primaryNav");
+    const backdrop=document.querySelector(".mobile-menu-backdrop");
+    if(!toggle||!drawer||!backdrop||toggle.dataset.drawerReady==="true") return;
+    toggle.dataset.drawerReady="true";
+    const close=()=>{
+      drawer.classList.remove("mobile-open");
+      backdrop.classList.remove("is-visible");
+      toggle.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded","false");
+      document.body.classList.remove("menu-drawer-open");
+    };
+    const open=()=>{
+      drawer.classList.add("mobile-open");
+      backdrop.classList.add("is-visible");
+      toggle.classList.add("is-open");
+      toggle.setAttribute("aria-expanded","true");
+      document.body.classList.add("menu-drawer-open");
+    };
+    toggle.addEventListener("click",function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      drawer.classList.contains("mobile-open")?close():open();
+    },true);
+    backdrop.addEventListener("click",close);
+    drawer.querySelectorAll("a").forEach(link=>link.addEventListener("click",close));
+    document.addEventListener("keydown",event=>{if(event.key==="Escape")close()});
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initMobileDrawer);
+  else initMobileDrawer();
 })();
 </script>
 </body>
