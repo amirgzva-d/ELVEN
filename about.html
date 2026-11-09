@@ -1747,6 +1747,144 @@ body.mh-about-page{background:#f3f7f3}
   .header .nav,.site-header .main-nav,.masthead .primary-nav{width:min(86vw,320px)!important;padding-right:18px!important;padding-left:18px!important}
 }
 </style>
+
+<style id="mh-about-clean-opening">
+/* A clean editorial opening replaces the former image/stat-heavy hero.
+   Scoped to the About page; the founders, journey, footer and shared site shell remain unchanged. */
+.mh-about-page .mh-story-hero.mh-about-intro {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(150px, 13vw, 188px) 0 clamp(66px, 7vw, 92px);
+  color: #f9fffb;
+  background:
+    radial-gradient(ellipse at 8% 12%, rgba(28,150,110,.25), transparent 42%),
+    linear-gradient(128deg, #032c22 8%, #063e30 60%, #0c6047 100%);
+}
+.mh-about-page .mh-story-hero.mh-about-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    linear-gradient(90deg, transparent 98%, rgba(246,217,156,.16) 100%),
+    linear-gradient(0deg, transparent 98%, rgba(246,217,156,.16) 100%);
+  background-size: 76px 76px;
+  mask-image: linear-gradient(90deg, transparent, #000 38%, transparent 100%);
+}
+.mh-about-page .mh-story-hero.mh-about-intro::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(42vw, 520px);
+  aspect-ratio: 1;
+  right: -250px;
+  bottom: -390px;
+  border: 1px solid rgba(218,181,106,.22);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 55px rgba(218,181,106,.035),
+    0 0 0 115px rgba(218,181,106,.023);
+  pointer-events: none;
+}
+.mh-about-page .mh-about-intro-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(30px, 5.2vw, 82px);
+}
+.mh-about-page .mh-about-intro-heading {
+  min-width: 0;
+}
+.mh-about-page .mh-about-intro-heading .mh-story-overline {
+  margin-bottom: 20px;
+}
+.mh-about-page .mh-about-intro-heading h1 {
+  max-width: 650px;
+  margin: 0;
+  color: #f9fffb;
+  font-size: clamp(34px, 4.15vw, 58px);
+  font-weight: 900;
+  line-height: 1.55;
+  letter-spacing: -.9px;
+}
+.mh-about-page .mh-about-intro-heading h1 em {
+  color: #e3bd76;
+  font-style: normal;
+}
+.mh-about-page .mh-about-intro-copy {
+  min-width: 0;
+  padding-right: clamp(24px, 3.2vw, 48px);
+  border-right: 1px solid rgba(227,189,118,.34);
+}
+.mh-about-page .mh-about-intro-copy .mh-story-lead {
+  max-width: 720px;
+  margin: 0 0 18px;
+  color: #e5f0e9;
+  font-size: clamp(14px, 1.15vw, 16px);
+  line-height: 2.25;
+}
+.mh-about-page .mh-about-intro-copy .mh-story-intro-extra {
+  max-width: 720px;
+  margin: 0;
+  color: #bfd8ca;
+  font-size: clamp(12px, 1vw, 13.5px);
+  line-height: 2.25;
+}
+.mh-about-page .mh-story-founders {
+  scroll-margin-top: 84px;
+}
+@media (max-width: 780px) {
+  .mh-about-page .mh-story-hero.mh-about-intro {
+    padding: 112px 0 48px;
+  }
+  .mh-about-page .mh-about-intro-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .mh-about-page .mh-about-intro-heading .mh-story-overline {
+    margin-bottom: 13px;
+    font-size: 10px;
+  }
+  .mh-about-page .mh-about-intro-heading h1 {
+    max-width: 560px;
+    font-size: clamp(27px, 7vw, 36px);
+    line-height: 1.6;
+    letter-spacing: -.55px;
+  }
+  .mh-about-page .mh-about-intro-copy {
+    padding: 0;
+    border: 0;
+    border-top: 1px solid rgba(227,189,118,.28);
+    padding-top: 15px;
+  }
+  .mh-about-page .mh-about-intro-copy .mh-story-lead {
+    margin-bottom: 11px;
+    font-size: 12.5px;
+    line-height: 2.15;
+  }
+  .mh-about-page .mh-about-intro-copy .mh-story-intro-extra {
+    font-size: 11.8px;
+    line-height: 2.1;
+  }
+  .mh-about-page .mh-story-founders {
+    padding-top: 48px;
+  }
+}
+@media (max-width: 380px) {
+  .mh-about-page .mh-story-hero.mh-about-intro {
+    padding-top: 104px;
+  }
+  .mh-about-page .mh-about-intro-heading h1 {
+    font-size: 26px;
+  }
+}
+</style>
+
 </head>
 <body class="mh-about-page">
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -1788,32 +1926,20 @@ body.mh-about-page{background:#f3f7f3}
 </header>
 <main id="mainContent">
 <section class="about mh-story" id="about" dir="rtl" aria-labelledby="mhStoryTitle">
-  <div class="mh-story-hero">
-    <div class="mh-story-shell">
-      <div class="mh-story-hero-grid">
-        <div class="mh-story-hero-copy" data-mh-reveal>
-          <span class="mh-story-overline">درباره گروه بین‌المللی بازرگانی مهاجر</span>
-          <h2 id="mhStoryTitle">ساخته‌شده بر پایه <em>تجربه</em>؛ پیش‌رو با <em>اعتماد</em></h2>
-          <p class="mh-story-lead">با بیش از هفت دهه سابقه در تجارت و صادرات، گروه بین‌المللی بازرگانی مهاجر از مجموعه‌های باسابقه خراسان رضوی است که با تکیه بر اعتماد شرکای تجاری، مسیر همکاری با بازارهای جهانی را گسترش داده است.</p>
-          <p class="mh-story-intro-extra">در بخش مواد غذایی، تمرکز ما بر تأمین محصولات ایرانی، کنترل کیفیت و هماهنگی صادرات برای مشتریان و شرکای تجاری بین‌المللی است؛ مسیری که بر تجربه نسل‌های مختلف این خانواده تجاری استوار شده است.</p>
-          <div class="mh-story-actions">
-            <a class="mh-story-primary" href="#mhStoryJourney">داستان و تاریخچه ما <span aria-hidden="true">←</span></a>
-            <a class="mh-story-secondary" href="contact.html">شروع همکاری با ما <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div class="mh-story-visual" data-mh-reveal>
-          <div class="mh-story-image-main"><img src="assets/about-export-warehouse.webp" alt="انبار و آماده‌سازی محصولات غذایی برای صادرات" loading="lazy" decoding="async"></div>
-          <div class="mh-story-image-small"><img src="assets/about-quality-inspection.webp" alt="کنترل کیفیت و بسته‌بندی محصولات غذایی صادراتی" loading="lazy" decoding="async"></div>
-          <div class="mh-story-since" aria-label="آغاز فعالیت تجاری از سال ۱۳۳۰"><strong>۱۳۳۰</strong><span>آغاز مسیر</span></div>
-        </div>
+  <div class="mh-story-hero mh-about-intro">
+  <div class="mh-story-shell">
+    <div class="mh-about-intro-grid">
+      <div class="mh-about-intro-heading" data-mh-reveal>
+        <span class="mh-story-overline">درباره گروه بین‌المللی بازرگانی مهاجر</span>
+        <h1 id="mhStoryTitle">ساخته‌شده بر پایه <em>تجربه</em>؛ پیش‌رو با <em>اعتماد</em></h1>
       </div>
-      <div class="mh-story-statbar" aria-label="نقاط عطف تاریخچه بازرگانی مهاجر">
-        <div class="mh-story-stat" data-mh-reveal><strong>۱۳۳۰</strong><span>شروع فعالیت‌های تجاری مجموعه</span></div>
-        <div class="mh-story-stat" data-mh-reveal><strong>۱۳۷۴</strong><span>توسعه صادرات با محوریت مواد غذایی</span></div>
-        <div class="mh-story-stat" data-mh-reveal><strong>۷۰+ سال</strong><span>پشتوانه تجربه در تجارت و بازرگانی</span></div>
+      <div class="mh-about-intro-copy" data-mh-reveal>
+        <p class="mh-story-lead">با بیش از هفت دهه سابقه در تجارت و صادرات، گروه بین‌المللی بازرگانی مهاجر از مجموعه‌های باسابقه خراسان رضوی است که با تکیه بر اعتماد شرکای تجاری، مسیر همکاری با بازارهای جهانی را گسترش داده است.</p>
+        <p class="mh-story-intro-extra">در بخش مواد غذایی، تمرکز ما بر تأمین محصولات ایرانی، کنترل کیفیت و هماهنگی صادرات برای مشتریان و شرکای تجاری بین‌المللی است؛ مسیری که بر تجربه نسل‌های مختلف این خانواده تجاری استوار شده است.</p>
       </div>
     </div>
   </div>
+</div>
 
   <div class="mh-story-founders" id="mhStoryFounders">
     <div class="mh-story-shell">
