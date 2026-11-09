@@ -1885,6 +1885,88 @@ body.mh-about-page{background:#f3f7f3}
 }
 </style>
 
+
+<style id="mh-about-mobile-intro-polish">
+/* Mobile-only refinement for the opening About section. Desktop and later sections stay unchanged. */
+@media (max-width: 780px) {
+  .mh-about-page .mh-story-hero.mh-about-intro {
+    padding: 104px 0 40px;
+  }
+  .mh-about-page .mh-about-intro-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+  .mh-about-page .mh-about-intro-heading,
+  .mh-about-page .mh-about-intro-copy {
+    min-width: 0;
+    width: 100%;
+  }
+  .mh-about-page .mh-about-intro-heading .mh-story-overline {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 12px;
+    padding: 7px 11px;
+    border: 1px solid rgba(227,189,118,.27);
+    border-radius: 999px;
+    background: rgba(255,255,255,.055);
+    color: #e3bd76;
+    font-size: 10px;
+    line-height: 1.7;
+    letter-spacing: 0;
+  }
+  .mh-about-page .mh-about-intro-heading h1 {
+    max-width: 100%;
+    margin: 0;
+    font-size: clamp(28px, 8vw, 34px);
+    line-height: 1.48;
+    letter-spacing: -.45px;
+    text-wrap: pretty;
+  }
+  .mh-about-page .mh-about-intro-copy {
+    padding: 14px 15px 15px;
+    border: 1px solid rgba(227,189,118,.16);
+    border-right: 2px solid #c9a35a;
+    border-radius: 13px;
+    background: rgba(255,255,255,.045);
+  }
+  .mh-about-page .mh-about-intro-copy .mh-story-lead {
+    max-width: none;
+    margin: 0 0 9px;
+    color: #edf5ef;
+    font-size: clamp(13px, 3.55vw, 14px);
+    line-height: 2.05;
+    text-align: right;
+  }
+  .mh-about-page .mh-about-intro-copy .mh-story-intro-extra {
+    max-width: none;
+    margin: 0;
+    color: #c8ded1;
+    font-size: clamp(12px, 3.25vw, 12.8px);
+    line-height: 2;
+    text-align: right;
+  }
+}
+@media (max-width: 380px) {
+  .mh-about-page .mh-story-hero.mh-about-intro {
+    padding-top: 98px;
+    padding-bottom: 34px;
+  }
+  .mh-about-page .mh-about-intro-grid {
+    gap: 17px;
+  }
+  .mh-about-page .mh-about-intro-heading h1 {
+    font-size: 27px;
+    line-height: 1.5;
+  }
+  .mh-about-page .mh-about-intro-copy {
+    padding: 12px 13px 13px;
+  }
+}
+</style>
+
 </head>
 <body class="mh-about-page">
 <div class="scroll-progress" id="scrollProgress"></div>
