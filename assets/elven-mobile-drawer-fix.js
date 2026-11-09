@@ -54,7 +54,7 @@
       if (event.cancelable) event.preventDefault();
       event.stopImmediatePropagation();
     }
-    document.addEventListener('click', function (event) {
+    window.addEventListener('click', function (event) {
       var target = event.target;
       if (target && target.nodeType !== 1) target = target.parentElement;
       if (!target || typeof target.closest !== 'function') return;
@@ -78,7 +78,7 @@
       stopHandledClick(event);
       closeMenu(false);
     }, true);
-    document.addEventListener('keydown', function (event) {
+    window.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && isOpen()) {
         event.preventDefault();
         event.stopImmediatePropagation();
