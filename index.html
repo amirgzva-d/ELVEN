@@ -2554,6 +2554,60 @@ img{max-width:100%;display:block}
   }
 }
 </style>
+
+<style id="desktop-header-contact-fix">
+/* Desktop navigation/contact link alignment fix */
+@media (min-width:769px){
+  #siteHeader{
+    display:flex!important;
+    align-items:center!important;
+    flex-wrap:nowrap!important;
+    gap:clamp(12px,1.4vw,24px)!important;
+    padding-inline:clamp(18px,2.6vw,42px)!important;
+  }
+  #siteHeader .brand{flex:0 0 auto!important;min-width:max-content!important}
+  #siteHeader .nav{
+    display:flex!important;
+    flex:1 1 auto!important;
+    min-width:0!important;
+    margin:0!important;
+    justify-content:center!important;
+    align-items:center!important;
+    gap:clamp(12px,1.55vw,24px)!important;
+    white-space:nowrap!important;
+  }
+  #siteHeader .nav a{
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+    font-size:clamp(12px,1.05vw,14px)!important;
+    padding:8px 1px!important;
+    line-height:1.5!important;
+  }
+  #siteHeader .header-actions{
+    flex:0 0 auto!important;
+    margin:0!important;
+    gap:0!important;
+  }
+  #siteHeader .cta-quote{
+    white-space:nowrap!important;
+    padding:10px clamp(12px,1.25vw,20px)!important;
+    font-size:clamp(11px,.95vw,13px)!important;
+    gap:7px!important;
+  }
+  #siteHeader .mobile-toggle{display:none!important}
+}
+@media (min-width:769px) and (max-width:1050px){
+  #siteHeader{padding-inline:14px!important;gap:10px!important}
+  #siteHeader .brand{gap:8px!important}
+  #siteHeader .brand-mark{width:36px!important;height:36px!important}
+  #siteHeader .brand-text strong{font-size:14px!important}
+  #siteHeader .brand-text small{font-size:6px!important;letter-spacing:1.3px!important}
+  #siteHeader .nav{gap:10px!important}
+  #siteHeader .nav a{font-size:11.5px!important}
+  #siteHeader .cta-quote{padding:8px 10px!important;font-size:10.5px!important}
+  #siteHeader .cta-quote svg{width:12px!important;height:12px!important}
+}
+</style>
 </head>
 <body>
 
