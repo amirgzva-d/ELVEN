@@ -4313,6 +4313,25 @@
   }
 }
 </style>
+
+<style id="yeast-mobile-menu-top-layer-fix">
+/* Keep the yeast page mobile drawer above the header and every page section, matching the other product pages. */
+@media(max-width:768px){
+  #siteHeader.header{
+    z-index:2147483647!important;
+    isolation:auto!important;
+  }
+  #siteHeader.header .nav{
+    z-index:2147483647!important;
+  }
+  #siteHeader.header .mobile-menu-backdrop{
+    z-index:2147483646!important;
+  }
+  #siteHeader.header .mobile-toggle{
+    z-index:2147483647!important;
+  }
+}
+</style>
 </head>
 <body>
 
