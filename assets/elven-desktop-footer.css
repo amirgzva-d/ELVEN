@@ -1,0 +1,334 @@
+/* ELVEN — shared desktop footer layout, based on the approved yeast-page footer.
+   Geometry is unified; each page keeps its existing footer background and text palette. */
+@media (min-width: 901px) {
+  footer.site-footer {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 60px 40px 22px !important;
+    position: relative !important;
+  }
+
+  footer.site-footer > .footer-container {
+    position: relative !important;
+    z-index: 1 !important;
+    display: grid !important;
+    grid-template-columns: 1.6fr 1fr 1.1fr 1.3fr !important;
+    align-items: start !important;
+    gap: 56px !important;
+    width: min(1400px, 100%) !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 0 0 38px !important;
+    box-sizing: border-box !important;
+  }
+
+  footer.site-footer .footer-brand-block {
+    display: block !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    min-width: 0 !important;
+    grid-column: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    text-align: right !important;
+  }
+
+  footer.site-footer .footer-logo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 13px !important;
+    margin: 0 0 16px !important;
+  }
+
+  footer.site-footer .footer-logo-mark {
+    flex: 0 0 48px !important;
+    width: 48px !important;
+    min-width: 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+
+  footer.site-footer .footer-logo-mark svg {
+    display: block !important;
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  footer.site-footer .footer-brand-block p {
+    max-width: 340px !important;
+    margin: 0 !important;
+    line-height: 2 !important;
+    text-align: right !important;
+  }
+
+  footer.site-footer .footer-col {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    grid-column: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    text-align: right !important;
+  }
+
+  footer.site-footer .footer-col h4 {
+    position: relative !important;
+    margin: 0 0 20px !important;
+    padding: 0 0 12px !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    line-height: 1.7 !important;
+  }
+
+  footer.site-footer .footer-col h4::after {
+    content: "" !important;
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 32px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background: linear-gradient(90deg, #c9a35a, transparent) !important;
+  }
+
+  footer.site-footer .footer-col ul {
+    display: block !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  footer.site-footer .footer-col li {
+    display: block !important;
+    margin: 0 0 13px !important;
+    padding: 0 !important;
+  }
+
+  footer.site-footer .footer-contact-item {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 0 16px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    text-align: right !important;
+  }
+
+  footer.site-footer .footer-contact-item--phone > .footer-whatsapp-contact {
+    display: none !important;
+  }
+
+  footer.site-footer .footer-contact-item > div {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: right !important;
+  }
+
+  footer.site-footer .footer-contact-item div strong {
+    display: block !important;
+    margin: 0 !important;
+    line-height: 1.7 !important;
+    direction: ltr !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+  }
+
+  footer.site-footer .footer-contact-item div small {
+    display: block !important;
+    margin-top: 3px !important;
+    line-height: 1.7 !important;
+    text-align: right !important;
+  }
+
+  footer.site-footer .footer-social-links {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    direction: rtl !important;
+    width: 100% !important;
+    max-width: none !important;
+    gap: 8px !important;
+    margin: 16px 0 0 !important;
+    padding: 14px 0 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255,255,255,.18) !important;
+    background: transparent !important;
+  }
+
+  footer.site-footer .footer-social-caption {
+    display: block !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    margin: 0 0 3px !important;
+    padding: 0 !important;
+    text-align: right !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+  }
+
+  footer.site-footer .footer-social-links > .footer-social-link,
+  footer.site-footer .footer-social-links > a.footer-social-link {
+    display: inline-flex !important;
+    flex: 0 0 34px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+    color: var(--green, #087c52) !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+    overflow: visible !important;
+  }
+
+  footer.site-footer .footer-social-links > .footer-social-link svg {
+    display: block !important;
+    flex: 0 0 19px !important;
+    width: 19px !important;
+    min-width: 19px !important;
+    max-width: 19px !important;
+    height: 19px !important;
+    min-height: 19px !important;
+    max-height: 19px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+    overflow: visible !important;
+  }
+
+  footer.site-footer .footer-social-links .footer-social-link--whatsapp svg path:first-child {
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.9 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  footer.site-footer .footer-social-links .footer-social-link--whatsapp svg path:last-child {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+    stroke-width: .5 !important;
+  }
+
+  footer.site-footer .footer-social-links .footer-social-link--instagram svg {
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 2.1 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  footer.site-footer .footer-social-links .footer-social-link--instagram svg circle:last-child {
+    fill: currentColor !important;
+    stroke: none !important;
+  }
+
+  footer.site-footer .footer-social-links .footer-social-link--linkedin svg,
+  footer.site-footer .footer-social-links .footer-social-link--linkedin svg path,
+  footer.site-footer .footer-social-links .footer-social-link--linkedin svg rect,
+  footer.site-footer .footer-social-links .footer-social-link--linkedin svg circle {
+    fill: currentColor !important;
+    stroke: none !important;
+  }
+
+  footer.site-footer > .footer-bottom {
+    position: relative !important;
+    z-index: 1 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+    width: min(1400px, 100%) !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 22px 0 0 !important;
+    text-align: right !important;
+  }
+
+  footer.site-footer .back-top,
+  footer.site-footer + .back-top {
+    display: grid !important;
+  }
+
+  .elven-desktop-back-top {
+    position: fixed !important;
+    z-index: 950 !important;
+    left: 26px !important;
+    bottom: 26px !important;
+    display: grid !important;
+    place-items: center !important;
+    width: 52px !important;
+    height: 52px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: var(--green, #0a5c46) !important;
+    color: #fff !important;
+    box-shadow: 0 16px 34px rgba(10,92,70,.28) !important;
+    cursor: pointer !important;
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+    pointer-events: none !important;
+    transition: opacity .25s ease, transform .25s ease !important;
+  }
+
+  .elven-desktop-back-top.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  .elven-desktop-back-top svg {
+    width: 20px !important;
+    height: 20px !important;
+    stroke: currentColor !important;
+    fill: none !important;
+    stroke-width: 2 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  footer.site-footer > .footer-container {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr !important;
+    gap: 40px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  footer.site-footer {
+    padding: 50px 22px 20px !important;
+  }
+}
