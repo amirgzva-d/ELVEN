@@ -4488,6 +4488,118 @@
 }
 </style>
 
+
+<style id="yeast-mobile-menu-toggle-and-blur-final">
+@media (max-width: 900px) {
+  /* The main page header stays below the modal backdrop; its hamburger is portaled above it. */
+  body.menu-drawer-open #siteHeader.header {
+    z-index: 1000 !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  body.menu-drawer-open #siteHeader.header .brand,
+  body.menu-drawer-open #siteHeader.header .header-actions {
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  body > .mobile-toggle.elven-mobile-toggle-portal,
+  body > .pd-mobile-toggle.elven-pd-toggle-portal {
+    position: fixed !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 2147483647 !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    flex: 0 0 42px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid rgba(255,255,255,.2) !important;
+    border-radius: 12px !important;
+    background: #0a5c46 !important;
+    color: #fff !important;
+    box-shadow: 0 8px 24px rgba(5,45,33,.28) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  body > .mobile-toggle.elven-mobile-toggle-portal span,
+  body > .pd-mobile-toggle.elven-pd-toggle-portal span {
+    display: block !important;
+    position: relative !important;
+    width: 20px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background: transparent !important;
+    color: #fff !important;
+    transition: background .25s ease !important;
+  }
+  body > .mobile-toggle.elven-mobile-toggle-portal span::before,
+  body > .mobile-toggle.elven-mobile-toggle-portal span::after,
+  body > .pd-mobile-toggle.elven-pd-toggle-portal span::before,
+  body > .pd-mobile-toggle.elven-pd-toggle-portal span::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background: #fff !important;
+    transform-origin: center !important;
+    transition: transform .32s cubic-bezier(.22,1,.36,1), background .25s ease !important;
+  }
+  body > .mobile-toggle.elven-mobile-toggle-portal span::before,
+  body > .pd-mobile-toggle.elven-pd-toggle-portal span::before {
+    transform: rotate(45deg) !important;
+  }
+  body > .mobile-toggle.elven-mobile-toggle-portal span::after,
+  body > .pd-mobile-toggle.elven-pd-toggle-portal span::after {
+    transform: rotate(-45deg) !important;
+  }
+
+  /* Keep the drawer above the dimmed page but below the persistent close button. */
+  body > #primaryNav.elven-mobile-drawer-portal {
+    z-index: 2147483645 !important;
+  }
+  body > .mobile-menu-backdrop.elven-mobile-backdrop-portal {
+    z-index: 2147483644 !important;
+    background: rgba(7,35,27,.50) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(135%) !important;
+    backdrop-filter: blur(8px) saturate(135%) !important;
+  }
+
+  /* The product-detail drawer uses the same softened, blurred page backdrop. */
+  body > #pdPrimaryNav.elven-pd-menu-portal {
+    z-index: 2147483645 !important;
+  }
+  body > button.pd-menu-backdrop.elven-pd-menu-portal {
+    z-index: 2147483644 !important;
+    background: rgba(7,35,27,.50) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(135%) !important;
+    backdrop-filter: blur(8px) saturate(135%) !important;
+  }
+}
+@media (max-width: 380px) {
+  body > .mobile-toggle.elven-mobile-toggle-portal,
+  body > .pd-mobile-toggle.elven-pd-toggle-portal {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    flex-basis: 40px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -6515,91 +6627,120 @@
 <script id="elven-yeast-card-unified-menu">
 (function(){
   function initYeastCardMenu(){
-    const header=document.getElementById('pdMainHeader');
-    const nav=document.getElementById('pdPrimaryNav');
-    const toggle=header?.querySelector('button[data-pd-menu]');
-    const backdrop=document.querySelector('button.pd-menu-backdrop');
-    if(!header||!nav||!toggle||!backdrop||toggle.dataset.unifiedMenuReady==='2')return;
-    toggle.dataset.unifiedMenuReady='2';
-    const navHome=document.createComment('pd-nav-original-position');
-    const backdropHome=document.createComment('pd-backdrop-original-position');
-    nav.parentNode.insertBefore(navHome,nav);
-    backdrop.parentNode.insertBefore(backdropHome,backdrop);
-    const mobile=()=>window.matchMedia('(max-width:900px)').matches;
-    const restore=(node,placeholder)=>{
-      if(placeholder.parentNode)placeholder.parentNode.insertBefore(node,placeholder.nextSibling);
+    const header = document.getElementById('pdMainHeader');
+    const nav = document.getElementById('pdPrimaryNav');
+    const toggle = header?.querySelector('button[data-pd-menu]');
+    const backdrop = document.querySelector('button.pd-menu-backdrop');
+    if (!header || !nav || !toggle || !backdrop || toggle.dataset.unifiedMenuReady === '3') return;
+
+    toggle.dataset.unifiedMenuReady = '3';
+    const navHome = document.createComment('pd-nav-original-position');
+    const backdropHome = document.createComment('pd-backdrop-original-position');
+    const toggleHome = document.createComment('pd-toggle-original-position');
+    nav.parentNode.insertBefore(navHome, nav);
+    backdrop.parentNode.insertBefore(backdropHome, backdrop);
+    toggle.parentNode.insertBefore(toggleHome, toggle);
+    const originalToggleStyle = toggle.getAttribute('style');
+    const mobile = () => window.matchMedia('(max-width:900px)').matches;
+
+    const restore = (node, placeholder) => {
+      if (placeholder.parentNode) placeholder.parentNode.insertBefore(node, placeholder.nextSibling);
     };
-    const closeMenu=()=>{
-      nav.classList.remove('mobile-open','elven-pd-menu-portal');
-      backdrop.classList.remove('is-visible','elven-pd-menu-portal');
+    const restoreToggle = () => {
+      toggle.classList.remove('elven-pd-toggle-portal');
+      if (originalToggleStyle === null) toggle.removeAttribute('style');
+      else toggle.setAttribute('style', originalToggleStyle);
+      restore(toggle, toggleHome);
+    };
+
+    const closeMenu = () => {
+      nav.classList.remove('mobile-open', 'elven-pd-menu-portal');
+      backdrop.classList.remove('is-visible', 'elven-pd-menu-portal');
       toggle.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'باز کردن منو');
       document.body.classList.remove('pd-menu-open');
-      restore(nav,navHome);
-      restore(backdrop,backdropHome);
+      restore(nav, navHome);
+      restore(backdrop, backdropHome);
+      restoreToggle();
     };
-    const openMenu=()=>{
-      if(mobile()){
+
+    const openMenu = () => {
+      if (mobile()) {
+        const rect = toggle.getBoundingClientRect();
         document.body.appendChild(backdrop);
         document.body.appendChild(nav);
+        document.body.appendChild(toggle);
+        toggle.classList.add('elven-pd-toggle-portal');
+        toggle.style.position = 'fixed';
+        toggle.style.top = rect.top + 'px';
+        toggle.style.right = (window.innerWidth - rect.right) + 'px';
+        toggle.style.left = 'auto';
+        toggle.style.bottom = 'auto';
+        toggle.style.zIndex = '2147483647';
         backdrop.classList.add('elven-pd-menu-portal');
         nav.classList.add('elven-pd-menu-portal');
       }
       backdrop.classList.add('is-visible');
       nav.classList.add('mobile-open');
       toggle.classList.add('is-open');
-      toggle.setAttribute('aria-expanded','true');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'بستن منو');
       document.body.classList.add('pd-menu-open');
     };
-    toggle.addEventListener('click',event=>{
+
+    toggle.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
       event.stopImmediatePropagation();
-      if(nav.classList.contains('mobile-open'))closeMenu();
+      if (nav.classList.contains('mobile-open')) closeMenu();
       else openMenu();
-    },true);
-    backdrop.addEventListener('click',event=>{
+    }, true);
+
+    backdrop.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
       closeMenu();
     });
-    nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
-    document.addEventListener('keydown',event=>{
-      if(event.key==='Escape'&&nav.classList.contains('mobile-open'))closeMenu();
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && nav.classList.contains('mobile-open')) closeMenu();
     });
-    window.addEventListener('resize',()=>{
-      if(!mobile()&&nav.classList.contains('mobile-open'))closeMenu();
-    },{passive:true});
+    window.addEventListener('resize', () => {
+      if (!mobile() && nav.classList.contains('mobile-open')) closeMenu();
+    }, { passive: true });
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initYeastCardMenu,{once:true});
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initYeastCardMenu, { once: true });
   else initYeastCardMenu();
 })();
 </script>
 
 
 <script>
-/* Mobile drawer controller: portal the drawer to <body> and freeze the page behind it. */
+/* Main mobile drawer: keep the animated close button visible above its blurred backdrop. */
 (function(){
   function initMobileDrawer(){
     const toggle = document.querySelector('.mobile-toggle[data-menu]');
     const drawer = document.getElementById('primaryNav');
     const backdrop = document.querySelector('.mobile-menu-backdrop');
-    if (!toggle || !drawer || !backdrop || toggle.dataset.drawerReady === 'viewport-v2') return;
+    if (!toggle || !drawer || !backdrop || toggle.dataset.drawerReady === 'viewport-v3') return;
 
-    toggle.dataset.drawerReady = 'viewport-v2';
+    toggle.dataset.drawerReady = 'viewport-v3';
     const drawerHome = document.createComment('primary-nav-original-position');
     const backdropHome = document.createComment('mobile-backdrop-original-position');
+    const toggleHome = document.createComment('mobile-toggle-original-position');
     drawer.parentNode.insertBefore(drawerHome, drawer);
     backdrop.parentNode.insertBefore(backdropHome, backdrop);
+    toggle.parentNode.insertBefore(toggleHome, toggle);
 
-    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    const originalToggleStyle = toggle.getAttribute('style');
+    const isMobile = () => window.matchMedia('(max-width:768px)').matches;
     let savedScrollY = 0;
     let previousBodyStyles = null;
 
     const restoreNode = (node, placeholder) => {
-      if (placeholder.parentNode) {
-        placeholder.parentNode.insertBefore(node, placeholder.nextSibling);
-      }
+      if (placeholder.parentNode) placeholder.parentNode.insertBefore(node, placeholder.nextSibling);
     };
 
     const lockPageScroll = () => {
@@ -6619,6 +6760,13 @@
       document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
       document.body.classList.add('menu-drawer-open');
+    };
+
+    const restoreToggle = () => {
+      toggle.classList.remove('elven-mobile-toggle-portal');
+      if (originalToggleStyle === null) toggle.removeAttribute('style');
+      else toggle.setAttribute('style', originalToggleStyle);
+      restoreNode(toggle, toggleHome);
     };
 
     const unlockPageScroll = () => {
@@ -6641,20 +6789,32 @@
       backdrop.classList.remove('is-visible', 'elven-mobile-backdrop-portal');
       toggle.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'باز کردن منو');
       restoreNode(drawer, drawerHome);
       restoreNode(backdrop, backdropHome);
+      restoreToggle();
       unlockPageScroll();
     };
 
     const open = () => {
       if (!isMobile()) return;
+      const rect = toggle.getBoundingClientRect();
       lockPageScroll();
       document.body.appendChild(backdrop);
       document.body.appendChild(drawer);
+      document.body.appendChild(toggle);
+      toggle.classList.add('elven-mobile-toggle-portal');
+      toggle.style.position = 'fixed';
+      toggle.style.top = rect.top + 'px';
+      toggle.style.right = (window.innerWidth - rect.right) + 'px';
+      toggle.style.left = 'auto';
+      toggle.style.bottom = 'auto';
+      toggle.style.zIndex = '2147483647';
       backdrop.classList.add('elven-mobile-backdrop-portal', 'is-visible');
       drawer.classList.add('elven-mobile-drawer-portal', 'mobile-open');
       toggle.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'بستن منو');
     };
 
     toggle.addEventListener('click', event => {
@@ -6668,15 +6828,10 @@
       event.preventDefault();
       close();
     });
-
-    drawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', close);
-    });
-
+    drawer.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') close();
     });
-
     window.addEventListener('resize', () => {
       if (!isMobile()) close();
     }, { passive: true });
