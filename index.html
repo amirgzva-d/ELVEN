@@ -2630,6 +2630,155 @@ img{max-width:100%;display:block}
   }
 }
 </style>
+
+<style id="elven-desktop-hero-reference-style">
+/* Desktop hero typography/layout inspired by the supplied reference.
+   Existing hero artwork and all mobile-specific styling are preserved. */
+.hero-btn-label--mobile{display:none!important}
+@media (min-width: 1024px) {
+  .hero .hero-content{
+    right:auto!important;
+    left:clamp(34px,4.8vw,88px)!important;
+    top:50%!important;
+    bottom:auto!important;
+    transform:translateY(-50%)!important;
+    width:min(700px,48vw)!important;
+    max-width:700px!important;
+    text-align:center!important;
+  }
+  .hero .hero-kicker{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:clamp(12px,1.35vw,21px)!important;
+    width:100%!important;
+    margin:0 auto 16px!important;
+    color:#0a4b35!important;
+    font-family:"Vazirmatn",system-ui,sans-serif!important;
+    font-size:clamp(17px,1.45vw,22px)!important;
+    font-weight:850!important;
+    line-height:1.7!important;
+    letter-spacing:0!important;
+    white-space:nowrap!important;
+  }
+  .hero .hero-kicker::before,
+  .hero .hero-kicker::after{
+    content:""!important;
+    display:block!important;
+    flex:1 1 70px!important;
+    max-width:96px!important;
+    height:2px!important;
+    border-radius:3px!important;
+    background:linear-gradient(90deg,transparent,#c99a3c 22%,#d9b35f 78%,transparent)!important;
+    box-shadow:0 1px 5px rgba(180,126,30,.14)!important;
+  }
+  .hero .hero-content h1{
+    width:100%!important;
+    max-width:100%!important;
+    margin:12px auto 17px!important;
+    color:#064b34!important;
+    font-family:"Vazirmatn",system-ui,sans-serif!important;
+    font-size:clamp(45px,4.65vw,73px)!important;
+    font-weight:950!important;
+    line-height:1.32!important;
+    letter-spacing:-1.25px!important;
+    text-align:center!important;
+    text-wrap:balance;
+  }
+  .hero .hero-content h1 em{
+    display:inline-block!important;
+    position:relative!important;
+    padding:0 5px 17px!important;
+    margin-top:2px!important;
+    color:#b47b1b!important;
+    background:none!important;
+    -webkit-background-clip:initial!important;
+    background-clip:initial!important;
+    -webkit-text-fill-color:currentColor!important;
+    font-style:normal!important;
+    font-weight:950!important;
+  }
+  .hero .hero-content h1 em::after{
+    content:""!important;
+    position:absolute!important;
+    left:5%!important;
+    right:5%!important;
+    bottom:5px!important;
+    height:12px!important;
+    border-bottom:4px solid #b98427!important;
+    border-radius:0 0 58% 48%!important;
+    transform:rotate(-3deg)!important;
+    opacity:.96!important;
+  }
+  .hero .hero-lead{
+    width:100%!important;
+    max-width:680px!important;
+    margin:4px auto 0!important;
+    color:#253d32!important;
+    font-family:"Vazirmatn",system-ui,sans-serif!important;
+    font-size:clamp(16px,1.22vw,19px)!important;
+    font-weight:650!important;
+    line-height:2.05!important;
+    text-align:center!important;
+    text-wrap:balance;
+  }
+  .hero .hero-actions{
+    display:flex!important;
+    flex-direction:row!important;
+    justify-content:center!important;
+    align-items:center!important;
+    gap:clamp(14px,1.6vw,24px)!important;
+    width:100%!important;
+    margin:30px auto 0!important;
+  }
+  .hero .hero-actions a{
+    flex:0 1 270px!important;
+    width:270px!important;
+    min-width:220px!important;
+    min-height:72px!important;
+    padding:17px 28px!important;
+    border-radius:999px!important;
+    justify-content:center!important;
+    gap:10px!important;
+    font-family:"Vazirmatn",system-ui,sans-serif!important;
+    font-size:clamp(15px,1.12vw,17px)!important;
+    font-weight:850!important;
+    line-height:1.5!important;
+    box-shadow:0 11px 25px rgba(18,55,38,.18),inset 0 1px 0 rgba(255,255,255,.35)!important;
+    transition:transform .3s ease,box-shadow .3s ease,background .3s ease!important;
+  }
+  .hero .hero-actions .btn-primary{
+    color:#fff!important;
+    border:1px solid rgba(5,83,54,.9)!important;
+    background:linear-gradient(135deg,#087246,#034b32)!important;
+    box-shadow:0 12px 27px rgba(4,83,52,.27),inset 0 1px 0 rgba(255,255,255,.2)!important;
+  }
+  .hero .hero-actions .btn-secondary{
+    color:#684b18!important;
+    border:1.6px solid #c89b43!important;
+    background:rgba(255,248,235,.94)!important;
+    box-shadow:0 10px 24px rgba(143,102,35,.17),inset 0 1px 0 rgba(255,255,255,.9)!important;
+  }
+  .hero .hero-actions a:hover{
+    transform:translateY(-4px)!important;
+    box-shadow:0 17px 34px rgba(18,55,38,.23)!important;
+  }
+  .hero .hero-actions .btn-secondary:hover{
+    background:#fffaf0!important;
+    border-color:#b78329!important;
+  }
+  .hero .hero-actions svg{
+    width:17px!important;
+    height:17px!important;
+    flex:none!important;
+  }
+}
+@media (max-width: 768px) {
+  .hero-btn-label--desktop{display:none!important}
+  .hero-btn-label--mobile{display:inline!important}
+}
+</style>
+
 </head>
 <body>
 
@@ -2703,7 +2852,8 @@ img{max-width:100%;display:block}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a class="btn-secondary" href="contact.html">
-        درخواست قیمت
+        <span class="hero-btn-label--desktop">درخواست مشاوره</span>
+        <span class="hero-btn-label--mobile">درخواست قیمت</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
     </div>
