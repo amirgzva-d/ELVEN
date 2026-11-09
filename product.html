@@ -733,11 +733,13 @@ body.beverages-view .catalog .card-copy .chips{
 <script defer src="assets/elven-desktop-footer.js?v=20261109-desktop-footer-v1"></script>
 <link rel="stylesheet" href="assets/elven-sticky-header.css?v=20261109-sticky-header-v2">
 <style id="elven-product-header-desktop-alignment">
-/* Match the homepage desktop header: quote CTA sits in the left header zone,
-   with the language selector at the far-left edge—not centered in the page. */
+/* Match the homepage header spacing: the quote button and language
+   selector share the left-side header group, with the same generous separation. */
 @media (min-width:851px){
   .site-header .header-actions{
-    width:clamp(320px,27.5vw,520px);
+    width:clamp(460px,31vw,590px);
+    display:flex;
+    align-items:center;
     justify-content:space-between;
     gap:0;
     flex:0 0 auto;
