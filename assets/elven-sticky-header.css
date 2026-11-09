@@ -37,3 +37,35 @@ header.masthead {
     z-index: 1300 !important;
   }
 }
+
+
+/* Product pages: mirror the homepage desktop header distribution.
+   The quote CTA sits inside the flexible actions rail instead of between
+   the navigation and language picker as a fourth centered flex item. */
+@media (min-width: 1151px) {
+  header.site-header {
+    column-gap: clamp(18px, 2vw, 34px) !important;
+  }
+
+  header.site-header .main-nav {
+    margin: 0 0 0 auto !important;
+    gap: clamp(18px, 2vw, 32px) !important;
+    flex-shrink: 0 !important;
+  }
+
+  header.site-header .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    margin-right: clamp(16px, 1.8vw, 30px) !important;
+  }
+
+  header.site-header .header-cta,
+  header.site-header .language-picker {
+    flex-shrink: 0 !important;
+    margin-inline: 0 !important;
+  }
+}
