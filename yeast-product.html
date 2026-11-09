@@ -4600,6 +4600,139 @@
 }
 </style>
 
+
+<style id="yeast-product-view-menu-match-main-mobile">
+/* Product-view navigation uses the exact same drawer geometry as the main mobile navigation. */
+@media (max-width: 900px) {
+  body > #pdPrimaryNav.elven-pd-menu-portal {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: auto !important;
+    width: min(82vw, 340px) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    padding: calc(104px + env(safe-area-inset-top)) 22px calc(28px + env(safe-area-inset-bottom)) !important;
+    box-sizing: border-box !important;
+    border: 0 !important;
+    border-radius: 26px 0 0 26px !important;
+    background: linear-gradient(160deg, #fffdf8 0%, #f4f0e5 100%) !important;
+    box-shadow: -18px 0 55px rgba(7,47,35,.20) !important;
+    direction: rtl !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    z-index: 2147483645 !important;
+  }
+  body > #pdPrimaryNav.elven-pd-menu-portal::before {
+    top: calc(30px + env(safe-area-inset-top)) !important;
+    right: 24px !important;
+  }
+  body > #pdPrimaryNav.elven-pd-menu-portal::after {
+    top: calc(57px + env(safe-area-inset-top)) !important;
+    right: 25px !important;
+  }
+  body > #pdPrimaryNav.elven-pd-menu-portal > a {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    min-height: 58px !important;
+    width: 100% !important;
+    margin: 3px 0 !important;
+    padding: 14px 12px !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(10,92,70,.07) !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.58) !important;
+    color: #344b42 !important;
+    font-family: var(--fa), 'Vazirmatn', Tahoma, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.7 !important;
+    text-align: right !important;
+    text-decoration: none !important;
+  }
+  body > #pdPrimaryNav.elven-pd-menu-portal > a::before {
+    content: "" !important;
+    width: 7px !important;
+    height: 7px !important;
+    flex: 0 0 7px !important;
+    margin-left: 12px !important;
+    border-radius: 50% !important;
+    background: #c49a4a !important;
+    opacity: .75 !important;
+  }
+  body > #pdPrimaryNav.elven-pd-menu-portal > a.active {
+    color: #075c46 !important;
+    border-color: rgba(10,92,70,.18) !important;
+    background: linear-gradient(100deg,rgba(10,92,70,.11),rgba(255,255,255,.82)) !important;
+    box-shadow: inset -3px 0 #0a5c46 !important;
+  }
+  body > button.pd-menu-backdrop.elven-pd-menu-portal {
+    position: fixed !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: rgba(7,35,27,.50) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(135%) !important;
+    backdrop-filter: blur(8px) saturate(135%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: 2147483644 !important;
+  }
+  body > button.pd-menu-backdrop.elven-pd-menu-portal.is-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+  /* Same top-right close-button position and dimensions as the main site header. */
+  body > .pd-mobile-toggle.elven-pd-toggle-portal {
+    position: fixed !important;
+    top: 14px !important;
+    right: 16px !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    flex: 0 0 42px !important;
+    padding: 0 !important;
+    border: 1px solid rgba(10,92,70,.10) !important;
+    border-radius: 12px !important;
+    background: #0a5c46 !important;
+    color: #fff !important;
+    box-shadow: 0 5px 14px rgba(10,58,44,.06) !important;
+    z-index: 2147483647 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+@media (max-width: 380px) {
+  body > #pdPrimaryNav.elven-pd-menu-portal {
+    width: min(86vw, 320px) !important;
+    padding-right: 18px !important;
+    padding-left: 18px !important;
+  }
+  body > .pd-mobile-toggle.elven-pd-toggle-portal {
+    right: 14px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -6667,14 +6800,14 @@
 
     const openMenu = () => {
       if (mobile()) {
-        const rect = toggle.getBoundingClientRect();
         document.body.appendChild(backdrop);
         document.body.appendChild(nav);
         document.body.appendChild(toggle);
         toggle.classList.add('elven-pd-toggle-portal');
         toggle.style.position = 'fixed';
-        toggle.style.top = rect.top + 'px';
-        toggle.style.right = (window.innerWidth - rect.right) + 'px';
+        /* Match the main mobile header: 14px from the top and 16px from the right. */
+        toggle.style.top = '14px';
+        toggle.style.right = '16px';
         toggle.style.left = 'auto';
         toggle.style.bottom = 'auto';
         toggle.style.zIndex = '2147483647';
