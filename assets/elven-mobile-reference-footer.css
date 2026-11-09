@@ -1574,3 +1574,56 @@
     stroke: none !important;
   }
 }
+
+
+/* Catalog pages: share the same mobile footer card while preserving print layout. */
+@media screen and (max-width:768px){
+  footer.catalog-contact-footer.has-elven-mobile-reference-footer{
+    display:block!important;
+    position:relative!important;
+    width:calc(100% - 8px)!important;
+    max-width:none!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    margin:5px auto 7px!important;
+    padding:0!important;
+    overflow:hidden!important;
+    isolation:isolate!important;
+    border:0!important;
+    border-radius:16px!important;
+    color:#fff!important;
+    background:linear-gradient(155deg,#003e2d 0%,#002e22 62%,#003e2c 100%)!important;
+    box-shadow:none!important;
+    text-align:center!important;
+  }
+  footer.catalog-contact-footer.has-elven-mobile-reference-footer::before,
+  footer.catalog-contact-footer.has-elven-mobile-reference-footer::after{display:none!important}
+  footer.catalog-contact-footer.has-elven-mobile-reference-footer > :not(.elven-mobile-reference-footer){display:none!important}
+}
+@media print{
+  footer.catalog-contact-footer.has-elven-mobile-reference-footer{
+    display:flex!important;
+    position:relative!important;
+    width:auto!important;
+    max-width:none!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:10px 34px!important;
+    overflow:visible!important;
+    isolation:auto!important;
+    border:0!important;
+    border-radius:0!important;
+    color:#e6eee7!important;
+    background:var(--deep)!important;
+    box-shadow:none!important;
+    text-align:initial!important;
+    justify-content:space-between!important;
+    gap:8px!important;
+    align-items:center!important;
+    flex-wrap:wrap!important;
+    font:11px 'Poppins',Arial,sans-serif!important;
+  }
+  footer.catalog-contact-footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer{display:none!important}
+  footer.catalog-contact-footer.has-elven-mobile-reference-footer > :not(.elven-mobile-reference-footer){display:revert!important}
+}
+
