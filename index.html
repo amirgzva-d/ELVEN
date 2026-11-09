@@ -3492,13 +3492,24 @@ document.addEventListener("DOMContentLoaded",()=>{
   };
   navLinks.forEach(link=>{
     link.addEventListener("click",e=>{
+      const href=link.getAttribute("href")||"";
       const target=link.dataset.navTarget;
-      if(link.getAttribute("href")==="contact.html" || link.getAttribute("href")==="about.html"){nav?.classList.remove("mobile-open");return;}
-      const section=document.getElementById(target);
-      e.preventDefault();
-      setActiveNav(target);
-      if(section) section.scrollIntoView({behavior:"smooth",block:"start"});
-      nav?.classList.remove("mobile-open");
+      const section=target?document.getElementById(target):null;
+      if(section){
+        e.preventDefault();
+        setActiveNav(target);
+        section.scrollIntoView({behavior:"smooth",block:"start"});
+      }
+      /* Close the complete mobile drawer state, not only its visible panel. */
+      if(window.matchMedia("(max-width: 768px)").matches){
+        const toggle=document.querySelector("[data-menu]");
+        const backdrop=document.querySelector(".mobile-menu-backdrop");
+        nav?.classList.remove("mobile-open");
+        backdrop?.classList.remove("is-visible");
+        toggle?.classList.remove("is-open");
+        toggle?.setAttribute("aria-expanded","false");
+        document.body.classList.remove("menu-drawer-open");
+      }
     });
   });
 
@@ -3556,7 +3567,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     if(event.key==="Escape") closeMobileMenu();
   });
   nav?.querySelectorAll("a").forEach(link=>{
-    link.addEventListener("click",()=>closeMobileMenu());
+    link.addEventListener("click",()=>{
+      if(window.matchMedia("(max-width: 768px)").matches) closeMobileMenu();
+    });
   });
 
   /* Responsive yeast carousel: five supplied phone images, original desktop set retained. */
