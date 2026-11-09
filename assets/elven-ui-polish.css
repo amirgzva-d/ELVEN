@@ -1952,3 +1952,77 @@ svg.ico{flex-shrink:0;vertical-align:middle}
 .about .about-feature div strong{font-size:10.5px!important}
 .about .about-feature div span{font-size:9px!important}
 }
+
+/* MOBILE FOOTER SOCIAL ICON ALIGNMENT — clean white brand glyphs */
+@media (max-width: 768px) {
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 28px !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-links {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 28px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social a.footer-social-link {
+    display: inline-flex !important;
+    flex: 0 0 26px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 26px !important;
+    min-width: 26px !important;
+    max-width: 26px !important;
+    height: 26px !important;
+    min-height: 26px !important;
+    max-height: 26px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    transform: none !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg {
+    display: block !important;
+    flex: 0 0 22px !important;
+    width: 22px !important;
+    min-width: 22px !important;
+    max-width: 22px !important;
+    height: 22px !important;
+    min-height: 22px !important;
+    max-height: 22px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #fff !important;
+    stroke: #fff !important;
+    fill: none !important;
+    overflow: visible !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg path,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg circle,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg rect,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg line,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link svg polyline {
+    stroke: #fff !important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link .social-brand-fill,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--linkedin svg,
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--linkedin svg path {
+    fill: #fff !important;
+    stroke: none !important;
+  }
+}
