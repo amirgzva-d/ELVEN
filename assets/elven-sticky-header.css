@@ -1,0 +1,39 @@
+/* ELVEN — keep the primary site navigation visible while scrolling on every page. */
+header.site-header {
+  position: sticky !important;
+  top: 0 !important;
+  inset-inline: auto !important;
+  z-index: 1200 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  flex-shrink: 0 !important;
+  align-self: stretch !important;
+}
+
+header.header,
+header#siteHeader {
+  position: fixed !important;
+  top: 0 !important;
+  z-index: 1200 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+header.masthead {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1200 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (max-width: 850px) {
+  header.site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1300 !important;
+  }
+}
