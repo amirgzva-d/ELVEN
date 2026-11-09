@@ -65,14 +65,18 @@
         if (isOpen()) closeMenu(false); else openMenu();
         return;
       }
+      /* Always reset the trigger when a menu link is selected.
+         Older page scripts may remove the drawer/body classes first; checking
+         isOpen() before this branch would leave the hamburger stuck as an X. */
+      if (nav.contains(target)) {
+        if (target.closest('a')) closeMenu(false);
+        return;
+      }
+
       if (!isOpen()) return;
       if (target === backdrop || backdrop.contains(target)) {
         stopHandledClick(event);
         closeMenu(false);
-        return;
-      }
-      if (nav.contains(target)) {
-        if (target.closest('a')) closeMenu(false);
         return;
       }
       stopHandledClick(event);
