@@ -190,33 +190,61 @@
 }
 
 
-/* Tablet-only catalog layout: two readable cards per row, featured yeast spans both.
-   Desktop (>1100px) and mobile (<=768px) retain their existing layouts. */
+/* Tablet / foldable landscape catalog layout.
+   Desktop (>1100px) and mobile (<=768px) keep their existing templates.
+   On tablet widths, use the reference composition: 3-column yeast banner
+   plus two regular cards on the first row, then five regular cards below. */
 @media (min-width: 769px) and (max-width: 1100px) {
+  /* Give the product cards the full tablet canvas; the desktop filter rail
+     returns automatically above this breakpoint. */
+  #products .catalog-products-layout {
+    display: block !important;
+    padding-inline-start: 0 !important;
+    min-width: 0 !important;
+  }
+
+  #products .catalog-products-layout > .filters {
+    display: none !important;
+  }
+
+  #products .catalog-products-layout > .catalog-content {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
   #products #categories.category-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 300px;
-    gap: 16px;
-    align-items: stretch;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    grid-auto-rows: 260px !important;
+    grid-auto-flow: row !important;
+    gap: 14px !important;
+    align-items: stretch !important;
   }
 
-  #products #categories > .category-card--featured {
-    grid-column: 1 / -1;
-    grid-row: auto;
-    width: 100%;
-    height: 300px;
-    min-height: 300px;
+  #products #categories > article.category-card--featured {
+    grid-column: span 3 !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    height: 260px !important;
+    min-height: 260px !important;
+    align-self: stretch !important;
   }
 
-  #products #categories > .category-card:not(.category-card--featured) {
-    width: 100%;
-    height: 300px;
-    min-width: 0;
+  #products #categories > article.category-card:not(.category-card--featured) {
+    width: 100% !important;
+    height: 260px !important;
+    min-height: 260px !important;
+    min-width: 0 !important;
+    align-self: stretch !important;
   }
 
-  #products #categories > .category-card:not(.category-card--featured) .category-image {
-    height: 150px;
-    min-height: 150px;
+  #products #categories > article.category-card:not(.category-card--featured) > .category-image {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 3 / 2 !important;
+    flex: 0 0 auto !important;
   }
 }
 
