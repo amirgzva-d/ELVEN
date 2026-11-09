@@ -377,6 +377,14 @@ main{background:#fffaf3}
 @media(max-width:360px){.language-trigger{min-width:88px;padding:0 8px}.language-trigger .language-chevron{display:none}}
 @media(prefers-reduced-motion:reduce){.language-trigger,.language-chevron,.language-menu,.language-option{transition:none!important}}
 </style>
+<style id="elven-language-mobile-drawer-fix">
+@media(max-width:768px){
+ .language-picker.language-in-mobile-menu{display:flex!important;position:relative!important;inset:auto!important;order:99;width:100%!important;justify-content:flex-start!important;align-items:center!important;margin:18px 0 0!important;padding:16px 0 0!important;border-top:1px solid rgba(10,92,70,.12)!important;z-index:5!important}
+ .language-picker.language-in-mobile-menu .language-trigger{height:42px!important;min-width:132px!important;padding:0 14px!important;border-radius:22px!important;font-size:12px!important;box-shadow:0 5px 16px rgba(10,58,44,.08)!important}
+ .language-picker.language-in-mobile-menu .language-menu{top:auto!important;bottom:calc(100% + 8px)!important;right:0!important;left:auto!important;width:190px!important;z-index:1400!important}
+ .language-picker.language-in-mobile-menu .language-chevron{display:block!important}
+}
+</style>
 </head>
 <body>
 
@@ -577,6 +585,31 @@ document.addEventListener("DOMContentLoaded",()=>{
   document.addEventListener("click",event=>{if(!picker.contains(event.target))close()});
   document.addEventListener("keydown",event=>{if(event.key==="Escape")close()});
  });
+});
+</script>
+<script id="elven-language-mobile-drawer-fix-script">
+document.addEventListener("DOMContentLoaded",()=>{
+ const picker=document.getElementById("languagePicker");
+ if(!picker)return;
+ const media=window.matchMedia("(max-width: 768px)");
+ const marker=document.createComment("language-picker-original-position");
+ const parent=picker.parentNode;
+ if(!parent)return;
+ parent.insertBefore(marker,picker);
+ const movePicker=()=>{
+  if(media.matches){
+   const nav=document.querySelector("header .nav, header .main-nav, .site-header .main-nav, #siteNav");
+   if(nav&&!nav.contains(picker)){nav.appendChild(picker);picker.classList.add("language-in-mobile-menu");}
+  }else{
+   if(marker.parentNode&&picker.parentNode!==parent){marker.parentNode.insertBefore(picker,marker.nextSibling);}
+   picker.classList.remove("language-in-mobile-menu");
+   picker.classList.remove("is-open");
+   const trigger=picker.querySelector(".language-trigger");
+   if(trigger)trigger.setAttribute("aria-expanded","false");
+  }
+ };
+ movePicker();
+ if(media.addEventListener)media.addEventListener("change",movePicker);else media.addListener(movePicker);
 });
 </script>
 </body></html>
