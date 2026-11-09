@@ -3378,5 +3378,57 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
+
+<script id="yeast-card-four-image-rotator">
+/* Restore homepage yeast-card image rotation. Keep independent from page layout/CSS. */
+(function(){
+  function init(){
+    const card=document.getElementById("catalog-card-yeast");
+    const frame=card&&card.querySelector(".category-image.featured-slider");
+    const slides=Array.from(frame?frame.querySelectorAll(":scope > img.featured-slide"):[]);
+    if(!frame||slides.length<2||frame.dataset.rotatorReady==="1")return;
+    frame.dataset.rotatorReady="1";
+    let active=Math.max(0,slides.findIndex(img=>img.classList.contains("is-active")));
+    if(active<0)active=0;
+    slides.forEach((img,i)=>{
+      img.classList.toggle("is-active",i===active);
+      img.style.setProperty("opacity",i===active?"1":"0","important");
+      img.style.setProperty("visibility",i===active?"visible":"hidden","important");
+      img.style.setProperty("z-index",i===active?"2":"1","important");
+    });
+    window.setInterval(()=>{
+      if(document.hidden)return;
+      slides[active].classList.remove("is-active");
+      slides[active].style.setProperty("opacity","0","important");
+      slides[active].style.setProperty("visibility","hidden","important");
+      slides[active].style.setProperty("z-index","1","important");
+      active=(active+1)%slides.length;
+      slides[active].classList.add("is-active");
+      slides[active].style.setProperty("opacity","1","important");
+      slides[active].style.setProperty("visibility","visible","important");
+      slides[active].style.setProperty("z-index","2","important");
+    },4000);
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
+})();
+</script>
+<script id="elven-card-click-fallback">
+/* Fallback for click/tap on any product card surface, preserving internal controls. */
+(function(){
+  function init(){
+    const grid=document.getElementById("categories");
+    if(!grid||grid.dataset.cardClickFallback==="1")return;
+    grid.dataset.cardClickFallback="1";
+    grid.addEventListener("click",function(e){
+      const card=e.target.closest(".category-card[data-product]");
+      if(!card||!grid.contains(card)||e.target.closest("a,button,input,select,textarea,label"))return;
+      const href=card.dataset.href||card.querySelector(".product-details-link[href]")?.href;
+      if(href)window.location.assign(href);
+    });
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
+})();
+</script>
+
 </body>
 </html>
