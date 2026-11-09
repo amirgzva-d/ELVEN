@@ -248,3 +248,60 @@
     line-height:1.8!important;
   }
 }
+
+/* Final address icon tile correction: square wrapper prevents SVG stretching. */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:10px!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address > .elven-mobile-reference-address-icon{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    box-sizing:border-box!important;
+    flex:0 0 36px!important;
+    width:36px!important;
+    min-width:36px!important;
+    max-width:36px!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+    margin:0!important;
+    padding:0!important;
+    border:1px solid rgba(0,99,75,.18)!important;
+    border-radius:10px!important;
+    background:#e8f3ed!important;
+    overflow:hidden!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address-icon svg{
+    display:block!important;
+    box-sizing:border-box!important;
+    flex:none!important;
+    width:22px!important;
+    min-width:22px!important;
+    max-width:22px!important;
+    height:22px!important;
+    min-height:22px!important;
+    max-height:22px!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    color:#00634b!important;
+    stroke:#00634b!important;
+    stroke-width:1.9!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address > span:last-child{
+    flex:1 1 auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    text-align:right!important;
+    line-height:1.8!important;
+  }
+}
