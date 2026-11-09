@@ -703,6 +703,24 @@ body.beverages-view .catalog .card-copy .chips{
 }
 </style>
 <link rel="stylesheet" href="assets/elven-mobile-reference-footer.css?v=20261109-unified-footer-v4">
+<style id="elven-language-picker-shared">
+.language-picker{position:relative;flex:0 0 auto;direction:rtl;z-index:1100}
+.language-trigger{height:42px;min-width:112px;padding:0 13px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(201,163,90,.9);border-radius:24px;background:rgba(255,255,255,.94);color:#0a5c46;font:700 12px var(--fa,inherit);cursor:pointer;box-shadow:0 7px 20px rgba(10,58,44,.07);transition:background .25s,border-color .25s,box-shadow .25s,transform .25s;white-space:nowrap}
+.language-trigger:hover,.language-picker.is-open .language-trigger{background:#fff;border-color:#b88b3f;box-shadow:0 10px 26px rgba(10,58,44,.12);transform:translateY(-1px)}
+.language-trigger>svg:first-child{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.language-trigger .language-chevron{width:13px;height:13px;fill:none;stroke:#9a773b;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.language-picker.is-open .language-chevron{transform:rotate(180deg)}
+.language-menu{position:absolute;top:calc(100% + 10px);right:0;width:190px;padding:7px;border:1px solid rgba(201,163,90,.35);border-radius:16px;background:rgba(255,255,255,.98);box-shadow:0 18px 44px rgba(10,58,44,.16);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-7px) scale(.98);transform-origin:top right;transition:opacity .22s,transform .25s,visibility .22s;z-index:1200;backdrop-filter:blur(14px)}
+.language-picker.is-open .language-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0) scale(1)}
+.language-option{width:100%;min-height:40px;padding:7px 9px;border:0;border-radius:10px;background:transparent;display:flex;align-items:center;gap:9px;text-align:right;color:#24483c;font:600 12px var(--fa,inherit);cursor:pointer;transition:background .2s,color .2s}
+.language-option.is-current{background:#eef5ef;color:#0a5c46}.language-option.is-coming{color:#78857f;cursor:not-allowed;opacity:.76}
+.language-option:not(.is-coming):hover{background:#f5f1e7}.language-flag{font-size:17px;line-height:1}.language-status{margin-right:auto;color:#a17c3e;font-size:9px;font-weight:700;white-space:nowrap}.language-option.is-current .language-status{color:#0a5c46}
+.site-header .language-picker{margin-inline:12px}
+.site-header .language-trigger{font-family:inherit}
+@media(max-width:768px){.header-actions{gap:7px!important}.header-actions .language-trigger,.site-header .language-trigger{height:38px;min-width:98px;padding:0 10px;font-size:11px;gap:6px}.language-trigger>svg:first-child{width:16px;height:16px}.language-menu{top:calc(100% + 8px);width:178px}.site-header .language-picker{margin-inline:5px}}
+@media(max-width:360px){.language-trigger{min-width:88px;padding:0 8px}.language-trigger .language-chevron{display:none}}
+@media(prefers-reduced-motion:reduce){.language-trigger,.language-chevron,.language-menu,.language-option{transition:none!important}}
+</style>
 </head>
 <body>
 
@@ -735,6 +753,14 @@ body.beverages-view .catalog .card-copy .chips{
   <a href="index.html#about">درباره ما</a><a href="contact.html">تماس</a>
  </nav>
  <a class="header-cta" href="contact.html">استعلام قیمت <svg class="ico " aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+ <div class="language-picker" id="languagePicker">
+<button class="language-trigger" id="languageTrigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="languageMenu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="language-current">فارسی</span><svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+<div class="language-menu" id="languageMenu" role="menu" aria-label="انتخاب زبان">
+<button type="button" class="language-option is-current" role="menuitemradio" aria-checked="true" data-language="fa"><span class="language-flag">🇮🇷</span><span>فارسی</span><span class="language-status">فعال</span></button>
+<button type="button" class="language-option is-coming" role="menuitem" aria-disabled="true" data-language="en"><span class="language-flag">🇬🇧</span><span>English</span><span class="language-status">به‌زودی</span></button>
+<button type="button" class="language-option is-coming" role="menuitem" aria-disabled="true" data-language="ar"><span class="language-flag">🇸🇦</span><span>العربية</span><span class="language-status">به‌زودی</span></button>
+<button type="button" class="language-option is-coming" role="menuitem" aria-disabled="true" data-language="ru"><span class="language-flag">🇷🇺</span><span>Русский</span><span class="language-status">به‌زودی</span></button>
+</div></div>
  <button id="menuToggle" class="menu-toggle" type="button" aria-label="باز کردن منو" aria-controls="siteNav" aria-expanded="false"><svg class="ico " aria-hidden="true"><use href="#i-bars"></use></svg></button>
 </header>
 <main>
@@ -1056,4 +1082,17 @@ if(cards.length)activate(query==='Beverages & Juices'?cards[0]:cards[1],false);
 })();
 </script>
 <script defer src="assets/elven-mobile-reference-footer.js?v=20261109-unified-footer-v4"></script>
+<script id="elven-language-picker-shared-script">
+document.addEventListener("DOMContentLoaded",()=>{
+ document.querySelectorAll(".language-picker").forEach(picker=>{
+  const trigger=picker.querySelector(".language-trigger"),menu=picker.querySelector(".language-menu");
+  if(!trigger||!menu)return;
+  const close=()=>{picker.classList.remove("is-open");trigger.setAttribute("aria-expanded","false")};
+  trigger.addEventListener("click",()=>{const open=!picker.classList.contains("is-open");picker.classList.toggle("is-open",open);trigger.setAttribute("aria-expanded",String(open))});
+  menu.addEventListener("click",event=>{const option=event.target.closest(".language-option");if(option?.dataset.language==="fa")close()});
+  document.addEventListener("click",event=>{if(!picker.contains(event.target))close()});
+  document.addEventListener("keydown",event=>{if(event.key==="Escape")close()});
+ });
+});
+</script>
 </body></html>
