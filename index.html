@@ -2781,6 +2781,18 @@ img{max-width:100%;display:block}
 }
 </style>
 
+
+<style id="elven-mobile-hero-copy-slightly-larger">
+/* Slightly enlarge only the mobile hero text block; preserve artwork, layout and buttons. */
+@media (max-width:768px){
+  .hero-mobile-kicker{font-size:clamp(12px,3.4vw,15px)!important;}
+  .hero-mobile-copy h2{font-size:clamp(28px,8.1vw,35px)!important;}
+  .hero-mobile-copy p{font-size:clamp(10.5px,3.15vw,13.5px)!important;}
+}
+@media (max-width:480px){
+  .hero-mobile-copy h2{font-size:clamp(27px,8.1vw,35px)!important;}
+}
+</style>
 </head>
 <body>
 
