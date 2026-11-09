@@ -1519,4 +1519,15 @@ document.addEventListener("DOMContentLoaded",()=>{
   }
 }
 </style>
+
+<style id="elven-language-remove-extra-pointer-icon">
+/* Remove the extra decorative pointer added beside the desktop language menu. */
+@media (min-width:851px){
+  .header .language-picker .language-menu::before,
+  .site-header .language-picker .language-menu::before{
+    content:none!important;
+    display:none!important;
+  }
+}
+</style>
 </body></html>
