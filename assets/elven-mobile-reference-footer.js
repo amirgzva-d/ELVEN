@@ -30,7 +30,7 @@
           '<a href="tel:+989155551965">'+phoneIcon+'<bdi dir="ltr">+98 915 555 1965</bdi></a>',
           '<a href="tel:+985137057126">'+phoneIcon+'<bdi dir="ltr">+98 513 705 7126</bdi></a>',
           '<a href="mailto:info@mohajer-food.com">'+mailIcon+'<bdi dir="ltr">info@mohajer-food.com</bdi></a>',
-          '<div class="elven-mobile-reference-address">'+pinIcon+'<span>مشهد، میدان جانباز، پاژ اداری ۲، طبقه ۳، واحد ۳۱۳</span></div>',
+          '<div class="elven-mobile-reference-address"><span class="elven-mobile-reference-address-icon">'+pinIcon+'</span><span>مشهد، میدان جانباز، پاژ اداری ۲، طبقه ۳، واحد ۳۱۳</span></div>',
         '</address>',
         '<div class="elven-mobile-reference-social" aria-label="شبکه‌های اجتماعی"></div>',
         '<div class="elven-mobile-reference-bottom">',
