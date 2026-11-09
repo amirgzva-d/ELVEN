@@ -952,6 +952,87 @@ body{background:#f4f6f8}
 
 
 </style>
+
+<style id="contact-page-desktop-header-fix">
+/* Desktop contact page: restore the full-width white header background and align its navigation. */
+@media (min-width:769px){
+  #siteHeader.header{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    right:0!important;
+    z-index:1000!important;
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:clamp(12px,1.4vw,24px)!important;
+    height:76px!important;
+    padding:0 clamp(18px,2.6vw,42px)!important;
+    background:#fcfbf7!important;
+    -webkit-backdrop-filter:saturate(140%) blur(14px)!important;
+    backdrop-filter:saturate(140%) blur(14px)!important;
+    border-bottom:1px solid #e2e9e4!important;
+    box-shadow:0 5px 22px rgba(10,58,44,.10)!important;
+  }
+  #siteHeader .brand{flex:0 0 auto!important;min-width:max-content!important}
+  #siteHeader .brand-text strong{color:#0a3a2c!important}
+  #siteHeader .brand-text small{color:#6b7c75!important}
+  #siteHeader .nav{
+    display:flex!important;
+    flex:1 1 auto!important;
+    min-width:0!important;
+    margin:0!important;
+    justify-content:center!important;
+    align-items:center!important;
+    gap:clamp(12px,1.55vw,24px)!important;
+    white-space:nowrap!important;
+  }
+  #siteHeader .nav a{
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+    color:#3b4d47!important;
+    font-size:clamp(12px,1.05vw,14px)!important;
+    font-weight:500!important;
+    padding:8px 1px!important;
+    line-height:1.5!important;
+  }
+  #siteHeader .nav a:hover,
+  #siteHeader .nav a.active,
+  #siteHeader .nav a[aria-current="page"]{
+    color:#0a5c46!important;
+  }
+  #siteHeader .nav a.active,
+  #siteHeader .nav a[aria-current="page"]{font-weight:800!important}
+  #siteHeader .nav a.active::after,
+  #siteHeader .nav a[aria-current="page"]::after{
+    content:""!important;
+    position:absolute!important;
+    right:0!important;
+    left:0!important;
+    bottom:0!important;
+    width:100%!important;
+    height:2px!important;
+    background:#0a5c46!important;
+    transform:scaleX(1)!important;
+  }
+  #siteHeader .header-actions{flex:0 0 auto!important;margin:0!important;gap:0!important}
+  #siteHeader .cta-quote{white-space:nowrap!important;padding:10px clamp(12px,1.25vw,20px)!important;font-size:clamp(11px,.95vw,13px)!important;gap:7px!important}
+  #siteHeader .mobile-toggle{display:none!important}
+}
+@media (min-width:769px) and (max-width:1050px){
+  #siteHeader.header{padding-inline:14px!important;gap:10px!important}
+  #siteHeader .brand{gap:8px!important}
+  #siteHeader .brand-mark{width:36px!important;height:36px!important}
+  #siteHeader .brand-text strong{font-size:14px!important}
+  #siteHeader .brand-text small{font-size:6px!important;letter-spacing:1.3px!important}
+  #siteHeader .nav{gap:10px!important}
+  #siteHeader .nav a{font-size:11.5px!important}
+  #siteHeader .cta-quote{padding:8px 10px!important;font-size:10.5px!important}
+  #siteHeader .cta-quote svg{width:12px!important;height:12px!important}
+}
+</style>
+
 </head>
 <body>
 <section class="hero-shell" id="top">
