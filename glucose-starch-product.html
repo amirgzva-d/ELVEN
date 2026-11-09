@@ -1015,4 +1015,26 @@ document.addEventListener("DOMContentLoaded",()=>{
  if(media.addEventListener)media.addEventListener("change",movePicker);else media.addListener(movePicker);
 });
 </script>
+
+<script id="elven-unified-nav-link-close">
+(function(){
+  if(window.__elvenUnifiedNavLinkClose) return;
+  window.__elvenUnifiedNavLinkClose = true;
+  document.addEventListener("click", function(event){
+    const link = event.target.closest("#primaryNav a");
+    if(!link) return;
+    const nav = document.getElementById("primaryNav");
+    const backdrop = document.querySelector(".mobile-menu-backdrop");
+    const toggles = document.querySelectorAll(".mobile-toggle[data-menu], #siteHeader .mobile-toggle, .header .mobile-toggle");
+    nav?.classList.remove("mobile-open", "elven-mobile-drawer-portal");
+    backdrop?.classList.remove("is-visible", "elven-mobile-backdrop-portal");
+    toggles.forEach(toggle => {
+      toggle.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "منو");
+    });
+    document.body.classList.remove("menu-drawer-open", "pd-menu-open");
+  }, true);
+})();
+</script>
 </body></html>
