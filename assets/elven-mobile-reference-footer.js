@@ -47,43 +47,52 @@
         mobileSocial.className='footer-social-links';
         mobileSocial.setAttribute('role','group');
         mobileSocial.setAttribute('aria-label','شبکه‌های اجتماعی');
-        var whatsappSource=originalSocial.querySelector('a[href*="wa.me"],a.footer-social-link--whatsapp');
-        var instagramSource=originalSocial.querySelector('a.footer-social-link--instagram');
-        var linkedinSource=originalSocial.querySelector('.footer-social-link--linkedin');
 
-        if(whatsappSource){
-          var whatsappPrimary=whatsappSource.cloneNode(true);
-          whatsappPrimary.classList.add('footer-social-link--whatsapp','footer-social-link--whatsapp-primary');
-          whatsappPrimary.href='https://wa.me/989153028367';
-          whatsappPrimary.target='_blank';
-          whatsappPrimary.rel='noopener noreferrer';
-          whatsappPrimary.setAttribute('aria-label','واتساپ محمد مهاجری');
-          whatsappPrimary.title='واتساپ محمد مهاجری';
+        var whatsappIcon='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.1 11.7a8.1 8.1 0 0 1-12 7.1L4 20l1.2-4A8.1 8.1 0 1 1 20.1 11.7Z"/><path d="M9 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.5.9 1.3 1.6 2.2 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5 0 .5-.3 1.2-.8 1.5-.5.4-1.1.6-1.8.5-1.1-.2-2.4-.8-3.7-2-1.1-1-2-2.3-2.2-3.4-.2-.9.1-1.7.4-2.1Z"/></svg>';
+        var instagramIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
+        var linkedinIcon='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="4.7" r="1.6" fill="currentColor"/><rect x="3.3" y="9.3" width="3.4" height="11.7" rx=".45" fill="currentColor"/><path d="M10.4 21V9.3h3.4v1.55c.7-1.07 1.8-1.65 3.35-1.65 2.55 0 3.65 1.5 3.65 4.2V21h-3.55v-6.92c0-1.28-.34-1.9-1.44-1.9-1.18 0-2.01.85-2.01 2.3V21z" fill="currentColor"/></svg>';
 
-          var whatsappSecondary=whatsappSource.cloneNode(true);
-          whatsappSecondary.classList.add('footer-social-link--whatsapp','footer-social-link--whatsapp-secondary');
-          whatsappSecondary.href='https://wa.me/989155551965';
-          whatsappSecondary.target='_blank';
-          whatsappSecondary.rel='noopener noreferrer';
-          whatsappSecondary.setAttribute('aria-label','واتساپ علیرضا تهرانی');
-          whatsappSecondary.title='واتساپ علیرضا تهرانی';
+        var whatsappPrimary=document.createElement('a');
+        whatsappPrimary.className='footer-social-link footer-social-link--whatsapp footer-social-link--whatsapp-primary';
+        whatsappPrimary.href='https://wa.me/989153028367';
+        whatsappPrimary.target='_blank';
+        whatsappPrimary.rel='noopener noreferrer';
+        whatsappPrimary.setAttribute('aria-label','واتساپ محمد مهاجری');
+        whatsappPrimary.title='واتساپ محمد مهاجری';
+        whatsappPrimary.innerHTML=whatsappIcon;
 
-          var commonWhatsappIcon='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.1 11.7a8.1 8.1 0 0 1-12 7.1L4 20l1.2-4A8.1 8.1 0 1 1 20.1 11.7Z"/><path d="M9 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.5.9 1.3 1.6 2.2 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5 0 .5-.3 1.2-.8 1.5-.5.4-1.1.6-1.8.5-1.1-.2-2.4-.8-3.7-2-1.1-1-2-2.3-2.2-3.4-.2-.9.1-1.7.4-2.1Z"/></svg>';
-          whatsappPrimary.innerHTML=commonWhatsappIcon;
-          whatsappSecondary.innerHTML=commonWhatsappIcon;
-          mobileSocial.appendChild(whatsappPrimary);
-          mobileSocial.appendChild(whatsappSecondary);
-        }
+        var whatsappSecondary=document.createElement('a');
+        whatsappSecondary.className='footer-social-link footer-social-link--whatsapp footer-social-link--whatsapp-secondary';
+        whatsappSecondary.href='https://wa.me/989155551965';
+        whatsappSecondary.target='_blank';
+        whatsappSecondary.rel='noopener noreferrer';
+        whatsappSecondary.setAttribute('aria-label','واتساپ علیرضا تهرانی');
+        whatsappSecondary.title='واتساپ علیرضا تهرانی';
+        whatsappSecondary.innerHTML=whatsappIcon;
 
-        if(linkedinSource) mobileSocial.appendChild(linkedinSource.cloneNode(true));
-        if(instagramSource){
-          var instagramLink=instagramSource.cloneNode(true);
-          instagramLink.href='https://www.instagram.com/mohajer_trading_group?dlrf=NXNwN2F2NjR3enRj';
-          mobileSocial.appendChild(instagramLink);
-        }
+        var instagramLink=document.createElement('a');
+        instagramLink.className='footer-social-link footer-social-link--instagram';
+        instagramLink.href='https://www.instagram.com/mohajer_trading_group?dlrf=NXNwN2F2NjR3enRj';
+        instagramLink.target='_blank';
+        instagramLink.rel='noopener noreferrer';
+        instagramLink.setAttribute('aria-label','صفحه اینستاگرام بازرگانی مهاجر');
+        instagramLink.title='اینستاگرام';
+        instagramLink.innerHTML=instagramIcon;
 
-        if(mobileSocial.children.length) container.appendChild(mobileSocial);
-        else container.remove();
+        var linkedinLink=document.createElement('span');
+        linkedinLink.className='footer-social-link footer-social-link--linkedin';
+        linkedinLink.setAttribute('role','img');
+        linkedinLink.setAttribute('aria-label','لینکدین؛ آدرس رسمی هنوز ثبت نشده');
+        linkedinLink.title='لینکدین — آدرس رسمی مورد نیاز';
+        linkedinLink.innerHTML=linkedinIcon;
+
+        /* DOM order is reversed by the RTL flex row to match the reference:
+           Instagram, LinkedIn, WhatsApp, WhatsApp from left to right. */
+        mobileSocial.appendChild(whatsappPrimary);
+        mobileSocial.appendChild(whatsappSecondary);
+        mobileSocial.appendChild(linkedinLink);
+        mobileSocial.appendChild(instagramLink);
+        container.appendChild(mobileSocial);
       } else container.remove();
       footer.appendChild(panel);
       footer.classList.add('has-elven-mobile-reference-footer');
