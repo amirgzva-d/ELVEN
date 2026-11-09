@@ -4375,6 +4375,180 @@
   .header .nav,.site-header .main-nav,.masthead .primary-nav{width:min(86vw,320px)!important;padding-right:18px!important;padding-left:18px!important}
 }
 </style>
+
+<style id="yeast-mobile-homepage-drawer-match">
+/* Match the main homepage's right-side mobile navigation drawer.
+   Desktop navigation and the separate product-detail drawer stay unchanged. */
+@media (max-width: 960px) {
+  #siteHeader.header {
+    z-index: 1200 !important;
+    isolation: isolate !important;
+    overflow: visible !important;
+  }
+  #siteHeader.header > .mobile-toggle {
+    position: relative !important;
+    z-index: 1302 !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid rgba(10,92,70,.10) !important;
+    border-radius: 12px !important;
+    background: rgba(10,92,70,.07) !important;
+    color: #0a5c46 !important;
+    box-shadow: 0 5px 14px rgba(10,58,44,.06) !important;
+    cursor: pointer !important;
+  }
+  #siteHeader.header > .mobile-toggle.is-open {
+    background: #0a5c46 !important;
+    color: #fff !important;
+  }
+  #siteHeader.header > .mobile-toggle.is-open span {
+    background: transparent !important;
+  }
+  #siteHeader.header > .mobile-toggle.is-open span:before {
+    top: 0 !important;
+    transform: rotate(45deg) !important;
+  }
+  #siteHeader.header > .mobile-toggle.is-open span:after {
+    top: 0 !important;
+    transform: rotate(-45deg) !important;
+  }
+  html body #siteHeader.header > #primaryNav.nav {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    bottom: 0 !important;
+    width: min(82vw,340px) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 104px 22px 28px !important;
+    box-sizing: border-box !important;
+    border: 0 !important;
+    border-radius: 26px 0 0 26px !important;
+    background: linear-gradient(160deg,#fffdf8 0%,#f4f0e5 100%) !important;
+    box-shadow: -18px 0 55px rgba(7,47,35,.20) !important;
+    transform: translate3d(105%,0,0) !important;
+    opacity: 1 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    z-index: 1300 !important;
+    transition: transform .42s cubic-bezier(.22,1,.36,1),visibility .42s ease !important;
+  }
+  html body #siteHeader.header > #primaryNav.nav:before {
+    content: "بازرگانی مهاجر" !important;
+    position: absolute !important;
+    top: 30px !important;
+    right: 24px !important;
+    color: #0a4a38 !important;
+    font-family: var(--fa) !important;
+    font-size: 19px !important;
+    font-weight: 900 !important;
+    letter-spacing: -.4px !important;
+    display: block !important;
+    pointer-events: none !important;
+  }
+  html body #siteHeader.header > #primaryNav.nav:after {
+    content: "MOHAJER TRADING GROUP" !important;
+    position: absolute !important;
+    top: 57px !important;
+    right: 25px !important;
+    color: #87958d !important;
+    font-family: var(--en) !important;
+    font-size: 8px !important;
+    letter-spacing: 2px !important;
+    display: block !important;
+    pointer-events: none !important;
+  }
+  html body #siteHeader.header > #primaryNav.nav.mobile-open {
+    transform: translate3d(0,0,0) !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+  html body #siteHeader.header > #primaryNav.nav > a {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    min-height: 58px !important;
+    width: 100% !important;
+    padding: 14px 12px !important;
+    margin: 3px 0 !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(10,92,70,.07) !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.58) !important;
+    color: #344b42 !important;
+    font-family: var(--fa) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.7 !important;
+    text-align: right !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+  }
+  html body #siteHeader.header > #primaryNav.nav > a:before {
+    content: "" !important;
+    width: 7px !important;
+    height: 7px !important;
+    flex: 0 0 7px !important;
+    margin-left: 12px !important;
+    border-radius: 50% !important;
+    background: #c49a4a !important;
+    opacity: .75 !important;
+  }
+  html body #siteHeader.header > #primaryNav.nav > a.active {
+    color: #075c46 !important;
+    border-color: rgba(10,92,70,.18) !important;
+    background: linear-gradient(100deg,rgba(10,92,70,.11),rgba(255,255,255,.82)) !important;
+    box-shadow: inset -3px 0 #0a5c46 !important;
+  }
+  html body #siteHeader.header > #primaryNav.nav > a:after {
+    display: none !important;
+    content: none !important;
+  }
+  body.menu-drawer-open {
+    overflow: hidden !important;
+  }
+  body.menu-drawer-open:before {
+    content: "" !important;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 1190 !important;
+    background: rgba(7,35,27,.42) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    backdrop-filter: blur(4px) !important;
+    pointer-events: auto !important;
+  }
+}
+@media (max-width: 380px) {
+  html body #siteHeader.header > #primaryNav.nav {
+    width: min(86vw,320px) !important;
+    padding-right: 18px !important;
+    padding-left: 18px !important;
+  }
+}
+@media (max-width: 960px) and (prefers-reduced-motion: reduce) {
+  html body #siteHeader.header > #primaryNav.nav {
+    transition: none !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -6470,13 +6644,16 @@
   toggle.dataset.mainDrawerReady='1';
   const closeMenu=()=>{
     nav.classList.remove('mobile-open');
-    toggle.classList.remove('active');
+    toggle.classList.remove('active','is-open');
     toggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('menu-drawer-open');
   };
   toggle.addEventListener('click',()=>{
     const open=nav.classList.toggle('mobile-open');
-    toggle.classList.toggle('active',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.classList.remove('active');
     toggle.setAttribute('aria-expanded',String(open));
+    document.body.classList.toggle('menu-drawer-open',open);
   });
   nav.addEventListener('click',event=>{
     if(event.target.closest('a'))closeMenu();
