@@ -1680,7 +1680,7 @@
     padding:0!important;
     color:#fff!important;
     stroke:#fff!important;
-    stroke-width:2.3!important;
+    stroke-width:2.15!important;
     stroke-linecap:round!important;
     stroke-linejoin:round!important;
     fill:none!important;
@@ -1690,15 +1690,15 @@
   footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--whatsapp svg path:first-child{
     fill:none!important;
     stroke:#fff!important;
-    stroke-width:2.3!important;
+    stroke-width:2.15!important;
   }
   footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--whatsapp svg path:last-child{
     fill:#fff!important;
     stroke:#fff!important;
-    stroke-width:.75!important;
+    stroke-width:.7!important;
   }
   footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--instagram svg{
-    stroke-width:2.3!important;
+    stroke-width:2.15!important;
   }
   footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer .elven-mobile-reference-social .footer-social-link--instagram svg circle:last-child{
     fill:#fff!important;
