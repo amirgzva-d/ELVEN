@@ -377,6 +377,7 @@ main>.catalog::after{display:none}
   }
 }
 </style>
+<link rel="stylesheet" href="assets/elven-mobile-navigation.css?v=20261109-home-drawer-v1">
 </head>
 <body>
 
@@ -412,7 +413,7 @@ main>.catalog::after{display:none}
  
  <div class="language-picker" id="languagePicker"><button class="language-trigger" id="languageTrigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="languageMenu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span class="language-current">فارسی</span><svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button><div class="language-menu" id="languageMenu" role="menu" aria-label="انتخاب زبان"><button type="button" class="language-option is-current" role="menuitemradio" aria-checked="true" data-language="fa"><span class="language-flag">🇮🇷</span><span>فارسی</span><span class="language-status">فعال</span></button><button type="button" class="language-option is-coming" role="menuitem" aria-disabled="true" data-language="en"><span class="language-flag">🇬🇧</span><span>English</span><span class="language-status">به‌زودی</span></button><button type="button" class="language-option is-coming" role="menuitem" aria-disabled="true" data-language="ar"><span class="language-flag">🇸🇦</span><span>العربية</span><span class="language-status">به‌زودی</span></button><button type="button" class="language-option is-coming" role="menuitem" aria-disabled="true" data-language="ru"><span class="language-flag">🇷🇺</span><span>Русский</span><span class="language-status">به‌زودی</span></button></div></div>
  </div>
- <button id="menuToggle" class="menu-toggle" type="button" aria-label="باز کردن منو" aria-controls="siteNav" aria-expanded="false"><svg class="ico " aria-hidden="true"><use href="#i-bars"></use></svg></button>
+ <button id="menuToggle" class="menu-toggle mobile-toggle" type="button" aria-label="باز کردن منو" aria-controls="siteNav" aria-expanded="false" data-menu><span></span></button>
 </header>
 <main>
 <section class="hero elven-mobile-portrait-hero elven-category-hero" aria-label="محصولات ماکارونی همرسین" style="--elven-mobile-hero-photo:url('https://res.cloudinary.com/dqhbyqftq/image/upload/v1793597743/%D9%85%DA%AF%D8%A7%D8%B1%D8%A7%D9%86%DB%8C_xzgfvs.png')">
@@ -633,5 +634,5 @@ document.querySelectorAll('.product-card[data-kind]').forEach(card=>{
  },true);
 })();
 </script>
-<script defer src="assets/elven-mobile-drawer-fix.js?v=20261109-outside-close-v1"></script>
+<script defer src="assets/elven-mobile-drawer-fix.js?v=20261109-home-drawer-v2"></script>
 </body></html>
