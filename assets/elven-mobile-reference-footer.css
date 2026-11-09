@@ -214,3 +214,37 @@
     gap:0!important;
   }
 }
+
+/* Location contact icon — crisp pin inside a balanced icon tile, mobile footer only. */
+@media(max-width:768px){
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address{
+    align-items:center!important;
+    gap:10px!important;
+    max-width:100%!important;
+    padding:0 2px!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address svg{
+    display:block!important;
+    box-sizing:border-box!important;
+    flex:0 0 36px!important;
+    width:36px!important;
+    height:36px!important;
+    min-width:36px!important;
+    max-width:36px!important;
+    margin:0!important;
+    padding:7px!important;
+    border:1px solid rgba(255,255,255,.72)!important;
+    border-radius:11px!important;
+    background:#e8f3ed!important;
+    color:#00634b!important;
+    stroke:#00634b!important;
+    stroke-width:1.9!important;
+    overflow:visible!important;
+  }
+  footer.has-elven-mobile-reference-footer .elven-mobile-reference-address span{
+    flex:1 1 auto!important;
+    max-width:none!important;
+    text-align:right!important;
+    line-height:1.8!important;
+  }
+}
