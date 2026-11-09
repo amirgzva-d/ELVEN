@@ -2613,6 +2613,23 @@ img{max-width:100%;display:block}
   background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1794206135/%D8%A7%D8%B5%D9%84%DB%8C_%D9%82%D8%A7%D8%B1%D8%B3%DB%8C_dhboga.webp") !important;
 }
 </style>
+
+<style id="homepage-hero-desktop-only-image">
+/* New supplied artwork is desktop-only. Restore the previous dedicated mobile artwork and keep its existing fit. */
+@media (min-width:769px){
+  .hero .hero-image{
+    background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1794206135/%D8%A7%D8%B5%D9%84%DB%8C_%D9%82%D8%A7%D8%B1%D8%B3%DB%8C_dhboga.webp") !important;
+  }
+}
+@media (max-width:768px){
+  .hero .hero-image{
+    background-image:url("https://res.cloudinary.com/dqhbyqftq/image/upload/v1794122885/2222_wqucl4.png") !important;
+    background-size:cover !important;
+    background-position:center center !important;
+    background-repeat:no-repeat !important;
+  }
+}
+</style>
 </head>
 <body>
 
