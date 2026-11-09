@@ -282,3 +282,144 @@
     margin-top: -8px;
   }
 }
+
+
+/* ============================================================
+   FILTER PANEL STABILITY — 2026-11-09
+   The filter frame has its own predictable size and no longer
+   inherits its height from the currently visible product cards.
+   Hidden products leave the grid flow cleanly and visible cards
+   re-pack into the available grid columns.
+   ============================================================ */
+
+@media (min-width: 769px) {
+  #products .catalog-products-layout {
+    display: grid !important;
+    grid-template-columns: minmax(280px, 300px) minmax(0, 1fr) !important;
+    column-gap: 30px !important;
+    row-gap: 0 !important;
+    align-items: start !important;
+    position: relative !important;
+    padding-inline-start: 0 !important;
+    min-width: 0 !important;
+  }
+
+  #products .catalog-products-layout > .filters {
+    position: sticky !important;
+    inset: auto !important;
+    top: 104px !important;
+    align-self: start !important;
+    width: 100% !important;
+    height: clamp(560px, calc(100vh - 124px), 640px) !important;
+    min-height: 560px !important;
+    max-height: 640px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+  }
+
+  #products .catalog-products-layout > .filters > .filter-title {
+    flex: 0 0 58px !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    box-sizing: border-box !important;
+  }
+
+  #products .catalog-products-layout > .filters > .filter-section {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+    padding: 15px 18px !important;
+    overflow: hidden !important;
+  }
+
+  #products .catalog-products-layout > .filters > .filter-section[data-filter-group="category"] {
+    flex: 6 1 0 !important;
+  }
+
+  #products .catalog-products-layout > .filters > .filter-section[data-filter-group="subcategory"] {
+    flex: 7 1 0 !important;
+  }
+
+  #products .catalog-products-layout > .filters > .filter-section h3 {
+    flex: 0 0 auto !important;
+    min-height: 22px !important;
+    margin: 0 0 10px !important;
+    line-height: 1.6 !important;
+  }
+
+  #products .catalog-products-layout > .filters > .filter-section .filter-options {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    justify-content: space-evenly !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #products .catalog-products-layout > .filters > .filter-section label {
+    flex: 0 0 auto !important;
+    min-height: 29px !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Collapsing an option group never resizes the outside filter frame. */
+  #products .catalog-products-layout > .filters > .filter-section.is-collapsed {
+    flex: 0 0 auto !important;
+  }
+
+  #products .catalog-products-layout > .filters > .filter-section.is-collapsed .filter-options {
+    display: block !important;
+    flex: 0 0 auto !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    margin-top: -8px !important;
+  }
+
+  #products .catalog-products-layout > .catalog-content {
+    width: 100% !important;
+    min-width: 0 !important;
+    align-self: start !important;
+  }
+
+  /* A no-results message spans the full product area. */
+  #products #categories > .empty-state {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  #products .catalog-products-layout {
+    grid-template-columns: minmax(235px, 250px) minmax(0, 1fr) !important;
+    column-gap: 22px !important;
+  }
+}
+
+@media (min-width: 1201px) {
+  #products .catalog-products-layout {
+    grid-template-columns: minmax(290px, 300px) minmax(0, 1fr) !important;
+    column-gap: 30px !important;
+  }
+}
+
+/* display:none removes filtered cards from CSS Grid placement completely;
+   this prevents overlap and blank/occupied grid slots after each selection. */
+#products #categories > .category-card.is-hidden {
+  display: none !important;
+  position: relative !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+#products #categories > .category-card.is-showing {
+  position: relative !important;
+}
