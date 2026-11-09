@@ -358,7 +358,7 @@ main{background:#fffaf3}
   .header .nav,.site-header .main-nav,.masthead .primary-nav{width:min(86vw,320px)!important;padding-right:18px!important;padding-left:18px!important}
 }
 </style>
-<link rel="stylesheet" href="assets/elven-mobile-reference-footer.css?v=20261109-unified-footer-v3">
+<link rel="stylesheet" href="assets/elven-mobile-reference-footer.css?v=20261109-unified-footer-v4">
 </head>
 <body>
 
@@ -519,7 +519,7 @@ toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('is-open')
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false')}));
 const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.body.classList.add('js-ready');const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}},{threshold:.07});items.forEach(el=>observer.observe(el))}
 })();</script>
-<script defer src="assets/elven-ui-polish.js?v=20261109-mobile-footer-unified-v3"></script>
+<script defer src="assets/elven-ui-polish.js?v=20261109-mobile-footer-unified-v4"></script>
 
 <script id="elven-unified-mobile-navigation-script">
 (()=>{
@@ -539,5 +539,5 @@ const items=[...document.querySelectorAll('[data-reveal]')];if('IntersectionObse
   });
 })();
 </script>
-<script defer src="assets/elven-mobile-reference-footer.js?v=20261109-unified-footer-v3"></script>
+<script defer src="assets/elven-mobile-reference-footer.js?v=20261109-unified-footer-v4"></script>
 </body></html>
