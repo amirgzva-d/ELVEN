@@ -1881,4 +1881,14 @@ document.addEventListener("DOMContentLoaded",()=>{
   }
 }
 </style>
+
+<style id="elven-departments-hide-desktop-mobile-backdrop">
+/* The drawer controller creates this empty backdrop button dynamically.
+   It is only needed on phones; keep it out of the desktop header. */
+@media (min-width: 769px) {
+  #siteHeader > .mobile-menu-backdrop {
+    display: none !important;
+  }
+}
+</style>
 </body></html>
