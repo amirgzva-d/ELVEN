@@ -787,6 +787,42 @@ body.beverages-view .catalog .card-copy .chips{
   .site-header>.menu-toggle{display:none!important}
 }
 </style>
+<style id="elven-language-dropdown-centered-desktop">
+/* Desktop language menu: a floating card centered directly below its trigger. */
+@media (min-width:851px){
+  .site-header .language-picker{
+    margin-left:24px!important;
+    margin-right:0!important;
+  }
+  .site-header .language-picker .language-menu{
+    top:calc(100% + 13px)!important;
+    left:50%!important;
+    right:auto!important;
+    width:194px!important;
+    max-width:calc(100vw - 28px)!important;
+    padding:8px!important;
+    border-radius:17px!important;
+    transform:translate(-50%,-8px) scale(.98)!important;
+    transform-origin:top center!important;
+    box-shadow:0 16px 38px rgba(13,43,91,.16)!important;
+  }
+  .site-header .language-picker.is-open .language-menu{
+    transform:translate(-50%,0) scale(1)!important;
+  }
+  .site-header .language-picker .language-menu::before{
+    content:"";
+    position:absolute;
+    top:-6px;
+    left:50%;
+    width:10px;
+    height:10px;
+    background:#fff;
+    border-left:1px solid rgba(201,163,90,.35);
+    border-top:1px solid rgba(201,163,90,.35);
+    transform:translateX(-50%) rotate(45deg);
+  }
+}
+</style>
 </head>
 <body>
 
