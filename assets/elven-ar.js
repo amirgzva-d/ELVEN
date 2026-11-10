@@ -502,6 +502,18 @@
     "شعار پگاه": "شعار بيگاه",
     "پالود": "بالود",
     "شعار پالود": "شعار بالود",
+    "قبلی": "السابق",
+    "بعدی": "التالي",
+    "اوریناک": "أوريناك",
+    "همرسین": "همرسين",
+    "پگاه": "Pegah",
+    "شعار پگاه": "شعار Pegah",
+    "پالود": "Palood",
+    "شعار پالود": "شعار Palood",
+    "لوگوی برند نوشیدنی شماره": "شعار علامة المشروبات رقم",
+    "صفحات اصلی سایت": "الصفحات الرئيسية للموقع",
+    "واتساپ محمد مهاجری": "واتساب محمد مهاجري",
+    "واتساپ علیرضا تهرانی": "واتساب عليرضا تهراني",
   };
   const norm = s => (s || "").replace(/\s+/g, " ").trim();
   function translateNode(node) {
@@ -526,6 +538,7 @@
         const value = el.getAttribute(name), key = norm(value);
         if (Object.prototype.hasOwnProperty.call(A, key)) el.setAttribute(name, A[key]);
         else if (Object.prototype.hasOwnProperty.call(T, key)) el.setAttribute(name, T[key]);
+        else if (key.startsWith("لوگوی برند نوشیدنی شماره ")) el.setAttribute(name, "شعار علامة المشروبات رقم " + key.slice("لوگوی برند نوشیدنی شماره ".length));
       }
     }
   }
