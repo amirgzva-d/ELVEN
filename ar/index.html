@@ -2891,7 +2891,7 @@ img{max-width:100%;display:block}
 <link rel="alternate" hreflang="fa" href="https://mohajer-foodstuff.com/index.html">
 <link rel="alternate" hreflang="ar" href="https://mohajer-foodstuff.com/ar/index.html">
 <link rel="stylesheet" href="../assets/elven-ar.css?v=20261110-ar-v1">
-<script defer src="../assets/elven-language-switch.js?v=20261110-inpage-ar-v11"></script>
+<script defer src="../assets/elven-language-switch.js?v=20261110-inpage-ar-v12"></script>
 <script defer src="../assets/elven-ar.js?v=20261110-ar-v2"></script>
 <link rel="alternate" hreflang="x-default" href="https://mohajer-foodstuff.com/index.html">
 </head>
@@ -3796,18 +3796,33 @@ document.addEventListener("DOMContentLoaded",()=>{
 })();
 </script>
 <script id="elven-card-click-fallback">
-/* Fallback for click/tap on any product card surface, preserving internal controls. */
+/* Language-independent card navigation: every non-control area opens its
+   existing product URL. Native links and all inner controls remain unchanged. */
 (function(){
   function init(){
     const grid=document.getElementById("categories");
-    if(!grid||grid.dataset.cardClickFallback==="1")return;
-    grid.dataset.cardClickFallback="1";
-    grid.addEventListener("click",function(e){
-      const card=e.target.closest(".category-card[data-product]");
-      if(!card||!grid.contains(card)||e.target.closest("a,button,input,select,textarea,label"))return;
-      const href=card.dataset.href||card.querySelector(".product-details-link[href]")?.href;
-      if(href)window.location.assign(href);
-    });
+    if(!grid||grid.dataset.cardClickFallback==="v2")return;
+    grid.dataset.cardClickFallback="v2";
+    const getCardLink=card=>card.dataset.href||card.querySelector(".product-details-link[href]")?.getAttribute("href");
+    grid.addEventListener("click",function(event){
+      const target=event.target&&event.target.nodeType===1?event.target:event.target?.parentElement;
+      const card=target&&target.closest(".category-card[data-product]");
+      if(!card||!grid.contains(card)||target.closest("a,button,input,select,textarea,label"))return;
+      const href=getCardLink(card);
+      if(!href)return;
+      event.preventDefault();
+      window.location.assign(new URL(href,window.location.href).href);
+    },true);
+    grid.addEventListener("keydown",function(event){
+      if(event.key!=="Enter"&&event.key!==" ")return;
+      const target=event.target&&event.target.nodeType===1?event.target:event.target?.parentElement;
+      const card=target&&target.closest(".category-card[data-product]");
+      if(!card||!grid.contains(card)||target.closest("a,button,input,select,textarea,label"))return;
+      const href=getCardLink(card);
+      if(!href)return;
+      event.preventDefault();
+      window.location.assign(new URL(href,window.location.href).href);
+    },true);
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();
