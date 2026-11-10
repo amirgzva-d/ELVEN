@@ -84,7 +84,7 @@
         pathname = "/" + route.locale + pathname;
       }
       target = new URL((base || "") + pathname + target.search + target.hash, location.origin);
-      anchor.setAttribute("href", target.href);
+      if (anchor.href !== target.href) anchor.setAttribute("href", target.href);
     };
     document.querySelectorAll("a[href]").forEach(normalize);
     if (window.MutationObserver && !window.__elvenInternalLinkObserver) {
