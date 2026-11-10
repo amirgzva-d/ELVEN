@@ -1,0 +1,16 @@
+/* Arabic localization layer: keeps the original ELVEN layout and responsive structure. */
+html[lang="ar"], html[lang="ar"] body {
+  direction: rtl;
+  font-family: "Vazirmatn", "Noto Sans Arabic", Tahoma, sans-serif;
+}
+html[lang="ar"] .language-option { text-align: right; }
+html[lang="ar"] input, html[lang="ar"] textarea, html[lang="ar"] select {
+  text-align: right;
+}
+html[lang="ar"] [dir="ltr"], html[lang="ar"] .ltr, html[lang="ar"] .phone,
+html[lang="ar"] .email, html[lang="ar"] [class*="phone"], html[lang="ar"] [class*="email"] {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+/* Product identifiers, phone numbers, email addresses and numeric specifications remain LTR. */
+html[lang="ar"] .language-status { white-space: nowrap; }
