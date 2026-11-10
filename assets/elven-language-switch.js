@@ -230,7 +230,8 @@
         }
 
         if (success) {
-          document.documentElement.setAttribute("lang", locale);
+          document.body.setAttribute("lang", locale);
+          document.body.dataset.contentLanguage = locale;
           currentLocale = locale;
           updateLanguageMenu(locale, englishReady);
           try { localStorage.setItem(STORAGE_KEY, locale); } catch (_) {}
@@ -273,6 +274,8 @@
     } catch (_) {}
 
     currentLocale = explicitLocale;
+    document.body.setAttribute("lang", explicitLocale);
+    document.body.dataset.contentLanguage = explicitLocale;
     updateLanguageMenu(explicitLocale, englishReady);
 
     menu.addEventListener("click", function (event) {
