@@ -6,7 +6,14 @@
   var pinIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 10c0 5.1-7 11.2-7 11.2S5 15.1 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.1" fill="currentColor" stroke="none"/></svg>';
   var arrowIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 18-6-6 6-6"/></svg>';
   var brandIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/><path d="M12 21V11"/><path d="M9 14l3-3 3 3"/></svg>';
+  function localizedHomeUrl(){
+    var segments=(window.location.pathname||'/').split('/').filter(Boolean);
+    var locale=segments.length&&/^(ar|en)$/i.test(segments[0])?'/'+segments[0].toLowerCase():'';
+    return locale+'/index.html';
+  }
   function init(){
+    var homeHref=localizedHomeUrl();
+    var productsHref=homeHref+'#products';
     document.querySelectorAll('footer.site-footer, footer.site-foot.contact-page-expanded-footer, footer.catalog-contact-footer').forEach(function(footer){
       if(footer.classList.contains('has-elven-mobile-reference-footer'))return;
       var panel=document.createElement('section');
@@ -15,13 +22,13 @@
       panel.setAttribute('aria-label','اطلاعات و راه‌های ارتباطی شرکت');
       panel.innerHTML=[
         '<div class="elven-mobile-reference-brand">',
-          '<div class="elven-mobile-reference-identity"><span class="elven-mobile-reference-brand-icon">'+brandIcon+'</span>',
-          '<span class="elven-mobile-reference-brand-name"><strong>بازرگانی مهاجر</strong><small>MOHAJER TRADING GROUP</small></span></div>',
+          '<a class="elven-mobile-reference-identity" href="'+homeHref+'" aria-label="بازگشت به صفحه اصلی" style="color:inherit;text-decoration:none"><span class="elven-mobile-reference-brand-icon">'+brandIcon+'</span>',
+          '<span class="elven-mobile-reference-brand-name"><strong>بازرگانی مهاجر</strong><small>MOHAJER TRADING GROUP</small></span></a>',
           '<p>تأمین و صادرات انواع مواد غذایی ایرانی<br>با کیفیت برای بازارهای جهانی</p>',
         '</div>',
         '<nav class="elven-mobile-reference-links" aria-label="صفحات اصلی سایت">',
-          '<a href="index.html"><span>صفحه اصلی</span>'+arrowIcon+'</a>',
-          '<a href="index.html#products"><span>محصولات</span>'+arrowIcon+'</a>',
+          '<a href="'+homeHref+'#home"><span>صفحه اصلی</span>'+arrowIcon+'</a>',
+          '<a href="'+productsHref+'"><span>محصولات</span>'+arrowIcon+'</a>',
           '<a href="about.html"><span>درباره ما</span>'+arrowIcon+'</a>',
           '<a href="contact.html"><span>تماس با ما</span>'+arrowIcon+'</a>',
         '</nav>',
