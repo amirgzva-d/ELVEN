@@ -73,7 +73,7 @@
     "OUR JOURNEY | مسیر توسعه":"OUR JOURNEY | Our Growth","تاریخچه‌ای از رشد و تعهد":"A History of Growth and Commitment",
     "از نخستین گام‌های تجارت داخلی تا توسعه صادرات محصولات غذایی و حضور در بازارهای بین‌المللی.":"From the first steps in domestic trade to food exports and a presence in international markets.",
     "آغاز فعالیت":"The Beginning","ورود به تجارت بین‌المللی":"Entering International Trade",
-    "در سال ۱۳۶۶، این مجموعه وارد عرصه تجارت بین‌المللی شد و صادرات محصولات کراس و ویت‌بلو را به کشورهای ترکیه و ایتالیا آغاز کرد. این گام مهم، نقطه عطفی در توسعه فعالیت‌های بازرگانی مجموعه و ورود به بازارهای جهانی به شمار می‌آید.":"In 1366 in the Iranian calendar, the Group entered international trade and began exporting کراس and Vit-Blue products to Türkiye and Italy. This important step marked a turning point in the development of its commercial activities and its entry into global markets.",
+    "در سال ۱۳۶۶، این مجموعه وارد عرصه تجارت بین‌المللی شد و صادرات محصولات کراس و ویت‌بلو را به کشورهای ترکیه و ایتالیا آغاز کرد. این گام مهم، نقطه عطفی در توسعه فعالیت‌های بازرگانی مجموعه و ورود به بازارهای جهانی به شمار می‌آید.":"In 1366 in the Iranian calendar, the Group entered international trade and began exporting Kras and Vit-Blue products to Türkiye and Italy. This important step marked a turning point in the development of its commercial activities and its entry into global markets.",
     "توسعه صادرات با محوریت مواد غذایی":"Expanding Exports with a Focus on Food Products",
     "در ادامه این مسیر و از سال ۱۳۷۴، جناب هاشم مهاجری خراسانی با بهره‌گیری از تجربیات ارزشمند گذشته، فعالیت‌های صادراتی مجموعه را به‌صورت تخصصی در حوزه‌هایی همچون مواد غذایی توسعه دادند. در این دوره، دامنه صادرات به کشورهای متعددی از جمله افغانستان، پاکستان، ترکمنستان، تاجیکستان، قزاقستان، قرقیزستان، روسیه، امارات، ترکیه، لبنان، عراق، کانادا، انگلستان، آلمان و سومالی گسترش یافت.":"From 1374 in the Iranian calendar, Mr. Hashem Mohajeri Khorasani built on the Group’s experience and expanded its export operations, with a specialist focus on sectors such as food products. During this period, exports reached Afghanistan, Pakistan, Turkmenistan, Tajikistan, Kazakhstan, Kyrgyzstan, Russia, the United Arab Emirates, Türkiye, Lebanon, Iraq, Canada, the United Kingdom, Germany, and Somalia.",
     "توسعه در حوزه کالاهای راهبردی":"Expansion into Strategic Commodities",
@@ -163,6 +163,29 @@
     "لوگوی برند نوشیدنی شماره":"Beverage Brand Logo Number",
     "بازرگانی مهاجر | صادرات محصولات غذایی":"Mohajer Trading Group | Food Exports","بازگشت به صفحه خانه":"Back to Home",
     "مرحله ۱":"Step 1","مرحله ۲":"Step 2","مرحله ۳":"Step 3","مرحله ۴":"Step 4"
+
+    "امروز":"Today","گروه بازرگانی مهاجر":"Mohajer Trading Group","کراس":"Kras",
+    "گلوکز | محصولات گلوکز و نشاسته | بازرگانی مهاجر":"Glucose | Glucose and Starch Products | Mohajer Trading Group",
+    "گلوکز و نشاسته اکنون در یک صفحه مشترک نمایش داده می‌شوند.":"Glucose and starch are now presented together on one page.",
+    "مشاهده صفحه محصولات گلوکز و نشاسته":"View Glucose and Starch Products",
+    "نشاسته | محصولات گلوکز و نشاسته | بازرگانی مهاجر":"Starch | Glucose and Starch Products | Mohajer Trading Group",
+    "۶/۴۷":"6.47","۰/۲۸":"0.28","۰/۰۱":"0.01","۳۹/۸۳":"39.83","۰/۶۱":"0.61","۰/۰۴":"0.04",
+    "ELVEN | کاتالوگ محصولات فارسی":"ELVEN | Persian Product Catalogue",
+    "بازگشت به تماس با ما":"Back to Contact Us","ذخیره یا چاپ PDF":"Save or Print as PDF",
+    "دانلود فایل کاتالوگ":"Download Catalogue File","کاتالوگ محصولات غذایی":"Food Product Catalogue",
+    "معرفی گروه‌های محصولات برای تأمین و همکاری صادراتی. برای اطلاع از برندها، گرید، مشخصات فنی و شرایط سفارش، با تیم فروش در ارتباط باشید.":"An overview of product categories available for sourcing and export partnerships. Contact our sales team for information about brands, grades, technical specifications, and ordering terms.",
+    "خمیرمایه مخصوص صنایع نان و شیرینی؛ برند و مشخصات با استعلام.":"Yeast for the baking and confectionery industries; brand and specifications available upon inquiry.",
+    "انواع ماکارونی در بسته‌بندی‌های متنوع؛ مشخصات با استعلام.":"A range of pasta in various package formats; specifications available upon inquiry.",
+    "رب گوجه‌فرنگی در بسته‌بندی‌های مختلف؛ آنالیز با استعلام.":"Tomato paste in various package formats; analysis details available upon inquiry.",
+    "مواد اولیه لبنی و شیر خشک؛ گرید و شرایط تأمین با استعلام.":"Dairy ingredients and milk powder; grades and supply terms available upon inquiry.",
+    "انواع نوشیدنی‌های تجاری؛ برند و موجودی با استعلام.":"A range of commercial beverages; brands and availability confirmed upon inquiry.",
+    "انواع شکر و برندهای تأمینی؛ شرایط بسته‌بندی با استعلام.":"Various types of sugar and available supply brands; packaging options available upon inquiry.",
+    "گروه محصولات کنسروی؛ تنوع و بسته‌بندی با استعلام.":"Canned food products; range and packaging options available upon inquiry.",
+    "بی‌کربنات سدیم برای کاربردهای مجاز صنایع غذایی؛ مشخصات با استعلام.":"Sodium bicarbonate for approved food-industry applications; specifications available upon inquiry.",
+    "گلوکز و نشاسته بر پایه ذرت یا گندم؛ گرید با استعلام.":"Corn- or wheat-based glucose and starch; grades available upon inquiry.",
+    "این کاتالوگ معرفی عمومی گروه‌های محصولات است. مشخصات، موجودی، قیمت، برند و مدارک فنی فقط پس از استعلام و تأیید اعلام می‌شود.":"This catalogue provides a general overview of our product categories. Specifications, availability, prices, brands, and technical documents are provided only after inquiry and confirmation.",
+    "درخواست اطلاعات بیشتر":"Request More Information",
+    "برای درخواست قیمت، آنالیز و اطلاعات بسته‌بندی، با ما تماس بگیرید.":"Contact us for quotations, analysis reports, and packaging information."
   });
   const T = Object.freeze(Object.assign({}, window.ElvenEnglishProductTranslations || {}, CORE_T, EXTRA_T));
 
