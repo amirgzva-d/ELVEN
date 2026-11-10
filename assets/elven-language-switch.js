@@ -2,7 +2,7 @@
   "use strict";
 
   const SUPPORTED = new Set(["fa", "ar"]);
-  const STORAGE_KEY = "elvenLanguagePreference";
+  const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
   const AR_TRANSLATOR_VERSION = "20261110-inpage-ar-v2";
   let route;
@@ -49,17 +49,29 @@
   function saveLocale(locale) {
     if (!SUPPORTED.has(locale)) return;
     try { localStorage.setItem(STORAGE_KEY, locale); } catch (_) {}
-    document.cookie = STORAGE_KEY + "=" + locale + "; path=/; max-age=31536000; SameSite=Lax";
+
+    // Share the preference between the www and apex versions of the site.
+    // On preview/local hosts the domain cookie is rejected, so use a
+    // same-host cookie as a safe fallback.
+    const cookie = STORAGE_KEY + "=" + locale + "; path=/; max-age=31536000; SameSite=Lax; Secure";
+    document.cookie = cookie + "; Domain=.mohajer-foodstuff.com";
+    if (!document.cookie.includes(STORAGE_KEY + "=" + locale)) {
+      document.cookie = cookie;
+    }
   }
 
   function readSavedLocale() {
+    // The domain cookie is shared by www and non-www. Read it before the
+    // host-specific localStorage value to prevent stale host values winning.
+    const match = document.cookie.match(new RegExp("(?:^|; )" + STORAGE_KEY + "=([^;]*)"));
+    const cookieLocale = match ? decodeURIComponent(match[1]) : "";
+    if (SUPPORTED.has(cookieLocale)) return cookieLocale;
+
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (SUPPORTED.has(saved)) return saved;
     } catch (_) {}
-    const match = document.cookie.match(new RegExp("(?:^|; )" + STORAGE_KEY + "=([^;]*)"));
-    const cookieLocale = match ? decodeURIComponent(match[1]) : "";
-    return SUPPORTED.has(cookieLocale) ? cookieLocale : "";
+    return "";
   }
 
   function readLocale() {
@@ -265,8 +277,7 @@
     route = getRoute();
     const savedLocale = readSavedLocale();
 
-    // Respect an already selected Persian preference even when an old link
-    // lands on a legacy /ar/ copy of the same page.
+    // Respect the site-wide choice even if an old /ar/ URL was opened.
     if (route.legacyLocale === "ar" && savedLocale === "fa") {
       const target = pageUrl();
       if (target.pathname !== location.pathname) {
@@ -276,10 +287,26 @@
     }
 
     bindPicker();
-    // A first visit to an explicit /ar/ URL starts in Arabic. After that,
-    // the saved site-wide preference wins on every page.
-    const initialLocale = route.legacyLocale === "ar" ? "ar" : (savedLocale || "fa");
+
+    // Bring all internal links (including links on legacy /ar/ pages) onto
+    // the same root page paths. The selected language is carried by the
+    // shared domain cookie, not by a different URL tree.
+    normalizeInternalLinks();
+
+    // Persian is the default on a first visit. An explicit /ar/ URL is kept
+    // Arabic only when the visitor has not previously selected a language.
+    const initialLocale = savedLocale || (route.legacyLocale === "ar" ? "ar" : "fa");
     applyLocale(initialLocale, true);
+
+    // Keep already-open tabs in sync when the visitor changes language in
+    // another tab on the same site.
+    if (!window.__elvenLanguageStorageSync) {
+      window.__elvenLanguageStorageSync = true;
+      window.addEventListener("storage", function (event) {
+        if (event.key !== STORAGE_KEY || !SUPPORTED.has(event.newValue)) return;
+        applyLocale(event.newValue, false);
+      });
+    }
   }
 
   if (document.readyState === "loading") {
