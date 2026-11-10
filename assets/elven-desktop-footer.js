@@ -21,10 +21,10 @@
     return [
       '<div class="footer-container">',
         '<div class="footer-brand-block">',
-          '<div class="footer-logo">',
+          '<a class="footer-logo" href="/index.html" aria-label="بازگشت به صفحه اصلی">',
             '<span class="footer-logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/><path d="M12 21V11"/><path d="M9 14l3-3 3 3"/></svg></span>',
             '<span class="footer-logo-text"><strong>بازرگانی مهاجر</strong><small>MOHAJER TRADING GROUP</small></span>',
-          '</div>',
+          '</a>',
           '<p>محصولات غذایی ممتاز ایرانی، با دقت انتخاب و برای تجارت بین‌المللی مطمئن آماده می‌شوند.</p>',
         '</div>',
         '<div class="footer-col"><h4>شرکت</h4><ul>',
@@ -73,6 +73,59 @@
     document.body.appendChild(button);
   }
 
+  function localizedHomeUrl() {
+    var segments = (window.location.pathname || '/').split('/').filter(Boolean);
+    var locale = segments.length && /^(ar|en)$/i.test(segments[0]) ? '/' + segments[0].toLowerCase() : '';
+    return locale + '/index.html';
+  }
+
+  function normalizeSiteNavigationLinks() {
+    var home = localizedHomeUrl();
+    var homeTarget = home + '#home';
+    var productsTarget = home + '#products';
+    var homeLabels = /^(خانه|صفحه اصلی|الرئيسية|home)$/i;
+    var productLabels = /^(محصولات|المنتجات|products)$/i;
+
+    document.querySelectorAll('header a.brand, header a.site-logo, header .logo a').forEach(function (link) {
+      link.setAttribute('href', home);
+      if (!link.hasAttribute('aria-label')) link.setAttribute('aria-label', 'بازگشت به صفحه اصلی');
+    });
+
+    document.querySelectorAll('header nav a, header .nav a, header .main-nav a').forEach(function (link) {
+      var label = (link.textContent || '').replace(/\\s+/g, ' ').trim();
+      var target = (link.getAttribute('data-nav-target') || '').toLowerCase();
+      var href = link.getAttribute('href') || '';
+      if (target === 'home' || homeLabels.test(label) || /#home$/.test(href)) {
+        link.setAttribute('href', homeTarget);
+      } else if (target === 'products' || productLabels.test(label) || /#products$/.test(href)) {
+        link.setAttribute('href', productsTarget);
+      }
+    });
+
+    document.querySelectorAll('footer .footer-logo').forEach(function (logo) {
+      if (logo.tagName.toLowerCase() !== 'a') {
+        var link = document.createElement('a');
+        link.className = logo.className;
+        link.setAttribute('aria-label', 'بازگشت به صفحه اصلی');
+        while (logo.firstChild) link.appendChild(logo.firstChild);
+        logo.parentNode.replaceChild(link, logo);
+        logo = link;
+      }
+      logo.setAttribute('href', home);
+      logo.setAttribute('aria-label', 'بازگشت به صفحه اصلی');
+    });
+
+    document.querySelectorAll('footer a').forEach(function (link) {
+      var label = (link.textContent || '').replace(/\\s+/g, ' ').trim();
+      var href = link.getAttribute('href') || '';
+      if (homeLabels.test(label) || /(?:^|\\/)index\\.html#home$/.test(href)) {
+        link.setAttribute('href', homeTarget);
+      } else if (productLabels.test(label) || /index\\.html#products$/.test(href)) {
+        link.setAttribute('href', productsTarget);
+      }
+    });
+  }
+
   function init() {
     /* Give the dedicated contact page the same four-column desktop footer.
        Keep its original classes so the approved mobile footer remains in control on phones. */
@@ -88,6 +141,7 @@
       row.setAttribute('aria-label', 'شبکه‌های اجتماعی');
     });
 
+    normalizeSiteNavigationLinks();
     ensureBackToTop();
   }
 
