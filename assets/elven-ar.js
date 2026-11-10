@@ -886,6 +886,9 @@
       });
     });
 
+  }
+
+  function clearSnapshots() {
     originalTexts = new WeakMap();
     translatedTexts = new WeakMap();
     touchedTextNodes.clear();
@@ -958,6 +961,7 @@
     currentLocale = "fa";
     restoreTree(document.head);
     restoreTree(document.body);
+    clearSnapshots();
     document.documentElement.lang = "fa";
     document.documentElement.dir = "rtl";
     localizePicker("fa");
