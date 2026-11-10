@@ -114,7 +114,9 @@
 
   function normalizeCanonicalMetadata() {
     const base = route.basePath || "";
-    const pagePath = (location.pathname.replace(base, "") || "/").replace(/^\\/+/, "");
+    let pagePath = location.pathname.slice(base.length);
+    while (pagePath.startsWith("/")) pagePath = pagePath.slice(1);
+    if (!pagePath) pagePath = "index.html";
     const canonicalUrl = new URL((base ? base + "/" : "/") + pagePath, location.origin);
     canonicalUrl.search = "";
     canonicalUrl.hash = "";
@@ -122,16 +124,17 @@
       const rel = (link.getAttribute("rel") || "").toLowerCase();
       const lang = (link.getAttribute("hreflang") || "").toLowerCase();
       let path = pagePath;
-      if (rel === "alternate" && lang === "fa") path = pagePath.replace(/^(en|ar)\\//, "");
-      if (rel === "alternate" && lang === "en") path = "en/" + pagePath.replace(/^(en|ar)\\//, "");
-      if (rel === "alternate" && lang === "ar") path = "ar/" + pagePath.replace(/^(en|ar)\\//, "");
-      if (rel === "alternate" && lang === "x-default") path = pagePath.replace(/^(en|ar)\\//, "");
-      if (/^catalog(?:-fa|-en)?\\.html$/i.test(pagePath) || /^ar\\/catalog\\.html$/i.test(pagePath)) {
+      const withoutLocale = pagePath.startsWith("en/") || pagePath.startsWith("ar/") ? pagePath.slice(3) : pagePath;
+      if (rel === "alternate" && (lang === "fa" || lang === "x-default")) path = withoutLocale;
+      if (rel === "alternate" && lang === "en") path = "en/" + withoutLocale;
+      if (rel === "alternate" && lang === "ar") path = "ar/" + withoutLocale;
+      const isCatalog = pagePath === "catalog-fa.html" || pagePath === "catalog-en.html" || pagePath === "ar/catalog.html";
+      if (isCatalog) {
         if (lang === "fa" || lang === "x-default") path = "catalog-fa.html";
         if (lang === "en") path = "catalog-en.html";
         if (lang === "ar") path = "ar/catalog.html";
       }
-      link.href = new URL((base ? base + "/" : "/") + path.replace(/^\\/+/, ""), location.origin).href;
+      link.href = new URL((base ? base + "/" : "/") + path, location.origin).href;
     });
     document.querySelectorAll('meta[property="og:url"], meta[name="twitter:url"]').forEach(function (meta) {
       meta.setAttribute("content", canonicalUrl.href);
