@@ -780,20 +780,63 @@
     }
     return null;
   }
+  let currentLocale = "fa";
+  let originalTexts = new WeakMap();
+  let translatedTexts = new WeakMap();
+  let touchedTextNodes = new Set();
+  let originalAttributes = new WeakMap();
+  let translatedAttributes = new WeakMap();
+  let touchedAttributeElements = new Set();
+
+  function rememberText(node, raw, translated) {
+    if (!originalTexts.has(node)) {
+      originalTexts.set(node, raw);
+      touchedTextNodes.add(node);
+    } else if (raw !== translatedTexts.get(node)) {
+      originalTexts.set(node, raw);
+    }
+    translatedTexts.set(node, translated);
+  }
+
   function translateNode(node) {
     const raw = node.nodeValue || "", key = norm(raw);
     if (!key) return;
+
+    let translated = null;
     if (node.parentElement && node.parentElement.tagName === "TITLE" && / \| Mohajer Trading Group$/.test(key)) {
       const name = key.replace(/ \| Mohajer Trading Group$/, "");
-      node.nodeValue = (T[name] || name) + " | مجموعة مهاجر التجارية";
-      return;
+      translated = (T[name] || name) + " | مجموعة مهاجر التجارية";
+    } else {
+      translated = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : translateDynamic(key);
     }
-    const translated = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : translateDynamic(key);
     if (translated === null) return;
+
     const leading = raw.match(/^\s*/)?.[0] || "";
     const trailing = raw.match(/\s*$/)?.[0] || "";
-    node.nodeValue = leading + translated + trailing;
+    const nextValue = leading + translated + trailing;
+    if (nextValue !== raw) {
+      rememberText(node, raw, nextValue);
+      node.nodeValue = nextValue;
+    }
   }
+
+  function rememberAttribute(el, name, raw, translated) {
+    let saved = originalAttributes.get(el);
+    if (!saved) {
+      saved = Object.create(null);
+      originalAttributes.set(el, saved);
+      touchedAttributeElements.add(el);
+    }
+    let last = translatedAttributes.get(el);
+    if (!last) {
+      last = Object.create(null);
+      translatedAttributes.set(el, last);
+    }
+    if (!Object.prototype.hasOwnProperty.call(saved, name)) saved[name] = raw;
+    else if (raw !== last[name]) saved[name] = raw;
+    last[name] = translated;
+  }
+
   function translateAttributes(root) {
     const names = ["aria-label", "title", "alt", "placeholder", "content", "value"];
     const elements = [root, ...(root.querySelectorAll ? root.querySelectorAll("*") : [])].filter(Boolean);
@@ -801,16 +844,23 @@
       for (const name of names) {
         if (!el.hasAttribute || !el.hasAttribute(name)) continue;
         const value = el.getAttribute(name), key = norm(value);
-        if (Object.prototype.hasOwnProperty.call(A, key)) el.setAttribute(name, A[key]);
-        else if (Object.prototype.hasOwnProperty.call(T, key)) el.setAttribute(name, T[key]);
+        let translated = null;
+        if (Object.prototype.hasOwnProperty.call(A, key)) translated = A[key];
+        else if (Object.prototype.hasOwnProperty.call(T, key)) translated = T[key];
         else {
-          const dynamic = translateDynamic(key);
-          if (dynamic !== null) el.setAttribute(name, dynamic);
-          else if (key.startsWith("لوگوی برند نوشیدنی شماره ")) el.setAttribute(name, "شعار علامة المشروبات رقم " + key.slice("لوگوی برند نوشیدنی شماره ".length));
+          translated = translateDynamic(key);
+          if (translated === null && key.startsWith("لوگوی برند نوشیدنی شماره ")) {
+            translated = "شعار علامة المشروبات رقم " + key.slice("لوگوی برند نوشیدنی شماره ".length);
+          }
+        }
+        if (translated !== null && translated !== value) {
+          rememberAttribute(el, name, value, translated);
+          el.setAttribute(name, translated);
         }
       }
     }
   }
+
   function translateTree(root) {
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     const nodes = [];
@@ -818,79 +868,100 @@
     nodes.forEach(translateNode);
     translateAttributes(root);
   }
-  function localizePicker() {
+
+  function restoreTree(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function (node) {
+      if (originalTexts.has(node)) node.nodeValue = originalTexts.get(node);
+    });
+
+    const elements = [root, ...(root.querySelectorAll ? root.querySelectorAll("*") : [])].filter(Boolean);
+    elements.forEach(function (el) {
+      const saved = originalAttributes.get(el);
+      if (!saved) return;
+      Object.keys(saved).forEach(function (name) {
+        el.setAttribute(name, saved[name]);
+      });
+    });
+
+    originalTexts = new WeakMap();
+    translatedTexts = new WeakMap();
+    touchedTextNodes.clear();
+    originalAttributes = new WeakMap();
+    translatedAttributes = new WeakMap();
+    touchedAttributeElements.clear();
+  }
+
+  function localizePicker(locale) {
     const picker = document.querySelector("#languagePicker");
     if (!picker) return;
     const fa = picker.querySelector('[data-language="fa"]');
     const ar = picker.querySelector('[data-language="ar"]');
-    const en = picker.querySelector('[data-language="en"]');
-    const ru = picker.querySelector('[data-language="ru"]');
+
     if (fa) {
-      fa.classList.remove("is-current", "is-coming");
-      fa.setAttribute("role", "menuitem");
-      fa.setAttribute("aria-checked", "false");
+      const active = locale === "fa";
+      fa.classList.toggle("is-current", active);
+      fa.setAttribute("role", active ? "menuitemradio" : "menuitem");
+      fa.setAttribute("aria-checked", active ? "true" : "false");
       fa.setAttribute("aria-disabled", "false");
-      const label = fa.querySelector("span:not(.language-flag):not(.language-status)");
-      if (label && label.textContent !== "الفارسية") label.textContent = "الفارسية";
-      const status = fa.querySelector(".language-status");
-      if (status && status.textContent !== "التبديل") status.textContent = "التبديل";
     }
     if (ar) {
-      ar.classList.remove("is-coming");
-      ar.classList.add("is-current");
-      ar.setAttribute("role", "menuitemradio");
-      ar.setAttribute("aria-checked", "true");
+      const active = locale === "ar";
+      ar.classList.toggle("is-current", active);
+      ar.setAttribute("role", active ? "menuitemradio" : "menuitem");
+      ar.setAttribute("aria-checked", active ? "true" : "false");
       ar.setAttribute("aria-disabled", "false");
-      const status = ar.querySelector(".language-status");
-      if (status && status.textContent !== "مفعّلة") status.textContent = "مفعّلة";
     }
-    [en, ru].filter(Boolean).forEach(option => {
-      option.classList.add("is-coming");
-      option.setAttribute("aria-disabled", "true");
-      const label = option.querySelector("span:not(.language-flag):not(.language-status)");
-      const languageName = option.dataset.language === "en" ? "الإنجليزية" : "الروسية";
-      if (label && label.textContent !== languageName) label.textContent = languageName;
-      const status = option.querySelector(".language-status");
-      if (status && status.textContent !== "قريبًا") status.textContent = "قريبًا";
+    picker.querySelectorAll('[data-language="en"],[data-language="ru"]').forEach(function (option) {
+      option.remove();
     });
-    const triggerLabel = picker.querySelector(".language-trigger [data-current-language], .language-trigger .language-current, .language-trigger span");
-    if (triggerLabel) {
-      const candidate = triggerLabel.textContent.trim();
-      if (candidate === "فارسی" || candidate === "الفارسية") triggerLabel.textContent = "العربية";
-    }
   }
-  function run() {
-    document.documentElement.lang = "ar";
-    document.documentElement.dir = "rtl";
-    translateTree(document.head);
-    translateTree(document.body);
-    if (document.title) {
-      const titleKey = norm(document.title);
-      const suffix = " | Mohajer Trading Group";
-      const dynamicTitle = titleKey.endsWith(suffix) ? titleKey.slice(0, -suffix.length) : null;
-      document.title = T[titleKey] || (dynamicTitle !== null ? (T[dynamicTitle] || dynamicTitle) + " | مجموعة مهاجر التجارية" : document.title);
-    }
-    localizePicker();
-    if (window.MutationObserver && !window.__elvenArabicObserver) {
-      window.__elvenArabicObserver = new MutationObserver(records => {
-        for (const record of records) {
-          if (record.type === "characterData") translateNode(record.target);
-          record.addedNodes && record.addedNodes.forEach(node => {
-            if (node.nodeType === 3) translateNode(node);
-            else if (node.nodeType === 1) translateTree(node);
-          });
-          if (record.type === "attributes" && record.target.nodeType === 1) {
-            translateAttributes(record.target);
-          }
+
+  function observeDynamicContent() {
+    if (!window.MutationObserver || window.__elvenArabicObserver) return;
+    window.__elvenArabicObserver = new MutationObserver(function (records) {
+      if (currentLocale !== "ar") return;
+      for (const record of records) {
+        if (record.type === "characterData") translateNode(record.target);
+        record.addedNodes && record.addedNodes.forEach(function (node) {
+          if (node.nodeType === 3) translateNode(node);
+          else if (node.nodeType === 1) translateTree(node);
+        });
+        if (record.type === "attributes" && record.target.nodeType === 1) {
+          translateAttributes(record.target);
         }
-        localizePicker();
-      });
-      window.__elvenArabicObserver.observe(document.documentElement, {
-        subtree: true, childList: true, characterData: true,
-        attributes: true, attributeFilter: ["aria-label", "title", "alt", "placeholder", "content", "value"]
-      });
-    }
+      }
+    });
+    window.__elvenArabicObserver.observe(document.documentElement, {
+      subtree: true,
+      childList: true,
+      characterData: true,
+      attributes: true,
+      attributeFilter: ["aria-label", "title", "alt", "placeholder", "content", "value"]
+    });
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run, { once: true });
-  else run();
+
+  function setLanguage(locale) {
+    if (locale === "ar") {
+      currentLocale = "ar";
+      document.documentElement.lang = "ar";
+      document.documentElement.dir = "rtl";
+      translateTree(document.head);
+      translateTree(document.body);
+      localizePicker("ar");
+      observeDynamicContent();
+      return;
+    }
+
+    currentLocale = "fa";
+    restoreTree(document.head);
+    restoreTree(document.body);
+    document.documentElement.lang = "fa";
+    document.documentElement.dir = "rtl";
+    localizePicker("fa");
+  }
+
+  window.ElvenArabicTranslator = { setLanguage: setLanguage };
 })();
