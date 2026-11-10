@@ -563,8 +563,13 @@
   function run() {
     document.documentElement.lang = "ar";
     document.documentElement.dir = "rtl";
+    translateTree(document.head);
     translateTree(document.body);
-    if (document.title) document.title = T[norm(document.title)] || document.title;
+    if (document.title) {
+      const titleKey = norm(document.title);
+      const dynamicTitle = titleKey.match(/^(.*) \\| Mohajer Trading Group$/);
+      document.title = T[titleKey] || (dynamicTitle ? (T[dynamicTitle[1]] || dynamicTitle[1]) + " | مجموعة مهاجر التجارية" : document.title);
+    }
     localizePicker();
     if (window.MutationObserver && !window.__elvenArabicObserver) {
       window.__elvenArabicObserver = new MutationObserver(records => {
@@ -580,7 +585,7 @@
         }
         localizePicker();
       });
-      window.__elvenArabicObserver.observe(document.body, {
+      window.__elvenArabicObserver.observe(document.documentElement, {
         subtree: true, childList: true, characterData: true,
         attributes: true, attributeFilter: ["aria-label", "title", "alt", "placeholder", "content", "value"]
       });
