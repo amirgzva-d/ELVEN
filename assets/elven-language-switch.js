@@ -2,7 +2,7 @@
   "use strict";
   if (new URLSearchParams(location.search).has("__elvenTranslationSource")) return;
 
-  const SUPPORTED = new Set(["fa", "en", "ar"]);
+  const SUPPORTED = new Set(["fa", "ar"]);
   const STORAGE_KEY = "elvenLanguagePreference";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
   let route;
@@ -34,10 +34,9 @@
   function pathFor(locale, current) {
     if (route.isCatalog) {
       if (locale === "fa") return "catalog-fa.html";
-      if (locale === "en") return "catalog-en.html";
       return "ar/catalog.html";
     }
-    return (locale === "fa" ? "" : locale + "/") + current;
+    return (locale === "fa" ? "" : "ar/") + current;
   }
 
   function urlFor(locale, current) {
@@ -76,6 +75,8 @@
       const base = route.basePath || "";
       if (base && pathname.startsWith(base + "/")) pathname = pathname.slice(base.length);
       if (!pathname || pathname === "/") pathname = "/index.html";
+      if (/^\/en\//i.test(pathname)) pathname = pathname.replace(/^\/en\//i, "/");
+      if (/^\/catalog-en\.html$/i.test(pathname)) pathname = "/catalog-fa.html";
 
       // Keep home/logo links in the visitor's chosen language.
       if (pathname === "/index.html" || pathname === "/") {
@@ -126,12 +127,12 @@
       let path = pagePath;
       const withoutLocale = pagePath.startsWith("en/") || pagePath.startsWith("ar/") ? pagePath.slice(3) : pagePath;
       if (rel === "alternate" && (lang === "fa" || lang === "x-default")) path = withoutLocale;
-      if (rel === "alternate" && lang === "en") path = "en/" + withoutLocale;
+      if (rel === "alternate" && lang === "en") { link.remove(); return; }
       if (rel === "alternate" && lang === "ar") path = "ar/" + withoutLocale;
       const isCatalog = pagePath === "catalog-fa.html" || pagePath === "catalog-en.html" || pagePath === "ar/catalog.html";
       if (isCatalog) {
         if (lang === "fa" || lang === "x-default") path = "catalog-fa.html";
-        if (lang === "en") path = "catalog-en.html";
+        if (lang === "en") { link.remove(); return; }
         if (lang === "ar") path = "ar/catalog.html";
       }
       link.href = new URL((base ? base + "/" : "/") + path, location.origin).href;
@@ -144,7 +145,8 @@
   function updatePicker(locale) {
     const picker = document.getElementById("languagePicker");
     if (!picker) return;
-    const names = { fa: "فارسی", en: "English", ar: "العربية" };
+    const names = { fa: "فارسی", ar: "العربية" };
+    picker.querySelectorAll('[data-language="en"]').forEach(function (option) { option.remove(); });
     const current = picker.querySelector(".language-current");
     if (current) current.textContent = names[locale];
     picker.querySelectorAll("[data-language]").forEach(function (option) {
@@ -181,7 +183,7 @@
       if (target.href !== location.href) location.assign(target.href);
       else {
         document.documentElement.lang = selected;
-        document.documentElement.dir = selected === "en" ? "ltr" : "rtl";
+        document.documentElement.dir = "rtl";
         updatePicker(selected);
       }
     }, true);
@@ -197,9 +199,14 @@
       return;
     }
 
+    if (route.locale === "en") {
+      document.documentElement.style.visibility = "hidden";
+      location.replace(urlFor("fa", route.current).href);
+      return;
+    }
     const locale = route.locale;
     document.documentElement.lang = locale;
-    document.documentElement.dir = locale === "en" ? "ltr" : "rtl";
+    document.documentElement.dir = "rtl";
     if (preferred) saveLocale(preferred);
     updatePicker(locale);
     normalizeInternalLinks();
