@@ -63,3 +63,57 @@ html[lang="en"] .elven-mobile-reference-meta-contact {
 html[lang="en"] .elven-mobile-reference-links a {
   flex-direction: row !important;
 }
+
+
+/* Product overview page: reset the source Persian alignment while preserving
+   its existing component sizes, artwork, cards, and responsive breakpoints. */
+html[lang="en"] .hero-inner { direction: ltr !important; }
+html[lang="en"] .hero-copy {
+  direction: ltr !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+html[lang="en"] .hero-copy .kicker,
+html[lang="en"] .hero-copy h1,
+html[lang="en"] .hero-copy h2,
+html[lang="en"] .hero-copy > p {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="en"] .hero-features,
+html[lang="en"] .hero-actions,
+html[lang="en"] .trust-strip,
+html[lang="en"] .product-grid,
+html[lang="en"] .spec-panel,
+html[lang="en"] .nutrition-grid,
+html[lang="en"] .partners,
+html[lang="en"] .partner-grid,
+html[lang="en"] .product-detail {
+  direction: ltr !important;
+}
+html[lang="en"] .hero-feature,
+html[lang="en"] .trust-item,
+html[lang="en"] .section-heading,
+html[lang="en"] .product-card,
+html[lang="en"] .card-copy,
+html[lang="en"] .spec-content,
+html[lang="en"] .spec-top,
+html[lang="en"] .nutrition-stat,
+html[lang="en"] .product-detail,
+html[lang="en"] .product-detail summary,
+html[lang="en"] .product-detail p {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="en"] .spec-content { grid-column: 2 !important; }
+html[lang="en"] .spec-art { grid-column: 1 !important; }
+html[lang="en"] .hero-feature { align-items: center !important; text-align: center !important; }
+html[lang="en"] .hero-feature + .hero-feature { border-right: 0 !important; border-left: 1px solid rgba(152,122,88,.21) !important; }
+html[lang="en"] .product-card .card-copy { align-items: flex-start !important; }
+html[lang="en"] .product-card .card-copy h3,
+html[lang="en"] .product-card .card-copy > p { text-align: left !important; }
+html[lang="en"] .spec-art::after { right: auto !important; left: 0 !important; }
+html[lang="en"] .nutrition-stat { flex-direction: row !important; }
+html[lang="en"] .footer-contact-item { align-items: center !important; }
