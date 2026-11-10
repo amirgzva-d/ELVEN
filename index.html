@@ -3507,21 +3507,47 @@ document.addEventListener("DOMContentLoaded",()=>{
       link.classList.toggle("active",link.dataset.navTarget===target);
     });
   };
+  const closePrimaryMobileMenu=()=>{
+    if(!window.matchMedia("(max-width: 768px)").matches)return;
+    const toggle=document.querySelector("[data-menu]");
+    const backdrop=document.querySelector(".mobile-menu-backdrop");
+    nav?.classList.remove("mobile-open");
+    backdrop?.classList.remove("is-visible");
+    toggle?.classList.remove("is-open");
+    toggle?.setAttribute("aria-expanded","false");
+    document.body.classList.remove("menu-drawer-open");
+  };
+
+  /* Rebuilt homepage navigation: use a controlled smooth scroll to the real
+     section element instead of relying on the browser's default hash jump. */
+  const goToHomeSection=(sectionId)=>{
+    const section=document.getElementById(sectionId);
+    if(!section){
+      window.location.href=new URL("./index.html#"+sectionId,window.location.href).href;
+      return;
+    }
+    const destination=new URL("./index.html#"+sectionId,window.location.href);
+    if(window.location.pathname!==destination.pathname || window.location.hash!==destination.hash){
+      window.history.pushState(null,"",destination.pathname+destination.search+destination.hash);
+    }
+    const header=document.getElementById("siteHeader");
+    const headerHeight=header ? header.getBoundingClientRect().height : 0;
+    const top=section.getBoundingClientRect().top+window.scrollY-headerHeight-14;
+    window.scrollTo({top:Math.max(0,top),behavior:"smooth"});
+  };
+
   navLinks.forEach(link=>{
-    link.addEventListener("click",()=>{
+    link.addEventListener("click",event=>{
       const target=link.dataset.navTarget;
-      if(target)setActiveNav(target);
-      /* Let the browser follow the real ./index.html#home or #products URL.
-         Native hash navigation works from both the desktop nav and mobile drawer. */
-      if(window.matchMedia("(max-width: 768px)").matches){
-        const toggle=document.querySelector("[data-menu]");
-        const backdrop=document.querySelector(".mobile-menu-backdrop");
-        nav?.classList.remove("mobile-open");
-        backdrop?.classList.remove("is-visible");
-        toggle?.classList.remove("is-open");
-        toggle?.setAttribute("aria-expanded","false");
-        document.body.classList.remove("menu-drawer-open");
+      if(target==="home" || target==="products"){
+        event.preventDefault();
+        setActiveNav(target);
+        closePrimaryMobileMenu();
+        goToHomeSection(target);
+        return;
       }
+      if(target)setActiveNav(target);
+      closePrimaryMobileMenu();
     });
   });
 
