@@ -2281,3 +2281,5 @@ file,context,source_text
 "product.js","document.title-suffix","Mohajer Trading Group"
 "script.js","js.ui-feedback","Filters Applied ✓"
 "script.js","js.fallback-label","Product Details"
+"assets/mohajer-story.js","audit","No user-facing text found; animation/reveal logic only"
+"assets/yeast-detail-photo-fit.js","audit","No user-facing text found; image sizing logic only"
