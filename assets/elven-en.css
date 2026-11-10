@@ -1,0 +1,48 @@
+/* English-language layout layer. Keeps the existing ELVEN components and responsive breakpoints. */
+html[lang="en"] body,
+html[lang="en"] button,
+html[lang="en"] input,
+html[lang="en"] select,
+html[lang="en"] textarea {
+  direction: ltr;
+  font-family: "Poppins", Arial, sans-serif !important;
+}
+html[lang="en"] .nav,
+html[lang="en"] .header-actions,
+html[lang="en"] .language-picker,
+html[lang="en"] .language-menu,
+html[lang="en"] .language-option {
+  direction: ltr !important;
+}
+html[lang="en"] .language-menu { left: auto; right: 0; }
+html[lang="en"] .language-option { text-align: left !important; }
+html[lang="en"] .language-status { margin-left: auto !important; margin-right: 0 !important; }
+html[lang="en"] .hero-content,
+html[lang="en"] .hero-lead,
+html[lang="en"] .hero-metrics .metric,
+html[lang="en"] .about-copy,
+html[lang="en"] .about-mobile-copy,
+html[lang="en"] .footer-brand-block,
+html[lang="en"] .footer-col,
+html[lang="en"] .footer-contact-item {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="en"] .hero-lead { margin: 0 auto 0 0 !important; }
+html[lang="en"] .hero-actions { justify-content: flex-start !important; }
+html[lang="en"] .hero-metrics { direction: ltr !important; }
+html[lang="en"] .catalog { direction: ltr !important; }
+html[lang="en"] .catalog-head { direction: ltr !important; }
+html[lang="en"] .catalog-head-right { align-items: flex-start !important; }
+html[lang="en"] .filter-section label { direction: ltr !important; text-align: left !important; }
+html[lang="en"] .filter-section label .count { margin-left: auto !important; margin-right: 0 !important; }
+html[lang="en"] .filter-title { direction: ltr !important; }
+html[lang="en"] .active-filters { direction: ltr !important; }
+html[lang="en"] .site-footer,
+html[lang="en"] .footer-container,
+html[lang="en"] .footer-bottom { direction: ltr !important; }
+html[lang="en"] .footer-contact-item { flex-direction: row !important; }
+html[lang="en"] .footer-contact-item--phone { direction: ltr !important; }
+html[lang="en"] .footer-contact-item strong,
+html[lang="en"] .footer-contact-item small { direction: ltr !important; }
+html[lang="en"] .footer-social-links { direction: ltr !important; }
