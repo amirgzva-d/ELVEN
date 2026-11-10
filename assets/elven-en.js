@@ -23,6 +23,7 @@
     "نشانی دفتر مرکزی":"Head Office Address",
     "مشهد، میدان جانباز، پاژ اداری ۲، طبقه ۳، واحد ۳۱۳":"Paj Administrative Complex 2, 3rd Floor, Unit 313, Janbaz Square, Mashhad",
     "صادرات به سراسر جهان":"Exporting Worldwide",
+    "© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.":"© 2026 Mohajer Trading Group. All rights reserved.",
     "بازگشت به بالا":"Back to Top",
     "باز کردن منو":"Open Menu",
     "بستن منو":"Close Menu",
