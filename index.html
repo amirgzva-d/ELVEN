@@ -2890,6 +2890,14 @@ img{max-width:100%;display:block}
 <link rel="stylesheet" href="assets/elven-sticky-header.css?v=20261109-mobile-fixed-v2">
 <link rel="stylesheet" href="assets/elven-mobile-navigation.css?v=20261109-home-drawer-v3">
 <link rel="alternate" hreflang="ar" href="https://amirgzva-d.github.io/ELVEN/ar/">
+
+<style id="elven-native-home-products-anchor-fix">
+  /* Keep anchor destinations visible below the fixed header. */
+  #home, #products { scroll-margin-top: 104px; }
+  @media (max-width: 768px) {
+    #home, #products { scroll-margin-top: 82px; }
+  }
+</style>
 </head>
 <body>
 
@@ -3500,16 +3508,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   };
   navLinks.forEach(link=>{
-    link.addEventListener("click",e=>{
-      const href=link.getAttribute("href")||"";
+    link.addEventListener("click",()=>{
       const target=link.dataset.navTarget;
-      const section=target?document.getElementById(target):null;
-      if(section){
-        e.preventDefault();
-        setActiveNav(target);
-        section.scrollIntoView({behavior:"smooth",block:"start"});
-      }
-      /* Close the complete mobile drawer state, not only its visible panel. */
+      if(target)setActiveNav(target);
+      /* Let the browser follow the real ./index.html#home or #products URL.
+         Native hash navigation works from both the desktop nav and mobile drawer. */
       if(window.matchMedia("(max-width: 768px)").matches){
         const toggle=document.querySelector("[data-menu]");
         const backdrop=document.querySelector(".mobile-menu-backdrop");
