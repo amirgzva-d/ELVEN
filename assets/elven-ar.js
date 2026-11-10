@@ -585,6 +585,10 @@
     "فناوری اتریش": "تقنية نمساوية",
     "تضمین‌شده": "مضمون",
     "رده صنعتی": "درجة صناعية",
+    "بستن جزئیات شیر خشک": "إغلاق تفاصيل مسحوق الحليب",
+    "بستن جزئیات رب گوجه‌فرنگی": "إغلاق تفاصيل معجون الطماطم",
+    "بستن جزئیات ماکارونی": "إغلاق تفاصيل المعكرونة",
+    "| بازرگانی مهاجر": "| مجموعة مهاجر التجارية",
   };
   const A = {
     "بازرگانی مهاجر — صادرات محصولات غذایی ممتاز ایرانی به بازارهای جهانی":"مجموعة مهاجر التجارية — تصدير المنتجات الغذائية الإيرانية الممتازة إلى الأسواق العالمية",
@@ -736,6 +740,44 @@
     "واتساپ علیرضا تهرانی": "واتساب عليرضا تهراني",
   };
   const norm = s => (s || "").replace(/\s+/g, " ").trim();
+  function translateDynamic(key) {
+    let match;
+    const digits = value => String(value || "").replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+    const weight = value => digits(value)
+      .replace(/کیلوگرم|کیلو گرم|کیلو/gu, "كيلوغرام")
+      .replace(/گرم/gu, "غرام")
+      .replace(/\s+/g, " ").trim();
+    const brands = {
+      "نان مایه": "NAN MAYEH",
+      "شتاب مایه": "SHETAB MAYEH",
+      "دزمایه گلد": "DEZ MAYE GOLD",
+      "ایکس پاور": "X-Power",
+      "رضوی": "RAZAVI"
+    };
+    const brand = value => brands[value] || value;
+    if ((match = key.match(/^خمیر مایه خشک فوری شتاب مایه (.+)$/u))) {
+      return "الخميرة الجافة الفورية SHETAB MAYEH – " + weight(match[1]);
+    }
+    if ((match = key.match(/^خمیر مایه خشک فوری دزمایه گلد (.+)$/u))) {
+      return "الخميرة الجافة الفورية DEZ MAYE GOLD – " + weight(match[1]);
+    }
+    if ((match = key.match(/^خمیر مایه نان مایه (.+)$/u))) {
+      return "خميرة NAN MAYEH – " + weight(match[1].replace(/\s*\(.*?\)\s*/gu, ""));
+    }
+    if ((match = key.match(/^جدول آنالیز آزمایشگاهی و ترکیبات (.+)$/u))) {
+      return "جدول التحليل المخبري وتركيب " + brand(match[1]);
+    }
+    if ((match = key.match(/^شرایط نگهداری و انبارداری (.+)$/u))) {
+      return "شروط حفظ وتخزين " + brand(match[1]);
+    }
+    if ((match = key.match(/^نحوه مصرف خمیر مایه (.+)$/u))) {
+      return "كيفية استخدام خميرة " + brand(match[1]);
+    }
+    if ((match = key.match(/^برند نوشیدنی شماره\s*(\d+)$/u))) {
+      return "علامة المشروب رقم " + match[1];
+    }
+    return null;
+  }
   function translateNode(node) {
     const raw = node.nodeValue || "", key = norm(raw);
     if (!key) return;
@@ -744,10 +786,11 @@
       node.nodeValue = (T[name] || name) + " | مجموعة مهاجر التجارية";
       return;
     }
-    if (!Object.prototype.hasOwnProperty.call(T, key)) return;
+    const translated = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : translateDynamic(key);
+    if (translated === null) return;
     const leading = raw.match(/^\s*/)?.[0] || "";
     const trailing = raw.match(/\s*$/)?.[0] || "";
-    node.nodeValue = leading + T[key] + trailing;
+    node.nodeValue = leading + translated + trailing;
   }
   function translateAttributes(root) {
     const names = ["aria-label", "title", "alt", "placeholder", "content", "value"];
@@ -758,7 +801,11 @@
         const value = el.getAttribute(name), key = norm(value);
         if (Object.prototype.hasOwnProperty.call(A, key)) el.setAttribute(name, A[key]);
         else if (Object.prototype.hasOwnProperty.call(T, key)) el.setAttribute(name, T[key]);
-        else if (key.startsWith("لوگوی برند نوشیدنی شماره ")) el.setAttribute(name, "شعار علامة المشروبات رقم " + key.slice("لوگوی برند نوشیدنی شماره ".length));
+        else {
+          const dynamic = translateDynamic(key);
+          if (dynamic !== null) el.setAttribute(name, dynamic);
+          else if (key.startsWith("لوگوی برند نوشیدنی شماره ")) el.setAttribute(name, "شعار علامة المشروبات رقم " + key.slice("لوگوی برند نوشیدنی شماره ".length));
+        }
       }
     }
   }
