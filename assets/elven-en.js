@@ -341,7 +341,8 @@
     "برای دریافت مقادیر تأییدشده مربوط به ذرات خارجی، آزمایش باکتریایی، کپک و مخمر، برگه آنالیز همان محصول درخواست شود.": "For verified values covering foreign matter, bacterial testing, mold and yeast, request the analysis certificate for the relevant product.",
     "برندهای رب گوجه‌فرنگی": "Tomato Paste Brands",
     "همراه با برندهای رب گوجه‌فرنگی": "Partnering with Tomato Paste Brands",
-    "برندهای معرفی‌شده؛ مشخصات و امکان تأمین هر محصول پس از استعلام تأیید می‌شود.": "Featured brands. Product specifications and supply availability are confirmed upon inquiry."
+    "برندهای معرفی‌شده؛ مشخصات و امکان تأمین هر محصول پس از استعلام تأیید می‌شود.": "Featured brands. Product specifications and supply availability are confirmed upon inquiry.",
+    "۳ برند": "3 Brands"
   });\n\n  const normalize = value => String(value || "").replace(/\s+/g, " ").trim();
 
   function translateNode(node) {
