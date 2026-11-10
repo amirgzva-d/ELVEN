@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   cards.forEach(card=>{
     const name=card.dataset.product || "Product Details";
-    const url=name==="Yeast Products" ? "yeast-product.html" : "product.html?product="+encodeURIComponent(name.replace(/&amp;/g,"&"));
+    const localePrefix=document.documentElement.lang==="ar" ? "/ar/" : ""; const url=localePrefix+(name==="Yeast Products" ? "yeast-product.html" : "product.html?product="+encodeURIComponent(name.replace(/&amp;/g,"&")));
     const detailsLink=card.querySelector(".product-details-link");
     if(detailsLink) detailsLink.href=url;
     card.addEventListener("click",e=>{
