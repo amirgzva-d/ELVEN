@@ -84,6 +84,7 @@
 
   function collectVisibleElements(root) {
     return Array.from(root.querySelectorAll("*")).filter(function (element) {
+      if (element.closest('[data-elven-internal="language-text-source"]')) return false;
       return !element.matches("script, style, noscript, template");
     });
   }
