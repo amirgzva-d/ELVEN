@@ -274,6 +274,15 @@
   }
 
   function setup() {
+    // Keep one canonical host so localStorage, links and page navigation
+    // cannot split between www and the apex domain.
+    if (location.hostname.toLowerCase() === "mohajer-foodstuff.com") {
+      const canonical = new URL(location.href);
+      canonical.hostname = "www.mohajer-foodstuff.com";
+      location.replace(canonical.href);
+      return;
+    }
+
     route = getRoute();
     const savedLocale = readSavedLocale();
 
