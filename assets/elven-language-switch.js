@@ -76,7 +76,7 @@
     while (walker.nextNode()) {
       const node = walker.currentNode;
       const parent = node.parentElement;
-      if (!parent || parent.closest("script, style, noscript, template")) continue;
+      if (!parent || parent.closest("script, style, noscript, template, [data-elven-internal]")) continue;
       if ((node.nodeValue || "").trim()) nodes.push(node);
     }
     return nodes;
@@ -85,7 +85,7 @@
   function collectVisibleElements(root) {
     return Array.from(root.querySelectorAll("*")).filter(function (element) {
       if (element.closest('[data-elven-internal="language-text-source"]')) return false;
-      return !element.matches("script, style, noscript, template");
+      return !element.matches("script, style, noscript, template") && !element.closest("[data-elven-internal]");
     });
   }
 
