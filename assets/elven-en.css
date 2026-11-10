@@ -117,3 +117,91 @@ html[lang="en"] .product-card .card-copy > p { text-align: left !important; }
 html[lang="en"] .spec-art::after { right: auto !important; left: 0 !important; }
 html[lang="en"] .nutrition-stat { flex-direction: row !important; }
 html[lang="en"] .footer-contact-item { align-items: center !important; }
+
+
+/* Shared LTR treatment for the individual product-detail pages.
+   These rules change text direction/alignment only; dimensions, spacing,
+   images, component order and responsive breakpoints remain source-defined. */
+html[lang="en"] .brands-section,
+html[lang="en"] .yeast-site-footer,
+html[lang="en"] .hero-inner,
+html[lang="en"] .hero-copy,
+html[lang="en"] .kicker,
+html[lang="en"] .spec-content,
+html[lang="en"] .usage-header,
+html[lang="en"] .canned-type-copy,
+html[lang="en"] .ingredient-choice,
+html[lang="en"] .text-product-header,
+html[lang="en"] .ingredient-product-surface .text-product-intro,
+html[lang="en"] .text-variant-heading {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+html[lang="en"] .hero-copy {
+  align-items: flex-start !important;
+}
+html[lang="en"] .hero-copy .kicker {
+  justify-content: flex-start !important;
+}
+html[lang="en"] .soda-main .hero-inner,
+html[lang="en"] .canned-main .hero-inner,
+html[lang="en"] .ingredient-main .hero-inner,
+html[lang="en"] .tomato-main .hero-inner {
+  direction: ltr !important;
+}
+html[lang="en"] .soda-main .hero-copy,
+html[lang="en"] .canned-main .hero-copy,
+html[lang="en"] .ingredient-main .hero-copy,
+html[lang="en"] .tomato-main .hero-copy {
+  direction: ltr !important;
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+html[lang="en"] .usage-header {
+  align-items: flex-start !important;
+}
+html[lang="en"] .yeast-site-footer .footer-contact-item div strong {
+  text-align: left !important;
+}
+html[lang="en"] .header .nav:before,
+html[lang="en"] .site-header .main-nav:before,
+html[lang="en"] .masthead .primary-nav:before {
+  content: "Mohajer Trading Group" !important;
+  right: auto !important;
+  left: 24px !important;
+  text-align: left !important;
+  font-family: Poppins, Arial, sans-serif !important;
+}
+html[lang="en"] .header .nav:after,
+html[lang="en"] .site-header .main-nav:after,
+html[lang="en"] .masthead .primary-nav:after {
+  right: auto !important;
+  left: 25px !important;
+}
+@media (max-width:768px) {
+  html[lang="en"] .header .nav,
+  html[lang="en"] .site-header .main-nav,
+  html[lang="en"] .masthead .primary-nav {
+    right: auto !important;
+    left: 0 !important;
+    border-radius: 0 26px 26px 0 !important;
+    transform: translate3d(-105%,0,0) !important;
+  }
+  html[lang="en"] .header .nav.mobile-open,
+  html[lang="en"] .site-header .main-nav.is-open,
+  html[lang="en"] .masthead .primary-nav.is-open {
+    transform: translate3d(0,0,0) !important;
+  }
+  html[lang="en"] .header .nav a,
+  html[lang="en"] .site-header .main-nav a,
+  html[lang="en"] .masthead .primary-nav a {
+    text-align: left !important;
+  }
+  html[lang="en"] .header .nav a:before,
+  html[lang="en"] .site-header .main-nav a:before,
+  html[lang="en"] .masthead .primary-nav a:before {
+    margin-left: 0 !important;
+    margin-right: 12px !important;
+  }
+}
