@@ -1,14 +1,17 @@
 (function () {
   "use strict";
 
-  const SUPPORTED = new Set(["fa", "ar"]);
+  const SUPPORTED = new Set(["fa", "en", "ar"]);
   const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
-  const AR_TRANSLATOR_VERSION = "20261110-inpage-ar-v2";
+  const AR_TRANSLATOR_VERSION = "20261110-inpage-ar-v3";
+  const EN_TRANSLATOR_VERSION = "20261110-inpage-en-v1";
   let route;
   let activeLocale = "fa";
   let translatorLoading = false;
+  let englishTranslatorLoading = false;
   const translatorCallbacks = [];
+  const englishTranslatorCallbacks = [];
 
   function getBasePath() {
     const marker = "/assets/elven-language-switch.js";
@@ -26,47 +29,27 @@
     let pathname = location.pathname;
     if (basePath && pathname === basePath) pathname = "/";
     else if (basePath && pathname.startsWith(basePath + "/")) pathname = pathname.slice(basePath.length);
-
     const parts = pathname.split("/").filter(Boolean);
     let legacyLocale = "";
     if (parts[0] === "ar" || parts[0] === "en") legacyLocale = parts.shift();
-
     let current = parts.join("/") || "index.html";
     const isEnglishCatalog = /^catalog-en\.html$/i.test(current);
-    if (/^catalog(?:-fa|-en)?\.html$/i.test(current) || /^catalog\.html$/i.test(current)) {
-      current = "catalog-fa.html";
-    }
+    if (/^catalog(?:-fa|-en)?\.html$/i.test(current) || /^catalog\.html$/i.test(current)) current = "catalog-fa.html";
     return { basePath, current, legacyLocale, isEnglishCatalog };
-  }
-
-  function pageUrl() {
-    const target = new URL((route.basePath || "") + "/" + route.current, location.origin);
-    target.search = location.search;
-    target.hash = location.hash;
-    return target;
   }
 
   function saveLocale(locale) {
     if (!SUPPORTED.has(locale)) return;
     try { localStorage.setItem(STORAGE_KEY, locale); } catch (_) {}
-
-    // Share the preference between the www and apex versions of the site.
-    // On preview/local hosts the domain cookie is rejected, so use a
-    // same-host cookie as a safe fallback.
     const cookie = STORAGE_KEY + "=" + locale + "; path=/; max-age=31536000; SameSite=Lax; Secure";
     document.cookie = cookie + "; Domain=.mohajer-foodstuff.com";
-    if (!document.cookie.includes(STORAGE_KEY + "=" + locale)) {
-      document.cookie = cookie;
-    }
+    if (!document.cookie.includes(STORAGE_KEY + "=" + locale)) document.cookie = cookie;
   }
 
   function readSavedLocale() {
-    // The domain cookie is shared by www and non-www. Read it before the
-    // host-specific localStorage value to prevent stale host values winning.
     const match = document.cookie.match(new RegExp("(?:^|; )" + STORAGE_KEY + "=([^;]*)"));
     const cookieLocale = match ? decodeURIComponent(match[1]) : "";
     if (SUPPORTED.has(cookieLocale)) return cookieLocale;
-
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (SUPPORTED.has(saved)) return saved;
@@ -74,41 +57,30 @@
     return "";
   }
 
-  function readLocale() {
-    return readSavedLocale() || "fa";
-  }
+  function readLocale() { return readSavedLocale() || "fa"; }
 
   function normalizeInternalLinks() {
     const normalize = function (anchor) {
       const raw = anchor.getAttribute("href");
       if (!raw || raw.startsWith("#") || /^(mailto:|tel:|javascript:|data:)/i.test(raw)) return;
-
       let target;
       try { target = new URL(raw, location.href); } catch (_) { return; }
-
       const isOldDomain = OLD_HOSTS.has(target.hostname.toLowerCase());
       const isSameOrigin = target.origin === location.origin;
       if (!isOldDomain && !isSameOrigin) return;
-
       const base = route.basePath || "";
       let pathname = target.pathname;
       if (base && pathname === base) pathname = "/";
       else if (base && pathname.startsWith(base + "/")) pathname = pathname.slice(base.length);
       else if (!isOldDomain && base) return;
-
       pathname = pathname.replace(/^\/(?:ar|en)(?=\/)/i, "");
       if (!pathname.startsWith("/")) pathname = "/" + pathname;
       if (!pathname || pathname === "/") pathname = "/index.html";
-      if (/^\/catalog(?:-en)?\.html$/i.test(pathname) || /^\/catalog\.html$/i.test(pathname)) {
-        pathname = "/catalog-fa.html";
-      }
-
+      if (/^\/catalog(?:-en)?\.html$/i.test(pathname) || /^\/catalog\.html$/i.test(pathname)) pathname = "/catalog-fa.html";
       const normalized = new URL(base + pathname + target.search + target.hash, location.origin);
       if (anchor.href !== normalized.href) anchor.setAttribute("href", normalized.href);
     };
-
     document.querySelectorAll("a[href]").forEach(normalize);
-
     if (!window.__elvenInternalLinkClickGuard) {
       window.__elvenInternalLinkClickGuard = true;
       document.addEventListener("click", function (event) {
@@ -116,7 +88,6 @@
         if (anchor) normalize(anchor);
       }, true);
     }
-
     if (window.MutationObserver && !window.__elvenInternalLinkObserver) {
       window.__elvenInternalLinkObserver = new MutationObserver(function (records) {
         records.forEach(function (record) {
@@ -138,36 +109,31 @@
     const canonicalUrl = new URL(location.pathname, location.origin);
     canonicalUrl.search = "";
     canonicalUrl.hash = "";
-    document.querySelectorAll('link[rel="canonical"]').forEach(function (link) {
-      link.href = canonicalUrl.href;
-    });
-    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(function (link) {
-      link.remove();
-    });
-    document.querySelectorAll('meta[property="og:url"], meta[name="twitter:url"]').forEach(function (meta) {
-      meta.setAttribute("content", canonicalUrl.href);
-    });
+    document.querySelectorAll('link[rel="canonical"]').forEach(link => { link.href = canonicalUrl.href; });
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(link => link.remove());
+    document.querySelectorAll('meta[property="og:url"], meta[name="twitter:url"]').forEach(meta => meta.setAttribute("content", canonicalUrl.href));
   }
 
   function updatePicker(locale) {
     const picker = document.getElementById("languagePicker");
     if (!picker) return;
-
-    const names = { fa: "فارسی", ar: "العربية" };
+    const names = { fa: "فارسی", en: "English", ar: "العربية" };
+    const statusText = {
+      fa: { active: "فعال", inactive: "تغییر" },
+      en: { active: "Active", inactive: "Switch" },
+      ar: { active: "مفعّلة", inactive: "التبديل" }
+    };
     const current = picker.querySelector(".language-current");
     if (current) current.textContent = names[locale];
-
     picker.querySelectorAll("[data-language]").forEach(function (option) {
       const language = option.dataset.language;
-      if (!SUPPORTED.has(language)) {
-        option.remove();
-        return;
-      }
+      if (!SUPPORTED.has(language)) { option.remove(); return; }
       const active = language === locale;
       const label = option.querySelector("span:not(.language-flag):not(.language-status)");
       const status = option.querySelector(".language-status");
       if (label) label.textContent = names[language];
-      if (status) status.textContent = active ? (locale === "ar" ? "مفعّلة" : "فعال") : (locale === "ar" ? "التبديل" : "تغییر");
+      if (status) status.textContent = active ? statusText[locale].active : statusText[locale].inactive;
+      option.classList.remove("is-coming");
       option.classList.toggle("is-current", active);
       option.setAttribute("role", active ? "menuitemradio" : "menuitem");
       option.setAttribute("aria-checked", active ? "true" : "false");
@@ -176,62 +142,89 @@
   }
 
   function loadArabicTranslator(hideUntilReady, callback) {
-    if (window.ElvenArabicTranslator) {
-      if (callback) callback(true);
-      return;
-    }
+    if (window.ElvenArabicTranslator) { if (callback) callback(true); return; }
     if (callback) translatorCallbacks.push(callback);
     if (translatorLoading) return;
-
     translatorLoading = true;
     if (hideUntilReady) document.documentElement.style.visibility = "hidden";
-
     const script = document.createElement("script");
     script.src = (route.basePath || "") + "/assets/elven-ar.js?v=" + AR_TRANSLATOR_VERSION;
     script.async = true;
     script.onload = function () {
       translatorLoading = false;
       document.documentElement.style.visibility = "";
-      translatorCallbacks.splice(0).forEach(function (done) { done(!!window.ElvenArabicTranslator); });
+      translatorCallbacks.splice(0).forEach(done => done(!!window.ElvenArabicTranslator));
     };
     script.onerror = function () {
       translatorLoading = false;
       document.documentElement.style.visibility = "";
-      translatorCallbacks.splice(0).forEach(function (done) { done(false); });
+      translatorCallbacks.splice(0).forEach(done => done(false));
+    };
+    document.head.appendChild(script);
+  }
+
+  function loadEnglishTranslator(hideUntilReady, callback) {
+    if (window.ElvenEnglishTranslator) { if (callback) callback(true); return; }
+    if (callback) englishTranslatorCallbacks.push(callback);
+    if (englishTranslatorLoading) return;
+    englishTranslatorLoading = true;
+    if (hideUntilReady) document.documentElement.style.visibility = "hidden";
+    const script = document.createElement("script");
+    script.src = (route.basePath || "") + "/assets/elven-en.js?v=" + EN_TRANSLATOR_VERSION;
+    script.async = true;
+    script.onload = function () {
+      englishTranslatorLoading = false;
+      document.documentElement.style.visibility = "";
+      englishTranslatorCallbacks.splice(0).forEach(done => done(!!window.ElvenEnglishTranslator));
+    };
+    script.onerror = function () {
+      englishTranslatorLoading = false;
+      document.documentElement.style.visibility = "";
+      englishTranslatorCallbacks.splice(0).forEach(done => done(false));
     };
     document.head.appendChild(script);
   }
 
   function applyLocale(locale, initial) {
     if (!SUPPORTED.has(locale)) return;
-
-    // Legacy Arabic pages contain Arabic source markup. They cannot be
-    // reliably restored to Persian in-place, so switch to the matching
-    // Persian source page while preserving its query string and hash.
-    if (route.legacyLocale === "ar" && locale === "fa") {
-      saveLocale("fa");
-      const target = pageUrl();
-      if (target.pathname !== location.pathname) {
-        location.replace(target.href);
-        return;
-      }
-    }
-
     activeLocale = locale;
     saveLocale(locale);
-    document.documentElement.lang = locale;
-    document.documentElement.dir = "rtl";
+
+    if (locale === "en") {
+      if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
+      updatePicker("en");
+      document.documentElement.lang = "en";
+      if (window.ElvenYeastPageTranslator) {
+        window.ElvenYeastPageTranslator.setLanguage("en");
+        return;
+      }
+      loadEnglishTranslator(!!initial, function (loaded) {
+        if (activeLocale !== "en") return;
+        if (loaded && window.ElvenEnglishTranslator) {
+          window.ElvenEnglishTranslator.setLanguage("en");
+        } else {
+          activeLocale = "fa";
+          saveLocale("fa");
+          document.documentElement.lang = "fa";
+          document.documentElement.dir = "rtl";
+          if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
+          updatePicker("fa");
+        }
+      });
+      return;
+    }
 
     if (locale === "ar") {
+      if (window.ElvenEnglishTranslator) window.ElvenEnglishTranslator.setLanguage("fa");
+      if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
+      document.documentElement.lang = "ar";
+      document.documentElement.dir = "rtl";
       updatePicker("ar");
       loadArabicTranslator(!!initial, function (loaded) {
         if (activeLocale !== "ar") return;
         if (loaded && window.ElvenArabicTranslator) {
           window.ElvenArabicTranslator.setLanguage("ar");
         } else {
-          // Do not silently overwrite the user's saved choice when the
-          // Arabic file fails to load. Keep Arabic selected and retry on
-          // the next page load instead of reverting the whole site to Persian.
           activeLocale = "ar";
           saveLocale("ar");
           document.documentElement.lang = "ar";
@@ -239,76 +232,59 @@
           updatePicker("ar");
         }
       });
-    } else {
-      if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
-      document.documentElement.lang = "fa";
-      updatePicker("fa");
+      return;
     }
+
+    if (window.ElvenEnglishTranslator) window.ElvenEnglishTranslator.setLanguage("fa");
+    if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
+    if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
+    document.documentElement.lang = "fa";
+    document.documentElement.dir = "rtl";
+    updatePicker("fa");
   }
 
   function bindPicker() {
     const menu = document.querySelector(".language-menu");
     const picker = document.getElementById("languagePicker");
     if (!menu || menu.dataset.localeSwitchReady === "1") return;
-
     menu.dataset.localeSwitchReady = "1";
     menu.addEventListener("click", function (event) {
       const option = event.target && event.target.closest ? event.target.closest("[data-language]") : null;
       if (!option) return;
       const selected = option.dataset.language;
       if (!SUPPORTED.has(selected)) return;
-
       event.preventDefault();
       event.stopPropagation();
       event.stopImmediatePropagation();
-
       if (picker) {
         picker.classList.remove("is-open");
         const trigger = picker.querySelector(".language-trigger");
         if (trigger) trigger.setAttribute("aria-expanded", "false");
       }
-
       if (selected !== activeLocale) applyLocale(selected, false);
       else updatePicker(selected);
     }, true);
   }
 
   function setup() {
-    // Keep one canonical host so localStorage, links and page navigation
-    // cannot split between www and the apex domain.
     if (location.hostname.toLowerCase() === "mohajer-foodstuff.com") {
       const canonical = new URL(location.href);
       canonical.hostname = "www.mohajer-foodstuff.com";
       location.replace(canonical.href);
       return;
     }
-
     route = getRoute();
     const savedLocale = readSavedLocale();
-
-    // Respect the site-wide choice even if an old /ar/ URL was opened.
-    if (route.legacyLocale === "ar" && savedLocale === "fa") {
-      const target = pageUrl();
-      if (target.pathname !== location.pathname) {
-        location.replace(target.href);
-        return;
-      }
+    if ((route.legacyLocale === "ar" || route.legacyLocale === "en") && savedLocale === "fa") {
+      const target = new URL((route.basePath || "") + "/" + route.current, location.origin);
+      target.search = location.search;
+      target.hash = location.hash;
+      if (target.pathname !== location.pathname) { location.replace(target.href); return; }
     }
-
     bindPicker();
-
-    // Bring all internal links (including links on legacy /ar/ pages) onto
-    // the same root page paths. The selected language is carried by the
-    // shared domain cookie, not by a different URL tree.
     normalizeInternalLinks();
-
-    // Persian is the default on a first visit. An explicit /ar/ URL is kept
-    // Arabic only when the visitor has not previously selected a language.
-    const initialLocale = savedLocale || (route.legacyLocale === "ar" ? "ar" : "fa");
+    const initialLocale = savedLocale || (route.legacyLocale === "ar" ? "ar" : route.legacyLocale === "en" ? "en" : "fa");
     applyLocale(initialLocale, true);
-
-    // Keep already-open tabs in sync when the visitor changes language in
-    // another tab on the same site.
     if (!window.__elvenLanguageStorageSync) {
       window.__elvenLanguageStorageSync = true;
       window.addEventListener("storage", function (event) {
@@ -318,9 +294,6 @@
     }
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setup, { once: true });
-  } else {
-    setup();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", setup, { once: true });
+  else setup();
 })();
