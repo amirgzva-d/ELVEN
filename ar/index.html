@@ -3368,7 +3368,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   backTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 
-  const toFa=(n)=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+  const toLocaleDigits=(n)=>String(n);
 
   /* ===== FILTERS ===== */
   const filterSections = document.querySelectorAll(".filter-section[data-filter-group]");
@@ -3398,7 +3398,7 @@ document.addEventListener("DOMContentLoaded",()=>{
           if(values.includes(val)) count++;
         });
         const badge = input.parentElement.querySelector(".count");
-        if(badge) badge.textContent = toFa(count);
+        if(badge) badge.textContent = toLocaleDigits(count);
       });
     });
   };
