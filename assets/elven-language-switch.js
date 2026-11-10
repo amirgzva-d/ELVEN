@@ -264,14 +264,12 @@
     const explicitLocale = route.prefix;
     let preferredLocale = explicitLocale;
 
-    // Keep the selected language when visitors move between site pages.
-    // Explicit /ar/ and /en/ URLs still take precedence when opened directly.
-    if (explicitLocale === "fa") {
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (SUPPORTED.has(saved)) preferredLocale = saved;
-      } catch (_) {}
-    }
+    // Keep an explicitly selected language as visitors move between pages,
+    // including when the current URL is under /ar/ or /en/.
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (SUPPORTED.has(saved)) preferredLocale = saved;
+    } catch (_) {}
 
     currentLocale = explicitLocale;
     updateLanguageMenu(explicitLocale, englishReady);
@@ -298,8 +296,6 @@
 
     if (preferredLocale !== explicitLocale) {
       applyLanguage(preferredLocale, route, englishReady);
-    } else {
-      try { localStorage.setItem(STORAGE_KEY, explicitLocale); } catch (_) {}
     }
   }
 
