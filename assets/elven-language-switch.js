@@ -217,10 +217,14 @@
         if (loaded && window.ElvenArabicTranslator) {
           window.ElvenArabicTranslator.setLanguage("ar");
         } else {
-          activeLocale = "fa";
-          saveLocale("fa");
-          document.documentElement.lang = "fa";
-          updatePicker("fa");
+          // Do not silently overwrite the user's saved choice when the
+          // Arabic file fails to load. Keep Arabic selected and retry on
+          // the next page load instead of reverting the whole site to Persian.
+          activeLocale = "ar";
+          saveLocale("ar");
+          document.documentElement.lang = "ar";
+          document.documentElement.dir = "rtl";
+          updatePicker("ar");
         }
       });
     } else {
