@@ -162,8 +162,7 @@
     "برندهای محصولات صادراتی":"Export Product Brands","برند تأمین‌کننده در انتظار تأیید":"Supplier Brand Pending Confirmation",
     "لوگوی برند نوشیدنی شماره":"Beverage Brand Logo Number",
     "بازرگانی مهاجر | صادرات محصولات غذایی":"Mohajer Trading Group | Food Exports","بازگشت به صفحه خانه":"Back to Home",
-    "مرحله ۱":"Step 1","مرحله ۲":"Step 2","مرحله ۳":"Step 3","مرحله ۴":"Step 4"
-
+    "مرحله ۱":"Step 1","مرحله ۲":"Step 2","مرحله ۳":"Step 3","مرحله ۴":"Step 4",
     "امروز":"Today","گروه بازرگانی مهاجر":"Mohajer Trading Group","کراس":"Kras",
     "گلوکز | محصولات گلوکز و نشاسته | بازرگانی مهاجر":"Glucose | Glucose and Starch Products | Mohajer Trading Group",
     "گلوکز و نشاسته اکنون در یک صفحه مشترک نمایش داده می‌شوند.":"Glucose and starch are now presented together on one page.",
