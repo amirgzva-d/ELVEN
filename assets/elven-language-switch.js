@@ -52,14 +52,18 @@
     document.cookie = STORAGE_KEY + "=" + locale + "; path=/; max-age=31536000; SameSite=Lax";
   }
 
-  function readLocale() {
+  function readSavedLocale() {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (SUPPORTED.has(saved)) return saved;
     } catch (_) {}
     const match = document.cookie.match(new RegExp("(?:^|; )" + STORAGE_KEY + "=([^;]*)"));
     const cookieLocale = match ? decodeURIComponent(match[1]) : "";
-    return SUPPORTED.has(cookieLocale) ? cookieLocale : "fa";
+    return SUPPORTED.has(cookieLocale) ? cookieLocale : "";
+  }
+
+  function readLocale() {
+    return readSavedLocale() || "fa";
   }
 
   function normalizeInternalLinks() {
@@ -188,6 +192,19 @@
 
   function applyLocale(locale, initial) {
     if (!SUPPORTED.has(locale)) return;
+
+    // Legacy Arabic pages contain Arabic source markup. They cannot be
+    // reliably restored to Persian in-place, so switch to the matching
+    // Persian source page while preserving its query string and hash.
+    if (route.legacyLocale === "ar" && locale === "fa") {
+      saveLocale("fa");
+      const target = pageUrl();
+      if (target.pathname !== location.pathname) {
+        location.replace(target.href);
+        return;
+      }
+    }
+
     activeLocale = locale;
     saveLocale(locale);
     document.documentElement.lang = locale;
@@ -242,12 +259,22 @@
 
   function setup() {
     route = getRoute();
+    const savedLocale = readSavedLocale();
 
-    // Language switching changes page text only. Keep the current URL,
-    // every internal href, query string, hash and page section untouched.
-    // Locale preference persists across normal page navigation via storage.
+    // Respect an already selected Persian preference even when an old link
+    // lands on a legacy /ar/ copy of the same page.
+    if (route.legacyLocale === "ar" && savedLocale === "fa") {
+      const target = pageUrl();
+      if (target.pathname !== location.pathname) {
+        location.replace(target.href);
+        return;
+      }
+    }
+
     bindPicker();
-    const initialLocale = route.legacyLocale === "ar" ? "ar" : readLocale();
+    // A first visit to an explicit /ar/ URL starts in Arabic. After that,
+    // the saved site-wide preference wins on every page.
+    const initialLocale = route.legacyLocale === "ar" ? "ar" : (savedLocale || "fa");
     applyLocale(initialLocale, true);
   }
 
