@@ -46,3 +46,20 @@ html[lang="en"] .footer-contact-item--phone { direction: ltr !important; }
 html[lang="en"] .footer-contact-item strong,
 html[lang="en"] .footer-contact-item small { direction: ltr !important; }
 html[lang="en"] .footer-social-links { direction: ltr !important; }
+
+html[lang="en"] .elven-mobile-reference-footer,
+html[lang="en"] .elven-mobile-reference-links,
+html[lang="en"] .elven-mobile-reference-contact,
+html[lang="en"] .elven-mobile-reference-address,
+html[lang="en"] .elven-mobile-reference-bottom {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="en"] .elven-mobile-reference-footer a,
+html[lang="en"] .elven-mobile-reference-person-contact,
+html[lang="en"] .elven-mobile-reference-meta-contact {
+  direction: ltr !important;
+}
+html[lang="en"] .elven-mobile-reference-links a {
+  flex-direction: row !important;
+}
