@@ -847,6 +847,9 @@
     [en, ru].filter(Boolean).forEach(option => {
       option.classList.add("is-coming");
       option.setAttribute("aria-disabled", "true");
+      const label = option.querySelector("span:not(.language-flag):not(.language-status)");
+      const languageName = option.dataset.language === "en" ? "الإنجليزية" : "الروسية";
+      if (label && label.textContent !== languageName) label.textContent = languageName;
       const status = option.querySelector(".language-status");
       if (status && status.textContent !== "قريبًا") status.textContent = "قريبًا";
     });
