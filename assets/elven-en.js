@@ -56,7 +56,8 @@
     "لینکدین — آدرس رسمی مورد نیاز":"LinkedIn — official URL required"
   };
 
-    // Full English copy for product pages and shared controls.\n  Object.assign(T,   {
+    // Full English copy for product pages and shared controls.
+  Object.assign(T,   {
     "خانه": "Home",
     "دپارتمان‌ها": "Departments",
     "تماس": "Contact",
@@ -343,7 +344,9 @@
     "همراه با برندهای رب گوجه‌فرنگی": "Partnering with Tomato Paste Brands",
     "برندهای معرفی‌شده؛ مشخصات و امکان تأمین هر محصول پس از استعلام تأیید می‌شود.": "Featured brands. Product specifications and supply availability are confirmed upon inquiry.",
     "۳ برند": "3 Brands"
-  });\n\n  const normalize = value => String(value || "").replace(/\s+/g, " ").trim();
+  });
+
+  const normalize = value => String(value || "").replace(/\s+/g, " ").trim();
 
   function translateNode(node) {
     if (!node || node.nodeType !== Node.TEXT_NODE) return;
