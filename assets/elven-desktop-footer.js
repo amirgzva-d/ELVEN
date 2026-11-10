@@ -92,7 +92,7 @@
     });
 
     document.querySelectorAll('header nav a, header .nav a, header .main-nav a').forEach(function (link) {
-      var label = (link.textContent || '').replace(/\\s+/g, ' ').trim();
+      var label = (link.textContent || '').replace(/\s+/g, ' ').trim();
       var target = (link.getAttribute('data-nav-target') || '').toLowerCase();
       var href = link.getAttribute('href') || '';
       if (target === 'home' || homeLabels.test(label) || /#home$/.test(href)) {
@@ -116,11 +116,11 @@
     });
 
     document.querySelectorAll('footer a').forEach(function (link) {
-      var label = (link.textContent || '').replace(/\\s+/g, ' ').trim();
+      var label = (link.textContent || '').replace(/\s+/g, ' ').trim();
       var href = link.getAttribute('href') || '';
-      if (homeLabels.test(label) || /(?:^|\\/)index\\.html#home$/.test(href)) {
+      if (homeLabels.test(label) || href.endsWith('index.html#home')) {
         link.setAttribute('href', homeTarget);
-      } else if (productLabels.test(label) || /index\\.html#products$/.test(href)) {
+      } else if (productLabels.test(label) || href.endsWith('index.html#products')) {
         link.setAttribute('href', productsTarget);
       }
     });
