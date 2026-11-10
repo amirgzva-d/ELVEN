@@ -87,6 +87,14 @@
       if (anchor.href !== target.href) anchor.setAttribute("href", target.href);
     };
     document.querySelectorAll("a[href]").forEach(normalize);
+    // Re-check the destination at click time as well, including links created by other scripts.
+    if (!window.__elvenInternalLinkClickGuard) {
+      window.__elvenInternalLinkClickGuard = true;
+      document.addEventListener("click", function (event) {
+        const anchor = event.target && event.target.closest ? event.target.closest("a[href]") : null;
+        if (anchor) normalize(anchor);
+      }, true);
+    }
     if (window.MutationObserver && !window.__elvenInternalLinkObserver) {
       window.__elvenInternalLinkObserver = new MutationObserver(function (records) {
         records.forEach(function (record) {
@@ -102,6 +110,32 @@
         subtree: true, childList: true, attributes: true, attributeFilter: ["href"]
       });
     }
+  }
+
+  function normalizeCanonicalMetadata() {
+    const base = route.basePath || "";
+    const pagePath = (location.pathname.replace(base, "") || "/").replace(/^\\/+/, "");
+    const canonicalUrl = new URL((base ? base + "/" : "/") + pagePath, location.origin);
+    canonicalUrl.search = "";
+    canonicalUrl.hash = "";
+    document.querySelectorAll('link[rel="canonical"], link[rel="alternate"][hreflang]').forEach(function (link) {
+      const rel = (link.getAttribute("rel") || "").toLowerCase();
+      const lang = (link.getAttribute("hreflang") || "").toLowerCase();
+      let path = pagePath;
+      if (rel === "alternate" && lang === "fa") path = pagePath.replace(/^(en|ar)\\//, "");
+      if (rel === "alternate" && lang === "en") path = "en/" + pagePath.replace(/^(en|ar)\\//, "");
+      if (rel === "alternate" && lang === "ar") path = "ar/" + pagePath.replace(/^(en|ar)\\//, "");
+      if (rel === "alternate" && lang === "x-default") path = pagePath.replace(/^(en|ar)\\//, "");
+      if (/^catalog(?:-fa|-en)?\\.html$/i.test(pagePath) || /^ar\\/catalog\\.html$/i.test(pagePath)) {
+        if (lang === "fa" || lang === "x-default") path = "catalog-fa.html";
+        if (lang === "en") path = "catalog-en.html";
+        if (lang === "ar") path = "ar/catalog.html";
+      }
+      link.href = new URL((base ? base + "/" : "/") + path.replace(/^\\/+/, ""), location.origin).href;
+    });
+    document.querySelectorAll('meta[property="og:url"], meta[name="twitter:url"]').forEach(function (meta) {
+      meta.setAttribute("content", canonicalUrl.href);
+    });
   }
 
   function updatePicker(locale) {
@@ -166,6 +200,7 @@
     if (preferred) saveLocale(preferred);
     updatePicker(locale);
     normalizeInternalLinks();
+    normalizeCanonicalMetadata();
     bindPicker();
   }
 
