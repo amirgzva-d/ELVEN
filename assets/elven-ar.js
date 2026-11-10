@@ -576,8 +576,9 @@
     translateTree(document.body);
     if (document.title) {
       const titleKey = norm(document.title);
-      const dynamicTitle = titleKey.match(/^(.*) \\| Mohajer Trading Group$/);
-      document.title = T[titleKey] || (dynamicTitle ? (T[dynamicTitle[1]] || dynamicTitle[1]) + " | مجموعة مهاجر التجارية" : document.title);
+      const suffix = " | Mohajer Trading Group";
+      const dynamicTitle = titleKey.endsWith(suffix) ? titleKey.slice(0, -suffix.length) : null;
+      document.title = T[titleKey] || (dynamicTitle !== null ? (T[dynamicTitle] || dynamicTitle) + " | مجموعة مهاجر التجارية" : document.title);
     }
     localizePicker();
     if (window.MutationObserver && !window.__elvenArabicObserver) {
