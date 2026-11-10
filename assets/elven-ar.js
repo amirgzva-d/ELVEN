@@ -544,9 +544,9 @@
       fa.setAttribute("aria-checked", "false");
       fa.setAttribute("aria-disabled", "false");
       const label = fa.querySelector("span:not(.language-flag):not(.language-status)");
-      if (label) label.textContent = "الفارسية";
+      if (label && label.textContent !== "الفارسية") label.textContent = "الفارسية";
       const status = fa.querySelector(".language-status");
-      if (status) status.textContent = "التبديل";
+      if (status && status.textContent !== "التبديل") status.textContent = "التبديل";
     }
     if (ar) {
       ar.classList.remove("is-coming");
@@ -555,13 +555,13 @@
       ar.setAttribute("aria-checked", "true");
       ar.setAttribute("aria-disabled", "false");
       const status = ar.querySelector(".language-status");
-      if (status) status.textContent = "مفعّلة";
+      if (status && status.textContent !== "مفعّلة") status.textContent = "مفعّلة";
     }
     [en, ru].filter(Boolean).forEach(option => {
       option.classList.add("is-coming");
       option.setAttribute("aria-disabled", "true");
       const status = option.querySelector(".language-status");
-      if (status) status.textContent = "قريبًا";
+      if (status && status.textContent !== "قريبًا") status.textContent = "قريبًا";
     });
     const triggerLabel = picker.querySelector(".language-trigger [data-current-language], .language-trigger .language-current, .language-trigger span");
     if (triggerLabel) {
