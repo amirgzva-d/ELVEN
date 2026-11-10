@@ -243,20 +243,12 @@
   function setup() {
     route = getRoute();
 
-    // Legacy language folders are aliases only. The same source page renders
-    // both languages, so old locale-prefixed URLs are normalized once.
-    if (route.legacyLocale || route.isEnglishCatalog) {
-      const saved = readLocale();
-      if (route.legacyLocale === "ar") saveLocale("ar");
-      else saveLocale(saved || "fa");
-      location.replace(pageUrl().href);
-      return;
-    }
-
-    normalizeInternalLinks();
-    normalizeCanonicalMetadata();
+    // Language switching changes page text only. Keep the current URL,
+    // every internal href, query string, hash and page section untouched.
+    // Locale preference persists across normal page navigation via storage.
     bindPicker();
-    applyLocale(readLocale(), true);
+    const initialLocale = route.legacyLocale === "ar" ? "ar" : readLocale();
+    applyLocale(initialLocale, true);
   }
 
   if (document.readyState === "loading") {
