@@ -79,6 +79,61 @@
     return locale + '/index.html';
   }
 
+  function closeNavigationMenu(link) {
+    var header = link.closest('header');
+    var nav = link.closest('nav');
+    if (nav) nav.classList.remove('mobile-open', 'is-open', 'elven-mobile-drawer-portal');
+    var backdrop = header && header.querySelector('.mobile-menu-backdrop');
+    if (backdrop) {
+      backdrop.classList.remove('is-visible', 'elven-mobile-backdrop-portal');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+    if (header) {
+      header.querySelectorAll('[data-menu], #menuToggle, #contactNavToggle, .mobile-toggle').forEach(function (toggle) {
+        toggle.classList.remove('is-open', 'active');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    }
+    document.body.classList.remove('menu-drawer-open', 'pd-menu-open');
+    document.documentElement.classList.remove('menu-drawer-open');
+  }
+
+  function bindHomeMenuNavigation() {
+    if (window.__ELVEN_HOME_MENU_NAVIGATION_FIX__) return;
+    window.__ELVEN_HOME_MENU_NAVIGATION_FIX__ = true;
+
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (target && target.nodeType !== 1) target = target.parentElement;
+      if (!target || typeof target.closest !== 'function') return;
+
+      var link = target.closest('header nav a, header .nav a, header .main-nav a, #primaryNav a, #siteNav a');
+      if (!link) return;
+
+      var label = (link.textContent || '').replace(/\\s+/g, ' ').trim();
+      var navTarget = (link.getAttribute('data-nav-target') || '').toLowerCase();
+      var i18nTarget = (link.getAttribute('data-i18n') || '').toLowerCase();
+      var isHomeLink = navTarget === 'home' || i18nTarget === 'navhome' ||
+        /^(خانه|صفحه اصلی|الرئيسية|home)$/i.test(label);
+      if (!isHomeLink) return;
+
+      event.preventDefault();
+      closeNavigationMenu(link);
+
+      var destination = new URL(localizedHomeUrl() + '#home', window.location.origin);
+      if (destination.pathname === window.location.pathname) {
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(window.history.state, '', destination.pathname + destination.hash);
+        }
+        var homeSection = document.querySelector('main#home, #home');
+        if (homeSection) homeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.assign(destination.href);
+      }
+    }, true);
+  }
+
   function normalizeSiteNavigationLinks() {
     var home = localizedHomeUrl();
     var homeTarget = home + '#home';
@@ -142,6 +197,7 @@
     });
 
     normalizeSiteNavigationLinks();
+    bindHomeMenuNavigation();
     ensureBackToTop();
   }
 

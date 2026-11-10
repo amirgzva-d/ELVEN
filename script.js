@@ -28,9 +28,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     link.addEventListener("click",e=>{
       const target=link.dataset.navTarget;
       const section=document.getElementById(target);
+      if(!section){
+        nav?.classList.remove("mobile-open");
+        return; // On inner pages, allow the link to navigate to the homepage.
+      }
       e.preventDefault();
       setActiveNav(target);
-      if(section) section.scrollIntoView({behavior:"smooth",block:"start"});
+      section.scrollIntoView({behavior:"smooth",block:"start"});
       nav?.classList.remove("mobile-open");
     });
   });
