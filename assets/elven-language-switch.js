@@ -24,6 +24,13 @@
       const selected = option.dataset.language;
       if (!["fa", "ar", "en"].includes(selected)) return;
 
+      // Never navigate when a language option is visibly marked as unavailable.
+      if (option.getAttribute("aria-disabled") === "true" || option.hasAttribute("disabled")) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return;
+      }
+
       const basePath = getSiteBasePath();
       const pathname = location.pathname;
       const localPath = basePath && pathname.startsWith(basePath + "/")
@@ -32,6 +39,20 @@
       const segments = localPath.split("/").filter(Boolean);
       const prefix = ["ar", "en"].includes(segments[0]) ? segments[0] : "fa";
       const current = (prefix === "fa" ? segments : segments.slice(1)).join("/") || "index.html";
+
+      // The English edition currently has full counterparts only for these pages.
+      // Keep other product-detail pages in their original language until their
+      // same-layout English versions are published, rather than sending visitors to 404s.
+      const englishPagesReady = new Set([
+        "index.html", "about.html", "contact.html", "departments.html", "product.html"
+      ]);
+      const isCatalogPage = ["catalog.html", "catalog-fa.html", "catalog-en.html"].includes(current);
+      if (selected === "en" && !englishPagesReady.has(current) && !isCatalogPage) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return;
+      }
+
       if (prefix === selected) {
         menu.closest(".language-picker")?.classList.remove("is-open");
         return;
