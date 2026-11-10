@@ -1,14 +1,14 @@
 (function () {
   "use strict";
 
-  if (new URLSearchParams(location.search).has("__elvenTranslationSource")) return;
-
   const SUPPORTED = new Set(["fa", "ar"]);
   const STORAGE_KEY = "elvenLanguagePreference";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
-  const AR_TRANSLATOR_VERSION = "20261110-inpage-ar-v1";
+  const AR_TRANSLATOR_VERSION = "20261110-inpage-ar-v2";
   let route;
   let activeLocale = "fa";
+  let translatorLoading = false;
+  const translatorCallbacks = [];
 
   function getBasePath() {
     const marker = "/assets/elven-language-switch.js";
@@ -36,7 +36,6 @@
     if (/^catalog(?:-fa|-en)?\.html$/i.test(current) || /^catalog\.html$/i.test(current)) {
       current = "catalog-fa.html";
     }
-
     return { basePath, current, legacyLocale, isEnglishCatalog };
   }
 
@@ -123,7 +122,6 @@
     const canonicalUrl = new URL(location.pathname, location.origin);
     canonicalUrl.search = "";
     canonicalUrl.hash = "";
-
     document.querySelectorAll('link[rel="canonical"]').forEach(function (link) {
       link.href = canonicalUrl.href;
     });
@@ -161,6 +159,60 @@
     });
   }
 
+  function loadArabicTranslator(hideUntilReady, callback) {
+    if (window.ElvenArabicTranslator) {
+      if (callback) callback(true);
+      return;
+    }
+    if (callback) translatorCallbacks.push(callback);
+    if (translatorLoading) return;
+
+    translatorLoading = true;
+    if (hideUntilReady) document.documentElement.style.visibility = "hidden";
+
+    const script = document.createElement("script");
+    script.src = (route.basePath || "") + "/assets/elven-ar.js?v=" + AR_TRANSLATOR_VERSION;
+    script.async = true;
+    script.onload = function () {
+      translatorLoading = false;
+      document.documentElement.style.visibility = "";
+      translatorCallbacks.splice(0).forEach(function (done) { done(!!window.ElvenArabicTranslator); });
+    };
+    script.onerror = function () {
+      translatorLoading = false;
+      document.documentElement.style.visibility = "";
+      translatorCallbacks.splice(0).forEach(function (done) { done(false); });
+    };
+    document.head.appendChild(script);
+  }
+
+  function applyLocale(locale, initial) {
+    if (!SUPPORTED.has(locale)) return;
+    activeLocale = locale;
+    saveLocale(locale);
+    document.documentElement.lang = locale;
+    document.documentElement.dir = "rtl";
+
+    if (locale === "ar") {
+      updatePicker("ar");
+      loadArabicTranslator(!!initial, function (loaded) {
+        if (activeLocale !== "ar") return;
+        if (loaded && window.ElvenArabicTranslator) {
+          window.ElvenArabicTranslator.setLanguage("ar");
+        } else {
+          activeLocale = "fa";
+          saveLocale("fa");
+          document.documentElement.lang = "fa";
+          updatePicker("fa");
+        }
+      });
+    } else {
+      if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
+      document.documentElement.lang = "fa";
+      updatePicker("fa");
+    }
+  }
+
   function bindPicker() {
     const menu = document.querySelector(".language-menu");
     const picker = document.getElementById("languagePicker");
@@ -170,7 +222,6 @@
     menu.addEventListener("click", function (event) {
       const option = event.target && event.target.closest ? event.target.closest("[data-language]") : null;
       if (!option) return;
-
       const selected = option.dataset.language;
       if (!SUPPORTED.has(selected)) return;
 
@@ -178,54 +229,34 @@
       event.stopPropagation();
       event.stopImmediatePropagation();
 
-      saveLocale(selected);
       if (picker) {
         picker.classList.remove("is-open");
         const trigger = picker.querySelector(".language-trigger");
         if (trigger) trigger.setAttribute("aria-expanded", "false");
       }
 
-      if (selected !== activeLocale) location.reload();
+      if (selected !== activeLocale) applyLocale(selected, false);
       else updatePicker(selected);
     }, true);
-  }
-
-  function loadArabicTranslator() {
-    document.documentElement.style.visibility = "hidden";
-
-    const script = document.createElement("script");
-    script.src = (route.basePath || "") + "/assets/elven-ar.js?v=" + AR_TRANSLATOR_VERSION;
-    script.async = true;
-    script.onload = function () {
-      document.documentElement.style.visibility = "";
-    };
-    script.onerror = function () {
-      document.documentElement.style.visibility = "";
-    };
-    document.head.appendChild(script);
   }
 
   function setup() {
     route = getRoute();
 
+    // Legacy language folders are aliases only. The same source page renders
+    // both languages, so old locale-prefixed URLs are normalized once.
     if (route.legacyLocale || route.isEnglishCatalog) {
       const saved = readLocale();
       if (route.legacyLocale === "ar") saveLocale("ar");
-      else if (!saved) saveLocale("fa");
+      else saveLocale(saved || "fa");
       location.replace(pageUrl().href);
       return;
     }
 
-    activeLocale = readLocale();
-    document.documentElement.lang = activeLocale;
-    document.documentElement.dir = "rtl";
-
-    updatePicker(activeLocale);
     normalizeInternalLinks();
     normalizeCanonicalMetadata();
     bindPicker();
-
-    if (activeLocale === "ar") loadArabicTranslator();
+    applyLocale(readLocale(), true);
   }
 
   if (document.readyState === "loading") {
