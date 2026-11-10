@@ -5,7 +5,8 @@
   const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
   const AR_TRANSLATOR_VERSION = "20261110-inpage-ar-v3";
-  const EN_TRANSLATOR_VERSION = "20261110-inpage-en-v1";
+  const EN_TRANSLATOR_VERSION = "20261110-inpage-en-v2";
+  const EN_PRODUCTS_VERSION = "20261110-product-map-v1";
   let route;
   let activeLocale = "fa";
   let translatorLoading = false;
@@ -164,25 +165,43 @@
   }
 
   function loadEnglishTranslator(hideUntilReady, callback) {
-    if (window.ElvenEnglishTranslator) { if (callback) callback(true); return; }
+    if (window.ElvenEnglishTranslator && window.ElvenEnglishProductTranslations) {
+      if (callback) callback(true);
+      return;
+    }
     if (callback) englishTranslatorCallbacks.push(callback);
     if (englishTranslatorLoading) return;
     englishTranslatorLoading = true;
     if (hideUntilReady) document.documentElement.style.visibility = "hidden";
-    const script = document.createElement("script");
-    script.src = (route.basePath || "") + "/assets/elven-en.js?v=" + EN_TRANSLATOR_VERSION;
-    script.async = true;
-    script.onload = function () {
-      englishTranslatorLoading = false;
-      document.documentElement.style.visibility = "";
-      englishTranslatorCallbacks.splice(0).forEach(done => done(!!window.ElvenEnglishTranslator));
-    };
-    script.onerror = function () {
-      englishTranslatorLoading = false;
-      document.documentElement.style.visibility = "";
-      englishTranslatorCallbacks.splice(0).forEach(done => done(false));
-    };
-    document.head.appendChild(script);
+
+    function loadCoreTranslator() {
+      const script = document.createElement("script");
+      script.src = (route.basePath || "") + "/assets/elven-en.js?v=" + EN_TRANSLATOR_VERSION;
+      script.async = true;
+      script.onload = function () {
+        englishTranslatorLoading = false;
+        document.documentElement.style.visibility = "";
+        englishTranslatorCallbacks.splice(0).forEach(done => done(!!window.ElvenEnglishTranslator));
+      };
+      script.onerror = function () {
+        englishTranslatorLoading = false;
+        document.documentElement.style.visibility = "";
+        englishTranslatorCallbacks.splice(0).forEach(done => done(false));
+      };
+      document.head.appendChild(script);
+    }
+
+    if (window.ElvenEnglishProductTranslations) {
+      loadCoreTranslator();
+      return;
+    }
+
+    const productScript = document.createElement("script");
+    productScript.src = (route.basePath || "") + "/assets/elven-en-products.js?v=" + EN_PRODUCTS_VERSION;
+    productScript.async = true;
+    productScript.onload = loadCoreTranslator;
+    productScript.onerror = loadCoreTranslator;
+    document.head.appendChild(productScript);
   }
 
   function applyLocale(locale, initial) {
@@ -196,6 +215,12 @@
       document.documentElement.lang = "en";
       if (window.ElvenYeastPageTranslator) {
         window.ElvenYeastPageTranslator.setLanguage("en");
+        loadEnglishTranslator(!!initial, function (loaded) {
+          if (activeLocale !== "en") return;
+          if (loaded && window.ElvenEnglishTranslator) {
+            window.ElvenEnglishTranslator.setLanguage("en");
+          }
+        });
         return;
       }
       loadEnglishTranslator(!!initial, function (loaded) {
