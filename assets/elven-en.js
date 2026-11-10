@@ -1,409 +1,172 @@
-/* English text support for dynamically inserted site controls and mobile footer. */
 (function () {
   "use strict";
-  if (document.documentElement.lang !== "en") return;
 
-  const T = {
-    "اطلاعات و راه‌های ارتباطی شرکت":"Company Information and Contact Details",
+  const T = Object.freeze({
+    "بازرگانی مهاجر — صادرات مواد غذایی":"Mohajer Trading Group — Food Exports",
     "بازرگانی مهاجر":"Mohajer Trading Group",
-    "تأمین و صادرات انواع مواد غذایی ایرانی":"Sourcing and exporting Iranian food products",
-    "با کیفیت برای بازارهای جهانی":"for global markets, with a focus on quality",
-    "صفحات اصلی سایت":"Main Site Pages",
-    "صفحه اصلی":"Home",
-    "محصولات":"Products",
-    "درباره ما":"About Us",
-    "تماس با ما":"Contact Us",
-    "پیام در واتساپ به محمد مهاجری، +98 915 302 8367":"Send a WhatsApp message to Mohammad Mohajeri, +98 915 302 8367",
-    "پیام در واتساپ به علیرضا تهرانی، +98 915 555 1965":"Send a WhatsApp message to Alireza Tehrani, +98 915 555 1965",
-    "محمد مهاجری":"Mohammad Mohajeri",
-    "علیرضا تهرانی":"Alireza Tehrani",
-    "تلفن ثابت":"Office Phone",
-    "ایمیل":"Email",
-    "شبکه‌های اجتماعی":"Social Media",
-    "نشانی دفتر مرکزی":"Head Office Address",
-    "مشهد، میدان جانباز، پاژ اداری ۲، طبقه ۳، واحد ۳۱۳":"Paj Administrative Complex 2, 3rd Floor, Unit 313, Janbaz Square, Mashhad",
-    "صادرات به سراسر جهان":"Exporting Worldwide",
-    "© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.":"© 2026 Mohajer Trading Group. All rights reserved.",
+    "خانه":"Home","محصولات":"Products","دپارتمان‌ها":"Departments","درباره ما":"About Us","تماس":"Contact",
+    "استعلام قیمت":"Request a Quote","فارسی":"Persian","فعال":"Active","در دسترس":"Available",
+    "العربية":"Arabic","به‌زودی":"Coming Soon",
+    "از مزرعه تا سفره جهان":"From Farm to Tables Worldwide",
+    "صادرات مواد غذایی":"Food Exports","با کیفیت":"with Quality","جهانی":"Global",
+    "تأمین و صادرات انواع مواد غذایی سالم و باکیفیت":"Supplying and exporting a wide range of healthy, high-quality food products",
+    "به بازارهای بین‌المللی":"to international markets","با کیفیت جهانی":"with Global Quality",
+    "مشاهده محصولات":"Explore Products","درخواست مشاوره":"Request a Consultation","درخواست قیمت":"Request a Quote",
+    "تنوعی از طعم و کیفیت":"A Variety of Flavors and Quality","دسته‌بندی محصولات":"Product Categories",
+    "۹ گروه":"9 Categories","محصولات غذایی":"Food Products","مشاهده همه محصولات":"View All Products",
+    "ماکارونی":"Pasta","خمیرمایه":"Yeast","کنسروجات":"Canned Foods","گلوکز و نشاسته":"Glucose & Starch",
+    "نوشیدنی‌ها":"Beverages","رب گوجه‌فرنگی":"Tomato Paste","شکر":"Sugar","شیر خشک":"Milk Powder","جوش شیرین":"Baking Soda",
+    "فیلتر محصولات":"Filter Products","پاک کردن همه":"Clear All","دسته‌بندی محصول":"Product Category",
+    "غذا و نوشیدنی":"Food & Beverages","لبنیات":"Dairy","پخت و نانوایی":"Baking & Bakery",
+    "مواد اولیه":"Ingredients","کالای مصرفی":"Consumer Goods","سایر":"Other","زیر دسته":"Subcategory",
+    "رب گوجه":"Tomato","شیرین‌کننده‌ها":"Sweeteners","روغن و چربی":"Oils & Fats",
+    "مراقبت شخصی":"Personal Care","خانگی":"Household","جزئیات محصول":"Product Details",
+    "نوشیدنی‌ها و آبمیوه‌ها":"Beverages & Juices",
+    "تازگی و کیفیت برای بازارهای جهانی":"Freshness and Quality for Global Markets",
+    "کنسروها":"Canned Foods","محصولات کنسروی باکیفیت برای بازار جهانی":"High-quality canned products for global markets",
+    "شکر سفید و فله برای صنایع غذایی و صادرات":"White and bulk sugar for food industries and export",
+    "طعمی غنی و کیفیتی برتر برای بازار جهانی":"Rich Flavor and Superior Quality for Global Markets",
+    "مواد اولیه ممتاز برای صنایع غذایی":"Premium Ingredients for the Food Industry",
+    "گلوکز و نشاسته ذرت و گندم برای صنایع غذایی":"Corn and wheat glucose and starch for the food industry",
+    "لبنیات و شیر خشک":"Dairy & Milk Powder","مواد اولیه لبنی ممتاز برای بازار جهانی":"Premium dairy ingredients for global markets",
+    "ماکارونی و پاستا":"Pasta & Noodles","محصولات پاستا باکیفیت برای بازار جهانی":"High-quality pasta products for global markets",
+    "۱۵+":"15+","سال اعتماد":"Years of Trust","درباره بازرگانی مهاجر":"About Mohajer Trading Group",
+    "ریشه در ایران،":"Rooted in Iran,","اعتماد در سراسر جهان.":"Trusted Worldwide.",
+    "بازرگانی مهاجر تولیدکنندگان ممتاز ایرانی را با خریداران در سراسر جهان پیوند می‌دهد. از تأمین و کنترل کیفیت تا مستندات و لجستیک — ما تمامی زنجیره صادرات را مدیریت می‌کنیم تا شرکای تجاری ما روی رشد کسب‌وکارشان تمرکز کنند.":"Mohajer Trading Group connects leading Iranian producers with buyers around the world. From sourcing and quality control to documentation and logistics, we manage the entire export chain so our partners can focus on growing their businesses.",
+    "تأمین معتبر":"Reliable Sourcing","همکاری مستقیم با تولیدکنندگان مورد اعتماد ایرانی.":"Direct partnerships with trusted Iranian producers.",
+    "تضمین کیفیت":"Quality Assurance","هر محموله پیش از خروج از انبار بازرسی می‌شود.":"Every shipment is inspected before leaving the warehouse.",
+    "لجستیک جهانی":"Global Logistics","ارسال و مستندسازی مطمئن به بیش از ۵۰ کشور.":"Reliable shipping and documentation to more than 50 countries.",
+    "پشتیبانی اختصاصی":"Dedicated Support","تیم صادرات ۲۴/۷ آماده کمک به شما در هر مرحله.":"Our export team is ready to assist you at every step, 24/7.",
+    "تجارت مطمئن، از مبدأ تا مقصد":"Reliable Trade, from Origin to Destination",
+    "ما با تکیه بر شبکه تأمین‌کنندگان معتبر، کنترل دقیق کیفیت و مدیریت زنجیره صادرات، همراه مطمئن شما در تجارت بین‌المللی هستیم.":"With a trusted supplier network, rigorous quality control and export-chain management, we are your reliable partner in international trade.",
+    "در تمامی محصولات":"Across Our Products","بازارهای جهانی":"Global Markets",
+    "صادرات به مقاصد بین‌المللی":"Exports to International Destinations","تجربه صادرات":"Export Experience",
+    "سال‌ها فعالیت در تجارت بین‌المللی":"Years of Experience in International Trade",
+    "همکاری مطمئن":"Trusted Partnerships","با شرکای معتبر و تولیدکنندگان":"With Trusted Partners and Producers",
+    "همکاری با ما":"Work With Us",
     "محصولات غذایی ممتاز ایرانی، با دقت انتخاب و برای تجارت بین‌المللی مطمئن آماده می‌شوند.":"Premium Iranian food products, carefully selected and prepared for reliable international trade.",
-    "شرکت":"Company","داستان ما":"Our Story","دپارتمان‌ها":"Departments",
-    "درخواست قیمت":"Request a Quote","پشتیبانی صادرات":"Export Support","ارسال و تحویل":"Shipping & Delivery","سوالات متداول":"Frequently Asked Questions",
-    "تلفن ثابت دفتر":"Office Phone","ایمیل رسمی":"Official Email","طراحی و توسعه اختصاصی":"Designed & Developed",
-    "واتساپ محمد مهاجری":"Mohammad Mohajeri on WhatsApp","واتساپ علیرضا تهرانی":"Alireza Tehrani on WhatsApp",
-    "بازگشت به بالای صفحه":"Back to Top",
-    "© ۱۴۰۴ بازرگانی مهاجر — تمامی حقوق محفوظ است.":"© 2025 Mohajer Trading Group. All rights reserved.",
-    "بازگشت به بالا":"Back to Top",
-    "باز کردن منو":"Open Menu",
-    "بستن منو":"Close Menu",
-    "فیلتر محصولات":"Filter Products",
-    "پاک کردن همه":"Clear All",
-    "دسته‌بندی محصول":"Product Category",
-    "غذا و نوشیدنی":"Food & Beverages",
-    "لبنیات":"Dairy",
-    "پخت و نانوایی":"Baking & Bakery",
-    "مواد اولیه":"Raw Materials",
-    "کالای مصرفی":"Consumer Goods",
-    "سایر":"Other",
-    "زیر دسته":"Subcategory",
-    "جزئیات محصول":"Product Details",
-    "درخواست قیمت":"Request a Quote",
-    "استعلام قیمت":"Request a Quote",
-    "منوی اصلی":"Main Menu",
-    "انتخاب زبان":"Select Language",
-    "واتساپ":"WhatsApp",
-    "صفحه اینستاگرام بازرگانی مهاجر":"Mohajer Trading Group on Instagram",
-    "اینستاگرام":"Instagram",
-    "لینکدین؛ آدرس رسمی هنوز ثبت نشده":"LinkedIn; official URL not yet provided",
-    "لینکدین — آدرس رسمی مورد نیاز":"LinkedIn — official URL required"
-  };
-
-    // Full English copy for product pages and shared controls.
-  Object.assign(T,   {
-    "خانه": "Home",
-    "دپارتمان‌ها": "Departments",
-    "تماس": "Contact",
-    "فارسی": "Persian",
-    "فعال": "Active",
-    "به‌زودی": "Coming Soon",
-    "العربية": "Arabic",
-    "در دسترس": "Available",
-    "پاسخ در کمتر از ۳۰ دقیقه": "Response within 30 minutes",
-    "استعلام محصول": "Product Inquiry",
-    "دانلود کاتالوگ": "Download Catalog",
-    "م": "M",
-    "مدیر فروش صادراتی · 09153028367": "Export Sales Manager · 09153028367",
-    "ع": "A",
-    "کارشناس صادرات · 09155551965": "Export Specialist · 09155551965",
-    "برندهای برتر ما": "Our Leading Brands",
-    "جزئیات": "Details",
-    "طریقه مصرف": "Directions for Use",
-    "داستان ما": "Our Story",
-    "خدمات مشتریان": "Customer Service",
-    "پشتیبانی صادرات": "Export Support",
-    "ارسال و تحویل": "Shipping & Delivery",
-    "سوالات متداول": "Frequently Asked Questions",
-    "ایمیل رسمی": "Official Email",
-    "طراحی و توسعه اختصاصی": "Custom Design & Development",
-    "اشتراک": "Share",
-    "استعلام": "Request a Quote",
-    "صادرات مواد غذایی با کیفیت": "Quality Food Exports",
-    "مجموعه محصولات همرسین": "Hemersin Product Range",
-    "ماکارونی همرسین": "Hemersin Pasta",
-    "طعم اصیل، کیفیت ماندگار": "Authentic Taste, Lasting Quality",
-    "از اسپاگتی، پاستا فرمی تا ماکارونی فله؛ مجموعه‌ای متنوع و انتخابی مناسب برای سلیقه‌ها و نیازهای مختلف.": "From spaghetti and shaped pasta to bulk macaroni, our diverse range offers options for different tastes and requirements.",
-    "انتخابی برای": "A Choice for",
-    "بازارهای جهانی": "Global Markets",
-    "بر پایه": "Made with",
-    "گندم": "Wheat",
-    "مناسب عرضه": "Suitable for",
-    "صادراتی": "Export",
-    "معرفی محصولات": "Product Overview",
-    "مشاهده مجموعه": "Explore the Range",
-    "ماکارونی": "Pasta",
-    "اسپاگتی، پاستا فرمی و ماکارونی برای سلیقه‌ها و نیازهای مختلف.": "Spaghetti, shaped pasta and macaroni for a range of tastes and needs.",
-    "محصولات متنوع": "Product Variety",
-    "برای نیازهای مختلف": "For Different Needs",
-    "تأمین از": "Sourced from",
-    "تولیدکنندگان معتبر": "Trusted Manufacturers",
-    "توجه به کیفیت": "Quality Focus",
-    "و مشخصات محصول": "and Product Specifications",
-    "راهکارهای عرضه": "Supply Solutions",
-    "برای بازار صادراتی": "for Export Markets",
-    "محصولات ما": "Our Products",
-    "محصولات ماکارونی": "Pasta Products",
-    "مجموعه‌ای متنوع از محصولات ماکارونی برای مصارف گوناگون و بازارهای صادراتی": "A diverse range of pasta products for different uses and export markets",
-    "اسپاگتی": "Spaghetti",
-    "اسپاگتی با بافتی مناسب برای تهیه انواع غذاهای خانگی و رستورانی.": "Spaghetti with a suitable texture for a variety of home-style and restaurant dishes.",
-    "بافت مناسب": "Ideal Texture",
-    "زمان پخت روی بسته": "Cooking Time on Pack",
-    "پاستا فرمی": "Shaped Pasta",
-    "پاستای فرمی برای ترکیب با انواع سس‌ها و خلق غذاهای متنوع.": "Shaped pasta that pairs well with a variety of sauces for versatile dishes.",
-    "پاستا صدفی": "Shell Pasta",
-    "بسته ۵۰۰ گرمی": "500 g Pack",
-    "محصول عمده": "Bulk Product",
-    "ماکارونی فله": "Bulk Macaroni",
-    "مناسب برای عرضه در حجم عمده، با بسته‌بندی ساده و بدون برند.": "Suitable for bulk supply in plain, unbranded packaging.",
-    "عرضه عمده": "Bulk Supply",
-    "محصول بدون برند": "Unbranded Product",
-    "دیدن جزئیات": "View Details",
-    "ارزش غذایی محصول": "Nutritional Information",
-    "جدول ارزش غذایی ماکارونی همرسین": "Hemersin Pasta Nutrition Facts",
-    "انرژی": "Energy",
-    "۱۸۷/۶۴": "187.64",
-    "کیلو کالری - ۷۸۵/۰۸ کیلوژول": "kcal - 785.08 kJ",
-    "۶/۴۷": "6.47",
-    "گرم": "g",
-    "چربی": "Fat",
-    "۰/۲۸": "0.28",
-    "سدیم": "Sodium",
-    "۰/۰۱": "0.01",
-    "کربوهیدرات": "Carbohydrates",
-    "۳۹/۸۳": "39.83",
-    "فیبر": "Fiber",
-    "۰/۶۱": "0.61",
-    "نمک": "Salt",
-    "۰/۰۴": "0.04",
-    "* اعداد ارائه‌شده مربوط به ۵۵ گرم پاستا فرمی هستند؛ اطلاعات قبل از انتشار نهایی باید با برچسب محصول تأیید شوند.": "* The figures shown are for a 55 g serving of shaped pasta. All information must be verified against the product label before final publication.",
-    "معرفی، ترکیبات و روش پخت محصول انتخاب‌شده": "Overview, Ingredients and Cooking Instructions for the Selected Product",
-    "پاستا فرمی همرسین": "Hemersin Shaped Pasta",
-    "پاستا فرمی صدفی همرسین با انواع سس‌های غلیظ و رقیق به‌خوبی ترکیب می‌شود. با سس‌های خامه‌ای، سس‌های پایه گوشت، سوپ و غذاهای دریایی مناسب است. بسته‌بندی ۵۰۰ گرمی برای ۴ تا ۶ نفر در نظر گرفته شده است.": "Hemersin shell-shaped pasta pairs well with both thick and light sauces. It is suitable for cream-based sauces, meat sauces, soups and seafood dishes. The 500 g pack is intended for 4 to 6 servings.",
-    "ترکیبات پاستا فرمی:": "Ingredients:",
-    "آرد گندم (آرد ماکارونی) و آب.": "Wheat flour (pasta flour) and water.",
-    "طرز پخت پاستا فرمی:": "Cooking Instructions:",
-    "به هر لیتر آب در حال جوش و دارای مقدار کمی نمک، ۱۰۰ گرم پاستا اضافه کنید. پس از ۱۲ تا ۱۴ دقیقه آبکش کرده و با سس دلخواه سرو کنید.": "Add 100 g of pasta to each litre of lightly salted boiling water. Cook for 12 to 14 minutes, drain and serve with your preferred sauce.",
-    "برندهای همکار ما": "Our Partner Brands",
-    "همراه با برندهای ماکارونی": "Working with Pasta Brands",
-    "مواد اولیه صنایع غذایی": "Food Industry Ingredients",
-    "جوش شیرین": "Baking Soda",
-    "معرفی برندهای جوش شیرین": "Baking Soda Brand Overview",
-    "مجموعه‌ای از برندهای حوزه جوش شیرین را در این بخش ببینید. برای دریافت فهرست محصولات، مشخصات بسته‌بندی و شرایط سفارش هر برند، استعلام بگیرید.": "Explore our baking soda brands. Contact us to request product lists, packaging specifications and ordering terms for each brand.",
-    "۳ نشان": "3 Brands",
-    "معرفی‌شده": "Featured",
-    "مشخصات بسته‌بندی": "Packaging Specifications",
-    "با استعلام": "On Request",
-    "بررسی شرایط": "Check Availability",
-    "سفارش صادراتی": "Export Orders",
-    "مشاهده برندهای": "View Brands",
-    "انتخابی مطمئن برای صنایع غذایی": "A Reliable Choice for the Food Industry",
-    "جوش شیرین خوراکی با مشخصات بسته‌بندی و شرایط تأمین بر اساس سفارش.": "Food-grade baking soda, with packaging specifications and supply terms tailored to each order.",
-    "معرفی برندهای": "Brand Overview",
-    "حوزه جوش شیرین": "Baking Soda Range",
-    "اطلاعات بسته‌بندی": "Packaging Information",
-    "بررسی مشخصات": "Review Specifications",
-    "هر محصول": "Each Product",
-    "عرضه و صادرات": "Supply and Export",
-    "برندهای ما": "Our Brands",
-    "برندهای تجاری جوش شیرین": "Baking Soda Brands",
-    "سه نشان در این بخش؛ مشخصات و امکان تأمین هر محصول پس از استعلام تأیید می‌شود.": "Three brands are featured in this section. Product specifications and availability are confirmed upon inquiry.",
-    "محصولات غذایی و کنسروی": "Food & Canned Products",
-    "کنسروجات": "Canned Foods",
-    "معرفی برندهای محصولات کنسروی": "Canned Food Brands",
-    "مجموعه‌ای از برندهای حوزه کنسروجات را در این بخش ببینید. برای دریافت فهرست محصولات، مشخصات بسته‌بندی و شرایط سفارش هر برند، استعلام بگیرید.": "Explore our range of canned food brands. Contact us for product lists, packaging specifications and ordering terms for each brand.",
-    "۴ برند": "4 Brands",
-    "طعم واقعی، همیشه در دسترس شما": "Authentic Taste, Always Within Reach",
-    "مجموعه‌ای از برندهای معتبر کنسروجات با کیفیت عالی،": "A selection of trusted canned food brands known for their quality,",
-    "برای وعده‌های خوشمزه و سریع.": "for delicious and convenient meals.",
-    "حوزه کنسروجات": "Canned Food Range",
-    "محصولات کنسروی": "Canned Products",
-    "نوع محصول، وزن و مشخصات هر برند پس از دریافت اطلاعات تأییدشده معرفی می‌شود.": "Product type, weight and brand specifications will be listed once verified information is received.",
-    "کنسرو سبزیجات": "Canned Vegetables",
-    "کنسرو تن ماهی": "Canned Tuna",
-    "گروه محصولات کنسروی": "Canned Food Product Range",
-    "سبزیجات مخلوط": "Mixed Vegetables",
-    "انواع سبزیجات مخلوط؛ ترکیب و بسته‌بندی طبق استعلام.": "Mixed vegetables; composition and packaging are available upon inquiry.",
-    "نخود سبز": "Green Peas",
-    "نخودفرنگی سبز؛ مشخصات بسته‌بندی با استعلام.": "Green peas; packaging specifications available upon inquiry.",
-    "نخود آبگوشتی": "Chickpeas",
-    "نخود آماده مصرف؛ وزن و مشخصات با استعلام.": "Ready-to-use chickpeas; weight and specifications available upon inquiry.",
-    "ذرت شیرین": "Sweet Corn",
-    "ذرت دانه‌ای؛ کیفیت و موجودی با استعلام.": "Sweet corn kernels; quality and availability confirmed upon inquiry.",
-    "لوبیا و قارچ": "Beans & Mushrooms",
-    "ترکیب لوبیا و قارچ؛ وزن و مشخصات محصول با استعلام.": "Beans and mushrooms; product weight and specifications available upon inquiry.",
-    "لوبیا": "Beans",
-    "کنسرو لوبیا؛ نوع و مشخصات بسته‌بندی طبق استعلام.": "Canned beans; type and packaging specifications available upon inquiry.",
-    "تصاویر نمونه گروه محصولات هستند؛ مشخصات و تأمین هر محصول پس از استعلام تأیید می‌شود.": "Images are representative of the product range. Specifications and supply availability are confirmed upon inquiry.",
-    "وزن، نوع بسته‌بندی و مشخصات محصول پس از استعلام اعلام می‌شود.": "Product weight, packaging type and specifications are provided upon inquiry.",
-    "مشخصات و شرایط تأمین کنسرو تن ماهی پس از استعلام تأیید می‌شود.": "Canned tuna specifications and supply terms are confirmed upon inquiry.",
-    "برندهای کنسروجات": "Canned Food Brands",
-    "همراه با برندهای کنسروجات": "Our Canned Food Brand Partners",
-    "چهار برند معرفی‌شده؛ مشخصات و امکان تأمین هر محصول پس از استعلام تأیید می‌شود.": "Four brands are featured. Product specifications and availability are confirmed upon inquiry.",
-    "گلوکز و نشاسته": "Glucose & Starch",
-    "گلوکز و نشاسته ذرت و گندم": "Corn and Wheat Glucose & Starch",
-    "گلوکز و نشاسته ذرت و گندم در یک مجموعه ارائه می‌شوند. برای مشاهده جزئیات هر گروه محصول، گزینه موردنظر را انتخاب کنید. موجودی و مشخصات سفارش پس از استعلام تأیید می‌شوند.": "Corn and wheat glucose and starch are presented in one range. Select a product group to view its details. Availability and order specifications are confirmed upon inquiry.",
-    "شرایط سفارش": "Ordering Terms",
-    "مشاهده محصولات": "View Products",
-    "مواد اولیه تخصصی صنایع غذایی": "Specialty Ingredients for the Food Industry",
-    "گلوکز و نشاسته ذرت و گندم؛ مشخصات و شرایط تأمین بر اساس سفارش.": "Corn and wheat glucose and starch, with specifications and supply terms tailored to each order.",
-    "گروه‌های مختلف": "Product Categories",
-    "انواع منشأ": "Different Sources",
-    "ذرت و گندم": "Corn & Wheat",
-    "تأیید کیفیت": "Quality Assurance",
-    "شرایط تأمین": "Supply Conditions",
-    "محصولات گلوکز و نشاسته": "Glucose & Starch Products",
-    "در هر کارت دو نوع ذرت و گندم معرفی شده‌اند؛ روی هر ردیف بزنید تا اطلاعات مربوط به همان محصول نمایش داده شود.": "Each card presents corn- and wheat-based options. Select a row to view the relevant product information.",
-    "گلوکز": "Glucose",
-    "گلوکز با منشأ ذرت و گندم برای صنایع غذایی؛ گرید، مشخصات فنی و بسته‌بندی هر نوع، متناسب با درخواست مشتری بررسی می‌شود.": "Corn- and wheat-based glucose for food applications. Grade, technical specifications and packaging are reviewed according to customer requirements.",
-    "انواع قابل استعلام": "Available Options",
-    "۲ نوع محصول": "2 Product Types",
-    "گلوکز ذرت": "Corn Glucose",
-    "مشخصات و آنالیز با استعلام": "Specifications & Analysis on Request",
-    "گلوکز با منشأ ذرت برای صنایع غذایی. امکان تأمین، گرید، بسته‌بندی و برگه آنالیز پس از استعلام مشخص می‌شود.": "Corn-based glucose for food applications. Supply availability, grade, packaging and analysis documents are confirmed upon inquiry.",
-    "منشأ:": "Source:",
-    "ذرت": "Corn",
-    "گرید و بسته‌بندی:": "Grade & Packaging:",
-    "درخواست آنالیز": "Request an Analysis",
-    "گلوکز گندم": "Wheat Glucose",
-    "گلوکز با منشأ گندم برای صنایع غذایی. گرید، مشخصات فنی و شرایط تأمین این نوع پس از استعلام تأیید می‌شود.": "Wheat-based glucose for food applications. Grade, technical specifications and supply terms are confirmed upon inquiry.",
-    "دانلود آنالیز": "Download Analysis",
-    "نشاسته": "Starch",
-    "انواع نشاسته با منشأ ذرت و گندم برای کاربردهای صنایع غذایی؛ مشخصات و شرایط تأمین هر نوع جداگانه استعلام می‌شود.": "Corn- and wheat-based starches for food applications. Specifications and supply terms are confirmed separately for each type.",
-    "نشاسته ذرت": "Corn Starch",
-    "نشاسته با منشأ ذرت برای صنایع غذایی. گرید، بسته‌بندی، موجودی و برگه آنالیز معتبر با استعلام تأیید می‌شوند.": "Corn-based starch for food applications. Grade, packaging, availability and valid analysis documents are confirmed upon inquiry.",
-    "نشاسته گندم": "Wheat Starch",
-    "نشاسته با منشأ گندم برای صنایع غذایی. گرید، بسته‌بندی، موجودی و شرایط تأمین پس از استعلام بررسی می‌شوند.": "Wheat-based starch for food applications. Grade, packaging, availability and supply terms are reviewed upon inquiry.",
-    "مشخصات، گرید و موجودی با استعلام تأیید می‌شوند. دانلود آنالیز پس از دریافت فایل معتبر فعال خواهد شد.": "Specifications, grade and availability are confirmed upon inquiry. Analysis downloads will be enabled once a valid document is provided.",
-    "برندهای مواد اولیه": "Ingredient Brands",
-    "برندهای معرفی‌شده": "Featured Brands",
-    "۳ لوگوی معرفی‌شده؛ شرایط تأمین هر محصول با استعلام مشخص می‌شود.": "Three brands are featured. Supply terms for each product are available upon inquiry.",
-    "مجموعه محصولات بازرگانی مهاجر": "Mohajer Trading Group Product Range",
-    "شیر خشک صادراتی": "Export Milk Powder",
-    "کیفیت ممتاز، تأمین مطمئن": "Premium Quality, Reliable Supply",
-    "شیر خشک پرچرب و کم‌چرب با گزینه‌های تأمین متناسب با سفارش و نیاز بازارهای صادراتی.": "Full-cream and skimmed milk powder, with supply options tailored to order requirements and export-market needs.",
-    "توجه به": "Focus on",
-    "کیفیت محصول": "Product Quality",
-    "گزینه‌های": "Options",
-    "تأمین": "Supply",
-    "مناسب بازار": "Suited to",
-    "شیر خشک": "Milk Powder",
-    "شیر خشک مناسب مصارف صنعتی و صادراتی با گزینه‌های تأمین متنوع.": "Milk powder for industrial and export applications, with a range of supply options.",
-    "محصولات شیر خشک": "Milk Powder Products",
-    "انواع شیر خشک برای مصارف و نیازهای مختلف؛ جزئیات سفارش و برند پس از استعلام تأیید می‌شود.": "Different milk powder types for a range of uses and requirements. Order details and brand availability are confirmed upon inquiry.",
-    "شیر خشک پرچرب": "Full-Cream Milk Powder",
-    "برای دریافت گرید، ترکیبات و شرایط تأمین با ما تماس بگیرید.": "Contact us for grade, composition and supply details.",
-    "مشخصات با استعلام": "Specifications on Request",
-    "بررسی کیفیت": "Quality Review",
-    "قابل استعلام": "Available Upon Inquiry",
-    "شیر خشک کم‌چرب": "Skimmed Milk Powder",
-    "برای آگاهی از مشخصات و شرایط تأمین این محصول استعلام بگیرید.": "Contact us for this product's specifications and supply terms.",
-    "مشخصات سفارشی": "Custom Specifications",
-    "کنترل کیفیت": "Quality Control",
-    "اطلاعات فنی محصول": "Product Technical Information",
-    "مشخصات و آنالیز شیر خشک": "Milk Powder Specifications & Analysis",
-    "در انتظار تأیید": "Pending Confirmation",
-    "مقادیر آنالیز هر نوع شیر خشک پس از دریافت برگه مشخصات و تأیید تولیدکننده درج خواهد شد.": "Analytical values for each milk powder type will be listed after receiving the specification sheet and manufacturer confirmation.",
-    "معرفی و اطلاعات محصول انتخاب‌شده": "Overview and Details of the Selected Product",
-    "گرید، ترکیبات و مشخصات بسته‌بندی شیر خشک پرچرب پس از دریافت اطلاعات تأییدشده اعلام می‌شوند.": "The grade, composition and packaging specifications of full-cream milk powder will be provided once verified information is received.",
-    "برندهای قابل تأمین": "Brands Available for Supply",
-    "تأمین شیر خشک برای بازارهای جهانی": "Milk Powder Supply for Global Markets",
-    "موجودی و شرایط تأمین هر برند پس از استعلام تأیید می‌شود.": "Availability and supply terms for each brand are confirmed upon inquiry.",
-    "دسته‌بندی شکر و محصولات قندی": "Sugar & Sweetener Categories",
-    "شکر صادراتی": "Export Sugar",
-    "کیفیت، تنوع و تأمین حرفه‌ای": "Quality, Variety and Professional Supply",
-    "گزینه‌های تأمین شکر سفید، شکر فله و محصولات قندی برای صنایع غذایی، بسته‌بندی و بازارهای جهانی؛ مشخصات دقیق با استعلام تأیید می‌شود.": "Supply options for white sugar, bulk sugar and sweeteners for food manufacturing, packaging and global markets. Exact specifications are confirmed upon inquiry.",
-    "متناسب با سفارش": "Tailored to Order",
-    "ویژه بازارهای": "For Export",
-    "شکر": "Sugar",
-    "شکر سفید، شکر فله و گزینه‌های تأمین برای صنایع غذایی و بازارهای صادراتی؛ مشخصات دقیق با استعلام تأیید می‌شود.": "White sugar, bulk sugar and supply options for food manufacturers and export markets. Exact specifications are confirmed upon inquiry.",
-    "تأمین متناسب با": "Supply Tailored to",
-    "سفارش مشتریان": "Customer Orders",
-    "دسترسی به برندهای": "Access to a Range of",
-    "مختلف شکر": "Sugar Brands",
-    "بررسی کیفیت و": "Quality and",
-    "مشخصات فنی": "Technical Specifications",
-    "استعلام تأمین": "Supply Inquiry",
-    "برای بازار جهانی": "for Global Markets",
-    "برندهای شکر": "Sugar Brands",
-    "برندهای مطرح شکر در بازارهای جهانی": "Leading Sugar Brands in Global Markets",
-    "۹ برند معرفی‌شده؛ موجودی، اصالت و امکان تأمین هر برند صرفاً پس از استعلام مشخص می‌شود.": "Nine brands are featured. Availability, authenticity and supply options are confirmed only upon inquiry.",
-    "محصولات غذایی و رب گوجه‌فرنگی": "Food Products & Tomato Paste",
-    "رب گوجه‌فرنگی": "Tomato Paste",
-    "معرفی برندهای محصولات رب گوجه‌فرنگی": "Tomato Paste Brand Overview",
-    "مجموعه‌ای از برندهای حوزه رب گوجه‌فرنگی را در این بخش ببینید. برای دریافت فهرست محصولات، مشخصات بسته‌بندی و شرایط سفارش هر برند، استعلام بگیرید.": "Explore our tomato paste brands. Contact us to request product lists, packaging specifications and ordering terms for each brand.",
-    "۵ برند": "5 Brands",
-    "معرفی برندهای رب گوجه‌فرنگی": "Tomato Paste Brands",
-    "مجموعه‌ای از برندهای رب گوجه‌فرنگی؛ مشخصات بسته‌بندی و شرایط سفارش با استعلام ارائه می‌شود.": "A selection of tomato paste brands. Packaging details and ordering terms are available upon inquiry.",
-    "حوزه رب گوجه‌فرنگی": "Tomato Paste Range",
-    "محصولات رب گوجه‌فرنگی": "Tomato Paste Products",
-    "سه نوع بسته‌بندی رب گوجه‌فرنگی؛ برای مشاهده توضیحات هر محصول روی کارت آن کلیک کنید.": "Three tomato paste packaging options. Select a product card to view its details.",
-    "رب گوجه‌فرنگی اسپتیک": "Aseptic Tomato Paste",
-    "بسته‌بندی اسپتیک مناسب برای تأمین و مصارف صنعتی؛ جزئیات ظرفیت و شرایط سفارش با استعلام مشخص می‌شود.": "Aseptic packaging suitable for industrial applications and supply. Capacity and ordering details are confirmed upon inquiry.",
-    "مصرف صنعتی": "Industrial Use",
-    "رب گوجه‌فرنگی شیشه‌ای": "Tomato Paste in Glass Jars",
-    "رب گوجه‌فرنگی در بسته‌بندی شیشه‌ای؛ برند، وزن و موجودی پس از استعلام تأیید می‌شود.": "Tomato paste in glass jars. Brand, weight and availability are confirmed upon inquiry.",
-    "بسته‌بندی شیشه‌ای": "Glass Packaging",
-    "عرضه با استعلام": "Supply Upon Inquiry",
-    "رب گوجه‌فرنگی قوطی": "Canned Tomato Paste",
-    "رب گوجه‌فرنگی با بسته‌بندی قوطی فلزی؛ وزن و شرایط تأمین متناسب با محصول اعلام می‌شود.": "Tomato paste in metal cans. Weight and supply terms are provided according to the product.",
-    "قوطی فلزی": "Metal Can",
-    "استعلام موجودی": "Check Availability",
-    "مشخصات فنی و کیفی محصول": "Product Technical & Quality Specifications",
-    "جدول مشخصات فنی رب گوجه‌فرنگی": "Tomato Paste Technical Specifications",
-    "نوع آنالیز:": "Analysis Type:",
-    "مرجع عمومی": "General Reference",
-    "بریکس": "Brix",
-    "۳۶–۳۸٪": "36–38%",
-    "ویسکوزیته": "Viscosity",
-    "۵–۶": "5–6",
-    "اسیدیته": "Acidity",
-    "≤ ۴٫۳": "≤ 4.3",
-    "نسبت رنگ": "Color Ratio",
-    "۲٫۱–۲٫۳": "2.1–2.3",
-    "شمارش کپک هاوارد": "Howard Mold Count",
-    "≤ ۳۴٪": "≤ 34%",
-    "ذرات خارجی": "Foreign Matter",
-    "در جدول ذکر نشده": "Not stated in the table",
-    "آزمایش باکتریایی": "Bacterial Test",
-    "کپک": "Mold",
-    "مخمر": "Yeast",
-    "* اعداد فعلی فقط مربوط به جدول مرجع عمومی هستند و هنوز به هیچ‌یک از سه نوع بسته‌بندی نسبت داده نشده‌اند. برای نمایش آنالیز اختصاصی، کارت مربوط را انتخاب کنید.": "* The current figures are from a general reference table and have not yet been assigned to any of the three packaging types. Select the relevant product card to view product-specific analysis.",
-    "توضیحات مشخصات فنی و نتایج آزمایش رب گوجه‌فرنگی": "Tomato Paste Specifications and Laboratory Results",
-    "رب گوجه‌فرنگی:": "Tomato Paste:",
-    "برای مشاهدهٔ آنالیز اختصاصی، یکی از سه کارت را انتخاب کنید.": "Select one of the three cards to view product-specific analysis.",
-    "بریکس (Brix)، ویسکوزیته، pH، نسبت رنگ (a/b) و شمارش کپک هاوارد (H.M.C) شاخص‌های کنترل کیفیت هستند. مقدار هر شاخص برای بسته‌بندی انتخاب‌شده جداگانه نمایش داده می‌شود و برگهٔ آنالیز همان محصول ملاک تأیید نهایی است.": "Brix, viscosity, pH, the colour ratio (a/b) and Howard Mold Count (H.M.C.) are quality-control indicators. Values for each indicator are shown separately for the selected packaging type; the product's own analysis certificate is the basis for final confirmation.",
-    "برای دریافت مقادیر تأییدشده مربوط به ذرات خارجی، آزمایش باکتریایی، کپک و مخمر، برگه آنالیز همان محصول درخواست شود.": "For verified values covering foreign matter, bacterial testing, mold and yeast, request the analysis certificate for the relevant product.",
-    "برندهای رب گوجه‌فرنگی": "Tomato Paste Brands",
-    "همراه با برندهای رب گوجه‌فرنگی": "Partnering with Tomato Paste Brands",
-    "برندهای معرفی‌شده؛ مشخصات و امکان تأمین هر محصول پس از استعلام تأیید می‌شود.": "Featured brands. Product specifications and supply availability are confirmed upon inquiry.",
-    "۳ برند": "3 Brands"
+    "شرکت":"Company","داستان ما":"Our Story","خدمات مشتریان":"Customer Services",
+    "پشتیبانی صادرات":"Export Support","ارسال و تحویل":"Shipping & Delivery","سوالات متداول":"Frequently Asked Questions",
+    "تماس با ما":"Contact Us","محمد مهاجری":"Mohammad Mohajeri","علیرضا تهرانی":"Alireza Tehrani",
+    "تلفن ثابت دفتر":"Office Landline","ایمیل رسمی":"Official Email","شبکه‌های اجتماعی":"Social Media",
+    "© ۱۴۰۴ بازرگانی مهاجر — تمامی حقوق محفوظ است.":"© 2025 Mohajer Trading Group — All Rights Reserved.",
+    "طراحی و توسعه اختصاصی":"Designed and Developed Exclusively",
+    "منوی اصلی":"Main Menu","بستن منو":"Close Menu",
+    "استعلام قیمت؛ انتقال به فرم تماس":"Request a Quote; opens the contact form",
+    "صادرات مواد غذایی با کیفیت جهانی":"Global-quality food exports"
   });
 
-  const normalize = value => String(value || "").replace(/\s+/g, " ").trim();
+  const norm = value => String(value || "").replace(/\s+/g, " ").trim();
+  const latinDigits = value => String(value).replace(/[۰-۹]/g, digit => "۰۱۲۳۴۵۶۷۸۹".indexOf(digit));
+  let currentLocale = "fa";
+  let originalTexts = new WeakMap();
+  let translatedTexts = new WeakMap();
+  let originalAttributes = new WeakMap();
+  let translatedAttributes = new WeakMap();
 
-  function translateNode(node) {
-    if (!node || node.nodeType !== Node.TEXT_NODE) return;
+  function translateText(node) {
     const raw = node.nodeValue || "";
-    const key = normalize(raw);
-    if (!key || !Object.prototype.hasOwnProperty.call(T, key)) return;
+    const key = norm(raw);
+    if (!key || !node.parentElement || node.parentElement.closest("script,style,noscript,template")) return;
+
+    let translated = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : latinDigits(key);
+    if (translated === key) return;
     const leading = raw.match(/^\s*/)?.[0] || "";
     const trailing = raw.match(/\s*$/)?.[0] || "";
-    node.nodeValue = leading + T[key] + trailing;
+    const next = leading + translated + trailing;
+    if (next === raw) return;
+
+    if (!originalTexts.has(node)) originalTexts.set(node, raw);
+    else if (raw !== translatedTexts.get(node)) originalTexts.set(node, raw);
+    translatedTexts.set(node, next);
+    node.nodeValue = next;
   }
 
   function translateAttributes(root) {
-    const names = ["aria-label", "title", "alt", "placeholder", "content"];
+    const names = ["aria-label","title","alt","placeholder","content","value"];
     const elements = [root, ...(root.querySelectorAll ? root.querySelectorAll("*") : [])].filter(Boolean);
-    elements.forEach(el => names.forEach(name => {
-      if (!el.getAttribute || !el.hasAttribute(name)) return;
-      const value = el.getAttribute(name);
-      const key = normalize(value);
-      if (Object.prototype.hasOwnProperty.call(T, key)) el.setAttribute(name, T[key]);
-    }));
+    elements.forEach(el => {
+      if (!el.getAttribute) return;
+      names.forEach(name => {
+        if (!el.hasAttribute(name)) return;
+        const raw = el.getAttribute(name);
+        const key = norm(raw);
+        const translated = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : latinDigits(key);
+        if (!key || translated === key || translated === raw) return;
+        let saved = originalAttributes.get(el);
+        if (!saved) { saved = Object.create(null); originalAttributes.set(el, saved); }
+        let last = translatedAttributes.get(el);
+        if (!last) { last = Object.create(null); translatedAttributes.set(el, last); }
+        if (!Object.prototype.hasOwnProperty.call(saved, name)) saved[name] = raw;
+        else if (raw !== last[name]) saved[name] = raw;
+        last[name] = translated;
+        el.setAttribute(name, translated);
+      });
+    });
   }
 
   function translateTree(root) {
-    if (!root) return;
-    if (root.nodeType === Node.TEXT_NODE) translateNode(root);
-    else if (root.nodeType === Node.ELEMENT_NODE) {
-      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-      const nodes = [];
-      while (walker.nextNode()) nodes.push(walker.currentNode);
-      nodes.forEach(translateNode);
-      translateAttributes(root);
-      if (root.matches && root.matches(".elven-mobile-reference-footer")) {
-        root.setAttribute("dir", "ltr");
-      }
-      if (root.querySelectorAll) {
-        root.querySelectorAll(".elven-mobile-reference-footer").forEach(el => el.setAttribute("dir", "ltr"));
-      }
-    }
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(translateText);
+    translateAttributes(root);
   }
 
-  function init() {
-    translateTree(document.body);
-    if (window.MutationObserver && !window.__elvenEnglishObserver) {
-      window.__elvenEnglishObserver = new MutationObserver(records => {
-        records.forEach(record => {
-          if (record.type === "characterData") translateNode(record.target);
-          record.addedNodes && record.addedNodes.forEach(node => translateTree(node));
-          if (record.type === "attributes" && record.target.nodeType === 1) translateAttributes(record.target);
+  function restoreTree(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      if (originalTexts.has(node)) node.nodeValue = originalTexts.get(node);
+    });
+    const elements = [root, ...(root.querySelectorAll ? root.querySelectorAll("*") : [])].filter(Boolean);
+    elements.forEach(el => {
+      const saved = originalAttributes.get(el);
+      if (!saved) return;
+      Object.keys(saved).forEach(name => el.setAttribute(name, saved[name]));
+    });
+  }
+
+  function observeDynamicContent() {
+    if (!window.MutationObserver || window.__elvenEnglishObserver) return;
+    window.__elvenEnglishObserver = new MutationObserver(records => {
+      if (currentLocale !== "en") return;
+      records.forEach(record => {
+        if (record.type === "characterData") translateText(record.target);
+        record.addedNodes && record.addedNodes.forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) translateText(node);
+          else if (node.nodeType === Node.ELEMENT_NODE) translateTree(node);
         });
+        if (record.type === "attributes" && record.target.nodeType === Node.ELEMENT_NODE) translateAttributes(record.target);
       });
-      window.__elvenEnglishObserver.observe(document.documentElement, {
-        subtree: true, childList: true, characterData: true,
-        attributes: true, attributeFilter: ["aria-label", "title", "alt", "placeholder", "content"]
-      });
-    }
+    });
+    window.__elvenEnglishObserver.observe(document.documentElement, {
+      subtree:true, childList:true, characterData:true, attributes:true,
+      attributeFilter:["aria-label","title","alt","placeholder","content","value"]
+    });
   }
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
-  else init();
+  function setLanguage(locale) {
+    if (locale === "en") {
+      currentLocale = "en";
+      document.documentElement.lang = "en";
+      document.body.lang = "en";
+      translateTree(document.head);
+      translateTree(document.body);
+      observeDynamicContent();
+      return;
+    }
+    currentLocale = "fa";
+    restoreTree(document.head);
+    restoreTree(document.body);
+    originalTexts = new WeakMap();
+    translatedTexts = new WeakMap();
+    originalAttributes = new WeakMap();
+    translatedAttributes = new WeakMap();
+    document.documentElement.lang = "fa";
+    document.body.lang = "fa";
+  }
+
+  window.ElvenEnglishTranslator = { setLanguage };
 })();
