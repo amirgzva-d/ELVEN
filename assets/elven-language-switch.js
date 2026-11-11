@@ -4,10 +4,10 @@
   const SUPPORTED = new Set(["fa", "en", "ar", "ru"]);
   const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
-  const AR_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v8";
-  const EN_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v7";
-  const EN_PRODUCTS_VERSION = "20261111-product-map-v2";
-  const RU_TRANSLATOR_VERSION = "20261111-russian-audit-v5";
+  const AR_TRANSLATOR_VERSION = "20261111-language-parity-v1";
+  const EN_TRANSLATOR_VERSION = "20261111-language-parity-v1";
+  const EN_PRODUCTS_VERSION = "20261111-language-parity-v1";
+  const RU_TRANSLATOR_VERSION = "20261111-language-parity-v1";
   let route;
   let activeLocale = "fa";
   let translatorLoading = false;
