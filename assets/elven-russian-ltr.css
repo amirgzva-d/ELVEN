@@ -482,3 +482,35 @@ html.elven-russian-layout body :is(.hero-copy p,.intro-panel p,.form-head p,.spe
     line-height: 1.65 !important;
   }
 }
+
+
+/* Russian homepage and product-specific hero blocks use the same left-aligned reading flow. */
+html.elven-russian-layout body :is(
+  .hero-content,.hero-mobile-copy,.hero-copy,.hero-shell .hero-content,
+  .elven-mobile-portrait-content,.canned-mobile-hero,
+  .yeast-mobile-feature,.hero__content,.pd-hero-content
+) {
+  direction: ltr !important;
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+
+html.elven-russian-layout body :is(
+  .hero-content h1,.hero-content h2,.hero-content p,
+  .hero-mobile-copy h1,.hero-mobile-copy h2,.hero-mobile-copy p,
+  .hero-kicker,.hero-lead,
+  .elven-mobile-portrait-title,.elven-mobile-portrait-subtitle,.elven-mobile-portrait-lead,
+  .canned-mobile-hero-title,.canned-mobile-hero-subtitle,.canned-mobile-hero-lead,
+  .yeast-mobile-feature__tagline,.hero__title,.hero__subtitle,.pd-title,
+  #analysisTitle,#brandsTitle,#brandsSubtitle
+) {
+  direction: ltr !important;
+  text-align: left !important;
+  font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+}
+
+html.elven-russian-layout body :is(.hero-actions,.hero-content .hero-actions,.hero-copy .hero-actions) {
+  direction: ltr !important;
+  justify-content: flex-start !important;
+}
+
