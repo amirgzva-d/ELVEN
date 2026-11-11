@@ -4,8 +4,8 @@
   const SUPPORTED = new Set(["fa", "en", "ar"]);
   const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
-  const AR_TRANSLATOR_VERSION = "20261111-inpage-ar-v6";
-  const EN_TRANSLATOR_VERSION = "20261111-mobile-language-fix-v13";
+  const AR_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v7";
+  const EN_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v7";
   const EN_PRODUCTS_VERSION = "20261111-product-map-v2";
   let route;
   let activeLocale = "fa";
@@ -121,7 +121,11 @@
     const names = { fa: "فارسی", en: "English", ar: "العربية" };
     // Keep the language menu labels and status wording fixed in every locale.
     // Only the selected-language highlight/status changes when the visitor switches language.
-    const statusText = { active: "فعال", inactive: "تغییر" };
+    const statusText = {
+      fa: { active: "فعال", inactive: "تغییر" },
+      en: { active: "Active", inactive: "Change" },
+      ar: { active: "مفعّلة", inactive: "تغيير" }
+    }[locale] || { active: "فعال", inactive: "تغییر" };
     const current = picker.querySelector(".language-current");
     if (current) current.textContent = names[locale];
     picker.querySelectorAll("[data-language]").forEach(function (option) {
