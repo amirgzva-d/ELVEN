@@ -272,6 +272,17 @@
 
   function applyLocale(locale, initial) {
     if (!SUPPORTED.has(locale)) return;
+    if (locale === "ru" && route && route.legacyLocale !== "ru") {
+      let russianPage = route.current || "index.html";
+      if (/^catalog-fa\.html$/i.test(russianPage)) russianPage = "catalog.html";
+      const target = new URL((route.basePath || "") + "/ru/" + (russianPage === "index.html" ? "" : russianPage), location.origin);
+      target.search = location.search;
+      target.hash = location.hash;
+      if (target.pathname !== location.pathname) {
+        location.replace(target.href);
+        return;
+      }
+    }
     activeLocale = locale;
     saveLocale(locale);
 
