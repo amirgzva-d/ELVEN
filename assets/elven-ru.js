@@ -1250,8 +1250,8 @@
     const key = norm(raw);
     if (!key || !node.parentElement || node.parentElement.closest("script,style,noscript,template,.language-picker")) return;
     let translated;
-    if (node.parentElement.tagName === "TITLE" && / \\| Mohajer Trading Group$/.test(key)) {
-      const name = key.replace(/ \\| Mohajer Trading Group$/, "");
+    if (node.parentElement.tagName === "TITLE" && / \| Mohajer Trading Group$/.test(key)) {
+      const name = key.replace(/ \| Mohajer Trading Group$/, "");
       translated = (translateValue(name) || name) + " | Торговая группа «Мохаджер»";
     } else {
       translated = translateValue(key);
