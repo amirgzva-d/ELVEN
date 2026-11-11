@@ -657,3 +657,110 @@ html.elven-english-layout body .pd-overlay .pd-bottom-actions,
 html.elven-russian-layout body .pd-overlay .pd-bottom-actions {
   justify-content: flex-start !important;
 }
+
+
+/* Russian homepage hero: balanced typography and contained action buttons.
+   Desktop/tablet only; Persian, English, Arabic and mobile layouts stay unchanged. */
+@media (min-width:769px){
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-content{
+    width:min(610px,48vw)!important;
+    max-width:610px!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+    text-align:left!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-kicker{
+    display:block!important;
+    width:100%!important;
+    max-width:560px!important;
+    margin:0 0 12px!important;
+    padding:0!important;
+    border:0!important;
+    background:none!important;
+    color:#96732e!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:clamp(14px,1.2vw,18px)!important;
+    font-weight:700!important;
+    line-height:1.45!important;
+    letter-spacing:0!important;
+    text-align:left!important;
+    white-space:normal!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-kicker::before,
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-kicker::after{
+    display:none!important;
+    content:none!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-content h1{
+    width:100%!important;
+    max-width:610px!important;
+    margin:12px 0 16px!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:clamp(34px,3.35vw,48px)!important;
+    font-weight:750!important;
+    line-height:1.2!important;
+    letter-spacing:0!important;
+    text-align:left!important;
+    text-wrap:balance!important;
+    overflow-wrap:normal!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-content h1 em{
+    display:inline!important;
+    padding:0!important;
+    margin:0!important;
+    color:#a87921!important;
+    background:none!important;
+    -webkit-text-fill-color:currentColor!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-content h1 em::after{
+    display:none!important;
+    content:none!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-lead{
+    width:100%!important;
+    max-width:560px!important;
+    margin:0!important;
+    color:#42564d!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:clamp(14px,1.05vw,16px)!important;
+    font-weight:400!important;
+    line-height:1.75!important;
+    text-align:left!important;
+    text-wrap:pretty!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-actions{
+    display:flex!important;
+    flex-flow:row wrap!important;
+    justify-content:flex-start!important;
+    align-items:center!important;
+    gap:12px!important;
+    width:100%!important;
+    margin:22px 0 0!important;
+    position:static!important;
+    top:auto!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-actions a{
+    box-sizing:border-box!important;
+    display:inline-flex!important;
+    flex:0 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:100%!important;
+    min-height:54px!important;
+    padding:12px clamp(15px,1.5vw,22px)!important;
+    white-space:normal!important;
+    overflow-wrap:break-word!important;
+    text-align:center!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:clamp(13px,1.05vw,15px)!important;
+    line-height:1.35!important;
+  }
+}
+@media (min-width:769px) and (max-width:1100px){
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-content h1{
+    font-size:clamp(30px,3.3vw,38px)!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero .hero-actions{
+    gap:10px!important;
+  }
+}
