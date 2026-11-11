@@ -343,6 +343,14 @@
     translateAttributes(root);
   }
 
+  function translatePastaCard() {
+    const card = document.getElementById("catalog-card-pasta");
+    if (!card) return;
+    // Re-apply the same translation map to the final homepage card explicitly.
+    // translateText preserves the original Persian nodes for switching back.
+    translateTree(card);
+  }
+
   function restoreTree(root) {
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     const nodes = [];
@@ -386,6 +394,7 @@
       document.body.dir = "ltr";
       translateTree(document.head);
       translateTree(document.body);
+      translatePastaCard();
       observeDynamicContent();
       return;
     }
