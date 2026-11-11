@@ -75,7 +75,7 @@
 
   function localizedHomeUrl() {
     var segments = (window.location.pathname || '/').split('/').filter(Boolean);
-    var locale = segments.length && /^(ar|en)$/i.test(segments[0]) ? '/' + segments[0].toLowerCase() : '';
+    var locale = segments.length && /^(ar|en|ru)$/i.test(segments[0]) ? '/' + segments[0].toLowerCase() : '';
     return locale + '/index.html';
   }
 
