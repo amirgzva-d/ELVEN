@@ -92,7 +92,7 @@
     "مشهد، میدان جانباز، پاژ اداری ۲، طبقه ۳، واحد ۳۱۳":"Pajh Office Complex 2, 3rd Floor, Unit 313, Janbaz Square, Mashhad",
     "ایمیل":"Email",
     "اطلاعات و راه‌های ارتباطی شرکت":"Company Information and Contact Details",
-    "© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.":"© 2026 Mohajer Trading Group — All Rights Reserved."
+    "© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.":"© 2026 Mohajer Trading Group — All Rights Reserved.",
     "صادرات مواد غذایی با کیفیت جهانی":"High-Quality Food Exports"
   });
 
