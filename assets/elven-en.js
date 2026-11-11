@@ -35,7 +35,7 @@
     "مواد اولیه ممتاز برای صنایع غذایی":"Premium Ingredients for the Food Industry",
     "گلوکز و نشاسته ذرت و گندم برای صنایع غذایی":"Corn and wheat glucose and starch for the food industry",
     "لبنیات و شیر خشک":"Dairy & Milk Powder","مواد اولیه لبنی ممتاز برای بازار جهانی":"Premium dairy ingredients for global markets",
-    "ماکارونی و پاستا":"Pasta & Noodles","محصولات پاستا باکیفیت برای بازار جهانی":"High-quality pasta products for global markets",
+    "ماکارونی و پاستا":"Pasta & Macaroni","محصولات پاستا باکیفیت برای بازار جهانی":"High-quality pasta products for global markets",
     "۱۵+":"15+","سال اعتماد":"Years of Trust","درباره بازرگانی مهاجر":"About Mohajer Trading Group",
     "ریشه در ایران،":"Rooted in Iran,","اعتماد در سراسر جهان.":"Trusted Worldwide.",
     "بازرگانی مهاجر تولیدکنندگان ممتاز ایرانی را با خریداران در سراسر جهان پیوند می‌دهد. از تأمین و کنترل کیفیت تا مستندات و لجستیک — ما تمامی زنجیره صادرات را مدیریت می‌کنیم تا شرکای تجاری ما روی رشد کسب‌وکارشان تمرکز کنند.":"Mohajer Trading Group connects leading Iranian producers with buyers around the world. From sourcing and quality control to documentation and logistics, we manage the entire export chain so our partners can focus on growing their businesses.",
