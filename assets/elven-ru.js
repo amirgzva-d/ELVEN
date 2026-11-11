@@ -1047,6 +1047,14 @@
     "ویژه بازارهای": "Предназначено для"
   });
 
+  Object.assign(T, {
+    "مناسب بازار": "Подходит для",
+    "مناسب عرضه": "Подходит для",
+    "ویژه بازارهای": "Предназначено для",
+    "بررسی شرایط": "Уточнить условия",
+    "مشاهده برندهای": "Посмотреть"
+  });
+
   const norm = value => String(value || "").replace(/\s+/g, " ").trim();
 
 
@@ -1222,15 +1230,32 @@
     const key = norm(raw);
     if (!key || !node.parentElement || node.parentElement.closest("script,style,noscript,template,.language-picker")) return;
     let translated = translateValue(key);
+    let previous = node.previousSibling;
+    if (previous && previous.nodeType === Node.ELEMENT_NODE && previous.tagName === "BR") previous = previous.previousSibling;
+    const previousKey = previous && previous.nodeType === Node.TEXT_NODE
+      ? norm(originalTexts.get(previous) || previous.nodeValue || "")
+      : "";
     if (key === "صادراتی") {
-      let previous = node.previousSibling;
-      if (previous && previous.nodeType === Node.ELEMENT_NODE && previous.tagName === "BR") previous = previous.previousSibling;
-      const previousKey = previous && previous.nodeType === Node.TEXT_NODE
-        ? norm(originalTexts.get(previous) || previous.nodeValue || "")
-        : "";
       if (previousKey === "مناسب عرضه") translated = "экспорта";
       else if (previousKey === "مناسب بازار" || previousKey === "ویژه بازارهای") translated = "экспортных рынков";
     }
+    if (key === "تولیدکنندگان معتبر" && previousKey === "تأمین از") translated = "надёжных производителей";
+    if (key === "بازارهای جهانی" && previousKey === "انتخابی برای") translated = "мировых рынков";
+    if (key === "سفارش صادراتی" && previousKey === "بررسی شرایط") translated = "экспортного заказа";
+    if (key === "عرضه و صادرات" && previousKey === "بررسی شرایط") translated = "поставки и экспорта";
+    if (key === "و مشخصات محصول" && previousKey === "تأیید کیفیت") translated = "и характеристик продукции";
+    if (key === "هر محصول" && previousKey === "بررسی مشخصات") translated = "каждого продукта";
+    if (key === "различных видов сахара" && previousKey === "دسترسی به برندهای") translated = "различных видов сахара";
+    if (previousKey === "مشاهده برندهای") {
+      const brandNames = {
+        "کنسروجات": "бренды консервов",
+        "رب گوجه‌فرنگی": "бренды томатной пасты",
+        "شکر": "бренды сахара",
+        "جوش شیرین": "бренды пищевой соды"
+      };
+      if (brandNames[key]) translated = brandNames[key];
+    }
+    if (key === "مشاهده برندهای") translated = "Посмотреть";
     if (translated === null || translated === key) return;
     const leading = raw.match(/^\s*/)?.[0] || "";
     const trailing = raw.match(/\s*$/)?.[0] || "";
