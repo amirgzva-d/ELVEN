@@ -70,11 +70,10 @@
       let target;
       try { target = new URL(raw, location.href); } catch (_) { return; }
       const isOldDomain = OLD_HOSTS.has(target.hostname.toLowerCase());
-      const isOfficialPage = OLD_HOSTS.has(location.hostname.toLowerCase());
       const isSameOrigin = target.origin === location.origin;
-      // Keep canonical production URLs intact when the preview is opened on a GitHub Pages host.
-      if (isOldDomain && !isOfficialPage) return;
-      if (!isOldDomain && !isSameOrigin) return;
+      // Never rewrite canonical production URLs: this preserves the production domain and language prefix.
+      if (isOldDomain) return;
+      if (!isSameOrigin) return;
       const base = route.basePath || "";
       let pathname = target.pathname;
       if (base && pathname === base) pathname = "/";
