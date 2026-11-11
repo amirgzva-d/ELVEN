@@ -4826,6 +4826,7 @@
 <script defer src="../assets/elven-language-switch.js?v=20261111-russian-complete-v4"></script>
 <!-- Arabic translator is loaded once by the shared language switcher. -->
 <link rel="alternate" hreflang="x-default" href="https://www.mohajer-foodstuff.com/yeast-product.html">
+  <link rel="stylesheet" href="../assets/yeast-brand-hero-style.css?v=20261111-hero-typography-v1">
 </head>
 <body>
 
@@ -4836,9 +4837,14 @@
       <img id="yeastMobileHeroArt" class="yeast-mobile-feature__art" src="https://res.cloudinary.com/dqhbyqftq/image/upload/v1793536683/834cd68d-adab-4b82-ae73-001bd475a736_rpw5u9.png" alt="" aria-hidden="true" decoding="async" fetchpriority="high">
       <div class="yeast-mobile-feature__shade" aria-hidden="true"></div>
       <div class="yeast-mobile-feature__headline">
-        <i class="fa-solid fa-wheat-awn yeast-mobile-feature__wheat" aria-hidden="true"></i>
-        <h1>الخميرة الفورية</h1>
+        <div class="yeast-mobile-feature__ornament" aria-hidden="true">
+          <span></span>
+          <i class="fa-solid fa-wheat-awn yeast-mobile-feature__wheat" aria-hidden="true"></i>
+          <span></span>
+        </div>
+        <h1 data-i18n="yeastHeroTitle">الخميرة الفورية</h1>
         <p class="yeast-mobile-feature__tagline">جودة ثابتة لصناعات المخابز والأغذية</p>
+        <p class="yeast-mobile-feature__description" id="yeastMobileHeroDescription">خميرة إكس باور المتخصصة، بقوة تخمير مضاعفة ونشاط إنزيمي مرتفع، مناسبة لإنتاج أنواع الخبز الكبير والمتوسط الحجم والمعجنات.</p>
       </div>
     </div>
 
@@ -4887,10 +4893,18 @@
 </header>
 
     <div class="hero__content" id="heroContent">
-      <h1 class="hero__title" id="heroTitle">جودة عالمية وثقة دولية</h1>
-      <p class="hero__subtitle" id="heroSubtitle">
+      <div class="yeast-brand-heading">
+        <div class="yeast-brand-heading__ornament" aria-hidden="true">
+          <span></span>
+          <i class="fa-solid fa-wheat-awn" aria-hidden="true"></i>
+          <span></span>
+        </div>
+        <h1 class="yeast-brand-heading__title" id="yeastHeroProductTitle" data-i18n="yeastHeroTitle">الخميرة الفورية</h1>
+        <h2 class="hero__title" id="heroTitle">جودة عالمية وثقة دولية</h2>
+        <p class="hero__subtitle" id="heroSubtitle">
         خميرة إكس باور المتخصصة، بقوة تخمير مضاعفة ونشاط إنزيمي مرتفع، مناسبة لإنتاج أنواع الخبز الكبير والمتوسط الحجم والمعجنات.
       </p>
+      </div>
 
       <div class="cta-section">
         <div class="cta-eyebrow">
@@ -5386,6 +5400,7 @@
     const translations = {
       fa: {
         logoTagline: 'متخصص صادرات مواد غذایی',
+        yeastHeroTitle: 'خمیرمایه فوری',
         navHome: 'خانه', navProducts: 'محصولات', 
         navAbout: 'درباره ما', navContact: 'تماس با ما',
         responseTime: 'پاسخ در کمتر از ۳۰ دقیقه',
@@ -5443,6 +5458,7 @@
       },
       en: {
         logoTagline: 'Food Export Specialist',
+        yeastHeroTitle: 'Instant Dry Yeast',
         navHome: 'Home', navProducts: 'Products', 
         navAbout: 'About Us', navContact: 'Contact Us',
         responseTime: 'Response in less than 30 minutes',
@@ -6247,6 +6263,10 @@
         : 'center top';
       heroTitleEl.textContent = displayBrand.heroTitle;
       heroSubtitleEl.textContent = displayBrand.heroSubtitle;
+      const mobileBrandTagline = document.querySelector('.yeast-mobile-feature__tagline');
+      const mobileBrandDescription = document.getElementById('yeastMobileHeroDescription');
+      if (mobileBrandTagline) mobileBrandTagline.textContent = displayBrand.heroTitle;
+      if (mobileBrandDescription) mobileBrandDescription.textContent = displayBrand.heroSubtitle;
       const selectedBrandName = displayBrand.brandName;
       if (currentLang === 'fa') {
         analysisTitleEl.textContent = `جدول آنالیز آزمایشگاهی و ترکیبات ${selectedBrandName}`;
