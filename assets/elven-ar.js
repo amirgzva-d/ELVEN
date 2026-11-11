@@ -810,6 +810,12 @@
     "واتساپ محمد مهاجری": "واتساب محمد مهاجري",
     "واتساپ علیرضا تهرانی": "واتساب عليرضا تهراني",
   };
+  Object.assign(T, {
+    "مشاهده برندهای": "عرض",
+    "بررسی شرایط": "مراجعة شروط",
+    "بررسی مشخصات": "مراجعة مواصفات",
+    "دسترسی به برندهای": "الوصول إلى علامات تجارية"
+  });
   const norm = s => (s || "").replace(/\s+/g, " ").trim();
   function translateDynamic(key) {
     let match;
@@ -879,14 +885,21 @@
     } else {
       translated = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : translateDynamic(key);
     }
-    if (key === "صادراتی") {
-      let previous = node.previousSibling;
-      if (previous && previous.nodeType === Node.ELEMENT_NODE && previous.tagName === "BR") previous = previous.previousSibling;
-      const previousKey = previous && previous.nodeType === Node.TEXT_NODE
-        ? norm(originalTexts.get(previous) || previous.nodeValue || "")
-        : "";
-      if (previousKey === "مناسب عرضه") translated = "التصديري";
-    }
+    let previous = node.previousSibling;
+    if (previous && previous.nodeType === Node.ELEMENT_NODE && previous.tagName === "BR") previous = previous.previousSibling;
+    const previousKey = previous && previous.nodeType === Node.TEXT_NODE
+      ? norm(originalTexts.get(previous) || previous.nodeValue || "")
+      : "";
+    if (key === "صادراتی" && previousKey === "مناسب عرضه") translated = "التصديري";
+    if (key === "تولیدکنندگان معتبر" && previousKey === "تأمین از") translated = "منتجين موثوقين";
+    if (key === "سفارش صادراتی" && previousKey === "بررسی شرایط") translated = "طلبات التصدير";
+    if (key === "هر محصول" && previousKey === "بررسی مشخصات") translated = "كل منتج";
+    if (key === "مختلف شکر" && previousKey === "دسترسی به برندهای") translated = "متنوعة للسكر";
+    if (key === "کنسروجات" && previousKey === "مشاهده برندهای") translated = "علامات المعلبات";
+    if (key === "رب گوجه‌فرنگی" && previousKey === "مشاهده برندهای") translated = "علامات معجون الطماطم";
+    if (key === "شکر" && previousKey === "مشاهده برندهای") translated = "علامات السكر";
+    if (key === "جوش شیرین" && previousKey === "مشاهده برندهای") translated = "علامات بيكربونات الصوديوم";
+    if (key === "مشاهده برندهای") translated = "عرض";
     if (translated === null) return;
 
     const leading = raw.match(/^\s*/)?.[0] || "";
