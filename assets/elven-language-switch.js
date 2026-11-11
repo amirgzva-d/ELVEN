@@ -5,7 +5,7 @@
   const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
   const AR_TRANSLATOR_VERSION = "20261111-inpage-ar-v4";
-  const EN_TRANSLATOR_VERSION = "20261111-fixed-picker-en-v4";
+  const EN_TRANSLATOR_VERSION = "20261111-ltr-nav-filter-v5";
   const EN_PRODUCTS_VERSION = "20261110-product-map-v1";
   let route;
   let activeLocale = "fa";
@@ -211,6 +211,8 @@
       if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
       updatePicker("en");
       document.documentElement.lang = "en";
+      document.documentElement.dir = "ltr";
+      document.body.dir = "ltr";
       if (window.ElvenYeastPageTranslator) {
         window.ElvenYeastPageTranslator.setLanguage("en");
         loadEnglishTranslator(!!initial, function (loaded) {
@@ -242,6 +244,7 @@
       if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
       document.documentElement.lang = "ar";
       document.documentElement.dir = "rtl";
+      document.body.dir = "rtl";
       updatePicker("ar");
       loadArabicTranslator(!!initial, function (loaded) {
         if (activeLocale !== "ar") return;
@@ -252,6 +255,7 @@
           saveLocale("ar");
           document.documentElement.lang = "ar";
           document.documentElement.dir = "rtl";
+          document.body.dir = "rtl";
           updatePicker("ar");
         }
       });
@@ -263,6 +267,7 @@
     if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
     document.documentElement.lang = "fa";
     document.documentElement.dir = "rtl";
+    document.body.dir = "rtl";
     updatePicker("fa");
   }
 
