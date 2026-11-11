@@ -4,7 +4,7 @@
   const SUPPORTED = new Set(["fa", "en", "ar"]);
   const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
-  const AR_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v7";
+  const AR_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v8";
   const EN_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v7";
   const EN_PRODUCTS_VERSION = "20261111-product-map-v2";
   let route;
