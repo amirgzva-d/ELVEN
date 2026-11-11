@@ -3,9 +3,9 @@
   #heroSection.hero > #heroContent.hero__content {
     display: flex !important;
     flex: 1 1 auto !important;
-    width: min(53%, 880px) !important;
-    max-width: 880px !important;
-    margin: 0 auto 0 0.6vw !important;
+    width: min(56%, 920px) !important;
+    max-width: 920px !important;
+    margin: 0 auto 0 0 !important;
     padding: 22px clamp(10px, 1.6vw, 26px) 24px !important;
     align-items: center !important;
     justify-content: center !important;
@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 820px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 12px 14px 18px;
     text-align: center;
@@ -70,7 +70,8 @@
 
   #heroSection #heroTitle.hero__title {
     display: block;
-    max-width: 800px;
+    width: 100%;
+    max-width: 930px;
     margin: 0 auto 8px;
     color: #0b694a !important;
     font-size: clamp(1.25rem, 2.1vw, 2rem);
@@ -87,8 +88,15 @@
   }
 
   #heroSection #heroContent .cta-section {
+    width: min(100%, 560px);
+    max-width: 560px;
     align-items: center;
     margin-inline: auto;
+  }
+
+  #heroSection #heroContent .action-dock {
+    width: 100%;
+    max-width: 560px;
   }
   #heroSection #heroContent .cta-eyebrow { align-self: center; }
   #heroSection #heroContent .action-dock { justify-content: center; }
