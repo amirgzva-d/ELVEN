@@ -493,21 +493,10 @@ body.beverages-view .catalog .card-copy .chips{
   body.beverages-view .catalog .card-copy .chips {
     display: none;
   }
-  /* The entire original card is a working keyboard/touch button: this footer
-     is visual guidance and does not introduce a nested fake interactive link. */
+  /* Product cards remain fully tappable; no extra "View Specifications" label. */
   body.beverages-view .catalog .card-copy::after {
-    content: "مشاهده مشخصات  ←";
-    display: block;
-    align-self: flex-start;
-    margin-top: auto;
-    padding-top: 10px;
-    border-bottom: 1px solid #bb8b4a;
-    color: #113861;
-    font-size: 10px;
-    line-height: 1.7;
-    font-weight: 850;
-    white-space: nowrap;
-    pointer-events: none;
+    content: none !important;
+    display: none !important;
   }
 }
 @media (max-width: 360px) {
@@ -519,7 +508,6 @@ body.beverages-view .catalog .card-copy .chips{
   body.beverages-view .catalog .card-copy { padding: 11px 9px 12px; min-height: 172px; }
   body.beverages-view .catalog .card-copy h3 { font-size: 12px; }
   body.beverages-view .catalog .card-copy > p { font-size: 9.5px; }
-  body.beverages-view .catalog .card-copy::after { font-size: 9px; }
 }
 
 
