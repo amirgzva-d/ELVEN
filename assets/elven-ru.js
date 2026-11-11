@@ -1224,6 +1224,8 @@
     const key = norm(raw);
     if (!key || !node.parentElement || node.parentElement.closest("script,style,noscript,template,.language-picker")) return;
     let translated = translateValue(key);
+    if (key === "مناسب بازار" || key === "مناسب عرضه") translated = "Подходит для";
+    if (key === "ویژه بازارهای") translated = "Предназначено для";
     let previous = node.previousSibling;
     if (previous && previous.nodeType === Node.ELEMENT_NODE && previous.tagName === "BR") previous = previous.previousSibling;
     const previousKey = previous && previous.nodeType === Node.TEXT_NODE
@@ -1239,6 +1241,8 @@
     if (key === "عرضه و صادرات" && previousKey === "بررسی شرایط") translated = "поставки и экспорта";
     if (key === "و مشخصات محصول" && previousKey === "تأیید کیفیت") translated = "и характеристик продукции";
     if (key === "هر محصول" && previousKey === "بررسی مشخصات") translated = "каждого продукта";
+    if (key === "معرفی‌شده" && /^\d+ برند$/u.test(previousKey)) translated = "представлены";
+    if (key === "معرفی‌شده" && previousKey === "۳ نشان") translated = "представлены";
     if (key === "مختلف شکر" && previousKey === "دسترسی به برندهای") translated = "различных видов сахара";
     if (previousKey === "مشاهده برندهای") {
       const brandNames = {
