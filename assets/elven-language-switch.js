@@ -246,7 +246,7 @@
     const link = document.createElement("link");
     link.id = "elvenRussianLtrStyles";
     link.rel = "stylesheet";
-    link.href = (route.basePath || "") + "/assets/elven-russian-ltr.css?v=20261111-ru-home-desktop-v3";
+    link.href = (route.basePath || "") + "/assets/elven-russian-ltr.css?v=20261111-ru-home-desktop-v4";
     document.head.appendChild(link);
   }
 
