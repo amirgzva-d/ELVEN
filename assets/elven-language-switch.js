@@ -51,13 +51,18 @@
   }
 
   function readSavedLocale() {
-    const match = document.cookie.match(new RegExp("(?:^|; )" + STORAGE_KEY + "=([^;]*)"));
-    const cookieLocale = match ? decodeURIComponent(match[1]) : "";
-    if (SUPPORTED.has(cookieLocale)) return cookieLocale;
+    // localStorage is the live preference for this browser. Prefer it over cookies,
+    // since older domain/path cookies can otherwise return a stale language.
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (SUPPORTED.has(saved)) return saved;
     } catch (_) {}
+    const values = document.cookie.split(";").map(part => part.trim());
+    for (const value of values) {
+      if (!value.startsWith(STORAGE_KEY + "=")) continue;
+      const cookieLocale = decodeURIComponent(value.slice(STORAGE_KEY.length + 1));
+      if (SUPPORTED.has(cookieLocale)) return cookieLocale;
+    }
     return "";
   }
 
@@ -77,10 +82,20 @@
       if (base && pathname === base) pathname = "/";
       else if (base && pathname.startsWith(base + "/")) pathname = pathname.slice(base.length);
       else if (!isOldDomain && base) return;
+      const desiredLocale = activeLocale !== "fa"
+        ? activeLocale
+        : (readSavedLocale() || (route && route.legacyLocale) || "fa");
       pathname = pathname.replace(/^\/(?:ar|en|ru)(?=\/)/i, "");
       if (!pathname.startsWith("/")) pathname = "/" + pathname;
       if (!pathname || pathname === "/") pathname = "/index.html";
       if (/^\/catalog(?:-en)?\.html$/i.test(pathname) || /^\/catalog\.html$/i.test(pathname)) pathname = "/catalog-fa.html";
+
+      // Russian pages are separate /ru/ routes. Keep that prefix on every
+      // internal page link so navigation never falls back to Persian and redirects.
+      const isPageTarget = /\.html?$/i.test(pathname) || pathname.endsWith("/") || !/\.[a-z0-9]{2,6}$/i.test(pathname);
+      if (desiredLocale === "ru" && isPageTarget && !/^\/ru(?:\/|$)/i.test(pathname)) {
+        pathname = "/ru" + (pathname === "/" ? "/index.html" : pathname);
+      }
       const normalized = new URL(base + pathname + target.search + target.hash, location.origin);
       if (anchor.href !== normalized.href) anchor.setAttribute("href", normalized.href);
     };
@@ -402,9 +417,10 @@
       target.hash = location.hash;
       if (target.pathname !== location.pathname) { location.replace(target.href); return; }
     }
+    const initialLocale = route.legacyLocale === "ru" ? "ru" : savedLocale || (route.legacyLocale === "ar" ? "ar" : route.legacyLocale === "en" ? "en" : "fa");
+    activeLocale = initialLocale;
     bindPicker();
     normalizeInternalLinks();
-    const initialLocale = route.legacyLocale === "ru" ? "ru" : savedLocale || (route.legacyLocale === "ar" ? "ar" : route.legacyLocale === "en" ? "en" : "fa");
     applyLocale(initialLocale, true);
     if (!window.__elvenLanguageStorageSync) {
       window.__elvenLanguageStorageSync = true;
