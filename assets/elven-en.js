@@ -84,6 +84,15 @@
     "طراحی و توسعه اختصاصی":"Custom Design & Development",
     "منوی اصلی":"Main Menu","بستن منو":"Close Menu",
     "استعلام قیمت؛ انتقال به فرم تماس":"Request a Quote; opens the contact form",
+    "تأمین و صادرات انواع مواد غذایی ایرانی":"Sourcing and exporting a wide range of Iranian food products",
+    "با کیفیت برای بازارهای جهانی":"with quality for global markets",
+    "صادرات به سراسر جهان":"Exporting to Markets Worldwide",
+    "تلفن ثابت":"Office Landline",
+    "نشانی دفتر مرکزی":"Head Office Address",
+    "مشهد، میدان جانباز، پاژ اداری ۲، طبقه ۳، واحد ۳۱۳":"Pajh Office Complex 2, 3rd Floor, Unit 313, Janbaz Square, Mashhad",
+    "ایمیل":"Email",
+    "اطلاعات و راه‌های ارتباطی شرکت":"Company Information and Contact Details",
+    "© ۱۴۰۵ بازرگانی مهاجر — تمامی حقوق محفوظ است.":"© 2026 Mohajer Trading Group — All Rights Reserved."
     "صادرات مواد غذایی با کیفیت جهانی":"High-Quality Food Exports"
   });
 
