@@ -7,7 +7,7 @@
   const AR_TRANSLATOR_VERSION = "20261111-language-parity-v2";
   const EN_TRANSLATOR_VERSION = "20261111-language-parity-v1";
   const EN_PRODUCTS_VERSION = "20261111-language-parity-v1";
-  const RU_TRANSLATOR_VERSION = "20261111-language-parity-v2";
+  const RU_TRANSLATOR_VERSION = "20261111-language-parity-v3";
   let route;
   let activeLocale = "fa";
   let translatorLoading = false;
