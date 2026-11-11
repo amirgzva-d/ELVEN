@@ -207,7 +207,7 @@
     const link = document.createElement("link");
     link.id = "elvenEnglishLtrStyles";
     link.rel = "stylesheet";
-    link.href = (route.basePath || "") + "/assets/elven-english-ltr.css?v=20261111-en-ltr-v1";
+    link.href = (route.basePath || "") + "/assets/elven-english-ltr.css?v=20261111-en-ltr-v2";
     document.head.appendChild(link);
   }
 
