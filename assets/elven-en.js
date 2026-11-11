@@ -284,7 +284,9 @@
     if (locale === "en") {
       currentLocale = "en";
       document.documentElement.lang = "en";
+      document.documentElement.dir = "ltr";
       document.body.lang = "en";
+      document.body.dir = "ltr";
       translateTree(document.head);
       translateTree(document.body);
       observeDynamicContent();
@@ -298,7 +300,9 @@
     originalAttributes = new WeakMap();
     translatedAttributes = new WeakMap();
     document.documentElement.lang = "fa";
+    document.documentElement.dir = "rtl";
     document.body.lang = "fa";
+    document.body.dir = "rtl";
   }
 
   window.ElvenEnglishTranslator = { setLanguage };
