@@ -467,3 +467,209 @@ html[lang="en"] .yeast-site-footer .footer-contact-item div small {
 html[lang="en"] .brand-product-footer {
   justify-content: space-between !important;
 }
+
+/* FINAL English navigation + filter alignment. Overrides legacy RTL page rules
+   only while the English locale is active. */
+html[lang="en"],
+html[lang="en"] body {
+  direction: ltr !important;
+  text-align: left;
+}
+
+/* Main navigation: left-to-right labels and a true left-side mobile drawer. */
+html[lang="en"] body #siteHeader .nav,
+html[lang="en"] body .header .nav,
+html[lang="en"] body .site-header .main-nav,
+html[lang="en"] body .masthead .primary-nav,
+html[lang="en"] body .pd-main-header-card .pd-main-nav,
+html[lang="en"] body nav#primaryNav,
+html[lang="en"] body nav#siteNav,
+html[lang="en"] body nav#pdPrimaryNav {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="en"] body #siteHeader .nav > a,
+html[lang="en"] body .header .nav > a,
+html[lang="en"] body .site-header .main-nav > a,
+html[lang="en"] body .masthead .primary-nav > a,
+html[lang="en"] body .pd-main-header-card .pd-main-nav > a,
+html[lang="en"] body nav#primaryNav > a,
+html[lang="en"] body nav#siteNav > a,
+html[lang="en"] body nav#pdPrimaryNav > a {
+  direction: ltr !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+}
+html[lang="en"] body #siteHeader .nav::before,
+html[lang="en"] body .header .nav::before,
+html[lang="en"] body .site-header .main-nav::before,
+html[lang="en"] body .masthead .primary-nav::before {
+  content: "MOHAJER TRADING GROUP" !important;
+  left: 24px !important;
+  right: auto !important;
+  direction: ltr !important;
+  text-align: left !important;
+  font-family: Poppins, Arial, sans-serif !important;
+  letter-spacing: 1.4px !important;
+}
+html[lang="en"] body #siteHeader .nav::after,
+html[lang="en"] body .header .nav::after,
+html[lang="en"] body .site-header .main-nav::after,
+html[lang="en"] body .masthead .primary-nav::after {
+  content: "FOOD EXPORTS" !important;
+  left: 25px !important;
+  right: auto !important;
+  direction: ltr !important;
+  text-align: left !important;
+  font-family: Poppins, Arial, sans-serif !important;
+  letter-spacing: 2px !important;
+}
+html[lang="en"] body #siteHeader .nav > a::before,
+html[lang="en"] body .header .nav > a::before,
+html[lang="en"] body .site-header .main-nav > a::before,
+html[lang="en"] body .masthead .primary-nav > a::before,
+html[lang="en"] body .pd-main-header-card .pd-main-nav > a::before {
+  margin-left: 0 !important;
+  margin-right: 12px !important;
+}
+html[lang="en"] body #siteHeader .nav > a.active,
+html[lang="en"] body .header .nav > a.active,
+html[lang="en"] body .site-header .main-nav > a.is-active,
+html[lang="en"] body .masthead .primary-nav > a.current,
+html[lang="en"] body .pd-main-header-card .pd-main-nav > a.is-active {
+  box-shadow: inset 3px 0 #0a5c46 !important;
+}
+@media (max-width: 768px) {
+  html[lang="en"] body #siteHeader .nav,
+  html[lang="en"] body .header .nav,
+  html[lang="en"] body .site-header .main-nav,
+  html[lang="en"] body .masthead .primary-nav,
+  html[lang="en"] body .pd-main-header-card .pd-main-nav {
+    position: fixed !important;
+    top: 0 !important;
+    right: auto !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    border-radius: 0 26px 26px 0 !important;
+    transform: translate3d(-105%, 0, 0) !important;
+    direction: ltr !important;
+    text-align: left !important;
+    box-shadow: 18px 0 55px rgba(7, 47, 35, .20) !important;
+  }
+  html[lang="en"] body #siteHeader .nav.mobile-open,
+  html[lang="en"] body .header .nav.mobile-open,
+  html[lang="en"] body .site-header .main-nav.is-open,
+  html[lang="en"] body .masthead .primary-nav.is-open,
+  html[lang="en"] body .pd-main-header-card .pd-main-nav.is-open {
+    transform: translate3d(0, 0, 0) !important;
+  }
+  html[lang="en"] body #siteHeader .nav > a,
+  html[lang="en"] body .header .nav > a,
+  html[lang="en"] body .site-header .main-nav > a,
+  html[lang="en"] body .masthead .primary-nav > a,
+  html[lang="en"] body .pd-main-header-card .pd-main-nav > a {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    direction: ltr !important;
+    text-align: left !important;
+    font-family: Poppins, Arial, sans-serif !important;
+  }
+}
+
+/* Filters: English order is checkbox -> label -> count, with the count on the right.
+   On desktop the filter is the left column; on mobile it remains a full-width panel
+   above the product cards, rather than disappearing. */
+html[lang="en"] body #products .catalog-products-layout {
+  direction: ltr !important;
+  grid-template-columns: minmax(270px, 300px) minmax(0, 1fr) !important;
+}
+html[lang="en"] body #products .catalog-products-layout > .filters,
+html[lang="en"] body #products .filters {
+  direction: ltr !important;
+  text-align: left !important;
+  justify-self: start !important;
+}
+html[lang="en"] body #products .filter-title {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="en"] body #products .filter-title strong,
+html[lang="en"] body #products .filter-title button,
+html[lang="en"] body #products .filter-section h3 {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="en"] body #products .filter-section h3 {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+html[lang="en"] body #products .filter-section .filter-options {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="en"] body #products .filter-section label {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 9px !important;
+  direction: ltr !important;
+  text-align: left !important;
+}
+html[lang="en"] body #products .filter-section label input[type="checkbox"] {
+  order: 0 !important;
+  flex: 0 0 15px !important;
+  margin: 0 !important;
+}
+html[lang="en"] body #products .filter-section label .count {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+@media (min-width: 769px) {
+  html[lang="en"] body #products .catalog-products-layout {
+    display: grid !important;
+    grid-template-columns: minmax(270px, 300px) minmax(0, 1fr) !important;
+    column-gap: 30px !important;
+    padding-inline-start: 0 !important;
+  }
+  html[lang="en"] body #products .catalog-products-layout > .filters {
+    position: sticky !important;
+    inset: auto !important;
+    top: 104px !important;
+    width: 100% !important;
+    height: clamp(560px, calc(100vh - 124px), 640px) !important;
+    margin: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  html[lang="en"] body #products .catalog-products-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    padding-inline-start: 0 !important;
+  }
+  html[lang="en"] body #products .catalog-products-layout > .filters {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    position: static !important;
+    order: 0 !important;
+    align-self: stretch !important;
+  }
+  html[lang="en"] body #products .catalog-products-layout > .catalog-content {
+    width: 100% !important;
+    order: 1 !important;
+  }
+}
