@@ -559,3 +559,101 @@ html.elven-russian-layout body.mh-about-page .mh-story-step::before{
     text-align:left!important;
   }
 }
+
+/* Yeast product cards and per-card specification panel: natural LTR copy
+   for English/Russian only. Keep all existing dimensions and card styling. */
+html.elven-english-layout body .brands-section,
+html.elven-english-layout body .brands-section .brands-header,
+html.elven-english-layout body .brands-section .brands-header-text,
+html.elven-english-layout body .brands-section .brands-track,
+html.elven-russian-layout body .brands-section,
+html.elven-russian-layout body .brands-section .brands-header,
+html.elven-russian-layout body .brands-section .brands-header-text,
+html.elven-russian-layout body .brands-section .brands-track {
+  direction: ltr !important;
+}
+html.elven-english-layout body .brands-section .brands-header-text,
+html.elven-english-layout body .brands-section #brandsTitle,
+html.elven-english-layout body .brands-section #brandsSubtitle,
+html.elven-english-layout body .brands-section .no-products,
+html.elven-russian-layout body .brands-section .brands-header-text,
+html.elven-russian-layout body .brands-section #brandsTitle,
+html.elven-russian-layout body .brands-section #brandsSubtitle,
+html.elven-russian-layout body .brands-section .no-products {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html.elven-english-layout body .brands-section .brand-product-card,
+html.elven-english-layout body .brands-section .brand-product-body,
+html.elven-english-layout body .brands-section .product-category,
+html.elven-english-layout body .brands-section .product-title,
+html.elven-english-layout body .brands-section .brand-product-footer,
+html.elven-english-layout body .brands-section .brand-product-footer .view-details,
+html.elven-russian-layout body .brands-section .brand-product-card,
+html.elven-russian-layout body .brands-section .brand-product-body,
+html.elven-russian-layout body .brands-section .product-category,
+html.elven-russian-layout body .brands-section .product-title,
+html.elven-russian-layout body .brands-section .brand-product-footer,
+html.elven-russian-layout body .brands-section .brand-product-footer .view-details {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html.elven-english-layout body .brands-section .brand-product-body,
+html.elven-russian-layout body .brands-section .brand-product-body {
+  align-items: flex-start !important;
+}
+html.elven-english-layout body .brands-section .brand-product-footer,
+html.elven-russian-layout body .brands-section .brand-product-footer {
+  flex-direction: row !important;
+  justify-content: space-between !important;
+}
+html.elven-english-layout body .brands-section .brand-product-footer .view-details,
+html.elven-russian-layout body .brands-section .brand-product-footer .view-details {
+  justify-content: flex-start !important;
+}
+
+/* The details view opened from each yeast card. Only the information column
+   and its specification text are aligned; the image and component styling stay intact. */
+html.elven-english-layout body .pd-overlay .pd-body,
+html.elven-russian-layout body .pd-overlay .pd-body {
+  direction: ltr !important;
+}
+html.elven-english-layout body .pd-overlay .pd-info-side,
+html.elven-english-layout body .pd-overlay .pd-category-pill,
+html.elven-english-layout body .pd-overlay .pd-title,
+html.elven-english-layout body .pd-overlay .pd-subtitle,
+html.elven-english-layout body .pd-overlay .pd-tabs,
+html.elven-english-layout body .pd-overlay .pd-feature-list,
+html.elven-english-layout body .pd-overlay .pd-feature,
+html.elven-english-layout body .pd-overlay .pd-feature-content,
+html.elven-english-layout body .pd-overlay .pd-feature-head,
+html.elven-english-layout body .pd-overlay .pd-feature-head strong,
+html.elven-english-layout body .pd-overlay .pd-feature-head span,
+html.elven-english-layout body .pd-overlay .pd-feature p,
+html.elven-english-layout body .pd-overlay .pd-bottom-actions,
+html.elven-english-layout body .pd-overlay .pd-btn-pdf,
+html.elven-russian-layout body .pd-overlay .pd-info-side,
+html.elven-russian-layout body .pd-overlay .pd-category-pill,
+html.elven-russian-layout body .pd-overlay .pd-title,
+html.elven-russian-layout body .pd-overlay .pd-subtitle,
+html.elven-russian-layout body .pd-overlay .pd-tabs,
+html.elven-russian-layout body .pd-overlay .pd-feature-list,
+html.elven-russian-layout body .pd-overlay .pd-feature,
+html.elven-russian-layout body .pd-overlay .pd-feature-content,
+html.elven-russian-layout body .pd-overlay .pd-feature-head,
+html.elven-russian-layout body .pd-overlay .pd-feature-head strong,
+html.elven-russian-layout body .pd-overlay .pd-feature-head span,
+html.elven-russian-layout body .pd-overlay .pd-feature p,
+html.elven-russian-layout body .pd-overlay .pd-bottom-actions,
+html.elven-russian-layout body .pd-overlay .pd-btn-pdf {
+  direction: ltr !important;
+  text-align: left !important;
+}
+html.elven-english-layout body .pd-overlay .pd-feature,
+html.elven-russian-layout body .pd-overlay .pd-feature {
+  flex-direction: row !important;
+}
+html.elven-english-layout body .pd-overlay .pd-bottom-actions,
+html.elven-russian-layout body .pd-overlay .pd-bottom-actions {
+  justify-content: flex-start !important;
+}
