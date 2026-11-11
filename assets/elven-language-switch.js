@@ -232,6 +232,7 @@
           saveLocale("fa");
           document.documentElement.lang = "fa";
           document.documentElement.dir = "rtl";
+          document.body.dir = "rtl";
           if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
           updatePicker("fa");
         }
