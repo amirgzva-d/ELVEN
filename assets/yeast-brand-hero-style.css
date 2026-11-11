@@ -5,7 +5,7 @@
     flex: 1 1 auto !important;
     width: min(53%, 880px) !important;
     max-width: 880px !important;
-    margin: 0 auto 0 2.8vw !important;
+    margin: 0 auto 0 0.6vw !important;
     padding: 22px clamp(10px, 1.6vw, 26px) 24px !important;
     align-items: center !important;
     justify-content: center !important;
@@ -79,6 +79,16 @@
     letter-spacing: -.025em;
     text-align: center;
     text-shadow: 0 1px 9px rgba(255, 251, 239, .72);
+  }
+
+  /* The long brand introduction is intentionally hidden on desktop only. */
+  #heroSection #heroSubtitle.hero__subtitle {
+    display: none !important;
+  }
+
+  /* Keep the whole text-and-CTA group slightly farther into the open left area. */
+  #heroSection #heroSubtitle.hero__subtitle.original-desktop-description {
+    display: none !important;
   }
 
   #heroSection #heroSubtitle.hero__subtitle {
