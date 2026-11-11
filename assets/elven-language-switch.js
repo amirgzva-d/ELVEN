@@ -237,7 +237,7 @@
     const link = document.createElement("link");
     link.id = "elvenEnglishLtrStyles";
     link.rel = "stylesheet";
-    link.href = (route.basePath || "") + "/assets/elven-english-ltr.css?v=20261111-en-ltr-v2";
+    link.href = (route.basePath || "") + "/assets/elven-english-ltr.css?v=20261111-en-ltr-v3";
     document.head.appendChild(link);
   }
 
@@ -246,7 +246,7 @@
     const link = document.createElement("link");
     link.id = "elvenRussianLtrStyles";
     link.rel = "stylesheet";
-    link.href = (route.basePath || "") + "/assets/elven-russian-ltr.css?v=20261111-ru-home-desktop-v2";
+    link.href = (route.basePath || "") + "/assets/elven-russian-ltr.css?v=20261111-ru-home-desktop-v3";
     document.head.appendChild(link);
   }
 
