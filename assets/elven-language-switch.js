@@ -88,7 +88,9 @@
       pathname = pathname.replace(/^\/(?:ar|en|ru)(?=\/)/i, "");
       if (!pathname.startsWith("/")) pathname = "/" + pathname;
       if (!pathname || pathname === "/") pathname = "/index.html";
-      if (/^\/catalog(?:-en)?\.html$/i.test(pathname) || /^\/catalog\.html$/i.test(pathname)) pathname = "/catalog-fa.html";
+      if (/^\/catalog(?:-fa|-en)?\.html$/i.test(pathname) || /^\/catalog\.html$/i.test(pathname)) {
+        pathname = desiredLocale === "ru" ? "/catalog.html" : "/catalog-fa.html";
+      }
 
       // Russian pages are separate /ru/ routes. Keep that prefix on every
       // internal page link so navigation never falls back to Persian and redirects.
