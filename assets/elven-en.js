@@ -311,6 +311,14 @@
     if (!key || !node.parentElement || node.parentElement.closest("script,style,noscript,template,.language-picker")) return;
 
     let translated = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : latinDigits(key);
+    if (key === "صادراتی") {
+      let previous = node.previousSibling;
+      if (previous && previous.nodeType === Node.ELEMENT_NODE && previous.tagName === "BR") previous = previous.previousSibling;
+      const previousKey = previous && previous.nodeType === Node.TEXT_NODE
+        ? norm(originalTexts.get(previous) || previous.nodeValue || "")
+        : "";
+      if (previousKey === "مناسب عرضه") translated = "Export";
+    }
     if (translated === key) return;
     const leading = raw.match(/^\s*/)?.[0] || "";
     const trailing = raw.match(/\s*$/)?.[0] || "";
