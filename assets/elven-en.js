@@ -200,7 +200,7 @@
   function translateText(node) {
     const raw = node.nodeValue || "";
     const key = norm(raw);
-    if (!key || !node.parentElement || node.parentElement.closest("script,style,noscript,template")) return;
+    if (!key || !node.parentElement || node.parentElement.closest("script,style,noscript,template,.language-picker")) return;
 
     let translated = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : latinDigits(key);
     if (translated === key) return;
@@ -219,7 +219,7 @@
     const names = ["aria-label","title","alt","placeholder","content","value"];
     const elements = [root, ...(root.querySelectorAll ? root.querySelectorAll("*") : [])].filter(Boolean);
     elements.forEach(el => {
-      if (!el.getAttribute) return;
+      if (!el.getAttribute || (el.closest && el.closest(".language-picker"))) return;
       names.forEach(name => {
         if (!el.hasAttribute(name)) return;
         const raw = el.getAttribute(name);
