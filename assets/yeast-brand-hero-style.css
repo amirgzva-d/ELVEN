@@ -81,26 +81,9 @@
     text-shadow: 0 1px 9px rgba(255, 251, 239, .72);
   }
 
-  /* The long brand introduction is intentionally hidden on desktop only. */
+  /* Hide only the long brand description on desktop. Mobile hero copy is untouched. */
   #heroSection #heroSubtitle.hero__subtitle {
     display: none !important;
-  }
-
-  /* Keep the whole text-and-CTA group slightly farther into the open left area. */
-  #heroSection #heroSubtitle.hero__subtitle.original-desktop-description {
-    display: none !important;
-  }
-
-  #heroSection #heroSubtitle.hero__subtitle {
-    display: block;
-    max-width: 760px;
-    margin: 0 auto 18px;
-    color: #353b37 !important;
-    font-size: clamp(.96rem, 1.15vw, 1.12rem);
-    font-weight: 500;
-    line-height: 1.85;
-    text-align: center;
-    text-shadow: 0 1px 8px rgba(255, 251, 239, .68);
   }
 
   #heroSection #heroContent .cta-section {
