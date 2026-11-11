@@ -119,11 +119,9 @@
     const picker = document.getElementById("languagePicker");
     if (!picker) return;
     const names = { fa: "فارسی", en: "English", ar: "العربية" };
-    const statusText = {
-      fa: { active: "فعال", inactive: "تغییر" },
-      en: { active: "Active", inactive: "Switch" },
-      ar: { active: "مفعّلة", inactive: "التبديل" }
-    };
+    // Keep the language menu labels and status wording fixed in every locale.
+    // Only the selected-language highlight/status changes when the visitor switches language.
+    const statusText = { active: "فعال", inactive: "تغییر" };
     const current = picker.querySelector(".language-current");
     if (current) current.textContent = names[locale];
     picker.querySelectorAll("[data-language]").forEach(function (option) {
@@ -133,7 +131,7 @@
       const label = option.querySelector("span:not(.language-flag):not(.language-status)");
       const status = option.querySelector(".language-status");
       if (label) label.textContent = names[language];
-      if (status) status.textContent = active ? statusText[locale].active : statusText[locale].inactive;
+      if (status) status.textContent = active ? statusText.active : statusText.inactive;
       option.classList.remove("is-coming");
       option.classList.toggle("is-current", active);
       option.setAttribute("role", active ? "menuitemradio" : "menuitem");
