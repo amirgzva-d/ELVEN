@@ -5,7 +5,7 @@
   const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
   const AR_TRANSLATOR_VERSION = "20261111-inpage-ar-v6";
-  const EN_TRANSLATOR_VERSION = "20261111-ltr-nav-filter-v10";
+  const EN_TRANSLATOR_VERSION = "20261111-ltr-nav-filter-v11";
   const EN_PRODUCTS_VERSION = "20261111-product-map-v2";
   let route;
   let activeLocale = "fa";
