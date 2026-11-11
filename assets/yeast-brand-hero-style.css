@@ -105,7 +105,8 @@
     width: 100%;
     max-width: 560px;
   }
-  #heroSection #heroContent .cta-eyebrow { align-self: center; }
+  /* Keep the response-time badge off desktop; it remains available on mobile. */
+  #heroSection #heroContent .cta-eyebrow { display: none !important; }
   #heroSection #heroContent .action-dock { justify-content: center; }
 
   html[lang="fa"] #heroSection .yeast-brand-heading,
