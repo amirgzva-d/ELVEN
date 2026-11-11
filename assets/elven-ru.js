@@ -1137,6 +1137,32 @@
     "مشاهده برندهای": "Посмотреть"
   });
 
+  Object.assign(E, {
+    "Yeast Products": "Дрожжевая продукция",
+    "Dairy & Milk Powders": "Молочная продукция и сухое молоко",
+    "Premium Dairy Ingredients for Global Markets": "Высококачественные молочные ингредиенты для мировых рынков",
+    "Pasta & Macaroni": "Макаронные изделия",
+    "Quality Pasta Products for Global Markets": "Качественные макаронные изделия для мировых рынков",
+    "Canned Foods": "Консервы",
+    "Quality Canned Products for Global Markets": "Качественные консервированные продукты для мировых рынков",
+    "Beverages & Juices": "Напитки и соки",
+    "Freshness and Quality for Global Markets": "Свежесть и качество для мировых рынков",
+    "Glucose": "Глюкоза",
+    "High-Quality Glucose for Food Industries": "Высококачественная глюкоза для пищевой промышленности",
+    "Corn & Wheat Starch": "Кукурузный и пшеничный крахмал",
+    "Reliable Starch Solutions for Global Markets": "Надёжные решения на основе крахмала для мировых рынков",
+    "Tomato Paste": "Томатная паста",
+    "Rich Flavor and Quality for Global Markets": "Насыщенный вкус и высокое качество для мировых рынков",
+    "Baking Soda": "Пищевая сода",
+    "Premium Baking Ingredients for Food Industries": "Высококачественные ингредиенты для хлебопекарной промышленности",
+    "Yeast": "Дрожжи",
+    "Quality Yeast Products for Better Baking": "Качественная дрожжевая продукция для лучшей выпечки",
+    "Premium Yeast for Quality Baking Worldwide": "Высококачественные дрожжи для качественной выпечки по всему миру",
+    "Filters Applied ✓": "Фильтры применены ✓",
+    "Product Details": "Информация о товаре",
+    "Mohajer Trading Group": "Торговая группа «Мохаджер»"
+  });
+
   const westernDigits = value => String(value || "").replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
 
   function translateDynamic(key) {
@@ -1223,7 +1249,13 @@
     const raw = node.nodeValue || "";
     const key = norm(raw);
     if (!key || !node.parentElement || node.parentElement.closest("script,style,noscript,template,.language-picker")) return;
-    let translated = translateValue(key);
+    let translated;
+    if (node.parentElement.tagName === "TITLE" && / \\| Mohajer Trading Group$/.test(key)) {
+      const name = key.replace(/ \\| Mohajer Trading Group$/, "");
+      translated = (translateValue(name) || name) + " | Торговая группа «Мохаджер»";
+    } else {
+      translated = translateValue(key);
+    }
     if (key === "مناسب بازار" || key === "مناسب عرضه") translated = "Подходит для";
     if (key === "ویژه بازارهای") translated = "Предназначено для";
     let previous = node.previousSibling;
