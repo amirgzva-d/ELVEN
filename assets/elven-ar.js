@@ -890,6 +890,13 @@
     const previousKey = previous && previous.nodeType === Node.TEXT_NODE
       ? norm(originalTexts.get(previous) || previous.nodeValue || "")
       : "";
+    let next = node.nextSibling;
+    if (next && next.nodeType === Node.ELEMENT_NODE && next.tagName === "BR") next = next.nextSibling;
+    const nextKey = next && next.nodeType === Node.TEXT_NODE
+      ? norm(next.nodeValue || "")
+      : "";
+    if (key === "انتخابی برای" && nextKey === "بازارهای جهانی") translated = "خيار";
+    if (key === "بازارهای جهانی" && previousKey === "انتخابی برای") translated = "للأسواق العالمية";
     if (key === "صادراتی" && previousKey === "مناسب عرضه") translated = "التصديري";
     if (key === "تولیدکنندگان معتبر" && previousKey === "تأمین از") translated = "منتجين موثوقين";
     if (key === "سفارش صادراتی" && previousKey === "بررسی شرایط") translated = "طلبات التصدير";
