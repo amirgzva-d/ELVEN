@@ -7,7 +7,7 @@
   const AR_TRANSLATOR_VERSION = "20261111-language-parity-v2";
   const EN_TRANSLATOR_VERSION = "20261111-language-parity-v1";
   const EN_PRODUCTS_VERSION = "20261111-language-parity-v1";
-  const RU_TRANSLATOR_VERSION = "20261111-language-parity-v3";
+  const RU_TRANSLATOR_VERSION = "20261111-language-parity-v4";
   let route;
   let activeLocale = "fa";
   let translatorLoading = false;
@@ -246,7 +246,7 @@
     const link = document.createElement("link");
     link.id = "elvenRussianLtrStyles";
     link.rel = "stylesheet";
-    link.href = (route.basePath || "") + "/assets/elven-russian-ltr.css?v=20261111-ru-home-desktop-v4";
+    link.href = (route.basePath || "") + "/assets/elven-russian-ltr.css?v=20261111-ru-home-centered-v5";
     document.head.appendChild(link);
   }
 
