@@ -900,25 +900,29 @@
   function localizePicker(locale) {
     const picker = document.querySelector("#languagePicker");
     if (!picker) return;
-    const fa = picker.querySelector('[data-language="fa"]');
-    const ar = picker.querySelector('[data-language="ar"]');
-
-    if (fa) {
-      const active = locale === "fa";
-      fa.classList.toggle("is-current", active);
-      fa.setAttribute("role", active ? "menuitemradio" : "menuitem");
-      fa.setAttribute("aria-checked", active ? "true" : "false");
-      fa.setAttribute("aria-disabled", "false");
-    }
-    if (ar) {
-      const active = locale === "ar";
-      ar.classList.toggle("is-current", active);
-      ar.setAttribute("role", active ? "menuitemradio" : "menuitem");
-      ar.setAttribute("aria-checked", active ? "true" : "false");
-      ar.setAttribute("aria-disabled", "false");
-    }
-    picker.querySelectorAll('[data-language="en"],[data-language="ru"]').forEach(function (option) {
-      option.remove();
+    const fixed = {
+      fa: { name: "فارسی", flag: "🇮🇷" },
+      en: { name: "English", flag: "🇬🇧" },
+      ar: { name: "العربية", flag: "🇸🇦" }
+    };
+    picker.querySelectorAll("[data-language]").forEach(function (option) {
+      const language = option.dataset.language;
+      if (!fixed[language]) return;
+      const spans = option.querySelectorAll("span");
+      const flag = option.querySelector(".language-flag");
+      const label = Array.from(spans).find(function (span) {
+        return !span.classList.contains("language-flag") && !span.classList.contains("language-status");
+      });
+      const status = option.querySelector(".language-status");
+      if (flag) flag.textContent = fixed[language].flag;
+      if (label) label.textContent = fixed[language].name;
+      const active = language === locale;
+      if (status) status.textContent = active ? "فعال" : "تغییر";
+      option.classList.toggle("is-current", active);
+      option.setAttribute("role", active ? "menuitemradio" : "menuitem");
+      option.setAttribute("aria-checked", active ? "true" : "false");
+      option.setAttribute("aria-disabled", "false");
+      option.classList.remove("is-coming");
     });
   }
 
