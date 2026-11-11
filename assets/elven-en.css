@@ -673,3 +673,62 @@ html[lang="en"] body #products .filter-section label .count {
     order: 1 !important;
   }
 }
+
+/* LTR overrides for navigation drawers that are moved to <body> by the
+   product-page mobile-menu controller. */
+@media (max-width: 900px) {
+  html[lang="en"] body > #primaryNav.elven-mobile-drawer-portal,
+  html[lang="en"] body #primaryNav.elven-mobile-drawer-portal {
+    left: 0 !important;
+    right: auto !important;
+    border-radius: 0 26px 26px 0 !important;
+    direction: ltr !important;
+    text-align: left !important;
+    transform: translate3d(-105%, 0, 0) !important;
+    box-shadow: 18px 0 55px rgba(7, 47, 35, .20) !important;
+  }
+  html[lang="en"] body > #primaryNav.elven-mobile-drawer-portal.mobile-open,
+  html[lang="en"] body #primaryNav.elven-mobile-drawer-portal.mobile-open {
+    transform: translate3d(0, 0, 0) !important;
+  }
+  html[lang="en"] body > #primaryNav.elven-mobile-drawer-portal > a,
+  html[lang="en"] body #primaryNav.elven-mobile-drawer-portal > a {
+    direction: ltr !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+
+  html[lang="en"] body > #pdPrimaryNav.elven-pd-menu-portal,
+  html[lang="en"] body #pdPrimaryNav.elven-pd-menu-portal {
+    left: 0 !important;
+    right: auto !important;
+    border-radius: 0 26px 26px 0 !important;
+    direction: ltr !important;
+    text-align: left !important;
+    transform: translate3d(-105%, 0, 0) !important;
+    box-shadow: 18px 0 55px rgba(7, 47, 35, .20) !important;
+  }
+  html[lang="en"] body > #pdPrimaryNav.elven-pd-menu-portal.mobile-open,
+  html[lang="en"] body #pdPrimaryNav.elven-pd-menu-portal.mobile-open {
+    transform: translate3d(0, 0, 0) !important;
+  }
+  html[lang="en"] body > #pdPrimaryNav.elven-pd-menu-portal > a,
+  html[lang="en"] body #pdPrimaryNav.elven-pd-menu-portal > a {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    direction: ltr !important;
+    text-align: left !important;
+    font-family: Poppins, Arial, sans-serif !important;
+  }
+  html[lang="en"] body > #pdPrimaryNav.elven-pd-menu-portal > a::before,
+  html[lang="en"] body #pdPrimaryNav.elven-pd-menu-portal > a::before {
+    margin-left: 0 !important;
+    margin-right: 12px !important;
+  }
+  html[lang="en"] body > #pdPrimaryNav.elven-pd-menu-portal > a.active,
+  html[lang="en"] body #pdPrimaryNav.elven-pd-menu-portal > a.active {
+    box-shadow: inset 3px 0 #0a5c46 !important;
+  }
+}
