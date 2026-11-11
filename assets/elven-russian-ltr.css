@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-
 /* Russian LTR layout corrections. Persian and Arabic layouts are not affected. */
 html.elven-russian-layout,
 html.elven-russian-layout body{
   direction:ltr!important;
 }
 html.elven-russian-layout body{
-  font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+  font-family:Arial,"Helvetica Neue",sans-serif!important;
 }
 html.elven-russian-layout body [dir="rtl"]{
   direction:ltr!important;
@@ -21,7 +19,7 @@ html.elven-russian-layout .site-header .main-nav>a,
 html.elven-russian-layout .masthead .primary-nav>a{
   direction:ltr!important;
   text-align:left!important;
-  font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+  font-family:Arial,"Helvetica Neue",sans-serif!important;
 }
 html.elven-russian-layout .language-picker,
 html.elven-russian-layout .language-menu,
@@ -81,7 +79,7 @@ html.elven-russian-layout .language-picker.language-in-mobile-menu .language-che
     right:auto!important;
     text-align:left!important;
     direction:ltr!important;
-    font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
     font-size:17px!important;
     letter-spacing:.1px!important;
   }
@@ -94,7 +92,7 @@ html.elven-russian-layout .language-picker.language-in-mobile-menu .language-che
     right:auto!important;
     text-align:left!important;
     direction:ltr!important;
-    font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
     font-size:7px!important;
     letter-spacing:1.2px!important;
   }
@@ -105,7 +103,7 @@ html.elven-russian-layout .language-picker.language-in-mobile-menu .language-che
     direction:ltr!important;
     justify-content:flex-start!important;
     text-align:left!important;
-    font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
     line-height:1.55!important;
   }
   html.elven-russian-layout .header .nav>a::before,
@@ -131,7 +129,7 @@ html.elven-russian-layout .language-picker.language-in-mobile-menu .language-che
     direction:ltr!important;
     justify-content:flex-start!important;
     text-align:left!important;
-    font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
   }
   html.elven-russian-layout .nav .language-picker.language-in-mobile-menu .language-current{
     text-align:left!important;
@@ -271,7 +269,7 @@ html.elven-russian-layout body .hero-shell .field select,
 html.elven-russian-layout body .hero-shell .field textarea{
   direction:ltr!important;
   text-align:left!important;
-  font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+  font-family:Arial,"Helvetica Neue",sans-serif!important;
 }
 html.elven-russian-layout body .hero-shell .field .chev{
   margin-left:auto!important;
@@ -381,136 +379,3 @@ html.elven-russian-layout body.mh-about-page .mh-story-step::before{
   right:auto!important;
   left:0!important;
 }
-
-
-/* Russian typography: use a Cyrillic-capable family and a consistent scale.
-   These rules are scoped to Russian pages only; Persian, Arabic and English stay unchanged. */
-html.elven-russian-layout body {
-  font-family: Inter, "Segoe UI", Arial, sans-serif !important;
-  font-size: 16px !important;
-  line-height: 1.6 !important;
-  letter-spacing: 0 !important;
-  text-align: left !important;
-}
-
-html.elven-russian-layout body :is(
-  h1,h2,h3,h4,h5,h6,p,li,label,legend,dt,dd,figcaption,blockquote,summary,
-  .hero-copy,.hero-copy p,.hero-copy h1,.hero-copy h2,
-  .intro-panel,.intro-panel p,.intro-panel h1,
-  .form-head,.form-head p,.form-head h2,
-  .spec-content,.spec-content p,.spec-content h2,
-  .product-detail,.product-detail p,.product-detail li,
-  .mh-about-intro-heading,.mh-about-intro-copy,.mh-story-section-head,
-  .mh-story-person-content,.mh-story-step-copy,.mh-story-final-card,
-  .elven-dept-content,.elven-dept-content p,.elven-dept-title,
-  .card-copy,.footer-col,.footer-brand-block p,
-  .elven-mobile-reference-footer
-) {
-  direction: ltr !important;
-  text-align: left !important;
-  font-family: Inter, "Segoe UI", Arial, sans-serif !important;
-  letter-spacing: 0 !important;
-}
-
-html.elven-russian-layout body :is(h1,h2,h3,h4,h5,h6) {
-  font-weight: 700 !important;
-  line-height: 1.22 !important;
-  hyphens: auto;
-  overflow-wrap: break-word;
-  text-wrap: balance;
-}
-
-html.elven-russian-layout body h1 {
-  font-size: clamp(30px, 3.15vw, 46px) !important;
-}
-
-html.elven-russian-layout body h2 {
-  font-size: clamp(23px, 2.25vw, 32px) !important;
-}
-
-html.elven-russian-layout body h3 {
-  font-size: clamp(18px, 1.55vw, 23px) !important;
-}
-
-html.elven-russian-layout body :is(h4,h5,h6) {
-  font-size: clamp(16px, 1.25vw, 19px) !important;
-}
-
-html.elven-russian-layout body :is(p,li,dd,dt,figcaption,blockquote) {
-  font-size: clamp(14px, .95rem, 16px) !important;
-  line-height: 1.68 !important;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  text-wrap: pretty;
-}
-
-html.elven-russian-layout body :is(label,legend,input,select,textarea,button) {
-  font-family: Inter, "Segoe UI", Arial, sans-serif !important;
-  font-size: 14px !important;
-  line-height: 1.45 !important;
-  letter-spacing: 0 !important;
-}
-
-html.elven-russian-layout body :is(.hero-copy,.intro-panel,.form-head,.spec-content,.product-detail,.elven-dept-content,.mh-story-person-content,.mh-story-step-copy) {
-  align-items: flex-start !important;
-  text-align: left !important;
-}
-
-html.elven-russian-layout body :is(.hero-copy p,.intro-panel p,.form-head p,.spec-content p,.product-detail p,.elven-dept-content p,.mh-story-person-content p,.mh-story-step-copy p) {
-  max-width: 68ch;
-  margin-left: 0 !important;
-  margin-right: auto !important;
-}
-
-@media (max-width: 768px) {
-  html.elven-russian-layout body {
-    font-size: 15px !important;
-  }
-  html.elven-russian-layout body h1 {
-    font-size: clamp(27px, 7vw, 34px) !important;
-    line-height: 1.2 !important;
-  }
-  html.elven-russian-layout body h2 {
-    font-size: clamp(21px, 5.4vw, 27px) !important;
-    line-height: 1.25 !important;
-  }
-  html.elven-russian-layout body h3 {
-    font-size: clamp(17px, 4.5vw, 21px) !important;
-  }
-  html.elven-russian-layout body :is(p,li,dd,dt,figcaption,blockquote) {
-    font-size: 14px !important;
-    line-height: 1.65 !important;
-  }
-}
-
-
-/* Russian homepage and product-specific hero blocks use the same left-aligned reading flow. */
-html.elven-russian-layout body :is(
-  .hero-content,.hero-mobile-copy,.hero-copy,.hero-shell .hero-content,
-  .elven-mobile-portrait-content,.canned-mobile-hero,
-  .yeast-mobile-feature,.hero__content,.pd-hero-content
-) {
-  direction: ltr !important;
-  text-align: left !important;
-  align-items: flex-start !important;
-}
-
-html.elven-russian-layout body :is(
-  .hero-content h1,.hero-content h2,.hero-content p,
-  .hero-mobile-copy h1,.hero-mobile-copy h2,.hero-mobile-copy p,
-  .hero-kicker,.hero-lead,
-  .elven-mobile-portrait-title,.elven-mobile-portrait-subtitle,.elven-mobile-portrait-lead,
-  .canned-mobile-hero-title,.canned-mobile-hero-subtitle,.canned-mobile-hero-lead,
-  .yeast-mobile-feature__tagline,.hero__title,.hero__subtitle,.pd-title,
-  #analysisTitle,#brandsTitle,#brandsSubtitle
-) {
-  direction: ltr !important;
-  text-align: left !important;
-  font-family: Inter, "Segoe UI", Arial, sans-serif !important;
-}
-
-html.elven-russian-layout body :is(.hero-actions,.hero-content .hero-actions,.hero-copy .hero-actions) {
-  direction: ltr !important;
-  justify-content: flex-start !important;
-}
-
