@@ -73,13 +73,20 @@
     width: 100%;
     max-width: 930px;
     margin: 0 auto 8px;
-    color: #0b694a !important;
+    color: #916220 !important;
     font-size: clamp(1.25rem, 2.1vw, 2rem);
-    font-weight: 850;
-    line-height: 1.45;
+    font-weight: 900;
+    line-height: 1.55;
     letter-spacing: -.025em;
     text-align: center;
-    text-shadow: 0 1px 9px rgba(255, 251, 239, .72);
+    width: fit-content;
+    max-width: 100%;
+    padding: 5px clamp(14px, 2vw, 24px) 7px;
+    border: 1px solid rgba(192, 157, 98, .22);
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(252, 230, 180, .84), rgba(255, 245, 218, .77));
+    box-shadow: 0 3px 12px rgba(125, 92, 37, .06);
+    text-shadow: none;
   }
 
   /* Hide only the long brand description on desktop. Mobile hero copy is untouched. */
