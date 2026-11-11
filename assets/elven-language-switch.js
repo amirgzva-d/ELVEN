@@ -7,7 +7,7 @@
   const AR_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v8";
   const EN_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v7";
   const EN_PRODUCTS_VERSION = "20261111-product-map-v2";
-  const RU_TRANSLATOR_VERSION = "20261111-russian-full-site-v1";
+  const RU_TRANSLATOR_VERSION = "20261111-russian-full-site-v2";
   let route;
   let activeLocale = "fa";
   let translatorLoading = false;
@@ -385,7 +385,7 @@
     }
     route = getRoute();
     const savedLocale = readSavedLocale();
-    if ((route.legacyLocale === "ar" || route.legacyLocale === "en" || route.legacyLocale === "ru") && savedLocale === "fa") {
+    if ((route.legacyLocale === "ar" || route.legacyLocale === "en") && savedLocale === "fa") {
       const target = new URL((route.basePath || "") + "/" + route.current, location.origin);
       target.search = location.search;
       target.hash = location.hash;
@@ -393,7 +393,7 @@
     }
     bindPicker();
     normalizeInternalLinks();
-    const initialLocale = savedLocale || (route.legacyLocale === "ar" ? "ar" : route.legacyLocale === "en" ? "en" : route.legacyLocale === "ru" ? "ru" : "fa");
+    const initialLocale = route.legacyLocale === "ru" ? "ru" : savedLocale || (route.legacyLocale === "ar" ? "ar" : route.legacyLocale === "en" ? "en" : "fa");
     applyLocale(initialLocale, true);
     if (!window.__elvenLanguageStorageSync) {
       window.__elvenLanguageStorageSync = true;
