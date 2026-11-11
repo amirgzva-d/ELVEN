@@ -879,6 +879,14 @@
     } else {
       translated = Object.prototype.hasOwnProperty.call(T, key) ? T[key] : translateDynamic(key);
     }
+    if (key === "صادراتی") {
+      let previous = node.previousSibling;
+      if (previous && previous.nodeType === Node.ELEMENT_NODE && previous.tagName === "BR") previous = previous.previousSibling;
+      const previousKey = previous && previous.nodeType === Node.TEXT_NODE
+        ? norm(originalTexts.get(previous) || previous.nodeValue || "")
+        : "";
+      if (previousKey === "مناسب عرضه") translated = "التصديري";
+    }
     if (translated === null) return;
 
     const leading = raw.match(/^\s*/)?.[0] || "";
