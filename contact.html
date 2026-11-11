@@ -1432,9 +1432,20 @@ body{background:#f4f6f8}
     event.preventDefault();
     if(!this.reportValidity())return;
     const f=new FormData(this);
-    const subject='درخواست تماس از وب‌سایت بازرگانی مهاجر';
-    const lines=['نام و نام خانوادگی: '+f.get('fullName'),'ایمیل: '+f.get('email'),'شماره تماس: '+f.get('phone'),'','پیام:',f.get('message')];
-    document.getElementById('formNotice').textContent='برنامه ایمیل برای ارسال پیام آماده می‌شود. لطفاً ارسال ایمیل را در برنامه خود تأیید کنید.';
+    const translateRussianFormText = value => {
+      if (document.documentElement.lang !== 'ru') return value;
+      return window.ElvenRussianTranslator?.translateValue(value) || value;
+    };
+    const subject=translateRussianFormText('درخواست تماس از وب‌سایت بازرگانی مهاجر');
+    const lines=[
+      translateRussianFormText('نام و نام خانوادگی:')+' '+f.get('fullName'),
+      translateRussianFormText('ایمیل:')+' '+f.get('email'),
+      translateRussianFormText('شماره تماس:')+' '+f.get('phone'),
+      '',
+      translateRussianFormText('پیام:'),
+      f.get('message')
+    ];
+    document.getElementById('formNotice').textContent=translateRussianFormText('برنامه ایمیل برای ارسال پیام آماده می‌شود. لطفاً ارسال ایمیل را در برنامه خود تأیید کنید.');
     location.href='mailto:info@mohajer-food.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
   });
 })();
