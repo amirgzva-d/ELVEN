@@ -185,7 +185,7 @@
     "گلوکز و نشاسته بر پایه ذرت یا گندم؛ گرید با استعلام.":"Corn- or wheat-based glucose and starch; grades available upon inquiry.",
     "این کاتالوگ معرفی عمومی گروه‌های محصولات است. مشخصات، موجودی، قیمت، برند و مدارک فنی فقط پس از استعلام و تأیید اعلام می‌شود.":"This catalogue provides a general overview of our product categories. Specifications, availability, prices, brands, and technical documents are provided only after inquiry and confirmation.",
     "درخواست اطلاعات بیشتر":"Request More Information",
-    "برای درخواست قیمت، آنالیز و اطلاعات بسته‌بندی، با ما تماس بگیرید.":"Contact us for quotations, analysis reports, and packaging information."
+    "برای درخواست قیمت، آنالیز و اطلاعات بسته‌بندی، با ما تماس بگیرید.":"Contact us for quotations, analysis reports, and packaging information.",
 
     "مجموعه محصولات بازرگانی مهاجر":"Mohajer Trading Group Product Collection",
     "محصولات صادراتی":"Export Products",
