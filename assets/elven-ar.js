@@ -814,6 +814,7 @@
   function translateDynamic(key) {
     let match;
     const digits = value => String(value || "").replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+    if (/^[۰-۹0-9]+$/u.test(key)) return digits(key);
     const weight = value => digits(value)
       .replace(/کیلوگرم|کیلو گرم|کیلو/gu, "كيلوغرام")
       .replace(/گرم/gu, "غرام")
