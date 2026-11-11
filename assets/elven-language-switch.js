@@ -5,7 +5,7 @@
   const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
   const AR_TRANSLATOR_VERSION = "20261111-inpage-ar-v6";
-  const EN_TRANSLATOR_VERSION = "20261111-ltr-nav-filter-v9";
+  const EN_TRANSLATOR_VERSION = "20261111-ltr-nav-filter-v10";
   const EN_PRODUCTS_VERSION = "20261111-product-map-v2";
   let route;
   let activeLocale = "fa";
@@ -202,6 +202,30 @@
     document.head.appendChild(productScript);
   }
 
+  function ensureEnglishLayoutStyles() {
+    if (document.getElementById("elvenEnglishLtrStyles")) return;
+    const link = document.createElement("link");
+    link.id = "elvenEnglishLtrStyles";
+    link.rel = "stylesheet";
+    link.href = (route.basePath || "") + "/assets/elven-english-ltr.css?v=20261111-en-ltr-v1";
+    document.head.appendChild(link);
+  }
+
+  function setPageDirection(locale) {
+    const isEnglish = locale === "en";
+    const language = locale === "ar" ? "ar" : isEnglish ? "en" : "fa";
+    const direction = isEnglish ? "ltr" : "rtl";
+    document.documentElement.classList.toggle("elven-english-layout", isEnglish);
+    if (document.body) {
+      document.body.classList.toggle("elven-english-layout", isEnglish);
+      document.body.lang = language;
+      document.body.dir = direction;
+    }
+    document.documentElement.lang = language;
+    document.documentElement.dir = direction;
+    if (isEnglish) ensureEnglishLayoutStyles();
+  }
+
   function applyLocale(locale, initial) {
     if (!SUPPORTED.has(locale)) return;
     activeLocale = locale;
@@ -210,9 +234,7 @@
     if (locale === "en") {
       if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
       updatePicker("en");
-      document.documentElement.lang = "en";
-      document.documentElement.dir = "ltr";
-      document.body.dir = "ltr";
+      setPageDirection("en");
       if (window.ElvenYeastPageTranslator) {
         window.ElvenYeastPageTranslator.setLanguage("en");
         loadEnglishTranslator(!!initial, function (loaded) {
@@ -230,9 +252,7 @@
         } else {
           activeLocale = "fa";
           saveLocale("fa");
-          document.documentElement.lang = "fa";
-          document.documentElement.dir = "rtl";
-          document.body.dir = "rtl";
+          setPageDirection("fa");
           if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
           updatePicker("fa");
         }
@@ -243,9 +263,7 @@
     if (locale === "ar") {
       if (window.ElvenEnglishTranslator) window.ElvenEnglishTranslator.setLanguage("fa");
       if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
-      document.documentElement.lang = "ar";
-      document.documentElement.dir = "rtl";
-      document.body.dir = "rtl";
+      setPageDirection("ar");
       updatePicker("ar");
       loadArabicTranslator(!!initial, function (loaded) {
         if (activeLocale !== "ar") return;
@@ -254,9 +272,7 @@
         } else {
           activeLocale = "ar";
           saveLocale("ar");
-          document.documentElement.lang = "ar";
-          document.documentElement.dir = "rtl";
-          document.body.dir = "rtl";
+          setPageDirection("ar");
           updatePicker("ar");
         }
       });
@@ -266,9 +282,7 @@
     if (window.ElvenEnglishTranslator) window.ElvenEnglishTranslator.setLanguage("fa");
     if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
     if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
-    document.documentElement.lang = "fa";
-    document.documentElement.dir = "rtl";
-    document.body.dir = "rtl";
+    setPageDirection("fa");
     updatePicker("fa");
   }
 
