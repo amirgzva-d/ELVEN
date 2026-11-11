@@ -1,0 +1,295 @@
+/* English-only LTR layout corrections. Persian and Arabic layouts are not affected. */
+html.elven-english-layout,
+html.elven-english-layout body{
+  direction:ltr!important;
+}
+html.elven-english-layout body{
+  font-family:Poppins,Arial,sans-serif!important;
+}
+html.elven-english-layout body [dir="rtl"]{
+  direction:ltr!important;
+}
+html.elven-english-layout .header .nav,
+html.elven-english-layout .site-header .main-nav,
+html.elven-english-layout .masthead .primary-nav{
+  direction:ltr!important;
+}
+html.elven-english-layout .header .nav>a,
+html.elven-english-layout .site-header .main-nav>a,
+html.elven-english-layout .masthead .primary-nav>a{
+  direction:ltr!important;
+  text-align:left!important;
+  font-family:Poppins,Arial,sans-serif!important;
+}
+html.elven-english-layout .language-picker,
+html.elven-english-layout .language-menu,
+html.elven-english-layout .language-option{
+  direction:ltr!important;
+}
+html.elven-english-layout .language-option{
+  text-align:left!important;
+}
+html.elven-english-layout .language-status{
+  margin-right:0!important;
+  margin-left:auto!important;
+}
+html.elven-english-layout .language-menu{
+  right:auto!important;
+  left:0!important;
+  transform-origin:top left!important;
+}
+html.elven-english-layout .language-picker.language-in-mobile-menu .language-current{
+  text-align:left!important;
+}
+html.elven-english-layout .language-picker.language-in-mobile-menu .language-chevron{
+  margin-left:auto!important;
+  margin-right:0!important;
+}
+
+/* Mobile navigation mirrors to the left and uses natural English reading order. */
+@media(max-width:768px){
+  html.elven-english-layout .header .nav,
+  html.elven-english-layout .site-header .main-nav,
+  html.elven-english-layout .masthead .primary-nav,
+  html.elven-english-layout #siteHeader.header>.nav{
+    left:0!important;
+    right:auto!important;
+    direction:ltr!important;
+    text-align:left!important;
+    border-radius:0 26px 26px 0!important;
+    box-shadow:18px 0 55px rgba(7,47,35,.20)!important;
+    transform:translate3d(-105%,0,0)!important;
+    padding-left:22px!important;
+    padding-right:22px!important;
+  }
+  html.elven-english-layout .header .nav.mobile-open,
+  html.elven-english-layout .site-header .main-nav.is-open,
+  html.elven-english-layout .masthead .primary-nav.is-open,
+  html.elven-english-layout #siteHeader.header>.nav.mobile-open{
+    transform:translate3d(0,0,0)!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+  }
+  html.elven-english-layout .header .nav::before,
+  html.elven-english-layout .site-header .main-nav::before,
+  html.elven-english-layout .masthead .primary-nav::before,
+  html.elven-english-layout #siteHeader.header>.nav::before{
+    content:"Mohajer Trading Group"!important;
+    left:24px!important;
+    right:auto!important;
+    text-align:left!important;
+    direction:ltr!important;
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:17px!important;
+    letter-spacing:.1px!important;
+  }
+  html.elven-english-layout .header .nav::after,
+  html.elven-english-layout .site-header .main-nav::after,
+  html.elven-english-layout .masthead .primary-nav::after,
+  html.elven-english-layout #siteHeader.header>.nav::after{
+    content:"FOOD EXPORTS & GLOBAL SUPPLY"!important;
+    left:25px!important;
+    right:auto!important;
+    text-align:left!important;
+    direction:ltr!important;
+    font-family:Poppins,Arial,sans-serif!important;
+    font-size:7px!important;
+    letter-spacing:1.2px!important;
+  }
+  html.elven-english-layout .header .nav>a,
+  html.elven-english-layout .site-header .main-nav>a,
+  html.elven-english-layout .masthead .primary-nav>a,
+  html.elven-english-layout #siteHeader.header>.nav>a{
+    direction:ltr!important;
+    justify-content:flex-start!important;
+    text-align:left!important;
+    font-family:Poppins,Arial,sans-serif!important;
+    line-height:1.55!important;
+  }
+  html.elven-english-layout .header .nav>a::before,
+  html.elven-english-layout .site-header .main-nav>a::before,
+  html.elven-english-layout .masthead .primary-nav>a::before,
+  html.elven-english-layout #siteHeader.header>.nav>a::before{
+    margin-left:0!important;
+    margin-right:12px!important;
+  }
+  html.elven-english-layout .header .nav>a.active,
+  html.elven-english-layout .site-header .main-nav>a.is-active,
+  html.elven-english-layout .masthead .primary-nav>a.current,
+  html.elven-english-layout #siteHeader.header>.nav>a.active{
+    box-shadow:inset 3px 0 #0a5c46!important;
+  }
+  html.elven-english-layout .nav .language-picker.language-in-mobile-menu{
+    direction:ltr!important;
+    align-items:stretch!important;
+    text-align:left!important;
+  }
+  html.elven-english-layout .nav .language-picker.language-in-mobile-menu .language-trigger,
+  html.elven-english-layout .nav .language-picker.language-in-mobile-menu .language-option{
+    direction:ltr!important;
+    justify-content:flex-start!important;
+    text-align:left!important;
+    font-family:Poppins,Arial,sans-serif!important;
+  }
+  html.elven-english-layout .nav .language-picker.language-in-mobile-menu .language-current{
+    text-align:left!important;
+  }
+  html.elven-english-layout .nav .language-picker.language-in-mobile-menu .language-status{
+    margin-left:auto!important;
+    margin-right:0!important;
+  }
+}
+
+/* English reading order for the reusable product-category page, including Beverages & Juices. */
+html.elven-english-layout .hero-copy,
+html.elven-english-layout .hero-copy .kicker,
+html.elven-english-layout .spec-content,
+html.elven-english-layout .spec-top,
+html.elven-english-layout .product-detail,
+html.elven-english-layout .product-detail summary,
+html.elven-english-layout .product-detail .detail-content,
+html.elven-english-layout .beverages-details-open{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout .hero-copy{
+  align-items:flex-start!important;
+}
+html.elven-english-layout .hero-copy h1,
+html.elven-english-layout .hero-copy h2,
+html.elven-english-layout .hero-copy>p,
+html.elven-english-layout .spec-content h2,
+html.elven-english-layout .spec-content p,
+html.elven-english-layout .product-detail p,
+html.elven-english-layout .product-detail li{
+  text-align:left!important;
+}
+html.elven-english-layout .spec-top{
+  flex-direction:row!important;
+}
+html.elven-english-layout .nutrition-stat{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout .nutrition-stat>div{
+  align-items:flex-start!important;
+}
+html.elven-english-layout .product-grid,
+html.elven-english-layout .partner-grid{
+  direction:ltr!important;
+}
+html.elven-english-layout .beverage-details-toggle,
+html.elven-english-layout #beverageDetailsToggle{
+  direction:ltr!important;
+}
+
+/* About page: flip the story grid and align narrative, founder and timeline copy to the left. */
+html.elven-english-layout body.mh-about-page #mainContent .mh-story{
+  direction:ltr!important;
+}
+html.elven-english-layout body.mh-about-page .mh-about-intro-grid,
+html.elven-english-layout body.mh-about-page .mh-story-people,
+html.elven-english-layout body.mh-about-page .mh-story-timeline,
+html.elven-english-layout body.mh-about-page .mh-story-actions{
+  direction:ltr!important;
+}
+html.elven-english-layout body.mh-about-page .mh-about-intro-heading,
+html.elven-english-layout body.mh-about-page .mh-about-intro-copy,
+html.elven-english-layout body.mh-about-page .mh-story-section-head,
+html.elven-english-layout body.mh-about-page .mh-story-person-content,
+html.elven-english-layout body.mh-about-page .mh-story-step-copy,
+html.elven-english-layout body.mh-about-page .mh-story-final-card{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout body.mh-about-page .mh-story-intro-extra,
+html.elven-english-layout body.mh-about-page .mh-story-lead,
+html.elven-english-layout body.mh-about-page .mh-story-person p,
+html.elven-english-layout body.mh-about-page .mh-story-step p,
+html.elven-english-layout body.mh-about-page .mh-story-final-card p{
+  text-align:left!important;
+}
+html.elven-english-layout body.mh-about-page .mh-story-actions{
+  justify-content:flex-start!important;
+}
+
+/* Departments: preserve the centered section heading but use a left-to-right card grid and copy. */
+html.elven-english-layout body.departments-standalone #departmentsMain,
+html.elven-english-layout body #departmentsMain{
+  direction:ltr!important;
+}
+html.elven-english-layout .departments-page-trail{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout .elven-departments-grid{
+  direction:ltr!important;
+}
+html.elven-english-layout .elven-dept-content{
+  direction:ltr!important;
+  text-align:left!important;
+  align-items:flex-start!important;
+}
+html.elven-english-layout .elven-dept-eyebrow,
+html.elven-english-layout .elven-dept-title,
+html.elven-english-layout .elven-dept-content p,
+html.elven-english-layout .elven-dept-content strong,
+html.elven-english-layout .elven-dept-content span{
+  direction:ltr!important;
+  text-align:left!important;
+}
+
+/* Contact page: mirror the intro/form composition and align all form controls for English. */
+html.elven-english-layout body .hero-shell .hero-content{
+  direction:ltr!important;
+}
+html.elven-english-layout body .hero-shell .intro-panel{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout body .hero-shell .intro-panel h1,
+html.elven-english-layout body .hero-shell .intro-panel p{
+  text-align:left!important;
+}
+html.elven-english-layout body .hero-shell .form-card{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout body .hero-shell .form-head,
+html.elven-english-layout body .hero-shell .form-head h2,
+html.elven-english-layout body .hero-shell .form-head p{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout body .hero-shell .field{
+  direction:ltr!important;
+}
+html.elven-english-layout body .hero-shell .field input,
+html.elven-english-layout body .hero-shell .field select,
+html.elven-english-layout body .hero-shell .field textarea{
+  direction:ltr!important;
+  text-align:left!important;
+  font-family:Poppins,Arial,sans-serif!important;
+}
+html.elven-english-layout body .hero-shell .field .chev{
+  margin-left:auto!important;
+  margin-right:0!important;
+}
+html.elven-english-layout body .hero-shell .fields,
+html.elven-english-layout body .info-grid{
+  direction:ltr!important;
+}
+html.elven-english-layout body .catalog-cta{
+  direction:ltr!important;
+}
+html.elven-english-layout body .catalog-cta .cta-copy{
+  direction:ltr!important;
+  text-align:left!important;
+}
+@media(max-width:850px){
+  html.elven-english-layout body .hero-shell .intro-panel,
+  html.elven-english-layout body .hero-shell .intro-panel h1,
+  html.elven-english-layout body .hero-shell .intro-panel p{
+    text-align:left!important;
+  }
+}
