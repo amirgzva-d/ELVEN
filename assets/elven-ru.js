@@ -1041,6 +1041,12 @@
     "ادامهٔ برگهٔ مرجع — ترکیبات (Ingredients): آب گوجه‌فرنگی غلیظ‌شده 98.5% و نمک 1.5%؛ نوع فرآیند (Process Type): Hot break؛ بسته‌بندی ذکرشده در خود برگه: قوطی فلزی با درب آسان‌بازشو، وزن خالص 800+20 گرم (این مشخصات بسته‌بندی مربوط به نمونهٔ مرجع قوطی است، نه شیشه‌ای)؛ ماندگاری (Shelf Life): 2 سال پس از تولید؛ تاریخ تولید درج‌شده در برگه (Year of Production): July--24؛ فلز سنگین قلع (Sn): ≤250 mg/kg؛ فلز سنگین سرب (Pb): ≤1 mg/kg.":"Продолжение справочного протокола — состав (Ingredients): концентрированный томатный сок — 98,5%, соль — 1,5%; тип обработки (Process Type): Hot break; указанная в протоколе упаковка: металлическая банка с легко открывающейся крышкой, масса нетто 800+20 г (эти параметры относятся к контрольному образцу в банке, а не к стеклянной таре); срок годности (Shelf Life): 2 года после производства; дата производства (Year of Production): July--24; тяжёлый металл олово (Sn): ≤250 мг/кг; тяжёлый металл свинец (Pb): ≤1 мг/кг."
   });
 
+  Object.assign(T, {
+    "مناسب بازار": "Подходит для",
+    "مناسب عرضه": "Подходит для",
+    "ویژه بازارهای": "Предназначено для"
+  });
+
   const norm = value => String(value || "").replace(/\s+/g, " ").trim();
 
 
@@ -1215,7 +1221,16 @@
     const raw = node.nodeValue || "";
     const key = norm(raw);
     if (!key || !node.parentElement || node.parentElement.closest("script,style,noscript,template,.language-picker")) return;
-    const translated = translateValue(key);
+    let translated = translateValue(key);
+    if (key === "صادراتی") {
+      let previous = node.previousSibling;
+      if (previous && previous.nodeType === Node.ELEMENT_NODE && previous.tagName === "BR") previous = previous.previousSibling;
+      const previousKey = previous && previous.nodeType === Node.TEXT_NODE
+        ? norm(originalTexts.get(previous) || previous.nodeValue || "")
+        : "";
+      if (previousKey === "مناسب عرضه") translated = "экспорта";
+      else if (previousKey === "مناسب بازار" || previousKey === "ویژه بازارهای") translated = "экспортных рынков";
+    }
     if (translated === null || translated === key) return;
     const leading = raw.match(/^\s*/)?.[0] || "";
     const trailing = raw.match(/\s*$/)?.[0] || "";
