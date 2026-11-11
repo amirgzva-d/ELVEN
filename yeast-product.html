@@ -5493,6 +5493,63 @@
         usageStorageValue: 'Keep in a cool, dry place away from moisture',
         usageWarningLabel: 'Warning',
         usageWarningValue: 'Do not use water above 50°C',
+      },
+      ru: {
+        logoTagline: 'Специалист по экспорту продуктов питания',
+        navHome: 'Главная', navProducts: 'Продукция',
+        navAbout: 'О компании', navContact: 'Контакты',
+        responseTime: 'Ответ в течение 30 минут',
+        inquiryBtn: 'Запросить информацию',
+        quoteBtn: 'Запросить цену',
+        inquiryClose: 'Закрыть',
+        downloadCatalog: 'Скачать каталог',
+        ourBrands: 'Наши ведущие бренды',
+        contact1Name: 'Мохаммад Мохаджери',
+        contact1Role: 'Руководитель экспортных продаж · +98 915 302 8367',
+        contact2Name: 'Алиреза Техрани',
+        contact2Role: 'Специалист по экспорту · +98 915 555 1965',
+        exportFooter: 'Экспорт качественных продуктов питания более чем в 60 стран',
+        tabProductDetails: 'Информация о продукте',
+        tabSpecifications: 'Характеристики',
+        tabPackaging: 'Упаковка',
+        tabApplications: 'Применение',
+        tabRelated: 'Похожие товары',
+        keyFeaturesTitle: 'Основные характеристики',
+        noProducts: 'Нет товаров для отображения.',
+        pdDetails: 'Подробности',
+        pdDownloadCatalog: 'Скачать каталог продукции',
+        pdDownloadOnline: 'Скачать онлайн',
+        noImage: 'Изображение для этого продукта не добавлено',
+        save: 'Сохранить',
+        share: 'Поделиться',
+        shortInquiry: 'Запрос',
+        whatsapp: 'WhatsApp',
+        instagram: 'Instagram',
+        viewDetails: 'Подробнее',
+        productsOf: 'Продукция',
+        allProductsOf: 'Показать всю продукцию этого бренда',
+        copiedLink: 'Ссылка на сайт скопирована ✓',
+        closeTitle: 'Закрыть',
+        tabDetails: 'Подробности',
+        tabUsage: 'Способ применения',
+        usageGuideTitle: 'Руководство по применению дрожжей',
+        usageGuideSubtitle: 'Для достижения наилучшего результата при выпечке последовательно выполните следующие шаги.',
+        usageStep1Title: 'Подготовка тёплой воды',
+        usageStep1Text: 'Нагрейте воду до 35–40 °C. Она должна быть тёплой, но не горячей.',
+        usageStep2Title: 'Смешивание с мукой',
+        usageStep2Text: 'Добавьте дрожжи в муку и перемешивайте около одной минуты.',
+        usageStep3Title: 'Добавление воды и замешивание',
+        usageStep3Text: 'Добавьте тёплую воду и замешивайте 8–10 минут до однородной консистенции теста.',
+        usageStep4Title: 'Отдых и брожение',
+        usageStep4Text: 'Оставьте тесто в тёплом месте на 15–30 минут, пока его объём не увеличится вдвое.',
+        usageAmountLabel: 'Дозировка',
+        usageAmountValue: '1–2% от массы муки',
+        usageTempLabel: 'Температура воды',
+        usageTempValue: '35–40 °C',
+        usageStorageLabel: 'Хранение',
+        usageStorageValue: 'Хранить в сухом прохладном месте, защищённом от влаги',
+        usageWarningLabel: 'Предупреждение',
+        usageWarningValue: 'Не используйте воду температурой выше 50 °C'
       }
     };
 
@@ -5503,9 +5560,11 @@
 
     function updateCommonTechnicalLanguage() {
       const fa = currentLang === 'fa';
+      const ru = currentLang === 'ru';
       const usageSubtitle = document.querySelector('.common-usage-wrap .usage-header-text p');
       if (usageSubtitle) usageSubtitle.textContent = fa
         ? 'روش مصرف پیشنهادی برای خمیرمایه خشک فوری'
+        : ru ? 'Рекомендуемый способ применения быстродействующих сухих дрожжей'
         : 'Recommended method for using instant dry yeast';
 
       const usageCards = document.querySelectorAll('.common-usage-steps .usage-step');
@@ -5514,6 +5573,11 @@
         ['مخلوط مستقیم با آرد','خمیر مایه را مستقیماً با آرد خشک مخلوط کرده و سپس سایر مواد و آب را اضافه نمایید.'],
         ['میزان مصرف پیشنهادی','۰٫۵ الی ۱ درصد وزن آرد (۵۰۰ تا ۱۰۰۰ گرم به ازای هر ۱۰۰ کیلوگرم آرد)، بسته به نوع نان و زمان تخمیر.'],
         ['دمای مناسب آب','دمای مناسب آب جهت اختلاط خمیر: ۲۶ الی ۳۰ درجه سانتی‌گراد.']
+      ] : ru ? [
+        ['Не требует предварительного растворения','Быстродействующие сухие дрожжи не нужно предварительно растворять в воде.'],
+        ['Смешать непосредственно с мукой','Смешайте дрожжи с сухой мукой, затем добавьте остальные ингредиенты и воду.'],
+        ['Рекомендуемая дозировка','0,5–1% от массы муки (500–1000 г на 100 кг муки) в зависимости от вида хлеба и времени брожения.'],
+        ['Рекомендуемая температура воды','Рекомендуемая температура воды для замеса теста: 26–30 °C.']
       ] : [
         ['No pre-dissolving required','Instant dry yeast does not need to be dissolved in water before use.'],
         ['Mix directly with flour','Mix the yeast directly with dry flour, then add the remaining ingredients and water.'],
@@ -5526,7 +5590,7 @@
         const num = card.querySelector('.usage-step-num');
         if (h) h.textContent = usageData[i][0];
         if (p) p.textContent = usageData[i][1];
-        if (num) num.textContent = fa ? `مرحله ${i + 1}` : `Step ${i + 1}`;
+        if (num) num.textContent = fa ? `مرحله ${i + 1}` : ru ? `Шаг ${i + 1}` : `Step ${i + 1}`;
       });
 
       const notes = document.querySelectorAll('.common-usage-notes .usage-note');
@@ -5534,6 +5598,10 @@
         ['مقدار مصرف','۰٫۵ الی ۱٪ وزن آرد'],
         ['دمای آب','۲۶ الی ۳۰ درجه سانتی‌گراد'],
         ['برای هر ۱۰۰ کیلوگرم آرد','۵۰۰ تا ۱۰۰۰ گرم خمیرمایه']
+      ] : ru ? [
+        ['Дозировка','0,5–1% от массы муки'],
+        ['Температура воды','26–30 °C'],
+        ['На каждые 100 кг муки','500–1000 г дрожжей']
       ] : [
         ['Dosage','0.5–1% of flour weight'],
         ['Water temperature','26–30°C'],
@@ -5548,8 +5616,8 @@
 
       const analysisSub = document.querySelector('.analysis-card .common-section-head p');
       const storageSub = document.querySelector('.storage-card .common-section-head p');
-      if (analysisSub) analysisSub.textContent = fa ? 'مشخصات فنی و ترکیبات خمیرمایه خشک فوری' : 'Technical specifications and composition of instant dry yeast';
-      if (storageSub) storageSub.textContent = fa ? 'راهنمای حفظ کیفیت محصول تا زمان مصرف' : 'Guidance for maintaining product quality until use';
+      if (analysisSub) analysisSub.textContent = fa ? 'مشخصات فنی و ترکیبات خمیرمایه خشک فوری' : ru ? 'Технические характеристики и состав быстродействующих сухих дрожжей' : 'Technical specifications and composition of instant dry yeast';
+      if (storageSub) storageSub.textContent = fa ? 'راهنمای حفظ کیفیت محصول تا زمان مصرف' : ru ? 'Рекомендации по сохранению качества продукта до использования' : 'Guidance for maintaining product quality until use';
 
       const rows = document.querySelectorAll('.analysis-list li');
       const analysisFa = [
@@ -5568,7 +5636,15 @@
         ['Protein Content','','Maximum 48% (dry matter basis)'],
         ['Microorganism Species','Saccharomyces Cerevisiae','100% pure Saccharomyces Cerevisiae']
       ];
-      const analysisData = fa ? analysisFa : analysisEn;
+      const analysisRu = [
+        ['Сухое вещество','','Не менее 95%'],
+        ['Влажность','','Не более 5%'],
+        ['Ферментационная активность','','Более 650 мл CO₂ за 2 часа'],
+        ['Зольность','','Не более 6,5%'],
+        ['Белок','','Не более 48% (в пересчёте на сухое вещество)'],
+        ['Вид микроорганизма','Saccharomyces cerevisiae','100% чистая культура Saccharomyces cerevisiae']
+      ];
+      const analysisData = fa ? analysisFa : ru ? analysisRu : analysisEn;
       rows.forEach((row, i) => {
         const label = row.querySelector('.analysis-label');
         const en = row.querySelector('.analysis-en');
@@ -5587,6 +5663,11 @@
         'دمای ایده‌آل انبارداری: زیر ۲۵ درجه سانتی‌گراد (۷۷ درجه فارنهایت).',
         'ماندگاری در بسته‌بندی وکیوم آلومینیومی اولیه: ۲۴ ماه (۲ سال) از تاریخ تولید.',
         'پس از باز کردن بسته‌بندی، مابقی خمیرمایه را در ظرف دربسته و در یخچال (۴ درجه سانتی‌گراد) نگهداری کرده و ظرف مدت ۳ الی ۵ روز مصرف نمایید.'
+      ] : ru ? [
+        'Хранить в сухом прохладном месте, защищённом от прямых солнечных лучей.',
+        'Оптимальная температура хранения: ниже 25 °C (77 °F).',
+        'Срок годности в оригинальной алюминиевой вакуумной упаковке: 24 месяца (2 года) с даты производства.',
+        'После вскрытия храните оставшиеся дрожжи в герметичной ёмкости в холодильнике при 4 °C и используйте в течение 3–5 дней.'
       ] : [
         'Store in a dry, cool place away from direct sunlight.',
         'Ideal storage temperature: below 25°C (77°F).',
@@ -5598,7 +5679,7 @@
 
     function setLanguage(lang) {
       currentLang = lang;
-      const dict = translations[lang];
+      const dict = translations[lang] || translations.fa;
 
       document.body.setAttribute('lang', lang);
       document.body.dataset.contentLanguage = lang;
@@ -5615,7 +5696,7 @@
         const textSpan = b.querySelector('span:not(.flag-icon)');
         if (textSpan) {
           if (b.dataset.lang === 'fa') textSpan.textContent = 'FA';
-          else textSpan.textContent = 'EN';
+          else textSpan.textContent = b.dataset.lang === 'ru' ? 'RU' : 'EN';
         }
       });
 
@@ -6007,6 +6088,9 @@
 
     function localizeProduct(product) {
       if (currentLang === 'fa') return product;
+      if (currentLang === 'ru' && window.ElvenRussianTranslator) {
+        return window.ElvenRussianTranslator.translateObject(product);
+      }
       return {
         ...product,
         name: toEnglishText(product.name),
@@ -6024,6 +6108,10 @@
     function getLocalizedBrand(brandKey) {
       const base = catalog[brandKey];
       if (!base || currentLang === 'fa') return base;
+      if (currentLang === 'ru' && window.ElvenRussianTranslator) {
+        const translatedRu = window.ElvenRussianTranslator.translateObject(base);
+        return { ...translatedRu, products: base.products };
+      }
       const translated = catalogEn[brandKey] || {};
       return {
         ...base,
@@ -6044,9 +6132,19 @@
           'Natural': 'طبیعی',
           'Months': 'ماه'
         },
-        en: {}
+        en: {},
+        ru: {
+          'Fermentation Power': 'Ферментационная активность',
+          'Certified': 'Сертифицировано',
+          'Activation': 'Активация',
+          'Austria Tech': 'Австрийская технология',
+          'Guaranteed': 'Гарантировано',
+          'Grade': 'Класс',
+          'Natural': 'Натуральный',
+          'Months': 'Месяцев'
+        }
       };
-      return currentLang === 'fa' ? (labels.fa[label] || label) : label;
+      return currentLang === 'fa' ? (labels.fa[label] || label) : currentLang === 'ru' ? (labels.ru[label] || label) : label;
     }
 
     function mkShetab(id, fa, weight, packType, packDesc, packDescLong, qty, img) {
@@ -6249,6 +6347,10 @@
         analysisTitleEl.textContent = `جدول آنالیز آزمایشگاهی و ترکیبات ${selectedBrandName}`;
         storageTitleEl.textContent = `شرایط نگهداری و انبارداری ${selectedBrandName}`;
         usageDynamicTitleEl.textContent = `نحوه مصرف خمیر مایه ${selectedBrandName}`;
+      } else if (currentLang === 'ru') {
+        analysisTitleEl.textContent = `Лабораторный анализ и состав — ${selectedBrandName}`;
+        storageTitleEl.textContent = `Условия хранения — ${selectedBrandName}`;
+        usageDynamicTitleEl.textContent = `Способ применения дрожжей ${selectedBrandName}`;
       } else {
         analysisTitleEl.textContent = `Laboratory Analysis & Composition — ${selectedBrandName}`;
         storageTitleEl.textContent = `Storage & Warehousing Conditions — ${selectedBrandName}`;
