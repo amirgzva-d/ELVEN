@@ -1,18 +1,21 @@
 (function () {
   "use strict";
 
-  const SUPPORTED = new Set(["fa", "en", "ar"]);
+  const SUPPORTED = new Set(["fa", "en", "ar", "ru"]);
   const STORAGE_KEY = "elvenLanguagePreferenceV2";
   const OLD_HOSTS = new Set(["mohajer-foodstuff.com", "www.mohajer-foodstuff.com"]);
   const AR_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v8";
   const EN_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v7";
   const EN_PRODUCTS_VERSION = "20261111-product-map-v2";
+  const RU_TRANSLATOR_VERSION = "20261111-russian-full-site-v1";
   let route;
   let activeLocale = "fa";
   let translatorLoading = false;
   let englishTranslatorLoading = false;
+  let russianTranslatorLoading = false;
   const translatorCallbacks = [];
   const englishTranslatorCallbacks = [];
+  const russianTranslatorCallbacks = [];
 
   function getBasePath() {
     const marker = "/assets/elven-language-switch.js";
@@ -32,7 +35,7 @@
     else if (basePath && pathname.startsWith(basePath + "/")) pathname = pathname.slice(basePath.length);
     const parts = pathname.split("/").filter(Boolean);
     let legacyLocale = "";
-    if (parts[0] === "ar" || parts[0] === "en") legacyLocale = parts.shift();
+    if (parts[0] === "ar" || parts[0] === "en" || parts[0] === "ru") legacyLocale = parts.shift();
     let current = parts.join("/") || "index.html";
     const isEnglishCatalog = /^catalog-en\.html$/i.test(current);
     if (/^catalog(?:-fa|-en)?\.html$/i.test(current) || /^catalog\.html$/i.test(current)) current = "catalog-fa.html";
@@ -74,7 +77,7 @@
       if (base && pathname === base) pathname = "/";
       else if (base && pathname.startsWith(base + "/")) pathname = pathname.slice(base.length);
       else if (!isOldDomain && base) return;
-      pathname = pathname.replace(/^\/(?:ar|en)(?=\/)/i, "");
+      pathname = pathname.replace(/^\/(?:ar|en|ru)(?=\/)/i, "");
       if (!pathname.startsWith("/")) pathname = "/" + pathname;
       if (!pathname || pathname === "/") pathname = "/index.html";
       if (/^\/catalog(?:-en)?\.html$/i.test(pathname) || /^\/catalog\.html$/i.test(pathname)) pathname = "/catalog-fa.html";
@@ -118,13 +121,14 @@
   function updatePicker(locale) {
     const picker = document.getElementById("languagePicker");
     if (!picker) return;
-    const names = { fa: "فارسی", en: "English", ar: "العربية" };
+    const names = { fa: "فارسی", en: "English", ar: "العربية", ru: "Русский" };
     // Keep the language menu labels and status wording fixed in every locale.
     // Only the selected-language highlight/status changes when the visitor switches language.
     const statusText = {
       fa: { active: "فعال", inactive: "تغییر" },
       en: { active: "Active", inactive: "Change" },
-      ar: { active: "مفعّلة", inactive: "تغيير" }
+      ar: { active: "مفعّلة", inactive: "تغيير" },
+      ru: { active: "Активен", inactive: "Выбрать" }
     }[locale] || { active: "فعال", inactive: "تغییر" };
     const current = picker.querySelector(".language-current");
     if (current) current.textContent = names[locale];
@@ -206,6 +210,28 @@
     document.head.appendChild(productScript);
   }
 
+  function loadRussianTranslator(hideUntilReady, callback) {
+    if (window.ElvenRussianTranslator) { if (callback) callback(true); return; }
+    if (callback) russianTranslatorCallbacks.push(callback);
+    if (russianTranslatorLoading) return;
+    russianTranslatorLoading = true;
+    if (hideUntilReady) document.documentElement.style.visibility = "hidden";
+    const script = document.createElement("script");
+    script.src = (route.basePath || "") + "/assets/elven-ru.js?v=" + RU_TRANSLATOR_VERSION;
+    script.async = true;
+    script.onload = function () {
+      russianTranslatorLoading = false;
+      document.documentElement.style.visibility = "";
+      russianTranslatorCallbacks.splice(0).forEach(done => done(!!window.ElvenRussianTranslator));
+    };
+    script.onerror = function () {
+      russianTranslatorLoading = false;
+      document.documentElement.style.visibility = "";
+      russianTranslatorCallbacks.splice(0).forEach(done => done(false));
+    };
+    document.head.appendChild(script);
+  }
+
   function ensureEnglishLayoutStyles() {
     if (document.getElementById("elvenEnglishLtrStyles")) return;
     const link = document.createElement("link");
@@ -215,19 +241,33 @@
     document.head.appendChild(link);
   }
 
+  function ensureRussianLayoutStyles() {
+    if (document.getElementById("elvenRussianLtrStyles")) return;
+    const link = document.createElement("link");
+    link.id = "elvenRussianLtrStyles";
+    link.rel = "stylesheet";
+    link.href = (route.basePath || "") + "/assets/elven-russian-ltr.css?v=20261111-ru-ltr-v1";
+    document.head.appendChild(link);
+  }
+
   function setPageDirection(locale) {
     const isEnglish = locale === "en";
-    const language = locale === "ar" ? "ar" : isEnglish ? "en" : "fa";
-    const direction = isEnglish ? "ltr" : "rtl";
+    const isRussian = locale === "ru";
+    const isLtr = isEnglish || isRussian;
+    const language = locale === "fa" ? "fa" : locale;
+    const direction = isLtr ? "ltr" : "rtl";
     document.documentElement.classList.toggle("elven-english-layout", isEnglish);
+    document.documentElement.classList.toggle("elven-russian-layout", isRussian);
     if (document.body) {
       document.body.classList.toggle("elven-english-layout", isEnglish);
+      document.body.classList.toggle("elven-russian-layout", isRussian);
       document.body.lang = language;
       document.body.dir = direction;
     }
     document.documentElement.lang = language;
     document.documentElement.dir = direction;
     if (isEnglish) ensureEnglishLayoutStyles();
+    if (isRussian) ensureRussianLayoutStyles();
   }
 
   function applyLocale(locale, initial) {
@@ -237,6 +277,7 @@
 
     if (locale === "en") {
       if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
+      if (window.ElvenRussianTranslator) window.ElvenRussianTranslator.setLanguage("fa");
       updatePicker("en");
       setPageDirection("en");
       if (window.ElvenYeastPageTranslator) {
@@ -264,9 +305,30 @@
       return;
     }
 
+    if (locale === "ru") {
+      if (window.ElvenEnglishTranslator) window.ElvenEnglishTranslator.setLanguage("fa");
+      if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
+      setPageDirection("ru");
+      updatePicker("ru");
+      loadRussianTranslator(!!initial, function (loaded) {
+        if (activeLocale !== "ru") return;
+        if (loaded && window.ElvenRussianTranslator) {
+          window.ElvenRussianTranslator.setLanguage("ru");
+          if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("ru");
+        } else {
+          activeLocale = "fa";
+          saveLocale("fa");
+          setPageDirection("fa");
+          updatePicker("fa");
+        }
+      });
+      return;
+    }
+
     if (locale === "ar") {
       if (window.ElvenEnglishTranslator) window.ElvenEnglishTranslator.setLanguage("fa");
       if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
+      if (window.ElvenRussianTranslator) window.ElvenRussianTranslator.setLanguage("fa");
       setPageDirection("ar");
       updatePicker("ar");
       loadArabicTranslator(!!initial, function (loaded) {
@@ -286,6 +348,7 @@
     if (window.ElvenEnglishTranslator) window.ElvenEnglishTranslator.setLanguage("fa");
     if (window.ElvenYeastPageTranslator) window.ElvenYeastPageTranslator.setLanguage("fa");
     if (window.ElvenArabicTranslator) window.ElvenArabicTranslator.setLanguage("fa");
+    if (window.ElvenRussianTranslator) window.ElvenRussianTranslator.setLanguage("fa");
     setPageDirection("fa");
     updatePicker("fa");
   }
@@ -322,7 +385,7 @@
     }
     route = getRoute();
     const savedLocale = readSavedLocale();
-    if ((route.legacyLocale === "ar" || route.legacyLocale === "en") && savedLocale === "fa") {
+    if ((route.legacyLocale === "ar" || route.legacyLocale === "en" || route.legacyLocale === "ru") && savedLocale === "fa") {
       const target = new URL((route.basePath || "") + "/" + route.current, location.origin);
       target.search = location.search;
       target.hash = location.hash;
@@ -330,7 +393,7 @@
     }
     bindPicker();
     normalizeInternalLinks();
-    const initialLocale = savedLocale || (route.legacyLocale === "ar" ? "ar" : route.legacyLocale === "en" ? "en" : "fa");
+    const initialLocale = savedLocale || (route.legacyLocale === "ar" ? "ar" : route.legacyLocale === "en" ? "en" : route.legacyLocale === "ru" ? "ru" : "fa");
     applyLocale(initialLocale, true);
     if (!window.__elvenLanguageStorageSync) {
       window.__elvenLanguageStorageSync = true;
