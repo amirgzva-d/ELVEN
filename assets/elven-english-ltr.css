@@ -293,3 +293,89 @@ html.elven-english-layout body .catalog-cta .cta-copy{
     text-align:left!important;
   }
 }
+
+
+/* Shared footer: convert RTL-specific footer rules to natural English order. */
+html.elven-english-layout body .site-footer,
+html.elven-english-layout body .site-foot{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout body .site-footer .footer-container,
+html.elven-english-layout body .site-foot .footer-container,
+html.elven-english-layout body .site-footer .footer-bottom,
+html.elven-english-layout body .site-foot .contact-footer-bottom{
+  direction:ltr!important;
+}
+html.elven-english-layout body .site-footer .footer-brand-block,
+html.elven-english-layout body .site-footer .footer-col,
+html.elven-english-layout body .site-footer .footer-col h4,
+html.elven-english-layout body .site-footer .footer-col ul,
+html.elven-english-layout body .site-footer .footer-col li,
+html.elven-english-layout body .site-footer .footer-col li a,
+html.elven-english-layout body .site-footer .footer-contact-item,
+html.elven-english-layout body .site-footer .footer-contact-item div,
+html.elven-english-layout body .site-footer .footer-contact-item strong,
+html.elven-english-layout body .site-footer .footer-contact-item small,
+html.elven-english-layout body .site-footer .footer-brand-block p,
+html.elven-english-layout body .site-footer .footer-bottom,
+html.elven-english-layout body .site-foot .contact-footer-direct,
+html.elven-english-layout body .site-foot .contact-footer-bottom{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout body .site-footer .footer-logo,
+html.elven-english-layout body .site-footer .footer-contact-item,
+html.elven-english-layout body .site-foot .contact-footer-direct{
+  justify-content:flex-start!important;
+}
+html.elven-english-layout body .site-footer .footer-social-links,
+html.elven-english-layout body .site-foot .footer-social-links{
+  direction:ltr!important;
+  justify-content:flex-start!important;
+}
+html.elven-english-layout body .site-footer .footer-social-caption{
+  text-align:left!important;
+}
+html.elven-english-layout body .site-footer .footer-contact-item--phone,
+html.elven-english-layout body .site-footer .footer-contact-item--landline,
+html.elven-english-layout body .site-footer .footer-contact-item--email{
+  direction:ltr!important;
+}
+html.elven-english-layout body .site-footer .footer-bottom{
+  justify-content:space-between!important;
+}
+
+/* The compact mobile reference footer has its own RTL rules; mirror its content too. */
+html.elven-english-layout body footer.has-elven-mobile-reference-footer > .elven-mobile-reference-footer{
+  direction:ltr!important;
+}
+html.elven-english-layout body .elven-mobile-reference-footer,
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-brand-name,
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-contact,
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-address,
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-social{
+  direction:ltr!important;
+  text-align:left!important;
+}
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-brand,
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-contact,
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-address{
+  justify-content:flex-start!important;
+}
+html.elven-english-layout body .elven-mobile-reference-footer .footer-social-links{
+  direction:ltr!important;
+  justify-content:flex-start!important;
+}
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-brand-name small,
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-contact span,
+html.elven-english-layout body .elven-mobile-reference-footer .elven-mobile-reference-address span{
+  direction:ltr!important;
+  text-align:left!important;
+}
+
+/* Flip the About timeline accent rail to the reading edge in English. */
+html.elven-english-layout body.mh-about-page .mh-story-step::before{
+  right:auto!important;
+  left:0!important;
+}
