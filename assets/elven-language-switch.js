@@ -7,7 +7,7 @@
   const AR_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v8";
   const EN_TRANSLATOR_VERSION = "20261111-translation-audit-fix-v7";
   const EN_PRODUCTS_VERSION = "20261111-product-map-v2";
-  const RU_TRANSLATOR_VERSION = "20261111-russian-full-site-v2";
+  const RU_TRANSLATOR_VERSION = "20261111-russian-complete-v3";
   let route;
   let activeLocale = "fa";
   let translatorLoading = false;
