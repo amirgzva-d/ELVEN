@@ -272,17 +272,6 @@
 
   function applyLocale(locale, initial) {
     if (!SUPPORTED.has(locale)) return;
-    if (locale === "ru" && route && route.legacyLocale !== "ru") {
-      let russianPage = route.current || "index.html";
-      if (/^catalog-fa\.html$/i.test(russianPage)) russianPage = "catalog.html";
-      const target = new URL((route.basePath || "") + "/ru/" + (russianPage === "index.html" ? "" : russianPage), location.origin);
-      target.search = location.search;
-      target.hash = location.hash;
-      if (target.pathname !== location.pathname) {
-        location.replace(target.href);
-        return;
-      }
-    }
     activeLocale = locale;
     saveLocale(locale);
 
@@ -395,17 +384,10 @@
       return;
     }
     route = getRoute();
-    const savedLocale = readSavedLocale();
-    if ((route.legacyLocale === "ar" || route.legacyLocale === "en") && savedLocale === "fa") {
-      const target = new URL((route.basePath || "") + "/" + route.current, location.origin);
-      target.search = location.search;
-      target.hash = location.hash;
-      if (target.pathname !== location.pathname) { location.replace(target.href); return; }
-    }
     bindPicker();
     normalizeInternalLinks();
-    const initialLocale = route.legacyLocale === "ru" ? "ru" : savedLocale || (route.legacyLocale === "ar" ? "ar" : route.legacyLocale === "en" ? "en" : "fa");
-    applyLocale(initialLocale, true);
+    // Always start every fresh page load in Persian. Language selection is session-only.
+    applyLocale("fa", true);
     if (!window.__elvenLanguageStorageSync) {
       window.__elvenLanguageStorageSync = true;
       window.addEventListener("storage", function (event) {
