@@ -379,3 +379,183 @@ html.elven-russian-layout body.mh-about-page .mh-story-step::before{
   right:auto!important;
   left:0!important;
 }
+
+
+/* Russian homepage desktop typography only.
+   Preserve the approved layout, artwork, card dimensions, colors and spacing. */
+@media (min-width:769px){
+  html.elven-russian-layout body:has(.home-quick-categories) .hero-content{
+    direction:ltr!important;
+    text-align:left!important;
+    width:min(530px,44vw)!important;
+    max-width:530px!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero-kicker{
+    direction:ltr!important;
+    text-align:left!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:clamp(16px,1.35vw,20px)!important;
+    line-height:1.45!important;
+    letter-spacing:0!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero-content h1{
+    direction:ltr!important;
+    text-align:left!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:clamp(36px,3.55vw,56px)!important;
+    line-height:1.16!important;
+    letter-spacing:-.45px!important;
+    margin:18px 0 18px!important;
+    max-width:530px!important;
+    text-wrap:balance;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero-content h1 em{
+    display:inline!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero-lead{
+    direction:ltr!important;
+    text-align:left!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:15px!important;
+    line-height:1.75!important;
+    max-width:500px!important;
+    margin:0!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero-actions{
+    direction:ltr!important;
+    justify-content:flex-start!important;
+    gap:12px!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero-actions a{
+    direction:ltr!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    white-space:nowrap!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero-metrics{
+    direction:ltr!important;
+    justify-content:flex-start!important;
+    gap:26px!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .hero-metrics .metric{
+    direction:ltr!important;
+    text-align:left!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .catalog-head,
+  html.elven-russian-layout body:has(.home-quick-categories) .catalog-head>div{
+    direction:ltr!important;
+    text-align:left!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .catalog-head .section-kicker{
+    letter-spacing:1.2px!important;
+    line-height:1.5!important;
+    text-align:left!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .catalog-head h2{
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:clamp(25px,2.1vw,31px)!important;
+    line-height:1.25!important;
+    text-align:left!important;
+    letter-spacing:0!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .home-quick-inner,
+  html.elven-russian-layout body:has(.home-quick-categories) .home-quick-intro,
+  html.elven-russian-layout body:has(.home-quick-categories) .home-quick-links{
+    direction:ltr!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .home-quick-intro{
+    text-align:left!important;
+    align-items:flex-start!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .home-quick-intro strong,
+  html.elven-russian-layout body:has(.home-quick-categories) .home-quick-intro span,
+  html.elven-russian-layout body:has(.home-quick-categories) .home-quick-intro a{
+    text-align:left!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .home-quick-links{
+    justify-content:flex-start!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .home-category-link{
+    direction:ltr!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    text-align:center!important;
+    line-height:1.35!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .catalog-products-layout,
+  html.elven-russian-layout body:has(.home-quick-categories) .filters,
+  html.elven-russian-layout body:has(.home-quick-categories) .catalog-content,
+  html.elven-russian-layout body:has(.home-quick-categories) .filter-section,
+  html.elven-russian-layout body:has(.home-quick-categories) .filter-title{
+    direction:ltr!important;
+    text-align:left!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .filter-section h3,
+  html.elven-russian-layout body:has(.home-quick-categories) .filter-section label,
+  html.elven-russian-layout body:has(.home-quick-categories) .filter-title strong,
+  html.elven-russian-layout body:has(.home-quick-categories) .filter-title button{
+    direction:ltr!important;
+    text-align:left!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .filter-section label .count{
+    margin-left:auto!important;
+    margin-right:0!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .category-grid{
+    direction:ltr!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .category-card .card-content{
+    direction:ltr!important;
+    text-align:left!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .category-card .card-content h3{
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:15px!important;
+    line-height:1.35!important;
+    text-align:left!important;
+    letter-spacing:0!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .category-card .card-content p{
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    font-size:12px!important;
+    line-height:1.55!important;
+    text-align:left!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .category-card .card-footer,
+  html.elven-russian-layout body:has(.home-quick-categories) .category-card .product-details-link{
+    direction:ltr!important;
+    justify-content:flex-start!important;
+    text-align:left!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .about-inner,
+  html.elven-russian-layout body:has(.home-quick-categories) .about-copy,
+  html.elven-russian-layout body:has(.home-quick-categories) .about-features,
+  html.elven-russian-layout body:has(.home-quick-categories) .about-feature{
+    direction:ltr!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .about-copy,
+  html.elven-russian-layout body:has(.home-quick-categories) .about-copy .section-kicker,
+  html.elven-russian-layout body:has(.home-quick-categories) .about-copy h2,
+  html.elven-russian-layout body:has(.home-quick-categories) .about-copy p,
+  html.elven-russian-layout body:has(.home-quick-categories) .about-feature strong,
+  html.elven-russian-layout body:has(.home-quick-categories) .about-feature span{
+    text-align:left!important;
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    letter-spacing:0!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .about-copy h2{
+    font-size:clamp(28px,2.6vw,38px)!important;
+    line-height:1.25!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .about-copy p{
+    font-size:14.5px!important;
+    line-height:1.8!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .about-feature{
+    justify-content:flex-start!important;
+  }
+  html.elven-russian-layout body:has(.home-quick-categories) .about-feature>div{
+    text-align:left!important;
+  }
+}
