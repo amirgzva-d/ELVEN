@@ -1,26 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 210" fill="none">
-  <defs>
-    <linearGradient id="grain" x1="68" y1="28" x2="119" y2="119" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F1C66B"/>
-      <stop offset=".55" stop-color="#DDA33F"/>
-      <stop offset="1" stop-color="#C77B2E"/>
-    </linearGradient>
-  </defs>
-  <g stroke="#0F5B3D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M88 190C87 151 91 108 101 30"/>
-    <path d="M88 151C69 132 54 125 37 128C49 144 66 152 88 151Z" fill="#2F7D5B" stroke-width="2"/>
-    <path d="M91 169C109 148 126 141 145 145C132 160 113 170 91 169Z" fill="#2F7D5B" stroke-width="2"/>
-    <path d="M101 31L101 12M91 49L75 27M111 49L127 27M86 68L66 47M116 68L136 47M84 88L67 70M118 88L135 70" stroke-width="1.5"/>
-  </g>
-  <g fill="url(#grain)" stroke="#B9782C" stroke-width=".7">
-    <ellipse cx="101" cy="31" rx="6" ry="11"/>
-    <ellipse cx="91" cy="49" rx="6" ry="10" transform="rotate(-38 91 49)"/>
-    <ellipse cx="111" cy="49" rx="6" ry="10" transform="rotate(38 111 49)"/>
-    <ellipse cx="86" cy="68" rx="6" ry="10" transform="rotate(-38 86 68)"/>
-    <ellipse cx="116" cy="68" rx="6" ry="10" transform="rotate(38 116 68)"/>
-    <ellipse cx="84" cy="88" rx="6" ry="10" transform="rotate(-35 84 88)"/>
-    <ellipse cx="118" cy="88" rx="6" ry="10" transform="rotate(35 118 88)"/>
-    <ellipse cx="89" cy="107" rx="5.5" ry="9" transform="rotate(-25 89 107)"/>
-    <ellipse cx="113" cy="107" rx="5.5" ry="9" transform="rotate(25 113 107)"/>
-  </g>
-</svg>
+<defs>
+<linearGradient id="stem" x1="75" y1="190" x2="112" y2="26" gradientUnits="userSpaceOnUse"><stop stop-color="#0F5B3D"/><stop offset=".55" stop-color="#2F7D5B"/><stop offset="1" stop-color="#5A966B"/></linearGradient>
+<linearGradient id="leaf" x1="54" y1="140" x2="132" y2="184" gradientUnits="userSpaceOnUse"><stop stop-color="#4D9561"/><stop offset=".52" stop-color="#28764F"/><stop offset="1" stop-color="#0F5B3D"/></linearGradient>
+<linearGradient id="grain" x1="82" y1="27" x2="125" y2="119" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE4A0"/><stop offset=".28" stop-color="#F1C66B"/><stop offset=".68" stop-color="#DDA33F"/><stop offset="1" stop-color="#C77B2E"/></linearGradient>
+<radialGradient id="grainGlow" cx="0" cy="0" r="1" gradientTransform="matrix(28 0 0 39 103 70)" gradientUnits="userSpaceOnUse"><stop stop-color="#F7D98C" stop-opacity=".34"/><stop offset="1" stop-color="#F7D98C" stop-opacity="0"/></radialGradient>
+</defs>
+<style>
+.wind{transform-box:view-box;transform-origin:88px 190px;animation:wheatWind 4.8s cubic-bezier(.42,0,.2,1) infinite}
+.leaf-left{transform-box:view-box;transform-origin:88px 151px;animation:leafLeft 4.8s ease-in-out infinite}
+.leaf-right{transform-box:view-box;transform-origin:92px 169px;animation:leafRight 4.8s ease-in-out infinite}
+.head{transform-box:view-box;transform-origin:101px 105px;animation:headWind 4.8s ease-in-out infinite}
+@keyframes wheatWind{0%,100%{transform:rotate(-4deg)}24%{transform:rotate(-1deg)}52%{transform:rotate(7deg)}72%{transform:rotate(3deg)}}
+@keyframes leafLeft{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(8deg)}}
+@keyframes leafRight{0%,100%{transform:rotate(2deg)}50%{transform:rotate(-7deg)}}
+@keyframes headWind{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(3deg)}}
+@media(prefers-reduced-motion:reduce){.wind,.leaf-left,.leaf-right,.head{animation-duration:18s}}
+</style>
+<ellipse cx="103" cy="75" rx="31" ry="43" fill="url(#grainGlow)"/>
+<g class="wind">
+<path d="M88 190C83 157 89 123 96 91C101 66 103 46 101 24" stroke="url(#stem)" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M87 187C83 154 90 121 97 91" stroke="#9BC4A0" stroke-opacity=".38" stroke-width=".8" stroke-linecap="round"/>
+<g class="leaf-left"><path d="M87 153C68 135 49 126 34 130C46 145 64 154 87 153Z" fill="url(#leaf)" stroke="#1B6844" stroke-width="1"/><path d="M83 150C66 140 52 135 40 133" stroke="#B7D2AE" stroke-opacity=".6" stroke-width="1" stroke-linecap="round"/></g>
+<g class="leaf-right"><path d="M91 171C108 151 128 143 145 147C132 163 111 172 91 171Z" fill="url(#leaf)" stroke="#1B6844" stroke-width="1"/><path d="M96 167C113 157 129 151 140 150" stroke="#B7D2AE" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/></g>
+<g class="head">
+<path d="M101 30L101 8M91 48L74 24M111 48L128 24M86 67L64 43M116 67L138 43M84 87L62 65M118 87L140 65" stroke="#B9782C" stroke-opacity=".8" stroke-width="1.15" stroke-linecap="round"/>
+<g fill="url(#grain)" stroke="#B9782C" stroke-opacity=".65" stroke-width=".65">
+<ellipse cx="101" cy="30" rx="6.2" ry="11.2"/><ellipse cx="91" cy="49" rx="6.1" ry="10.2" transform="rotate(-38 91 49)"/><ellipse cx="111" cy="49" rx="6.1" ry="10.2" transform="rotate(38 111 49)"/><ellipse cx="86" cy="68" rx="6.1" ry="10.4" transform="rotate(-38 86 68)"/><ellipse cx="116" cy="68" rx="6.1" ry="10.4" transform="rotate(38 116 68)"/><ellipse cx="84" cy="88" rx="6" ry="10.2" transform="rotate(-35 84 88)"/><ellipse cx="118" cy="88" rx="6" ry="10.2" transform="rotate(35 118 88)"/><ellipse cx="89" cy="107" rx="5.6" ry="9.2" transform="rotate(-25 89 107)"/><ellipse cx="113" cy="107" rx="5.6" ry="9.2" transform="rotate(25 113 107)"/>
+</g>
+<g fill="#FFF4D5" opacity=".7"><ellipse cx="99" cy="26" rx="1.1" ry="3.2"/><ellipse cx="89" cy="45" rx="1" ry="2.8" transform="rotate(-38 89 45)"/><ellipse cx="109" cy="45" rx="1" ry="2.8" transform="rotate(38 109 45)"/><ellipse cx="84" cy="64" rx="1" ry="2.8" transform="rotate(-38 84 64)"/><ellipse cx="114" cy="64" rx="1" ry="2.8" transform="rotate(38 114 64)"/></g>
+</g></g></svg>
