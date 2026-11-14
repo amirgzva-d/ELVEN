@@ -2899,8 +2899,18 @@ img{max-width:100%;display:block}
     #home, #products { scroll-margin-top: 82px; }
   }
 </style>
+<link rel="stylesheet" href="assets/elven-preloader.css?v=20261114-wheat-spin">
 </head>
 <body>
+<div id="elven-preloader" role="status" aria-live="polite" aria-label="Loading ELVEN">
+  <div class="elven-preloader__content">
+    <img class="elven-preloader__wheat" src="assets/elven-wheat-loader.svg" width="112" height="132" alt="" fetchpriority="high">
+    <div class="elven-preloader__brand">ELVEN</div>
+    <div class="elven-preloader__sub">GLOBAL FOOD EXPORT</div>
+    <div class="elven-preloader__track" aria-hidden="true"><span></span></div>
+    <p class="elven-preloader__status">در حال آماده‌سازی تجربه شما...</p>
+  </div>
+</div>
 
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="cursor-glow" id="cursorGlow"></div>
@@ -4265,5 +4275,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 </script>
 <script defer src="assets/elven-mobile-drawer-fix.js?v=20261109-link-reset-v4"></script>
 <script defer src="assets/elven-language-switch.js?v=20261111-home-nav-canonical-v2"></script>
+<script defer src="assets/elven-preloader.js?v=20261114-wheat-spin"></script>
 </body>
 </html>
