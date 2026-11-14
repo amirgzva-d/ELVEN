@@ -1,0 +1,12 @@
+#elven-preloader{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#fff;opacity:1;visibility:visible;transition:opacity .65s ease,visibility .65s ease}
+#elven-preloader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+#elven-preloader .elven-preloader__content{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center;padding:24px}
+#elven-preloader .elven-preloader__wheat{width:112px;height:132px;object-fit:contain;display:block;transform-origin:50% 50%;animation:elvenWheatSpin 6s linear infinite;will-change:transform}
+#elven-preloader .elven-preloader__brand{margin-top:12px;color:#0F5B3D;font-family:Arial,sans-serif;font-size:30px;font-weight:700;letter-spacing:7px;line-height:1}
+#elven-preloader .elven-preloader__sub{margin-top:9px;color:#7C9184;font-family:Arial,sans-serif;font-size:9px;font-weight:500;letter-spacing:3px}
+#elven-preloader .elven-preloader__track{width:112px;height:2px;margin-top:25px;overflow:hidden;border-radius:99px;background:#E8EFEA}
+#elven-preloader .elven-preloader__track span{display:block;width:38%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#0F5B3D,#DDA33F);animation:elvenLoadingSweep 1.35s ease-in-out infinite}
+#elven-preloader .elven-preloader__status{margin:12px 0 0;color:#91A197;font-family:Arial,sans-serif;font-size:9px;font-weight:500;letter-spacing:1.8px}
+@keyframes elvenWheatSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes elvenLoadingSweep{from{transform:translateX(-125%)}to{transform:translateX(290%)}}
+@media(prefers-reduced-motion:reduce){#elven-preloader .elven-preloader__wheat{animation-duration:18s}#elven-preloader .elven-preloader__track span{animation-duration:2.8s}}
